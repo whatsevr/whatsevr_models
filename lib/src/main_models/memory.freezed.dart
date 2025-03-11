@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Memory _$MemoryFromJson(Map<String, dynamic> json) {
-  return _Memory.fromJson(json);
+BaseMemory _$BaseMemoryFromJson(Map<String, dynamic> json) {
+  return _BaseMemory.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Memory {
+mixin _$BaseMemory {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -84,19 +84,22 @@ mixin _$Memory {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this Memory to a JSON map.
+  /// Serializes this BaseMemory to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Memory
+  /// Create a copy of BaseMemory
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MemoryCopyWith<Memory> get copyWith => throw _privateConstructorUsedError;
+  $BaseMemoryCopyWith<BaseMemory> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MemoryCopyWith<$Res> {
-  factory $MemoryCopyWith(Memory value, $Res Function(Memory) then) =
-      _$MemoryCopyWithImpl<$Res, Memory>;
+abstract class $BaseMemoryCopyWith<$Res> {
+  factory $BaseMemoryCopyWith(
+    BaseMemory value,
+    $Res Function(BaseMemory) then,
+  ) = _$BaseMemoryCopyWithImpl<$Res, BaseMemory>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -134,16 +137,16 @@ abstract class $MemoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
-    implements $MemoryCopyWith<$Res> {
-  _$MemoryCopyWithImpl(this._value, this._then);
+class _$BaseMemoryCopyWithImpl<$Res, $Val extends BaseMemory>
+    implements $BaseMemoryCopyWith<$Res> {
+  _$BaseMemoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Memory
+  /// Create a copy of BaseMemory
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -344,11 +347,12 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
 }
 
 /// @nodoc
-abstract class _$$MemoryImplCopyWith<$Res> implements $MemoryCopyWith<$Res> {
-  factory _$$MemoryImplCopyWith(
-    _$MemoryImpl value,
-    $Res Function(_$MemoryImpl) then,
-  ) = __$$MemoryImplCopyWithImpl<$Res>;
+abstract class _$$BaseMemoryImplCopyWith<$Res>
+    implements $BaseMemoryCopyWith<$Res> {
+  factory _$$BaseMemoryImplCopyWith(
+    _$BaseMemoryImpl value,
+    $Res Function(_$BaseMemoryImpl) then,
+  ) = __$$BaseMemoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -387,15 +391,15 @@ abstract class _$$MemoryImplCopyWith<$Res> implements $MemoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$MemoryImplCopyWithImpl<$Res>
-    extends _$MemoryCopyWithImpl<$Res, _$MemoryImpl>
-    implements _$$MemoryImplCopyWith<$Res> {
-  __$$MemoryImplCopyWithImpl(
-    _$MemoryImpl _value,
-    $Res Function(_$MemoryImpl) _then,
+class __$$BaseMemoryImplCopyWithImpl<$Res>
+    extends _$BaseMemoryCopyWithImpl<$Res, _$BaseMemoryImpl>
+    implements _$$BaseMemoryImplCopyWith<$Res> {
+  __$$BaseMemoryImplCopyWithImpl(
+    _$BaseMemoryImpl _value,
+    $Res Function(_$BaseMemoryImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Memory
+  /// Create a copy of BaseMemory
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -433,7 +437,7 @@ class __$$MemoryImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$MemoryImpl(
+      _$BaseMemoryImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -596,8 +600,8 @@ class __$$MemoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MemoryImpl extends _Memory {
-  const _$MemoryImpl({
+class _$BaseMemoryImpl extends _BaseMemory {
+  const _$BaseMemoryImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'caption') this.caption,
@@ -635,8 +639,8 @@ class _$MemoryImpl extends _Memory {
        _taggedCommunityUids = taggedCommunityUids,
        super._();
 
-  factory _$MemoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MemoryImplFromJson(json);
+  factory _$BaseMemoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseMemoryImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -759,14 +763,14 @@ class _$MemoryImpl extends _Memory {
 
   @override
   String toString() {
-    return 'Memory(createdAt: $createdAt, uid: $uid, caption: $caption, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, expiresAt: $expiresAt, userUid: $userUid, imageUrl: $imageUrl, videoUrl: $videoUrl, isVideo: $isVideo, location: $location, totalViews: $totalViews, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, isImage: $isImage, isText: $isText, videoDurationMs: $videoDurationMs, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt)';
+    return 'BaseMemory(createdAt: $createdAt, uid: $uid, caption: $caption, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, expiresAt: $expiresAt, userUid: $userUid, imageUrl: $imageUrl, videoUrl: $videoUrl, isVideo: $isVideo, location: $location, totalViews: $totalViews, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, isImage: $isImage, isText: $isText, videoDurationMs: $videoDurationMs, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MemoryImpl &&
+            other is _$BaseMemoryImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -865,22 +869,22 @@ class _$MemoryImpl extends _Memory {
     updatedAt,
   ]);
 
-  /// Create a copy of Memory
+  /// Create a copy of BaseMemory
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MemoryImplCopyWith<_$MemoryImpl> get copyWith =>
-      __$$MemoryImplCopyWithImpl<_$MemoryImpl>(this, _$identity);
+  _$$BaseMemoryImplCopyWith<_$BaseMemoryImpl> get copyWith =>
+      __$$BaseMemoryImplCopyWithImpl<_$BaseMemoryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MemoryImplToJson(this);
+    return _$$BaseMemoryImplToJson(this);
   }
 }
 
-abstract class _Memory extends Memory {
-  const factory _Memory({
+abstract class _BaseMemory extends BaseMemory {
+  const factory _BaseMemory({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'caption') final String? caption,
@@ -914,10 +918,11 @@ abstract class _Memory extends Memory {
     @JsonKey(name: 'seo_data_weighted') final String? seoDataWeighted,
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$MemoryImpl;
-  const _Memory._() : super._();
+  }) = _$BaseMemoryImpl;
+  const _BaseMemory._() : super._();
 
-  factory _Memory.fromJson(Map<String, dynamic> json) = _$MemoryImpl.fromJson;
+  factory _BaseMemory.fromJson(Map<String, dynamic> json) =
+      _$BaseMemoryImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -1013,10 +1018,10 @@ abstract class _Memory extends Memory {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of Memory
+  /// Create a copy of BaseMemory
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MemoryImplCopyWith<_$MemoryImpl> get copyWith =>
+  _$$BaseMemoryImplCopyWith<_$BaseMemoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

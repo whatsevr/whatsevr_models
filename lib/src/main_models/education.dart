@@ -5,10 +5,10 @@ part 'education.g.dart';
 
 /// Represents an education entry in the system
 @freezed
-class Education with _$Education {
-  const Education._();
+class BaseEducation with _$BaseEducation {
+  const BaseEducation._();
 
-  const factory Education({
+  const factory BaseEducation({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -19,9 +19,9 @@ class Education with _$Education {
     @JsonKey(name: 'institute') String? institute,
     @JsonKey(name: 'is_ongoing_education') bool? isOngoingEducation,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _Education;
+  }) = _BaseEducation;
 
   /// Creates an Education from Json map
-  factory Education.fromJson(Map<String, dynamic> json) => 
-      _$EducationFromJson(json);
+  factory BaseEducation.fromJson(Map<String, dynamic> json) => 
+      _$BaseEducationFromJson(json);
 }

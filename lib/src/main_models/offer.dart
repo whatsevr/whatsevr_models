@@ -5,10 +5,10 @@ part 'offer.g.dart';
 
 /// Represents an offer in the system
 @freezed
-class Offer with _$Offer {
-  const Offer._();
+class BaseOffer with _$BaseOffer {
+  const BaseOffer._();
 
-  const factory Offer({
+  const factory BaseOffer({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'title') String? title,
@@ -38,8 +38,8 @@ class Offer with _$Offer {
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'rich_description') Map<String, dynamic>? richDescription,
-  }) = _Offer;
+  }) = _BaseOffer;
 
   /// Creates an Offer from Json map
-  factory Offer.fromJson(Map<String, dynamic> json) => _$OfferFromJson(json);
+  factory BaseOffer.fromJson(Map<String, dynamic> json) => _$BaseOfferFromJson(json);
 }

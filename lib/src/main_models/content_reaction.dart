@@ -5,10 +5,10 @@ part 'content_reaction.g.dart';
 
 /// Represents a content reaction in the system
 @freezed
-class ContentReaction with _$ContentReaction {
-  const ContentReaction._();
+class BaseContentReaction with _$BaseContentReaction {
+  const BaseContentReaction._();
 
-  const factory ContentReaction({
+  const factory BaseContentReaction({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'user_uid') String? userUid,
     @JsonKey(name: 'wtv_uid') String? wtvUid,
@@ -22,8 +22,8 @@ class ContentReaction with _$ContentReaction {
     @JsonKey(name: 'content_type') String? contentType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid,
-  }) = _ContentReaction;
+  }) = _BaseContentReaction;
 
   /// Creates a ContentReaction from Json map
-  factory ContentReaction.fromJson(Map<String, dynamic> json) => _$ContentReactionFromJson(json);
+  factory BaseContentReaction.fromJson(Map<String, dynamic> json) => _$BaseContentReactionFromJson(json);
 }

@@ -6,8 +6,8 @@ part of 'education.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EducationImpl _$$EducationImplFromJson(Map<String, dynamic> json) =>
-    _$EducationImpl(
+_$BaseEducationImpl _$$BaseEducationImplFromJson(Map<String, dynamic> json) =>
+    _$BaseEducationImpl(
       id: (json['id'] as num?)?.toInt(),
       createdAt:
           json['created_at'] == null
@@ -32,7 +32,7 @@ _$EducationImpl _$$EducationImplFromJson(Map<String, dynamic> json) =>
               : DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$$EducationImplToJson(_$EducationImpl instance) =>
+Map<String, dynamic> _$$BaseEducationImplToJson(_$BaseEducationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt?.toIso8601String(),

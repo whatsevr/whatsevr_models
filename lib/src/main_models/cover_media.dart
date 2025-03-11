@@ -5,10 +5,10 @@ part 'cover_media.g.dart';
 
 /// Represents cover media in the system
 @freezed
-class CoverMedia with _$CoverMedia {
-  const CoverMedia._();
+class BaseCoverMedia with _$BaseCoverMedia {
+  const BaseCoverMedia._();
 
-  const factory CoverMedia({
+  const factory BaseCoverMedia({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'image_url') String? imageUrl,
@@ -18,8 +18,8 @@ class CoverMedia with _$CoverMedia {
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _CoverMedia;
+  }) = _BaseCoverMedia;
 
   /// Creates a CoverMedia from Json map
-  factory CoverMedia.fromJson(Map<String, dynamic> json) => _$CoverMediaFromJson(json);
+  factory BaseCoverMedia.fromJson(Map<String, dynamic> json) => _$BaseCoverMediaFromJson(json);
 }

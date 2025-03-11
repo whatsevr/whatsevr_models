@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Education _$EducationFromJson(Map<String, dynamic> json) {
-  return _Education.fromJson(json);
+BaseEducation _$BaseEducationFromJson(Map<String, dynamic> json) {
+  return _BaseEducation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Education {
+mixin _$BaseEducation {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -42,20 +42,22 @@ mixin _$Education {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this Education to a JSON map.
+  /// Serializes this BaseEducation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Education
+  /// Create a copy of BaseEducation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $EducationCopyWith<Education> get copyWith =>
+  $BaseEducationCopyWith<BaseEducation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EducationCopyWith<$Res> {
-  factory $EducationCopyWith(Education value, $Res Function(Education) then) =
-      _$EducationCopyWithImpl<$Res, Education>;
+abstract class $BaseEducationCopyWith<$Res> {
+  factory $BaseEducationCopyWith(
+    BaseEducation value,
+    $Res Function(BaseEducation) then,
+  ) = _$BaseEducationCopyWithImpl<$Res, BaseEducation>;
   @useResult
   $Res call({
     @JsonKey(name: 'id') int? id,
@@ -72,16 +74,16 @@ abstract class $EducationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EducationCopyWithImpl<$Res, $Val extends Education>
-    implements $EducationCopyWith<$Res> {
-  _$EducationCopyWithImpl(this._value, this._then);
+class _$BaseEducationCopyWithImpl<$Res, $Val extends BaseEducation>
+    implements $BaseEducationCopyWith<$Res> {
+  _$BaseEducationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Education
+  /// Create a copy of BaseEducation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -156,12 +158,12 @@ class _$EducationCopyWithImpl<$Res, $Val extends Education>
 }
 
 /// @nodoc
-abstract class _$$EducationImplCopyWith<$Res>
-    implements $EducationCopyWith<$Res> {
-  factory _$$EducationImplCopyWith(
-    _$EducationImpl value,
-    $Res Function(_$EducationImpl) then,
-  ) = __$$EducationImplCopyWithImpl<$Res>;
+abstract class _$$BaseEducationImplCopyWith<$Res>
+    implements $BaseEducationCopyWith<$Res> {
+  factory _$$BaseEducationImplCopyWith(
+    _$BaseEducationImpl value,
+    $Res Function(_$BaseEducationImpl) then,
+  ) = __$$BaseEducationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -179,15 +181,15 @@ abstract class _$$EducationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EducationImplCopyWithImpl<$Res>
-    extends _$EducationCopyWithImpl<$Res, _$EducationImpl>
-    implements _$$EducationImplCopyWith<$Res> {
-  __$$EducationImplCopyWithImpl(
-    _$EducationImpl _value,
-    $Res Function(_$EducationImpl) _then,
+class __$$BaseEducationImplCopyWithImpl<$Res>
+    extends _$BaseEducationCopyWithImpl<$Res, _$BaseEducationImpl>
+    implements _$$BaseEducationImplCopyWith<$Res> {
+  __$$BaseEducationImplCopyWithImpl(
+    _$BaseEducationImpl _value,
+    $Res Function(_$BaseEducationImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Education
+  /// Create a copy of BaseEducation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -204,7 +206,7 @@ class __$$EducationImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$EducationImpl(
+      _$BaseEducationImpl(
         id:
             freezed == id
                 ? _value.id
@@ -262,8 +264,8 @@ class __$$EducationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EducationImpl extends _Education {
-  const _$EducationImpl({
+class _$BaseEducationImpl extends _BaseEducation {
+  const _$BaseEducationImpl({
     @JsonKey(name: 'id') this.id,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'user_uid') this.userUid,
@@ -276,8 +278,8 @@ class _$EducationImpl extends _Education {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$EducationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EducationImplFromJson(json);
+  factory _$BaseEducationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseEducationImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -312,14 +314,14 @@ class _$EducationImpl extends _Education {
 
   @override
   String toString() {
-    return 'Education(id: $id, createdAt: $createdAt, userUid: $userUid, title: $title, startDate: $startDate, endDate: $endDate, type: $type, institute: $institute, isOngoingEducation: $isOngoingEducation, updatedAt: $updatedAt)';
+    return 'BaseEducation(id: $id, createdAt: $createdAt, userUid: $userUid, title: $title, startDate: $startDate, endDate: $endDate, type: $type, institute: $institute, isOngoingEducation: $isOngoingEducation, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EducationImpl &&
+            other is _$BaseEducationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -353,22 +355,22 @@ class _$EducationImpl extends _Education {
     updatedAt,
   );
 
-  /// Create a copy of Education
+  /// Create a copy of BaseEducation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$EducationImplCopyWith<_$EducationImpl> get copyWith =>
-      __$$EducationImplCopyWithImpl<_$EducationImpl>(this, _$identity);
+  _$$BaseEducationImplCopyWith<_$BaseEducationImpl> get copyWith =>
+      __$$BaseEducationImplCopyWithImpl<_$BaseEducationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EducationImplToJson(this);
+    return _$$BaseEducationImplToJson(this);
   }
 }
 
-abstract class _Education extends Education {
-  const factory _Education({
+abstract class _BaseEducation extends BaseEducation {
+  const factory _BaseEducation({
     @JsonKey(name: 'id') final int? id,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'user_uid') final String? userUid,
@@ -379,11 +381,11 @@ abstract class _Education extends Education {
     @JsonKey(name: 'institute') final String? institute,
     @JsonKey(name: 'is_ongoing_education') final bool? isOngoingEducation,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$EducationImpl;
-  const _Education._() : super._();
+  }) = _$BaseEducationImpl;
+  const _BaseEducation._() : super._();
 
-  factory _Education.fromJson(Map<String, dynamic> json) =
-      _$EducationImpl.fromJson;
+  factory _BaseEducation.fromJson(Map<String, dynamic> json) =
+      _$BaseEducationImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -416,10 +418,10 @@ abstract class _Education extends Education {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of Education
+  /// Create a copy of BaseEducation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EducationImplCopyWith<_$EducationImpl> get copyWith =>
+  _$$BaseEducationImplCopyWith<_$BaseEducationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

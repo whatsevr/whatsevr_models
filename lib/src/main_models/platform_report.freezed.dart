@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-PlatformReport _$PlatformReportFromJson(Map<String, dynamic> json) {
-  return _PlatformReport.fromJson(json);
+BasePlatformReport _$BasePlatformReportFromJson(Map<String, dynamic> json) {
+  return _BasePlatformReport.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PlatformReport {
+mixin _$BasePlatformReport {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'reporter_meta_data')
@@ -63,22 +63,22 @@ mixin _$PlatformReport {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this PlatformReport to a JSON map.
+  /// Serializes this BasePlatformReport to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PlatformReport
+  /// Create a copy of BasePlatformReport
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlatformReportCopyWith<PlatformReport> get copyWith =>
+  $BasePlatformReportCopyWith<BasePlatformReport> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PlatformReportCopyWith<$Res> {
-  factory $PlatformReportCopyWith(
-    PlatformReport value,
-    $Res Function(PlatformReport) then,
-  ) = _$PlatformReportCopyWithImpl<$Res, PlatformReport>;
+abstract class $BasePlatformReportCopyWith<$Res> {
+  factory $BasePlatformReportCopyWith(
+    BasePlatformReport value,
+    $Res Function(BasePlatformReport) then,
+  ) = _$BasePlatformReportCopyWithImpl<$Res, BasePlatformReport>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -104,16 +104,16 @@ abstract class $PlatformReportCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlatformReportCopyWithImpl<$Res, $Val extends PlatformReport>
-    implements $PlatformReportCopyWith<$Res> {
-  _$PlatformReportCopyWithImpl(this._value, this._then);
+class _$BasePlatformReportCopyWithImpl<$Res, $Val extends BasePlatformReport>
+    implements $BasePlatformReportCopyWith<$Res> {
+  _$BasePlatformReportCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PlatformReport
+  /// Create a copy of BasePlatformReport
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -242,12 +242,12 @@ class _$PlatformReportCopyWithImpl<$Res, $Val extends PlatformReport>
 }
 
 /// @nodoc
-abstract class _$$PlatformReportImplCopyWith<$Res>
-    implements $PlatformReportCopyWith<$Res> {
-  factory _$$PlatformReportImplCopyWith(
-    _$PlatformReportImpl value,
-    $Res Function(_$PlatformReportImpl) then,
-  ) = __$$PlatformReportImplCopyWithImpl<$Res>;
+abstract class _$$BasePlatformReportImplCopyWith<$Res>
+    implements $BasePlatformReportCopyWith<$Res> {
+  factory _$$BasePlatformReportImplCopyWith(
+    _$BasePlatformReportImpl value,
+    $Res Function(_$BasePlatformReportImpl) then,
+  ) = __$$BasePlatformReportImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -274,15 +274,15 @@ abstract class _$$PlatformReportImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlatformReportImplCopyWithImpl<$Res>
-    extends _$PlatformReportCopyWithImpl<$Res, _$PlatformReportImpl>
-    implements _$$PlatformReportImplCopyWith<$Res> {
-  __$$PlatformReportImplCopyWithImpl(
-    _$PlatformReportImpl _value,
-    $Res Function(_$PlatformReportImpl) _then,
+class __$$BasePlatformReportImplCopyWithImpl<$Res>
+    extends _$BasePlatformReportCopyWithImpl<$Res, _$BasePlatformReportImpl>
+    implements _$$BasePlatformReportImplCopyWith<$Res> {
+  __$$BasePlatformReportImplCopyWithImpl(
+    _$BasePlatformReportImpl _value,
+    $Res Function(_$BasePlatformReportImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PlatformReport
+  /// Create a copy of BasePlatformReport
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -308,7 +308,7 @@ class __$$PlatformReportImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$PlatformReportImpl(
+      _$BasePlatformReportImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -411,8 +411,8 @@ class __$$PlatformReportImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PlatformReportImpl extends _PlatformReport {
-  const _$PlatformReportImpl({
+class _$BasePlatformReportImpl extends _BasePlatformReport {
+  const _$BasePlatformReportImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'reporter_meta_data')
     final Map<String, dynamic>? reporterMetaData,
@@ -440,8 +440,8 @@ class _$PlatformReportImpl extends _PlatformReport {
        _evidenceMetadata = evidenceMetadata,
        super._();
 
-  factory _$PlatformReportImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PlatformReportImplFromJson(json);
+  factory _$BasePlatformReportImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BasePlatformReportImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -527,14 +527,14 @@ class _$PlatformReportImpl extends _PlatformReport {
 
   @override
   String toString() {
-    return 'PlatformReport(uid: $uid, reporterMetaData: $reporterMetaData, targetMetaData: $targetMetaData, reporterComment: $reporterComment, category: $category, status: $status, severityLevel: $severityLevel, assignedReviewerUid: $assignedReviewerUid, reviewerNotes: $reviewerNotes, escalationLevel: $escalationLevel, actionTaken: $actionTaken, actionTimestamp: $actionTimestamp, actionNotes: $actionNotes, parentReportUid: $parentReportUid, isArchived: $isArchived, reporterUserUid: $reporterUserUid, createdAt: $createdAt, evidenceMetadata: $evidenceMetadata, updatedAt: $updatedAt)';
+    return 'BasePlatformReport(uid: $uid, reporterMetaData: $reporterMetaData, targetMetaData: $targetMetaData, reporterComment: $reporterComment, category: $category, status: $status, severityLevel: $severityLevel, assignedReviewerUid: $assignedReviewerUid, reviewerNotes: $reviewerNotes, escalationLevel: $escalationLevel, actionTaken: $actionTaken, actionTimestamp: $actionTimestamp, actionNotes: $actionNotes, parentReportUid: $parentReportUid, isArchived: $isArchived, reporterUserUid: $reporterUserUid, createdAt: $createdAt, evidenceMetadata: $evidenceMetadata, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformReportImpl &&
+            other is _$BasePlatformReportImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             const DeepCollectionEquality().equals(
               other._reporterMetaData,
@@ -604,25 +604,25 @@ class _$PlatformReportImpl extends _PlatformReport {
     updatedAt,
   ]);
 
-  /// Create a copy of PlatformReport
+  /// Create a copy of BasePlatformReport
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformReportImplCopyWith<_$PlatformReportImpl> get copyWith =>
-      __$$PlatformReportImplCopyWithImpl<_$PlatformReportImpl>(
+  _$$BasePlatformReportImplCopyWith<_$BasePlatformReportImpl> get copyWith =>
+      __$$BasePlatformReportImplCopyWithImpl<_$BasePlatformReportImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformReportImplToJson(this);
+    return _$$BasePlatformReportImplToJson(this);
   }
 }
 
-abstract class _PlatformReport extends PlatformReport {
-  const factory _PlatformReport({
+abstract class _BasePlatformReport extends BasePlatformReport {
+  const factory _BasePlatformReport({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'reporter_meta_data')
     final Map<String, dynamic>? reporterMetaData,
@@ -645,11 +645,11 @@ abstract class _PlatformReport extends PlatformReport {
     @JsonKey(name: 'evidence_metadata')
     final Map<String, dynamic>? evidenceMetadata,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$PlatformReportImpl;
-  const _PlatformReport._() : super._();
+  }) = _$BasePlatformReportImpl;
+  const _BasePlatformReport._() : super._();
 
-  factory _PlatformReport.fromJson(Map<String, dynamic> json) =
-      _$PlatformReportImpl.fromJson;
+  factory _BasePlatformReport.fromJson(Map<String, dynamic> json) =
+      _$BasePlatformReportImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -709,10 +709,10 @@ abstract class _PlatformReport extends PlatformReport {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of PlatformReport
+  /// Create a copy of BasePlatformReport
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PlatformReportImplCopyWith<_$PlatformReportImpl> get copyWith =>
+  _$$BasePlatformReportImplCopyWith<_$BasePlatformReportImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

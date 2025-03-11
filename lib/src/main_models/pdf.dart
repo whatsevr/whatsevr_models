@@ -5,10 +5,10 @@ part 'pdf.g.dart';
 
 /// Represents a PDF document in the system
 @freezed
-class Pdf with _$Pdf {
-  const Pdf._();
+class BasePdf with _$BasePdf {
+  const BasePdf._();
 
-  const factory Pdf({
+  const factory BasePdf({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'file_url') String? fileUrl,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -22,8 +22,8 @@ class Pdf with _$Pdf {
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'total_impressions') int? totalImpressions,
-  }) = _Pdf;
+  }) = _BasePdf;
 
   /// Creates a PDF from Json map
-  factory Pdf.fromJson(Map<String, dynamic> json) => _$PdfFromJson(json);
+  factory BasePdf.fromJson(Map<String, dynamic> json) => _$BasePdfFromJson(json);
 }

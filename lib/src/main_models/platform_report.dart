@@ -5,10 +5,10 @@ part 'platform_report.g.dart';
 
 /// Represents a platform report in the system
 @freezed
-class PlatformReport with _$PlatformReport {
-  const PlatformReport._();
+class BasePlatformReport with _$BasePlatformReport {
+  const BasePlatformReport._();
 
-  const factory PlatformReport({
+  const factory BasePlatformReport({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'reporter_meta_data') Map<String, dynamic>? reporterMetaData,
     @JsonKey(name: 'target_meta_data') Map<String, dynamic>? targetMetaData,
@@ -28,9 +28,9 @@ class PlatformReport with _$PlatformReport {
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'evidence_metadata') Map<String, dynamic>? evidenceMetadata,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _PlatformReport;
+  }) = _BasePlatformReport;
 
   /// Creates a PlatformReport from Json map
-  factory PlatformReport.fromJson(Map<String, dynamic> json) => 
-      _$PlatformReportFromJson(json);
+  factory BasePlatformReport.fromJson(Map<String, dynamic> json) => 
+      _$BasePlatformReportFromJson(json);
 }

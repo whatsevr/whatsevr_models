@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-PlatformAlert _$PlatformAlertFromJson(Map<String, dynamic> json) {
-  return _PlatformAlert.fromJson(json);
+BasePlatformAlert _$BasePlatformAlertFromJson(Map<String, dynamic> json) {
+  return _BasePlatformAlert.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PlatformAlert {
+mixin _$BasePlatformAlert {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -38,22 +38,22 @@ mixin _$PlatformAlert {
   @JsonKey(name: 'content')
   Map<String, dynamic>? get content => throw _privateConstructorUsedError;
 
-  /// Serializes this PlatformAlert to a JSON map.
+  /// Serializes this BasePlatformAlert to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PlatformAlert
+  /// Create a copy of BasePlatformAlert
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlatformAlertCopyWith<PlatformAlert> get copyWith =>
+  $BasePlatformAlertCopyWith<BasePlatformAlert> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PlatformAlertCopyWith<$Res> {
-  factory $PlatformAlertCopyWith(
-    PlatformAlert value,
-    $Res Function(PlatformAlert) then,
-  ) = _$PlatformAlertCopyWithImpl<$Res, PlatformAlert>;
+abstract class $BasePlatformAlertCopyWith<$Res> {
+  factory $BasePlatformAlertCopyWith(
+    BasePlatformAlert value,
+    $Res Function(BasePlatformAlert) then,
+  ) = _$BasePlatformAlertCopyWithImpl<$Res, BasePlatformAlert>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -68,16 +68,16 @@ abstract class $PlatformAlertCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlatformAlertCopyWithImpl<$Res, $Val extends PlatformAlert>
-    implements $PlatformAlertCopyWith<$Res> {
-  _$PlatformAlertCopyWithImpl(this._value, this._then);
+class _$BasePlatformAlertCopyWithImpl<$Res, $Val extends BasePlatformAlert>
+    implements $BasePlatformAlertCopyWith<$Res> {
+  _$BasePlatformAlertCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PlatformAlert
+  /// Create a copy of BasePlatformAlert
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -140,12 +140,12 @@ class _$PlatformAlertCopyWithImpl<$Res, $Val extends PlatformAlert>
 }
 
 /// @nodoc
-abstract class _$$PlatformAlertImplCopyWith<$Res>
-    implements $PlatformAlertCopyWith<$Res> {
-  factory _$$PlatformAlertImplCopyWith(
-    _$PlatformAlertImpl value,
-    $Res Function(_$PlatformAlertImpl) then,
-  ) = __$$PlatformAlertImplCopyWithImpl<$Res>;
+abstract class _$$BasePlatformAlertImplCopyWith<$Res>
+    implements $BasePlatformAlertCopyWith<$Res> {
+  factory _$$BasePlatformAlertImplCopyWith(
+    _$BasePlatformAlertImpl value,
+    $Res Function(_$BasePlatformAlertImpl) then,
+  ) = __$$BasePlatformAlertImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -161,15 +161,15 @@ abstract class _$$PlatformAlertImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlatformAlertImplCopyWithImpl<$Res>
-    extends _$PlatformAlertCopyWithImpl<$Res, _$PlatformAlertImpl>
-    implements _$$PlatformAlertImplCopyWith<$Res> {
-  __$$PlatformAlertImplCopyWithImpl(
-    _$PlatformAlertImpl _value,
-    $Res Function(_$PlatformAlertImpl) _then,
+class __$$BasePlatformAlertImplCopyWithImpl<$Res>
+    extends _$BasePlatformAlertCopyWithImpl<$Res, _$BasePlatformAlertImpl>
+    implements _$$BasePlatformAlertImplCopyWith<$Res> {
+  __$$BasePlatformAlertImplCopyWithImpl(
+    _$BasePlatformAlertImpl _value,
+    $Res Function(_$BasePlatformAlertImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PlatformAlert
+  /// Create a copy of BasePlatformAlert
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -184,7 +184,7 @@ class __$$PlatformAlertImplCopyWithImpl<$Res>
     Object? content = freezed,
   }) {
     return _then(
-      _$PlatformAlertImpl(
+      _$BasePlatformAlertImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -232,8 +232,8 @@ class __$$PlatformAlertImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PlatformAlertImpl extends _PlatformAlert {
-  const _$PlatformAlertImpl({
+class _$BasePlatformAlertImpl extends _BasePlatformAlert {
+  const _$BasePlatformAlertImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'recipient_user_uid') this.recipientUserUid,
@@ -245,8 +245,8 @@ class _$PlatformAlertImpl extends _PlatformAlert {
   }) : _content = content,
        super._();
 
-  factory _$PlatformAlertImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PlatformAlertImplFromJson(json);
+  factory _$BasePlatformAlertImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BasePlatformAlertImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -282,14 +282,14 @@ class _$PlatformAlertImpl extends _PlatformAlert {
 
   @override
   String toString() {
-    return 'PlatformAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content)';
+    return 'BasePlatformAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformAlertImpl &&
+            other is _$BasePlatformAlertImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -319,22 +319,25 @@ class _$PlatformAlertImpl extends _PlatformAlert {
     const DeepCollectionEquality().hash(_content),
   );
 
-  /// Create a copy of PlatformAlert
+  /// Create a copy of BasePlatformAlert
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformAlertImplCopyWith<_$PlatformAlertImpl> get copyWith =>
-      __$$PlatformAlertImplCopyWithImpl<_$PlatformAlertImpl>(this, _$identity);
+  _$$BasePlatformAlertImplCopyWith<_$BasePlatformAlertImpl> get copyWith =>
+      __$$BasePlatformAlertImplCopyWithImpl<_$BasePlatformAlertImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformAlertImplToJson(this);
+    return _$$BasePlatformAlertImplToJson(this);
   }
 }
 
-abstract class _PlatformAlert extends PlatformAlert {
-  const factory _PlatformAlert({
+abstract class _BasePlatformAlert extends BasePlatformAlert {
+  const factory _BasePlatformAlert({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'recipient_user_uid') final String? recipientUserUid,
@@ -343,11 +346,11 @@ abstract class _PlatformAlert extends PlatformAlert {
     @JsonKey(name: 'actor_user_uid') final String? actorUserUid,
     @JsonKey(name: 'alert_type') final String? alertType,
     @JsonKey(name: 'content') final Map<String, dynamic>? content,
-  }) = _$PlatformAlertImpl;
-  const _PlatformAlert._() : super._();
+  }) = _$BasePlatformAlertImpl;
+  const _BasePlatformAlert._() : super._();
 
-  factory _PlatformAlert.fromJson(Map<String, dynamic> json) =
-      _$PlatformAlertImpl.fromJson;
+  factory _BasePlatformAlert.fromJson(Map<String, dynamic> json) =
+      _$BasePlatformAlertImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -374,10 +377,10 @@ abstract class _PlatformAlert extends PlatformAlert {
   @JsonKey(name: 'content')
   Map<String, dynamic>? get content;
 
-  /// Create a copy of PlatformAlert
+  /// Create a copy of BasePlatformAlert
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PlatformAlertImplCopyWith<_$PlatformAlertImpl> get copyWith =>
+  _$$BasePlatformAlertImplCopyWith<_$BasePlatformAlertImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-CommunityMember _$CommunityMemberFromJson(Map<String, dynamic> json) {
-  return _CommunityMember.fromJson(json);
+BaseCommunityMember _$BaseCommunityMemberFromJson(Map<String, dynamic> json) {
+  return _BaseCommunityMember.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CommunityMember {
+mixin _$BaseCommunityMember {
   @JsonKey(name: 'community_uid')
   String? get communityUid => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_uid')
@@ -46,22 +46,22 @@ mixin _$CommunityMember {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this CommunityMember to a JSON map.
+  /// Serializes this BaseCommunityMember to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of CommunityMember
+  /// Create a copy of BaseCommunityMember
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommunityMemberCopyWith<CommunityMember> get copyWith =>
+  $BaseCommunityMemberCopyWith<BaseCommunityMember> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommunityMemberCopyWith<$Res> {
-  factory $CommunityMemberCopyWith(
-    CommunityMember value,
-    $Res Function(CommunityMember) then,
-  ) = _$CommunityMemberCopyWithImpl<$Res, CommunityMember>;
+abstract class $BaseCommunityMemberCopyWith<$Res> {
+  factory $BaseCommunityMemberCopyWith(
+    BaseCommunityMember value,
+    $Res Function(BaseCommunityMember) then,
+  ) = _$BaseCommunityMemberCopyWithImpl<$Res, BaseCommunityMember>;
   @useResult
   $Res call({
     @JsonKey(name: 'community_uid') String? communityUid,
@@ -80,16 +80,16 @@ abstract class $CommunityMemberCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommunityMemberCopyWithImpl<$Res, $Val extends CommunityMember>
-    implements $CommunityMemberCopyWith<$Res> {
-  _$CommunityMemberCopyWithImpl(this._value, this._then);
+class _$BaseCommunityMemberCopyWithImpl<$Res, $Val extends BaseCommunityMember>
+    implements $BaseCommunityMemberCopyWith<$Res> {
+  _$BaseCommunityMemberCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CommunityMember
+  /// Create a copy of BaseCommunityMember
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -176,12 +176,12 @@ class _$CommunityMemberCopyWithImpl<$Res, $Val extends CommunityMember>
 }
 
 /// @nodoc
-abstract class _$$CommunityMemberImplCopyWith<$Res>
-    implements $CommunityMemberCopyWith<$Res> {
-  factory _$$CommunityMemberImplCopyWith(
-    _$CommunityMemberImpl value,
-    $Res Function(_$CommunityMemberImpl) then,
-  ) = __$$CommunityMemberImplCopyWithImpl<$Res>;
+abstract class _$$BaseCommunityMemberImplCopyWith<$Res>
+    implements $BaseCommunityMemberCopyWith<$Res> {
+  factory _$$BaseCommunityMemberImplCopyWith(
+    _$BaseCommunityMemberImpl value,
+    $Res Function(_$BaseCommunityMemberImpl) then,
+  ) = __$$BaseCommunityMemberImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -201,15 +201,15 @@ abstract class _$$CommunityMemberImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CommunityMemberImplCopyWithImpl<$Res>
-    extends _$CommunityMemberCopyWithImpl<$Res, _$CommunityMemberImpl>
-    implements _$$CommunityMemberImplCopyWith<$Res> {
-  __$$CommunityMemberImplCopyWithImpl(
-    _$CommunityMemberImpl _value,
-    $Res Function(_$CommunityMemberImpl) _then,
+class __$$BaseCommunityMemberImplCopyWithImpl<$Res>
+    extends _$BaseCommunityMemberCopyWithImpl<$Res, _$BaseCommunityMemberImpl>
+    implements _$$BaseCommunityMemberImplCopyWith<$Res> {
+  __$$BaseCommunityMemberImplCopyWithImpl(
+    _$BaseCommunityMemberImpl _value,
+    $Res Function(_$BaseCommunityMemberImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of CommunityMember
+  /// Create a copy of BaseCommunityMember
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -228,7 +228,7 @@ class __$$CommunityMemberImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$CommunityMemberImpl(
+      _$BaseCommunityMemberImpl(
         communityUid:
             freezed == communityUid
                 ? _value.communityUid
@@ -296,8 +296,8 @@ class __$$CommunityMemberImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommunityMemberImpl extends _CommunityMember {
-  const _$CommunityMemberImpl({
+class _$BaseCommunityMemberImpl extends _BaseCommunityMember {
+  const _$BaseCommunityMemberImpl({
     @JsonKey(name: 'community_uid') this.communityUid,
     @JsonKey(name: 'user_uid') this.userUid,
     @JsonKey(name: 'joined_at') this.joinedAt,
@@ -312,8 +312,8 @@ class _$CommunityMemberImpl extends _CommunityMember {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$CommunityMemberImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommunityMemberImplFromJson(json);
+  factory _$BaseCommunityMemberImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseCommunityMemberImplFromJson(json);
 
   @override
   @JsonKey(name: 'community_uid')
@@ -354,14 +354,14 @@ class _$CommunityMemberImpl extends _CommunityMember {
 
   @override
   String toString() {
-    return 'CommunityMember(communityUid: $communityUid, userUid: $userUid, joinedAt: $joinedAt, role: $role, status: $status, approved: $approved, lastActiveAt: $lastActiveAt, mutedUntil: $mutedUntil, joinRequestMessage: $joinRequestMessage, notes: $notes, uid: $uid, updatedAt: $updatedAt)';
+    return 'BaseCommunityMember(communityUid: $communityUid, userUid: $userUid, joinedAt: $joinedAt, role: $role, status: $status, approved: $approved, lastActiveAt: $lastActiveAt, mutedUntil: $mutedUntil, joinRequestMessage: $joinRequestMessage, notes: $notes, uid: $uid, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommunityMemberImpl &&
+            other is _$BaseCommunityMemberImpl &&
             (identical(other.communityUid, communityUid) ||
                 other.communityUid == communityUid) &&
             (identical(other.userUid, userUid) || other.userUid == userUid) &&
@@ -401,25 +401,25 @@ class _$CommunityMemberImpl extends _CommunityMember {
     updatedAt,
   );
 
-  /// Create a copy of CommunityMember
+  /// Create a copy of BaseCommunityMember
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommunityMemberImplCopyWith<_$CommunityMemberImpl> get copyWith =>
-      __$$CommunityMemberImplCopyWithImpl<_$CommunityMemberImpl>(
+  _$$BaseCommunityMemberImplCopyWith<_$BaseCommunityMemberImpl> get copyWith =>
+      __$$BaseCommunityMemberImplCopyWithImpl<_$BaseCommunityMemberImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommunityMemberImplToJson(this);
+    return _$$BaseCommunityMemberImplToJson(this);
   }
 }
 
-abstract class _CommunityMember extends CommunityMember {
-  const factory _CommunityMember({
+abstract class _BaseCommunityMember extends BaseCommunityMember {
+  const factory _BaseCommunityMember({
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'user_uid') final String? userUid,
     @JsonKey(name: 'joined_at') final DateTime? joinedAt,
@@ -432,11 +432,11 @@ abstract class _CommunityMember extends CommunityMember {
     @JsonKey(name: 'notes') final String? notes,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$CommunityMemberImpl;
-  const _CommunityMember._() : super._();
+  }) = _$BaseCommunityMemberImpl;
+  const _BaseCommunityMember._() : super._();
 
-  factory _CommunityMember.fromJson(Map<String, dynamic> json) =
-      _$CommunityMemberImpl.fromJson;
+  factory _BaseCommunityMember.fromJson(Map<String, dynamic> json) =
+      _$BaseCommunityMemberImpl.fromJson;
 
   @override
   @JsonKey(name: 'community_uid')
@@ -475,10 +475,10 @@ abstract class _CommunityMember extends CommunityMember {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of CommunityMember
+  /// Create a copy of BaseCommunityMember
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommunityMemberImplCopyWith<_$CommunityMemberImpl> get copyWith =>
+  _$$BaseCommunityMemberImplCopyWith<_$BaseCommunityMemberImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,10 +5,10 @@ part 'comment.g.dart';
 
 /// Represents a comment in the system
 @freezed
-class Comment with _$Comment {
-  const Comment._();
+class BaseComment with _$BaseComment {
+  const BaseComment._();
 
-  const factory Comment({
+  const factory BaseComment({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'comment_text') String? commentText,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -23,8 +23,8 @@ class Comment with _$Comment {
     @JsonKey(name: 'content_type') String? contentType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid,
-  }) = _Comment;
+  }) = _BaseComment;
 
   /// Creates a Comment from Json map
-  factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
+  factory BaseComment.fromJson(Map<String, dynamic> json) => _$BaseCommentFromJson(json);
 }

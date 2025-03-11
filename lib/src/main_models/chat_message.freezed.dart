@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) {
-  return _ChatMessage.fromJson(json);
+BaseChatMessage _$BaseChatMessageFromJson(Map<String, dynamic> json) {
+  return _BaseChatMessage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ChatMessage {
+mixin _$BaseChatMessage {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'sender_uid')
@@ -48,25 +48,28 @@ mixin _$ChatMessage {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'related_content')
-  Map<String, dynamic>? get relatedContent =>
-      throw _privateConstructorUsedError;
+  List<dynamic>? get relatedContent => throw _privateConstructorUsedError; // User objects excluded from auto JSON serialization
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  BaseUser? get sender => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  BaseUser? get forwarder => throw _privateConstructorUsedError;
 
-  /// Serializes this ChatMessage to a JSON map.
+  /// Serializes this BaseChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ChatMessage
+  /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ChatMessageCopyWith<ChatMessage> get copyWith =>
+  $BaseChatMessageCopyWith<BaseChatMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatMessageCopyWith<$Res> {
-  factory $ChatMessageCopyWith(
-    ChatMessage value,
-    $Res Function(ChatMessage) then,
-  ) = _$ChatMessageCopyWithImpl<$Res, ChatMessage>;
+abstract class $BaseChatMessageCopyWith<$Res> {
+  factory $BaseChatMessageCopyWith(
+    BaseChatMessage value,
+    $Res Function(BaseChatMessage) then,
+  ) = _$BaseChatMessageCopyWithImpl<$Res, BaseChatMessage>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -82,21 +85,26 @@ abstract class $ChatMessageCopyWith<$Res> {
     @JsonKey(name: 'is_system_message') bool? isSystemMessage,
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'related_content') Map<String, dynamic>? relatedContent,
+    @JsonKey(name: 'related_content') List<dynamic>? relatedContent,
+    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? sender,
+    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? forwarder,
   });
+
+  $BaseUserCopyWith<$Res>? get sender;
+  $BaseUserCopyWith<$Res>? get forwarder;
 }
 
 /// @nodoc
-class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
-    implements $ChatMessageCopyWith<$Res> {
-  _$ChatMessageCopyWithImpl(this._value, this._then);
+class _$BaseChatMessageCopyWithImpl<$Res, $Val extends BaseChatMessage>
+    implements $BaseChatMessageCopyWith<$Res> {
+  _$BaseChatMessageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ChatMessage
+  /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -115,6 +123,8 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
     Object? ownerType = freezed,
     Object? updatedAt = freezed,
     Object? relatedContent = freezed,
+    Object? sender = freezed,
+    Object? forwarder = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -187,20 +197,58 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
                 freezed == relatedContent
                     ? _value.relatedContent
                     : relatedContent // ignore: cast_nullable_to_non_nullable
-                        as Map<String, dynamic>?,
+                        as List<dynamic>?,
+            sender:
+                freezed == sender
+                    ? _value.sender
+                    : sender // ignore: cast_nullable_to_non_nullable
+                        as BaseUser?,
+            forwarder:
+                freezed == forwarder
+                    ? _value.forwarder
+                    : forwarder // ignore: cast_nullable_to_non_nullable
+                        as BaseUser?,
           )
           as $Val,
     );
   }
+
+  /// Create a copy of BaseChatMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BaseUserCopyWith<$Res>? get sender {
+    if (_value.sender == null) {
+      return null;
+    }
+
+    return $BaseUserCopyWith<$Res>(_value.sender!, (value) {
+      return _then(_value.copyWith(sender: value) as $Val);
+    });
+  }
+
+  /// Create a copy of BaseChatMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BaseUserCopyWith<$Res>? get forwarder {
+    if (_value.forwarder == null) {
+      return null;
+    }
+
+    return $BaseUserCopyWith<$Res>(_value.forwarder!, (value) {
+      return _then(_value.copyWith(forwarder: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$ChatMessageImplCopyWith<$Res>
-    implements $ChatMessageCopyWith<$Res> {
-  factory _$$ChatMessageImplCopyWith(
-    _$ChatMessageImpl value,
-    $Res Function(_$ChatMessageImpl) then,
-  ) = __$$ChatMessageImplCopyWithImpl<$Res>;
+abstract class _$$BaseChatMessageImplCopyWith<$Res>
+    implements $BaseChatMessageCopyWith<$Res> {
+  factory _$$BaseChatMessageImplCopyWith(
+    _$BaseChatMessageImpl value,
+    $Res Function(_$BaseChatMessageImpl) then,
+  ) = __$$BaseChatMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -217,20 +265,27 @@ abstract class _$$ChatMessageImplCopyWith<$Res>
     @JsonKey(name: 'is_system_message') bool? isSystemMessage,
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'related_content') Map<String, dynamic>? relatedContent,
+    @JsonKey(name: 'related_content') List<dynamic>? relatedContent,
+    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? sender,
+    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? forwarder,
   });
+
+  @override
+  $BaseUserCopyWith<$Res>? get sender;
+  @override
+  $BaseUserCopyWith<$Res>? get forwarder;
 }
 
 /// @nodoc
-class __$$ChatMessageImplCopyWithImpl<$Res>
-    extends _$ChatMessageCopyWithImpl<$Res, _$ChatMessageImpl>
-    implements _$$ChatMessageImplCopyWith<$Res> {
-  __$$ChatMessageImplCopyWithImpl(
-    _$ChatMessageImpl _value,
-    $Res Function(_$ChatMessageImpl) _then,
+class __$$BaseChatMessageImplCopyWithImpl<$Res>
+    extends _$BaseChatMessageCopyWithImpl<$Res, _$BaseChatMessageImpl>
+    implements _$$BaseChatMessageImplCopyWith<$Res> {
+  __$$BaseChatMessageImplCopyWithImpl(
+    _$BaseChatMessageImpl _value,
+    $Res Function(_$BaseChatMessageImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of ChatMessage
+  /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -249,9 +304,11 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
     Object? ownerType = freezed,
     Object? updatedAt = freezed,
     Object? relatedContent = freezed,
+    Object? sender = freezed,
+    Object? forwarder = freezed,
   }) {
     return _then(
-      _$ChatMessageImpl(
+      _$BaseChatMessageImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -321,7 +378,17 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
             freezed == relatedContent
                 ? _value._relatedContent
                 : relatedContent // ignore: cast_nullable_to_non_nullable
-                    as Map<String, dynamic>?,
+                    as List<dynamic>?,
+        sender:
+            freezed == sender
+                ? _value.sender
+                : sender // ignore: cast_nullable_to_non_nullable
+                    as BaseUser?,
+        forwarder:
+            freezed == forwarder
+                ? _value.forwarder
+                : forwarder // ignore: cast_nullable_to_non_nullable
+                    as BaseUser?,
       ),
     );
   }
@@ -329,8 +396,8 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ChatMessageImpl extends _ChatMessage {
-  const _$ChatMessageImpl({
+class _$BaseChatMessageImpl extends _BaseChatMessage {
+  const _$BaseChatMessageImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'sender_uid') this.senderUid,
     @JsonKey(name: 'message') this.message,
@@ -344,13 +411,14 @@ class _$ChatMessageImpl extends _ChatMessage {
     @JsonKey(name: 'is_system_message') this.isSystemMessage,
     @JsonKey(name: 'owner_type') this.ownerType,
     @JsonKey(name: 'updated_at') this.updatedAt,
-    @JsonKey(name: 'related_content')
-    final Map<String, dynamic>? relatedContent,
+    @JsonKey(name: 'related_content') final List<dynamic>? relatedContent,
+    @JsonKey(includeFromJson: false, includeToJson: false) this.sender,
+    @JsonKey(includeFromJson: false, includeToJson: false) this.forwarder,
   }) : _relatedContent = relatedContent,
        super._();
 
-  factory _$ChatMessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChatMessageImplFromJson(json);
+  factory _$BaseChatMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseChatMessageImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -391,27 +459,35 @@ class _$ChatMessageImpl extends _ChatMessage {
   @override
   @JsonKey(name: 'updated_at')
   final DateTime? updatedAt;
-  final Map<String, dynamic>? _relatedContent;
+  final List<dynamic>? _relatedContent;
   @override
   @JsonKey(name: 'related_content')
-  Map<String, dynamic>? get relatedContent {
+  List<dynamic>? get relatedContent {
     final value = _relatedContent;
     if (value == null) return null;
-    if (_relatedContent is EqualUnmodifiableMapView) return _relatedContent;
+    if (_relatedContent is EqualUnmodifiableListView) return _relatedContent;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableListView(value);
   }
+
+  // User objects excluded from auto JSON serialization
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final BaseUser? sender;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final BaseUser? forwarder;
 
   @override
   String toString() {
-    return 'ChatMessage(uid: $uid, senderUid: $senderUid, message: $message, createdAt: $createdAt, isPinned: $isPinned, communityUid: $communityUid, privateChatUid: $privateChatUid, replyToMessageUid: $replyToMessageUid, forwarderUserUid: $forwarderUserUid, isDeleted: $isDeleted, isSystemMessage: $isSystemMessage, ownerType: $ownerType, updatedAt: $updatedAt, relatedContent: $relatedContent)';
+    return 'BaseChatMessage(uid: $uid, senderUid: $senderUid, message: $message, createdAt: $createdAt, isPinned: $isPinned, communityUid: $communityUid, privateChatUid: $privateChatUid, replyToMessageUid: $replyToMessageUid, forwarderUserUid: $forwarderUserUid, isDeleted: $isDeleted, isSystemMessage: $isSystemMessage, ownerType: $ownerType, updatedAt: $updatedAt, relatedContent: $relatedContent, sender: $sender, forwarder: $forwarder)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatMessageImpl &&
+            other is _$BaseChatMessageImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.senderUid, senderUid) ||
                 other.senderUid == senderUid) &&
@@ -439,7 +515,10 @@ class _$ChatMessageImpl extends _ChatMessage {
             const DeepCollectionEquality().equals(
               other._relatedContent,
               _relatedContent,
-            ));
+            ) &&
+            (identical(other.sender, sender) || other.sender == sender) &&
+            (identical(other.forwarder, forwarder) ||
+                other.forwarder == forwarder));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -460,24 +539,29 @@ class _$ChatMessageImpl extends _ChatMessage {
     ownerType,
     updatedAt,
     const DeepCollectionEquality().hash(_relatedContent),
+    sender,
+    forwarder,
   );
 
-  /// Create a copy of ChatMessage
+  /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
-      __$$ChatMessageImplCopyWithImpl<_$ChatMessageImpl>(this, _$identity);
+  _$$BaseChatMessageImplCopyWith<_$BaseChatMessageImpl> get copyWith =>
+      __$$BaseChatMessageImplCopyWithImpl<_$BaseChatMessageImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChatMessageImplToJson(this);
+    return _$$BaseChatMessageImplToJson(this);
   }
 }
 
-abstract class _ChatMessage extends ChatMessage {
-  const factory _ChatMessage({
+abstract class _BaseChatMessage extends BaseChatMessage {
+  const factory _BaseChatMessage({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'sender_uid') final String? senderUid,
     @JsonKey(name: 'message') final String? message,
@@ -491,13 +575,16 @@ abstract class _ChatMessage extends ChatMessage {
     @JsonKey(name: 'is_system_message') final bool? isSystemMessage,
     @JsonKey(name: 'owner_type') final String? ownerType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-    @JsonKey(name: 'related_content')
-    final Map<String, dynamic>? relatedContent,
-  }) = _$ChatMessageImpl;
-  const _ChatMessage._() : super._();
+    @JsonKey(name: 'related_content') final List<dynamic>? relatedContent,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    final BaseUser? sender,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    final BaseUser? forwarder,
+  }) = _$BaseChatMessageImpl;
+  const _BaseChatMessage._() : super._();
 
-  factory _ChatMessage.fromJson(Map<String, dynamic> json) =
-      _$ChatMessageImpl.fromJson;
+  factory _BaseChatMessage.fromJson(Map<String, dynamic> json) =
+      _$BaseChatMessageImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -540,12 +627,18 @@ abstract class _ChatMessage extends ChatMessage {
   DateTime? get updatedAt;
   @override
   @JsonKey(name: 'related_content')
-  Map<String, dynamic>? get relatedContent;
+  List<dynamic>? get relatedContent; // User objects excluded from auto JSON serialization
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  BaseUser? get sender;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  BaseUser? get forwarder;
 
-  /// Create a copy of ChatMessage
+  /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
+  _$$BaseChatMessageImplCopyWith<_$BaseChatMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

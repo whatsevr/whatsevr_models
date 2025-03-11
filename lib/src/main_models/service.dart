@@ -5,10 +5,10 @@ part 'service.g.dart';
 
 /// Represents a service offered in the system
 @freezed
-class Service with _$Service {
-  const Service._();
+class BaseService with _$BaseService {
+  const BaseService._();
 
-  const factory Service({
+  const factory BaseService({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'title') String? title,
@@ -17,9 +17,9 @@ class Service with _$Service {
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _Service;
+  }) = _BaseService;
 
   /// Creates a Service from Json map
-  factory Service.fromJson(Map<String, dynamic> json) => 
-      _$ServiceFromJson(json);
+  factory BaseService.fromJson(Map<String, dynamic> json) => 
+      _$BaseServiceFromJson(json);
 }

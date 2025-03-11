@@ -5,10 +5,10 @@ part 'flick.g.dart';
 
 /// Represents a flick content item in the system
 @freezed
-class Flick with _$Flick {
-  const Flick._();
+class BaseFlick with _$BaseFlick {
+  const BaseFlick._();
 
-  const factory Flick({
+  const factory BaseFlick({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'title') String? title,
@@ -36,8 +36,8 @@ class Flick with _$Flick {
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'related_content_uid') String? relatedContentUid,
-  }) = _Flick;
+  }) = _BaseFlick;
 
   /// Creates a Flick from Json map
-  factory Flick.fromJson(Map<String, dynamic> json) => _$FlickFromJson(json);
+  factory BaseFlick.fromJson(Map<String, dynamic> json) => _$BaseFlickFromJson(json);
 }

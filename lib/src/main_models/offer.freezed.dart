@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Offer _$OfferFromJson(Map<String, dynamic> json) {
-  return _Offer.fromJson(json);
+BaseOffer _$BaseOfferFromJson(Map<String, dynamic> json) {
+  return _BaseOffer.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Offer {
+mixin _$BaseOffer {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -81,19 +81,20 @@ mixin _$Offer {
   Map<String, dynamic>? get richDescription =>
       throw _privateConstructorUsedError;
 
-  /// Serializes this Offer to a JSON map.
+  /// Serializes this BaseOffer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Offer
+  /// Create a copy of BaseOffer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $OfferCopyWith<Offer> get copyWith => throw _privateConstructorUsedError;
+  $BaseOfferCopyWith<BaseOffer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OfferCopyWith<$Res> {
-  factory $OfferCopyWith(Offer value, $Res Function(Offer) then) =
-      _$OfferCopyWithImpl<$Res, Offer>;
+abstract class $BaseOfferCopyWith<$Res> {
+  factory $BaseOfferCopyWith(BaseOffer value, $Res Function(BaseOffer) then) =
+      _$BaseOfferCopyWithImpl<$Res, BaseOffer>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -129,16 +130,16 @@ abstract class $OfferCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OfferCopyWithImpl<$Res, $Val extends Offer>
-    implements $OfferCopyWith<$Res> {
-  _$OfferCopyWithImpl(this._value, this._then);
+class _$BaseOfferCopyWithImpl<$Res, $Val extends BaseOffer>
+    implements $BaseOfferCopyWith<$Res> {
+  _$BaseOfferCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Offer
+  /// Create a copy of BaseOffer
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -327,11 +328,12 @@ class _$OfferCopyWithImpl<$Res, $Val extends Offer>
 }
 
 /// @nodoc
-abstract class _$$OfferImplCopyWith<$Res> implements $OfferCopyWith<$Res> {
-  factory _$$OfferImplCopyWith(
-    _$OfferImpl value,
-    $Res Function(_$OfferImpl) then,
-  ) = __$$OfferImplCopyWithImpl<$Res>;
+abstract class _$$BaseOfferImplCopyWith<$Res>
+    implements $BaseOfferCopyWith<$Res> {
+  factory _$$BaseOfferImplCopyWith(
+    _$BaseOfferImpl value,
+    $Res Function(_$BaseOfferImpl) then,
+  ) = __$$BaseOfferImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -368,15 +370,15 @@ abstract class _$$OfferImplCopyWith<$Res> implements $OfferCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$OfferImplCopyWithImpl<$Res>
-    extends _$OfferCopyWithImpl<$Res, _$OfferImpl>
-    implements _$$OfferImplCopyWith<$Res> {
-  __$$OfferImplCopyWithImpl(
-    _$OfferImpl _value,
-    $Res Function(_$OfferImpl) _then,
+class __$$BaseOfferImplCopyWithImpl<$Res>
+    extends _$BaseOfferCopyWithImpl<$Res, _$BaseOfferImpl>
+    implements _$$BaseOfferImplCopyWith<$Res> {
+  __$$BaseOfferImplCopyWithImpl(
+    _$BaseOfferImpl _value,
+    $Res Function(_$BaseOfferImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Offer
+  /// Create a copy of BaseOffer
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -412,7 +414,7 @@ class __$$OfferImplCopyWithImpl<$Res>
     Object? richDescription = freezed,
   }) {
     return _then(
-      _$OfferImpl(
+      _$BaseOfferImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -565,8 +567,8 @@ class __$$OfferImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OfferImpl extends _Offer {
-  const _$OfferImpl({
+class _$BaseOfferImpl extends _BaseOffer {
+  const _$BaseOfferImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'title') this.title,
@@ -606,8 +608,8 @@ class _$OfferImpl extends _Offer {
        _richDescription = richDescription,
        super._();
 
-  factory _$OfferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OfferImplFromJson(json);
+  factory _$BaseOfferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseOfferImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -747,14 +749,14 @@ class _$OfferImpl extends _Offer {
 
   @override
   String toString() {
-    return 'Offer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription)';
+    return 'BaseOffer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OfferImpl &&
+            other is _$BaseOfferImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -855,22 +857,22 @@ class _$OfferImpl extends _Offer {
     const DeepCollectionEquality().hash(_richDescription),
   ]);
 
-  /// Create a copy of Offer
+  /// Create a copy of BaseOffer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$OfferImplCopyWith<_$OfferImpl> get copyWith =>
-      __$$OfferImplCopyWithImpl<_$OfferImpl>(this, _$identity);
+  _$$BaseOfferImplCopyWith<_$BaseOfferImpl> get copyWith =>
+      __$$BaseOfferImplCopyWithImpl<_$BaseOfferImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OfferImplToJson(this);
+    return _$$BaseOfferImplToJson(this);
   }
 }
 
-abstract class _Offer extends Offer {
-  const factory _Offer({
+abstract class _BaseOffer extends BaseOffer {
+  const factory _BaseOffer({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'title') final String? title,
@@ -903,10 +905,11 @@ abstract class _Offer extends Offer {
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'rich_description')
     final Map<String, dynamic>? richDescription,
-  }) = _$OfferImpl;
-  const _Offer._() : super._();
+  }) = _$BaseOfferImpl;
+  const _BaseOffer._() : super._();
 
-  factory _Offer.fromJson(Map<String, dynamic> json) = _$OfferImpl.fromJson;
+  factory _BaseOffer.fromJson(Map<String, dynamic> json) =
+      _$BaseOfferImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -996,10 +999,10 @@ abstract class _Offer extends Offer {
   @JsonKey(name: 'rich_description')
   Map<String, dynamic>? get richDescription;
 
-  /// Create a copy of Offer
+  /// Create a copy of BaseOffer
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OfferImplCopyWith<_$OfferImpl> get copyWith =>
+  _$$BaseOfferImplCopyWith<_$BaseOfferImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

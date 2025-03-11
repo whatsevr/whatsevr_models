@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Flick _$FlickFromJson(Map<String, dynamic> json) {
-  return _Flick.fromJson(json);
+BaseFlick _$BaseFlickFromJson(Map<String, dynamic> json) {
+  return _BaseFlick.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Flick {
+mixin _$BaseFlick {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -76,19 +76,20 @@ mixin _$Flick {
   @JsonKey(name: 'related_content_uid')
   String? get relatedContentUid => throw _privateConstructorUsedError;
 
-  /// Serializes this Flick to a JSON map.
+  /// Serializes this BaseFlick to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Flick
+  /// Create a copy of BaseFlick
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FlickCopyWith<Flick> get copyWith => throw _privateConstructorUsedError;
+  $BaseFlickCopyWith<BaseFlick> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FlickCopyWith<$Res> {
-  factory $FlickCopyWith(Flick value, $Res Function(Flick) then) =
-      _$FlickCopyWithImpl<$Res, Flick>;
+abstract class $BaseFlickCopyWith<$Res> {
+  factory $BaseFlickCopyWith(BaseFlick value, $Res Function(BaseFlick) then) =
+      _$BaseFlickCopyWithImpl<$Res, BaseFlick>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -122,16 +123,16 @@ abstract class $FlickCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FlickCopyWithImpl<$Res, $Val extends Flick>
-    implements $FlickCopyWith<$Res> {
-  _$FlickCopyWithImpl(this._value, this._then);
+class _$BaseFlickCopyWithImpl<$Res, $Val extends BaseFlick>
+    implements $BaseFlickCopyWith<$Res> {
+  _$BaseFlickCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Flick
+  /// Create a copy of BaseFlick
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -308,11 +309,12 @@ class _$FlickCopyWithImpl<$Res, $Val extends Flick>
 }
 
 /// @nodoc
-abstract class _$$FlickImplCopyWith<$Res> implements $FlickCopyWith<$Res> {
-  factory _$$FlickImplCopyWith(
-    _$FlickImpl value,
-    $Res Function(_$FlickImpl) then,
-  ) = __$$FlickImplCopyWithImpl<$Res>;
+abstract class _$$BaseFlickImplCopyWith<$Res>
+    implements $BaseFlickCopyWith<$Res> {
+  factory _$$BaseFlickImplCopyWith(
+    _$BaseFlickImpl value,
+    $Res Function(_$BaseFlickImpl) then,
+  ) = __$$BaseFlickImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -347,15 +349,15 @@ abstract class _$$FlickImplCopyWith<$Res> implements $FlickCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$FlickImplCopyWithImpl<$Res>
-    extends _$FlickCopyWithImpl<$Res, _$FlickImpl>
-    implements _$$FlickImplCopyWith<$Res> {
-  __$$FlickImplCopyWithImpl(
-    _$FlickImpl _value,
-    $Res Function(_$FlickImpl) _then,
+class __$$BaseFlickImplCopyWithImpl<$Res>
+    extends _$BaseFlickCopyWithImpl<$Res, _$BaseFlickImpl>
+    implements _$$BaseFlickImplCopyWith<$Res> {
+  __$$BaseFlickImplCopyWithImpl(
+    _$BaseFlickImpl _value,
+    $Res Function(_$BaseFlickImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Flick
+  /// Create a copy of BaseFlick
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -389,7 +391,7 @@ class __$$FlickImplCopyWithImpl<$Res>
     Object? relatedContentUid = freezed,
   }) {
     return _then(
-      _$FlickImpl(
+      _$BaseFlickImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -532,8 +534,8 @@ class __$$FlickImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FlickImpl extends _Flick {
-  const _$FlickImpl({
+class _$BaseFlickImpl extends _BaseFlick {
+  const _$BaseFlickImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'title') this.title,
@@ -567,8 +569,8 @@ class _$FlickImpl extends _Flick {
        _taggedCommunityUids = taggedCommunityUids,
        super._();
 
-  factory _$FlickImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FlickImplFromJson(json);
+  factory _$BaseFlickImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseFlickImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -679,14 +681,14 @@ class _$FlickImpl extends _Flick {
 
   @override
   String toString() {
-    return 'Flick(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, thumbnail: $thumbnail, videoUrl: $videoUrl, location: $location, totalViews: $totalViews, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, videoDurationInSec: $videoDurationInSec, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, relatedContentUid: $relatedContentUid)';
+    return 'BaseFlick(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, thumbnail: $thumbnail, videoUrl: $videoUrl, location: $location, totalViews: $totalViews, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, videoDurationInSec: $videoDurationInSec, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, relatedContentUid: $relatedContentUid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FlickImpl &&
+            other is _$BaseFlickImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -776,22 +778,22 @@ class _$FlickImpl extends _Flick {
     relatedContentUid,
   ]);
 
-  /// Create a copy of Flick
+  /// Create a copy of BaseFlick
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FlickImplCopyWith<_$FlickImpl> get copyWith =>
-      __$$FlickImplCopyWithImpl<_$FlickImpl>(this, _$identity);
+  _$$BaseFlickImplCopyWith<_$BaseFlickImpl> get copyWith =>
+      __$$BaseFlickImplCopyWithImpl<_$BaseFlickImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FlickImplToJson(this);
+    return _$$BaseFlickImplToJson(this);
   }
 }
 
-abstract class _Flick extends Flick {
-  const factory _Flick({
+abstract class _BaseFlick extends BaseFlick {
+  const factory _BaseFlick({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'title') final String? title,
@@ -821,10 +823,11 @@ abstract class _Flick extends Flick {
     @JsonKey(name: 'seo_data_weighted') final String? seoDataWeighted,
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'related_content_uid') final String? relatedContentUid,
-  }) = _$FlickImpl;
-  const _Flick._() : super._();
+  }) = _$BaseFlickImpl;
+  const _BaseFlick._() : super._();
 
-  factory _Flick.fromJson(Map<String, dynamic> json) = _$FlickImpl.fromJson;
+  factory _BaseFlick.fromJson(Map<String, dynamic> json) =
+      _$BaseFlickImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -908,10 +911,10 @@ abstract class _Flick extends Flick {
   @JsonKey(name: 'related_content_uid')
   String? get relatedContentUid;
 
-  /// Create a copy of Flick
+  /// Create a copy of BaseFlick
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FlickImplCopyWith<_$FlickImpl> get copyWith =>
+  _$$BaseFlickImplCopyWith<_$BaseFlickImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

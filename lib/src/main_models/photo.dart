@@ -5,10 +5,10 @@ part 'photo.g.dart';
 
 /// Represents a photo in the system
 @freezed
-class Photo with _$Photo {
-  const Photo._();
+class BasePhoto with _$BasePhoto {
+  const BasePhoto._();
 
-  const factory Photo({
+  const factory BasePhoto({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'title') String? title,
@@ -33,8 +33,8 @@ class Photo with _$Photo {
     @JsonKey(name: 'files_data') Map<String, dynamic>? filesData,
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'community_uid') String? communityUid,
-  }) = _Photo;
+  }) = _BasePhoto;
 
   /// Creates a Photo from Json map
-  factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
+  factory BasePhoto.fromJson(Map<String, dynamic> json) => _$BasePhotoFromJson(json);
 }

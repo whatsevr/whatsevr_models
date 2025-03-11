@@ -6,34 +6,35 @@ part of 'work_experience.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WorkExperienceImpl _$$WorkExperienceImplFromJson(Map<String, dynamic> json) =>
-    _$WorkExperienceImpl(
-      id: (json['id'] as num?)?.toInt(),
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      designation: json['designation'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
-      userUid: json['user_uid'] as String?,
-      workingMode: json['working_mode'] as String?,
-      isCurrentlyWorking: json['is_currently_working'] as bool?,
-      companyName: json['company_name'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-    );
+_$BaseWorkExperienceImpl _$$BaseWorkExperienceImplFromJson(
+  Map<String, dynamic> json,
+) => _$BaseWorkExperienceImpl(
+  id: (json['id'] as num?)?.toInt(),
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  designation: json['designation'] as String?,
+  startDate:
+      json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+  endDate:
+      json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
+  userUid: json['user_uid'] as String?,
+  workingMode: json['working_mode'] as String?,
+  isCurrentlyWorking: json['is_currently_working'] as bool?,
+  companyName: json['company_name'] as String?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+);
 
-Map<String, dynamic> _$$WorkExperienceImplToJson(
-  _$WorkExperienceImpl instance,
+Map<String, dynamic> _$$BaseWorkExperienceImplToJson(
+  _$BaseWorkExperienceImpl instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'created_at': instance.createdAt?.toIso8601String(),

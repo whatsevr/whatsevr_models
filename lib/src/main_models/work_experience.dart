@@ -5,10 +5,10 @@ part 'work_experience.g.dart';
 
 /// Represents a work experience entry in the system
 @freezed
-class WorkExperience with _$WorkExperience {
-  const WorkExperience._();
+class BaseWorkExperience with _$BaseWorkExperience {
+  const BaseWorkExperience._();
 
-  const factory WorkExperience({
+  const factory BaseWorkExperience({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'designation') String? designation,
@@ -19,9 +19,9 @@ class WorkExperience with _$WorkExperience {
     @JsonKey(name: 'is_currently_working') bool? isCurrentlyWorking,
     @JsonKey(name: 'company_name') String? companyName,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _WorkExperience;
+  }) = _BaseWorkExperience;
 
   /// Creates a WorkExperience from Json map
-  factory WorkExperience.fromJson(Map<String, dynamic> json) => 
-      _$WorkExperienceFromJson(json);
+  factory BaseWorkExperience.fromJson(Map<String, dynamic> json) => 
+      _$BaseWorkExperienceFromJson(json);
 }

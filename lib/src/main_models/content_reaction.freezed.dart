@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-ContentReaction _$ContentReactionFromJson(Map<String, dynamic> json) {
-  return _ContentReaction.fromJson(json);
+BaseContentReaction _$BaseContentReactionFromJson(Map<String, dynamic> json) {
+  return _BaseContentReaction.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ContentReaction {
+mixin _$BaseContentReaction {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_uid')
@@ -48,22 +48,22 @@ mixin _$ContentReaction {
   @JsonKey(name: 'content_owner_user_uid')
   String? get contentOwnerUserUid => throw _privateConstructorUsedError;
 
-  /// Serializes this ContentReaction to a JSON map.
+  /// Serializes this BaseContentReaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ContentReaction
+  /// Create a copy of BaseContentReaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ContentReactionCopyWith<ContentReaction> get copyWith =>
+  $BaseContentReactionCopyWith<BaseContentReaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ContentReactionCopyWith<$Res> {
-  factory $ContentReactionCopyWith(
-    ContentReaction value,
-    $Res Function(ContentReaction) then,
-  ) = _$ContentReactionCopyWithImpl<$Res, ContentReaction>;
+abstract class $BaseContentReactionCopyWith<$Res> {
+  factory $BaseContentReactionCopyWith(
+    BaseContentReaction value,
+    $Res Function(BaseContentReaction) then,
+  ) = _$BaseContentReactionCopyWithImpl<$Res, BaseContentReaction>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -83,16 +83,16 @@ abstract class $ContentReactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ContentReactionCopyWithImpl<$Res, $Val extends ContentReaction>
-    implements $ContentReactionCopyWith<$Res> {
-  _$ContentReactionCopyWithImpl(this._value, this._then);
+class _$BaseContentReactionCopyWithImpl<$Res, $Val extends BaseContentReaction>
+    implements $BaseContentReactionCopyWith<$Res> {
+  _$BaseContentReactionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ContentReaction
+  /// Create a copy of BaseContentReaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -185,12 +185,12 @@ class _$ContentReactionCopyWithImpl<$Res, $Val extends ContentReaction>
 }
 
 /// @nodoc
-abstract class _$$ContentReactionImplCopyWith<$Res>
-    implements $ContentReactionCopyWith<$Res> {
-  factory _$$ContentReactionImplCopyWith(
-    _$ContentReactionImpl value,
-    $Res Function(_$ContentReactionImpl) then,
-  ) = __$$ContentReactionImplCopyWithImpl<$Res>;
+abstract class _$$BaseContentReactionImplCopyWith<$Res>
+    implements $BaseContentReactionCopyWith<$Res> {
+  factory _$$BaseContentReactionImplCopyWith(
+    _$BaseContentReactionImpl value,
+    $Res Function(_$BaseContentReactionImpl) then,
+  ) = __$$BaseContentReactionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -211,15 +211,15 @@ abstract class _$$ContentReactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ContentReactionImplCopyWithImpl<$Res>
-    extends _$ContentReactionCopyWithImpl<$Res, _$ContentReactionImpl>
-    implements _$$ContentReactionImplCopyWith<$Res> {
-  __$$ContentReactionImplCopyWithImpl(
-    _$ContentReactionImpl _value,
-    $Res Function(_$ContentReactionImpl) _then,
+class __$$BaseContentReactionImplCopyWithImpl<$Res>
+    extends _$BaseContentReactionCopyWithImpl<$Res, _$BaseContentReactionImpl>
+    implements _$$BaseContentReactionImplCopyWith<$Res> {
+  __$$BaseContentReactionImplCopyWithImpl(
+    _$BaseContentReactionImpl _value,
+    $Res Function(_$BaseContentReactionImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of ContentReaction
+  /// Create a copy of BaseContentReaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -239,7 +239,7 @@ class __$$ContentReactionImplCopyWithImpl<$Res>
     Object? contentOwnerUserUid = freezed,
   }) {
     return _then(
-      _$ContentReactionImpl(
+      _$BaseContentReactionImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -312,8 +312,8 @@ class __$$ContentReactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ContentReactionImpl extends _ContentReaction {
-  const _$ContentReactionImpl({
+class _$BaseContentReactionImpl extends _BaseContentReaction {
+  const _$BaseContentReactionImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'user_uid') this.userUid,
     @JsonKey(name: 'wtv_uid') this.wtvUid,
@@ -329,8 +329,8 @@ class _$ContentReactionImpl extends _ContentReaction {
     @JsonKey(name: 'content_owner_user_uid') this.contentOwnerUserUid,
   }) : super._();
 
-  factory _$ContentReactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContentReactionImplFromJson(json);
+  factory _$BaseContentReactionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseContentReactionImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -374,14 +374,14 @@ class _$ContentReactionImpl extends _ContentReaction {
 
   @override
   String toString() {
-    return 'ContentReaction(createdAt: $createdAt, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, memoryUid: $memoryUid, offerUid: $offerUid, photoUid: $photoUid, pdfUid: $pdfUid, uid: $uid, reactionType: $reactionType, contentType: $contentType, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
+    return 'BaseContentReaction(createdAt: $createdAt, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, memoryUid: $memoryUid, offerUid: $offerUid, photoUid: $photoUid, pdfUid: $pdfUid, uid: $uid, reactionType: $reactionType, contentType: $contentType, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContentReactionImpl &&
+            other is _$BaseContentReactionImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.userUid, userUid) || other.userUid == userUid) &&
@@ -425,25 +425,25 @@ class _$ContentReactionImpl extends _ContentReaction {
     contentOwnerUserUid,
   );
 
-  /// Create a copy of ContentReaction
+  /// Create a copy of BaseContentReaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContentReactionImplCopyWith<_$ContentReactionImpl> get copyWith =>
-      __$$ContentReactionImplCopyWithImpl<_$ContentReactionImpl>(
+  _$$BaseContentReactionImplCopyWith<_$BaseContentReactionImpl> get copyWith =>
+      __$$BaseContentReactionImplCopyWithImpl<_$BaseContentReactionImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ContentReactionImplToJson(this);
+    return _$$BaseContentReactionImplToJson(this);
   }
 }
 
-abstract class _ContentReaction extends ContentReaction {
-  const factory _ContentReaction({
+abstract class _BaseContentReaction extends BaseContentReaction {
+  const factory _BaseContentReaction({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'user_uid') final String? userUid,
     @JsonKey(name: 'wtv_uid') final String? wtvUid,
@@ -457,11 +457,11 @@ abstract class _ContentReaction extends ContentReaction {
     @JsonKey(name: 'content_type') final String? contentType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'content_owner_user_uid') final String? contentOwnerUserUid,
-  }) = _$ContentReactionImpl;
-  const _ContentReaction._() : super._();
+  }) = _$BaseContentReactionImpl;
+  const _BaseContentReaction._() : super._();
 
-  factory _ContentReaction.fromJson(Map<String, dynamic> json) =
-      _$ContentReactionImpl.fromJson;
+  factory _BaseContentReaction.fromJson(Map<String, dynamic> json) =
+      _$BaseContentReactionImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -503,10 +503,10 @@ abstract class _ContentReaction extends ContentReaction {
   @JsonKey(name: 'content_owner_user_uid')
   String? get contentOwnerUserUid;
 
-  /// Create a copy of ContentReaction
+  /// Create a copy of BaseContentReaction
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContentReactionImplCopyWith<_$ContentReactionImpl> get copyWith =>
+  _$$BaseContentReactionImplCopyWith<_$BaseContentReactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

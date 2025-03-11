@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
+BaseUser _$BaseUserFromJson(Map<String, dynamic> json) {
+  return _BaseUser.fromJson(json);
 }
 
 /// @nodoc
-mixin _$User {
+mixin _$BaseUser {
   @JsonKey(name: 'registered_at')
   DateTime? get registeredAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -84,19 +84,20 @@ mixin _$User {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this User to a JSON map.
+  /// Serializes this BaseUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of User
+  /// Create a copy of BaseUser
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $BaseUserCopyWith<BaseUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
+abstract class $BaseUserCopyWith<$Res> {
+  factory $BaseUserCopyWith(BaseUser value, $Res Function(BaseUser) then) =
+      _$BaseUserCopyWithImpl<$Res, BaseUser>;
   @useResult
   $Res call({
     @JsonKey(name: 'registered_at') DateTime? registeredAt,
@@ -134,16 +135,16 @@ abstract class $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$BaseUserCopyWithImpl<$Res, $Val extends BaseUser>
+    implements $BaseUserCopyWith<$Res> {
+  _$BaseUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of User
+  /// Create a copy of BaseUser
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -344,11 +345,12 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-    _$UserImpl value,
-    $Res Function(_$UserImpl) then,
-  ) = __$$UserImplCopyWithImpl<$Res>;
+abstract class _$$BaseUserImplCopyWith<$Res>
+    implements $BaseUserCopyWith<$Res> {
+  factory _$$BaseUserImplCopyWith(
+    _$BaseUserImpl value,
+    $Res Function(_$BaseUserImpl) then,
+  ) = __$$BaseUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -387,13 +389,15 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-    : super(_value, _then);
+class __$$BaseUserImplCopyWithImpl<$Res>
+    extends _$BaseUserCopyWithImpl<$Res, _$BaseUserImpl>
+    implements _$$BaseUserImplCopyWith<$Res> {
+  __$$BaseUserImplCopyWithImpl(
+    _$BaseUserImpl _value,
+    $Res Function(_$BaseUserImpl) _then,
+  ) : super(_value, _then);
 
-  /// Create a copy of User
+  /// Create a copy of BaseUser
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -431,7 +435,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$UserImpl(
+      _$BaseUserImpl(
         registeredAt:
             freezed == registeredAt
                 ? _value.registeredAt
@@ -594,8 +598,8 @@ class __$$UserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl implements _User {
-  const _$UserImpl({
+class _$BaseUserImpl implements _BaseUser {
+  const _$BaseUserImpl({
     @JsonKey(name: 'registered_at') this.registeredAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'username') this.username,
@@ -629,8 +633,8 @@ class _$UserImpl implements _User {
     @JsonKey(name: 'updated_at') this.updatedAt,
   });
 
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
+  factory _$BaseUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseUserImplFromJson(json);
 
   @override
   @JsonKey(name: 'registered_at')
@@ -728,14 +732,14 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt)';
+    return 'BaseUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
+            other is _$BaseUserImpl &&
             (identical(other.registeredAt, registeredAt) ||
                 other.registeredAt == registeredAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -829,22 +833,22 @@ class _$UserImpl implements _User {
     updatedAt,
   ]);
 
-  /// Create a copy of User
+  /// Create a copy of BaseUser
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
+  _$$BaseUserImplCopyWith<_$BaseUserImpl> get copyWith =>
+      __$$BaseUserImplCopyWithImpl<_$BaseUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(this);
+    return _$$BaseUserImplToJson(this);
   }
 }
 
-abstract class _User implements User {
-  const factory _User({
+abstract class _BaseUser implements BaseUser {
+  const factory _BaseUser({
     @JsonKey(name: 'registered_at') final DateTime? registeredAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'username') final String? username,
@@ -876,9 +880,10 @@ abstract class _User implements User {
     @JsonKey(name: 'auth_provider') final String? authProvider,
     @JsonKey(name: 'public_mobile_number') final String? publicMobileNumber,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$UserImpl;
+  }) = _$BaseUserImpl;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+  factory _BaseUser.fromJson(Map<String, dynamic> json) =
+      _$BaseUserImpl.fromJson;
 
   @override
   @JsonKey(name: 'registered_at')
@@ -974,10 +979,10 @@ abstract class _User implements User {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of User
+  /// Create a copy of BaseUser
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+  _$$BaseUserImplCopyWith<_$BaseUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

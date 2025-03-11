@@ -6,9 +6,9 @@ part of 'content_reaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ContentReactionImpl _$$ContentReactionImplFromJson(
+_$BaseContentReactionImpl _$$BaseContentReactionImplFromJson(
   Map<String, dynamic> json,
-) => _$ContentReactionImpl(
+) => _$BaseContentReactionImpl(
   createdAt:
       json['created_at'] == null
           ? null
@@ -30,8 +30,8 @@ _$ContentReactionImpl _$$ContentReactionImplFromJson(
   contentOwnerUserUid: json['content_owner_user_uid'] as String?,
 );
 
-Map<String, dynamic> _$$ContentReactionImplToJson(
-  _$ContentReactionImpl instance,
+Map<String, dynamic> _$$BaseContentReactionImplToJson(
+  _$BaseContentReactionImpl instance,
 ) => <String, dynamic>{
   'created_at': instance.createdAt?.toIso8601String(),
   'user_uid': instance.userUid,

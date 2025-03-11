@@ -5,10 +5,10 @@ part 'platform_alert.g.dart';
 
 /// Represents a platform alert in the system
 @freezed
-class PlatformAlert with _$PlatformAlert {
-  const PlatformAlert._();
+class BasePlatformAlert with _$BasePlatformAlert {
+  const BasePlatformAlert._();
 
-  const factory PlatformAlert({
+  const factory BasePlatformAlert({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'recipient_user_uid') String? recipientUserUid,
@@ -17,8 +17,8 @@ class PlatformAlert with _$PlatformAlert {
     @JsonKey(name: 'actor_user_uid') String? actorUserUid,
     @JsonKey(name: 'alert_type') String? alertType,
     @JsonKey(name: 'content') Map<String, dynamic>? content,
-  }) = _PlatformAlert;
+  }) = _BasePlatformAlert;
 
   /// Creates a PlatformAlert from Json map
-  factory PlatformAlert.fromJson(Map<String, dynamic> json) => _$PlatformAlertFromJson(json);
+  factory BasePlatformAlert.fromJson(Map<String, dynamic> json) => _$BasePlatformAlertFromJson(json);
 }

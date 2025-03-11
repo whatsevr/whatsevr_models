@@ -1,2 +1,23 @@
 export 'src/api_response_models/platform_alerts/get_user_alerts.dart';
-
+export 'src/main_models/chat_message.dart';
+export 'src/main_models/collection.dart';
+export 'src/main_models/comment.dart';
+export 'src/main_models/comment_reply.dart';
+export 'src/main_models/community.dart';
+export 'src/main_models/community_member.dart';
+export 'src/main_models/content_reaction.dart';
+export 'src/main_models/cover_media.dart';
+export 'src/main_models/education.dart';
+export 'src/main_models/flick.dart';
+export 'src/main_models/memory.dart';
+export 'src/main_models/offer.dart';
+export 'src/main_models/pdf.dart';
+export 'src/main_models/photo.dart';
+export 'src/main_models/platform_alert.dart';
+export 'src/main_models/platform_report.dart';
+export 'src/main_models/private_chat.dart';
+export 'src/main_models/service.dart';
+export 'src/main_models/tracked_activity.dart';
+export 'src/main_models/user.dart';
+export 'src/main_models/users_relation.dart';
+export 'src/main_models/work_experience.dart';

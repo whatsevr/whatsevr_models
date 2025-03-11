@@ -5,10 +5,10 @@ part 'community.g.dart';
 
 /// Represents a community in the system
 @freezed
-class Community with _$Community {
-  const Community._();
+class BaseCommunity with _$BaseCommunity {
+  const BaseCommunity._();
 
-  const factory Community({
+  const factory BaseCommunity({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'admin_user_uid') String? adminUserUid,
     @JsonKey(name: 'status') String? status,
@@ -25,8 +25,8 @@ class Community with _$Community {
     @JsonKey(name: 'plain_last_message') String? plainLastMessage,
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _Community;
+  }) = _BaseCommunity;
 
   /// Creates a Community from Json map
-  factory Community.fromJson(Map<String, dynamic> json) => _$CommunityFromJson(json);
+  factory BaseCommunity.fromJson(Map<String, dynamic> json) => _$BaseCommunityFromJson(json);
 }

@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-CoverMedia _$CoverMediaFromJson(Map<String, dynamic> json) {
-  return _CoverMedia.fromJson(json);
+BaseCoverMedia _$BaseCoverMediaFromJson(Map<String, dynamic> json) {
+  return _BaseCoverMedia.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CoverMedia {
+mixin _$BaseCoverMedia {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -40,22 +40,22 @@ mixin _$CoverMedia {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this CoverMedia to a JSON map.
+  /// Serializes this BaseCoverMedia to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of CoverMedia
+  /// Create a copy of BaseCoverMedia
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CoverMediaCopyWith<CoverMedia> get copyWith =>
+  $BaseCoverMediaCopyWith<BaseCoverMedia> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CoverMediaCopyWith<$Res> {
-  factory $CoverMediaCopyWith(
-    CoverMedia value,
-    $Res Function(CoverMedia) then,
-  ) = _$CoverMediaCopyWithImpl<$Res, CoverMedia>;
+abstract class $BaseCoverMediaCopyWith<$Res> {
+  factory $BaseCoverMediaCopyWith(
+    BaseCoverMedia value,
+    $Res Function(BaseCoverMedia) then,
+  ) = _$BaseCoverMediaCopyWithImpl<$Res, BaseCoverMedia>;
   @useResult
   $Res call({
     @JsonKey(name: 'id') int? id,
@@ -71,16 +71,16 @@ abstract class $CoverMediaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CoverMediaCopyWithImpl<$Res, $Val extends CoverMedia>
-    implements $CoverMediaCopyWith<$Res> {
-  _$CoverMediaCopyWithImpl(this._value, this._then);
+class _$BaseCoverMediaCopyWithImpl<$Res, $Val extends BaseCoverMedia>
+    implements $BaseCoverMediaCopyWith<$Res> {
+  _$BaseCoverMediaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CoverMedia
+  /// Create a copy of BaseCoverMedia
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -149,12 +149,12 @@ class _$CoverMediaCopyWithImpl<$Res, $Val extends CoverMedia>
 }
 
 /// @nodoc
-abstract class _$$CoverMediaImplCopyWith<$Res>
-    implements $CoverMediaCopyWith<$Res> {
-  factory _$$CoverMediaImplCopyWith(
-    _$CoverMediaImpl value,
-    $Res Function(_$CoverMediaImpl) then,
-  ) = __$$CoverMediaImplCopyWithImpl<$Res>;
+abstract class _$$BaseCoverMediaImplCopyWith<$Res>
+    implements $BaseCoverMediaCopyWith<$Res> {
+  factory _$$BaseCoverMediaImplCopyWith(
+    _$BaseCoverMediaImpl value,
+    $Res Function(_$BaseCoverMediaImpl) then,
+  ) = __$$BaseCoverMediaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -171,15 +171,15 @@ abstract class _$$CoverMediaImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CoverMediaImplCopyWithImpl<$Res>
-    extends _$CoverMediaCopyWithImpl<$Res, _$CoverMediaImpl>
-    implements _$$CoverMediaImplCopyWith<$Res> {
-  __$$CoverMediaImplCopyWithImpl(
-    _$CoverMediaImpl _value,
-    $Res Function(_$CoverMediaImpl) _then,
+class __$$BaseCoverMediaImplCopyWithImpl<$Res>
+    extends _$BaseCoverMediaCopyWithImpl<$Res, _$BaseCoverMediaImpl>
+    implements _$$BaseCoverMediaImplCopyWith<$Res> {
+  __$$BaseCoverMediaImplCopyWithImpl(
+    _$BaseCoverMediaImpl _value,
+    $Res Function(_$BaseCoverMediaImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of CoverMedia
+  /// Create a copy of BaseCoverMedia
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -195,7 +195,7 @@ class __$$CoverMediaImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$CoverMediaImpl(
+      _$BaseCoverMediaImpl(
         id:
             freezed == id
                 ? _value.id
@@ -248,8 +248,8 @@ class __$$CoverMediaImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CoverMediaImpl extends _CoverMedia {
-  const _$CoverMediaImpl({
+class _$BaseCoverMediaImpl extends _BaseCoverMedia {
+  const _$BaseCoverMediaImpl({
     @JsonKey(name: 'id') this.id,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'image_url') this.imageUrl,
@@ -261,8 +261,8 @@ class _$CoverMediaImpl extends _CoverMedia {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$CoverMediaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CoverMediaImplFromJson(json);
+  factory _$BaseCoverMediaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseCoverMediaImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -294,14 +294,14 @@ class _$CoverMediaImpl extends _CoverMedia {
 
   @override
   String toString() {
-    return 'CoverMedia(id: $id, createdAt: $createdAt, imageUrl: $imageUrl, isVideo: $isVideo, userUid: $userUid, videoUrl: $videoUrl, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt)';
+    return 'BaseCoverMedia(id: $id, createdAt: $createdAt, imageUrl: $imageUrl, isVideo: $isVideo, userUid: $userUid, videoUrl: $videoUrl, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CoverMediaImpl &&
+            other is _$BaseCoverMediaImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -334,22 +334,25 @@ class _$CoverMediaImpl extends _CoverMedia {
     updatedAt,
   );
 
-  /// Create a copy of CoverMedia
+  /// Create a copy of BaseCoverMedia
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CoverMediaImplCopyWith<_$CoverMediaImpl> get copyWith =>
-      __$$CoverMediaImplCopyWithImpl<_$CoverMediaImpl>(this, _$identity);
+  _$$BaseCoverMediaImplCopyWith<_$BaseCoverMediaImpl> get copyWith =>
+      __$$BaseCoverMediaImplCopyWithImpl<_$BaseCoverMediaImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CoverMediaImplToJson(this);
+    return _$$BaseCoverMediaImplToJson(this);
   }
 }
 
-abstract class _CoverMedia extends CoverMedia {
-  const factory _CoverMedia({
+abstract class _BaseCoverMedia extends BaseCoverMedia {
+  const factory _BaseCoverMedia({
     @JsonKey(name: 'id') final int? id,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'image_url') final String? imageUrl,
@@ -359,11 +362,11 @@ abstract class _CoverMedia extends CoverMedia {
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'owner_type') final String? ownerType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$CoverMediaImpl;
-  const _CoverMedia._() : super._();
+  }) = _$BaseCoverMediaImpl;
+  const _BaseCoverMedia._() : super._();
 
-  factory _CoverMedia.fromJson(Map<String, dynamic> json) =
-      _$CoverMediaImpl.fromJson;
+  factory _BaseCoverMedia.fromJson(Map<String, dynamic> json) =
+      _$BaseCoverMediaImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -393,10 +396,10 @@ abstract class _CoverMedia extends CoverMedia {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of CoverMedia
+  /// Create a copy of BaseCoverMedia
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CoverMediaImplCopyWith<_$CoverMediaImpl> get copyWith =>
+  _$$BaseCoverMediaImplCopyWith<_$BaseCoverMediaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

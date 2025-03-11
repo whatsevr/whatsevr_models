@@ -5,10 +5,10 @@ part 'users_relation.g.dart';
 
 /// Represents a relation between users in the system
 @freezed
-class UsersRelation with _$UsersRelation {
-  const UsersRelation._();
+class BaseUsersRelation with _$BaseUsersRelation {
+  const BaseUsersRelation._();
 
-  const factory UsersRelation({
+  const factory BaseUsersRelation({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'follower_user_uid') String? followerUserUid,
@@ -17,9 +17,9 @@ class UsersRelation with _$UsersRelation {
     @JsonKey(name: 'is_favorite') bool? isFavorite,
     @JsonKey(name: 'notifications_enabled') bool? notificationsEnabled,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _UsersRelation;
+  }) = _BaseUsersRelation;
 
   /// Creates a UsersRelation from Json map
-  factory UsersRelation.fromJson(Map<String, dynamic> json) => 
-      _$UsersRelationFromJson(json);
+  factory BaseUsersRelation.fromJson(Map<String, dynamic> json) => 
+      _$BaseUsersRelationFromJson(json);
 }

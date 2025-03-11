@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Pdf _$PdfFromJson(Map<String, dynamic> json) {
-  return _Pdf.fromJson(json);
+BasePdf _$BasePdfFromJson(Map<String, dynamic> json) {
+  return _BasePdf.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Pdf {
+mixin _$BasePdf {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'file_url')
@@ -48,19 +48,19 @@ mixin _$Pdf {
   @JsonKey(name: 'total_impressions')
   int? get totalImpressions => throw _privateConstructorUsedError;
 
-  /// Serializes this Pdf to a JSON map.
+  /// Serializes this BasePdf to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Pdf
+  /// Create a copy of BasePdf
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PdfCopyWith<Pdf> get copyWith => throw _privateConstructorUsedError;
+  $BasePdfCopyWith<BasePdf> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PdfCopyWith<$Res> {
-  factory $PdfCopyWith(Pdf value, $Res Function(Pdf) then) =
-      _$PdfCopyWithImpl<$Res, Pdf>;
+abstract class $BasePdfCopyWith<$Res> {
+  factory $BasePdfCopyWith(BasePdf value, $Res Function(BasePdf) then) =
+      _$BasePdfCopyWithImpl<$Res, BasePdf>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -80,15 +80,16 @@ abstract class $PdfCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PdfCopyWithImpl<$Res, $Val extends Pdf> implements $PdfCopyWith<$Res> {
-  _$PdfCopyWithImpl(this._value, this._then);
+class _$BasePdfCopyWithImpl<$Res, $Val extends BasePdf>
+    implements $BasePdfCopyWith<$Res> {
+  _$BasePdfCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Pdf
+  /// Create a copy of BasePdf
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -181,9 +182,11 @@ class _$PdfCopyWithImpl<$Res, $Val extends Pdf> implements $PdfCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$PdfImplCopyWith<$Res> implements $PdfCopyWith<$Res> {
-  factory _$$PdfImplCopyWith(_$PdfImpl value, $Res Function(_$PdfImpl) then) =
-      __$$PdfImplCopyWithImpl<$Res>;
+abstract class _$$BasePdfImplCopyWith<$Res> implements $BasePdfCopyWith<$Res> {
+  factory _$$BasePdfImplCopyWith(
+    _$BasePdfImpl value,
+    $Res Function(_$BasePdfImpl) then,
+  ) = __$$BasePdfImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -204,12 +207,15 @@ abstract class _$$PdfImplCopyWith<$Res> implements $PdfCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PdfImplCopyWithImpl<$Res> extends _$PdfCopyWithImpl<$Res, _$PdfImpl>
-    implements _$$PdfImplCopyWith<$Res> {
-  __$$PdfImplCopyWithImpl(_$PdfImpl _value, $Res Function(_$PdfImpl) _then)
-    : super(_value, _then);
+class __$$BasePdfImplCopyWithImpl<$Res>
+    extends _$BasePdfCopyWithImpl<$Res, _$BasePdfImpl>
+    implements _$$BasePdfImplCopyWith<$Res> {
+  __$$BasePdfImplCopyWithImpl(
+    _$BasePdfImpl _value,
+    $Res Function(_$BasePdfImpl) _then,
+  ) : super(_value, _then);
 
-  /// Create a copy of Pdf
+  /// Create a copy of BasePdf
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -229,7 +235,7 @@ class __$$PdfImplCopyWithImpl<$Res> extends _$PdfCopyWithImpl<$Res, _$PdfImpl>
     Object? totalImpressions = freezed,
   }) {
     return _then(
-      _$PdfImpl(
+      _$BasePdfImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -302,8 +308,8 @@ class __$$PdfImplCopyWithImpl<$Res> extends _$PdfCopyWithImpl<$Res, _$PdfImpl>
 
 /// @nodoc
 @JsonSerializable()
-class _$PdfImpl extends _Pdf {
-  const _$PdfImpl({
+class _$BasePdfImpl extends _BasePdf {
+  const _$BasePdfImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'file_url') this.fileUrl,
     @JsonKey(name: 'user_uid') this.userUid,
@@ -319,8 +325,8 @@ class _$PdfImpl extends _Pdf {
     @JsonKey(name: 'total_impressions') this.totalImpressions,
   }) : super._();
 
-  factory _$PdfImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PdfImplFromJson(json);
+  factory _$BasePdfImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BasePdfImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -364,14 +370,14 @@ class _$PdfImpl extends _Pdf {
 
   @override
   String toString() {
-    return 'Pdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions)';
+    return 'BasePdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PdfImpl &&
+            other is _$BasePdfImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl) &&
@@ -415,22 +421,22 @@ class _$PdfImpl extends _Pdf {
     totalImpressions,
   );
 
-  /// Create a copy of Pdf
+  /// Create a copy of BasePdf
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PdfImplCopyWith<_$PdfImpl> get copyWith =>
-      __$$PdfImplCopyWithImpl<_$PdfImpl>(this, _$identity);
+  _$$BasePdfImplCopyWith<_$BasePdfImpl> get copyWith =>
+      __$$BasePdfImplCopyWithImpl<_$BasePdfImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PdfImplToJson(this);
+    return _$$BasePdfImplToJson(this);
   }
 }
 
-abstract class _Pdf extends Pdf {
-  const factory _Pdf({
+abstract class _BasePdf extends BasePdf {
+  const factory _BasePdf({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'file_url') final String? fileUrl,
     @JsonKey(name: 'user_uid') final String? userUid,
@@ -444,10 +450,10 @@ abstract class _Pdf extends Pdf {
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'total_impressions') final int? totalImpressions,
-  }) = _$PdfImpl;
-  const _Pdf._() : super._();
+  }) = _$BasePdfImpl;
+  const _BasePdf._() : super._();
 
-  factory _Pdf.fromJson(Map<String, dynamic> json) = _$PdfImpl.fromJson;
+  factory _BasePdf.fromJson(Map<String, dynamic> json) = _$BasePdfImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -489,10 +495,10 @@ abstract class _Pdf extends Pdf {
   @JsonKey(name: 'total_impressions')
   int? get totalImpressions;
 
-  /// Create a copy of Pdf
+  /// Create a copy of BasePdf
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PdfImplCopyWith<_$PdfImpl> get copyWith =>
+  _$$BasePdfImplCopyWith<_$BasePdfImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

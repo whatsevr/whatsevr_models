@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-UsersRelation _$UsersRelationFromJson(Map<String, dynamic> json) {
-  return _UsersRelation.fromJson(json);
+BaseUsersRelation _$BaseUsersRelationFromJson(Map<String, dynamic> json) {
+  return _BaseUsersRelation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UsersRelation {
+mixin _$BaseUsersRelation {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -38,22 +38,22 @@ mixin _$UsersRelation {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this UsersRelation to a JSON map.
+  /// Serializes this BaseUsersRelation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of UsersRelation
+  /// Create a copy of BaseUsersRelation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $UsersRelationCopyWith<UsersRelation> get copyWith =>
+  $BaseUsersRelationCopyWith<BaseUsersRelation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UsersRelationCopyWith<$Res> {
-  factory $UsersRelationCopyWith(
-    UsersRelation value,
-    $Res Function(UsersRelation) then,
-  ) = _$UsersRelationCopyWithImpl<$Res, UsersRelation>;
+abstract class $BaseUsersRelationCopyWith<$Res> {
+  factory $BaseUsersRelationCopyWith(
+    BaseUsersRelation value,
+    $Res Function(BaseUsersRelation) then,
+  ) = _$BaseUsersRelationCopyWithImpl<$Res, BaseUsersRelation>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -68,16 +68,16 @@ abstract class $UsersRelationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UsersRelationCopyWithImpl<$Res, $Val extends UsersRelation>
-    implements $UsersRelationCopyWith<$Res> {
-  _$UsersRelationCopyWithImpl(this._value, this._then);
+class _$BaseUsersRelationCopyWithImpl<$Res, $Val extends BaseUsersRelation>
+    implements $BaseUsersRelationCopyWith<$Res> {
+  _$BaseUsersRelationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UsersRelation
+  /// Create a copy of BaseUsersRelation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -140,12 +140,12 @@ class _$UsersRelationCopyWithImpl<$Res, $Val extends UsersRelation>
 }
 
 /// @nodoc
-abstract class _$$UsersRelationImplCopyWith<$Res>
-    implements $UsersRelationCopyWith<$Res> {
-  factory _$$UsersRelationImplCopyWith(
-    _$UsersRelationImpl value,
-    $Res Function(_$UsersRelationImpl) then,
-  ) = __$$UsersRelationImplCopyWithImpl<$Res>;
+abstract class _$$BaseUsersRelationImplCopyWith<$Res>
+    implements $BaseUsersRelationCopyWith<$Res> {
+  factory _$$BaseUsersRelationImplCopyWith(
+    _$BaseUsersRelationImpl value,
+    $Res Function(_$BaseUsersRelationImpl) then,
+  ) = __$$BaseUsersRelationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -161,15 +161,15 @@ abstract class _$$UsersRelationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UsersRelationImplCopyWithImpl<$Res>
-    extends _$UsersRelationCopyWithImpl<$Res, _$UsersRelationImpl>
-    implements _$$UsersRelationImplCopyWith<$Res> {
-  __$$UsersRelationImplCopyWithImpl(
-    _$UsersRelationImpl _value,
-    $Res Function(_$UsersRelationImpl) _then,
+class __$$BaseUsersRelationImplCopyWithImpl<$Res>
+    extends _$BaseUsersRelationCopyWithImpl<$Res, _$BaseUsersRelationImpl>
+    implements _$$BaseUsersRelationImplCopyWith<$Res> {
+  __$$BaseUsersRelationImplCopyWithImpl(
+    _$BaseUsersRelationImpl _value,
+    $Res Function(_$BaseUsersRelationImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of UsersRelation
+  /// Create a copy of BaseUsersRelation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -184,7 +184,7 @@ class __$$UsersRelationImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$UsersRelationImpl(
+      _$BaseUsersRelationImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -232,8 +232,8 @@ class __$$UsersRelationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UsersRelationImpl extends _UsersRelation {
-  const _$UsersRelationImpl({
+class _$BaseUsersRelationImpl extends _BaseUsersRelation {
+  const _$BaseUsersRelationImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'follower_user_uid') this.followerUserUid,
@@ -244,8 +244,8 @@ class _$UsersRelationImpl extends _UsersRelation {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$UsersRelationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UsersRelationImplFromJson(json);
+  factory _$BaseUsersRelationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseUsersRelationImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -274,14 +274,14 @@ class _$UsersRelationImpl extends _UsersRelation {
 
   @override
   String toString() {
-    return 'UsersRelation(uid: $uid, createdAt: $createdAt, followerUserUid: $followerUserUid, followeeUserUid: $followeeUserUid, isMuted: $isMuted, isFavorite: $isFavorite, notificationsEnabled: $notificationsEnabled, updatedAt: $updatedAt)';
+    return 'BaseUsersRelation(uid: $uid, createdAt: $createdAt, followerUserUid: $followerUserUid, followeeUserUid: $followeeUserUid, isMuted: $isMuted, isFavorite: $isFavorite, notificationsEnabled: $notificationsEnabled, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UsersRelationImpl &&
+            other is _$BaseUsersRelationImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -312,22 +312,25 @@ class _$UsersRelationImpl extends _UsersRelation {
     updatedAt,
   );
 
-  /// Create a copy of UsersRelation
+  /// Create a copy of BaseUsersRelation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UsersRelationImplCopyWith<_$UsersRelationImpl> get copyWith =>
-      __$$UsersRelationImplCopyWithImpl<_$UsersRelationImpl>(this, _$identity);
+  _$$BaseUsersRelationImplCopyWith<_$BaseUsersRelationImpl> get copyWith =>
+      __$$BaseUsersRelationImplCopyWithImpl<_$BaseUsersRelationImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UsersRelationImplToJson(this);
+    return _$$BaseUsersRelationImplToJson(this);
   }
 }
 
-abstract class _UsersRelation extends UsersRelation {
-  const factory _UsersRelation({
+abstract class _BaseUsersRelation extends BaseUsersRelation {
+  const factory _BaseUsersRelation({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'follower_user_uid') final String? followerUserUid,
@@ -336,11 +339,11 @@ abstract class _UsersRelation extends UsersRelation {
     @JsonKey(name: 'is_favorite') final bool? isFavorite,
     @JsonKey(name: 'notifications_enabled') final bool? notificationsEnabled,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$UsersRelationImpl;
-  const _UsersRelation._() : super._();
+  }) = _$BaseUsersRelationImpl;
+  const _BaseUsersRelation._() : super._();
 
-  factory _UsersRelation.fromJson(Map<String, dynamic> json) =
-      _$UsersRelationImpl.fromJson;
+  factory _BaseUsersRelation.fromJson(Map<String, dynamic> json) =
+      _$BaseUsersRelationImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -367,10 +370,10 @@ abstract class _UsersRelation extends UsersRelation {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of UsersRelation
+  /// Create a copy of BaseUsersRelation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UsersRelationImplCopyWith<_$UsersRelationImpl> get copyWith =>
+  _$$BaseUsersRelationImplCopyWith<_$BaseUsersRelationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

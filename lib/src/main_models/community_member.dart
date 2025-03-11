@@ -5,10 +5,10 @@ part 'community_member.g.dart';
 
 /// Represents a community member in the system
 @freezed
-class CommunityMember with _$CommunityMember {
-  const CommunityMember._();
+class BaseCommunityMember with _$BaseCommunityMember {
+  const BaseCommunityMember._();
 
-  const factory CommunityMember({
+  const factory BaseCommunityMember({
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'user_uid') String? userUid,
     @JsonKey(name: 'joined_at') DateTime? joinedAt,
@@ -21,8 +21,8 @@ class CommunityMember with _$CommunityMember {
     @JsonKey(name: 'notes') String? notes,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _CommunityMember;
+  }) = _BaseCommunityMember;
 
   /// Creates a CommunityMember from Json map
-  factory CommunityMember.fromJson(Map<String, dynamic> json) => _$CommunityMemberFromJson(json);
+  factory BaseCommunityMember.fromJson(Map<String, dynamic> json) => _$BaseCommunityMemberFromJson(json);
 }

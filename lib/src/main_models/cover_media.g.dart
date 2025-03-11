@@ -6,8 +6,8 @@ part of 'cover_media.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CoverMediaImpl _$$CoverMediaImplFromJson(Map<String, dynamic> json) =>
-    _$CoverMediaImpl(
+_$BaseCoverMediaImpl _$$BaseCoverMediaImplFromJson(Map<String, dynamic> json) =>
+    _$BaseCoverMediaImpl(
       id: (json['id'] as num?)?.toInt(),
       createdAt:
           json['created_at'] == null
@@ -25,15 +25,16 @@ _$CoverMediaImpl _$$CoverMediaImplFromJson(Map<String, dynamic> json) =>
               : DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$$CoverMediaImplToJson(_$CoverMediaImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'created_at': instance.createdAt?.toIso8601String(),
-      'image_url': instance.imageUrl,
-      'is_video': instance.isVideo,
-      'user_uid': instance.userUid,
-      'video_url': instance.videoUrl,
-      'community_uid': instance.communityUid,
-      'owner_type': instance.ownerType,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-    };
+Map<String, dynamic> _$$BaseCoverMediaImplToJson(
+  _$BaseCoverMediaImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'created_at': instance.createdAt?.toIso8601String(),
+  'image_url': instance.imageUrl,
+  'is_video': instance.isVideo,
+  'user_uid': instance.userUid,
+  'video_url': instance.videoUrl,
+  'community_uid': instance.communityUid,
+  'owner_type': instance.ownerType,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+};

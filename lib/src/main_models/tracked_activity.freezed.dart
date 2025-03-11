@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-TrackedActivity _$TrackedActivityFromJson(Map<String, dynamic> json) {
-  return _TrackedActivity.fromJson(json);
+BaseTrackedActivity _$BaseTrackedActivityFromJson(Map<String, dynamic> json) {
+  return _BaseTrackedActivity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TrackedActivity {
+mixin _$BaseTrackedActivity {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_uid')
@@ -62,22 +62,22 @@ mixin _$TrackedActivity {
   @JsonKey(name: 'community_uid')
   String? get communityUid => throw _privateConstructorUsedError;
 
-  /// Serializes this TrackedActivity to a JSON map.
+  /// Serializes this BaseTrackedActivity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of TrackedActivity
+  /// Create a copy of BaseTrackedActivity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TrackedActivityCopyWith<TrackedActivity> get copyWith =>
+  $BaseTrackedActivityCopyWith<BaseTrackedActivity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TrackedActivityCopyWith<$Res> {
-  factory $TrackedActivityCopyWith(
-    TrackedActivity value,
-    $Res Function(TrackedActivity) then,
-  ) = _$TrackedActivityCopyWithImpl<$Res, TrackedActivity>;
+abstract class $BaseTrackedActivityCopyWith<$Res> {
+  factory $BaseTrackedActivityCopyWith(
+    BaseTrackedActivity value,
+    $Res Function(BaseTrackedActivity) then,
+  ) = _$BaseTrackedActivityCopyWithImpl<$Res, BaseTrackedActivity>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -104,16 +104,16 @@ abstract class $TrackedActivityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TrackedActivityCopyWithImpl<$Res, $Val extends TrackedActivity>
-    implements $TrackedActivityCopyWith<$Res> {
-  _$TrackedActivityCopyWithImpl(this._value, this._then);
+class _$BaseTrackedActivityCopyWithImpl<$Res, $Val extends BaseTrackedActivity>
+    implements $BaseTrackedActivityCopyWith<$Res> {
+  _$BaseTrackedActivityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TrackedActivity
+  /// Create a copy of BaseTrackedActivity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -248,12 +248,12 @@ class _$TrackedActivityCopyWithImpl<$Res, $Val extends TrackedActivity>
 }
 
 /// @nodoc
-abstract class _$$TrackedActivityImplCopyWith<$Res>
-    implements $TrackedActivityCopyWith<$Res> {
-  factory _$$TrackedActivityImplCopyWith(
-    _$TrackedActivityImpl value,
-    $Res Function(_$TrackedActivityImpl) then,
-  ) = __$$TrackedActivityImplCopyWithImpl<$Res>;
+abstract class _$$BaseTrackedActivityImplCopyWith<$Res>
+    implements $BaseTrackedActivityCopyWith<$Res> {
+  factory _$$BaseTrackedActivityImplCopyWith(
+    _$BaseTrackedActivityImpl value,
+    $Res Function(_$BaseTrackedActivityImpl) then,
+  ) = __$$BaseTrackedActivityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -281,15 +281,15 @@ abstract class _$$TrackedActivityImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TrackedActivityImplCopyWithImpl<$Res>
-    extends _$TrackedActivityCopyWithImpl<$Res, _$TrackedActivityImpl>
-    implements _$$TrackedActivityImplCopyWith<$Res> {
-  __$$TrackedActivityImplCopyWithImpl(
-    _$TrackedActivityImpl _value,
-    $Res Function(_$TrackedActivityImpl) _then,
+class __$$BaseTrackedActivityImplCopyWithImpl<$Res>
+    extends _$BaseTrackedActivityCopyWithImpl<$Res, _$BaseTrackedActivityImpl>
+    implements _$$BaseTrackedActivityImplCopyWith<$Res> {
+  __$$BaseTrackedActivityImplCopyWithImpl(
+    _$BaseTrackedActivityImpl _value,
+    $Res Function(_$BaseTrackedActivityImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of TrackedActivity
+  /// Create a copy of BaseTrackedActivity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -316,7 +316,7 @@ class __$$TrackedActivityImplCopyWithImpl<$Res>
     Object? communityUid = freezed,
   }) {
     return _then(
-      _$TrackedActivityImpl(
+      _$BaseTrackedActivityImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -424,8 +424,8 @@ class __$$TrackedActivityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TrackedActivityImpl extends _TrackedActivity {
-  const _$TrackedActivityImpl({
+class _$BaseTrackedActivityImpl extends _BaseTrackedActivity {
+  const _$BaseTrackedActivityImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'user_uid') this.userUid,
     @JsonKey(name: 'wtv_uid') this.wtvUid,
@@ -449,8 +449,8 @@ class _$TrackedActivityImpl extends _TrackedActivity {
   }) : _metadata = metadata,
        super._();
 
-  factory _$TrackedActivityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TrackedActivityImplFromJson(json);
+  factory _$BaseTrackedActivityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseTrackedActivityImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -523,14 +523,14 @@ class _$TrackedActivityImpl extends _TrackedActivity {
 
   @override
   String toString() {
-    return 'TrackedActivity(uid: $uid, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, photoUid: $photoUid, offerUid: $offerUid, memoryUid: $memoryUid, pdfUid: $pdfUid, activityAt: $activityAt, deviceOs: $deviceOs, deviceModel: $deviceModel, geoLocation: $geoLocation, appVersion: $appVersion, activityType: $activityType, commentUid: $commentUid, commentReplyUid: $commentReplyUid, metadata: $metadata, contentType: $contentType, ownerType: $ownerType, communityUid: $communityUid)';
+    return 'BaseTrackedActivity(uid: $uid, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, photoUid: $photoUid, offerUid: $offerUid, memoryUid: $memoryUid, pdfUid: $pdfUid, activityAt: $activityAt, deviceOs: $deviceOs, deviceModel: $deviceModel, geoLocation: $geoLocation, appVersion: $appVersion, activityType: $activityType, commentUid: $commentUid, commentReplyUid: $commentReplyUid, metadata: $metadata, contentType: $contentType, ownerType: $ownerType, communityUid: $communityUid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TrackedActivityImpl &&
+            other is _$BaseTrackedActivityImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.userUid, userUid) || other.userUid == userUid) &&
             (identical(other.wtvUid, wtvUid) || other.wtvUid == wtvUid) &&
@@ -594,25 +594,25 @@ class _$TrackedActivityImpl extends _TrackedActivity {
     communityUid,
   ]);
 
-  /// Create a copy of TrackedActivity
+  /// Create a copy of BaseTrackedActivity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TrackedActivityImplCopyWith<_$TrackedActivityImpl> get copyWith =>
-      __$$TrackedActivityImplCopyWithImpl<_$TrackedActivityImpl>(
+  _$$BaseTrackedActivityImplCopyWith<_$BaseTrackedActivityImpl> get copyWith =>
+      __$$BaseTrackedActivityImplCopyWithImpl<_$BaseTrackedActivityImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TrackedActivityImplToJson(this);
+    return _$$BaseTrackedActivityImplToJson(this);
   }
 }
 
-abstract class _TrackedActivity extends TrackedActivity {
-  const factory _TrackedActivity({
+abstract class _BaseTrackedActivity extends BaseTrackedActivity {
+  const factory _BaseTrackedActivity({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'user_uid') final String? userUid,
     @JsonKey(name: 'wtv_uid') final String? wtvUid,
@@ -633,11 +633,11 @@ abstract class _TrackedActivity extends TrackedActivity {
     @JsonKey(name: 'content_type') final String? contentType,
     @JsonKey(name: 'owner_type') final CreatorType? ownerType,
     @JsonKey(name: 'community_uid') final String? communityUid,
-  }) = _$TrackedActivityImpl;
-  const _TrackedActivity._() : super._();
+  }) = _$BaseTrackedActivityImpl;
+  const _BaseTrackedActivity._() : super._();
 
-  factory _TrackedActivity.fromJson(Map<String, dynamic> json) =
-      _$TrackedActivityImpl.fromJson;
+  factory _BaseTrackedActivity.fromJson(Map<String, dynamic> json) =
+      _$BaseTrackedActivityImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -700,10 +700,10 @@ abstract class _TrackedActivity extends TrackedActivity {
   @JsonKey(name: 'community_uid')
   String? get communityUid;
 
-  /// Create a copy of TrackedActivity
+  /// Create a copy of BaseTrackedActivity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TrackedActivityImplCopyWith<_$TrackedActivityImpl> get copyWith =>
+  _$$BaseTrackedActivityImplCopyWith<_$BaseTrackedActivityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

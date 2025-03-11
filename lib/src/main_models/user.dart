@@ -4,8 +4,8 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 @freezed
-class User with _$User {
-  const factory User({
+class BaseUser with _$BaseUser {
+  const factory BaseUser({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
     
@@ -98,7 +98,7 @@ class User with _$User {
     
     @JsonKey(name: 'updated_at')
     DateTime? updatedAt,
-  }) = _User;
+  }) = _BaseUser;
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory BaseUser.fromJson(Map<String, dynamic> json) => _$BaseUserFromJson(json);
 }

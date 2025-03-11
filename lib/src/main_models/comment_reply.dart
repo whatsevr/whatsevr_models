@@ -5,10 +5,10 @@ part 'comment_reply.g.dart';
 
 /// Represents a comment reply in the system
 @freezed
-class CommentReply with _$CommentReply {
-  const CommentReply._();
+class BaseCommentReply with _$BaseCommentReply {
+  const BaseCommentReply._();
 
-  const factory CommentReply({
+  const factory BaseCommentReply({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'reply_text') String? replyText,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -16,8 +16,8 @@ class CommentReply with _$CommentReply {
     @JsonKey(name: 'comment_uid') String? commentUid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid,
-  }) = _CommentReply;
+  }) = _BaseCommentReply;
 
   /// Creates a CommentReply from Json map
-  factory CommentReply.fromJson(Map<String, dynamic> json) => _$CommentReplyFromJson(json);
+  factory BaseCommentReply.fromJson(Map<String, dynamic> json) => _$BaseCommentReplyFromJson(json);
 }

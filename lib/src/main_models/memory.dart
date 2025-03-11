@@ -5,10 +5,10 @@ part 'memory.g.dart';
 
 /// Represents a memory content item in the system
 @freezed
-class Memory with _$Memory {
-  const Memory._();
+class BaseMemory with _$BaseMemory {
+  const BaseMemory._();
 
-  const factory Memory({
+  const factory BaseMemory({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'caption') String? caption,
@@ -40,8 +40,8 @@ class Memory with _$Memory {
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _Memory;
+  }) = _BaseMemory;
 
   /// Creates a Memory from Json map
-  factory Memory.fromJson(Map<String, dynamic> json) => _$MemoryFromJson(json);
+  factory BaseMemory.fromJson(Map<String, dynamic> json) => _$BaseMemoryFromJson(json);
 }

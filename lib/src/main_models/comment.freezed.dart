@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Comment _$CommentFromJson(Map<String, dynamic> json) {
-  return _Comment.fromJson(json);
+BaseComment _$BaseCommentFromJson(Map<String, dynamic> json) {
+  return _BaseComment.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Comment {
+mixin _$BaseComment {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'comment_text')
@@ -50,19 +50,22 @@ mixin _$Comment {
   @JsonKey(name: 'content_owner_user_uid')
   String? get contentOwnerUserUid => throw _privateConstructorUsedError;
 
-  /// Serializes this Comment to a JSON map.
+  /// Serializes this BaseComment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Comment
+  /// Create a copy of BaseComment
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
+  $BaseCommentCopyWith<BaseComment> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommentCopyWith<$Res> {
-  factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
-      _$CommentCopyWithImpl<$Res, Comment>;
+abstract class $BaseCommentCopyWith<$Res> {
+  factory $BaseCommentCopyWith(
+    BaseComment value,
+    $Res Function(BaseComment) then,
+  ) = _$BaseCommentCopyWithImpl<$Res, BaseComment>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -83,16 +86,16 @@ abstract class $CommentCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommentCopyWithImpl<$Res, $Val extends Comment>
-    implements $CommentCopyWith<$Res> {
-  _$CommentCopyWithImpl(this._value, this._then);
+class _$BaseCommentCopyWithImpl<$Res, $Val extends BaseComment>
+    implements $BaseCommentCopyWith<$Res> {
+  _$BaseCommentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Comment
+  /// Create a copy of BaseComment
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -191,11 +194,12 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
 }
 
 /// @nodoc
-abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
-  factory _$$CommentImplCopyWith(
-    _$CommentImpl value,
-    $Res Function(_$CommentImpl) then,
-  ) = __$$CommentImplCopyWithImpl<$Res>;
+abstract class _$$BaseCommentImplCopyWith<$Res>
+    implements $BaseCommentCopyWith<$Res> {
+  factory _$$BaseCommentImplCopyWith(
+    _$BaseCommentImpl value,
+    $Res Function(_$BaseCommentImpl) then,
+  ) = __$$BaseCommentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -217,15 +221,15 @@ abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CommentImplCopyWithImpl<$Res>
-    extends _$CommentCopyWithImpl<$Res, _$CommentImpl>
-    implements _$$CommentImplCopyWith<$Res> {
-  __$$CommentImplCopyWithImpl(
-    _$CommentImpl _value,
-    $Res Function(_$CommentImpl) _then,
+class __$$BaseCommentImplCopyWithImpl<$Res>
+    extends _$BaseCommentCopyWithImpl<$Res, _$BaseCommentImpl>
+    implements _$$BaseCommentImplCopyWith<$Res> {
+  __$$BaseCommentImplCopyWithImpl(
+    _$BaseCommentImpl _value,
+    $Res Function(_$BaseCommentImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Comment
+  /// Create a copy of BaseComment
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -246,7 +250,7 @@ class __$$CommentImplCopyWithImpl<$Res>
     Object? contentOwnerUserUid = freezed,
   }) {
     return _then(
-      _$CommentImpl(
+      _$BaseCommentImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -324,8 +328,8 @@ class __$$CommentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommentImpl extends _Comment {
-  const _$CommentImpl({
+class _$BaseCommentImpl extends _BaseComment {
+  const _$BaseCommentImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'comment_text') this.commentText,
     @JsonKey(name: 'user_uid') this.userUid,
@@ -342,8 +346,8 @@ class _$CommentImpl extends _Comment {
     @JsonKey(name: 'content_owner_user_uid') this.contentOwnerUserUid,
   }) : super._();
 
-  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentImplFromJson(json);
+  factory _$BaseCommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseCommentImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -390,14 +394,14 @@ class _$CommentImpl extends _Comment {
 
   @override
   String toString() {
-    return 'Comment(createdAt: $createdAt, commentText: $commentText, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, memoryUid: $memoryUid, offerUid: $offerUid, photoUid: $photoUid, pdfUid: $pdfUid, uid: $uid, imageUrl: $imageUrl, contentType: $contentType, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
+    return 'BaseComment(createdAt: $createdAt, commentText: $commentText, userUid: $userUid, wtvUid: $wtvUid, flickUid: $flickUid, memoryUid: $memoryUid, offerUid: $offerUid, photoUid: $photoUid, pdfUid: $pdfUid, uid: $uid, imageUrl: $imageUrl, contentType: $contentType, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentImpl &&
+            other is _$BaseCommentImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.commentText, commentText) ||
@@ -444,22 +448,22 @@ class _$CommentImpl extends _Comment {
     contentOwnerUserUid,
   );
 
-  /// Create a copy of Comment
+  /// Create a copy of BaseComment
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
-      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
+  _$$BaseCommentImplCopyWith<_$BaseCommentImpl> get copyWith =>
+      __$$BaseCommentImplCopyWithImpl<_$BaseCommentImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommentImplToJson(this);
+    return _$$BaseCommentImplToJson(this);
   }
 }
 
-abstract class _Comment extends Comment {
-  const factory _Comment({
+abstract class _BaseComment extends BaseComment {
+  const factory _BaseComment({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'comment_text') final String? commentText,
     @JsonKey(name: 'user_uid') final String? userUid,
@@ -474,10 +478,11 @@ abstract class _Comment extends Comment {
     @JsonKey(name: 'content_type') final String? contentType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'content_owner_user_uid') final String? contentOwnerUserUid,
-  }) = _$CommentImpl;
-  const _Comment._() : super._();
+  }) = _$BaseCommentImpl;
+  const _BaseComment._() : super._();
 
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
+  factory _BaseComment.fromJson(Map<String, dynamic> json) =
+      _$BaseCommentImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -522,10 +527,10 @@ abstract class _Comment extends Comment {
   @JsonKey(name: 'content_owner_user_uid')
   String? get contentOwnerUserUid;
 
-  /// Create a copy of Comment
+  /// Create a copy of BaseComment
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+  _$$BaseCommentImplCopyWith<_$BaseCommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

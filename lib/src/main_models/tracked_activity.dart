@@ -16,10 +16,10 @@ enum CreatorType {
 
 /// Represents a tracked activity in the system
 @freezed
-class TrackedActivity with _$TrackedActivity {
-  const TrackedActivity._();
+class BaseTrackedActivity with _$BaseTrackedActivity {
+  const BaseTrackedActivity._();
 
-  const factory TrackedActivity({
+  const factory BaseTrackedActivity({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'user_uid') String? userUid,
     @JsonKey(name: 'wtv_uid') String? wtvUid,
@@ -40,9 +40,9 @@ class TrackedActivity with _$TrackedActivity {
     @JsonKey(name: 'content_type') String? contentType,
     @JsonKey(name: 'owner_type') CreatorType? ownerType,
     @JsonKey(name: 'community_uid') String? communityUid,
-  }) = _TrackedActivity;
+  }) = _BaseTrackedActivity;
 
   /// Creates a TrackedActivity from Json map
-  factory TrackedActivity.fromJson(Map<String, dynamic> json) => 
-      _$TrackedActivityFromJson(json);
+  factory BaseTrackedActivity.fromJson(Map<String, dynamic> json) => 
+      _$BaseTrackedActivityFromJson(json);
 }

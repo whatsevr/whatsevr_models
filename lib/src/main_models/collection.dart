@@ -5,10 +5,10 @@ part 'collection.g.dart';
 
 /// Represents a collection in the system
 @freezed
-class Collection with _$Collection {
-  const Collection._();
+class BaseCollection with _$BaseCollection {
+  const BaseCollection._();
 
-  const factory Collection({
+  const factory BaseCollection({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'title') String? title,
@@ -25,8 +25,8 @@ class Collection with _$Collection {
     @JsonKey(name: 'flick_uid') String? flickUid,
     @JsonKey(name: 'pdf_uid') String? pdfUid,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
-  }) = _Collection;
+  }) = _BaseCollection;
 
   /// Creates a Collection from Json map
-  factory Collection.fromJson(Map<String, dynamic> json) => _$CollectionFromJson(json);
+  factory BaseCollection.fromJson(Map<String, dynamic> json) => _$BaseCollectionFromJson(json);
 }

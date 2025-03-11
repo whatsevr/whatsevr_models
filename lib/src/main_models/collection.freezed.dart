@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Collection _$CollectionFromJson(Map<String, dynamic> json) {
-  return _Collection.fromJson(json);
+BaseCollection _$BaseCollectionFromJson(Map<String, dynamic> json) {
+  return _BaseCollection.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Collection {
+mixin _$BaseCollection {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -54,22 +54,22 @@ mixin _$Collection {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this Collection to a JSON map.
+  /// Serializes this BaseCollection to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Collection
+  /// Create a copy of BaseCollection
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CollectionCopyWith<Collection> get copyWith =>
+  $BaseCollectionCopyWith<BaseCollection> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CollectionCopyWith<$Res> {
-  factory $CollectionCopyWith(
-    Collection value,
-    $Res Function(Collection) then,
-  ) = _$CollectionCopyWithImpl<$Res, Collection>;
+abstract class $BaseCollectionCopyWith<$Res> {
+  factory $BaseCollectionCopyWith(
+    BaseCollection value,
+    $Res Function(BaseCollection) then,
+  ) = _$BaseCollectionCopyWithImpl<$Res, BaseCollection>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -92,16 +92,16 @@ abstract class $CollectionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
-    implements $CollectionCopyWith<$Res> {
-  _$CollectionCopyWithImpl(this._value, this._then);
+class _$BaseCollectionCopyWithImpl<$Res, $Val extends BaseCollection>
+    implements $BaseCollectionCopyWith<$Res> {
+  _$BaseCollectionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Collection
+  /// Create a copy of BaseCollection
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -212,12 +212,12 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
 }
 
 /// @nodoc
-abstract class _$$CollectionImplCopyWith<$Res>
-    implements $CollectionCopyWith<$Res> {
-  factory _$$CollectionImplCopyWith(
-    _$CollectionImpl value,
-    $Res Function(_$CollectionImpl) then,
-  ) = __$$CollectionImplCopyWithImpl<$Res>;
+abstract class _$$BaseCollectionImplCopyWith<$Res>
+    implements $BaseCollectionCopyWith<$Res> {
+  factory _$$BaseCollectionImplCopyWith(
+    _$BaseCollectionImpl value,
+    $Res Function(_$BaseCollectionImpl) then,
+  ) = __$$BaseCollectionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -241,15 +241,15 @@ abstract class _$$CollectionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CollectionImplCopyWithImpl<$Res>
-    extends _$CollectionCopyWithImpl<$Res, _$CollectionImpl>
-    implements _$$CollectionImplCopyWith<$Res> {
-  __$$CollectionImplCopyWithImpl(
-    _$CollectionImpl _value,
-    $Res Function(_$CollectionImpl) _then,
+class __$$BaseCollectionImplCopyWithImpl<$Res>
+    extends _$BaseCollectionCopyWithImpl<$Res, _$BaseCollectionImpl>
+    implements _$$BaseCollectionImplCopyWith<$Res> {
+  __$$BaseCollectionImplCopyWithImpl(
+    _$BaseCollectionImpl _value,
+    $Res Function(_$BaseCollectionImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Collection
+  /// Create a copy of BaseCollection
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -272,7 +272,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$CollectionImpl(
+      _$BaseCollectionImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -360,8 +360,8 @@ class __$$CollectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CollectionImpl extends _Collection {
-  const _$CollectionImpl({
+class _$BaseCollectionImpl extends _BaseCollection {
+  const _$BaseCollectionImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'title') this.title,
@@ -380,8 +380,8 @@ class _$CollectionImpl extends _Collection {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CollectionImplFromJson(json);
+  factory _$BaseCollectionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseCollectionImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -434,14 +434,14 @@ class _$CollectionImpl extends _Collection {
 
   @override
   String toString() {
-    return 'Collection(uid: $uid, createdAt: $createdAt, title: $title, description: $description, isFolder: $isFolder, parentCollectionUid: $parentCollectionUid, authorUserUid: $authorUserUid, wtvUid: $wtvUid, photoUid: $photoUid, contentType: $contentType, ownerType: $ownerType, communityUid: $communityUid, offerUid: $offerUid, flickUid: $flickUid, pdfUid: $pdfUid, updatedAt: $updatedAt)';
+    return 'BaseCollection(uid: $uid, createdAt: $createdAt, title: $title, description: $description, isFolder: $isFolder, parentCollectionUid: $parentCollectionUid, authorUserUid: $authorUserUid, wtvUid: $wtvUid, photoUid: $photoUid, contentType: $contentType, ownerType: $ownerType, communityUid: $communityUid, offerUid: $offerUid, flickUid: $flickUid, pdfUid: $pdfUid, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CollectionImpl &&
+            other is _$BaseCollectionImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -494,22 +494,25 @@ class _$CollectionImpl extends _Collection {
     updatedAt,
   );
 
-  /// Create a copy of Collection
+  /// Create a copy of BaseCollection
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CollectionImplCopyWith<_$CollectionImpl> get copyWith =>
-      __$$CollectionImplCopyWithImpl<_$CollectionImpl>(this, _$identity);
+  _$$BaseCollectionImplCopyWith<_$BaseCollectionImpl> get copyWith =>
+      __$$BaseCollectionImplCopyWithImpl<_$BaseCollectionImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CollectionImplToJson(this);
+    return _$$BaseCollectionImplToJson(this);
   }
 }
 
-abstract class _Collection extends Collection {
-  const factory _Collection({
+abstract class _BaseCollection extends BaseCollection {
+  const factory _BaseCollection({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'title') final String? title,
@@ -526,11 +529,11 @@ abstract class _Collection extends Collection {
     @JsonKey(name: 'flick_uid') final String? flickUid,
     @JsonKey(name: 'pdf_uid') final String? pdfUid,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$CollectionImpl;
-  const _Collection._() : super._();
+  }) = _$BaseCollectionImpl;
+  const _BaseCollection._() : super._();
 
-  factory _Collection.fromJson(Map<String, dynamic> json) =
-      _$CollectionImpl.fromJson;
+  factory _BaseCollection.fromJson(Map<String, dynamic> json) =
+      _$BaseCollectionImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -581,10 +584,10 @@ abstract class _Collection extends Collection {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of Collection
+  /// Create a copy of BaseCollection
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CollectionImplCopyWith<_$CollectionImpl> get copyWith =>
+  _$$BaseCollectionImplCopyWith<_$BaseCollectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

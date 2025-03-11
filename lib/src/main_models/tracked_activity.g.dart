@@ -6,9 +6,9 @@ part of 'tracked_activity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TrackedActivityImpl _$$TrackedActivityImplFromJson(
+_$BaseTrackedActivityImpl _$$BaseTrackedActivityImplFromJson(
   Map<String, dynamic> json,
-) => _$TrackedActivityImpl(
+) => _$BaseTrackedActivityImpl(
   uid: json['uid'] as String?,
   userUid: json['user_uid'] as String?,
   wtvUid: json['wtv_uid'] as String?,
@@ -34,8 +34,8 @@ _$TrackedActivityImpl _$$TrackedActivityImplFromJson(
   communityUid: json['community_uid'] as String?,
 );
 
-Map<String, dynamic> _$$TrackedActivityImplToJson(
-  _$TrackedActivityImpl instance,
+Map<String, dynamic> _$$BaseTrackedActivityImplToJson(
+  _$BaseTrackedActivityImpl instance,
 ) => <String, dynamic>{
   'uid': instance.uid,
   'user_uid': instance.userUid,

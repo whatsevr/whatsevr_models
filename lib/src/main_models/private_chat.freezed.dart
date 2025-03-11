@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-PrivateChat _$PrivateChatFromJson(Map<String, dynamic> json) {
-  return _PrivateChat.fromJson(json);
+BasePrivateChat _$BasePrivateChatFromJson(Map<String, dynamic> json) {
+  return _BasePrivateChat.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PrivateChat {
+mixin _$BasePrivateChat {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'user1_uid')
@@ -44,22 +44,22 @@ mixin _$PrivateChat {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this PrivateChat to a JSON map.
+  /// Serializes this BasePrivateChat to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PrivateChat
+  /// Create a copy of BasePrivateChat
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PrivateChatCopyWith<PrivateChat> get copyWith =>
+  $BasePrivateChatCopyWith<BasePrivateChat> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PrivateChatCopyWith<$Res> {
-  factory $PrivateChatCopyWith(
-    PrivateChat value,
-    $Res Function(PrivateChat) then,
-  ) = _$PrivateChatCopyWithImpl<$Res, PrivateChat>;
+abstract class $BasePrivateChatCopyWith<$Res> {
+  factory $BasePrivateChatCopyWith(
+    BasePrivateChat value,
+    $Res Function(BasePrivateChat) then,
+  ) = _$BasePrivateChatCopyWithImpl<$Res, BasePrivateChat>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -77,16 +77,16 @@ abstract class $PrivateChatCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PrivateChatCopyWithImpl<$Res, $Val extends PrivateChat>
-    implements $PrivateChatCopyWith<$Res> {
-  _$PrivateChatCopyWithImpl(this._value, this._then);
+class _$BasePrivateChatCopyWithImpl<$Res, $Val extends BasePrivateChat>
+    implements $BasePrivateChatCopyWith<$Res> {
+  _$BasePrivateChatCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PrivateChat
+  /// Create a copy of BasePrivateChat
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -167,12 +167,12 @@ class _$PrivateChatCopyWithImpl<$Res, $Val extends PrivateChat>
 }
 
 /// @nodoc
-abstract class _$$PrivateChatImplCopyWith<$Res>
-    implements $PrivateChatCopyWith<$Res> {
-  factory _$$PrivateChatImplCopyWith(
-    _$PrivateChatImpl value,
-    $Res Function(_$PrivateChatImpl) then,
-  ) = __$$PrivateChatImplCopyWithImpl<$Res>;
+abstract class _$$BasePrivateChatImplCopyWith<$Res>
+    implements $BasePrivateChatCopyWith<$Res> {
+  factory _$$BasePrivateChatImplCopyWith(
+    _$BasePrivateChatImpl value,
+    $Res Function(_$BasePrivateChatImpl) then,
+  ) = __$$BasePrivateChatImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -191,15 +191,15 @@ abstract class _$$PrivateChatImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PrivateChatImplCopyWithImpl<$Res>
-    extends _$PrivateChatCopyWithImpl<$Res, _$PrivateChatImpl>
-    implements _$$PrivateChatImplCopyWith<$Res> {
-  __$$PrivateChatImplCopyWithImpl(
-    _$PrivateChatImpl _value,
-    $Res Function(_$PrivateChatImpl) _then,
+class __$$BasePrivateChatImplCopyWithImpl<$Res>
+    extends _$BasePrivateChatCopyWithImpl<$Res, _$BasePrivateChatImpl>
+    implements _$$BasePrivateChatImplCopyWith<$Res> {
+  __$$BasePrivateChatImplCopyWithImpl(
+    _$BasePrivateChatImpl _value,
+    $Res Function(_$BasePrivateChatImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PrivateChat
+  /// Create a copy of BasePrivateChat
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -217,7 +217,7 @@ class __$$PrivateChatImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$PrivateChatImpl(
+      _$BasePrivateChatImpl(
         uid:
             freezed == uid
                 ? _value.uid
@@ -280,8 +280,8 @@ class __$$PrivateChatImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrivateChatImpl extends _PrivateChat {
-  const _$PrivateChatImpl({
+class _$BasePrivateChatImpl extends _BasePrivateChat {
+  const _$BasePrivateChatImpl({
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'user1_uid') this.user1Uid,
     @JsonKey(name: 'user2_uid') this.user2Uid,
@@ -295,8 +295,8 @@ class _$PrivateChatImpl extends _PrivateChat {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$PrivateChatImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PrivateChatImplFromJson(json);
+  factory _$BasePrivateChatImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BasePrivateChatImplFromJson(json);
 
   @override
   @JsonKey(name: 'uid')
@@ -334,14 +334,14 @@ class _$PrivateChatImpl extends _PrivateChat {
 
   @override
   String toString() {
-    return 'PrivateChat(uid: $uid, user1Uid: $user1Uid, user2Uid: $user2Uid, createdAt: $createdAt, lastMessageAt: $lastMessageAt, user1IsMuted: $user1IsMuted, user2IsMuted: $user2IsMuted, user1IsBlocked: $user1IsBlocked, user2IsBlocked: $user2IsBlocked, plainLastMessage: $plainLastMessage, updatedAt: $updatedAt)';
+    return 'BasePrivateChat(uid: $uid, user1Uid: $user1Uid, user2Uid: $user2Uid, createdAt: $createdAt, lastMessageAt: $lastMessageAt, user1IsMuted: $user1IsMuted, user2IsMuted: $user2IsMuted, user1IsBlocked: $user1IsBlocked, user2IsBlocked: $user2IsBlocked, plainLastMessage: $plainLastMessage, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PrivateChatImpl &&
+            other is _$BasePrivateChatImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.user1Uid, user1Uid) ||
                 other.user1Uid == user1Uid) &&
@@ -382,22 +382,25 @@ class _$PrivateChatImpl extends _PrivateChat {
     updatedAt,
   );
 
-  /// Create a copy of PrivateChat
+  /// Create a copy of BasePrivateChat
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PrivateChatImplCopyWith<_$PrivateChatImpl> get copyWith =>
-      __$$PrivateChatImplCopyWithImpl<_$PrivateChatImpl>(this, _$identity);
+  _$$BasePrivateChatImplCopyWith<_$BasePrivateChatImpl> get copyWith =>
+      __$$BasePrivateChatImplCopyWithImpl<_$BasePrivateChatImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PrivateChatImplToJson(this);
+    return _$$BasePrivateChatImplToJson(this);
   }
 }
 
-abstract class _PrivateChat extends PrivateChat {
-  const factory _PrivateChat({
+abstract class _BasePrivateChat extends BasePrivateChat {
+  const factory _BasePrivateChat({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'user1_uid') final String? user1Uid,
     @JsonKey(name: 'user2_uid') final String? user2Uid,
@@ -409,11 +412,11 @@ abstract class _PrivateChat extends PrivateChat {
     @JsonKey(name: 'user2_is_blocked') final bool? user2IsBlocked,
     @JsonKey(name: 'plain_last_message') final String? plainLastMessage,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$PrivateChatImpl;
-  const _PrivateChat._() : super._();
+  }) = _$BasePrivateChatImpl;
+  const _BasePrivateChat._() : super._();
 
-  factory _PrivateChat.fromJson(Map<String, dynamic> json) =
-      _$PrivateChatImpl.fromJson;
+  factory _BasePrivateChat.fromJson(Map<String, dynamic> json) =
+      _$BasePrivateChatImpl.fromJson;
 
   @override
   @JsonKey(name: 'uid')
@@ -449,10 +452,10 @@ abstract class _PrivateChat extends PrivateChat {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of PrivateChat
+  /// Create a copy of BasePrivateChat
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PrivateChatImplCopyWith<_$PrivateChatImpl> get copyWith =>
+  _$$BasePrivateChatImplCopyWith<_$BasePrivateChatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

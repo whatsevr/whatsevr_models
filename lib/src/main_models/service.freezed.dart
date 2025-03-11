@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Service _$ServiceFromJson(Map<String, dynamic> json) {
-  return _Service.fromJson(json);
+BaseService _$BaseServiceFromJson(Map<String, dynamic> json) {
+  return _BaseService.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Service {
+mixin _$BaseService {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -38,19 +38,22 @@ mixin _$Service {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this Service to a JSON map.
+  /// Serializes this BaseService to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Service
+  /// Create a copy of BaseService
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServiceCopyWith<Service> get copyWith => throw _privateConstructorUsedError;
+  $BaseServiceCopyWith<BaseService> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ServiceCopyWith<$Res> {
-  factory $ServiceCopyWith(Service value, $Res Function(Service) then) =
-      _$ServiceCopyWithImpl<$Res, Service>;
+abstract class $BaseServiceCopyWith<$Res> {
+  factory $BaseServiceCopyWith(
+    BaseService value,
+    $Res Function(BaseService) then,
+  ) = _$BaseServiceCopyWithImpl<$Res, BaseService>;
   @useResult
   $Res call({
     @JsonKey(name: 'id') int? id,
@@ -65,16 +68,16 @@ abstract class $ServiceCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServiceCopyWithImpl<$Res, $Val extends Service>
-    implements $ServiceCopyWith<$Res> {
-  _$ServiceCopyWithImpl(this._value, this._then);
+class _$BaseServiceCopyWithImpl<$Res, $Val extends BaseService>
+    implements $BaseServiceCopyWith<$Res> {
+  _$BaseServiceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Service
+  /// Create a copy of BaseService
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -137,11 +140,12 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
 }
 
 /// @nodoc
-abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
-  factory _$$ServiceImplCopyWith(
-    _$ServiceImpl value,
-    $Res Function(_$ServiceImpl) then,
-  ) = __$$ServiceImplCopyWithImpl<$Res>;
+abstract class _$$BaseServiceImplCopyWith<$Res>
+    implements $BaseServiceCopyWith<$Res> {
+  factory _$$BaseServiceImplCopyWith(
+    _$BaseServiceImpl value,
+    $Res Function(_$BaseServiceImpl) then,
+  ) = __$$BaseServiceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -157,15 +161,15 @@ abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ServiceImplCopyWithImpl<$Res>
-    extends _$ServiceCopyWithImpl<$Res, _$ServiceImpl>
-    implements _$$ServiceImplCopyWith<$Res> {
-  __$$ServiceImplCopyWithImpl(
-    _$ServiceImpl _value,
-    $Res Function(_$ServiceImpl) _then,
+class __$$BaseServiceImplCopyWithImpl<$Res>
+    extends _$BaseServiceCopyWithImpl<$Res, _$BaseServiceImpl>
+    implements _$$BaseServiceImplCopyWith<$Res> {
+  __$$BaseServiceImplCopyWithImpl(
+    _$BaseServiceImpl _value,
+    $Res Function(_$BaseServiceImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Service
+  /// Create a copy of BaseService
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -180,7 +184,7 @@ class __$$ServiceImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$ServiceImpl(
+      _$BaseServiceImpl(
         id:
             freezed == id
                 ? _value.id
@@ -228,8 +232,8 @@ class __$$ServiceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceImpl extends _Service {
-  const _$ServiceImpl({
+class _$BaseServiceImpl extends _BaseService {
+  const _$BaseServiceImpl({
     @JsonKey(name: 'id') this.id,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'title') this.title,
@@ -240,8 +244,8 @@ class _$ServiceImpl extends _Service {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceImplFromJson(json);
+  factory _$BaseServiceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseServiceImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -270,14 +274,14 @@ class _$ServiceImpl extends _Service {
 
   @override
   String toString() {
-    return 'Service(id: $id, createdAt: $createdAt, title: $title, userUid: $userUid, description: $description, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt)';
+    return 'BaseService(id: $id, createdAt: $createdAt, title: $title, userUid: $userUid, description: $description, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServiceImpl &&
+            other is _$BaseServiceImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -307,22 +311,22 @@ class _$ServiceImpl extends _Service {
     updatedAt,
   );
 
-  /// Create a copy of Service
+  /// Create a copy of BaseService
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
-      __$$ServiceImplCopyWithImpl<_$ServiceImpl>(this, _$identity);
+  _$$BaseServiceImplCopyWith<_$BaseServiceImpl> get copyWith =>
+      __$$BaseServiceImplCopyWithImpl<_$BaseServiceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceImplToJson(this);
+    return _$$BaseServiceImplToJson(this);
   }
 }
 
-abstract class _Service extends Service {
-  const factory _Service({
+abstract class _BaseService extends BaseService {
+  const factory _BaseService({
     @JsonKey(name: 'id') final int? id,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'title') final String? title,
@@ -331,10 +335,11 @@ abstract class _Service extends Service {
     @JsonKey(name: 'community_uid') final String? communityUid,
     @JsonKey(name: 'owner_type') final String? ownerType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$ServiceImpl;
-  const _Service._() : super._();
+  }) = _$BaseServiceImpl;
+  const _BaseService._() : super._();
 
-  factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
+  factory _BaseService.fromJson(Map<String, dynamic> json) =
+      _$BaseServiceImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -361,10 +366,10 @@ abstract class _Service extends Service {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of Service
+  /// Create a copy of BaseService
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
+  _$$BaseServiceImplCopyWith<_$BaseServiceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

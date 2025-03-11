@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-WorkExperience _$WorkExperienceFromJson(Map<String, dynamic> json) {
-  return _WorkExperience.fromJson(json);
+BaseWorkExperience _$BaseWorkExperienceFromJson(Map<String, dynamic> json) {
+  return _BaseWorkExperience.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WorkExperience {
+mixin _$BaseWorkExperience {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -42,22 +42,22 @@ mixin _$WorkExperience {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this WorkExperience to a JSON map.
+  /// Serializes this BaseWorkExperience to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of WorkExperience
+  /// Create a copy of BaseWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $WorkExperienceCopyWith<WorkExperience> get copyWith =>
+  $BaseWorkExperienceCopyWith<BaseWorkExperience> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WorkExperienceCopyWith<$Res> {
-  factory $WorkExperienceCopyWith(
-    WorkExperience value,
-    $Res Function(WorkExperience) then,
-  ) = _$WorkExperienceCopyWithImpl<$Res, WorkExperience>;
+abstract class $BaseWorkExperienceCopyWith<$Res> {
+  factory $BaseWorkExperienceCopyWith(
+    BaseWorkExperience value,
+    $Res Function(BaseWorkExperience) then,
+  ) = _$BaseWorkExperienceCopyWithImpl<$Res, BaseWorkExperience>;
   @useResult
   $Res call({
     @JsonKey(name: 'id') int? id,
@@ -74,16 +74,16 @@ abstract class $WorkExperienceCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WorkExperienceCopyWithImpl<$Res, $Val extends WorkExperience>
-    implements $WorkExperienceCopyWith<$Res> {
-  _$WorkExperienceCopyWithImpl(this._value, this._then);
+class _$BaseWorkExperienceCopyWithImpl<$Res, $Val extends BaseWorkExperience>
+    implements $BaseWorkExperienceCopyWith<$Res> {
+  _$BaseWorkExperienceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WorkExperience
+  /// Create a copy of BaseWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -158,12 +158,12 @@ class _$WorkExperienceCopyWithImpl<$Res, $Val extends WorkExperience>
 }
 
 /// @nodoc
-abstract class _$$WorkExperienceImplCopyWith<$Res>
-    implements $WorkExperienceCopyWith<$Res> {
-  factory _$$WorkExperienceImplCopyWith(
-    _$WorkExperienceImpl value,
-    $Res Function(_$WorkExperienceImpl) then,
-  ) = __$$WorkExperienceImplCopyWithImpl<$Res>;
+abstract class _$$BaseWorkExperienceImplCopyWith<$Res>
+    implements $BaseWorkExperienceCopyWith<$Res> {
+  factory _$$BaseWorkExperienceImplCopyWith(
+    _$BaseWorkExperienceImpl value,
+    $Res Function(_$BaseWorkExperienceImpl) then,
+  ) = __$$BaseWorkExperienceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -181,15 +181,15 @@ abstract class _$$WorkExperienceImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$WorkExperienceImplCopyWithImpl<$Res>
-    extends _$WorkExperienceCopyWithImpl<$Res, _$WorkExperienceImpl>
-    implements _$$WorkExperienceImplCopyWith<$Res> {
-  __$$WorkExperienceImplCopyWithImpl(
-    _$WorkExperienceImpl _value,
-    $Res Function(_$WorkExperienceImpl) _then,
+class __$$BaseWorkExperienceImplCopyWithImpl<$Res>
+    extends _$BaseWorkExperienceCopyWithImpl<$Res, _$BaseWorkExperienceImpl>
+    implements _$$BaseWorkExperienceImplCopyWith<$Res> {
+  __$$BaseWorkExperienceImplCopyWithImpl(
+    _$BaseWorkExperienceImpl _value,
+    $Res Function(_$BaseWorkExperienceImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of WorkExperience
+  /// Create a copy of BaseWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -206,7 +206,7 @@ class __$$WorkExperienceImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(
-      _$WorkExperienceImpl(
+      _$BaseWorkExperienceImpl(
         id:
             freezed == id
                 ? _value.id
@@ -264,8 +264,8 @@ class __$$WorkExperienceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$WorkExperienceImpl extends _WorkExperience {
-  const _$WorkExperienceImpl({
+class _$BaseWorkExperienceImpl extends _BaseWorkExperience {
+  const _$BaseWorkExperienceImpl({
     @JsonKey(name: 'id') this.id,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'designation') this.designation,
@@ -278,8 +278,8 @@ class _$WorkExperienceImpl extends _WorkExperience {
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : super._();
 
-  factory _$WorkExperienceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WorkExperienceImplFromJson(json);
+  factory _$BaseWorkExperienceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseWorkExperienceImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -314,14 +314,14 @@ class _$WorkExperienceImpl extends _WorkExperience {
 
   @override
   String toString() {
-    return 'WorkExperience(id: $id, createdAt: $createdAt, designation: $designation, startDate: $startDate, endDate: $endDate, userUid: $userUid, workingMode: $workingMode, isCurrentlyWorking: $isCurrentlyWorking, companyName: $companyName, updatedAt: $updatedAt)';
+    return 'BaseWorkExperience(id: $id, createdAt: $createdAt, designation: $designation, startDate: $startDate, endDate: $endDate, userUid: $userUid, workingMode: $workingMode, isCurrentlyWorking: $isCurrentlyWorking, companyName: $companyName, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WorkExperienceImpl &&
+            other is _$BaseWorkExperienceImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -357,25 +357,25 @@ class _$WorkExperienceImpl extends _WorkExperience {
     updatedAt,
   );
 
-  /// Create a copy of WorkExperience
+  /// Create a copy of BaseWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$WorkExperienceImplCopyWith<_$WorkExperienceImpl> get copyWith =>
-      __$$WorkExperienceImplCopyWithImpl<_$WorkExperienceImpl>(
+  _$$BaseWorkExperienceImplCopyWith<_$BaseWorkExperienceImpl> get copyWith =>
+      __$$BaseWorkExperienceImplCopyWithImpl<_$BaseWorkExperienceImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WorkExperienceImplToJson(this);
+    return _$$BaseWorkExperienceImplToJson(this);
   }
 }
 
-abstract class _WorkExperience extends WorkExperience {
-  const factory _WorkExperience({
+abstract class _BaseWorkExperience extends BaseWorkExperience {
+  const factory _BaseWorkExperience({
     @JsonKey(name: 'id') final int? id,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'designation') final String? designation,
@@ -386,11 +386,11 @@ abstract class _WorkExperience extends WorkExperience {
     @JsonKey(name: 'is_currently_working') final bool? isCurrentlyWorking,
     @JsonKey(name: 'company_name') final String? companyName,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-  }) = _$WorkExperienceImpl;
-  const _WorkExperience._() : super._();
+  }) = _$BaseWorkExperienceImpl;
+  const _BaseWorkExperience._() : super._();
 
-  factory _WorkExperience.fromJson(Map<String, dynamic> json) =
-      _$WorkExperienceImpl.fromJson;
+  factory _BaseWorkExperience.fromJson(Map<String, dynamic> json) =
+      _$BaseWorkExperienceImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -423,10 +423,10 @@ abstract class _WorkExperience extends WorkExperience {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
 
-  /// Create a copy of WorkExperience
+  /// Create a copy of BaseWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WorkExperienceImplCopyWith<_$WorkExperienceImpl> get copyWith =>
+  _$$BaseWorkExperienceImplCopyWith<_$BaseWorkExperienceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,8 +6,8 @@ part of 'service.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
-    _$ServiceImpl(
+_$BaseServiceImpl _$$BaseServiceImplFromJson(Map<String, dynamic> json) =>
+    _$BaseServiceImpl(
       id: (json['id'] as num?)?.toInt(),
       createdAt:
           json['created_at'] == null
@@ -24,7 +24,7 @@ _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
               : DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
+Map<String, dynamic> _$$BaseServiceImplToJson(_$BaseServiceImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt?.toIso8601String(),

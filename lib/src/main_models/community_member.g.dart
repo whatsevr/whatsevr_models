@@ -6,9 +6,9 @@ part of 'community_member.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CommunityMemberImpl _$$CommunityMemberImplFromJson(
+_$BaseCommunityMemberImpl _$$BaseCommunityMemberImplFromJson(
   Map<String, dynamic> json,
-) => _$CommunityMemberImpl(
+) => _$BaseCommunityMemberImpl(
   communityUid: json['community_uid'] as String?,
   userUid: json['user_uid'] as String?,
   joinedAt:
@@ -35,8 +35,8 @@ _$CommunityMemberImpl _$$CommunityMemberImplFromJson(
           : DateTime.parse(json['updated_at'] as String),
 );
 
-Map<String, dynamic> _$$CommunityMemberImplToJson(
-  _$CommunityMemberImpl instance,
+Map<String, dynamic> _$$BaseCommunityMemberImplToJson(
+  _$BaseCommunityMemberImpl instance,
 ) => <String, dynamic>{
   'community_uid': instance.communityUid,
   'user_uid': instance.userUid,

@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-Photo _$PhotoFromJson(Map<String, dynamic> json) {
-  return _Photo.fromJson(json);
+BasePhoto _$BasePhotoFromJson(Map<String, dynamic> json) {
+  return _BasePhoto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Photo {
+mixin _$BasePhoto {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -70,19 +70,20 @@ mixin _$Photo {
   @JsonKey(name: 'community_uid')
   String? get communityUid => throw _privateConstructorUsedError;
 
-  /// Serializes this Photo to a JSON map.
+  /// Serializes this BasePhoto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Photo
+  /// Create a copy of BasePhoto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PhotoCopyWith<Photo> get copyWith => throw _privateConstructorUsedError;
+  $BasePhotoCopyWith<BasePhoto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PhotoCopyWith<$Res> {
-  factory $PhotoCopyWith(Photo value, $Res Function(Photo) then) =
-      _$PhotoCopyWithImpl<$Res, Photo>;
+abstract class $BasePhotoCopyWith<$Res> {
+  factory $BasePhotoCopyWith(BasePhoto value, $Res Function(BasePhoto) then) =
+      _$BasePhotoCopyWithImpl<$Res, BasePhoto>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -113,16 +114,16 @@ abstract class $PhotoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PhotoCopyWithImpl<$Res, $Val extends Photo>
-    implements $PhotoCopyWith<$Res> {
-  _$PhotoCopyWithImpl(this._value, this._then);
+class _$BasePhotoCopyWithImpl<$Res, $Val extends BasePhoto>
+    implements $BasePhotoCopyWith<$Res> {
+  _$BasePhotoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Photo
+  /// Create a copy of BasePhoto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -281,11 +282,12 @@ class _$PhotoCopyWithImpl<$Res, $Val extends Photo>
 }
 
 /// @nodoc
-abstract class _$$PhotoImplCopyWith<$Res> implements $PhotoCopyWith<$Res> {
-  factory _$$PhotoImplCopyWith(
-    _$PhotoImpl value,
-    $Res Function(_$PhotoImpl) then,
-  ) = __$$PhotoImplCopyWithImpl<$Res>;
+abstract class _$$BasePhotoImplCopyWith<$Res>
+    implements $BasePhotoCopyWith<$Res> {
+  factory _$$BasePhotoImplCopyWith(
+    _$BasePhotoImpl value,
+    $Res Function(_$BasePhotoImpl) then,
+  ) = __$$BasePhotoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -317,15 +319,15 @@ abstract class _$$PhotoImplCopyWith<$Res> implements $PhotoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PhotoImplCopyWithImpl<$Res>
-    extends _$PhotoCopyWithImpl<$Res, _$PhotoImpl>
-    implements _$$PhotoImplCopyWith<$Res> {
-  __$$PhotoImplCopyWithImpl(
-    _$PhotoImpl _value,
-    $Res Function(_$PhotoImpl) _then,
+class __$$BasePhotoImplCopyWithImpl<$Res>
+    extends _$BasePhotoCopyWithImpl<$Res, _$BasePhotoImpl>
+    implements _$$BasePhotoImplCopyWith<$Res> {
+  __$$BasePhotoImplCopyWithImpl(
+    _$BasePhotoImpl _value,
+    $Res Function(_$BasePhotoImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Photo
+  /// Create a copy of BasePhoto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -356,7 +358,7 @@ class __$$PhotoImplCopyWithImpl<$Res>
     Object? communityUid = freezed,
   }) {
     return _then(
-      _$PhotoImpl(
+      _$BasePhotoImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -484,8 +486,8 @@ class __$$PhotoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PhotoImpl extends _Photo {
-  const _$PhotoImpl({
+class _$BasePhotoImpl extends _BasePhoto {
+  const _$BasePhotoImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'title') this.title,
@@ -517,8 +519,8 @@ class _$PhotoImpl extends _Photo {
        _filesData = filesData,
        super._();
 
-  factory _$PhotoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PhotoImplFromJson(json);
+  factory _$BasePhotoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BasePhotoImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -628,14 +630,14 @@ class _$PhotoImpl extends _Photo {
 
   @override
   String toString() {
-    return 'Photo(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid)';
+    return 'BasePhoto(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PhotoImpl &&
+            other is _$BasePhotoImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -718,22 +720,22 @@ class _$PhotoImpl extends _Photo {
     communityUid,
   ]);
 
-  /// Create a copy of Photo
+  /// Create a copy of BasePhoto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PhotoImplCopyWith<_$PhotoImpl> get copyWith =>
-      __$$PhotoImplCopyWithImpl<_$PhotoImpl>(this, _$identity);
+  _$$BasePhotoImplCopyWith<_$BasePhotoImpl> get copyWith =>
+      __$$BasePhotoImplCopyWithImpl<_$BasePhotoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PhotoImplToJson(this);
+    return _$$BasePhotoImplToJson(this);
   }
 }
 
-abstract class _Photo extends Photo {
-  const factory _Photo({
+abstract class _BasePhoto extends BasePhoto {
+  const factory _BasePhoto({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'title') final String? title,
@@ -760,10 +762,11 @@ abstract class _Photo extends Photo {
     @JsonKey(name: 'files_data') final Map<String, dynamic>? filesData,
     @JsonKey(name: 'seo_data_weighted') final String? seoDataWeighted,
     @JsonKey(name: 'community_uid') final String? communityUid,
-  }) = _$PhotoImpl;
-  const _Photo._() : super._();
+  }) = _$BasePhotoImpl;
+  const _BasePhoto._() : super._();
 
-  factory _Photo.fromJson(Map<String, dynamic> json) = _$PhotoImpl.fromJson;
+  factory _BasePhoto.fromJson(Map<String, dynamic> json) =
+      _$BasePhotoImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -838,10 +841,10 @@ abstract class _Photo extends Photo {
   @JsonKey(name: 'community_uid')
   String? get communityUid;
 
-  /// Create a copy of Photo
+  /// Create a copy of BasePhoto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PhotoImplCopyWith<_$PhotoImpl> get copyWith =>
+  _$$BasePhotoImplCopyWith<_$BasePhotoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
