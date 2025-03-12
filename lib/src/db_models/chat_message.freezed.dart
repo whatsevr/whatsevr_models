@@ -48,11 +48,7 @@ mixin _$BaseChatMessage {
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'related_content')
-  List<dynamic>? get relatedContent => throw _privateConstructorUsedError; // User objects excluded from auto JSON serialization
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  BaseUser? get sender => throw _privateConstructorUsedError;
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  BaseUser? get forwarder => throw _privateConstructorUsedError;
+  List<dynamic>? get relatedContent => throw _privateConstructorUsedError;
 
   /// Serializes this BaseChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -86,12 +82,7 @@ abstract class $BaseChatMessageCopyWith<$Res> {
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'related_content') List<dynamic>? relatedContent,
-    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? sender,
-    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? forwarder,
   });
-
-  $BaseUserCopyWith<$Res>? get sender;
-  $BaseUserCopyWith<$Res>? get forwarder;
 }
 
 /// @nodoc
@@ -123,8 +114,6 @@ class _$BaseChatMessageCopyWithImpl<$Res, $Val extends BaseChatMessage>
     Object? ownerType = freezed,
     Object? updatedAt = freezed,
     Object? relatedContent = freezed,
-    Object? sender = freezed,
-    Object? forwarder = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -198,47 +187,9 @@ class _$BaseChatMessageCopyWithImpl<$Res, $Val extends BaseChatMessage>
                     ? _value.relatedContent
                     : relatedContent // ignore: cast_nullable_to_non_nullable
                         as List<dynamic>?,
-            sender:
-                freezed == sender
-                    ? _value.sender
-                    : sender // ignore: cast_nullable_to_non_nullable
-                        as BaseUser?,
-            forwarder:
-                freezed == forwarder
-                    ? _value.forwarder
-                    : forwarder // ignore: cast_nullable_to_non_nullable
-                        as BaseUser?,
           )
           as $Val,
     );
-  }
-
-  /// Create a copy of BaseChatMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BaseUserCopyWith<$Res>? get sender {
-    if (_value.sender == null) {
-      return null;
-    }
-
-    return $BaseUserCopyWith<$Res>(_value.sender!, (value) {
-      return _then(_value.copyWith(sender: value) as $Val);
-    });
-  }
-
-  /// Create a copy of BaseChatMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BaseUserCopyWith<$Res>? get forwarder {
-    if (_value.forwarder == null) {
-      return null;
-    }
-
-    return $BaseUserCopyWith<$Res>(_value.forwarder!, (value) {
-      return _then(_value.copyWith(forwarder: value) as $Val);
-    });
   }
 }
 
@@ -266,14 +217,7 @@ abstract class _$$BaseChatMessageImplCopyWith<$Res>
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'related_content') List<dynamic>? relatedContent,
-    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? sender,
-    @JsonKey(includeFromJson: false, includeToJson: false) BaseUser? forwarder,
   });
-
-  @override
-  $BaseUserCopyWith<$Res>? get sender;
-  @override
-  $BaseUserCopyWith<$Res>? get forwarder;
 }
 
 /// @nodoc
@@ -304,8 +248,6 @@ class __$$BaseChatMessageImplCopyWithImpl<$Res>
     Object? ownerType = freezed,
     Object? updatedAt = freezed,
     Object? relatedContent = freezed,
-    Object? sender = freezed,
-    Object? forwarder = freezed,
   }) {
     return _then(
       _$BaseChatMessageImpl(
@@ -379,16 +321,6 @@ class __$$BaseChatMessageImplCopyWithImpl<$Res>
                 ? _value._relatedContent
                 : relatedContent // ignore: cast_nullable_to_non_nullable
                     as List<dynamic>?,
-        sender:
-            freezed == sender
-                ? _value.sender
-                : sender // ignore: cast_nullable_to_non_nullable
-                    as BaseUser?,
-        forwarder:
-            freezed == forwarder
-                ? _value.forwarder
-                : forwarder // ignore: cast_nullable_to_non_nullable
-                    as BaseUser?,
       ),
     );
   }
@@ -412,8 +344,6 @@ class _$BaseChatMessageImpl extends _BaseChatMessage {
     @JsonKey(name: 'owner_type') this.ownerType,
     @JsonKey(name: 'updated_at') this.updatedAt,
     @JsonKey(name: 'related_content') final List<dynamic>? relatedContent,
-    @JsonKey(includeFromJson: false, includeToJson: false) this.sender,
-    @JsonKey(includeFromJson: false, includeToJson: false) this.forwarder,
   }) : _relatedContent = relatedContent,
        super._();
 
@@ -470,17 +400,9 @@ class _$BaseChatMessageImpl extends _BaseChatMessage {
     return EqualUnmodifiableListView(value);
   }
 
-  // User objects excluded from auto JSON serialization
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final BaseUser? sender;
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final BaseUser? forwarder;
-
   @override
   String toString() {
-    return 'BaseChatMessage(uid: $uid, senderUid: $senderUid, message: $message, createdAt: $createdAt, isPinned: $isPinned, communityUid: $communityUid, privateChatUid: $privateChatUid, replyToMessageUid: $replyToMessageUid, forwarderUserUid: $forwarderUserUid, isDeleted: $isDeleted, isSystemMessage: $isSystemMessage, ownerType: $ownerType, updatedAt: $updatedAt, relatedContent: $relatedContent, sender: $sender, forwarder: $forwarder)';
+    return 'BaseChatMessage(uid: $uid, senderUid: $senderUid, message: $message, createdAt: $createdAt, isPinned: $isPinned, communityUid: $communityUid, privateChatUid: $privateChatUid, replyToMessageUid: $replyToMessageUid, forwarderUserUid: $forwarderUserUid, isDeleted: $isDeleted, isSystemMessage: $isSystemMessage, ownerType: $ownerType, updatedAt: $updatedAt, relatedContent: $relatedContent)';
   }
 
   @override
@@ -515,10 +437,7 @@ class _$BaseChatMessageImpl extends _BaseChatMessage {
             const DeepCollectionEquality().equals(
               other._relatedContent,
               _relatedContent,
-            ) &&
-            (identical(other.sender, sender) || other.sender == sender) &&
-            (identical(other.forwarder, forwarder) ||
-                other.forwarder == forwarder));
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -539,8 +458,6 @@ class _$BaseChatMessageImpl extends _BaseChatMessage {
     ownerType,
     updatedAt,
     const DeepCollectionEquality().hash(_relatedContent),
-    sender,
-    forwarder,
   );
 
   /// Create a copy of BaseChatMessage
@@ -576,10 +493,6 @@ abstract class _BaseChatMessage extends BaseChatMessage {
     @JsonKey(name: 'owner_type') final String? ownerType,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'related_content') final List<dynamic>? relatedContent,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    final BaseUser? sender,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    final BaseUser? forwarder,
   }) = _$BaseChatMessageImpl;
   const _BaseChatMessage._() : super._();
 
@@ -627,13 +540,7 @@ abstract class _BaseChatMessage extends BaseChatMessage {
   DateTime? get updatedAt;
   @override
   @JsonKey(name: 'related_content')
-  List<dynamic>? get relatedContent; // User objects excluded from auto JSON serialization
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  BaseUser? get sender;
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  BaseUser? get forwarder;
+  List<dynamic>? get relatedContent;
 
   /// Create a copy of BaseChatMessage
   /// with the given fields replaced by the non-null parameter values.

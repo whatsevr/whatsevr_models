@@ -4,7 +4,7 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 @freezed
-class BaseUser with _$BaseUser {
+ class BaseUser with _$BaseUser {
   const factory BaseUser({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
