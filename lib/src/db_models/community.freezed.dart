@@ -43,8 +43,8 @@ mixin _$BaseCommunity {
   String? get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_members')
   int? get totalMembers => throw _privateConstructorUsedError;
-  @JsonKey(name: 'require_joining_approval')
-  bool? get requireJoiningApproval => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_private')
+  bool? get isPrivate => throw _privateConstructorUsedError;
   @JsonKey(name: 'seo_data_weighted')
   String? get seoDataWeighted => throw _privateConstructorUsedError;
   @JsonKey(name: 'plain_last_message')
@@ -83,7 +83,7 @@ abstract class $BaseCommunityCopyWith<$Res> {
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
     @JsonKey(name: 'total_members') int? totalMembers,
-    @JsonKey(name: 'require_joining_approval') bool? requireJoiningApproval,
+    @JsonKey(name: 'is_private') bool? isPrivate,
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'plain_last_message') String? plainLastMessage,
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
@@ -117,7 +117,7 @@ class _$BaseCommunityCopyWithImpl<$Res, $Val extends BaseCommunity>
     Object? uid = freezed,
     Object? username = freezed,
     Object? totalMembers = freezed,
-    Object? requireJoiningApproval = freezed,
+    Object? isPrivate = freezed,
     Object? seoDataWeighted = freezed,
     Object? plainLastMessage = freezed,
     Object? lastMessageAt = freezed,
@@ -180,10 +180,10 @@ class _$BaseCommunityCopyWithImpl<$Res, $Val extends BaseCommunity>
                     ? _value.totalMembers
                     : totalMembers // ignore: cast_nullable_to_non_nullable
                         as int?,
-            requireJoiningApproval:
-                freezed == requireJoiningApproval
-                    ? _value.requireJoiningApproval
-                    : requireJoiningApproval // ignore: cast_nullable_to_non_nullable
+            isPrivate:
+                freezed == isPrivate
+                    ? _value.isPrivate
+                    : isPrivate // ignore: cast_nullable_to_non_nullable
                         as bool?,
             seoDataWeighted:
                 freezed == seoDataWeighted
@@ -232,7 +232,7 @@ abstract class _$$BaseCommunityImplCopyWith<$Res>
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
     @JsonKey(name: 'total_members') int? totalMembers,
-    @JsonKey(name: 'require_joining_approval') bool? requireJoiningApproval,
+    @JsonKey(name: 'is_private') bool? isPrivate,
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'plain_last_message') String? plainLastMessage,
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
@@ -265,7 +265,7 @@ class __$$BaseCommunityImplCopyWithImpl<$Res>
     Object? uid = freezed,
     Object? username = freezed,
     Object? totalMembers = freezed,
-    Object? requireJoiningApproval = freezed,
+    Object? isPrivate = freezed,
     Object? seoDataWeighted = freezed,
     Object? plainLastMessage = freezed,
     Object? lastMessageAt = freezed,
@@ -328,10 +328,10 @@ class __$$BaseCommunityImplCopyWithImpl<$Res>
                 ? _value.totalMembers
                 : totalMembers // ignore: cast_nullable_to_non_nullable
                     as int?,
-        requireJoiningApproval:
-            freezed == requireJoiningApproval
-                ? _value.requireJoiningApproval
-                : requireJoiningApproval // ignore: cast_nullable_to_non_nullable
+        isPrivate:
+            freezed == isPrivate
+                ? _value.isPrivate
+                : isPrivate // ignore: cast_nullable_to_non_nullable
                     as bool?,
         seoDataWeighted:
             freezed == seoDataWeighted
@@ -373,7 +373,7 @@ class _$BaseCommunityImpl extends _BaseCommunity {
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'username') this.username,
     @JsonKey(name: 'total_members') this.totalMembers,
-    @JsonKey(name: 'require_joining_approval') this.requireJoiningApproval,
+    @JsonKey(name: 'is_private') this.isPrivate,
     @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted,
     @JsonKey(name: 'plain_last_message') this.plainLastMessage,
     @JsonKey(name: 'last_message_at') this.lastMessageAt,
@@ -417,8 +417,8 @@ class _$BaseCommunityImpl extends _BaseCommunity {
   @JsonKey(name: 'total_members')
   final int? totalMembers;
   @override
-  @JsonKey(name: 'require_joining_approval')
-  final bool? requireJoiningApproval;
+  @JsonKey(name: 'is_private')
+  final bool? isPrivate;
   @override
   @JsonKey(name: 'seo_data_weighted')
   final String? seoDataWeighted;
@@ -434,7 +434,7 @@ class _$BaseCommunityImpl extends _BaseCommunity {
 
   @override
   String toString() {
-    return 'BaseCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, requireJoiningApproval: $requireJoiningApproval, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt)';
+    return 'BaseCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -460,8 +460,8 @@ class _$BaseCommunityImpl extends _BaseCommunity {
                 other.username == username) &&
             (identical(other.totalMembers, totalMembers) ||
                 other.totalMembers == totalMembers) &&
-            (identical(other.requireJoiningApproval, requireJoiningApproval) ||
-                other.requireJoiningApproval == requireJoiningApproval) &&
+            (identical(other.isPrivate, isPrivate) ||
+                other.isPrivate == isPrivate) &&
             (identical(other.seoDataWeighted, seoDataWeighted) ||
                 other.seoDataWeighted == seoDataWeighted) &&
             (identical(other.plainLastMessage, plainLastMessage) ||
@@ -487,7 +487,7 @@ class _$BaseCommunityImpl extends _BaseCommunity {
     uid,
     username,
     totalMembers,
-    requireJoiningApproval,
+    isPrivate,
     seoDataWeighted,
     plainLastMessage,
     lastMessageAt,
@@ -521,8 +521,7 @@ abstract class _BaseCommunity extends BaseCommunity {
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'username') final String? username,
     @JsonKey(name: 'total_members') final int? totalMembers,
-    @JsonKey(name: 'require_joining_approval')
-    final bool? requireJoiningApproval,
+    @JsonKey(name: 'is_private') final bool? isPrivate,
     @JsonKey(name: 'seo_data_weighted') final String? seoDataWeighted,
     @JsonKey(name: 'plain_last_message') final String? plainLastMessage,
     @JsonKey(name: 'last_message_at') final DateTime? lastMessageAt,
@@ -567,8 +566,8 @@ abstract class _BaseCommunity extends BaseCommunity {
   @JsonKey(name: 'total_members')
   int? get totalMembers;
   @override
-  @JsonKey(name: 'require_joining_approval')
-  bool? get requireJoiningApproval;
+  @JsonKey(name: 'is_private')
+  bool? get isPrivate;
   @override
   @JsonKey(name: 'seo_data_weighted')
   String? get seoDataWeighted;

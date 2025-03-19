@@ -22,7 +22,7 @@ _$BaseCommunityImpl _$$BaseCommunityImplFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String?,
       username: json['username'] as String?,
       totalMembers: (json['total_members'] as num?)?.toInt(),
-      requireJoiningApproval: json['require_joining_approval'] as bool?,
+      isPrivate: json['is_private'] as bool?,
       seoDataWeighted: json['seo_data_weighted'] as String?,
       plainLastMessage: json['plain_last_message'] as String?,
       lastMessageAt:
@@ -48,7 +48,7 @@ Map<String, dynamic> _$$BaseCommunityImplToJson(_$BaseCommunityImpl instance) =>
       'uid': instance.uid,
       'username': instance.username,
       'total_members': instance.totalMembers,
-      'require_joining_approval': instance.requireJoiningApproval,
+      'is_private': instance.isPrivate,
       'seo_data_weighted': instance.seoDataWeighted,
       'plain_last_message': instance.plainLastMessage,
       'last_message_at': instance.lastMessageAt?.toIso8601String(),

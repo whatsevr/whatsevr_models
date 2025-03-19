@@ -20,7 +20,7 @@ class BaseCommunity with _$BaseCommunity {
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
     @JsonKey(name: 'total_members') int? totalMembers,
-    @JsonKey(name: 'require_joining_approval') bool? requireJoiningApproval,
+    @JsonKey(name: 'is_private') bool? isPrivate,
     @JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,
     @JsonKey(name: 'plain_last_message') String? plainLastMessage,
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
