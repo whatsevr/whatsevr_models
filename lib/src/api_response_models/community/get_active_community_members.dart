@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'get_community_members.freezed.dart';
-part 'get_community_members.g.dart';
+part 'get_active_community_members.freezed.dart';
+part 'get_active_community_members.g.dart';
 
 @Freezed(genericArgumentFactories: true)
-class GetCommunityMembersResponse with _$GetCommunityMembersResponse {
-  const factory GetCommunityMembersResponse({
+class GetActiveCommunityMembersResponse with _$GetActiveCommunityMembersResponse {
+  const factory GetActiveCommunityMembersResponse({
     @JsonKey(name: 'message')
     String? message,
     
@@ -19,8 +19,8 @@ class GetCommunityMembersResponse with _$GetCommunityMembersResponse {
     CommunityMembersResult? result,
   }) = _GetCommunityMembersResponse;
 
-  factory GetCommunityMembersResponse.fromJson(Map<String, dynamic> json) => 
-      _$GetCommunityMembersResponseFromJson(json);
+  factory GetActiveCommunityMembersResponse.fromJson(Map<String, dynamic> json) => 
+      _$GetActiveCommunityMembersResponseFromJson(json);
 }
 
 @freezed

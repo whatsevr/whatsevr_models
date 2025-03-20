@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_community_members.dart';
+part of 'get_active_community_members.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

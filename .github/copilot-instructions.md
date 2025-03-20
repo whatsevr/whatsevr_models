@@ -1,5 +1,6 @@
 ### Disabling invalid_annotation_target warning and warning in generates files
 - Dont use default, all will will be optional and nullable
+- Use @JsonKey for all json response keys
 - Use dart type DateTime for Date or Timestamps
 If you plan on using [Freezed] in combination with `json_serializable`, recent
 versions of `json_serializable` and `meta` may require you to disable the

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'get_community_members.dart';
+part of 'get_active_community_members.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-GetCommunityMembersResponse _$GetCommunityMembersResponseFromJson(
+GetActiveCommunityMembersResponse _$GetActiveCommunityMembersResponseFromJson(
   Map<String, dynamic> json,
 ) {
   return _GetCommunityMembersResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetCommunityMembersResponse {
+mixin _$GetActiveCommunityMembersResponse {
   @JsonKey(name: 'message')
   String? get message => throw _privateConstructorUsedError;
   @JsonKey(name: 'page')
@@ -32,25 +32,25 @@ mixin _$GetCommunityMembersResponse {
   @JsonKey(name: 'result')
   CommunityMembersResult? get result => throw _privateConstructorUsedError;
 
-  /// Serializes this GetCommunityMembersResponse to a JSON map.
+  /// Serializes this GetActiveCommunityMembersResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetCommunityMembersResponseCopyWith<GetCommunityMembersResponse>
+  $GetActiveCommunityMembersResponseCopyWith<GetActiveCommunityMembersResponse>
   get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetCommunityMembersResponseCopyWith<$Res> {
-  factory $GetCommunityMembersResponseCopyWith(
-    GetCommunityMembersResponse value,
-    $Res Function(GetCommunityMembersResponse) then,
+abstract class $GetActiveCommunityMembersResponseCopyWith<$Res> {
+  factory $GetActiveCommunityMembersResponseCopyWith(
+    GetActiveCommunityMembersResponse value,
+    $Res Function(GetActiveCommunityMembersResponse) then,
   ) =
-      _$GetCommunityMembersResponseCopyWithImpl<
+      _$GetActiveCommunityMembersResponseCopyWithImpl<
         $Res,
-        GetCommunityMembersResponse
+        GetActiveCommunityMembersResponse
       >;
   @useResult
   $Res call({
@@ -64,19 +64,19 @@ abstract class $GetCommunityMembersResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetCommunityMembersResponseCopyWithImpl<
+class _$GetActiveCommunityMembersResponseCopyWithImpl<
   $Res,
-  $Val extends GetCommunityMembersResponse
+  $Val extends GetActiveCommunityMembersResponse
 >
-    implements $GetCommunityMembersResponseCopyWith<$Res> {
-  _$GetCommunityMembersResponseCopyWithImpl(this._value, this._then);
+    implements $GetActiveCommunityMembersResponseCopyWith<$Res> {
+  _$GetActiveCommunityMembersResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -113,7 +113,7 @@ class _$GetCommunityMembersResponseCopyWithImpl<
     );
   }
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class _$GetCommunityMembersResponseCopyWithImpl<
 
 /// @nodoc
 abstract class _$$GetCommunityMembersResponseImplCopyWith<$Res>
-    implements $GetCommunityMembersResponseCopyWith<$Res> {
+    implements $GetActiveCommunityMembersResponseCopyWith<$Res> {
   factory _$$GetCommunityMembersResponseImplCopyWith(
     _$GetCommunityMembersResponseImpl value,
     $Res Function(_$GetCommunityMembersResponseImpl) then,
@@ -151,7 +151,7 @@ abstract class _$$GetCommunityMembersResponseImplCopyWith<$Res>
 /// @nodoc
 class __$$GetCommunityMembersResponseImplCopyWithImpl<$Res>
     extends
-        _$GetCommunityMembersResponseCopyWithImpl<
+        _$GetActiveCommunityMembersResponseCopyWithImpl<
           $Res,
           _$GetCommunityMembersResponseImpl
         >
@@ -161,7 +161,7 @@ class __$$GetCommunityMembersResponseImplCopyWithImpl<$Res>
     $Res Function(_$GetCommunityMembersResponseImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -228,7 +228,7 @@ class _$GetCommunityMembersResponseImpl
 
   @override
   String toString() {
-    return 'GetCommunityMembersResponse(message: $message, page: $page, lastPage: $lastPage, result: $result)';
+    return 'GetActiveCommunityMembersResponse(message: $message, page: $page, lastPage: $lastPage, result: $result)';
   }
 
   @override
@@ -247,7 +247,7 @@ class _$GetCommunityMembersResponseImpl
   @override
   int get hashCode => Object.hash(runtimeType, message, page, lastPage, result);
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -264,7 +264,7 @@ class _$GetCommunityMembersResponseImpl
 }
 
 abstract class _GetCommunityMembersResponse
-    implements GetCommunityMembersResponse {
+    implements GetActiveCommunityMembersResponse {
   const factory _GetCommunityMembersResponse({
     @JsonKey(name: 'message') final String? message,
     @JsonKey(name: 'page') final int? page,
@@ -288,7 +288,7 @@ abstract class _GetCommunityMembersResponse
   @JsonKey(name: 'result')
   CommunityMembersResult? get result;
 
-  /// Create a copy of GetCommunityMembersResponse
+  /// Create a copy of GetActiveCommunityMembersResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
