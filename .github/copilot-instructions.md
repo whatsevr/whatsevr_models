@@ -14,8 +14,8 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 @freezed
- class BaseUser with _$BaseUser {
-  const factory BaseUser({
+ class Exapmle with _$Exapmle {
+  const factory Exapmle({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
     
@@ -108,9 +108,9 @@ part 'user.g.dart';
     
     @JsonKey(name: 'updated_at')
     DateTime? updatedAt,
-  }) = _BaseUser;
+  }) = _Exapmle;
 
-  factory BaseUser.fromJson(Map<String, dynamic> json) => _$BaseUserFromJson(json);
+  factory Exapmle.fromJson(Map<String, dynamic> json) => _$ExapmleFromJson(json);
 }
 ```
 
@@ -1484,3 +1484,671 @@ targets:
           preamble: |
             // coverage:ignore-file
 ```
+
+
+### Types of columns in our database
+Okay, I've removed the descriptions from the table schemas and will present them in a more concise markdown format with just the key and type. Here's the updated output:
+
+## Platform_reports
+
+| Key                 | Type      |
+| ------------------- | --------- |
+| `uid`               | `string`  |
+| `reporter_meta_data`| `any`     |
+| `target_meta_data`  | `any`     |
+| `reporter_comment`  | `string?` |
+| `category`          | `string?` |
+| `status`            | `string`  |
+| `severity_level`    | `string?` |
+| `assigned_reviewer_uid` | `string?` |
+| `reviewer_notes`    | `string?` |
+| `escalation_level`  | `string?` |
+| `action_taken`      | `string?` |
+| `action_timestamp`  | `string?` |
+| `action_notes`      | `string?` |
+| `parent_report_uid` | `string?` |
+| `is_archived`       | `boolean?`|
+| `reporter_user_uid` | `string`  |
+| `created_at`        | `string?` |
+| `evidence_metadata` | `any`     |
+| `updated_at`        | `string?` |
+
+## Archives
+
+| Key          | Type     |
+|--------------|----------|
+| `uid`        | `string` |
+| `created_at` | `string` |
+| `updated_at` | `string?`|
+
+## Users
+
+| Key                      | Type      |
+|--------------------------|-----------|
+| `registered_at`          | `string`  |
+| `uid`                    | `string`  |
+| `username`               | `string`  |
+| `mobile_number`          | `string?` |
+| `email_id`               | `string?` |
+| `name`                   | `string`  |
+| `bio`                    | `string?` |
+| `address`                | `string?` |
+| `dob`                    | `string?` |
+| `profile_picture`        | `string?` |
+| `is_portfolio`           | `boolean?`|
+| `portfolio_status`       | `string?` |
+| `portfolio_description`  | `string?` |
+| `is_banned`              | `boolean?`|
+| `is_spam`                | `boolean?`|
+| `is_deactivated`         | `boolean` |
+| `portfolio_toggled_at`   | `string?` |
+| `portfolio_title`        | `string?` |
+| `total_followers`        | `number?` |
+| `total_followings`       | `number`  |
+| `total_reactions`        | `number?` |
+| `gender`                 | `string?` |
+| `last_active_at`         | `string?` |
+| `user_last_lat_long_wkb` | `any`     |
+| `total_connections`      | `number?` |
+| `public_email_id`        | `string?` |
+| `seo_data_weighted`      | `any`     |
+| `auth_provider_id`       | `string?` |
+| `auth_provider`          | `string?` |
+| `public_mobile_number`   | `string?` |
+| `updated_at`             | `string?` |
+| `is_private`             | `boolean` |
+
+## Private_chats
+
+| Key                 | Type      |
+|---------------------|-----------|
+| `uid`               | `string`  |
+| `user1_uid`         | `string`  |
+| `user2_uid`         | `string`  |
+| `created_at`        | `string`  |
+| `last_message_at`   | `string?` |
+| `user1_is_muted`    | `boolean?`|
+| `user2_is_muted`    | `boolean?`|
+| `user1_is_blocked`  | `boolean?`|
+| `user2_is_blocked`  | `boolean?`|
+| `plain_last_message`| `string?` |
+| `updated_at`        | `string?` |
+| `users`             | `Users`   |
+| `users`             | `Users`   |
+
+## Premium_user_names
+
+| Key            | Type      |
+|----------------|-----------|
+| `id`           | `number`  |
+| `created_at`   | `string`  |
+| `user_uid`     | `string`  |
+| `expiry_date`  | `string?` |
+| `user_name`    | `string`  |
+| `post_user_name`| `string?` |
+| `updated_at`   | `string?` |
+| `users`        | `Users`   |
+
+## Work_experiences
+
+| Key                   | Type      |
+|-----------------------|-----------|
+| `created_at`          | `string`  |
+| `designation`         | `string`  |
+| `start_date`          | `string?` |
+| `end_date`            | `string?` |
+| `user_uid`            | `string`  |
+| `working_mode`        | `string?` |
+| `is_currently_working`| `boolean?`|
+| `company_name`        | `string?` |
+| `updated_at`          | `string?` |
+| `uid`                 | `string`  |
+| `users`               | `Users`   |
+
+## User_agents
+
+| Key               | Type      |
+|-------------------|-----------|
+| `created_at`      | `string`  |
+| `fcm_token`       | `string?` |
+| `agent_type`      | `string?` |
+| `user_uid`        | `string`  |
+| `ip_address`      | `any`     |
+| `uid`             | `string`  |
+| `is_active`       | `boolean?`|
+| `agent_id`        | `string?` |
+| `agent_name`      | `string?` |
+| `app_version_code`| `number?` |
+| `updated_at`      | `string?` |
+| `users`           | `Users`   |
+
+## Communities
+
+| Key                 | Type      |
+|---------------------|-----------|
+| `created_at`        | `string`  |
+| `admin_user_uid`    | `string`  |
+| `status`            | `string`  |
+| `bio`               | `string?` |
+| `location`          | `string?` |
+| `description`       | `string?` |
+| `title`             | `string`  |
+| `profile_picture`   | `string?` |
+| `uid`               | `string`  |
+| `username`          | `string`  |
+| `total_members`     | `number`  |
+| `is_private`        | `boolean` |
+| `seo_data_weighted` | `any`     |
+| `plain_last_message`| `string`  |
+| `last_message_at`   | `string?` |
+| `updated_at`        | `string`  |
+| `is_broadcasting`   | `boolean` |
+| `users`             | `Users`   |
+
+## Profile_pictures
+
+| Key             | Type      |
+|-----------------|-----------|
+| `created_at`    | `string`  |
+| `url`           | `string`  |
+| `user_uid`      | `string`  |
+| `community_uid` | `string?` |
+| `owner_type`    | `any`     |
+| `updated_at`    | `string?` |
+| `uid`           | `string`  |
+| `users`         | `Users`   |
+| `communities`   | `Communities` |
+
+## Wtvs (Watchable TV Segments)
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `uid`                   | `string`  |
+| `title`                 | `string`  |
+| `description`           | `string?` |
+| `hashtags`              | `any`     |
+| `tagged_user_uids`      | `any`     |
+| `is_archived`           | `boolean?`|
+| `is_active`             | `boolean?`|
+| `post_creator_type`     | `any`     |
+| `updated_at`            | `string?` |
+| `user_uid`              | `string`  |
+| `thumbnail`             | `string?` |
+| `video_url`             | `string`  |
+| `location`              | `string?` |
+| `total_views`           | `number?` |
+| `total_reactions`         | `number?` |
+| `total_comments`          | `number?` |
+| `internal_ai_description` | `string?` |
+| `address_lat_long_wkb`    | `any`     |
+| `creator_lat_long_wkb`    | `any`     |
+| `tagged_community_uids`   | `any`     |
+| `total_shares`            | `number?` |
+| `cumulative_score`        | `any`     |
+| `video_duration_in_sec`   | `number?` |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+
+## Community_members
+
+| Key                   | Type      |
+|-----------------------|-----------|
+| `community_uid`       | `string`  |
+| `user_uid`            | `string`  |
+| `joined_at`           | `string`  |
+| `role`                | `string`  |
+| `status`              | `string`  |
+| `last_active_at`      | `string?` |
+| `join_request_message`| `string?` |
+| `notes`               | `string?` |
+| `uid`                 | `string`  |
+| `updated_at`          | `string?` |
+| `communities`         | `Communities` |
+| `users`               | `Users`   |
+
+## Cover_media
+
+| Key             | Type      |
+|-----------------|-----------|
+| `created_at`    | `string`  |
+| `image_url`     | `string`  |
+| `is_video`      | `boolean` |
+| `user_uid`      | `string`  |
+| `video_url`     | `string?` |
+| `community_uid` | `string?` |
+| `owner_type`    | `any`     |
+| `updated_at`    | `string?` |
+| `uid`           | `string`  |
+| `users`         | `Users`   |
+| `communities`   | `Communities` |
+
+## Educations
+
+| Key                      | Type      |
+|--------------------------|-----------|
+| `created_at`             | `string`  |
+| `user_uid`               | `string`  |
+| `title`                  | `string`  |
+| `start_date`             | `string?` |
+| `end_date`               | `string?` |
+| `type`                   | `string`  |
+| `institute`              | `string?` |
+| `is_ongoing_education`   | `boolean?`|
+| `updated_at`             | `string?` |
+| `uid`                    | `string`  |
+| `users`               | `Users`   |
+
+## Memories
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `uid`                   | `string`  |
+| `caption`               | `string?` |
+| `hashtags`              | `any`     |
+| `tagged_user_uids`      | `any`     |
+| `is_archived`           | `boolean?`|
+| `is_active`             | `boolean?`|
+| `post_creator_type`     | `any`     |
+| `expires_at`            | `string?` |
+| `user_uid`              | `string`  |
+| `image_url`             | `string?` |
+| `video_url`             | `string?` |
+| `is_video`              | `boolean?`|
+| `location`              | `string?` |
+| `total_views`           | `number?` |
+| `total_reactions`         | `number?` |
+| `total_comments`          | `number?` |
+| `internal_ai_description` | `string?` |
+| `address_lat_long_wkb`    | `any`     |
+| `creator_lat_long_wkb`    | `any`     |
+| `tagged_community_uids`   | `any`     |
+| `total_shares`            | `number?` |
+| `cumulative_score`        | `any`     |
+| `cta_action`            | `string?` |
+| `cta_action_url`        | `string?` |
+| `is_image`              | `boolean?` |
+| `is_text`               | `boolean?` |
+| `video_duration_ms`       | `number?` |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `updated_at`            | `string?` |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+
+## Pdfs
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `file_url`              | `string`  |
+| `user_uid`              | `string`  |
+| `title`                 | `string`  |
+| `thumbnail_url`         | `string`  |
+| `description`           | `string?` |
+| `post_creator_type`     | `any`     |
+| `creator_lat_long_wkb`    | `any`     |
+| `uid`                   | `string`  |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `updated_at`            | `string?` |
+| `total_impressions`       | `number?` |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+
+## Related_content
+
+| Key             | Type      |
+|-----------------|-----------|
+| `uid`           | `string`  |
+| `created_at`    | `string`  |
+| `content`       | `any`     |
+| `owner_type`    | `any`     |
+| `author_user_uid` | `string`  |
+| `community_uid` | `string?` |
+| `updated_at`    | `string?` |
+| `users`         | `Users`   |
+| `communities`   | `Communities` |
+
+## Services
+
+| Key             | Type      |
+|-----------------|-----------|
+| `created_at`    | `string`  |
+| `title`         | `string`  |
+| `user_uid`      | `string`  |
+| `description`   | `string`  |
+| `community_uid` | `string?` |
+| `owner_type`    | `any`     |
+| `updated_at`    | `string?` |
+| `uid`           | `string`  |
+| `users`         | `Users`   |
+| `communities`   | `Communities` |
+
+## Platform_alerts
+
+| Key                | Type      |
+|--------------------|-----------|
+| `uid`              | `string`  |
+| `created_at`       | `string`  |
+| `recipient_user_uid`| `string?` |
+| `title`            | `string?` |
+| `description`      | `string?` |
+| `actor_user_uid`   | `string?` |
+| `alert_type`       | `string?` |
+| `content`          | `any`     |
+| `users`         | `Users`   |
+| `users`         | `Users`   |
+
+## Users_relation
+
+| Key                   | Type      |
+|-----------------------|-----------|
+| `uid`                 | `string`  |
+| `created_at`          | `string`  |
+| `follower_user_uid`   | `string`  |
+| `followee_user_uid`   | `string`  |
+| `is_muted`            | `boolean?`|
+| `is_favorite`         | `boolean?`|
+| `notifications_enabled`| `boolean?`|
+| `updated_at`          | `string?` |
+| `users`         | `Users`   |
+| `users`         | `Users`   |
+
+## Test54
+
+| Key          | Type      |
+|--------------|-----------|
+| `id`         | `number`  |
+| `created_at` | `string`  |
+| `uid`        | `string` |
+| `updated_at` | `string?`|
+
+## Chat_messages
+
+| Key                   | Type      |
+|-----------------------|-----------|
+| `uid`                 | `string`  |
+| `sender_uid`          | `string`  |
+| `message`             | `string?` |
+| `created_at`          | `string`  |
+| `is_pinned`           | `boolean` |
+| `community_uid`       | `string?` |
+| `private_chat_uid`    | `string?` |
+| `reply_to_message_uid`| `string?` |
+| `forwarder_user_uid`  | `string?` |
+| `is_deleted`          | `boolean` |
+| `is_system_message`   | `boolean` |
+| `owner_type`          | `any`     |
+| `updated_at`          | `string`  |
+| `related_content`     | `any`     |
+| `users`         | `Users`   |
+| `communities`         | `Communities` |
+| `private_chats`     | `Private_chats` |
+| `chat_messages`     | `Chat_messages` |
+| `users`         | `Users`   |
+
+## Offers
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `uid`                   | `string`  |
+| `title`                 | `string?` |
+| `description`           | `string`  |
+| `hashtags`              | `any`     |
+| `tagged_user_uids`      | `any`     |
+| `is_deleted`            | `boolean?`|
+| `is_archived`           | `boolean?`|
+| `is_active`             | `boolean?`|
+| `post_creator_type`     | `any`     |
+| `user_uid`              | `string`  |
+| `total_impressions`       | `number?` |
+| `total_reactions`         | `number?` |
+| `total_comments`          | `number?` |
+| `internal_ai_description` | `string?` |
+| `creator_lat_long_wkb`    | `any`     |
+| `tagged_community_uids`   | `any`     |
+| `total_shares`            | `number?` |
+| `cumulative_score`        | `any`     |
+| `cta_action`            | `string?` |
+| `cta_action_url`        | `string?` |
+| `files_data`            | `any`     |
+| `status`                | `string`  |
+| `target_gender`         | `string?` |
+| `target_areas`          | `any`     |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `updated_at`            | `string?` |
+| `rich_description`      | `any`     |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+
+## Photos
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `uid`                   | `string`  |
+| `title`                 | `string`  |
+| `description`           | `string?` |
+| `hashtags`              | `any`     |
+| `tagged_user_uids`      | `any`     |
+| `is_archived`           | `boolean?`|
+| `is_active`             | `boolean?`|
+| `post_creator_type`     | `any`     |
+| `updated_at`            | `string?` |
+| `user_uid`              | `string`  |
+| `location`              | `string?` |
+| `total_impressions`       | `number?` |
+| `total_reactions`         | `number?` |
+| `total_comments`          | `number?` |
+| `internal_ai_description` | `string?` |
+| `address_lat_long_wkb`    | `any`     |
+| `creator_lat_long_wkb`    | `any`     |
+| `tagged_community_uids`   | `any`     |
+| `total_shares`            | `number?` |
+| `cumulative_score`        | `any`     |
+| `files_data`            | `any`     |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+
+## Flicks
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `created_at`            | `string`  |
+| `uid`                   | `string`  |
+| `title`                 | `string`  |
+| `description`           | `string?` |
+| `hashtags`              | `any`     |
+| `tagged_user_uids`      | `any`     |
+| `is_archived`           | `boolean?`|
+| `is_active`             | `boolean?`|
+| `post_creator_type`     | `any`     |
+| `updated_at`            | `string?` |
+| `user_uid`              | `string`  |
+| `thumbnail`             | `string?` |
+| `video_url`             | `string`  |
+| `location`              | `string?` |
+| `total_views`           | `number?` |
+| `total_reactions`         | `number?` |
+| `total_comments`          | `number?` |
+| `internal_ai_description` | `string?` |
+| `address_lat_long_wkb`    | `any`     |
+| `creator_lat_long_wkb`    | `any`     |
+| `tagged_community_uids`   | `any`     |
+| `total_shares`            | `number?` |
+| `cumulative_score`        | `any`     |
+| `video_duration_in_sec`   | `number?` |
+| `seo_data_weighted`       | `any`     |
+| `community_uid`         | `string?` |
+| `related_content_uid`   | `string?` |
+| `users`               | `Users`   |
+| `communities`         | `Communities` |
+| `related_content`   | `Related_content` |
+
+## Content_reactions
+
+| Key               | Type      |
+|-------------------|-----------|
+| `created_at`      | `string`  |
+| `user_uid`        | `string`  |
+| `wtv_uid`         | `string?` |
+| `flick_uid`       | `string?` |
+| `memory_uid`      | `string?` |
+| `offer_uid`       | `string?` |
+| `photo_uid`       | `string?` |
+| `pdf_uid`         | `string?` |
+| `uid`             | `string`  |
+| `reaction_type`   | `string`  |
+| `content_type`    | `string?` |
+| `updated_at`      | `string?` |
+| `content_owner_user_uid`| `string`  |
+| `users`         | `Users`   |
+| `wtvs`          | `Wtvs`    |
+| `flicks`        | `Flicks`  |
+| `memories`      | `Memories`|
+| `offers`        | `Offers`  |
+| `photos`        | `Photos`  |
+| `pdfs`          | `Pdfs`    |
+| `users`         | `Users`   |
+
+## Tag_registry
+
+| Key                 | Type      |
+|---------------------|-----------|
+| `tagged_at`         | `string`  |
+| `tagged_user_uid`   | `string?` |
+| `tagged_community_uid`| `string?` |
+| `wtv_uid`         | `string?` |
+| `flick_uid`       | `string?` |
+| `photo_uid`       | `string?` |
+| `offer_uid`       | `string?` |
+| `tagged_by_user_uid`| `string`  |
+| `uid`             | `string`  |
+| `memory_uid`      | `string?` |
+| `content_type`    | `string?` |
+| `updated_at`      | `string?` |
+| `users`         | `Users`   |
+| `communities`   | `Communities` |
+| `wtvs`          | `Wtvs`    |
+| `flicks`        | `Flicks`  |
+| `photos`        | `Photos`  |
+| `offers`        | `Offers`  |
+| `users`         | `Users`   |
+| `memories`      | `Memories`|
+
+## Collections
+
+| Key                     | Type      |
+|-------------------------|-----------|
+| `uid`                   | `string`  |
+| `created_at`            | `string`  |
+| `title`                 | `string`  |
+| `description`           | `string?` |
+| `is_folder`             | `boolean` |
+| `parent_collection_uid` | `string?` |
+| `author_user_uid` | `string`  |
+| `wtv_uid`         | `string?` |
+| `photo_uid`       | `string?` |
+| `content_type`    | `string?` |
+| `owner_type`    | `any`     |
+| `community_uid` | `string?` |
+| `offer_uid`       | `string?` |
+| `flick_uid`       | `string?` |
+| `pdf_uid`         | `string?` |
+| `updated_at`          | `string` |
+| `collections`   | `Collections` |
+| `users`         | `Users`   |
+| `wtvs`          | `Wtvs`    |
+| `photos`        | `Photos`  |
+| `communities`   | `Communities` |
+| `offers`        | `Offers`  |
+| `flicks`        | `Flicks`  |
+| `pdfs`          | `Pdfs`    |
+
+## Comments
+
+| Key               | Type      |
+|-------------------|-----------|
+| `created_at`      | `string`  |
+| `comment_text`    | `string`  |
+| `user_uid`        | `string`  |
+| `wtv_uid`         | `string?` |
+| `flick_uid`       | `string?` |
+| `memory_uid`      | `string?` |
+| `offer_uid`       | `string?` |
+| `photo_uid`       | `string?` |
+| `pdf_uid`         | `string?` |
+| `uid`             | `string`  |
+| `image_url`     | `string?` |
+| `content_type`    | `string?` |
+| `updated_at`      | `string?` |
+| `content_owner_user_uid`| `string`  |
+| `users`         | `Users`   |
+| `wtvs`          | `Wtvs`    |
+| `flicks`        | `Flicks`  |
+| `memories`      | `Memories`|
+| `offers`        | `Offers`  |
+| `photos`        | `Photos`  |
+| `pdfs`          | `Pdfs`    |
+| `users`         | `Users`   |
+
+## Comment_replies
+
+| Key               | Type      |
+|-------------------|-----------|
+| `created_at`      | `string`  |
+| `reply_text`      | `string`  |
+| `user_uid`        | `string`  |
+| `uid`             | `string`  |
+| `comment_uid`     | `string`  |
+| `updated_at`      | `string?` |
+| `content_owner_user_uid`| `string`  |
+| `users`         | `Users`   |
+| `comments`      | `Comments`|
+| `users`         | `Users`   |
+
+## Tracked_activities
+
+| Key               | Type      |
+|-------------------|-----------|
+| `uid`             | `string`  |
+| `user_uid`        | `string?` |
+| `wtv_uid`         | `string?` |
+| `flick_uid`       | `string?` |
+| `photo_uid`       | `string?` |
+| `offer_uid`       | `string?` |
+| `memory_uid`      | `string?` |
+| `pdf_uid`         | `string?` |
+| `activity_at`     | `string?` |
+| `device_os`       | `string?` |
+| `device_model`    | `string?` |
+| `geo_location`    | `any`     |
+| `app_version`     | `string?` |
+| `activity_type`   | `string?` |
+| `comment_uid`     | `string?` |
+| `comment_reply_uid`| `string?` |
+| `metadata`        | `any`     |
+| `content_type`    | `string?` |
+| `owner_type`    | `any`     |
+| `community_uid` | `string?` |
+| `updated_at`      | `string?` |
+| `users`         | `Users`   |
+| `wtvs`          | `Wtvs`    |
+| `flicks`        | `Flicks`  |
+| `photos`        | `Photos`  |
+| `offers`        | `Offers`  |
+| `memories`      | `Memories`|
+| `pdfs`          | `Pdfs`    |
+| `comments`      | `Comments`|
+| `comment_replies`| `Comment_replies`|
+| `communities`   | `Communities` |
+
+

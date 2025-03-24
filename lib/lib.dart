@@ -4,6 +4,8 @@ export 'src/api_response_models/community/get_join_pending_community_members.dar
 export 'src/api_response_models/community/get_restricted_community_members.dart';
 export 'src/api_response_models/community/user_communities_response.dart';
 export 'src/api_response_models/platform_alerts/get_user_alerts.dart';
+export 'src/api_response_models/search/search_communities.dart';
+export 'src/api_response_models/search/search_portfolios.dart';
 export 'src/api_response_models/suggestions/get_user_suggestions.dart';
 export 'src/db_models/chat_message.dart';
 export 'src/db_models/collection.dart';
