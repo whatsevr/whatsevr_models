@@ -30,7 +30,8 @@ mixin _$SearchCommunitiesResponse {
   @JsonKey(name: 'last_page')
   bool? get lastPage => throw _privateConstructorUsedError;
   @JsonKey(name: 'communities')
-  List<Community>? get communities => throw _privateConstructorUsedError;
+  List<SearchedCommunity>? get communities =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this SearchCommunitiesResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +54,7 @@ abstract class $SearchCommunitiesResponseCopyWith<$Res> {
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'communities') List<Community>? communities,
+    @JsonKey(name: 'communities') List<SearchedCommunity>? communities,
   });
 }
 
@@ -101,7 +102,7 @@ class _$SearchCommunitiesResponseCopyWithImpl<
                 freezed == communities
                     ? _value.communities
                     : communities // ignore: cast_nullable_to_non_nullable
-                        as List<Community>?,
+                        as List<SearchedCommunity>?,
           )
           as $Val,
     );
@@ -121,7 +122,7 @@ abstract class _$$SearchCommunitiesResponseImplCopyWith<$Res>
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'communities') List<Community>? communities,
+    @JsonKey(name: 'communities') List<SearchedCommunity>? communities,
   });
 }
 
@@ -169,7 +170,7 @@ class __$$SearchCommunitiesResponseImplCopyWithImpl<$Res>
             freezed == communities
                 ? _value._communities
                 : communities // ignore: cast_nullable_to_non_nullable
-                    as List<Community>?,
+                    as List<SearchedCommunity>?,
       ),
     );
   }
@@ -182,7 +183,7 @@ class _$SearchCommunitiesResponseImpl implements _SearchCommunitiesResponse {
     @JsonKey(name: 'message') this.message,
     @JsonKey(name: 'page') this.page,
     @JsonKey(name: 'last_page') this.lastPage,
-    @JsonKey(name: 'communities') final List<Community>? communities,
+    @JsonKey(name: 'communities') final List<SearchedCommunity>? communities,
   }) : _communities = communities;
 
   factory _$SearchCommunitiesResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,10 +198,10 @@ class _$SearchCommunitiesResponseImpl implements _SearchCommunitiesResponse {
   @override
   @JsonKey(name: 'last_page')
   final bool? lastPage;
-  final List<Community>? _communities;
+  final List<SearchedCommunity>? _communities;
   @override
   @JsonKey(name: 'communities')
-  List<Community>? get communities {
+  List<SearchedCommunity>? get communities {
     final value = _communities;
     if (value == null) return null;
     if (_communities is EqualUnmodifiableListView) return _communities;
@@ -259,7 +260,7 @@ abstract class _SearchCommunitiesResponse implements SearchCommunitiesResponse {
     @JsonKey(name: 'message') final String? message,
     @JsonKey(name: 'page') final int? page,
     @JsonKey(name: 'last_page') final bool? lastPage,
-    @JsonKey(name: 'communities') final List<Community>? communities,
+    @JsonKey(name: 'communities') final List<SearchedCommunity>? communities,
   }) = _$SearchCommunitiesResponseImpl;
 
   factory _SearchCommunitiesResponse.fromJson(Map<String, dynamic> json) =
@@ -276,7 +277,7 @@ abstract class _SearchCommunitiesResponse implements SearchCommunitiesResponse {
   bool? get lastPage;
   @override
   @JsonKey(name: 'communities')
-  List<Community>? get communities;
+  List<SearchedCommunity>? get communities;
 
   /// Create a copy of SearchCommunitiesResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -286,12 +287,12 @@ abstract class _SearchCommunitiesResponse implements SearchCommunitiesResponse {
   get copyWith => throw _privateConstructorUsedError;
 }
 
-Community _$CommunityFromJson(Map<String, dynamic> json) {
-  return _Community.fromJson(json);
+SearchedCommunity _$SearchedCommunityFromJson(Map<String, dynamic> json) {
+  return _SearchedCommunity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Community {
+mixin _$SearchedCommunity {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'admin_user_uid')
@@ -327,26 +328,28 @@ mixin _$Community {
   @JsonKey(name: 'is_broadcasting')
   bool? get isBroadcasting => throw _privateConstructorUsedError;
   @JsonKey(name: 'admin')
-  CommunityAdmin? get admin => throw _privateConstructorUsedError;
+  SearchedCommunityAdmin? get admin => throw _privateConstructorUsedError;
   @JsonKey(name: 'cover_media')
   List<CoverMedia>? get coverMedia => throw _privateConstructorUsedError;
   @JsonKey(name: 'services')
   List<Service>? get services => throw _privateConstructorUsedError;
 
-  /// Serializes this Community to a JSON map.
+  /// Serializes this SearchedCommunity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommunityCopyWith<Community> get copyWith =>
+  $SearchedCommunityCopyWith<SearchedCommunity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommunityCopyWith<$Res> {
-  factory $CommunityCopyWith(Community value, $Res Function(Community) then) =
-      _$CommunityCopyWithImpl<$Res, Community>;
+abstract class $SearchedCommunityCopyWith<$Res> {
+  factory $SearchedCommunityCopyWith(
+    SearchedCommunity value,
+    $Res Function(SearchedCommunity) then,
+  ) = _$SearchedCommunityCopyWithImpl<$Res, SearchedCommunity>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -366,25 +369,25 @@ abstract class $CommunityCopyWith<$Res> {
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_broadcasting') bool? isBroadcasting,
-    @JsonKey(name: 'admin') CommunityAdmin? admin,
+    @JsonKey(name: 'admin') SearchedCommunityAdmin? admin,
     @JsonKey(name: 'cover_media') List<CoverMedia>? coverMedia,
     @JsonKey(name: 'services') List<Service>? services,
   });
 
-  $CommunityAdminCopyWith<$Res>? get admin;
+  $SearchedCommunityAdminCopyWith<$Res>? get admin;
 }
 
 /// @nodoc
-class _$CommunityCopyWithImpl<$Res, $Val extends Community>
-    implements $CommunityCopyWith<$Res> {
-  _$CommunityCopyWithImpl(this._value, this._then);
+class _$SearchedCommunityCopyWithImpl<$Res, $Val extends SearchedCommunity>
+    implements $SearchedCommunityCopyWith<$Res> {
+  _$SearchedCommunityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -501,7 +504,7 @@ class _$CommunityCopyWithImpl<$Res, $Val extends Community>
                 freezed == admin
                     ? _value.admin
                     : admin // ignore: cast_nullable_to_non_nullable
-                        as CommunityAdmin?,
+                        as SearchedCommunityAdmin?,
             coverMedia:
                 freezed == coverMedia
                     ? _value.coverMedia
@@ -517,28 +520,28 @@ class _$CommunityCopyWithImpl<$Res, $Val extends Community>
     );
   }
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CommunityAdminCopyWith<$Res>? get admin {
+  $SearchedCommunityAdminCopyWith<$Res>? get admin {
     if (_value.admin == null) {
       return null;
     }
 
-    return $CommunityAdminCopyWith<$Res>(_value.admin!, (value) {
+    return $SearchedCommunityAdminCopyWith<$Res>(_value.admin!, (value) {
       return _then(_value.copyWith(admin: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$CommunityImplCopyWith<$Res>
-    implements $CommunityCopyWith<$Res> {
-  factory _$$CommunityImplCopyWith(
-    _$CommunityImpl value,
-    $Res Function(_$CommunityImpl) then,
-  ) = __$$CommunityImplCopyWithImpl<$Res>;
+abstract class _$$SearchedCommunityImplCopyWith<$Res>
+    implements $SearchedCommunityCopyWith<$Res> {
+  factory _$$SearchedCommunityImplCopyWith(
+    _$SearchedCommunityImpl value,
+    $Res Function(_$SearchedCommunityImpl) then,
+  ) = __$$SearchedCommunityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -559,25 +562,25 @@ abstract class _$$CommunityImplCopyWith<$Res>
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_broadcasting') bool? isBroadcasting,
-    @JsonKey(name: 'admin') CommunityAdmin? admin,
+    @JsonKey(name: 'admin') SearchedCommunityAdmin? admin,
     @JsonKey(name: 'cover_media') List<CoverMedia>? coverMedia,
     @JsonKey(name: 'services') List<Service>? services,
   });
 
   @override
-  $CommunityAdminCopyWith<$Res>? get admin;
+  $SearchedCommunityAdminCopyWith<$Res>? get admin;
 }
 
 /// @nodoc
-class __$$CommunityImplCopyWithImpl<$Res>
-    extends _$CommunityCopyWithImpl<$Res, _$CommunityImpl>
-    implements _$$CommunityImplCopyWith<$Res> {
-  __$$CommunityImplCopyWithImpl(
-    _$CommunityImpl _value,
-    $Res Function(_$CommunityImpl) _then,
+class __$$SearchedCommunityImplCopyWithImpl<$Res>
+    extends _$SearchedCommunityCopyWithImpl<$Res, _$SearchedCommunityImpl>
+    implements _$$SearchedCommunityImplCopyWith<$Res> {
+  __$$SearchedCommunityImplCopyWithImpl(
+    _$SearchedCommunityImpl _value,
+    $Res Function(_$SearchedCommunityImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -604,7 +607,7 @@ class __$$CommunityImplCopyWithImpl<$Res>
     Object? services = freezed,
   }) {
     return _then(
-      _$CommunityImpl(
+      _$SearchedCommunityImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -694,7 +697,7 @@ class __$$CommunityImplCopyWithImpl<$Res>
             freezed == admin
                 ? _value.admin
                 : admin // ignore: cast_nullable_to_non_nullable
-                    as CommunityAdmin?,
+                    as SearchedCommunityAdmin?,
         coverMedia:
             freezed == coverMedia
                 ? _value._coverMedia
@@ -712,8 +715,8 @@ class __$$CommunityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommunityImpl implements _Community {
-  const _$CommunityImpl({
+class _$SearchedCommunityImpl implements _SearchedCommunity {
+  const _$SearchedCommunityImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'admin_user_uid') this.adminUserUid,
     @JsonKey(name: 'status') this.status,
@@ -737,8 +740,8 @@ class _$CommunityImpl implements _Community {
   }) : _coverMedia = coverMedia,
        _services = services;
 
-  factory _$CommunityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommunityImplFromJson(json);
+  factory _$SearchedCommunityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchedCommunityImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -793,7 +796,7 @@ class _$CommunityImpl implements _Community {
   final bool? isBroadcasting;
   @override
   @JsonKey(name: 'admin')
-  final CommunityAdmin? admin;
+  final SearchedCommunityAdmin? admin;
   final List<CoverMedia>? _coverMedia;
   @override
   @JsonKey(name: 'cover_media')
@@ -818,14 +821,14 @@ class _$CommunityImpl implements _Community {
 
   @override
   String toString() {
-    return 'Community(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, admin: $admin, coverMedia: $coverMedia, services: $services)';
+    return 'SearchedCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, admin: $admin, coverMedia: $coverMedia, services: $services)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommunityImpl &&
+            other is _$SearchedCommunityImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.adminUserUid, adminUserUid) ||
@@ -892,22 +895,25 @@ class _$CommunityImpl implements _Community {
     const DeepCollectionEquality().hash(_services),
   ]);
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommunityImplCopyWith<_$CommunityImpl> get copyWith =>
-      __$$CommunityImplCopyWithImpl<_$CommunityImpl>(this, _$identity);
+  _$$SearchedCommunityImplCopyWith<_$SearchedCommunityImpl> get copyWith =>
+      __$$SearchedCommunityImplCopyWithImpl<_$SearchedCommunityImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommunityImplToJson(this);
+    return _$$SearchedCommunityImplToJson(this);
   }
 }
 
-abstract class _Community implements Community {
-  const factory _Community({
+abstract class _SearchedCommunity implements SearchedCommunity {
+  const factory _SearchedCommunity({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'admin_user_uid') final String? adminUserUid,
     @JsonKey(name: 'status') final String? status,
@@ -925,13 +931,13 @@ abstract class _Community implements Community {
     @JsonKey(name: 'last_message_at') final DateTime? lastMessageAt,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'is_broadcasting') final bool? isBroadcasting,
-    @JsonKey(name: 'admin') final CommunityAdmin? admin,
+    @JsonKey(name: 'admin') final SearchedCommunityAdmin? admin,
     @JsonKey(name: 'cover_media') final List<CoverMedia>? coverMedia,
     @JsonKey(name: 'services') final List<Service>? services,
-  }) = _$CommunityImpl;
+  }) = _$SearchedCommunityImpl;
 
-  factory _Community.fromJson(Map<String, dynamic> json) =
-      _$CommunityImpl.fromJson;
+  factory _SearchedCommunity.fromJson(Map<String, dynamic> json) =
+      _$SearchedCommunityImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -986,7 +992,7 @@ abstract class _Community implements Community {
   bool? get isBroadcasting;
   @override
   @JsonKey(name: 'admin')
-  CommunityAdmin? get admin;
+  SearchedCommunityAdmin? get admin;
   @override
   @JsonKey(name: 'cover_media')
   List<CoverMedia>? get coverMedia;
@@ -994,20 +1000,22 @@ abstract class _Community implements Community {
   @JsonKey(name: 'services')
   List<Service>? get services;
 
-  /// Create a copy of Community
+  /// Create a copy of SearchedCommunity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommunityImplCopyWith<_$CommunityImpl> get copyWith =>
+  _$$SearchedCommunityImplCopyWith<_$SearchedCommunityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-CommunityAdmin _$CommunityAdminFromJson(Map<String, dynamic> json) {
+SearchedCommunityAdmin _$SearchedCommunityAdminFromJson(
+  Map<String, dynamic> json,
+) {
   return _CommunityAdmin.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CommunityAdmin {
+mixin _$SearchedCommunityAdmin {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
   @JsonKey(name: 'username')
@@ -1019,22 +1027,22 @@ mixin _$CommunityAdmin {
   @JsonKey(name: 'bio')
   String? get bio => throw _privateConstructorUsedError;
 
-  /// Serializes this CommunityAdmin to a JSON map.
+  /// Serializes this SearchedCommunityAdmin to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of CommunityAdmin
+  /// Create a copy of SearchedCommunityAdmin
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommunityAdminCopyWith<CommunityAdmin> get copyWith =>
+  $SearchedCommunityAdminCopyWith<SearchedCommunityAdmin> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommunityAdminCopyWith<$Res> {
-  factory $CommunityAdminCopyWith(
-    CommunityAdmin value,
-    $Res Function(CommunityAdmin) then,
-  ) = _$CommunityAdminCopyWithImpl<$Res, CommunityAdmin>;
+abstract class $SearchedCommunityAdminCopyWith<$Res> {
+  factory $SearchedCommunityAdminCopyWith(
+    SearchedCommunityAdmin value,
+    $Res Function(SearchedCommunityAdmin) then,
+  ) = _$SearchedCommunityAdminCopyWithImpl<$Res, SearchedCommunityAdmin>;
   @useResult
   $Res call({
     @JsonKey(name: 'uid') String? uid,
@@ -1046,16 +1054,19 @@ abstract class $CommunityAdminCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommunityAdminCopyWithImpl<$Res, $Val extends CommunityAdmin>
-    implements $CommunityAdminCopyWith<$Res> {
-  _$CommunityAdminCopyWithImpl(this._value, this._then);
+class _$SearchedCommunityAdminCopyWithImpl<
+  $Res,
+  $Val extends SearchedCommunityAdmin
+>
+    implements $SearchedCommunityAdminCopyWith<$Res> {
+  _$SearchedCommunityAdminCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CommunityAdmin
+  /// Create a copy of SearchedCommunityAdmin
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -1101,7 +1112,7 @@ class _$CommunityAdminCopyWithImpl<$Res, $Val extends CommunityAdmin>
 
 /// @nodoc
 abstract class _$$CommunityAdminImplCopyWith<$Res>
-    implements $CommunityAdminCopyWith<$Res> {
+    implements $SearchedCommunityAdminCopyWith<$Res> {
   factory _$$CommunityAdminImplCopyWith(
     _$CommunityAdminImpl value,
     $Res Function(_$CommunityAdminImpl) then,
@@ -1119,14 +1130,14 @@ abstract class _$$CommunityAdminImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CommunityAdminImplCopyWithImpl<$Res>
-    extends _$CommunityAdminCopyWithImpl<$Res, _$CommunityAdminImpl>
+    extends _$SearchedCommunityAdminCopyWithImpl<$Res, _$CommunityAdminImpl>
     implements _$$CommunityAdminImplCopyWith<$Res> {
   __$$CommunityAdminImplCopyWithImpl(
     _$CommunityAdminImpl _value,
     $Res Function(_$CommunityAdminImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of CommunityAdmin
+  /// Create a copy of SearchedCommunityAdmin
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -1201,7 +1212,7 @@ class _$CommunityAdminImpl implements _CommunityAdmin {
 
   @override
   String toString() {
-    return 'CommunityAdmin(uid: $uid, username: $username, name: $name, profilePicture: $profilePicture, bio: $bio)';
+    return 'SearchedCommunityAdmin(uid: $uid, username: $username, name: $name, profilePicture: $profilePicture, bio: $bio)';
   }
 
   @override
@@ -1223,7 +1234,7 @@ class _$CommunityAdminImpl implements _CommunityAdmin {
   int get hashCode =>
       Object.hash(runtimeType, uid, username, name, profilePicture, bio);
 
-  /// Create a copy of CommunityAdmin
+  /// Create a copy of SearchedCommunityAdmin
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -1240,7 +1251,7 @@ class _$CommunityAdminImpl implements _CommunityAdmin {
   }
 }
 
-abstract class _CommunityAdmin implements CommunityAdmin {
+abstract class _CommunityAdmin implements SearchedCommunityAdmin {
   const factory _CommunityAdmin({
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'username') final String? username,
@@ -1268,7 +1279,7 @@ abstract class _CommunityAdmin implements CommunityAdmin {
   @JsonKey(name: 'bio')
   String? get bio;
 
-  /// Create a copy of CommunityAdmin
+  /// Create a copy of SearchedCommunityAdmin
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)

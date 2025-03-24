@@ -5,6 +5,13 @@
 If you plan on using [Freezed] in combination with `json_serializable`, recent
 versions of `json_serializable` and `meta` may require you to disable the
 `invalid_annotation_target` warning.
+- While creating classes make them unique by adding Some sort of prefix or suffix with original name to reduce class name conflicts later, understandable nomenclature
+- Result -> <PurposeName>Result
+- Result -> VideoResult
+- User -> VideoUser
+- Community -> SearchedCommunity
+- Admin-> CommunityAdmin
+- etc etc 
 
 ### Exaple of user freezed class response uses
 ```dart

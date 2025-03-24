@@ -12,7 +12,7 @@ class SearchPortfoliosResponse with _$SearchPortfoliosResponse {
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'users') List<User>? users,
+    @JsonKey(name: 'users') List<PortfolioUser>? users,
   }) = _SearchPortfoliosResponse;
 
   factory SearchPortfoliosResponse.fromJson(Map<String, dynamic> json) =>
@@ -20,8 +20,8 @@ class SearchPortfoliosResponse with _$SearchPortfoliosResponse {
 }
 
 @freezed
-class User with _$User {
-  const factory User({
+class PortfolioUser with _$PortfolioUser {
+  const factory PortfolioUser({
     @JsonKey(name: 'registered_at') DateTime? registeredAt,
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
@@ -54,18 +54,18 @@ class User with _$User {
     @JsonKey(name: 'public_mobile_number') String? publicMobileNumber,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_private') bool? isPrivate,
-    @JsonKey(name: 'cover_media') List<CoverMedia>? coverMedia,
-    @JsonKey(name: 'services') List<Service>? services,
-    @JsonKey(name: 'educations') List<Education>? educations,
-    @JsonKey(name: 'work_experiences') List<WorkExperience>? workExperiences,
-  }) = _User;
+    @JsonKey(name: 'cover_media') List<PortfolioCoverMedia>? coverMedia,
+    @JsonKey(name: 'services') List<PortfolioService>? services,
+    @JsonKey(name: 'educations') List<PortfolioEducation>? educations,
+    @JsonKey(name: 'work_experiences') List<PortfolioWorkExperience>? workExperiences,
+  }) = _PortfolioUser;
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory PortfolioUser.fromJson(Map<String, dynamic> json) => _$PortfolioUserFromJson(json);
 }
 
 @freezed
-class CoverMedia with _$CoverMedia {
-  const factory CoverMedia({
+class PortfolioCoverMedia with _$PortfolioCoverMedia {
+  const factory PortfolioCoverMedia({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'image_url') String? imageUrl,
     @JsonKey(name: 'is_video') bool? isVideo,
@@ -75,15 +75,15 @@ class CoverMedia with _$CoverMedia {
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'uid') String? uid,
-  }) = _CoverMedia;
+  }) = _PortfolioCoverMedia;
 
-  factory CoverMedia.fromJson(Map<String, dynamic> json) =>
-      _$CoverMediaFromJson(json);
+  factory PortfolioCoverMedia.fromJson(Map<String, dynamic> json) =>
+      _$PortfolioCoverMediaFromJson(json);
 }
 
 @freezed
-class Service with _$Service {
-  const factory Service({
+class PortfolioService with _$PortfolioService {
+  const factory PortfolioService({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -92,15 +92,15 @@ class Service with _$Service {
     @JsonKey(name: 'owner_type') String? ownerType,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'uid') String? uid,
-  }) = _Service;
+  }) = _PortfolioService;
 
-  factory Service.fromJson(Map<String, dynamic> json) =>
-      _$ServiceFromJson(json);
+  factory PortfolioService.fromJson(Map<String, dynamic> json) =>
+      _$PortfolioServiceFromJson(json);
 }
 
 @freezed
-class Education with _$Education {
-  const factory Education({
+class PortfolioEducation with _$PortfolioEducation {
+  const factory PortfolioEducation({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'user_uid') String? userUid,
     @JsonKey(name: 'title') String? title,
@@ -111,15 +111,15 @@ class Education with _$Education {
     @JsonKey(name: 'is_ongoing_education') bool? isOngoingEducation,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'uid') String? uid,
-  }) = _Education;
+  }) = _PortfolioEducation;
 
-  factory Education.fromJson(Map<String, dynamic> json) =>
-      _$EducationFromJson(json);
+  factory PortfolioEducation.fromJson(Map<String, dynamic> json) =>
+      _$PortfolioEducationFromJson(json);
 }
 
 @freezed
-class WorkExperience with _$WorkExperience {
-  const factory WorkExperience({
+class PortfolioWorkExperience with _$PortfolioWorkExperience {
+  const factory PortfolioWorkExperience({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'designation') String? designation,
     @JsonKey(name: 'start_date') DateTime? startDate,
@@ -130,8 +130,8 @@ class WorkExperience with _$WorkExperience {
     @JsonKey(name: 'company_name') String? companyName,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'uid') String? uid,
-  }) = _WorkExperience;
+  }) = _PortfolioWorkExperience;
 
-  factory WorkExperience.fromJson(Map<String, dynamic> json) =>
-      _$WorkExperienceFromJson(json);
+  factory PortfolioWorkExperience.fromJson(Map<String, dynamic> json) =>
+      _$PortfolioWorkExperienceFromJson(json);
 }

@@ -14,7 +14,7 @@ _$SearchPortfoliosResponseImpl _$$SearchPortfoliosResponseImplFromJson(
   lastPage: json['last_page'] as bool?,
   users:
       (json['users'] as List<dynamic>?)
-          ?.map((e) => User.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PortfolioUser.fromJson(e as Map<String, dynamic>))
           .toList(),
 );
 
@@ -27,7 +27,9 @@ Map<String, dynamic> _$$SearchPortfoliosResponseImplToJson(
   'users': instance.users,
 };
 
-_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+_$PortfolioUserImpl _$$PortfolioUserImplFromJson(
+  Map<String, dynamic> json,
+) => _$PortfolioUserImpl(
   registeredAt:
       json['registered_at'] == null
           ? null
@@ -74,23 +76,25 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
   isPrivate: json['is_private'] as bool?,
   coverMedia:
       (json['cover_media'] as List<dynamic>?)
-          ?.map((e) => CoverMedia.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PortfolioCoverMedia.fromJson(e as Map<String, dynamic>))
           .toList(),
   services:
       (json['services'] as List<dynamic>?)
-          ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PortfolioService.fromJson(e as Map<String, dynamic>))
           .toList(),
   educations:
       (json['educations'] as List<dynamic>?)
-          ?.map((e) => Education.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PortfolioEducation.fromJson(e as Map<String, dynamic>))
           .toList(),
   workExperiences:
       (json['work_experiences'] as List<dynamic>?)
-          ?.map((e) => WorkExperience.fromJson(e as Map<String, dynamic>))
+          ?.map(
+            (e) => PortfolioWorkExperience.fromJson(e as Map<String, dynamic>),
+          )
           .toList(),
 );
 
-Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+Map<String, dynamic> _$$PortfolioUserImplToJson(_$PortfolioUserImpl instance) =>
     <String, dynamic>{
       'registered_at': instance.registeredAt?.toIso8601String(),
       'uid': instance.uid,
@@ -130,136 +134,143 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'work_experiences': instance.workExperiences,
     };
 
-_$CoverMediaImpl _$$CoverMediaImplFromJson(Map<String, dynamic> json) =>
-    _$CoverMediaImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      imageUrl: json['image_url'] as String?,
-      isVideo: json['is_video'] as bool?,
-      userUid: json['user_uid'] as String?,
-      videoUrl: json['video_url'] as String?,
-      communityUid: json['community_uid'] as String?,
-      ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      uid: json['uid'] as String?,
-    );
+_$PortfolioCoverMediaImpl _$$PortfolioCoverMediaImplFromJson(
+  Map<String, dynamic> json,
+) => _$PortfolioCoverMediaImpl(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  imageUrl: json['image_url'] as String?,
+  isVideo: json['is_video'] as bool?,
+  userUid: json['user_uid'] as String?,
+  videoUrl: json['video_url'] as String?,
+  communityUid: json['community_uid'] as String?,
+  ownerType: json['owner_type'] as String?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  uid: json['uid'] as String?,
+);
 
-Map<String, dynamic> _$$CoverMediaImplToJson(_$CoverMediaImpl instance) =>
-    <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'image_url': instance.imageUrl,
-      'is_video': instance.isVideo,
-      'user_uid': instance.userUid,
-      'video_url': instance.videoUrl,
-      'community_uid': instance.communityUid,
-      'owner_type': instance.ownerType,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'uid': instance.uid,
-    };
+Map<String, dynamic> _$$PortfolioCoverMediaImplToJson(
+  _$PortfolioCoverMediaImpl instance,
+) => <String, dynamic>{
+  'created_at': instance.createdAt?.toIso8601String(),
+  'image_url': instance.imageUrl,
+  'is_video': instance.isVideo,
+  'user_uid': instance.userUid,
+  'video_url': instance.videoUrl,
+  'community_uid': instance.communityUid,
+  'owner_type': instance.ownerType,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'uid': instance.uid,
+};
 
-_$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
-    _$ServiceImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      title: json['title'] as String?,
-      userUid: json['user_uid'] as String?,
-      description: json['description'] as String?,
-      communityUid: json['community_uid'] as String?,
-      ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      uid: json['uid'] as String?,
-    );
+_$PortfolioServiceImpl _$$PortfolioServiceImplFromJson(
+  Map<String, dynamic> json,
+) => _$PortfolioServiceImpl(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  title: json['title'] as String?,
+  userUid: json['user_uid'] as String?,
+  description: json['description'] as String?,
+  communityUid: json['community_uid'] as String?,
+  ownerType: json['owner_type'] as String?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  uid: json['uid'] as String?,
+);
 
-Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
-    <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'title': instance.title,
-      'user_uid': instance.userUid,
-      'description': instance.description,
-      'community_uid': instance.communityUid,
-      'owner_type': instance.ownerType,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'uid': instance.uid,
-    };
+Map<String, dynamic> _$$PortfolioServiceImplToJson(
+  _$PortfolioServiceImpl instance,
+) => <String, dynamic>{
+  'created_at': instance.createdAt?.toIso8601String(),
+  'title': instance.title,
+  'user_uid': instance.userUid,
+  'description': instance.description,
+  'community_uid': instance.communityUid,
+  'owner_type': instance.ownerType,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'uid': instance.uid,
+};
 
-_$EducationImpl _$$EducationImplFromJson(Map<String, dynamic> json) =>
-    _$EducationImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      userUid: json['user_uid'] as String?,
-      title: json['title'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
-      type: json['type'] as String?,
-      institute: json['institute'] as String?,
-      isOngoingEducation: json['is_ongoing_education'] as bool?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      uid: json['uid'] as String?,
-    );
+_$PortfolioEducationImpl _$$PortfolioEducationImplFromJson(
+  Map<String, dynamic> json,
+) => _$PortfolioEducationImpl(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  userUid: json['user_uid'] as String?,
+  title: json['title'] as String?,
+  startDate:
+      json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+  endDate:
+      json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
+  type: json['type'] as String?,
+  institute: json['institute'] as String?,
+  isOngoingEducation: json['is_ongoing_education'] as bool?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  uid: json['uid'] as String?,
+);
 
-Map<String, dynamic> _$$EducationImplToJson(_$EducationImpl instance) =>
-    <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'user_uid': instance.userUid,
-      'title': instance.title,
-      'start_date': instance.startDate?.toIso8601String(),
-      'end_date': instance.endDate?.toIso8601String(),
-      'type': instance.type,
-      'institute': instance.institute,
-      'is_ongoing_education': instance.isOngoingEducation,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'uid': instance.uid,
-    };
+Map<String, dynamic> _$$PortfolioEducationImplToJson(
+  _$PortfolioEducationImpl instance,
+) => <String, dynamic>{
+  'created_at': instance.createdAt?.toIso8601String(),
+  'user_uid': instance.userUid,
+  'title': instance.title,
+  'start_date': instance.startDate?.toIso8601String(),
+  'end_date': instance.endDate?.toIso8601String(),
+  'type': instance.type,
+  'institute': instance.institute,
+  'is_ongoing_education': instance.isOngoingEducation,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'uid': instance.uid,
+};
 
-_$WorkExperienceImpl _$$WorkExperienceImplFromJson(Map<String, dynamic> json) =>
-    _$WorkExperienceImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      designation: json['designation'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
-      userUid: json['user_uid'] as String?,
-      workingMode: json['working_mode'] as String?,
-      isCurrentlyWorking: json['is_currently_working'] as bool?,
-      companyName: json['company_name'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      uid: json['uid'] as String?,
-    );
+_$PortfolioWorkExperienceImpl _$$PortfolioWorkExperienceImplFromJson(
+  Map<String, dynamic> json,
+) => _$PortfolioWorkExperienceImpl(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  designation: json['designation'] as String?,
+  startDate:
+      json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+  endDate:
+      json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
+  userUid: json['user_uid'] as String?,
+  workingMode: json['working_mode'] as String?,
+  isCurrentlyWorking: json['is_currently_working'] as bool?,
+  companyName: json['company_name'] as String?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  uid: json['uid'] as String?,
+);
 
-Map<String, dynamic> _$$WorkExperienceImplToJson(
-  _$WorkExperienceImpl instance,
+Map<String, dynamic> _$$PortfolioWorkExperienceImplToJson(
+  _$PortfolioWorkExperienceImpl instance,
 ) => <String, dynamic>{
   'created_at': instance.createdAt?.toIso8601String(),
   'designation': instance.designation,

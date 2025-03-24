@@ -14,7 +14,7 @@ _$SearchCommunitiesResponseImpl _$$SearchCommunitiesResponseImplFromJson(
   lastPage: json['last_page'] as bool?,
   communities:
       (json['communities'] as List<dynamic>?)
-          ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SearchedCommunity.fromJson(e as Map<String, dynamic>))
           .toList(),
 );
 
@@ -27,71 +27,75 @@ Map<String, dynamic> _$$SearchCommunitiesResponseImplToJson(
   'communities': instance.communities,
 };
 
-_$CommunityImpl _$$CommunityImplFromJson(Map<String, dynamic> json) =>
-    _$CommunityImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      adminUserUid: json['admin_user_uid'] as String?,
-      status: json['status'] as String?,
-      bio: json['bio'] as String?,
-      location: json['location'] as String?,
-      description: json['description'] as String?,
-      title: json['title'] as String?,
-      profilePicture: json['profile_picture'] as String?,
-      uid: json['uid'] as String?,
-      username: json['username'] as String?,
-      totalMembers: (json['total_members'] as num?)?.toInt(),
-      isPrivate: json['is_private'] as bool?,
-      seoDataWeighted: json['seo_data_weighted'],
-      plainLastMessage: json['plain_last_message'] as String?,
-      lastMessageAt:
-          json['last_message_at'] == null
-              ? null
-              : DateTime.parse(json['last_message_at'] as String),
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      isBroadcasting: json['is_broadcasting'] as bool?,
-      admin:
-          json['admin'] == null
-              ? null
-              : CommunityAdmin.fromJson(json['admin'] as Map<String, dynamic>),
-      coverMedia:
-          (json['cover_media'] as List<dynamic>?)
-              ?.map((e) => CoverMedia.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      services:
-          (json['services'] as List<dynamic>?)
-              ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
-              .toList(),
-    );
+_$SearchedCommunityImpl _$$SearchedCommunityImplFromJson(
+  Map<String, dynamic> json,
+) => _$SearchedCommunityImpl(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  adminUserUid: json['admin_user_uid'] as String?,
+  status: json['status'] as String?,
+  bio: json['bio'] as String?,
+  location: json['location'] as String?,
+  description: json['description'] as String?,
+  title: json['title'] as String?,
+  profilePicture: json['profile_picture'] as String?,
+  uid: json['uid'] as String?,
+  username: json['username'] as String?,
+  totalMembers: (json['total_members'] as num?)?.toInt(),
+  isPrivate: json['is_private'] as bool?,
+  seoDataWeighted: json['seo_data_weighted'],
+  plainLastMessage: json['plain_last_message'] as String?,
+  lastMessageAt:
+      json['last_message_at'] == null
+          ? null
+          : DateTime.parse(json['last_message_at'] as String),
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  isBroadcasting: json['is_broadcasting'] as bool?,
+  admin:
+      json['admin'] == null
+          ? null
+          : SearchedCommunityAdmin.fromJson(
+            json['admin'] as Map<String, dynamic>,
+          ),
+  coverMedia:
+      (json['cover_media'] as List<dynamic>?)
+          ?.map((e) => CoverMedia.fromJson(e as Map<String, dynamic>))
+          .toList(),
+  services:
+      (json['services'] as List<dynamic>?)
+          ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
+          .toList(),
+);
 
-Map<String, dynamic> _$$CommunityImplToJson(_$CommunityImpl instance) =>
-    <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'admin_user_uid': instance.adminUserUid,
-      'status': instance.status,
-      'bio': instance.bio,
-      'location': instance.location,
-      'description': instance.description,
-      'title': instance.title,
-      'profile_picture': instance.profilePicture,
-      'uid': instance.uid,
-      'username': instance.username,
-      'total_members': instance.totalMembers,
-      'is_private': instance.isPrivate,
-      'seo_data_weighted': instance.seoDataWeighted,
-      'plain_last_message': instance.plainLastMessage,
-      'last_message_at': instance.lastMessageAt?.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'is_broadcasting': instance.isBroadcasting,
-      'admin': instance.admin,
-      'cover_media': instance.coverMedia,
-      'services': instance.services,
-    };
+Map<String, dynamic> _$$SearchedCommunityImplToJson(
+  _$SearchedCommunityImpl instance,
+) => <String, dynamic>{
+  'created_at': instance.createdAt?.toIso8601String(),
+  'admin_user_uid': instance.adminUserUid,
+  'status': instance.status,
+  'bio': instance.bio,
+  'location': instance.location,
+  'description': instance.description,
+  'title': instance.title,
+  'profile_picture': instance.profilePicture,
+  'uid': instance.uid,
+  'username': instance.username,
+  'total_members': instance.totalMembers,
+  'is_private': instance.isPrivate,
+  'seo_data_weighted': instance.seoDataWeighted,
+  'plain_last_message': instance.plainLastMessage,
+  'last_message_at': instance.lastMessageAt?.toIso8601String(),
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'is_broadcasting': instance.isBroadcasting,
+  'admin': instance.admin,
+  'cover_media': instance.coverMedia,
+  'services': instance.services,
+};
 
 _$CommunityAdminImpl _$$CommunityAdminImplFromJson(Map<String, dynamic> json) =>
     _$CommunityAdminImpl(

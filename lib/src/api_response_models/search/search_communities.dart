@@ -10,7 +10,7 @@ class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'communities') List<Community>? communities,
+    @JsonKey(name: 'communities') List<SearchedCommunity>? communities,
   }) = _SearchCommunitiesResponse;
 
   factory SearchCommunitiesResponse.fromJson(Map<String, dynamic> json) => 
@@ -18,8 +18,8 @@ class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
 }
 
 @freezed
-class Community with _$Community {
-  const factory Community({
+class SearchedCommunity with _$SearchedCommunity {
+  const factory SearchedCommunity({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'admin_user_uid') String? adminUserUid,
     @JsonKey(name: 'status') String? status,
@@ -37,18 +37,18 @@ class Community with _$Community {
     @JsonKey(name: 'last_message_at') DateTime? lastMessageAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_broadcasting') bool? isBroadcasting,
-    @JsonKey(name: 'admin') CommunityAdmin? admin,
+    @JsonKey(name: 'admin') SearchedCommunityAdmin? admin,
     @JsonKey(name: 'cover_media') List<CoverMedia>? coverMedia,
     @JsonKey(name: 'services') List<Service>? services,
-  }) = _Community;
+  }) = _SearchedCommunity;
 
-  factory Community.fromJson(Map<String, dynamic> json) => 
-      _$CommunityFromJson(json);
+  factory SearchedCommunity.fromJson(Map<String, dynamic> json) => 
+      _$SearchedCommunityFromJson(json);
 }
 
 @freezed
-class CommunityAdmin with _$CommunityAdmin {
-  const factory CommunityAdmin({
+class SearchedCommunityAdmin with _$SearchedCommunityAdmin {
+  const factory SearchedCommunityAdmin({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
     @JsonKey(name: 'name') String? name,
@@ -56,8 +56,8 @@ class CommunityAdmin with _$CommunityAdmin {
     @JsonKey(name: 'bio') String? bio,
   }) = _CommunityAdmin;
 
-  factory CommunityAdmin.fromJson(Map<String, dynamic> json) => 
-      _$CommunityAdminFromJson(json);
+  factory SearchedCommunityAdmin.fromJson(Map<String, dynamic> json) => 
+      _$SearchedCommunityAdminFromJson(json);
 }
 
 @freezed

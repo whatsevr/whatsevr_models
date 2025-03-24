@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_portfolios.dart';
+part of 'search_accounts.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-SearchPortfoliosResponse _$SearchPortfoliosResponseFromJson(
+SearchAccountsResponse _$SearchAccountsResponseFromJson(
   Map<String, dynamic> json,
 ) {
-  return _SearchPortfoliosResponse.fromJson(json);
+  return _SearchAccountsResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SearchPortfoliosResponse {
+mixin _$SearchAccountsResponse {
   @JsonKey(name: 'message')
   String? get message => throw _privateConstructorUsedError;
   @JsonKey(name: 'page')
@@ -30,47 +30,47 @@ mixin _$SearchPortfoliosResponse {
   @JsonKey(name: 'last_page')
   bool? get lastPage => throw _privateConstructorUsedError;
   @JsonKey(name: 'users')
-  List<PortfolioUser>? get users => throw _privateConstructorUsedError;
+  List<SearchedUser>? get users => throw _privateConstructorUsedError;
 
-  /// Serializes this SearchPortfoliosResponse to a JSON map.
+  /// Serializes this SearchAccountsResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of SearchPortfoliosResponse
+  /// Create a copy of SearchAccountsResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SearchPortfoliosResponseCopyWith<SearchPortfoliosResponse> get copyWith =>
+  $SearchAccountsResponseCopyWith<SearchAccountsResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchPortfoliosResponseCopyWith<$Res> {
-  factory $SearchPortfoliosResponseCopyWith(
-    SearchPortfoliosResponse value,
-    $Res Function(SearchPortfoliosResponse) then,
-  ) = _$SearchPortfoliosResponseCopyWithImpl<$Res, SearchPortfoliosResponse>;
+abstract class $SearchAccountsResponseCopyWith<$Res> {
+  factory $SearchAccountsResponseCopyWith(
+    SearchAccountsResponse value,
+    $Res Function(SearchAccountsResponse) then,
+  ) = _$SearchAccountsResponseCopyWithImpl<$Res, SearchAccountsResponse>;
   @useResult
   $Res call({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'users') List<PortfolioUser>? users,
+    @JsonKey(name: 'users') List<SearchedUser>? users,
   });
 }
 
 /// @nodoc
-class _$SearchPortfoliosResponseCopyWithImpl<
+class _$SearchAccountsResponseCopyWithImpl<
   $Res,
-  $Val extends SearchPortfoliosResponse
+  $Val extends SearchAccountsResponse
 >
-    implements $SearchPortfoliosResponseCopyWith<$Res> {
-  _$SearchPortfoliosResponseCopyWithImpl(this._value, this._then);
+    implements $SearchAccountsResponseCopyWith<$Res> {
+  _$SearchAccountsResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SearchPortfoliosResponse
+  /// Create a copy of SearchAccountsResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -101,7 +101,7 @@ class _$SearchPortfoliosResponseCopyWithImpl<
                 freezed == users
                     ? _value.users
                     : users // ignore: cast_nullable_to_non_nullable
-                        as List<PortfolioUser>?,
+                        as List<SearchedUser>?,
           )
           as $Val,
     );
@@ -109,36 +109,33 @@ class _$SearchPortfoliosResponseCopyWithImpl<
 }
 
 /// @nodoc
-abstract class _$$SearchPortfoliosResponseImplCopyWith<$Res>
-    implements $SearchPortfoliosResponseCopyWith<$Res> {
-  factory _$$SearchPortfoliosResponseImplCopyWith(
-    _$SearchPortfoliosResponseImpl value,
-    $Res Function(_$SearchPortfoliosResponseImpl) then,
-  ) = __$$SearchPortfoliosResponseImplCopyWithImpl<$Res>;
+abstract class _$$SearchAccountsResponseImplCopyWith<$Res>
+    implements $SearchAccountsResponseCopyWith<$Res> {
+  factory _$$SearchAccountsResponseImplCopyWith(
+    _$SearchAccountsResponseImpl value,
+    $Res Function(_$SearchAccountsResponseImpl) then,
+  ) = __$$SearchAccountsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
     @JsonKey(name: 'last_page') bool? lastPage,
-    @JsonKey(name: 'users') List<PortfolioUser>? users,
+    @JsonKey(name: 'users') List<SearchedUser>? users,
   });
 }
 
 /// @nodoc
-class __$$SearchPortfoliosResponseImplCopyWithImpl<$Res>
+class __$$SearchAccountsResponseImplCopyWithImpl<$Res>
     extends
-        _$SearchPortfoliosResponseCopyWithImpl<
-          $Res,
-          _$SearchPortfoliosResponseImpl
-        >
-    implements _$$SearchPortfoliosResponseImplCopyWith<$Res> {
-  __$$SearchPortfoliosResponseImplCopyWithImpl(
-    _$SearchPortfoliosResponseImpl _value,
-    $Res Function(_$SearchPortfoliosResponseImpl) _then,
+        _$SearchAccountsResponseCopyWithImpl<$Res, _$SearchAccountsResponseImpl>
+    implements _$$SearchAccountsResponseImplCopyWith<$Res> {
+  __$$SearchAccountsResponseImplCopyWithImpl(
+    _$SearchAccountsResponseImpl _value,
+    $Res Function(_$SearchAccountsResponseImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of SearchPortfoliosResponse
+  /// Create a copy of SearchAccountsResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -149,7 +146,7 @@ class __$$SearchPortfoliosResponseImplCopyWithImpl<$Res>
     Object? users = freezed,
   }) {
     return _then(
-      _$SearchPortfoliosResponseImpl(
+      _$SearchAccountsResponseImpl(
         message:
             freezed == message
                 ? _value.message
@@ -169,7 +166,7 @@ class __$$SearchPortfoliosResponseImplCopyWithImpl<$Res>
             freezed == users
                 ? _value._users
                 : users // ignore: cast_nullable_to_non_nullable
-                    as List<PortfolioUser>?,
+                    as List<SearchedUser>?,
       ),
     );
   }
@@ -177,16 +174,16 @@ class __$$SearchPortfoliosResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SearchPortfoliosResponseImpl implements _SearchPortfoliosResponse {
-  const _$SearchPortfoliosResponseImpl({
+class _$SearchAccountsResponseImpl implements _SearchAccountsResponse {
+  const _$SearchAccountsResponseImpl({
     @JsonKey(name: 'message') this.message,
     @JsonKey(name: 'page') this.page,
     @JsonKey(name: 'last_page') this.lastPage,
-    @JsonKey(name: 'users') final List<PortfolioUser>? users,
+    @JsonKey(name: 'users') final List<SearchedUser>? users,
   }) : _users = users;
 
-  factory _$SearchPortfoliosResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SearchPortfoliosResponseImplFromJson(json);
+  factory _$SearchAccountsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchAccountsResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'message')
@@ -197,10 +194,10 @@ class _$SearchPortfoliosResponseImpl implements _SearchPortfoliosResponse {
   @override
   @JsonKey(name: 'last_page')
   final bool? lastPage;
-  final List<PortfolioUser>? _users;
+  final List<SearchedUser>? _users;
   @override
   @JsonKey(name: 'users')
-  List<PortfolioUser>? get users {
+  List<SearchedUser>? get users {
     final value = _users;
     if (value == null) return null;
     if (_users is EqualUnmodifiableListView) return _users;
@@ -210,14 +207,14 @@ class _$SearchPortfoliosResponseImpl implements _SearchPortfoliosResponse {
 
   @override
   String toString() {
-    return 'SearchPortfoliosResponse(message: $message, page: $page, lastPage: $lastPage, users: $users)';
+    return 'SearchAccountsResponse(message: $message, page: $page, lastPage: $lastPage, users: $users)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchPortfoliosResponseImpl &&
+            other is _$SearchAccountsResponseImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.lastPage, lastPage) ||
@@ -235,32 +232,34 @@ class _$SearchPortfoliosResponseImpl implements _SearchPortfoliosResponse {
     const DeepCollectionEquality().hash(_users),
   );
 
-  /// Create a copy of SearchPortfoliosResponse
+  /// Create a copy of SearchAccountsResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchPortfoliosResponseImplCopyWith<_$SearchPortfoliosResponseImpl>
-  get copyWith => __$$SearchPortfoliosResponseImplCopyWithImpl<
-    _$SearchPortfoliosResponseImpl
-  >(this, _$identity);
+  _$$SearchAccountsResponseImplCopyWith<_$SearchAccountsResponseImpl>
+  get copyWith =>
+      __$$SearchAccountsResponseImplCopyWithImpl<_$SearchAccountsResponseImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchPortfoliosResponseImplToJson(this);
+    return _$$SearchAccountsResponseImplToJson(this);
   }
 }
 
-abstract class _SearchPortfoliosResponse implements SearchPortfoliosResponse {
-  const factory _SearchPortfoliosResponse({
+abstract class _SearchAccountsResponse implements SearchAccountsResponse {
+  const factory _SearchAccountsResponse({
     @JsonKey(name: 'message') final String? message,
     @JsonKey(name: 'page') final int? page,
     @JsonKey(name: 'last_page') final bool? lastPage,
-    @JsonKey(name: 'users') final List<PortfolioUser>? users,
-  }) = _$SearchPortfoliosResponseImpl;
+    @JsonKey(name: 'users') final List<SearchedUser>? users,
+  }) = _$SearchAccountsResponseImpl;
 
-  factory _SearchPortfoliosResponse.fromJson(Map<String, dynamic> json) =
-      _$SearchPortfoliosResponseImpl.fromJson;
+  factory _SearchAccountsResponse.fromJson(Map<String, dynamic> json) =
+      _$SearchAccountsResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'message')
@@ -273,22 +272,22 @@ abstract class _SearchPortfoliosResponse implements SearchPortfoliosResponse {
   bool? get lastPage;
   @override
   @JsonKey(name: 'users')
-  List<PortfolioUser>? get users;
+  List<SearchedUser>? get users;
 
-  /// Create a copy of SearchPortfoliosResponse
+  /// Create a copy of SearchAccountsResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchPortfoliosResponseImplCopyWith<_$SearchPortfoliosResponseImpl>
+  _$$SearchAccountsResponseImplCopyWith<_$SearchAccountsResponseImpl>
   get copyWith => throw _privateConstructorUsedError;
 }
 
-PortfolioUser _$PortfolioUserFromJson(Map<String, dynamic> json) {
-  return _PortfolioUser.fromJson(json);
+SearchedUser _$SearchedUserFromJson(Map<String, dynamic> json) {
+  return _SearchedUser.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PortfolioUser {
+mixin _$SearchedUser {
   @JsonKey(name: 'registered_at')
   DateTime? get registeredAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'uid')
@@ -353,34 +352,28 @@ mixin _$PortfolioUser {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_private')
   bool? get isPrivate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'cover_media')
-  List<PortfolioCoverMedia>? get coverMedia =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: 'services')
-  List<PortfolioService>? get services => throw _privateConstructorUsedError;
   @JsonKey(name: 'educations')
-  List<PortfolioEducation>? get educations =>
-      throw _privateConstructorUsedError;
+  List<UserEducation>? get educations => throw _privateConstructorUsedError;
   @JsonKey(name: 'work_experiences')
-  List<PortfolioWorkExperience>? get workExperiences =>
+  List<UserWorkExperience>? get workExperiences =>
       throw _privateConstructorUsedError;
 
-  /// Serializes this PortfolioUser to a JSON map.
+  /// Serializes this SearchedUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PortfolioUser
+  /// Create a copy of SearchedUser
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PortfolioUserCopyWith<PortfolioUser> get copyWith =>
+  $SearchedUserCopyWith<SearchedUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PortfolioUserCopyWith<$Res> {
-  factory $PortfolioUserCopyWith(
-    PortfolioUser value,
-    $Res Function(PortfolioUser) then,
-  ) = _$PortfolioUserCopyWithImpl<$Res, PortfolioUser>;
+abstract class $SearchedUserCopyWith<$Res> {
+  factory $SearchedUserCopyWith(
+    SearchedUser value,
+    $Res Function(SearchedUser) then,
+  ) = _$SearchedUserCopyWithImpl<$Res, SearchedUser>;
   @useResult
   $Res call({
     @JsonKey(name: 'registered_at') DateTime? registeredAt,
@@ -415,25 +408,23 @@ abstract class $PortfolioUserCopyWith<$Res> {
     @JsonKey(name: 'public_mobile_number') String? publicMobileNumber,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_private') bool? isPrivate,
-    @JsonKey(name: 'cover_media') List<PortfolioCoverMedia>? coverMedia,
-    @JsonKey(name: 'services') List<PortfolioService>? services,
-    @JsonKey(name: 'educations') List<PortfolioEducation>? educations,
+    @JsonKey(name: 'educations') List<UserEducation>? educations,
     @JsonKey(name: 'work_experiences')
-    List<PortfolioWorkExperience>? workExperiences,
+    List<UserWorkExperience>? workExperiences,
   });
 }
 
 /// @nodoc
-class _$PortfolioUserCopyWithImpl<$Res, $Val extends PortfolioUser>
-    implements $PortfolioUserCopyWith<$Res> {
-  _$PortfolioUserCopyWithImpl(this._value, this._then);
+class _$SearchedUserCopyWithImpl<$Res, $Val extends SearchedUser>
+    implements $SearchedUserCopyWith<$Res> {
+  _$SearchedUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PortfolioUser
+  /// Create a copy of SearchedUser
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -470,8 +461,6 @@ class _$PortfolioUserCopyWithImpl<$Res, $Val extends PortfolioUser>
     Object? publicMobileNumber = freezed,
     Object? updatedAt = freezed,
     Object? isPrivate = freezed,
-    Object? coverMedia = freezed,
-    Object? services = freezed,
     Object? educations = freezed,
     Object? workExperiences = freezed,
   }) {
@@ -637,26 +626,16 @@ class _$PortfolioUserCopyWithImpl<$Res, $Val extends PortfolioUser>
                     ? _value.isPrivate
                     : isPrivate // ignore: cast_nullable_to_non_nullable
                         as bool?,
-            coverMedia:
-                freezed == coverMedia
-                    ? _value.coverMedia
-                    : coverMedia // ignore: cast_nullable_to_non_nullable
-                        as List<PortfolioCoverMedia>?,
-            services:
-                freezed == services
-                    ? _value.services
-                    : services // ignore: cast_nullable_to_non_nullable
-                        as List<PortfolioService>?,
             educations:
                 freezed == educations
                     ? _value.educations
                     : educations // ignore: cast_nullable_to_non_nullable
-                        as List<PortfolioEducation>?,
+                        as List<UserEducation>?,
             workExperiences:
                 freezed == workExperiences
                     ? _value.workExperiences
                     : workExperiences // ignore: cast_nullable_to_non_nullable
-                        as List<PortfolioWorkExperience>?,
+                        as List<UserWorkExperience>?,
           )
           as $Val,
     );
@@ -664,12 +643,12 @@ class _$PortfolioUserCopyWithImpl<$Res, $Val extends PortfolioUser>
 }
 
 /// @nodoc
-abstract class _$$PortfolioUserImplCopyWith<$Res>
-    implements $PortfolioUserCopyWith<$Res> {
-  factory _$$PortfolioUserImplCopyWith(
-    _$PortfolioUserImpl value,
-    $Res Function(_$PortfolioUserImpl) then,
-  ) = __$$PortfolioUserImplCopyWithImpl<$Res>;
+abstract class _$$SearchedUserImplCopyWith<$Res>
+    implements $SearchedUserCopyWith<$Res> {
+  factory _$$SearchedUserImplCopyWith(
+    _$SearchedUserImpl value,
+    $Res Function(_$SearchedUserImpl) then,
+  ) = __$$SearchedUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -705,24 +684,22 @@ abstract class _$$PortfolioUserImplCopyWith<$Res>
     @JsonKey(name: 'public_mobile_number') String? publicMobileNumber,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'is_private') bool? isPrivate,
-    @JsonKey(name: 'cover_media') List<PortfolioCoverMedia>? coverMedia,
-    @JsonKey(name: 'services') List<PortfolioService>? services,
-    @JsonKey(name: 'educations') List<PortfolioEducation>? educations,
+    @JsonKey(name: 'educations') List<UserEducation>? educations,
     @JsonKey(name: 'work_experiences')
-    List<PortfolioWorkExperience>? workExperiences,
+    List<UserWorkExperience>? workExperiences,
   });
 }
 
 /// @nodoc
-class __$$PortfolioUserImplCopyWithImpl<$Res>
-    extends _$PortfolioUserCopyWithImpl<$Res, _$PortfolioUserImpl>
-    implements _$$PortfolioUserImplCopyWith<$Res> {
-  __$$PortfolioUserImplCopyWithImpl(
-    _$PortfolioUserImpl _value,
-    $Res Function(_$PortfolioUserImpl) _then,
+class __$$SearchedUserImplCopyWithImpl<$Res>
+    extends _$SearchedUserCopyWithImpl<$Res, _$SearchedUserImpl>
+    implements _$$SearchedUserImplCopyWith<$Res> {
+  __$$SearchedUserImplCopyWithImpl(
+    _$SearchedUserImpl _value,
+    $Res Function(_$SearchedUserImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PortfolioUser
+  /// Create a copy of SearchedUser
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -759,13 +736,11 @@ class __$$PortfolioUserImplCopyWithImpl<$Res>
     Object? publicMobileNumber = freezed,
     Object? updatedAt = freezed,
     Object? isPrivate = freezed,
-    Object? coverMedia = freezed,
-    Object? services = freezed,
     Object? educations = freezed,
     Object? workExperiences = freezed,
   }) {
     return _then(
-      _$PortfolioUserImpl(
+      _$SearchedUserImpl(
         registeredAt:
             freezed == registeredAt
                 ? _value.registeredAt
@@ -926,26 +901,16 @@ class __$$PortfolioUserImplCopyWithImpl<$Res>
                 ? _value.isPrivate
                 : isPrivate // ignore: cast_nullable_to_non_nullable
                     as bool?,
-        coverMedia:
-            freezed == coverMedia
-                ? _value._coverMedia
-                : coverMedia // ignore: cast_nullable_to_non_nullable
-                    as List<PortfolioCoverMedia>?,
-        services:
-            freezed == services
-                ? _value._services
-                : services // ignore: cast_nullable_to_non_nullable
-                    as List<PortfolioService>?,
         educations:
             freezed == educations
                 ? _value._educations
                 : educations // ignore: cast_nullable_to_non_nullable
-                    as List<PortfolioEducation>?,
+                    as List<UserEducation>?,
         workExperiences:
             freezed == workExperiences
                 ? _value._workExperiences
                 : workExperiences // ignore: cast_nullable_to_non_nullable
-                    as List<PortfolioWorkExperience>?,
+                    as List<UserWorkExperience>?,
       ),
     );
   }
@@ -953,8 +918,8 @@ class __$$PortfolioUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PortfolioUserImpl implements _PortfolioUser {
-  const _$PortfolioUserImpl({
+class _$SearchedUserImpl implements _SearchedUser {
+  const _$SearchedUserImpl({
     @JsonKey(name: 'registered_at') this.registeredAt,
     @JsonKey(name: 'uid') this.uid,
     @JsonKey(name: 'username') this.username,
@@ -987,18 +952,14 @@ class _$PortfolioUserImpl implements _PortfolioUser {
     @JsonKey(name: 'public_mobile_number') this.publicMobileNumber,
     @JsonKey(name: 'updated_at') this.updatedAt,
     @JsonKey(name: 'is_private') this.isPrivate,
-    @JsonKey(name: 'cover_media') final List<PortfolioCoverMedia>? coverMedia,
-    @JsonKey(name: 'services') final List<PortfolioService>? services,
-    @JsonKey(name: 'educations') final List<PortfolioEducation>? educations,
+    @JsonKey(name: 'educations') final List<UserEducation>? educations,
     @JsonKey(name: 'work_experiences')
-    final List<PortfolioWorkExperience>? workExperiences,
-  }) : _coverMedia = coverMedia,
-       _services = services,
-       _educations = educations,
+    final List<UserWorkExperience>? workExperiences,
+  }) : _educations = educations,
        _workExperiences = workExperiences;
 
-  factory _$PortfolioUserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortfolioUserImplFromJson(json);
+  factory _$SearchedUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchedUserImplFromJson(json);
 
   @override
   @JsonKey(name: 'registered_at')
@@ -1096,32 +1057,10 @@ class _$PortfolioUserImpl implements _PortfolioUser {
   @override
   @JsonKey(name: 'is_private')
   final bool? isPrivate;
-  final List<PortfolioCoverMedia>? _coverMedia;
-  @override
-  @JsonKey(name: 'cover_media')
-  List<PortfolioCoverMedia>? get coverMedia {
-    final value = _coverMedia;
-    if (value == null) return null;
-    if (_coverMedia is EqualUnmodifiableListView) return _coverMedia;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PortfolioService>? _services;
-  @override
-  @JsonKey(name: 'services')
-  List<PortfolioService>? get services {
-    final value = _services;
-    if (value == null) return null;
-    if (_services is EqualUnmodifiableListView) return _services;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PortfolioEducation>? _educations;
+  final List<UserEducation>? _educations;
   @override
   @JsonKey(name: 'educations')
-  List<PortfolioEducation>? get educations {
+  List<UserEducation>? get educations {
     final value = _educations;
     if (value == null) return null;
     if (_educations is EqualUnmodifiableListView) return _educations;
@@ -1129,10 +1068,10 @@ class _$PortfolioUserImpl implements _PortfolioUser {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<PortfolioWorkExperience>? _workExperiences;
+  final List<UserWorkExperience>? _workExperiences;
   @override
   @JsonKey(name: 'work_experiences')
-  List<PortfolioWorkExperience>? get workExperiences {
+  List<UserWorkExperience>? get workExperiences {
     final value = _workExperiences;
     if (value == null) return null;
     if (_workExperiences is EqualUnmodifiableListView) return _workExperiences;
@@ -1142,14 +1081,14 @@ class _$PortfolioUserImpl implements _PortfolioUser {
 
   @override
   String toString() {
-    return 'PortfolioUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, coverMedia: $coverMedia, services: $services, educations: $educations, workExperiences: $workExperiences)';
+    return 'SearchedUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, educations: $educations, workExperiences: $workExperiences)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PortfolioUserImpl &&
+            other is _$SearchedUserImpl &&
             (identical(other.registeredAt, registeredAt) ||
                 other.registeredAt == registeredAt) &&
             (identical(other.uid, uid) || other.uid == uid) &&
@@ -1207,11 +1146,6 @@ class _$PortfolioUserImpl implements _PortfolioUser {
             (identical(other.isPrivate, isPrivate) ||
                 other.isPrivate == isPrivate) &&
             const DeepCollectionEquality().equals(
-              other._coverMedia,
-              _coverMedia,
-            ) &&
-            const DeepCollectionEquality().equals(other._services, _services) &&
-            const DeepCollectionEquality().equals(
               other._educations,
               _educations,
             ) &&
@@ -1257,28 +1191,26 @@ class _$PortfolioUserImpl implements _PortfolioUser {
     publicMobileNumber,
     updatedAt,
     isPrivate,
-    const DeepCollectionEquality().hash(_coverMedia),
-    const DeepCollectionEquality().hash(_services),
     const DeepCollectionEquality().hash(_educations),
     const DeepCollectionEquality().hash(_workExperiences),
   ]);
 
-  /// Create a copy of PortfolioUser
+  /// Create a copy of SearchedUser
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PortfolioUserImplCopyWith<_$PortfolioUserImpl> get copyWith =>
-      __$$PortfolioUserImplCopyWithImpl<_$PortfolioUserImpl>(this, _$identity);
+  _$$SearchedUserImplCopyWith<_$SearchedUserImpl> get copyWith =>
+      __$$SearchedUserImplCopyWithImpl<_$SearchedUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PortfolioUserImplToJson(this);
+    return _$$SearchedUserImplToJson(this);
   }
 }
 
-abstract class _PortfolioUser implements PortfolioUser {
-  const factory _PortfolioUser({
+abstract class _SearchedUser implements SearchedUser {
+  const factory _SearchedUser({
     @JsonKey(name: 'registered_at') final DateTime? registeredAt,
     @JsonKey(name: 'uid') final String? uid,
     @JsonKey(name: 'username') final String? username,
@@ -1311,15 +1243,13 @@ abstract class _PortfolioUser implements PortfolioUser {
     @JsonKey(name: 'public_mobile_number') final String? publicMobileNumber,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'is_private') final bool? isPrivate,
-    @JsonKey(name: 'cover_media') final List<PortfolioCoverMedia>? coverMedia,
-    @JsonKey(name: 'services') final List<PortfolioService>? services,
-    @JsonKey(name: 'educations') final List<PortfolioEducation>? educations,
+    @JsonKey(name: 'educations') final List<UserEducation>? educations,
     @JsonKey(name: 'work_experiences')
-    final List<PortfolioWorkExperience>? workExperiences,
-  }) = _$PortfolioUserImpl;
+    final List<UserWorkExperience>? workExperiences,
+  }) = _$SearchedUserImpl;
 
-  factory _PortfolioUser.fromJson(Map<String, dynamic> json) =
-      _$PortfolioUserImpl.fromJson;
+  factory _SearchedUser.fromJson(Map<String, dynamic> json) =
+      _$SearchedUserImpl.fromJson;
 
   @override
   @JsonKey(name: 'registered_at')
@@ -1418,781 +1348,26 @@ abstract class _PortfolioUser implements PortfolioUser {
   @JsonKey(name: 'is_private')
   bool? get isPrivate;
   @override
-  @JsonKey(name: 'cover_media')
-  List<PortfolioCoverMedia>? get coverMedia;
-  @override
-  @JsonKey(name: 'services')
-  List<PortfolioService>? get services;
-  @override
   @JsonKey(name: 'educations')
-  List<PortfolioEducation>? get educations;
+  List<UserEducation>? get educations;
   @override
   @JsonKey(name: 'work_experiences')
-  List<PortfolioWorkExperience>? get workExperiences;
+  List<UserWorkExperience>? get workExperiences;
 
-  /// Create a copy of PortfolioUser
+  /// Create a copy of SearchedUser
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PortfolioUserImplCopyWith<_$PortfolioUserImpl> get copyWith =>
+  _$$SearchedUserImplCopyWith<_$SearchedUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-PortfolioCoverMedia _$PortfolioCoverMediaFromJson(Map<String, dynamic> json) {
-  return _PortfolioCoverMedia.fromJson(json);
+UserEducation _$UserEducationFromJson(Map<String, dynamic> json) {
+  return _UserEducation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PortfolioCoverMedia {
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image_url')
-  String? get imageUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_video')
-  bool? get isVideo => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_uid')
-  String? get userUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'video_url')
-  String? get videoUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'community_uid')
-  String? get communityUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'owner_type')
-  String? get ownerType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'uid')
-  String? get uid => throw _privateConstructorUsedError;
-
-  /// Serializes this PortfolioCoverMedia to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PortfolioCoverMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PortfolioCoverMediaCopyWith<PortfolioCoverMedia> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PortfolioCoverMediaCopyWith<$Res> {
-  factory $PortfolioCoverMediaCopyWith(
-    PortfolioCoverMedia value,
-    $Res Function(PortfolioCoverMedia) then,
-  ) = _$PortfolioCoverMediaCopyWithImpl<$Res, PortfolioCoverMedia>;
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'image_url') String? imageUrl,
-    @JsonKey(name: 'is_video') bool? isVideo,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'video_url') String? videoUrl,
-    @JsonKey(name: 'community_uid') String? communityUid,
-    @JsonKey(name: 'owner_type') String? ownerType,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'uid') String? uid,
-  });
-}
-
-/// @nodoc
-class _$PortfolioCoverMediaCopyWithImpl<$Res, $Val extends PortfolioCoverMedia>
-    implements $PortfolioCoverMediaCopyWith<$Res> {
-  _$PortfolioCoverMediaCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PortfolioCoverMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? imageUrl = freezed,
-    Object? isVideo = freezed,
-    Object? userUid = freezed,
-    Object? videoUrl = freezed,
-    Object? communityUid = freezed,
-    Object? ownerType = freezed,
-    Object? updatedAt = freezed,
-    Object? uid = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            createdAt:
-                freezed == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            imageUrl:
-                freezed == imageUrl
-                    ? _value.imageUrl
-                    : imageUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            isVideo:
-                freezed == isVideo
-                    ? _value.isVideo
-                    : isVideo // ignore: cast_nullable_to_non_nullable
-                        as bool?,
-            userUid:
-                freezed == userUid
-                    ? _value.userUid
-                    : userUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            videoUrl:
-                freezed == videoUrl
-                    ? _value.videoUrl
-                    : videoUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            communityUid:
-                freezed == communityUid
-                    ? _value.communityUid
-                    : communityUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            ownerType:
-                freezed == ownerType
-                    ? _value.ownerType
-                    : ownerType // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            updatedAt:
-                freezed == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            uid:
-                freezed == uid
-                    ? _value.uid
-                    : uid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
-  }
-}
-
-/// @nodoc
-abstract class _$$PortfolioCoverMediaImplCopyWith<$Res>
-    implements $PortfolioCoverMediaCopyWith<$Res> {
-  factory _$$PortfolioCoverMediaImplCopyWith(
-    _$PortfolioCoverMediaImpl value,
-    $Res Function(_$PortfolioCoverMediaImpl) then,
-  ) = __$$PortfolioCoverMediaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'image_url') String? imageUrl,
-    @JsonKey(name: 'is_video') bool? isVideo,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'video_url') String? videoUrl,
-    @JsonKey(name: 'community_uid') String? communityUid,
-    @JsonKey(name: 'owner_type') String? ownerType,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'uid') String? uid,
-  });
-}
-
-/// @nodoc
-class __$$PortfolioCoverMediaImplCopyWithImpl<$Res>
-    extends _$PortfolioCoverMediaCopyWithImpl<$Res, _$PortfolioCoverMediaImpl>
-    implements _$$PortfolioCoverMediaImplCopyWith<$Res> {
-  __$$PortfolioCoverMediaImplCopyWithImpl(
-    _$PortfolioCoverMediaImpl _value,
-    $Res Function(_$PortfolioCoverMediaImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of PortfolioCoverMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? imageUrl = freezed,
-    Object? isVideo = freezed,
-    Object? userUid = freezed,
-    Object? videoUrl = freezed,
-    Object? communityUid = freezed,
-    Object? ownerType = freezed,
-    Object? updatedAt = freezed,
-    Object? uid = freezed,
-  }) {
-    return _then(
-      _$PortfolioCoverMediaImpl(
-        createdAt:
-            freezed == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        imageUrl:
-            freezed == imageUrl
-                ? _value.imageUrl
-                : imageUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        isVideo:
-            freezed == isVideo
-                ? _value.isVideo
-                : isVideo // ignore: cast_nullable_to_non_nullable
-                    as bool?,
-        userUid:
-            freezed == userUid
-                ? _value.userUid
-                : userUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        videoUrl:
-            freezed == videoUrl
-                ? _value.videoUrl
-                : videoUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        communityUid:
-            freezed == communityUid
-                ? _value.communityUid
-                : communityUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        ownerType:
-            freezed == ownerType
-                ? _value.ownerType
-                : ownerType // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        updatedAt:
-            freezed == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        uid:
-            freezed == uid
-                ? _value.uid
-                : uid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PortfolioCoverMediaImpl implements _PortfolioCoverMedia {
-  const _$PortfolioCoverMediaImpl({
-    @JsonKey(name: 'created_at') this.createdAt,
-    @JsonKey(name: 'image_url') this.imageUrl,
-    @JsonKey(name: 'is_video') this.isVideo,
-    @JsonKey(name: 'user_uid') this.userUid,
-    @JsonKey(name: 'video_url') this.videoUrl,
-    @JsonKey(name: 'community_uid') this.communityUid,
-    @JsonKey(name: 'owner_type') this.ownerType,
-    @JsonKey(name: 'updated_at') this.updatedAt,
-    @JsonKey(name: 'uid') this.uid,
-  });
-
-  factory _$PortfolioCoverMediaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortfolioCoverMediaImplFromJson(json);
-
-  @override
-  @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
-  @override
-  @JsonKey(name: 'image_url')
-  final String? imageUrl;
-  @override
-  @JsonKey(name: 'is_video')
-  final bool? isVideo;
-  @override
-  @JsonKey(name: 'user_uid')
-  final String? userUid;
-  @override
-  @JsonKey(name: 'video_url')
-  final String? videoUrl;
-  @override
-  @JsonKey(name: 'community_uid')
-  final String? communityUid;
-  @override
-  @JsonKey(name: 'owner_type')
-  final String? ownerType;
-  @override
-  @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
-  @override
-  @JsonKey(name: 'uid')
-  final String? uid;
-
-  @override
-  String toString() {
-    return 'PortfolioCoverMedia(createdAt: $createdAt, imageUrl: $imageUrl, isVideo: $isVideo, userUid: $userUid, videoUrl: $videoUrl, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt, uid: $uid)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PortfolioCoverMediaImpl &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.isVideo, isVideo) || other.isVideo == isVideo) &&
-            (identical(other.userUid, userUid) || other.userUid == userUid) &&
-            (identical(other.videoUrl, videoUrl) ||
-                other.videoUrl == videoUrl) &&
-            (identical(other.communityUid, communityUid) ||
-                other.communityUid == communityUid) &&
-            (identical(other.ownerType, ownerType) ||
-                other.ownerType == ownerType) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.uid, uid) || other.uid == uid));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    createdAt,
-    imageUrl,
-    isVideo,
-    userUid,
-    videoUrl,
-    communityUid,
-    ownerType,
-    updatedAt,
-    uid,
-  );
-
-  /// Create a copy of PortfolioCoverMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PortfolioCoverMediaImplCopyWith<_$PortfolioCoverMediaImpl> get copyWith =>
-      __$$PortfolioCoverMediaImplCopyWithImpl<_$PortfolioCoverMediaImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PortfolioCoverMediaImplToJson(this);
-  }
-}
-
-abstract class _PortfolioCoverMedia implements PortfolioCoverMedia {
-  const factory _PortfolioCoverMedia({
-    @JsonKey(name: 'created_at') final DateTime? createdAt,
-    @JsonKey(name: 'image_url') final String? imageUrl,
-    @JsonKey(name: 'is_video') final bool? isVideo,
-    @JsonKey(name: 'user_uid') final String? userUid,
-    @JsonKey(name: 'video_url') final String? videoUrl,
-    @JsonKey(name: 'community_uid') final String? communityUid,
-    @JsonKey(name: 'owner_type') final String? ownerType,
-    @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-    @JsonKey(name: 'uid') final String? uid,
-  }) = _$PortfolioCoverMediaImpl;
-
-  factory _PortfolioCoverMedia.fromJson(Map<String, dynamic> json) =
-      _$PortfolioCoverMediaImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt;
-  @override
-  @JsonKey(name: 'image_url')
-  String? get imageUrl;
-  @override
-  @JsonKey(name: 'is_video')
-  bool? get isVideo;
-  @override
-  @JsonKey(name: 'user_uid')
-  String? get userUid;
-  @override
-  @JsonKey(name: 'video_url')
-  String? get videoUrl;
-  @override
-  @JsonKey(name: 'community_uid')
-  String? get communityUid;
-  @override
-  @JsonKey(name: 'owner_type')
-  String? get ownerType;
-  @override
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt;
-  @override
-  @JsonKey(name: 'uid')
-  String? get uid;
-
-  /// Create a copy of PortfolioCoverMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PortfolioCoverMediaImplCopyWith<_$PortfolioCoverMediaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PortfolioService _$PortfolioServiceFromJson(Map<String, dynamic> json) {
-  return _PortfolioService.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PortfolioService {
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
-  String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_uid')
-  String? get userUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'description')
-  String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'community_uid')
-  String? get communityUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'owner_type')
-  String? get ownerType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'uid')
-  String? get uid => throw _privateConstructorUsedError;
-
-  /// Serializes this PortfolioService to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PortfolioService
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PortfolioServiceCopyWith<PortfolioService> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PortfolioServiceCopyWith<$Res> {
-  factory $PortfolioServiceCopyWith(
-    PortfolioService value,
-    $Res Function(PortfolioService) then,
-  ) = _$PortfolioServiceCopyWithImpl<$Res, PortfolioService>;
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'title') String? title,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'description') String? description,
-    @JsonKey(name: 'community_uid') String? communityUid,
-    @JsonKey(name: 'owner_type') String? ownerType,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'uid') String? uid,
-  });
-}
-
-/// @nodoc
-class _$PortfolioServiceCopyWithImpl<$Res, $Val extends PortfolioService>
-    implements $PortfolioServiceCopyWith<$Res> {
-  _$PortfolioServiceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PortfolioService
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? title = freezed,
-    Object? userUid = freezed,
-    Object? description = freezed,
-    Object? communityUid = freezed,
-    Object? ownerType = freezed,
-    Object? updatedAt = freezed,
-    Object? uid = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            createdAt:
-                freezed == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            title:
-                freezed == title
-                    ? _value.title
-                    : title // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            userUid:
-                freezed == userUid
-                    ? _value.userUid
-                    : userUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            description:
-                freezed == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            communityUid:
-                freezed == communityUid
-                    ? _value.communityUid
-                    : communityUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            ownerType:
-                freezed == ownerType
-                    ? _value.ownerType
-                    : ownerType // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            updatedAt:
-                freezed == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            uid:
-                freezed == uid
-                    ? _value.uid
-                    : uid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
-  }
-}
-
-/// @nodoc
-abstract class _$$PortfolioServiceImplCopyWith<$Res>
-    implements $PortfolioServiceCopyWith<$Res> {
-  factory _$$PortfolioServiceImplCopyWith(
-    _$PortfolioServiceImpl value,
-    $Res Function(_$PortfolioServiceImpl) then,
-  ) = __$$PortfolioServiceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'title') String? title,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'description') String? description,
-    @JsonKey(name: 'community_uid') String? communityUid,
-    @JsonKey(name: 'owner_type') String? ownerType,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'uid') String? uid,
-  });
-}
-
-/// @nodoc
-class __$$PortfolioServiceImplCopyWithImpl<$Res>
-    extends _$PortfolioServiceCopyWithImpl<$Res, _$PortfolioServiceImpl>
-    implements _$$PortfolioServiceImplCopyWith<$Res> {
-  __$$PortfolioServiceImplCopyWithImpl(
-    _$PortfolioServiceImpl _value,
-    $Res Function(_$PortfolioServiceImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of PortfolioService
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? title = freezed,
-    Object? userUid = freezed,
-    Object? description = freezed,
-    Object? communityUid = freezed,
-    Object? ownerType = freezed,
-    Object? updatedAt = freezed,
-    Object? uid = freezed,
-  }) {
-    return _then(
-      _$PortfolioServiceImpl(
-        createdAt:
-            freezed == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        title:
-            freezed == title
-                ? _value.title
-                : title // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        userUid:
-            freezed == userUid
-                ? _value.userUid
-                : userUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        description:
-            freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        communityUid:
-            freezed == communityUid
-                ? _value.communityUid
-                : communityUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        ownerType:
-            freezed == ownerType
-                ? _value.ownerType
-                : ownerType // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        updatedAt:
-            freezed == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        uid:
-            freezed == uid
-                ? _value.uid
-                : uid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PortfolioServiceImpl implements _PortfolioService {
-  const _$PortfolioServiceImpl({
-    @JsonKey(name: 'created_at') this.createdAt,
-    @JsonKey(name: 'title') this.title,
-    @JsonKey(name: 'user_uid') this.userUid,
-    @JsonKey(name: 'description') this.description,
-    @JsonKey(name: 'community_uid') this.communityUid,
-    @JsonKey(name: 'owner_type') this.ownerType,
-    @JsonKey(name: 'updated_at') this.updatedAt,
-    @JsonKey(name: 'uid') this.uid,
-  });
-
-  factory _$PortfolioServiceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortfolioServiceImplFromJson(json);
-
-  @override
-  @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
-  @override
-  @JsonKey(name: 'title')
-  final String? title;
-  @override
-  @JsonKey(name: 'user_uid')
-  final String? userUid;
-  @override
-  @JsonKey(name: 'description')
-  final String? description;
-  @override
-  @JsonKey(name: 'community_uid')
-  final String? communityUid;
-  @override
-  @JsonKey(name: 'owner_type')
-  final String? ownerType;
-  @override
-  @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
-  @override
-  @JsonKey(name: 'uid')
-  final String? uid;
-
-  @override
-  String toString() {
-    return 'PortfolioService(createdAt: $createdAt, title: $title, userUid: $userUid, description: $description, communityUid: $communityUid, ownerType: $ownerType, updatedAt: $updatedAt, uid: $uid)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PortfolioServiceImpl &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.userUid, userUid) || other.userUid == userUid) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.communityUid, communityUid) ||
-                other.communityUid == communityUid) &&
-            (identical(other.ownerType, ownerType) ||
-                other.ownerType == ownerType) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.uid, uid) || other.uid == uid));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    createdAt,
-    title,
-    userUid,
-    description,
-    communityUid,
-    ownerType,
-    updatedAt,
-    uid,
-  );
-
-  /// Create a copy of PortfolioService
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PortfolioServiceImplCopyWith<_$PortfolioServiceImpl> get copyWith =>
-      __$$PortfolioServiceImplCopyWithImpl<_$PortfolioServiceImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PortfolioServiceImplToJson(this);
-  }
-}
-
-abstract class _PortfolioService implements PortfolioService {
-  const factory _PortfolioService({
-    @JsonKey(name: 'created_at') final DateTime? createdAt,
-    @JsonKey(name: 'title') final String? title,
-    @JsonKey(name: 'user_uid') final String? userUid,
-    @JsonKey(name: 'description') final String? description,
-    @JsonKey(name: 'community_uid') final String? communityUid,
-    @JsonKey(name: 'owner_type') final String? ownerType,
-    @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-    @JsonKey(name: 'uid') final String? uid,
-  }) = _$PortfolioServiceImpl;
-
-  factory _PortfolioService.fromJson(Map<String, dynamic> json) =
-      _$PortfolioServiceImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt;
-  @override
-  @JsonKey(name: 'title')
-  String? get title;
-  @override
-  @JsonKey(name: 'user_uid')
-  String? get userUid;
-  @override
-  @JsonKey(name: 'description')
-  String? get description;
-  @override
-  @JsonKey(name: 'community_uid')
-  String? get communityUid;
-  @override
-  @JsonKey(name: 'owner_type')
-  String? get ownerType;
-  @override
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt;
-  @override
-  @JsonKey(name: 'uid')
-  String? get uid;
-
-  /// Create a copy of PortfolioService
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PortfolioServiceImplCopyWith<_$PortfolioServiceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PortfolioEducation _$PortfolioEducationFromJson(Map<String, dynamic> json) {
-  return _PortfolioEducation.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PortfolioEducation {
+mixin _$UserEducation {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_uid')
@@ -2214,22 +1389,22 @@ mixin _$PortfolioEducation {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
 
-  /// Serializes this PortfolioEducation to a JSON map.
+  /// Serializes this UserEducation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PortfolioEducation
+  /// Create a copy of UserEducation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PortfolioEducationCopyWith<PortfolioEducation> get copyWith =>
+  $UserEducationCopyWith<UserEducation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PortfolioEducationCopyWith<$Res> {
-  factory $PortfolioEducationCopyWith(
-    PortfolioEducation value,
-    $Res Function(PortfolioEducation) then,
-  ) = _$PortfolioEducationCopyWithImpl<$Res, PortfolioEducation>;
+abstract class $UserEducationCopyWith<$Res> {
+  factory $UserEducationCopyWith(
+    UserEducation value,
+    $Res Function(UserEducation) then,
+  ) = _$UserEducationCopyWithImpl<$Res, UserEducation>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -2246,16 +1421,16 @@ abstract class $PortfolioEducationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PortfolioEducationCopyWithImpl<$Res, $Val extends PortfolioEducation>
-    implements $PortfolioEducationCopyWith<$Res> {
-  _$PortfolioEducationCopyWithImpl(this._value, this._then);
+class _$UserEducationCopyWithImpl<$Res, $Val extends UserEducation>
+    implements $UserEducationCopyWith<$Res> {
+  _$UserEducationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PortfolioEducation
+  /// Create a copy of UserEducation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -2330,12 +1505,12 @@ class _$PortfolioEducationCopyWithImpl<$Res, $Val extends PortfolioEducation>
 }
 
 /// @nodoc
-abstract class _$$PortfolioEducationImplCopyWith<$Res>
-    implements $PortfolioEducationCopyWith<$Res> {
-  factory _$$PortfolioEducationImplCopyWith(
-    _$PortfolioEducationImpl value,
-    $Res Function(_$PortfolioEducationImpl) then,
-  ) = __$$PortfolioEducationImplCopyWithImpl<$Res>;
+abstract class _$$UserEducationImplCopyWith<$Res>
+    implements $UserEducationCopyWith<$Res> {
+  factory _$$UserEducationImplCopyWith(
+    _$UserEducationImpl value,
+    $Res Function(_$UserEducationImpl) then,
+  ) = __$$UserEducationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -2353,15 +1528,15 @@ abstract class _$$PortfolioEducationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PortfolioEducationImplCopyWithImpl<$Res>
-    extends _$PortfolioEducationCopyWithImpl<$Res, _$PortfolioEducationImpl>
-    implements _$$PortfolioEducationImplCopyWith<$Res> {
-  __$$PortfolioEducationImplCopyWithImpl(
-    _$PortfolioEducationImpl _value,
-    $Res Function(_$PortfolioEducationImpl) _then,
+class __$$UserEducationImplCopyWithImpl<$Res>
+    extends _$UserEducationCopyWithImpl<$Res, _$UserEducationImpl>
+    implements _$$UserEducationImplCopyWith<$Res> {
+  __$$UserEducationImplCopyWithImpl(
+    _$UserEducationImpl _value,
+    $Res Function(_$UserEducationImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PortfolioEducation
+  /// Create a copy of UserEducation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -2378,7 +1553,7 @@ class __$$PortfolioEducationImplCopyWithImpl<$Res>
     Object? uid = freezed,
   }) {
     return _then(
-      _$PortfolioEducationImpl(
+      _$UserEducationImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -2436,8 +1611,8 @@ class __$$PortfolioEducationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PortfolioEducationImpl implements _PortfolioEducation {
-  const _$PortfolioEducationImpl({
+class _$UserEducationImpl implements _UserEducation {
+  const _$UserEducationImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'user_uid') this.userUid,
     @JsonKey(name: 'title') this.title,
@@ -2450,8 +1625,8 @@ class _$PortfolioEducationImpl implements _PortfolioEducation {
     @JsonKey(name: 'uid') this.uid,
   });
 
-  factory _$PortfolioEducationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortfolioEducationImplFromJson(json);
+  factory _$UserEducationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserEducationImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -2486,14 +1661,14 @@ class _$PortfolioEducationImpl implements _PortfolioEducation {
 
   @override
   String toString() {
-    return 'PortfolioEducation(createdAt: $createdAt, userUid: $userUid, title: $title, startDate: $startDate, endDate: $endDate, type: $type, institute: $institute, isOngoingEducation: $isOngoingEducation, updatedAt: $updatedAt, uid: $uid)';
+    return 'UserEducation(createdAt: $createdAt, userUid: $userUid, title: $title, startDate: $startDate, endDate: $endDate, type: $type, institute: $institute, isOngoingEducation: $isOngoingEducation, updatedAt: $updatedAt, uid: $uid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PortfolioEducationImpl &&
+            other is _$UserEducationImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.userUid, userUid) || other.userUid == userUid) &&
@@ -2527,25 +1702,22 @@ class _$PortfolioEducationImpl implements _PortfolioEducation {
     uid,
   );
 
-  /// Create a copy of PortfolioEducation
+  /// Create a copy of UserEducation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PortfolioEducationImplCopyWith<_$PortfolioEducationImpl> get copyWith =>
-      __$$PortfolioEducationImplCopyWithImpl<_$PortfolioEducationImpl>(
-        this,
-        _$identity,
-      );
+  _$$UserEducationImplCopyWith<_$UserEducationImpl> get copyWith =>
+      __$$UserEducationImplCopyWithImpl<_$UserEducationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PortfolioEducationImplToJson(this);
+    return _$$UserEducationImplToJson(this);
   }
 }
 
-abstract class _PortfolioEducation implements PortfolioEducation {
-  const factory _PortfolioEducation({
+abstract class _UserEducation implements UserEducation {
+  const factory _UserEducation({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'user_uid') final String? userUid,
     @JsonKey(name: 'title') final String? title,
@@ -2556,10 +1728,10 @@ abstract class _PortfolioEducation implements PortfolioEducation {
     @JsonKey(name: 'is_ongoing_education') final bool? isOngoingEducation,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'uid') final String? uid,
-  }) = _$PortfolioEducationImpl;
+  }) = _$UserEducationImpl;
 
-  factory _PortfolioEducation.fromJson(Map<String, dynamic> json) =
-      _$PortfolioEducationImpl.fromJson;
+  factory _UserEducation.fromJson(Map<String, dynamic> json) =
+      _$UserEducationImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -2592,22 +1764,20 @@ abstract class _PortfolioEducation implements PortfolioEducation {
   @JsonKey(name: 'uid')
   String? get uid;
 
-  /// Create a copy of PortfolioEducation
+  /// Create a copy of UserEducation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PortfolioEducationImplCopyWith<_$PortfolioEducationImpl> get copyWith =>
+  _$$UserEducationImplCopyWith<_$UserEducationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-PortfolioWorkExperience _$PortfolioWorkExperienceFromJson(
-  Map<String, dynamic> json,
-) {
-  return _PortfolioWorkExperience.fromJson(json);
+UserWorkExperience _$UserWorkExperienceFromJson(Map<String, dynamic> json) {
+  return _UserWorkExperience.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PortfolioWorkExperience {
+mixin _$UserWorkExperience {
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'designation')
@@ -2629,22 +1799,22 @@ mixin _$PortfolioWorkExperience {
   @JsonKey(name: 'uid')
   String? get uid => throw _privateConstructorUsedError;
 
-  /// Serializes this PortfolioWorkExperience to a JSON map.
+  /// Serializes this UserWorkExperience to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PortfolioWorkExperience
+  /// Create a copy of UserWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PortfolioWorkExperienceCopyWith<PortfolioWorkExperience> get copyWith =>
+  $UserWorkExperienceCopyWith<UserWorkExperience> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PortfolioWorkExperienceCopyWith<$Res> {
-  factory $PortfolioWorkExperienceCopyWith(
-    PortfolioWorkExperience value,
-    $Res Function(PortfolioWorkExperience) then,
-  ) = _$PortfolioWorkExperienceCopyWithImpl<$Res, PortfolioWorkExperience>;
+abstract class $UserWorkExperienceCopyWith<$Res> {
+  factory $UserWorkExperienceCopyWith(
+    UserWorkExperience value,
+    $Res Function(UserWorkExperience) then,
+  ) = _$UserWorkExperienceCopyWithImpl<$Res, UserWorkExperience>;
   @useResult
   $Res call({
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -2661,19 +1831,16 @@ abstract class $PortfolioWorkExperienceCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PortfolioWorkExperienceCopyWithImpl<
-  $Res,
-  $Val extends PortfolioWorkExperience
->
-    implements $PortfolioWorkExperienceCopyWith<$Res> {
-  _$PortfolioWorkExperienceCopyWithImpl(this._value, this._then);
+class _$UserWorkExperienceCopyWithImpl<$Res, $Val extends UserWorkExperience>
+    implements $UserWorkExperienceCopyWith<$Res> {
+  _$UserWorkExperienceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PortfolioWorkExperience
+  /// Create a copy of UserWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -2748,12 +1915,12 @@ class _$PortfolioWorkExperienceCopyWithImpl<
 }
 
 /// @nodoc
-abstract class _$$PortfolioWorkExperienceImplCopyWith<$Res>
-    implements $PortfolioWorkExperienceCopyWith<$Res> {
-  factory _$$PortfolioWorkExperienceImplCopyWith(
-    _$PortfolioWorkExperienceImpl value,
-    $Res Function(_$PortfolioWorkExperienceImpl) then,
-  ) = __$$PortfolioWorkExperienceImplCopyWithImpl<$Res>;
+abstract class _$$UserWorkExperienceImplCopyWith<$Res>
+    implements $UserWorkExperienceCopyWith<$Res> {
+  factory _$$UserWorkExperienceImplCopyWith(
+    _$UserWorkExperienceImpl value,
+    $Res Function(_$UserWorkExperienceImpl) then,
+  ) = __$$UserWorkExperienceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -2771,19 +1938,15 @@ abstract class _$$PortfolioWorkExperienceImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PortfolioWorkExperienceImplCopyWithImpl<$Res>
-    extends
-        _$PortfolioWorkExperienceCopyWithImpl<
-          $Res,
-          _$PortfolioWorkExperienceImpl
-        >
-    implements _$$PortfolioWorkExperienceImplCopyWith<$Res> {
-  __$$PortfolioWorkExperienceImplCopyWithImpl(
-    _$PortfolioWorkExperienceImpl _value,
-    $Res Function(_$PortfolioWorkExperienceImpl) _then,
+class __$$UserWorkExperienceImplCopyWithImpl<$Res>
+    extends _$UserWorkExperienceCopyWithImpl<$Res, _$UserWorkExperienceImpl>
+    implements _$$UserWorkExperienceImplCopyWith<$Res> {
+  __$$UserWorkExperienceImplCopyWithImpl(
+    _$UserWorkExperienceImpl _value,
+    $Res Function(_$UserWorkExperienceImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of PortfolioWorkExperience
+  /// Create a copy of UserWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -2800,7 +1963,7 @@ class __$$PortfolioWorkExperienceImplCopyWithImpl<$Res>
     Object? uid = freezed,
   }) {
     return _then(
-      _$PortfolioWorkExperienceImpl(
+      _$UserWorkExperienceImpl(
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -2858,8 +2021,8 @@ class __$$PortfolioWorkExperienceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PortfolioWorkExperienceImpl implements _PortfolioWorkExperience {
-  const _$PortfolioWorkExperienceImpl({
+class _$UserWorkExperienceImpl implements _UserWorkExperience {
+  const _$UserWorkExperienceImpl({
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'designation') this.designation,
     @JsonKey(name: 'start_date') this.startDate,
@@ -2872,8 +2035,8 @@ class _$PortfolioWorkExperienceImpl implements _PortfolioWorkExperience {
     @JsonKey(name: 'uid') this.uid,
   });
 
-  factory _$PortfolioWorkExperienceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortfolioWorkExperienceImplFromJson(json);
+  factory _$UserWorkExperienceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserWorkExperienceImplFromJson(json);
 
   @override
   @JsonKey(name: 'created_at')
@@ -2908,14 +2071,14 @@ class _$PortfolioWorkExperienceImpl implements _PortfolioWorkExperience {
 
   @override
   String toString() {
-    return 'PortfolioWorkExperience(createdAt: $createdAt, designation: $designation, startDate: $startDate, endDate: $endDate, userUid: $userUid, workingMode: $workingMode, isCurrentlyWorking: $isCurrentlyWorking, companyName: $companyName, updatedAt: $updatedAt, uid: $uid)';
+    return 'UserWorkExperience(createdAt: $createdAt, designation: $designation, startDate: $startDate, endDate: $endDate, userUid: $userUid, workingMode: $workingMode, isCurrentlyWorking: $isCurrentlyWorking, companyName: $companyName, updatedAt: $updatedAt, uid: $uid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PortfolioWorkExperienceImpl &&
+            other is _$UserWorkExperienceImpl &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.designation, designation) ||
@@ -2951,24 +2114,25 @@ class _$PortfolioWorkExperienceImpl implements _PortfolioWorkExperience {
     uid,
   );
 
-  /// Create a copy of PortfolioWorkExperience
+  /// Create a copy of UserWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PortfolioWorkExperienceImplCopyWith<_$PortfolioWorkExperienceImpl>
-  get copyWith => __$$PortfolioWorkExperienceImplCopyWithImpl<
-    _$PortfolioWorkExperienceImpl
-  >(this, _$identity);
+  _$$UserWorkExperienceImplCopyWith<_$UserWorkExperienceImpl> get copyWith =>
+      __$$UserWorkExperienceImplCopyWithImpl<_$UserWorkExperienceImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PortfolioWorkExperienceImplToJson(this);
+    return _$$UserWorkExperienceImplToJson(this);
   }
 }
 
-abstract class _PortfolioWorkExperience implements PortfolioWorkExperience {
-  const factory _PortfolioWorkExperience({
+abstract class _UserWorkExperience implements UserWorkExperience {
+  const factory _UserWorkExperience({
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'designation') final String? designation,
     @JsonKey(name: 'start_date') final DateTime? startDate,
@@ -2979,10 +2143,10 @@ abstract class _PortfolioWorkExperience implements PortfolioWorkExperience {
     @JsonKey(name: 'company_name') final String? companyName,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
     @JsonKey(name: 'uid') final String? uid,
-  }) = _$PortfolioWorkExperienceImpl;
+  }) = _$UserWorkExperienceImpl;
 
-  factory _PortfolioWorkExperience.fromJson(Map<String, dynamic> json) =
-      _$PortfolioWorkExperienceImpl.fromJson;
+  factory _UserWorkExperience.fromJson(Map<String, dynamic> json) =
+      _$UserWorkExperienceImpl.fromJson;
 
   @override
   @JsonKey(name: 'created_at')
@@ -3015,10 +2179,10 @@ abstract class _PortfolioWorkExperience implements PortfolioWorkExperience {
   @JsonKey(name: 'uid')
   String? get uid;
 
-  /// Create a copy of PortfolioWorkExperience
+  /// Create a copy of UserWorkExperience
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PortfolioWorkExperienceImplCopyWith<_$PortfolioWorkExperienceImpl>
-  get copyWith => throw _privateConstructorUsedError;
+  _$$UserWorkExperienceImplCopyWith<_$UserWorkExperienceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
