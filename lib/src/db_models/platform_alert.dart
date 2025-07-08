@@ -5,7 +5,7 @@ part 'platform_alert.g.dart';
 
 /// Represents a platform alert in the system
 @freezed
-class BasePlatformAlert with _$BasePlatformAlert {
+sealed class BasePlatformAlert with _$BasePlatformAlert {
   const BasePlatformAlert._();
 
   const factory BasePlatformAlert({

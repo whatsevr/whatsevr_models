@@ -5,7 +5,7 @@ part 'platform_report.g.dart';
 
 /// Represents a platform report in the system
 @freezed
-class BasePlatformReport with _$BasePlatformReport {
+sealed class BasePlatformReport with _$BasePlatformReport {
   const BasePlatformReport._();
 
   const factory BasePlatformReport({

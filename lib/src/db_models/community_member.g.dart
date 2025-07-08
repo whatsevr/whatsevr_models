@@ -6,37 +6,36 @@ part of 'community_member.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BaseCommunityMemberImpl _$$BaseCommunityMemberImplFromJson(
-  Map<String, dynamic> json,
-) => _$BaseCommunityMemberImpl(
-  communityUid: json['community_uid'] as String?,
-  userUid: json['user_uid'] as String?,
-  joinedAt:
-      json['joined_at'] == null
-          ? null
-          : DateTime.parse(json['joined_at'] as String),
-  role: json['role'] as String?,
-  status: json['status'] as String?,
-  approved: json['approved'] as bool?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
-  mutedUntil:
-      json['muted_until'] == null
-          ? null
-          : DateTime.parse(json['muted_until'] as String),
-  joinRequestMessage: json['join_request_message'] as String?,
-  notes: json['notes'] as String?,
-  uid: json['uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
-);
+_BaseCommunityMember _$BaseCommunityMemberFromJson(Map<String, dynamic> json) =>
+    _BaseCommunityMember(
+      communityUid: json['community_uid'] as String?,
+      userUid: json['user_uid'] as String?,
+      joinedAt:
+          json['joined_at'] == null
+              ? null
+              : DateTime.parse(json['joined_at'] as String),
+      role: json['role'] as String?,
+      status: json['status'] as String?,
+      approved: json['approved'] as bool?,
+      lastActiveAt:
+          json['last_active_at'] == null
+              ? null
+              : DateTime.parse(json['last_active_at'] as String),
+      mutedUntil:
+          json['muted_until'] == null
+              ? null
+              : DateTime.parse(json['muted_until'] as String),
+      joinRequestMessage: json['join_request_message'] as String?,
+      notes: json['notes'] as String?,
+      uid: json['uid'] as String?,
+      updatedAt:
+          json['updated_at'] == null
+              ? null
+              : DateTime.parse(json['updated_at'] as String),
+    );
 
-Map<String, dynamic> _$$BaseCommunityMemberImplToJson(
-  _$BaseCommunityMemberImpl instance,
+Map<String, dynamic> _$BaseCommunityMemberToJson(
+  _BaseCommunityMember instance,
 ) => <String, dynamic>{
   'community_uid': instance.communityUid,
   'user_uid': instance.userUid,

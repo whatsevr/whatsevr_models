@@ -16,7 +16,7 @@ enum CreatorType {
 
 /// Represents a tracked activity in the system
 @freezed
-class BaseTrackedActivity with _$BaseTrackedActivity {
+sealed class BaseTrackedActivity with _$BaseTrackedActivity {
   const BaseTrackedActivity._();
 
   const factory BaseTrackedActivity({

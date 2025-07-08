@@ -5,7 +5,7 @@ part 'collection.g.dart';
 
 /// Represents a collection in the system
 @freezed
-class BaseCollection with _$BaseCollection {
+sealed class BaseCollection with _$BaseCollection {
   const BaseCollection._();
 
   const factory BaseCollection({

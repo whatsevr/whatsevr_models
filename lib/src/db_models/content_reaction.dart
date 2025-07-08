@@ -5,7 +5,7 @@ part 'content_reaction.g.dart';
 
 /// Represents a content reaction in the system
 @freezed
-class BaseContentReaction with _$BaseContentReaction {
+sealed class BaseContentReaction with _$BaseContentReaction {
   const BaseContentReaction._();
 
   const factory BaseContentReaction({

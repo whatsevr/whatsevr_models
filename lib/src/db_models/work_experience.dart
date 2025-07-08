@@ -5,7 +5,7 @@ part 'work_experience.g.dart';
 
 /// Represents a work experience entry in the system
 @freezed
-class BaseWorkExperience with _$BaseWorkExperience {
+sealed class BaseWorkExperience with _$BaseWorkExperience {
   const BaseWorkExperience._();
 
   const factory BaseWorkExperience({

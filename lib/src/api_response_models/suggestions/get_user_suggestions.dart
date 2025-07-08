@@ -4,7 +4,7 @@ part 'get_user_suggestions.freezed.dart';
 part 'get_user_suggestions.g.dart';
 
 @freezed
-class GetUserSuggestionResponse with _$GetUserSuggestionResponse {
+sealed class GetUserSuggestionResponse with _$GetUserSuggestionResponse {
   const factory GetUserSuggestionResponse({
     @JsonKey(name: 'message')
     String? message,
@@ -24,7 +24,7 @@ class GetUserSuggestionResponse with _$GetUserSuggestionResponse {
 }
 
 @freezed
-class SuggestionUser with _$SuggestionUser {
+sealed class SuggestionUser with _$SuggestionUser {
   const factory SuggestionUser({
     @JsonKey(name: 'uid')
     String? uid,

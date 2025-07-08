@@ -5,7 +5,7 @@ part 'pdf.g.dart';
 
 /// Represents a PDF document in the system
 @freezed
-class BasePdf with _$BasePdf {
+sealed class BasePdf with _$BasePdf {
   const BasePdf._();
 
   const factory BasePdf({

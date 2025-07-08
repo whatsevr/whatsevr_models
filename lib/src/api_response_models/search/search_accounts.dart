@@ -4,7 +4,7 @@ part 'search_accounts.freezed.dart';
 part 'search_accounts.g.dart';
 
 @freezed
-class SearchAccountsResponse with _$SearchAccountsResponse {
+sealed class SearchAccountsResponse with _$SearchAccountsResponse {
   const factory SearchAccountsResponse({
     @JsonKey(name: 'message') 
     String? message,
@@ -24,7 +24,7 @@ class SearchAccountsResponse with _$SearchAccountsResponse {
 }
 
 @freezed
-class SearchedUser with _$SearchedUser {
+sealed class SearchedUser with _$SearchedUser {
   const factory SearchedUser({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
@@ -134,7 +134,7 @@ class SearchedUser with _$SearchedUser {
 }
 
 @freezed
-class UserEducation with _$UserEducation {
+sealed class UserEducation with _$UserEducation {
   const factory UserEducation({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
@@ -172,7 +172,7 @@ class UserEducation with _$UserEducation {
 }
 
 @freezed
-class UserWorkExperience with _$UserWorkExperience {
+sealed class UserWorkExperience with _$UserWorkExperience {
   const factory UserWorkExperience({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,

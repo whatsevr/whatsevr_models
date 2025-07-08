@@ -6,9 +6,9 @@ part of 'user_communities_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserCommunitiesResponseImpl _$$UserCommunitiesResponseImplFromJson(
+_UserCommunitiesResponse _$UserCommunitiesResponseFromJson(
   Map<String, dynamic> json,
-) => _$UserCommunitiesResponseImpl(
+) => _UserCommunitiesResponse(
   message: json['message'] as String?,
   userCommunities:
       (json['user_communities'] as List<dynamic>?)
@@ -24,8 +24,8 @@ _$UserCommunitiesResponseImpl _$$UserCommunitiesResponseImplFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$$UserCommunitiesResponseImplToJson(
-  _$UserCommunitiesResponseImpl instance,
+Map<String, dynamic> _$UserCommunitiesResponseToJson(
+  _UserCommunitiesResponse instance,
 ) => <String, dynamic>{
   'message': instance.message,
   'user_communities': instance.userCommunities,
@@ -33,41 +33,40 @@ Map<String, dynamic> _$$UserCommunitiesResponseImplToJson(
   'join_pending_communities': instance.joinPendingCommunities,
 };
 
-_$CommunityImpl _$$CommunityImplFromJson(Map<String, dynamic> json) =>
-    _$CommunityImpl(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      adminUserUid: json['admin_user_uid'] as String?,
-      status: json['status'] as String?,
-      bio: json['bio'] as String?,
-      location: json['location'] as String?,
-      description: json['description'] as String?,
-      title: json['title'] as String?,
-      profilePicture: json['profile_picture'] as String?,
-      uid: json['uid'] as String?,
-      username: json['username'] as String?,
-      totalMembers: (json['total_members'] as num?)?.toInt(),
-      isPrivate: json['is_private'] as bool?,
-      seoDataWeighted: json['seo_data_weighted'] as String?,
-      plainLastMessage: json['plain_last_message'] as String?,
-      lastMessageAt:
-          json['last_message_at'] == null
-              ? null
-              : DateTime.parse(json['last_message_at'] as String),
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      isBroadcasting: json['is_broadcasting'] as bool?,
-      admin:
-          json['admin'] == null
-              ? null
-              : CommunityAdmin.fromJson(json['admin'] as Map<String, dynamic>),
-    );
+_Community _$CommunityFromJson(Map<String, dynamic> json) => _Community(
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  adminUserUid: json['admin_user_uid'] as String?,
+  status: json['status'] as String?,
+  bio: json['bio'] as String?,
+  location: json['location'] as String?,
+  description: json['description'] as String?,
+  title: json['title'] as String?,
+  profilePicture: json['profile_picture'] as String?,
+  uid: json['uid'] as String?,
+  username: json['username'] as String?,
+  totalMembers: (json['total_members'] as num?)?.toInt(),
+  isPrivate: json['is_private'] as bool?,
+  seoDataWeighted: json['seo_data_weighted'] as String?,
+  plainLastMessage: json['plain_last_message'] as String?,
+  lastMessageAt:
+      json['last_message_at'] == null
+          ? null
+          : DateTime.parse(json['last_message_at'] as String),
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  isBroadcasting: json['is_broadcasting'] as bool?,
+  admin:
+      json['admin'] == null
+          ? null
+          : CommunityAdmin.fromJson(json['admin'] as Map<String, dynamic>),
+);
 
-Map<String, dynamic> _$$CommunityImplToJson(_$CommunityImpl instance) =>
+Map<String, dynamic> _$CommunityToJson(_Community instance) =>
     <String, dynamic>{
       'created_at': instance.createdAt?.toIso8601String(),
       'admin_user_uid': instance.adminUserUid,
@@ -89,8 +88,8 @@ Map<String, dynamic> _$$CommunityImplToJson(_$CommunityImpl instance) =>
       'admin': instance.admin,
     };
 
-_$CommunityAdminImpl _$$CommunityAdminImplFromJson(Map<String, dynamic> json) =>
-    _$CommunityAdminImpl(
+_CommunityAdmin _$CommunityAdminFromJson(Map<String, dynamic> json) =>
+    _CommunityAdmin(
       bio: json['bio'] as String?,
       dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
       uid: json['uid'] as String?,
@@ -136,38 +135,37 @@ _$CommunityAdminImpl _$$CommunityAdminImplFromJson(Map<String, dynamic> json) =>
       userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
     );
 
-Map<String, dynamic> _$$CommunityAdminImplToJson(
-  _$CommunityAdminImpl instance,
-) => <String, dynamic>{
-  'bio': instance.bio,
-  'dob': instance.dob?.toIso8601String(),
-  'uid': instance.uid,
-  'name': instance.name,
-  'gender': instance.gender,
-  'address': instance.address,
-  'is_spam': instance.isSpam,
-  'email_id': instance.emailId,
-  'username': instance.username,
-  'is_banned': instance.isBanned,
-  'updated_at': instance.updatedAt?.toIso8601String(),
-  'is_portfolio': instance.isPortfolio,
-  'auth_provider': instance.authProvider,
-  'mobile_number': instance.mobileNumber,
-  'registered_at': instance.registeredAt?.toIso8601String(),
-  'is_deactivated': instance.isDeactivated,
-  'last_active_at': instance.lastActiveAt?.toIso8601String(),
-  'portfolio_title': instance.portfolioTitle,
-  'profile_picture': instance.profilePicture,
-  'public_email_id': instance.publicEmailId,
-  'total_followers': instance.totalFollowers,
-  'total_reactions': instance.totalReactions,
-  'auth_provider_id': instance.authProviderId,
-  'portfolio_status': instance.portfolioStatus,
-  'total_followings': instance.totalFollowings,
-  'seo_data_weighted': instance.seoDataWeighted,
-  'total_connections': instance.totalConnections,
-  'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
-  'public_mobile_number': instance.publicMobileNumber,
-  'portfolio_description': instance.portfolioDescription,
-  'user_last_lat_long_wkb': instance.userLastLatLongWkb,
-};
+Map<String, dynamic> _$CommunityAdminToJson(_CommunityAdmin instance) =>
+    <String, dynamic>{
+      'bio': instance.bio,
+      'dob': instance.dob?.toIso8601String(),
+      'uid': instance.uid,
+      'name': instance.name,
+      'gender': instance.gender,
+      'address': instance.address,
+      'is_spam': instance.isSpam,
+      'email_id': instance.emailId,
+      'username': instance.username,
+      'is_banned': instance.isBanned,
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'is_portfolio': instance.isPortfolio,
+      'auth_provider': instance.authProvider,
+      'mobile_number': instance.mobileNumber,
+      'registered_at': instance.registeredAt?.toIso8601String(),
+      'is_deactivated': instance.isDeactivated,
+      'last_active_at': instance.lastActiveAt?.toIso8601String(),
+      'portfolio_title': instance.portfolioTitle,
+      'profile_picture': instance.profilePicture,
+      'public_email_id': instance.publicEmailId,
+      'total_followers': instance.totalFollowers,
+      'total_reactions': instance.totalReactions,
+      'auth_provider_id': instance.authProviderId,
+      'portfolio_status': instance.portfolioStatus,
+      'total_followings': instance.totalFollowings,
+      'seo_data_weighted': instance.seoDataWeighted,
+      'total_connections': instance.totalConnections,
+      'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
+      'public_mobile_number': instance.publicMobileNumber,
+      'portfolio_description': instance.portfolioDescription,
+      'user_last_lat_long_wkb': instance.userLastLatLongWkb,
+    };

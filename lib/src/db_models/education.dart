@@ -5,7 +5,7 @@ part 'education.g.dart';
 
 /// Represents an education entry in the system
 @freezed
-class BaseEducation with _$BaseEducation {
+sealed class BaseEducation with _$BaseEducation {
   const BaseEducation._();
 
   const factory BaseEducation({

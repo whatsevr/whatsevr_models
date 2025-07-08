@@ -4,7 +4,7 @@ part 'get_user_alerts.freezed.dart';
 part 'get_user_alerts.g.dart';
 
 @freezed
-class GetUserAlertsResponse with _$GetUserAlertsResponse {
+sealed class GetUserAlertsResponse with _$GetUserAlertsResponse {
   const factory GetUserAlertsResponse({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'user_alerts') List<UserAlert>? userAlerts,
@@ -18,7 +18,7 @@ class GetUserAlertsResponse with _$GetUserAlertsResponse {
 }
 
 @freezed
-class UserAlert with _$UserAlert {
+sealed class UserAlert with _$UserAlert {
   const factory UserAlert({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
@@ -36,7 +36,7 @@ class UserAlert with _$UserAlert {
 }
 
 @freezed
-class AlertContent with _$AlertContent {
+sealed class AlertContent with _$AlertContent {
   const factory AlertContent({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'type') String? type,
@@ -48,7 +48,7 @@ class AlertContent with _$AlertContent {
 }
 
 @freezed
-class ActorUser with _$ActorUser {
+sealed class ActorUser with _$ActorUser {
   const factory ActorUser({
     @JsonKey(name: 'bio') String? bio,
     @JsonKey(name: 'dob') DateTime? dob,

@@ -7,7 +7,7 @@ part 'search_portfolios.g.dart';
 // ignore_for_file: invalid_annotation_target
 
 @freezed
-class SearchPortfoliosResponse with _$SearchPortfoliosResponse {
+sealed class SearchPortfoliosResponse with _$SearchPortfoliosResponse {
   const factory SearchPortfoliosResponse({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
@@ -20,7 +20,7 @@ class SearchPortfoliosResponse with _$SearchPortfoliosResponse {
 }
 
 @freezed
-class PortfolioUser with _$PortfolioUser {
+sealed class PortfolioUser with _$PortfolioUser {
   const factory PortfolioUser({
     @JsonKey(name: 'registered_at') DateTime? registeredAt,
     @JsonKey(name: 'uid') String? uid,
@@ -64,7 +64,7 @@ class PortfolioUser with _$PortfolioUser {
 }
 
 @freezed
-class PortfolioCoverMedia with _$PortfolioCoverMedia {
+sealed class PortfolioCoverMedia with _$PortfolioCoverMedia {
   const factory PortfolioCoverMedia({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'image_url') String? imageUrl,
@@ -82,7 +82,7 @@ class PortfolioCoverMedia with _$PortfolioCoverMedia {
 }
 
 @freezed
-class PortfolioService with _$PortfolioService {
+sealed class PortfolioService with _$PortfolioService {
   const factory PortfolioService({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'title') String? title,
@@ -99,7 +99,7 @@ class PortfolioService with _$PortfolioService {
 }
 
 @freezed
-class PortfolioEducation with _$PortfolioEducation {
+sealed class PortfolioEducation with _$PortfolioEducation {
   const factory PortfolioEducation({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -118,7 +118,7 @@ class PortfolioEducation with _$PortfolioEducation {
 }
 
 @freezed
-class PortfolioWorkExperience with _$PortfolioWorkExperience {
+sealed class PortfolioWorkExperience with _$PortfolioWorkExperience {
   const factory PortfolioWorkExperience({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'designation') String? designation,

@@ -5,7 +5,7 @@ part 'photo.g.dart';
 
 /// Represents a photo in the system
 @freezed
-class BasePhoto with _$BasePhoto {
+sealed class BasePhoto with _$BasePhoto {
   const BasePhoto._();
 
   const factory BasePhoto({

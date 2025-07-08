@@ -6,9 +6,9 @@ part of 'get_active_community_members.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetCommunityMembersResponseImpl _$$GetCommunityMembersResponseImplFromJson(
+_GetCommunityMembersResponse _$GetCommunityMembersResponseFromJson(
   Map<String, dynamic> json,
-) => _$GetCommunityMembersResponseImpl(
+) => _GetCommunityMembersResponse(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
@@ -20,8 +20,8 @@ _$GetCommunityMembersResponseImpl _$$GetCommunityMembersResponseImplFromJson(
           ),
 );
 
-Map<String, dynamic> _$$GetCommunityMembersResponseImplToJson(
-  _$GetCommunityMembersResponseImpl instance,
+Map<String, dynamic> _$GetCommunityMembersResponseToJson(
+  _GetCommunityMembersResponse instance,
 ) => <String, dynamic>{
   'message': instance.message,
   'page': instance.page,
@@ -29,9 +29,9 @@ Map<String, dynamic> _$$GetCommunityMembersResponseImplToJson(
   'result': instance.result,
 };
 
-_$CommunityMembersResultImpl _$$CommunityMembersResultImplFromJson(
+_CommunityMembersResult _$CommunityMembersResultFromJson(
   Map<String, dynamic> json,
-) => _$CommunityMembersResultImpl(
+) => _CommunityMembersResult(
   owner:
       json['owner'] == null
           ? null
@@ -46,15 +46,15 @@ _$CommunityMembersResultImpl _$$CommunityMembersResultImplFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$$CommunityMembersResultImplToJson(
-  _$CommunityMembersResultImpl instance,
+Map<String, dynamic> _$CommunityMembersResultToJson(
+  _CommunityMembersResult instance,
 ) => <String, dynamic>{
   'owner': instance.owner,
   'member_roles': instance.memberRoles,
   'members': instance.members,
 };
 
-_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+_User _$UserFromJson(Map<String, dynamic> json) => _User(
   registeredAt:
       json['registered_at'] == null
           ? null
@@ -100,88 +100,85 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
           : DateTime.parse(json['updated_at'] as String),
 );
 
-Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
-    <String, dynamic>{
-      'registered_at': instance.registeredAt?.toIso8601String(),
-      'uid': instance.uid,
-      'username': instance.username,
-      'mobile_number': instance.mobileNumber,
-      'email_id': instance.emailId,
-      'name': instance.name,
-      'bio': instance.bio,
-      'address': instance.address,
-      'dob': instance.dob?.toIso8601String(),
-      'profile_picture': instance.profilePicture,
-      'is_portfolio': instance.isPortfolio,
-      'portfolio_status': instance.portfolioStatus,
-      'portfolio_description': instance.portfolioDescription,
-      'is_banned': instance.isBanned,
-      'is_spam': instance.isSpam,
-      'is_deactivated': instance.isDeactivated,
-      'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
-      'portfolio_title': instance.portfolioTitle,
-      'total_followers': instance.totalFollowers,
-      'total_followings': instance.totalFollowings,
-      'total_reactions': instance.totalReactions,
-      'gender': instance.gender,
-      'last_active_at': instance.lastActiveAt?.toIso8601String(),
-      'user_last_lat_long_wkb': instance.userLastLatLongWkb,
-      'total_connections': instance.totalConnections,
-      'public_email_id': instance.publicEmailId,
-      'seo_data_weighted': instance.seoDataWeighted,
-      'auth_provider_id': instance.authProviderId,
-      'auth_provider': instance.authProvider,
-      'public_mobile_number': instance.publicMobileNumber,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-    };
-
-_$CommunityMemberImpl _$$CommunityMemberImplFromJson(
-  Map<String, dynamic> json,
-) => _$CommunityMemberImpl(
-  communityUid: json['community_uid'] as String?,
-  userUid: json['user_uid'] as String?,
-  joinedAt:
-      json['joined_at'] == null
-          ? null
-          : DateTime.parse(json['joined_at'] as String),
-  role: json['role'] as String?,
-  status: json['status'] as String?,
-  approved: json['approved'] as bool?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
-  mutedUntil:
-      json['muted_until'] == null
-          ? null
-          : DateTime.parse(json['muted_until'] as String),
-  joinRequestMessage: json['join_request_message'] as String?,
-  notes: json['notes'] as String?,
-  uid: json['uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
-  user:
-      json['user'] == null
-          ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
-);
-
-Map<String, dynamic> _$$CommunityMemberImplToJson(
-  _$CommunityMemberImpl instance,
-) => <String, dynamic>{
-  'community_uid': instance.communityUid,
-  'user_uid': instance.userUid,
-  'joined_at': instance.joinedAt?.toIso8601String(),
-  'role': instance.role,
-  'status': instance.status,
-  'approved': instance.approved,
-  'last_active_at': instance.lastActiveAt?.toIso8601String(),
-  'muted_until': instance.mutedUntil?.toIso8601String(),
-  'join_request_message': instance.joinRequestMessage,
-  'notes': instance.notes,
+Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
+  'registered_at': instance.registeredAt?.toIso8601String(),
   'uid': instance.uid,
+  'username': instance.username,
+  'mobile_number': instance.mobileNumber,
+  'email_id': instance.emailId,
+  'name': instance.name,
+  'bio': instance.bio,
+  'address': instance.address,
+  'dob': instance.dob?.toIso8601String(),
+  'profile_picture': instance.profilePicture,
+  'is_portfolio': instance.isPortfolio,
+  'portfolio_status': instance.portfolioStatus,
+  'portfolio_description': instance.portfolioDescription,
+  'is_banned': instance.isBanned,
+  'is_spam': instance.isSpam,
+  'is_deactivated': instance.isDeactivated,
+  'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
+  'portfolio_title': instance.portfolioTitle,
+  'total_followers': instance.totalFollowers,
+  'total_followings': instance.totalFollowings,
+  'total_reactions': instance.totalReactions,
+  'gender': instance.gender,
+  'last_active_at': instance.lastActiveAt?.toIso8601String(),
+  'user_last_lat_long_wkb': instance.userLastLatLongWkb,
+  'total_connections': instance.totalConnections,
+  'public_email_id': instance.publicEmailId,
+  'seo_data_weighted': instance.seoDataWeighted,
+  'auth_provider_id': instance.authProviderId,
+  'auth_provider': instance.authProvider,
+  'public_mobile_number': instance.publicMobileNumber,
   'updated_at': instance.updatedAt?.toIso8601String(),
-  'user': instance.user,
 };
+
+_CommunityMember _$CommunityMemberFromJson(Map<String, dynamic> json) =>
+    _CommunityMember(
+      communityUid: json['community_uid'] as String?,
+      userUid: json['user_uid'] as String?,
+      joinedAt:
+          json['joined_at'] == null
+              ? null
+              : DateTime.parse(json['joined_at'] as String),
+      role: json['role'] as String?,
+      status: json['status'] as String?,
+      approved: json['approved'] as bool?,
+      lastActiveAt:
+          json['last_active_at'] == null
+              ? null
+              : DateTime.parse(json['last_active_at'] as String),
+      mutedUntil:
+          json['muted_until'] == null
+              ? null
+              : DateTime.parse(json['muted_until'] as String),
+      joinRequestMessage: json['join_request_message'] as String?,
+      notes: json['notes'] as String?,
+      uid: json['uid'] as String?,
+      updatedAt:
+          json['updated_at'] == null
+              ? null
+              : DateTime.parse(json['updated_at'] as String),
+      user:
+          json['user'] == null
+              ? null
+              : User.fromJson(json['user'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$CommunityMemberToJson(_CommunityMember instance) =>
+    <String, dynamic>{
+      'community_uid': instance.communityUid,
+      'user_uid': instance.userUid,
+      'joined_at': instance.joinedAt?.toIso8601String(),
+      'role': instance.role,
+      'status': instance.status,
+      'approved': instance.approved,
+      'last_active_at': instance.lastActiveAt?.toIso8601String(),
+      'muted_until': instance.mutedUntil?.toIso8601String(),
+      'join_request_message': instance.joinRequestMessage,
+      'notes': instance.notes,
+      'uid': instance.uid,
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'user': instance.user,
+    };

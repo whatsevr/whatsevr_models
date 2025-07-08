@@ -4,7 +4,7 @@ part 'user_communities_response.freezed.dart';
 part 'user_communities_response.g.dart';
 
 @freezed
-class UserCommunitiesResponse with _$UserCommunitiesResponse {
+sealed class UserCommunitiesResponse with _$UserCommunitiesResponse {
   const factory UserCommunitiesResponse({
     @JsonKey(name: 'message') 
     String? message,
@@ -24,7 +24,7 @@ class UserCommunitiesResponse with _$UserCommunitiesResponse {
 }
 
 @freezed
-class Community with _$Community {
+sealed class Community with _$Community {
   const factory Community({
     @JsonKey(name: 'created_at') 
     DateTime? createdAt,
@@ -86,7 +86,7 @@ class Community with _$Community {
 }
 
 @freezed
-class CommunityAdmin with _$CommunityAdmin {
+sealed class CommunityAdmin with _$CommunityAdmin {
   const factory CommunityAdmin({
     @JsonKey(name: 'bio') 
     String? bio,

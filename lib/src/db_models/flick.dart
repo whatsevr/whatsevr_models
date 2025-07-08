@@ -5,7 +5,7 @@ part 'flick.g.dart';
 
 /// Represents a flick content item in the system
 @freezed
-class BaseFlick with _$BaseFlick {
+sealed class BaseFlick with _$BaseFlick {
   const BaseFlick._();
 
   const factory BaseFlick({

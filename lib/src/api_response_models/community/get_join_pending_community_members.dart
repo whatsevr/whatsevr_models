@@ -4,7 +4,7 @@ part 'get_join_pending_community_members.freezed.dart';
 part 'get_join_pending_community_members.g.dart';
 
 @Freezed()
-class GetJoinPendingCommunityMembersResponse with _$GetJoinPendingCommunityMembersResponse {
+sealed class GetJoinPendingCommunityMembersResponse with _$GetJoinPendingCommunityMembersResponse {
   const factory GetJoinPendingCommunityMembersResponse({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
@@ -17,7 +17,7 @@ class GetJoinPendingCommunityMembersResponse with _$GetJoinPendingCommunityMembe
 }
 
 @Freezed()
-class CommunityMemberJoinRequest with _$CommunityMemberJoinRequest {
+sealed class CommunityMemberJoinRequest with _$CommunityMemberJoinRequest {
   const factory CommunityMemberJoinRequest({
     @JsonKey(name: 'community_uid') String? communityUid,
     @JsonKey(name: 'user_uid') String? userUid,
@@ -37,7 +37,7 @@ class CommunityMemberJoinRequest with _$CommunityMemberJoinRequest {
 }
 
 @Freezed()
-class UserDetails with _$UserDetails {
+sealed class UserDetails with _$UserDetails {
   const factory UserDetails({
     @JsonKey(name: 'bio') String? bio,
     @JsonKey(name: 'dob') DateTime? dob,

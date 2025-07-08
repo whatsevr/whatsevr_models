@@ -6,9 +6,9 @@ part of 'get_chat_messages.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetChatMessagesResponseImpl _$$GetChatMessagesResponseImplFromJson(
+_GetChatMessagesResponse _$GetChatMessagesResponseFromJson(
   Map<String, dynamic> json,
-) => _$GetChatMessagesResponseImpl(
+) => _GetChatMessagesResponse(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
@@ -18,8 +18,8 @@ _$GetChatMessagesResponseImpl _$$GetChatMessagesResponseImplFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$$GetChatMessagesResponseImplToJson(
-  _$GetChatMessagesResponseImpl instance,
+Map<String, dynamic> _$GetChatMessagesResponseToJson(
+  _GetChatMessagesResponse instance,
 ) => <String, dynamic>{
   'message': instance.message,
   'page': instance.page,
@@ -27,60 +27,58 @@ Map<String, dynamic> _$$GetChatMessagesResponseImplToJson(
   'messages': instance.messages,
 };
 
-_$MessageImpl _$$MessageImplFromJson(Map<String, dynamic> json) =>
-    _$MessageImpl(
-      uid: json['uid'] as String?,
-      senderUid: json['sender_uid'] as String?,
-      message: json['message'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      isPinned: json['is_pinned'] as bool?,
-      communityUid: json['community_uid'] as String?,
-      privateChatUid: json['private_chat_uid'] as String?,
-      replyToMessageUid: json['reply_to_message_uid'] as String?,
-      forwarderUserUid: json['forwarder_user_uid'] as String?,
-      isDeleted: json['is_deleted'] as bool?,
-      isSystemMessage: json['is_system_message'] as bool?,
-      ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      relatedContent:
-          (json['related_content'] as List<dynamic>?)
-              ?.map((e) => RelatedContent.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      sender:
-          json['sender'] == null
-              ? null
-              : Sender.fromJson(json['sender'] as Map<String, dynamic>),
-      replyToChatMessage: json['reply_to_chat_message'] as List<dynamic>?,
-    );
+_Message _$MessageFromJson(Map<String, dynamic> json) => _Message(
+  uid: json['uid'] as String?,
+  senderUid: json['sender_uid'] as String?,
+  message: json['message'] as String?,
+  createdAt:
+      json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+  isPinned: json['is_pinned'] as bool?,
+  communityUid: json['community_uid'] as String?,
+  privateChatUid: json['private_chat_uid'] as String?,
+  replyToMessageUid: json['reply_to_message_uid'] as String?,
+  forwarderUserUid: json['forwarder_user_uid'] as String?,
+  isDeleted: json['is_deleted'] as bool?,
+  isSystemMessage: json['is_system_message'] as bool?,
+  ownerType: json['owner_type'] as String?,
+  updatedAt:
+      json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+  relatedContent:
+      (json['related_content'] as List<dynamic>?)
+          ?.map((e) => RelatedContent.fromJson(e as Map<String, dynamic>))
+          .toList(),
+  sender:
+      json['sender'] == null
+          ? null
+          : Sender.fromJson(json['sender'] as Map<String, dynamic>),
+  replyToChatMessage: json['reply_to_chat_message'] as List<dynamic>?,
+);
 
-Map<String, dynamic> _$$MessageImplToJson(_$MessageImpl instance) =>
-    <String, dynamic>{
-      'uid': instance.uid,
-      'sender_uid': instance.senderUid,
-      'message': instance.message,
-      'created_at': instance.createdAt?.toIso8601String(),
-      'is_pinned': instance.isPinned,
-      'community_uid': instance.communityUid,
-      'private_chat_uid': instance.privateChatUid,
-      'reply_to_message_uid': instance.replyToMessageUid,
-      'forwarder_user_uid': instance.forwarderUserUid,
-      'is_deleted': instance.isDeleted,
-      'is_system_message': instance.isSystemMessage,
-      'owner_type': instance.ownerType,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'related_content': instance.relatedContent,
-      'sender': instance.sender,
-      'reply_to_chat_message': instance.replyToChatMessage,
-    };
+Map<String, dynamic> _$MessageToJson(_Message instance) => <String, dynamic>{
+  'uid': instance.uid,
+  'sender_uid': instance.senderUid,
+  'message': instance.message,
+  'created_at': instance.createdAt?.toIso8601String(),
+  'is_pinned': instance.isPinned,
+  'community_uid': instance.communityUid,
+  'private_chat_uid': instance.privateChatUid,
+  'reply_to_message_uid': instance.replyToMessageUid,
+  'forwarder_user_uid': instance.forwarderUserUid,
+  'is_deleted': instance.isDeleted,
+  'is_system_message': instance.isSystemMessage,
+  'owner_type': instance.ownerType,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'related_content': instance.relatedContent,
+  'sender': instance.sender,
+  'reply_to_chat_message': instance.replyToChatMessage,
+};
 
-_$RelatedContentImpl _$$RelatedContentImplFromJson(Map<String, dynamic> json) =>
-    _$RelatedContentImpl(
+_RelatedContent _$RelatedContentFromJson(Map<String, dynamic> json) =>
+    _RelatedContent(
       uid: json['uid'] as String?,
       type: json['type'] as String?,
       thumbnailUrl: json['thumbnail_url'] as String?,
@@ -88,17 +86,16 @@ _$RelatedContentImpl _$$RelatedContentImplFromJson(Map<String, dynamic> json) =>
       url: json['url'] as String?,
     );
 
-Map<String, dynamic> _$$RelatedContentImplToJson(
-  _$RelatedContentImpl instance,
-) => <String, dynamic>{
-  'uid': instance.uid,
-  'type': instance.type,
-  'thumbnail_url': instance.thumbnailUrl,
-  'short_description': instance.shortDescription,
-  'url': instance.url,
-};
+Map<String, dynamic> _$RelatedContentToJson(_RelatedContent instance) =>
+    <String, dynamic>{
+      'uid': instance.uid,
+      'type': instance.type,
+      'thumbnail_url': instance.thumbnailUrl,
+      'short_description': instance.shortDescription,
+      'url': instance.url,
+    };
 
-_$SenderImpl _$$SenderImplFromJson(Map<String, dynamic> json) => _$SenderImpl(
+_Sender _$SenderFromJson(Map<String, dynamic> json) => _Sender(
   bio: json['bio'] as String?,
   dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
   uid: json['uid'] as String?,
@@ -144,37 +141,36 @@ _$SenderImpl _$$SenderImplFromJson(Map<String, dynamic> json) => _$SenderImpl(
   userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
 );
 
-Map<String, dynamic> _$$SenderImplToJson(_$SenderImpl instance) =>
-    <String, dynamic>{
-      'bio': instance.bio,
-      'dob': instance.dob?.toIso8601String(),
-      'uid': instance.uid,
-      'name': instance.name,
-      'gender': instance.gender,
-      'address': instance.address,
-      'is_spam': instance.isSpam,
-      'email_id': instance.emailId,
-      'username': instance.username,
-      'is_banned': instance.isBanned,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'is_portfolio': instance.isPortfolio,
-      'auth_provider': instance.authProvider,
-      'mobile_number': instance.mobileNumber,
-      'registered_at': instance.registeredAt?.toIso8601String(),
-      'is_deactivated': instance.isDeactivated,
-      'last_active_at': instance.lastActiveAt?.toIso8601String(),
-      'portfolio_title': instance.portfolioTitle,
-      'profile_picture': instance.profilePicture,
-      'public_email_id': instance.publicEmailId,
-      'total_followers': instance.totalFollowers,
-      'total_reactions': instance.totalReactions,
-      'auth_provider_id': instance.authProviderId,
-      'portfolio_status': instance.portfolioStatus,
-      'total_followings': instance.totalFollowings,
-      'seo_data_weighted': instance.seoDataWeighted,
-      'total_connections': instance.totalConnections,
-      'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
-      'public_mobile_number': instance.publicMobileNumber,
-      'portfolio_description': instance.portfolioDescription,
-      'user_last_lat_long_wkb': instance.userLastLatLongWkb,
-    };
+Map<String, dynamic> _$SenderToJson(_Sender instance) => <String, dynamic>{
+  'bio': instance.bio,
+  'dob': instance.dob?.toIso8601String(),
+  'uid': instance.uid,
+  'name': instance.name,
+  'gender': instance.gender,
+  'address': instance.address,
+  'is_spam': instance.isSpam,
+  'email_id': instance.emailId,
+  'username': instance.username,
+  'is_banned': instance.isBanned,
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'is_portfolio': instance.isPortfolio,
+  'auth_provider': instance.authProvider,
+  'mobile_number': instance.mobileNumber,
+  'registered_at': instance.registeredAt?.toIso8601String(),
+  'is_deactivated': instance.isDeactivated,
+  'last_active_at': instance.lastActiveAt?.toIso8601String(),
+  'portfolio_title': instance.portfolioTitle,
+  'profile_picture': instance.profilePicture,
+  'public_email_id': instance.publicEmailId,
+  'total_followers': instance.totalFollowers,
+  'total_reactions': instance.totalReactions,
+  'auth_provider_id': instance.authProviderId,
+  'portfolio_status': instance.portfolioStatus,
+  'total_followings': instance.totalFollowings,
+  'seo_data_weighted': instance.seoDataWeighted,
+  'total_connections': instance.totalConnections,
+  'portfolio_toggled_at': instance.portfolioToggledAt?.toIso8601String(),
+  'public_mobile_number': instance.publicMobileNumber,
+  'portfolio_description': instance.portfolioDescription,
+  'user_last_lat_long_wkb': instance.userLastLatLongWkb,
+};

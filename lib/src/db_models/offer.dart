@@ -5,7 +5,7 @@ part 'offer.g.dart';
 
 /// Represents an offer in the system
 @freezed
-class BaseOffer with _$BaseOffer {
+sealed class BaseOffer with _$BaseOffer {
   const BaseOffer._();
 
   const factory BaseOffer({

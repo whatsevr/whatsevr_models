@@ -4,7 +4,7 @@ part 'get_restricted_community_members.freezed.dart';
 part 'get_restricted_community_members.g.dart';
 
 @freezed
-class GetRestrictedCommunityMembersResponse with _$GetRestrictedCommunityMembersResponse {
+sealed class GetRestrictedCommunityMembersResponse with _$GetRestrictedCommunityMembersResponse {
   const factory GetRestrictedCommunityMembersResponse({
     @JsonKey(name: 'message') 
     String? message,
@@ -24,7 +24,7 @@ class GetRestrictedCommunityMembersResponse with _$GetRestrictedCommunityMembers
 }
 
 @freezed
-class RestrictedCommunityMember with _$RestrictedCommunityMember {
+sealed class RestrictedCommunityMember with _$RestrictedCommunityMember {
   const factory RestrictedCommunityMember({
     @JsonKey(name: 'community_uid') 
     String? communityUid,
@@ -65,7 +65,7 @@ class RestrictedCommunityMember with _$RestrictedCommunityMember {
 }
 
 @freezed
-class UserData with _$UserData {
+sealed class UserData with _$UserData {
   const factory UserData({
     @JsonKey(name: 'bio') 
     String? bio,

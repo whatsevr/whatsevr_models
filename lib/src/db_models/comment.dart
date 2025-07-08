@@ -5,7 +5,7 @@ part 'comment.g.dart';
 
 /// Represents a comment in the system
 @freezed
-class BaseComment with _$BaseComment {
+sealed class BaseComment with _$BaseComment {
   const BaseComment._();
 
   const factory BaseComment({

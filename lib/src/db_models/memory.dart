@@ -5,7 +5,7 @@ part 'memory.g.dart';
 
 /// Represents a memory content item in the system
 @freezed
-class BaseMemory with _$BaseMemory {
+sealed class BaseMemory with _$BaseMemory {
   const BaseMemory._();
 
   const factory BaseMemory({

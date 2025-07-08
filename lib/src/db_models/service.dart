@@ -5,7 +5,7 @@ part 'service.g.dart';
 
 /// Represents a service offered in the system
 @freezed
-class BaseService with _$BaseService {
+sealed class BaseService with _$BaseService {
   const BaseService._();
 
   const factory BaseService({

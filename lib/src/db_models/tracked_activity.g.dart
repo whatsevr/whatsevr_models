@@ -6,36 +6,35 @@ part of 'tracked_activity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BaseTrackedActivityImpl _$$BaseTrackedActivityImplFromJson(
-  Map<String, dynamic> json,
-) => _$BaseTrackedActivityImpl(
-  uid: json['uid'] as String?,
-  userUid: json['user_uid'] as String?,
-  wtvUid: json['wtv_uid'] as String?,
-  flickUid: json['flick_uid'] as String?,
-  photoUid: json['photo_uid'] as String?,
-  offerUid: json['offer_uid'] as String?,
-  memoryUid: json['memory_uid'] as String?,
-  pdfUid: json['pdf_uid'] as String?,
-  activityAt:
-      json['activity_at'] == null
-          ? null
-          : DateTime.parse(json['activity_at'] as String),
-  deviceOs: json['device_os'] as String?,
-  deviceModel: json['device_model'] as String?,
-  geoLocation: json['geo_location'] as String?,
-  appVersion: json['app_version'] as String?,
-  activityType: json['activity_type'] as String?,
-  commentUid: json['comment_uid'] as String?,
-  commentReplyUid: json['comment_reply_uid'] as String?,
-  metadata: json['metadata'] as Map<String, dynamic>?,
-  contentType: json['content_type'] as String?,
-  ownerType: $enumDecodeNullable(_$CreatorTypeEnumMap, json['owner_type']),
-  communityUid: json['community_uid'] as String?,
-);
+_BaseTrackedActivity _$BaseTrackedActivityFromJson(Map<String, dynamic> json) =>
+    _BaseTrackedActivity(
+      uid: json['uid'] as String?,
+      userUid: json['user_uid'] as String?,
+      wtvUid: json['wtv_uid'] as String?,
+      flickUid: json['flick_uid'] as String?,
+      photoUid: json['photo_uid'] as String?,
+      offerUid: json['offer_uid'] as String?,
+      memoryUid: json['memory_uid'] as String?,
+      pdfUid: json['pdf_uid'] as String?,
+      activityAt:
+          json['activity_at'] == null
+              ? null
+              : DateTime.parse(json['activity_at'] as String),
+      deviceOs: json['device_os'] as String?,
+      deviceModel: json['device_model'] as String?,
+      geoLocation: json['geo_location'] as String?,
+      appVersion: json['app_version'] as String?,
+      activityType: json['activity_type'] as String?,
+      commentUid: json['comment_uid'] as String?,
+      commentReplyUid: json['comment_reply_uid'] as String?,
+      metadata: json['metadata'] as Map<String, dynamic>?,
+      contentType: json['content_type'] as String?,
+      ownerType: $enumDecodeNullable(_$CreatorTypeEnumMap, json['owner_type']),
+      communityUid: json['community_uid'] as String?,
+    );
 
-Map<String, dynamic> _$$BaseTrackedActivityImplToJson(
-  _$BaseTrackedActivityImpl instance,
+Map<String, dynamic> _$BaseTrackedActivityToJson(
+  _BaseTrackedActivity instance,
 ) => <String, dynamic>{
   'uid': instance.uid,
   'user_uid': instance.userUid,

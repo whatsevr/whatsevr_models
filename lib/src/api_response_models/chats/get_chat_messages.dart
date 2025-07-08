@@ -7,7 +7,7 @@ part 'get_chat_messages.freezed.dart';
 part 'get_chat_messages.g.dart';
 
 @freezed
-class GetChatMessagesResponse with _$GetChatMessagesResponse {
+sealed class GetChatMessagesResponse with _$GetChatMessagesResponse {
     const factory GetChatMessagesResponse({
         @JsonKey(name: "message")
         String? message,
@@ -23,7 +23,7 @@ class GetChatMessagesResponse with _$GetChatMessagesResponse {
 }
 
 @freezed
-class Message with _$Message {
+sealed class Message with _$Message {
     // Using implements instead of extends for BaseChatMessage
     @Implements<BaseChatMessage>()
     const Message._();
@@ -89,7 +89,7 @@ class Message with _$Message {
 }
 
 @freezed
-class RelatedContent with _$RelatedContent {
+sealed class RelatedContent with _$RelatedContent {
     const factory RelatedContent({
         @JsonKey(name: "uid")
         String? uid,
@@ -107,7 +107,7 @@ class RelatedContent with _$RelatedContent {
 }
 
 @freezed
-class Sender with _$Sender {
+sealed class Sender with _$Sender {
     // Using implements instead of extends for BaseUser
     @Implements<BaseUser>()
     const Sender._();

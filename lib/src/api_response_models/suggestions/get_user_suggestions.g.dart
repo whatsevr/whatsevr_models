@@ -6,9 +6,9 @@ part of 'get_user_suggestions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetUserSuggestionResponseImpl _$$GetUserSuggestionResponseImplFromJson(
+_GetUserSuggestionResponse _$GetUserSuggestionResponseFromJson(
   Map<String, dynamic> json,
-) => _$GetUserSuggestionResponseImpl(
+) => _GetUserSuggestionResponse(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
@@ -18,8 +18,8 @@ _$GetUserSuggestionResponseImpl _$$GetUserSuggestionResponseImplFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$$GetUserSuggestionResponseImplToJson(
-  _$GetUserSuggestionResponseImpl instance,
+Map<String, dynamic> _$GetUserSuggestionResponseToJson(
+  _GetUserSuggestionResponse instance,
 ) => <String, dynamic>{
   'message': instance.message,
   'page': instance.page,
@@ -27,8 +27,8 @@ Map<String, dynamic> _$$GetUserSuggestionResponseImplToJson(
   'result': instance.result,
 };
 
-_$SuggestionUserImpl _$$SuggestionUserImplFromJson(Map<String, dynamic> json) =>
-    _$SuggestionUserImpl(
+_SuggestionUser _$SuggestionUserFromJson(Map<String, dynamic> json) =>
+    _SuggestionUser(
       uid: json['uid'] as String?,
       username: json['username'] as String?,
       name: json['name'] as String?,
@@ -41,17 +41,16 @@ _$SuggestionUserImpl _$$SuggestionUserImplFromJson(Map<String, dynamic> json) =>
       distance: (json['distance'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$SuggestionUserImplToJson(
-  _$SuggestionUserImpl instance,
-) => <String, dynamic>{
-  'uid': instance.uid,
-  'username': instance.username,
-  'name': instance.name,
-  'bio': instance.bio,
-  'profile_picture': instance.profilePicture,
-  'is_portfolio': instance.isPortfolio,
-  'portfolio_title': instance.portfolioTitle,
-  'portfolio_status': instance.portfolioStatus,
-  'total_followers': instance.totalFollowers,
-  'distance': instance.distance,
-};
+Map<String, dynamic> _$SuggestionUserToJson(_SuggestionUser instance) =>
+    <String, dynamic>{
+      'uid': instance.uid,
+      'username': instance.username,
+      'name': instance.name,
+      'bio': instance.bio,
+      'profile_picture': instance.profilePicture,
+      'is_portfolio': instance.isPortfolio,
+      'portfolio_title': instance.portfolioTitle,
+      'portfolio_status': instance.portfolioStatus,
+      'total_followers': instance.totalFollowers,
+      'distance': instance.distance,
+    };

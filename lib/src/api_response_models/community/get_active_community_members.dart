@@ -4,7 +4,7 @@ part 'get_active_community_members.freezed.dart';
 part 'get_active_community_members.g.dart';
 
 @Freezed(genericArgumentFactories: true)
-class GetActiveCommunityMembersResponse with _$GetActiveCommunityMembersResponse {
+sealed class GetActiveCommunityMembersResponse with _$GetActiveCommunityMembersResponse {
   const factory GetActiveCommunityMembersResponse({
     @JsonKey(name: 'message')
     String? message,
@@ -24,7 +24,7 @@ class GetActiveCommunityMembersResponse with _$GetActiveCommunityMembersResponse
 }
 
 @freezed
-class CommunityMembersResult with _$CommunityMembersResult {
+sealed class CommunityMembersResult with _$CommunityMembersResult {
   const factory CommunityMembersResult({
     @JsonKey(name: 'owner')
     User? owner,
@@ -41,7 +41,7 @@ class CommunityMembersResult with _$CommunityMembersResult {
 }
 
 @freezed
-class User with _$User {
+sealed class User with _$User {
   const factory User({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
@@ -141,7 +141,7 @@ class User with _$User {
 }
 
 @freezed
-class CommunityMember with _$CommunityMember {
+sealed class CommunityMember with _$CommunityMember {
   const factory CommunityMember({
     @JsonKey(name: 'community_uid')
     String? communityUid,

@@ -21,7 +21,7 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 @freezed
- class Exapmle with _$Exapmle {
+sealed class Exapmle with _$Exapmle {
   const factory Exapmle({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
@@ -169,7 +169,7 @@ part 'main.freezed.dart';
 part 'main.g.dart';
 
 @freezed
-abstract class Person with _$Person {
+sealed class Person with _$Person {
   const factory Person({
     required String firstName,
     required String lastName,

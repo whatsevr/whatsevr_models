@@ -5,7 +5,7 @@ part 'comment_reply.g.dart';
 
 /// Represents a comment reply in the system
 @freezed
-class BaseCommentReply with _$BaseCommentReply {
+sealed class BaseCommentReply with _$BaseCommentReply {
   const BaseCommentReply._();
 
   const factory BaseCommentReply({

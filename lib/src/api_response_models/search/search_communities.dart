@@ -5,7 +5,7 @@ part 'search_communities.freezed.dart';
 part 'search_communities.g.dart';
 
 @freezed
-class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
+sealed class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
   const factory SearchCommunitiesResponse({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
@@ -18,7 +18,7 @@ class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
 }
 
 @freezed
-class SearchedCommunity with _$SearchedCommunity {
+sealed class SearchedCommunity with _$SearchedCommunity {
   const factory SearchedCommunity({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'admin_user_uid') String? adminUserUid,
@@ -47,7 +47,7 @@ class SearchedCommunity with _$SearchedCommunity {
 }
 
 @freezed
-class SearchedCommunityAdmin with _$SearchedCommunityAdmin {
+sealed class SearchedCommunityAdmin with _$SearchedCommunityAdmin {
   const factory SearchedCommunityAdmin({
     @JsonKey(name: 'uid') String? uid,
     @JsonKey(name: 'username') String? username,
@@ -61,7 +61,7 @@ class SearchedCommunityAdmin with _$SearchedCommunityAdmin {
 }
 
 @freezed
-class CoverMedia with _$CoverMedia {
+sealed class CoverMedia with _$CoverMedia {
   const factory CoverMedia({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'image_url') String? imageUrl,
@@ -79,7 +79,7 @@ class CoverMedia with _$CoverMedia {
 }
 
 @freezed
-class Service with _$Service {
+sealed class Service with _$Service {
   const factory Service({
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'title') String? title,

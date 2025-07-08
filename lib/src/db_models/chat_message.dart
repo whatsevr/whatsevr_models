@@ -5,7 +5,7 @@ part 'chat_message.g.dart';
 
 /// Represents a chat message in the system
 @freezed
- class BaseChatMessage with _$BaseChatMessage {
+sealed class BaseChatMessage with _$BaseChatMessage {
   const BaseChatMessage._();
 
   const factory BaseChatMessage({

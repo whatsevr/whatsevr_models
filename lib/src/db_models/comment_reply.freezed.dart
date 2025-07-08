@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,344 +9,281 @@ part of 'comment_reply.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-BaseCommentReply _$BaseCommentReplyFromJson(Map<String, dynamic> json) {
-  return _BaseCommentReply.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BaseCommentReply {
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'reply_text')
-  String? get replyText => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_uid')
-  String? get userUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'uid')
-  String? get uid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'comment_uid')
-  String? get commentUid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'content_owner_user_uid')
-  String? get contentOwnerUserUid => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'reply_text') String? get replyText;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'comment_uid') String? get commentUid;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'content_owner_user_uid') String? get contentOwnerUserUid;
+/// Create a copy of BaseCommentReply
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BaseCommentReplyCopyWith<BaseCommentReply> get copyWith => _$BaseCommentReplyCopyWithImpl<BaseCommentReply>(this as BaseCommentReply, _$identity);
 
   /// Serializes this BaseCommentReply to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BaseCommentReply
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BaseCommentReplyCopyWith<BaseCommentReply> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BaseCommentReply&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.replyText, replyText) || other.replyText == replyText)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.commentUid, commentUid) || other.commentUid == commentUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.contentOwnerUserUid, contentOwnerUserUid) || other.contentOwnerUserUid == contentOwnerUserUid));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,createdAt,replyText,userUid,uid,commentUid,updatedAt,contentOwnerUserUid);
+
+@override
+String toString() {
+  return 'BaseCommentReply(createdAt: $createdAt, replyText: $replyText, userUid: $userUid, uid: $uid, commentUid: $commentUid, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BaseCommentReplyCopyWith<$Res> {
-  factory $BaseCommentReplyCopyWith(
-    BaseCommentReply value,
-    $Res Function(BaseCommentReply) then,
-  ) = _$BaseCommentReplyCopyWithImpl<$Res, BaseCommentReply>;
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'reply_text') String? replyText,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'uid') String? uid,
-    @JsonKey(name: 'comment_uid') String? commentUid,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid,
-  });
-}
+abstract mixin class $BaseCommentReplyCopyWith<$Res>  {
+  factory $BaseCommentReplyCopyWith(BaseCommentReply value, $Res Function(BaseCommentReply) _then) = _$BaseCommentReplyCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'reply_text') String? replyText,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'comment_uid') String? commentUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid
+});
 
+
+
+
+}
 /// @nodoc
-class _$BaseCommentReplyCopyWithImpl<$Res, $Val extends BaseCommentReply>
+class _$BaseCommentReplyCopyWithImpl<$Res>
     implements $BaseCommentReplyCopyWith<$Res> {
-  _$BaseCommentReplyCopyWithImpl(this._value, this._then);
+  _$BaseCommentReplyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BaseCommentReply _self;
+  final $Res Function(BaseCommentReply) _then;
 
-  /// Create a copy of BaseCommentReply
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? replyText = freezed,
-    Object? userUid = freezed,
-    Object? uid = freezed,
-    Object? commentUid = freezed,
-    Object? updatedAt = freezed,
-    Object? contentOwnerUserUid = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            createdAt:
-                freezed == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            replyText:
-                freezed == replyText
-                    ? _value.replyText
-                    : replyText // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            userUid:
-                freezed == userUid
-                    ? _value.userUid
-                    : userUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            uid:
-                freezed == uid
-                    ? _value.uid
-                    : uid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            commentUid:
-                freezed == commentUid
-                    ? _value.commentUid
-                    : commentUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            updatedAt:
-                freezed == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime?,
-            contentOwnerUserUid:
-                freezed == contentOwnerUserUid
-                    ? _value.contentOwnerUserUid
-                    : contentOwnerUserUid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of BaseCommentReply
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? replyText = freezed,Object? userUid = freezed,Object? uid = freezed,Object? commentUid = freezed,Object? updatedAt = freezed,Object? contentOwnerUserUid = freezed,}) {
+  return _then(_self.copyWith(
+createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,replyText: freezed == replyText ? _self.replyText : replyText // ignore: cast_nullable_to_non_nullable
+as String?,userUid: freezed == userUid ? _self.userUid : userUid // ignore: cast_nullable_to_non_nullable
+as String?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
+as String?,commentUid: freezed == commentUid ? _self.commentUid : commentUid // ignore: cast_nullable_to_non_nullable
+as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,contentOwnerUserUid: freezed == contentOwnerUserUid ? _self.contentOwnerUserUid : contentOwnerUserUid // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BaseCommentReplyImplCopyWith<$Res>
-    implements $BaseCommentReplyCopyWith<$Res> {
-  factory _$$BaseCommentReplyImplCopyWith(
-    _$BaseCommentReplyImpl value,
-    $Res Function(_$BaseCommentReplyImpl) then,
-  ) = __$$BaseCommentReplyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'reply_text') String? replyText,
-    @JsonKey(name: 'user_uid') String? userUid,
-    @JsonKey(name: 'uid') String? uid,
-    @JsonKey(name: 'comment_uid') String? commentUid,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
-    @JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid,
-  });
 }
 
-/// @nodoc
-class __$$BaseCommentReplyImplCopyWithImpl<$Res>
-    extends _$BaseCommentReplyCopyWithImpl<$Res, _$BaseCommentReplyImpl>
-    implements _$$BaseCommentReplyImplCopyWith<$Res> {
-  __$$BaseCommentReplyImplCopyWithImpl(
-    _$BaseCommentReplyImpl _value,
-    $Res Function(_$BaseCommentReplyImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of BaseCommentReply
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = freezed,
-    Object? replyText = freezed,
-    Object? userUid = freezed,
-    Object? uid = freezed,
-    Object? commentUid = freezed,
-    Object? updatedAt = freezed,
-    Object? contentOwnerUserUid = freezed,
-  }) {
-    return _then(
-      _$BaseCommentReplyImpl(
-        createdAt:
-            freezed == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        replyText:
-            freezed == replyText
-                ? _value.replyText
-                : replyText // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        userUid:
-            freezed == userUid
-                ? _value.userUid
-                : userUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        uid:
-            freezed == uid
-                ? _value.uid
-                : uid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        commentUid:
-            freezed == commentUid
-                ? _value.commentUid
-                : commentUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        updatedAt:
-            freezed == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime?,
-        contentOwnerUserUid:
-            freezed == contentOwnerUserUid
-                ? _value.contentOwnerUserUid
-                : contentOwnerUserUid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [BaseCommentReply].
+extension BaseCommentReplyPatterns on BaseCommentReply {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BaseCommentReply value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _BaseCommentReply() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BaseCommentReply value)  $default,){
+final _that = this;
+switch (_that) {
+case _BaseCommentReply():
+return $default(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BaseCommentReply value)?  $default,){
+final _that = this;
+switch (_that) {
+case _BaseCommentReply() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'reply_text')  String? replyText, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'comment_uid')  String? commentUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'content_owner_user_uid')  String? contentOwnerUserUid)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _BaseCommentReply() when $default != null:
+return $default(_that.createdAt,_that.replyText,_that.userUid,_that.uid,_that.commentUid,_that.updatedAt,_that.contentOwnerUserUid);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'reply_text')  String? replyText, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'comment_uid')  String? commentUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'content_owner_user_uid')  String? contentOwnerUserUid)  $default,) {final _that = this;
+switch (_that) {
+case _BaseCommentReply():
+return $default(_that.createdAt,_that.replyText,_that.userUid,_that.uid,_that.commentUid,_that.updatedAt,_that.contentOwnerUserUid);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'reply_text')  String? replyText, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'comment_uid')  String? commentUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'content_owner_user_uid')  String? contentOwnerUserUid)?  $default,) {final _that = this;
+switch (_that) {
+case _BaseCommentReply() when $default != null:
+return $default(_that.createdAt,_that.replyText,_that.userUid,_that.uid,_that.commentUid,_that.updatedAt,_that.contentOwnerUserUid);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BaseCommentReplyImpl extends _BaseCommentReply {
-  const _$BaseCommentReplyImpl({
-    @JsonKey(name: 'created_at') this.createdAt,
-    @JsonKey(name: 'reply_text') this.replyText,
-    @JsonKey(name: 'user_uid') this.userUid,
-    @JsonKey(name: 'uid') this.uid,
-    @JsonKey(name: 'comment_uid') this.commentUid,
-    @JsonKey(name: 'updated_at') this.updatedAt,
-    @JsonKey(name: 'content_owner_user_uid') this.contentOwnerUserUid,
-  }) : super._();
 
-  factory _$BaseCommentReplyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BaseCommentReplyImplFromJson(json);
+class _BaseCommentReply extends BaseCommentReply {
+  const _BaseCommentReply({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'reply_text') this.replyText, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'comment_uid') this.commentUid, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'content_owner_user_uid') this.contentOwnerUserUid}): super._();
+  factory _BaseCommentReply.fromJson(Map<String, dynamic> json) => _$BaseCommentReplyFromJson(json);
 
-  @override
-  @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
-  @override
-  @JsonKey(name: 'reply_text')
-  final String? replyText;
-  @override
-  @JsonKey(name: 'user_uid')
-  final String? userUid;
-  @override
-  @JsonKey(name: 'uid')
-  final String? uid;
-  @override
-  @JsonKey(name: 'comment_uid')
-  final String? commentUid;
-  @override
-  @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
-  @override
-  @JsonKey(name: 'content_owner_user_uid')
-  final String? contentOwnerUserUid;
+@override@JsonKey(name: 'created_at') final  DateTime? createdAt;
+@override@JsonKey(name: 'reply_text') final  String? replyText;
+@override@JsonKey(name: 'user_uid') final  String? userUid;
+@override@JsonKey(name: 'uid') final  String? uid;
+@override@JsonKey(name: 'comment_uid') final  String? commentUid;
+@override@JsonKey(name: 'updated_at') final  DateTime? updatedAt;
+@override@JsonKey(name: 'content_owner_user_uid') final  String? contentOwnerUserUid;
 
-  @override
-  String toString() {
-    return 'BaseCommentReply(createdAt: $createdAt, replyText: $replyText, userUid: $userUid, uid: $uid, commentUid: $commentUid, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
-  }
+/// Create a copy of BaseCommentReply
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BaseCommentReplyCopyWith<_BaseCommentReply> get copyWith => __$BaseCommentReplyCopyWithImpl<_BaseCommentReply>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BaseCommentReplyImpl &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.replyText, replyText) ||
-                other.replyText == replyText) &&
-            (identical(other.userUid, userUid) || other.userUid == userUid) &&
-            (identical(other.uid, uid) || other.uid == uid) &&
-            (identical(other.commentUid, commentUid) ||
-                other.commentUid == commentUid) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.contentOwnerUserUid, contentOwnerUserUid) ||
-                other.contentOwnerUserUid == contentOwnerUserUid));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    createdAt,
-    replyText,
-    userUid,
-    uid,
-    commentUid,
-    updatedAt,
-    contentOwnerUserUid,
-  );
-
-  /// Create a copy of BaseCommentReply
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BaseCommentReplyImplCopyWith<_$BaseCommentReplyImpl> get copyWith =>
-      __$$BaseCommentReplyImplCopyWithImpl<_$BaseCommentReplyImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BaseCommentReplyImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$BaseCommentReplyToJson(this, );
 }
 
-abstract class _BaseCommentReply extends BaseCommentReply {
-  const factory _BaseCommentReply({
-    @JsonKey(name: 'created_at') final DateTime? createdAt,
-    @JsonKey(name: 'reply_text') final String? replyText,
-    @JsonKey(name: 'user_uid') final String? userUid,
-    @JsonKey(name: 'uid') final String? uid,
-    @JsonKey(name: 'comment_uid') final String? commentUid,
-    @JsonKey(name: 'updated_at') final DateTime? updatedAt,
-    @JsonKey(name: 'content_owner_user_uid') final String? contentOwnerUserUid,
-  }) = _$BaseCommentReplyImpl;
-  const _BaseCommentReply._() : super._();
-
-  factory _BaseCommentReply.fromJson(Map<String, dynamic> json) =
-      _$BaseCommentReplyImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt;
-  @override
-  @JsonKey(name: 'reply_text')
-  String? get replyText;
-  @override
-  @JsonKey(name: 'user_uid')
-  String? get userUid;
-  @override
-  @JsonKey(name: 'uid')
-  String? get uid;
-  @override
-  @JsonKey(name: 'comment_uid')
-  String? get commentUid;
-  @override
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt;
-  @override
-  @JsonKey(name: 'content_owner_user_uid')
-  String? get contentOwnerUserUid;
-
-  /// Create a copy of BaseCommentReply
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BaseCommentReplyImplCopyWith<_$BaseCommentReplyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseCommentReply&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.replyText, replyText) || other.replyText == replyText)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.commentUid, commentUid) || other.commentUid == commentUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.contentOwnerUserUid, contentOwnerUserUid) || other.contentOwnerUserUid == contentOwnerUserUid));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,createdAt,replyText,userUid,uid,commentUid,updatedAt,contentOwnerUserUid);
+
+@override
+String toString() {
+  return 'BaseCommentReply(createdAt: $createdAt, replyText: $replyText, userUid: $userUid, uid: $uid, commentUid: $commentUid, updatedAt: $updatedAt, contentOwnerUserUid: $contentOwnerUserUid)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BaseCommentReplyCopyWith<$Res> implements $BaseCommentReplyCopyWith<$Res> {
+  factory _$BaseCommentReplyCopyWith(_BaseCommentReply value, $Res Function(_BaseCommentReply) _then) = __$BaseCommentReplyCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'reply_text') String? replyText,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'comment_uid') String? commentUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'content_owner_user_uid') String? contentOwnerUserUid
+});
+
+
+
+
+}
+/// @nodoc
+class __$BaseCommentReplyCopyWithImpl<$Res>
+    implements _$BaseCommentReplyCopyWith<$Res> {
+  __$BaseCommentReplyCopyWithImpl(this._self, this._then);
+
+  final _BaseCommentReply _self;
+  final $Res Function(_BaseCommentReply) _then;
+
+/// Create a copy of BaseCommentReply
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? replyText = freezed,Object? userUid = freezed,Object? uid = freezed,Object? commentUid = freezed,Object? updatedAt = freezed,Object? contentOwnerUserUid = freezed,}) {
+  return _then(_BaseCommentReply(
+createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,replyText: freezed == replyText ? _self.replyText : replyText // ignore: cast_nullable_to_non_nullable
+as String?,userUid: freezed == userUid ? _self.userUid : userUid // ignore: cast_nullable_to_non_nullable
+as String?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
+as String?,commentUid: freezed == commentUid ? _self.commentUid : commentUid // ignore: cast_nullable_to_non_nullable
+as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,contentOwnerUserUid: freezed == contentOwnerUserUid ? _self.contentOwnerUserUid : contentOwnerUserUid // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

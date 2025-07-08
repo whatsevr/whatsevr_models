@@ -5,7 +5,7 @@ part 'cover_media.g.dart';
 
 /// Represents cover media in the system
 @freezed
-class BaseCoverMedia with _$BaseCoverMedia {
+sealed class BaseCoverMedia with _$BaseCoverMedia {
   const BaseCoverMedia._();
 
   const factory BaseCoverMedia({

@@ -8,6 +8,7 @@ export 'src/api_response_models/search/search_accounts.dart';
 export 'src/api_response_models/search/search_communities.dart';
 export 'src/api_response_models/search/search_portfolios.dart';
 export 'src/api_response_models/suggestions/get_user_suggestions.dart';
+export 'src/api_response_models/open_search/search_offers.dart';
 export 'src/db_models/chat_message.dart';
 export 'src/db_models/collection.dart';
 export 'src/db_models/comment.dart';

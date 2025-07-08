@@ -5,7 +5,7 @@ part 'private_chat.g.dart';
 
 /// Represents a private chat between two users in the system
 @freezed
-class BasePrivateChat with _$BasePrivateChat {
+sealed class BasePrivateChat with _$BasePrivateChat {
   const BasePrivateChat._();
 
   const factory BasePrivateChat({

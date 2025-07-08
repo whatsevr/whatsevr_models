@@ -5,7 +5,7 @@ part 'community.g.dart';
 
 /// Represents a community in the system
 @freezed
-class BaseCommunity with _$BaseCommunity {
+sealed class BaseCommunity with _$BaseCommunity {
   const BaseCommunity._();
 
   const factory BaseCommunity({

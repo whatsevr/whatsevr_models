@@ -5,7 +5,7 @@ part 'users_relation.g.dart';
 
 /// Represents a relation between users in the system
 @freezed
-class BaseUsersRelation with _$BaseUsersRelation {
+sealed class BaseUsersRelation with _$BaseUsersRelation {
   const BaseUsersRelation._();
 
   const factory BaseUsersRelation({
