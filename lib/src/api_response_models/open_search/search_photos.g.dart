@@ -50,7 +50,6 @@ _SearchedPhoto _$SearchedPhotoFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toList(),
       isArchived: json['is_archived'] as bool?,
-      isActive: json['is_active'] as bool?,
       postCreatorType: json['post_creator_type'] as String?,
       updatedAt:
           json['updated_at'] == null
@@ -95,7 +94,6 @@ Map<String, dynamic> _$SearchedPhotoToJson(_SearchedPhoto instance) =>
       'hashtags': instance.hashtags,
       'tagged_user_uids': instance.taggedUserUids,
       'is_archived': instance.isArchived,
-      'is_active': instance.isActive,
       'post_creator_type': instance.postCreatorType,
       'updated_at': instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,

@@ -13,7 +13,9 @@ sealed class OpenSearchCommunitiesResult with _$OpenSearchCommunitiesResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<SearchedCommunity>? results,
+    List<OpenSearchedCommunity>? results,
+    
+  
     
     @JsonKey(name: 'pagination')
     CommunitiesPagination? pagination,
@@ -25,8 +27,8 @@ sealed class OpenSearchCommunitiesResult with _$OpenSearchCommunitiesResult {
 }
 
 @freezed
-sealed class SearchedCommunity with _$SearchedCommunity {
-  const factory SearchedCommunity({
+sealed class OpenSearchedCommunity with _$OpenSearchedCommunity {
+  const factory OpenSearchedCommunity({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
     
@@ -78,20 +80,29 @@ sealed class SearchedCommunity with _$SearchedCommunity {
     @JsonKey(name: 'is_broadcasting')
     bool? isBroadcasting,
     
+    @JsonKey(name: 'is_archived')
+    bool? isArchived,
+    
     @JsonKey(name: 'open_search_crawled_at')
     DateTime? openSearchCrawledAt,
     
     @JsonKey(name: 'admin')
-    CommunityAdmin? admin,
-  }) = _SearchedCommunity;
+    Admin? admin,
+    
+    @JsonKey(name: 'cover_media')
+    List<SearchedCommunityCoverMedia>? coverMedia,
+    
+    @JsonKey(name: 'services')
+    List<SearchedCommunityService>? services,
+  }) = _OpenSearchedCommunity;
 
-  factory SearchedCommunity.fromJson(Map<String, dynamic> json) => 
-      _$SearchedCommunityFromJson(json);
+  factory OpenSearchedCommunity.fromJson(Map<String, dynamic> json) => 
+      _$OpenSearchedCommunityFromJson(json);
 }
 
 @freezed
-sealed class CommunityAdmin with _$CommunityAdmin {
-  const factory CommunityAdmin({
+sealed class Admin with _$Admin {
+  const factory Admin({
     @JsonKey(name: 'uid')
     String? uid,
     
@@ -115,10 +126,10 @@ sealed class CommunityAdmin with _$CommunityAdmin {
     
     @JsonKey(name: 'is_legally_verified')
     bool? isLegallyVerified,
-  }) = _CommunityAdmin;
+  }) = _Admin;
 
-  factory CommunityAdmin.fromJson(Map<String, dynamic> json) => 
-      _$CommunityAdminFromJson(json);
+  factory Admin.fromJson(Map<String, dynamic> json) => 
+      _$AdminFromJson(json);
 }
 
 @freezed
@@ -148,4 +159,71 @@ sealed class CommunitiesPagination with _$CommunitiesPagination {
 
   factory CommunitiesPagination.fromJson(Map<String, dynamic> json) => 
       _$CommunitiesPaginationFromJson(json);
+}
+
+@freezed
+sealed class SearchedCommunityCoverMedia with _$SearchedCommunityCoverMedia {
+  const factory SearchedCommunityCoverMedia({
+    @JsonKey(name: 'created_at')
+    DateTime? createdAt,
+    
+    @JsonKey(name: 'image_url')
+    String? imageUrl,
+    
+    @JsonKey(name: 'is_video')
+    bool? isVideo,
+    
+    @JsonKey(name: 'user_uid')
+    String? userUid,
+    
+    @JsonKey(name: 'video_url')
+    String? videoUrl,
+    
+    @JsonKey(name: 'community_uid')
+    String? communityUid,
+    
+    @JsonKey(name: 'owner_type')
+    String? ownerType,
+    
+    @JsonKey(name: 'updated_at')
+    DateTime? updatedAt,
+    
+    @JsonKey(name: 'uid')
+    String? uid,
+  }) = _SearchedCommunityCoverMedia;
+
+  factory SearchedCommunityCoverMedia.fromJson(Map<String, dynamic> json) => 
+      _$SearchedCommunityCoverMediaFromJson(json);
+}
+
+@freezed
+sealed class SearchedCommunityService with _$SearchedCommunityService {
+  const factory SearchedCommunityService({
+    @JsonKey(name: 'created_at')
+    DateTime? createdAt,
+    
+    @JsonKey(name: 'title')
+    String? title,
+    
+    @JsonKey(name: 'user_uid')
+    String? userUid,
+    
+    @JsonKey(name: 'description')
+    String? description,
+    
+    @JsonKey(name: 'community_uid')
+    String? communityUid,
+    
+    @JsonKey(name: 'owner_type')
+    String? ownerType,
+    
+    @JsonKey(name: 'updated_at')
+    DateTime? updatedAt,
+    
+    @JsonKey(name: 'uid')
+    String? uid,
+  }) = _SearchedCommunityService;
+
+  factory SearchedCommunityService.fromJson(Map<String, dynamic> json) => 
+      _$SearchedCommunityServiceFromJson(json);
 }

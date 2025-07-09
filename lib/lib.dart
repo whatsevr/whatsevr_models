@@ -14,6 +14,7 @@ export 'src/api_response_models/open_search/search_photos.dart';
 export 'src/api_response_models/open_search/search_flicks.dart';
 export 'src/api_response_models/open_search/search_pdfs.dart';
 export 'src/api_response_models/open_search/search_users.dart';
+export 'src/api_response_models/open_search/search_communities.dart';
 export 'src/db_models/chat_message.dart';
 export 'src/db_models/collection.dart';
 export 'src/db_models/comment.dart';

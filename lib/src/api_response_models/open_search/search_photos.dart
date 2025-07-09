@@ -48,9 +48,6 @@ sealed class SearchedPhoto with _$SearchedPhoto {
     @JsonKey(name: 'is_archived')
     bool? isArchived,
     
-    @JsonKey(name: 'is_active')
-    bool? isActive,
-    
     @JsonKey(name: 'post_creator_type')
     String? postCreatorType,
     
