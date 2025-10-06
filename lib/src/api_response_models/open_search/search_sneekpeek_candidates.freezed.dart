@@ -324,7 +324,7 @@ $SneekpeekCandidatesPaginationCopyWith<$Res>? get pagination {
 /// @nodoc
 mixin _$SearchedSneekpeekCandidate {
 
-@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'is_in_queue') bool? get isInQueue;@JsonKey(name: 'queue_joined_at') DateTime? get queueJoinedAt;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'profile_picture_url') String? get profilePictureUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;
+@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'is_in_queue') bool? get isInQueue;@JsonKey(name: 'queue_joined_at') DateTime? get queueJoinedAt;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'profile_picture_url') String? get profilePictureUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'direct_availability') String? get directAvailability;@JsonKey(name: 'direct_call_types') String? get directCallTypes;@JsonKey(name: 'gender') String? get gender;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -337,16 +337,16 @@ $SearchedSneekpeekCandidateCopyWith<SearchedSneekpeekCandidate> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,openSearchCrawledAt);
+int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,openSearchCrawledAt);
 
 @override
 String toString() {
-  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, openSearchCrawledAt: $openSearchCrawledAt)';
+  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, openSearchCrawledAt: $openSearchCrawledAt)';
 }
 
 
@@ -357,7 +357,7 @@ abstract mixin class $SearchedSneekpeekCandidateCopyWith<$Res>  {
   factory $SearchedSneekpeekCandidateCopyWith(SearchedSneekpeekCandidate value, $Res Function(SearchedSneekpeekCandidate) _then) = _$SearchedSneekpeekCandidateCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
 });
 
 
@@ -374,7 +374,7 @@ class _$SearchedSneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? openSearchCrawledAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? openSearchCrawledAt = freezed,}) {
   return _then(_self.copyWith(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -385,6 +385,9 @@ as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // igno
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,profilePictureUrl: freezed == profilePictureUrl ? _self.profilePictureUrl : profilePictureUrl // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,directAvailability: freezed == directAvailability ? _self.directAvailability : directAvailability // ignore: cast_nullable_to_non_nullable
+as String?,directCallTypes: freezed == directCallTypes ? _self.directCallTypes : directCallTypes // ignore: cast_nullable_to_non_nullable
+as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
@@ -468,10 +471,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.openSearchCrawledAt);case _:
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);case _:
   return orElse();
 
 }
@@ -489,10 +492,10 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)  $default,) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate():
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.openSearchCrawledAt);}
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -506,10 +509,10 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.openSearchCrawledAt);case _:
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);case _:
   return null;
 
 }
@@ -521,7 +524,7 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 @JsonSerializable()
 
 class _SearchedSneekpeekCandidate implements SearchedSneekpeekCandidate {
-  const _SearchedSneekpeekCandidate({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'name') this.name, @JsonKey(name: 'is_in_queue') this.isInQueue, @JsonKey(name: 'queue_joined_at') this.queueJoinedAt, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt});
+  const _SearchedSneekpeekCandidate({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'name') this.name, @JsonKey(name: 'is_in_queue') this.isInQueue, @JsonKey(name: 'queue_joined_at') this.queueJoinedAt, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'direct_availability') this.directAvailability, @JsonKey(name: 'direct_call_types') this.directCallTypes, @JsonKey(name: 'gender') this.gender, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt});
   factory _SearchedSneekpeekCandidate.fromJson(Map<String, dynamic> json) => _$SearchedSneekpeekCandidateFromJson(json);
 
 @override@JsonKey(name: 'uid') final  String? uid;
@@ -533,6 +536,9 @@ class _SearchedSneekpeekCandidate implements SearchedSneekpeekCandidate {
 @override@JsonKey(name: 'updated_at') final  DateTime? updatedAt;
 @override@JsonKey(name: 'profile_picture_url') final  String? profilePictureUrl;
 @override@JsonKey(name: 'description') final  String? description;
+@override@JsonKey(name: 'direct_availability') final  String? directAvailability;
+@override@JsonKey(name: 'direct_call_types') final  String? directCallTypes;
+@override@JsonKey(name: 'gender') final  String? gender;
 @override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
 
 /// Create a copy of SearchedSneekpeekCandidate
@@ -548,16 +554,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,openSearchCrawledAt);
+int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,openSearchCrawledAt);
 
 @override
 String toString() {
-  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, openSearchCrawledAt: $openSearchCrawledAt)';
+  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, openSearchCrawledAt: $openSearchCrawledAt)';
 }
 
 
@@ -568,7 +574,7 @@ abstract mixin class _$SearchedSneekpeekCandidateCopyWith<$Res> implements $Sear
   factory _$SearchedSneekpeekCandidateCopyWith(_SearchedSneekpeekCandidate value, $Res Function(_SearchedSneekpeekCandidate) _then) = __$SearchedSneekpeekCandidateCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
 });
 
 
@@ -585,7 +591,7 @@ class __$SearchedSneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? openSearchCrawledAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? openSearchCrawledAt = freezed,}) {
   return _then(_SearchedSneekpeekCandidate(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -596,6 +602,9 @@ as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // igno
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,profilePictureUrl: freezed == profilePictureUrl ? _self.profilePictureUrl : profilePictureUrl // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,directAvailability: freezed == directAvailability ? _self.directAvailability : directAvailability // ignore: cast_nullable_to_non_nullable
+as String?,directCallTypes: freezed == directCallTypes ? _self.directCallTypes : directCallTypes // ignore: cast_nullable_to_non_nullable
+as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));

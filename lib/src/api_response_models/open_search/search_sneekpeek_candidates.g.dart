@@ -59,6 +59,9 @@ _SearchedSneekpeekCandidate _$SearchedSneekpeekCandidateFromJson(
           : DateTime.parse(json['updated_at'] as String),
   profilePictureUrl: json['profile_picture_url'] as String?,
   description: json['description'] as String?,
+  directAvailability: json['direct_availability'] as String?,
+  directCallTypes: json['direct_call_types'] as String?,
+  gender: json['gender'] as String?,
   openSearchCrawledAt:
       json['open_search_crawled_at'] == null
           ? null
@@ -77,6 +80,9 @@ Map<String, dynamic> _$SearchedSneekpeekCandidateToJson(
   'updated_at': instance.updatedAt?.toIso8601String(),
   'profile_picture_url': instance.profilePictureUrl,
   'description': instance.description,
+  'direct_availability': instance.directAvailability,
+  'direct_call_types': instance.directCallTypes,
+  'gender': instance.gender,
   'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
 };
 
