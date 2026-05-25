@@ -6,14 +6,14 @@ part of 'search_users.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchUsersResult _$OpenSearchUsersResultFromJson(
+_ExternalSearchUsersResult _$ExternalSearchUsersResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchUsersResult(
+) => _ExternalSearchUsersResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
       (json['results'] as List<dynamic>?)
-          ?.map((e) => OpenSearchUser.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ExternalSearchUser.fromJson(e as Map<String, dynamic>))
           .toList(),
   pagination:
       json['pagination'] == null
@@ -23,8 +23,8 @@ _OpenSearchUsersResult _$OpenSearchUsersResultFromJson(
           ),
 );
 
-Map<String, dynamic> _$OpenSearchUsersResultToJson(
-  _OpenSearchUsersResult instance,
+Map<String, dynamic> _$ExternalSearchUsersResultToJson(
+  _ExternalSearchUsersResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -32,9 +32,9 @@ Map<String, dynamic> _$OpenSearchUsersResultToJson(
   'pagination': instance.pagination,
 };
 
-_OpenSearchUser _$OpenSearchUserFromJson(
+_ExternalSearchUser _$ExternalSearchUserFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchUser(
+) => _ExternalSearchUser(
   registeredAt:
       json['registered_at'] == null
           ? null
@@ -80,10 +80,10 @@ _OpenSearchUser _$OpenSearchUserFromJson(
           : DateTime.parse(json['updated_at'] as String),
   isPrivate: json['is_private'] as bool?,
   isLegallyVerified: json['is_legally_verified'] as bool?,
-  openSearchCrawledAt:
-      json['open_search_crawled_at'] == null
+  externalSearchIndexedAt:
+      json['external_search_indexed_at'] == null
           ? null
-          : DateTime.parse(json['open_search_crawled_at'] as String),
+          : DateTime.parse(json['external_search_indexed_at'] as String),
   educations:
       (json['educations'] as List<dynamic>?)
           ?.map(
@@ -107,7 +107,7 @@ _OpenSearchUser _$OpenSearchUserFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$OpenSearchUserToJson(_OpenSearchUser instance) =>
+Map<String, dynamic> _$ExternalSearchUserToJson(_ExternalSearchUser instance) =>
     <String, dynamic>{
       'registered_at': instance.registeredAt?.toIso8601String(),
       'uid': instance.uid,
@@ -142,7 +142,8 @@ Map<String, dynamic> _$OpenSearchUserToJson(_OpenSearchUser instance) =>
       'updated_at': instance.updatedAt?.toIso8601String(),
       'is_private': instance.isPrivate,
       'is_legally_verified': instance.isLegallyVerified,
-      'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+      'external_search_indexed_at':
+          instance.externalSearchIndexedAt?.toIso8601String(),
       'educations': instance.educations,
       'work_experiences': instance.workExperiences,
       'cover_media': instance.coverMedia,

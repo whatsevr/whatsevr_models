@@ -4,8 +4,8 @@ part 'search_pdfs.freezed.dart';
 part 'search_pdfs.g.dart';
 
 @freezed
-sealed class OpenSearchPdfsResult with _$OpenSearchPdfsResult {
-  const factory OpenSearchPdfsResult({
+sealed class ExternalSearchPdfsResult with _$ExternalSearchPdfsResult {
+  const factory ExternalSearchPdfsResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -18,10 +18,10 @@ sealed class OpenSearchPdfsResult with _$OpenSearchPdfsResult {
     @JsonKey(name: 'pagination')
     PdfsPagination? pagination,
 
-  }) = _OpenSearchPdfsResult;
+  }) = _ExternalSearchPdfsResult;
 
-  factory OpenSearchPdfsResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchPdfsResultFromJson(json);
+  factory ExternalSearchPdfsResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchPdfsResultFromJson(json);
 }
 
 @freezed
@@ -66,8 +66,8 @@ sealed class SearchedPdf with _$SearchedPdf {
     @JsonKey(name: 'total_impressions')
     int? totalImpressions,
     
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'creator')
     PdfCreator? creator,

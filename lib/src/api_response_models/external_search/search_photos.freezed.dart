@@ -13,22 +13,22 @@ part of 'search_photos.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchPhotosResult {
+mixin _$ExternalSearchPhotosResult {
 
 @JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<SearchedPhoto>? get results;@JsonKey(name: 'pagination') PhotosPagination? get pagination;
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchPhotosResultCopyWith<OpenSearchPhotosResult> get copyWith => _$OpenSearchPhotosResultCopyWithImpl<OpenSearchPhotosResult>(this as OpenSearchPhotosResult, _$identity);
+$ExternalSearchPhotosResultCopyWith<ExternalSearchPhotosResult> get copyWith => _$ExternalSearchPhotosResultCopyWithImpl<ExternalSearchPhotosResult>(this as ExternalSearchPhotosResult, _$identity);
 
-  /// Serializes this OpenSearchPhotosResult to a JSON map.
+  /// Serializes this ExternalSearchPhotosResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchPhotosResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchPhotosResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchPhotosResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchPhotosResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchPhotosResultCopyWith<$Res>  {
-  factory $OpenSearchPhotosResultCopyWith(OpenSearchPhotosResult value, $Res Function(OpenSearchPhotosResult) _then) = _$OpenSearchPhotosResultCopyWithImpl;
+abstract mixin class $ExternalSearchPhotosResultCopyWith<$Res>  {
+  factory $ExternalSearchPhotosResultCopyWith(ExternalSearchPhotosResult value, $Res Function(ExternalSearchPhotosResult) _then) = _$ExternalSearchPhotosResultCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedPhoto>? results,@JsonKey(name: 'pagination') PhotosPagination? pagination
@@ -56,14 +56,14 @@ $PhotosPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchPhotosResultCopyWithImpl<$Res>
-    implements $OpenSearchPhotosResultCopyWith<$Res> {
-  _$OpenSearchPhotosResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchPhotosResultCopyWithImpl<$Res>
+    implements $ExternalSearchPhotosResultCopyWith<$Res> {
+  _$ExternalSearchPhotosResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchPhotosResult _self;
-  final $Res Function(OpenSearchPhotosResult) _then;
+  final ExternalSearchPhotosResult _self;
+  final $Res Function(ExternalSearchPhotosResult) _then;
 
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
@@ -74,7 +74,7 @@ as List<SearchedPhoto>?,pagination: freezed == pagination ? _self.pagination : p
 as PhotosPagination?,
   ));
 }
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -90,8 +90,8 @@ $PhotosPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchPhotosResult].
-extension OpenSearchPhotosResultPatterns on OpenSearchPhotosResult {
+/// Adds pattern-matching-related methods to [ExternalSearchPhotosResult].
+extension ExternalSearchPhotosResultPatterns on ExternalSearchPhotosResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -104,10 +104,10 @@ extension OpenSearchPhotosResultPatterns on OpenSearchPhotosResult {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchPhotosResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchPhotosResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult() when $default != null:
+case _ExternalSearchPhotosResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -126,10 +126,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchPhotosResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchPhotosResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult():
+case _ExternalSearchPhotosResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -144,10 +144,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchPhotosResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchPhotosResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult() when $default != null:
+case _ExternalSearchPhotosResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPhoto>? results, @JsonKey(name: 'pagination')  PhotosPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult() when $default != null:
+case _ExternalSearchPhotosResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return orElse();
 
@@ -188,7 +188,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPhoto>? results, @JsonKey(name: 'pagination')  PhotosPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult():
+case _ExternalSearchPhotosResult():
 return $default(_that.success,_that.message,_that.results,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -205,7 +205,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPhoto>? results, @JsonKey(name: 'pagination')  PhotosPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchPhotosResult() when $default != null:
+case _ExternalSearchPhotosResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return null;
 
@@ -217,9 +217,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchPhotosResult implements OpenSearchPhotosResult {
-  const _OpenSearchPhotosResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedPhoto>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
-  factory _OpenSearchPhotosResult.fromJson(Map<String, dynamic> json) => _$OpenSearchPhotosResultFromJson(json);
+class _ExternalSearchPhotosResult implements ExternalSearchPhotosResult {
+  const _ExternalSearchPhotosResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedPhoto>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
+  factory _ExternalSearchPhotosResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchPhotosResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
@@ -234,20 +234,20 @@ class _OpenSearchPhotosResult implements OpenSearchPhotosResult {
 
 @override@JsonKey(name: 'pagination') final  PhotosPagination? pagination;
 
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchPhotosResultCopyWith<_OpenSearchPhotosResult> get copyWith => __$OpenSearchPhotosResultCopyWithImpl<_OpenSearchPhotosResult>(this, _$identity);
+_$ExternalSearchPhotosResultCopyWith<_ExternalSearchPhotosResult> get copyWith => __$ExternalSearchPhotosResultCopyWithImpl<_ExternalSearchPhotosResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchPhotosResultToJson(this, );
+  return _$ExternalSearchPhotosResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchPhotosResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchPhotosResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,15 +256,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchPhotosResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchPhotosResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchPhotosResultCopyWith<$Res> implements $OpenSearchPhotosResultCopyWith<$Res> {
-  factory _$OpenSearchPhotosResultCopyWith(_OpenSearchPhotosResult value, $Res Function(_OpenSearchPhotosResult) _then) = __$OpenSearchPhotosResultCopyWithImpl;
+abstract mixin class _$ExternalSearchPhotosResultCopyWith<$Res> implements $ExternalSearchPhotosResultCopyWith<$Res> {
+  factory _$ExternalSearchPhotosResultCopyWith(_ExternalSearchPhotosResult value, $Res Function(_ExternalSearchPhotosResult) _then) = __$ExternalSearchPhotosResultCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedPhoto>? results,@JsonKey(name: 'pagination') PhotosPagination? pagination
@@ -275,17 +275,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchPhotosResultCopyWithImpl<$Res>
-    implements _$OpenSearchPhotosResultCopyWith<$Res> {
-  __$OpenSearchPhotosResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchPhotosResultCopyWithImpl<$Res>
+    implements _$ExternalSearchPhotosResultCopyWith<$Res> {
+  __$ExternalSearchPhotosResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchPhotosResult _self;
-  final $Res Function(_OpenSearchPhotosResult) _then;
+  final _ExternalSearchPhotosResult _self;
+  final $Res Function(_ExternalSearchPhotosResult) _then;
 
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchPhotosResult(
+  return _then(_ExternalSearchPhotosResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
@@ -294,7 +294,7 @@ as PhotosPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchPhotosResult
+/// Create a copy of ExternalSearchPhotosResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -313,7 +313,7 @@ $PhotosPaginationCopyWith<$Res>? get pagination {
 /// @nodoc
 mixin _$SearchedPhoto {
 
-@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'hashtags') List<String>? get hashtags;@JsonKey(name: 'tagged_user_uids') List<String>? get taggedUserUids;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'location') String? get location;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'total_comments') int? get totalComments;@JsonKey(name: 'internal_ai_description') String? get internalAiDescription;@JsonKey(name: 'address_lat_long_wkb') String? get addressLatLongWkb;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'tagged_community_uids') List<String>? get taggedCommunityUids;@JsonKey(name: 'total_shares') int? get totalShares;@JsonKey(name: 'cumulative_score') int? get cumulativeScore;@JsonKey(name: 'files_data') List<PhotoFileData>? get filesData;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;@JsonKey(name: 'creator') PhotoCreator? get creator;
+@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'hashtags') List<String>? get hashtags;@JsonKey(name: 'tagged_user_uids') List<String>? get taggedUserUids;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'location') String? get location;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'total_comments') int? get totalComments;@JsonKey(name: 'internal_ai_description') String? get internalAiDescription;@JsonKey(name: 'address_lat_long_wkb') String? get addressLatLongWkb;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'tagged_community_uids') List<String>? get taggedCommunityUids;@JsonKey(name: 'total_shares') int? get totalShares;@JsonKey(name: 'cumulative_score') int? get cumulativeScore;@JsonKey(name: 'files_data') List<PhotoFileData>? get filesData;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;@JsonKey(name: 'creator') PhotoCreator? get creator;
 /// Create a copy of SearchedPhoto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -326,16 +326,16 @@ $SearchedPhotoCopyWith<SearchedPhoto> get copyWith => _$SearchedPhotoCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedPhoto&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.hashtags, hashtags)&&const DeepCollectionEquality().equals(other.taggedUserUids, taggedUserUids)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.location, location) || other.location == location)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.addressLatLongWkb, addressLatLongWkb) || other.addressLatLongWkb == addressLatLongWkb)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other.taggedCommunityUids, taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&const DeepCollectionEquality().equals(other.filesData, filesData)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedPhoto&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.hashtags, hashtags)&&const DeepCollectionEquality().equals(other.taggedUserUids, taggedUserUids)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.location, location) || other.location == location)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.addressLatLongWkb, addressLatLongWkb) || other.addressLatLongWkb == addressLatLongWkb)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other.taggedCommunityUids, taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&const DeepCollectionEquality().equals(other.filesData, filesData)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(hashtags),const DeepCollectionEquality().hash(taggedUserUids),isArchived,postCreatorType,updatedAt,userUid,location,totalImpressions,totalReactions,totalComments,internalAiDescription,addressLatLongWkb,creatorLatLongWkb,const DeepCollectionEquality().hash(taggedCommunityUids),totalShares,cumulativeScore,const DeepCollectionEquality().hash(filesData),seoDataWeighted,communityUid,openSearchCrawledAt,creator]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(hashtags),const DeepCollectionEquality().hash(taggedUserUids),isArchived,postCreatorType,updatedAt,userUid,location,totalImpressions,totalReactions,totalComments,internalAiDescription,addressLatLongWkb,creatorLatLongWkb,const DeepCollectionEquality().hash(taggedCommunityUids),totalShares,cumulativeScore,const DeepCollectionEquality().hash(filesData),seoDataWeighted,communityUid,externalSearchIndexedAt,creator]);
 
 @override
 String toString() {
-  return 'SearchedPhoto(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedPhoto(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -346,7 +346,7 @@ abstract mixin class $SearchedPhotoCopyWith<$Res>  {
   factory $SearchedPhotoCopyWith(SearchedPhoto value, $Res Function(SearchedPhoto) _then) = _$SearchedPhotoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'location') String? location,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'address_lat_long_wkb') String? addressLatLongWkb,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'files_data') List<PhotoFileData>? filesData,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') PhotoCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'location') String? location,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'address_lat_long_wkb') String? addressLatLongWkb,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'files_data') List<PhotoFileData>? filesData,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') PhotoCreator? creator
 });
 
 
@@ -363,7 +363,7 @@ class _$SearchedPhotoCopyWithImpl<$Res>
 
 /// Create a copy of SearchedPhoto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isArchived = freezed,Object? postCreatorType = freezed,Object? updatedAt = freezed,Object? userUid = freezed,Object? location = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? addressLatLongWkb = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? filesData = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isArchived = freezed,Object? postCreatorType = freezed,Object? updatedAt = freezed,Object? userUid = freezed,Object? location = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? addressLatLongWkb = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? filesData = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_self.copyWith(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
@@ -388,7 +388,7 @@ as int?,cumulativeScore: freezed == cumulativeScore ? _self.cumulativeScore : cu
 as int?,filesData: freezed == filesData ? _self.filesData : filesData // ignore: cast_nullable_to_non_nullable
 as List<PhotoFileData>?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeighted : seoDataWeighted // ignore: cast_nullable_to_non_nullable
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
-as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as String?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as PhotoCreator?,
   ));
@@ -484,10 +484,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PhotoCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PhotoCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchedPhoto() when $default != null:
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.externalSearchIndexedAt,_that.creator);case _:
   return orElse();
 
 }
@@ -505,10 +505,10 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PhotoCreator? creator)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PhotoCreator? creator)  $default,) {final _that = this;
 switch (_that) {
 case _SearchedPhoto():
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.openSearchCrawledAt,_that.creator);}
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.externalSearchIndexedAt,_that.creator);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -522,10 +522,10 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PhotoCreator? creator)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'address_lat_long_wkb')  String? addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'files_data')  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PhotoCreator? creator)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchedPhoto() when $default != null:
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isArchived,_that.postCreatorType,_that.updatedAt,_that.userUid,_that.location,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.addressLatLongWkb,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.filesData,_that.seoDataWeighted,_that.communityUid,_that.externalSearchIndexedAt,_that.creator);case _:
   return null;
 
 }
@@ -537,7 +537,7 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 @JsonSerializable()
 
 class _SearchedPhoto implements SearchedPhoto {
-  const _SearchedPhoto({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'hashtags') final  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids') final  List<String>? taggedUserUids, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'location') this.location, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'total_comments') this.totalComments, @JsonKey(name: 'internal_ai_description') this.internalAiDescription, @JsonKey(name: 'address_lat_long_wkb') this.addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids') final  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares') this.totalShares, @JsonKey(name: 'cumulative_score') this.cumulativeScore, @JsonKey(name: 'files_data') final  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt, @JsonKey(name: 'creator') this.creator}): _hashtags = hashtags,_taggedUserUids = taggedUserUids,_taggedCommunityUids = taggedCommunityUids,_filesData = filesData;
+  const _SearchedPhoto({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'hashtags') final  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids') final  List<String>? taggedUserUids, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'location') this.location, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'total_comments') this.totalComments, @JsonKey(name: 'internal_ai_description') this.internalAiDescription, @JsonKey(name: 'address_lat_long_wkb') this.addressLatLongWkb, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids') final  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares') this.totalShares, @JsonKey(name: 'cumulative_score') this.cumulativeScore, @JsonKey(name: 'files_data') final  List<PhotoFileData>? filesData, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt, @JsonKey(name: 'creator') this.creator}): _hashtags = hashtags,_taggedUserUids = taggedUserUids,_taggedCommunityUids = taggedCommunityUids,_filesData = filesData;
   factory _SearchedPhoto.fromJson(Map<String, dynamic> json) => _$SearchedPhotoFromJson(json);
 
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
@@ -595,7 +595,7 @@ class _SearchedPhoto implements SearchedPhoto {
 
 @override@JsonKey(name: 'seo_data_weighted') final  String? seoDataWeighted;
 @override@JsonKey(name: 'community_uid') final  String? communityUid;
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
 @override@JsonKey(name: 'creator') final  PhotoCreator? creator;
 
 /// Create a copy of SearchedPhoto
@@ -611,16 +611,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedPhoto&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags)&&const DeepCollectionEquality().equals(other._taggedUserUids, _taggedUserUids)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.location, location) || other.location == location)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.addressLatLongWkb, addressLatLongWkb) || other.addressLatLongWkb == addressLatLongWkb)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other._taggedCommunityUids, _taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&const DeepCollectionEquality().equals(other._filesData, _filesData)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedPhoto&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags)&&const DeepCollectionEquality().equals(other._taggedUserUids, _taggedUserUids)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.location, location) || other.location == location)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.addressLatLongWkb, addressLatLongWkb) || other.addressLatLongWkb == addressLatLongWkb)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other._taggedCommunityUids, _taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&const DeepCollectionEquality().equals(other._filesData, _filesData)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(_hashtags),const DeepCollectionEquality().hash(_taggedUserUids),isArchived,postCreatorType,updatedAt,userUid,location,totalImpressions,totalReactions,totalComments,internalAiDescription,addressLatLongWkb,creatorLatLongWkb,const DeepCollectionEquality().hash(_taggedCommunityUids),totalShares,cumulativeScore,const DeepCollectionEquality().hash(_filesData),seoDataWeighted,communityUid,openSearchCrawledAt,creator]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(_hashtags),const DeepCollectionEquality().hash(_taggedUserUids),isArchived,postCreatorType,updatedAt,userUid,location,totalImpressions,totalReactions,totalComments,internalAiDescription,addressLatLongWkb,creatorLatLongWkb,const DeepCollectionEquality().hash(_taggedCommunityUids),totalShares,cumulativeScore,const DeepCollectionEquality().hash(_filesData),seoDataWeighted,communityUid,externalSearchIndexedAt,creator]);
 
 @override
 String toString() {
-  return 'SearchedPhoto(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedPhoto(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isArchived: $isArchived, postCreatorType: $postCreatorType, updatedAt: $updatedAt, userUid: $userUid, location: $location, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, addressLatLongWkb: $addressLatLongWkb, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, filesData: $filesData, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -631,7 +631,7 @@ abstract mixin class _$SearchedPhotoCopyWith<$Res> implements $SearchedPhotoCopy
   factory _$SearchedPhotoCopyWith(_SearchedPhoto value, $Res Function(_SearchedPhoto) _then) = __$SearchedPhotoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'location') String? location,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'address_lat_long_wkb') String? addressLatLongWkb,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'files_data') List<PhotoFileData>? filesData,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') PhotoCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'location') String? location,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'address_lat_long_wkb') String? addressLatLongWkb,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'files_data') List<PhotoFileData>? filesData,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') PhotoCreator? creator
 });
 
 
@@ -648,7 +648,7 @@ class __$SearchedPhotoCopyWithImpl<$Res>
 
 /// Create a copy of SearchedPhoto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isArchived = freezed,Object? postCreatorType = freezed,Object? updatedAt = freezed,Object? userUid = freezed,Object? location = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? addressLatLongWkb = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? filesData = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isArchived = freezed,Object? postCreatorType = freezed,Object? updatedAt = freezed,Object? userUid = freezed,Object? location = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? addressLatLongWkb = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? filesData = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_SearchedPhoto(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
@@ -673,7 +673,7 @@ as int?,cumulativeScore: freezed == cumulativeScore ? _self.cumulativeScore : cu
 as int?,filesData: freezed == filesData ? _self._filesData : filesData // ignore: cast_nullable_to_non_nullable
 as List<PhotoFileData>?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeighted : seoDataWeighted // ignore: cast_nullable_to_non_nullable
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
-as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as String?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as PhotoCreator?,
   ));

@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'search_photos.freezed.dart';
-part 'search_photos.g.dart';
+part 'search_offers.freezed.dart';
+part 'search_offers.g.dart';
 
 @freezed
-sealed class OpenSearchPhotosResult with _$OpenSearchPhotosResult {
-  const factory OpenSearchPhotosResult({
+sealed class ExternalSearchOffersResult with _$ExternalSearchOffersResult {
+  const factory ExternalSearchOffersResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -13,20 +13,20 @@ sealed class OpenSearchPhotosResult with _$OpenSearchPhotosResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<SearchedPhoto>? results,
+    List<SearchedOffer>? results,
     
     @JsonKey(name: 'pagination')
-    PhotosPagination? pagination,
+    OffersPagination? pagination,
 
-  }) = _OpenSearchPhotosResult;
+  }) = _ExternalSearchOffersResult;
 
-  factory OpenSearchPhotosResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchPhotosResultFromJson(json);
+  factory ExternalSearchOffersResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchOffersResultFromJson(json);
 }
 
 @freezed
-sealed class SearchedPhoto with _$SearchedPhoto {
-  const factory SearchedPhoto({
+sealed class SearchedOffer with _$SearchedOffer {
+  const factory SearchedOffer({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
     
@@ -45,20 +45,20 @@ sealed class SearchedPhoto with _$SearchedPhoto {
     @JsonKey(name: 'tagged_user_uids')
     List<String>? taggedUserUids,
     
+    @JsonKey(name: 'is_deleted')
+    bool? isDeleted,
+    
     @JsonKey(name: 'is_archived')
     bool? isArchived,
+    
+    @JsonKey(name: 'is_active')
+    bool? isActive,
     
     @JsonKey(name: 'post_creator_type')
     String? postCreatorType,
     
-    @JsonKey(name: 'updated_at')
-    DateTime? updatedAt,
-    
     @JsonKey(name: 'user_uid')
     String? userUid,
-    
-    @JsonKey(name: 'location')
-    String? location,
     
     @JsonKey(name: 'total_impressions')
     int? totalImpressions,
@@ -72,9 +72,6 @@ sealed class SearchedPhoto with _$SearchedPhoto {
     @JsonKey(name: 'internal_ai_description')
     String? internalAiDescription,
     
-    @JsonKey(name: 'address_lat_long_wkb')
-    String? addressLatLongWkb,
-    
     @JsonKey(name: 'creator_lat_long_wkb')
     String? creatorLatLongWkb,
     
@@ -87,8 +84,23 @@ sealed class SearchedPhoto with _$SearchedPhoto {
     @JsonKey(name: 'cumulative_score')
     int? cumulativeScore,
     
+    @JsonKey(name: 'cta_action')
+    String? ctaAction,
+    
+    @JsonKey(name: 'cta_action_url')
+    String? ctaActionUrl,
+    
     @JsonKey(name: 'files_data')
-    List<PhotoFileData>? filesData,
+    List<OfferFileData>? filesData,
+    
+    @JsonKey(name: 'status')
+    String? status,
+    
+    @JsonKey(name: 'target_gender')
+    String? targetGender,
+    
+    @JsonKey(name: 'target_areas')
+    List<String>? targetAreas,
     
     @JsonKey(name: 'seo_data_weighted')
     String? seoDataWeighted,
@@ -96,34 +108,41 @@ sealed class SearchedPhoto with _$SearchedPhoto {
     @JsonKey(name: 'community_uid')
     String? communityUid,
     
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'updated_at')
+    DateTime? updatedAt,
+    
+    @JsonKey(name: 'rich_description')
+    Map<String,dynamic>? richDescription,
+    
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'creator')
-    PhotoCreator? creator,
-  }) = _SearchedPhoto;
+    OfferCreator? creator,
+  }) = _SearchedOffer;
 
-  factory SearchedPhoto.fromJson(Map<String, dynamic> json) => 
-      _$SearchedPhotoFromJson(json);
+  factory SearchedOffer.fromJson(Map<String, dynamic> json) => 
+      _$SearchedOfferFromJson(json);
 }
 
 @freezed
-sealed class PhotoFileData with _$PhotoFileData {
-  const factory PhotoFileData({
+sealed class OfferFileData with _$OfferFileData {
+  const factory OfferFileData({
     @JsonKey(name: 'type')
     String? type,
     
     @JsonKey(name: 'image_url')
     String? imageUrl,
-  }) = _PhotoFileData;
+  }) = _OfferFileData;
 
-  factory PhotoFileData.fromJson(Map<String, dynamic> json) => 
-      _$PhotoFileDataFromJson(json);
+  factory OfferFileData.fromJson(Map<String, dynamic> json) => 
+      _$OfferFileDataFromJson(json);
 }
 
+
 @freezed
-sealed class PhotosPagination with _$PhotosPagination {
-  const factory PhotosPagination({
+sealed class OffersPagination with _$OffersPagination {
+  const factory OffersPagination({
     @JsonKey(name: 'current_page')
     int? currentPage,
     
@@ -144,15 +163,15 @@ sealed class PhotosPagination with _$PhotosPagination {
     
     @JsonKey(name: 'total_pages')
     int? totalPages,
-  }) = _PhotosPagination;
+  }) = _OffersPagination;
 
-  factory PhotosPagination.fromJson(Map<String, dynamic> json) => 
-      _$PhotosPaginationFromJson(json);
+  factory OffersPagination.fromJson(Map<String, dynamic> json) => 
+      _$OffersPaginationFromJson(json);
 }
 
 @freezed
-sealed class PhotoCreator with _$PhotoCreator {
-  const factory PhotoCreator({
+sealed class OfferCreator with _$OfferCreator {
+  const factory OfferCreator({
     @JsonKey(name: 'uid')
     String? uid,
     
@@ -176,8 +195,9 @@ sealed class PhotoCreator with _$PhotoCreator {
     
     @JsonKey(name: 'is_legally_verified')
     bool? isLegallyVerified,
-  }) = _PhotoCreator;
+  }) = _OfferCreator;
 
-  factory PhotoCreator.fromJson(Map<String, dynamic> json) => 
-      _$PhotoCreatorFromJson(json);
+  factory OfferCreator.fromJson(Map<String, dynamic> json) => 
+      _$OfferCreatorFromJson(json);
 }
+

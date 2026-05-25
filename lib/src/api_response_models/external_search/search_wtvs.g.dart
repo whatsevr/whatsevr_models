@@ -6,9 +6,9 @@ part of 'search_wtvs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchWtvsResult _$OpenSearchWtvsResultFromJson(
+_ExternalSearchWtvsResult _$ExternalSearchWtvsResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchWtvsResult(
+) => _ExternalSearchWtvsResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
@@ -21,8 +21,8 @@ _OpenSearchWtvsResult _$OpenSearchWtvsResultFromJson(
           : WtvsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$OpenSearchWtvsResultToJson(
-  _OpenSearchWtvsResult instance,
+Map<String, dynamic> _$ExternalSearchWtvsResultToJson(
+  _ExternalSearchWtvsResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -70,10 +70,10 @@ _SearchedWtv _$SearchedWtvFromJson(Map<String, dynamic> json) => _SearchedWtv(
   videoDurationInSec: (json['video_duration_in_sec'] as num?)?.toInt(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  openSearchCrawledAt:
-      json['open_search_crawled_at'] == null
+  externalSearchIndexedAt:
+      json['external_search_indexed_at'] == null
           ? null
-          : DateTime.parse(json['open_search_crawled_at'] as String),
+          : DateTime.parse(json['external_search_indexed_at'] as String),
   creator:
       json['creator'] == null
           ? null
@@ -108,7 +108,8 @@ Map<String, dynamic> _$SearchedWtvToJson(_SearchedWtv instance) =>
       'video_duration_in_sec': instance.videoDurationInSec,
       'seo_data_weighted': instance.seoDataWeighted,
       'community_uid': instance.communityUid,
-      'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+      'external_search_indexed_at':
+          instance.externalSearchIndexedAt?.toIso8601String(),
       'creator': instance.creator,
     };
 

@@ -4,9 +4,9 @@ part 'search_sneekpeek_candidates.freezed.dart';
 part 'search_sneekpeek_candidates.g.dart';
 
 @freezed
-sealed class OpenSearchSneekpeekCandidatesResult
-    with _$OpenSearchSneekpeekCandidatesResult {
-  const factory OpenSearchSneekpeekCandidatesResult({
+sealed class ExternalSearchSneekpeekCandidatesResult
+    with _$ExternalSearchSneekpeekCandidatesResult {
+  const factory ExternalSearchSneekpeekCandidatesResult({
     @JsonKey(name: 'success') bool? success,
 
     @JsonKey(name: 'message') String? message,
@@ -16,11 +16,11 @@ sealed class OpenSearchSneekpeekCandidatesResult
     @JsonKey(name: 'uids') List<String>? uids,
 
     @JsonKey(name: 'pagination') SneekpeekCandidatesPagination? pagination,
-  }) = _OpenSearchSneekpeekCandidatesResult;
+  }) = _ExternalSearchSneekpeekCandidatesResult;
 
-  factory OpenSearchSneekpeekCandidatesResult.fromJson(
+  factory ExternalSearchSneekpeekCandidatesResult.fromJson(
     Map<String, dynamic> json,
-  ) => _$OpenSearchSneekpeekCandidatesResultFromJson(json);
+  ) => _$ExternalSearchSneekpeekCandidatesResultFromJson(json);
 }
 
 @freezed
@@ -47,7 +47,7 @@ sealed class SearchedSneekpeekCandidate with _$SearchedSneekpeekCandidate {
     @JsonKey(name: 'direct_call_types') String? directCallTypes,
     @JsonKey(name: 'gender') String? gender,
 
-    @JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,
   }) = _SearchedSneekpeekCandidate;
 
   factory SearchedSneekpeekCandidate.fromJson(Map<String, dynamic> json) =>

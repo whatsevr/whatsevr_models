@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'search_flicks.freezed.dart';
-part 'search_flicks.g.dart';
+part 'search_photos.freezed.dart';
+part 'search_photos.g.dart';
 
 @freezed
-sealed class OpenSearchFlicksResult with _$OpenSearchFlicksResult {
-  const factory OpenSearchFlicksResult({
+sealed class ExternalSearchPhotosResult with _$ExternalSearchPhotosResult {
+  const factory ExternalSearchPhotosResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -13,20 +13,20 @@ sealed class OpenSearchFlicksResult with _$OpenSearchFlicksResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<SearchedFlick>? results,
+    List<SearchedPhoto>? results,
     
     @JsonKey(name: 'pagination')
-    FlicksPagination? pagination,
+    PhotosPagination? pagination,
 
-  }) = _OpenSearchFlicksResult;
+  }) = _ExternalSearchPhotosResult;
 
-  factory OpenSearchFlicksResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchFlicksResultFromJson(json);
+  factory ExternalSearchPhotosResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchPhotosResultFromJson(json);
 }
 
 @freezed
-sealed class SearchedFlick with _$SearchedFlick {
-  const factory SearchedFlick({
+sealed class SearchedPhoto with _$SearchedPhoto {
+  const factory SearchedPhoto({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
     
@@ -48,9 +48,6 @@ sealed class SearchedFlick with _$SearchedFlick {
     @JsonKey(name: 'is_archived')
     bool? isArchived,
     
-    @JsonKey(name: 'is_active')
-    bool? isActive,
-    
     @JsonKey(name: 'post_creator_type')
     String? postCreatorType,
     
@@ -60,17 +57,11 @@ sealed class SearchedFlick with _$SearchedFlick {
     @JsonKey(name: 'user_uid')
     String? userUid,
     
-    @JsonKey(name: 'thumbnail')
-    String? thumbnail,
-    
-    @JsonKey(name: 'video_url')
-    String? videoUrl,
-    
     @JsonKey(name: 'location')
     String? location,
     
-    @JsonKey(name: 'total_views')
-    int? totalViews,
+    @JsonKey(name: 'total_impressions')
+    int? totalImpressions,
     
     @JsonKey(name: 'total_reactions')
     int? totalReactions,
@@ -96,8 +87,8 @@ sealed class SearchedFlick with _$SearchedFlick {
     @JsonKey(name: 'cumulative_score')
     int? cumulativeScore,
     
-    @JsonKey(name: 'video_duration_in_sec')
-    int? videoDurationInSec,
+    @JsonKey(name: 'files_data')
+    List<PhotoFileData>? filesData,
     
     @JsonKey(name: 'seo_data_weighted')
     String? seoDataWeighted,
@@ -105,23 +96,34 @@ sealed class SearchedFlick with _$SearchedFlick {
     @JsonKey(name: 'community_uid')
     String? communityUid,
     
-    @JsonKey(name: 'related_content_uid')
-    String? relatedContentUid,
-    
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'creator')
-    FlickCreator? creator,
-  }) = _SearchedFlick;
+    PhotoCreator? creator,
+  }) = _SearchedPhoto;
 
-  factory SearchedFlick.fromJson(Map<String, dynamic> json) => 
-      _$SearchedFlickFromJson(json);
+  factory SearchedPhoto.fromJson(Map<String, dynamic> json) => 
+      _$SearchedPhotoFromJson(json);
 }
 
 @freezed
-sealed class FlicksPagination with _$FlicksPagination {
-  const factory FlicksPagination({
+sealed class PhotoFileData with _$PhotoFileData {
+  const factory PhotoFileData({
+    @JsonKey(name: 'type')
+    String? type,
+    
+    @JsonKey(name: 'image_url')
+    String? imageUrl,
+  }) = _PhotoFileData;
+
+  factory PhotoFileData.fromJson(Map<String, dynamic> json) => 
+      _$PhotoFileDataFromJson(json);
+}
+
+@freezed
+sealed class PhotosPagination with _$PhotosPagination {
+  const factory PhotosPagination({
     @JsonKey(name: 'current_page')
     int? currentPage,
     
@@ -142,15 +144,15 @@ sealed class FlicksPagination with _$FlicksPagination {
     
     @JsonKey(name: 'total_pages')
     int? totalPages,
-  }) = _FlicksPagination;
+  }) = _PhotosPagination;
 
-  factory FlicksPagination.fromJson(Map<String, dynamic> json) => 
-      _$FlicksPaginationFromJson(json);
+  factory PhotosPagination.fromJson(Map<String, dynamic> json) => 
+      _$PhotosPaginationFromJson(json);
 }
 
 @freezed
-sealed class FlickCreator with _$FlickCreator {
-  const factory FlickCreator({
+sealed class PhotoCreator with _$PhotoCreator {
+  const factory PhotoCreator({
     @JsonKey(name: 'uid')
     String? uid,
     
@@ -174,8 +176,8 @@ sealed class FlickCreator with _$FlickCreator {
     
     @JsonKey(name: 'is_legally_verified')
     bool? isLegallyVerified,
-  }) = _FlickCreator;
+  }) = _PhotoCreator;
 
-  factory FlickCreator.fromJson(Map<String, dynamic> json) => 
-      _$FlickCreatorFromJson(json);
+  factory PhotoCreator.fromJson(Map<String, dynamic> json) => 
+      _$PhotoCreatorFromJson(json);
 }

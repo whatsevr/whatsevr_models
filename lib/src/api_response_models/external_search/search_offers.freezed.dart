@@ -13,22 +13,22 @@ part of 'search_offers.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchOffersResult {
+mixin _$ExternalSearchOffersResult {
 
 @JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<SearchedOffer>? get results;@JsonKey(name: 'pagination') OffersPagination? get pagination;
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchOffersResultCopyWith<OpenSearchOffersResult> get copyWith => _$OpenSearchOffersResultCopyWithImpl<OpenSearchOffersResult>(this as OpenSearchOffersResult, _$identity);
+$ExternalSearchOffersResultCopyWith<ExternalSearchOffersResult> get copyWith => _$ExternalSearchOffersResultCopyWithImpl<ExternalSearchOffersResult>(this as ExternalSearchOffersResult, _$identity);
 
-  /// Serializes this OpenSearchOffersResult to a JSON map.
+  /// Serializes this ExternalSearchOffersResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchOffersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchOffersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchOffersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchOffersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchOffersResultCopyWith<$Res>  {
-  factory $OpenSearchOffersResultCopyWith(OpenSearchOffersResult value, $Res Function(OpenSearchOffersResult) _then) = _$OpenSearchOffersResultCopyWithImpl;
+abstract mixin class $ExternalSearchOffersResultCopyWith<$Res>  {
+  factory $ExternalSearchOffersResultCopyWith(ExternalSearchOffersResult value, $Res Function(ExternalSearchOffersResult) _then) = _$ExternalSearchOffersResultCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedOffer>? results,@JsonKey(name: 'pagination') OffersPagination? pagination
@@ -56,14 +56,14 @@ $OffersPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchOffersResultCopyWithImpl<$Res>
-    implements $OpenSearchOffersResultCopyWith<$Res> {
-  _$OpenSearchOffersResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchOffersResultCopyWithImpl<$Res>
+    implements $ExternalSearchOffersResultCopyWith<$Res> {
+  _$ExternalSearchOffersResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchOffersResult _self;
-  final $Res Function(OpenSearchOffersResult) _then;
+  final ExternalSearchOffersResult _self;
+  final $Res Function(ExternalSearchOffersResult) _then;
 
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
@@ -74,7 +74,7 @@ as List<SearchedOffer>?,pagination: freezed == pagination ? _self.pagination : p
 as OffersPagination?,
   ));
 }
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -90,8 +90,8 @@ $OffersPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchOffersResult].
-extension OpenSearchOffersResultPatterns on OpenSearchOffersResult {
+/// Adds pattern-matching-related methods to [ExternalSearchOffersResult].
+extension ExternalSearchOffersResultPatterns on ExternalSearchOffersResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -104,10 +104,10 @@ extension OpenSearchOffersResultPatterns on OpenSearchOffersResult {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchOffersResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchOffersResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult() when $default != null:
+case _ExternalSearchOffersResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -126,10 +126,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchOffersResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchOffersResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult():
+case _ExternalSearchOffersResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -144,10 +144,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchOffersResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchOffersResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult() when $default != null:
+case _ExternalSearchOffersResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedOffer>? results, @JsonKey(name: 'pagination')  OffersPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult() when $default != null:
+case _ExternalSearchOffersResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return orElse();
 
@@ -188,7 +188,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedOffer>? results, @JsonKey(name: 'pagination')  OffersPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult():
+case _ExternalSearchOffersResult():
 return $default(_that.success,_that.message,_that.results,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -205,7 +205,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedOffer>? results, @JsonKey(name: 'pagination')  OffersPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchOffersResult() when $default != null:
+case _ExternalSearchOffersResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return null;
 
@@ -217,9 +217,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchOffersResult implements OpenSearchOffersResult {
-  const _OpenSearchOffersResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedOffer>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
-  factory _OpenSearchOffersResult.fromJson(Map<String, dynamic> json) => _$OpenSearchOffersResultFromJson(json);
+class _ExternalSearchOffersResult implements ExternalSearchOffersResult {
+  const _ExternalSearchOffersResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedOffer>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
+  factory _ExternalSearchOffersResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchOffersResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
@@ -234,20 +234,20 @@ class _OpenSearchOffersResult implements OpenSearchOffersResult {
 
 @override@JsonKey(name: 'pagination') final  OffersPagination? pagination;
 
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchOffersResultCopyWith<_OpenSearchOffersResult> get copyWith => __$OpenSearchOffersResultCopyWithImpl<_OpenSearchOffersResult>(this, _$identity);
+_$ExternalSearchOffersResultCopyWith<_ExternalSearchOffersResult> get copyWith => __$ExternalSearchOffersResultCopyWithImpl<_ExternalSearchOffersResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchOffersResultToJson(this, );
+  return _$ExternalSearchOffersResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchOffersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchOffersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,15 +256,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchOffersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchOffersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchOffersResultCopyWith<$Res> implements $OpenSearchOffersResultCopyWith<$Res> {
-  factory _$OpenSearchOffersResultCopyWith(_OpenSearchOffersResult value, $Res Function(_OpenSearchOffersResult) _then) = __$OpenSearchOffersResultCopyWithImpl;
+abstract mixin class _$ExternalSearchOffersResultCopyWith<$Res> implements $ExternalSearchOffersResultCopyWith<$Res> {
+  factory _$ExternalSearchOffersResultCopyWith(_ExternalSearchOffersResult value, $Res Function(_ExternalSearchOffersResult) _then) = __$ExternalSearchOffersResultCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedOffer>? results,@JsonKey(name: 'pagination') OffersPagination? pagination
@@ -275,17 +275,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchOffersResultCopyWithImpl<$Res>
-    implements _$OpenSearchOffersResultCopyWith<$Res> {
-  __$OpenSearchOffersResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchOffersResultCopyWithImpl<$Res>
+    implements _$ExternalSearchOffersResultCopyWith<$Res> {
+  __$ExternalSearchOffersResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchOffersResult _self;
-  final $Res Function(_OpenSearchOffersResult) _then;
+  final _ExternalSearchOffersResult _self;
+  final $Res Function(_ExternalSearchOffersResult) _then;
 
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchOffersResult(
+  return _then(_ExternalSearchOffersResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
@@ -294,7 +294,7 @@ as OffersPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchOffersResult
+/// Create a copy of ExternalSearchOffersResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -313,7 +313,7 @@ $OffersPaginationCopyWith<$Res>? get pagination {
 /// @nodoc
 mixin _$SearchedOffer {
 
-@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'hashtags') List<String>? get hashtags;@JsonKey(name: 'tagged_user_uids') List<String>? get taggedUserUids;@JsonKey(name: 'is_deleted') bool? get isDeleted;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'is_active') bool? get isActive;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'total_comments') int? get totalComments;@JsonKey(name: 'internal_ai_description') String? get internalAiDescription;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'tagged_community_uids') List<String>? get taggedCommunityUids;@JsonKey(name: 'total_shares') int? get totalShares;@JsonKey(name: 'cumulative_score') int? get cumulativeScore;@JsonKey(name: 'cta_action') String? get ctaAction;@JsonKey(name: 'cta_action_url') String? get ctaActionUrl;@JsonKey(name: 'files_data') List<OfferFileData>? get filesData;@JsonKey(name: 'status') String? get status;@JsonKey(name: 'target_gender') String? get targetGender;@JsonKey(name: 'target_areas') List<String>? get targetAreas;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'rich_description') Map<String, dynamic>? get richDescription;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;@JsonKey(name: 'creator') OfferCreator? get creator;
+@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'hashtags') List<String>? get hashtags;@JsonKey(name: 'tagged_user_uids') List<String>? get taggedUserUids;@JsonKey(name: 'is_deleted') bool? get isDeleted;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'is_active') bool? get isActive;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'total_comments') int? get totalComments;@JsonKey(name: 'internal_ai_description') String? get internalAiDescription;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'tagged_community_uids') List<String>? get taggedCommunityUids;@JsonKey(name: 'total_shares') int? get totalShares;@JsonKey(name: 'cumulative_score') int? get cumulativeScore;@JsonKey(name: 'cta_action') String? get ctaAction;@JsonKey(name: 'cta_action_url') String? get ctaActionUrl;@JsonKey(name: 'files_data') List<OfferFileData>? get filesData;@JsonKey(name: 'status') String? get status;@JsonKey(name: 'target_gender') String? get targetGender;@JsonKey(name: 'target_areas') List<String>? get targetAreas;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'rich_description') Map<String, dynamic>? get richDescription;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;@JsonKey(name: 'creator') OfferCreator? get creator;
 /// Create a copy of SearchedOffer
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -326,16 +326,16 @@ $SearchedOfferCopyWith<SearchedOffer> get copyWith => _$SearchedOfferCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedOffer&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.hashtags, hashtags)&&const DeepCollectionEquality().equals(other.taggedUserUids, taggedUserUids)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other.taggedCommunityUids, taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&(identical(other.ctaAction, ctaAction) || other.ctaAction == ctaAction)&&(identical(other.ctaActionUrl, ctaActionUrl) || other.ctaActionUrl == ctaActionUrl)&&const DeepCollectionEquality().equals(other.filesData, filesData)&&(identical(other.status, status) || other.status == status)&&(identical(other.targetGender, targetGender) || other.targetGender == targetGender)&&const DeepCollectionEquality().equals(other.targetAreas, targetAreas)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.richDescription, richDescription)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedOffer&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.hashtags, hashtags)&&const DeepCollectionEquality().equals(other.taggedUserUids, taggedUserUids)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other.taggedCommunityUids, taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&(identical(other.ctaAction, ctaAction) || other.ctaAction == ctaAction)&&(identical(other.ctaActionUrl, ctaActionUrl) || other.ctaActionUrl == ctaActionUrl)&&const DeepCollectionEquality().equals(other.filesData, filesData)&&(identical(other.status, status) || other.status == status)&&(identical(other.targetGender, targetGender) || other.targetGender == targetGender)&&const DeepCollectionEquality().equals(other.targetAreas, targetAreas)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.richDescription, richDescription)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(hashtags),const DeepCollectionEquality().hash(taggedUserUids),isDeleted,isArchived,isActive,postCreatorType,userUid,totalImpressions,totalReactions,totalComments,internalAiDescription,creatorLatLongWkb,const DeepCollectionEquality().hash(taggedCommunityUids),totalShares,cumulativeScore,ctaAction,ctaActionUrl,const DeepCollectionEquality().hash(filesData),status,targetGender,const DeepCollectionEquality().hash(targetAreas),seoDataWeighted,communityUid,updatedAt,const DeepCollectionEquality().hash(richDescription),openSearchCrawledAt,creator]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(hashtags),const DeepCollectionEquality().hash(taggedUserUids),isDeleted,isArchived,isActive,postCreatorType,userUid,totalImpressions,totalReactions,totalComments,internalAiDescription,creatorLatLongWkb,const DeepCollectionEquality().hash(taggedCommunityUids),totalShares,cumulativeScore,ctaAction,ctaActionUrl,const DeepCollectionEquality().hash(filesData),status,targetGender,const DeepCollectionEquality().hash(targetAreas),seoDataWeighted,communityUid,updatedAt,const DeepCollectionEquality().hash(richDescription),externalSearchIndexedAt,creator]);
 
 @override
 String toString() {
-  return 'SearchedOffer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedOffer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -346,7 +346,7 @@ abstract mixin class $SearchedOfferCopyWith<$Res>  {
   factory $SearchedOfferCopyWith(SearchedOffer value, $Res Function(SearchedOffer) _then) = _$SearchedOfferCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_deleted') bool? isDeleted,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'is_active') bool? isActive,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'cta_action') String? ctaAction,@JsonKey(name: 'cta_action_url') String? ctaActionUrl,@JsonKey(name: 'files_data') List<OfferFileData>? filesData,@JsonKey(name: 'status') String? status,@JsonKey(name: 'target_gender') String? targetGender,@JsonKey(name: 'target_areas') List<String>? targetAreas,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'rich_description') Map<String, dynamic>? richDescription,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') OfferCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_deleted') bool? isDeleted,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'is_active') bool? isActive,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'cta_action') String? ctaAction,@JsonKey(name: 'cta_action_url') String? ctaActionUrl,@JsonKey(name: 'files_data') List<OfferFileData>? filesData,@JsonKey(name: 'status') String? status,@JsonKey(name: 'target_gender') String? targetGender,@JsonKey(name: 'target_areas') List<String>? targetAreas,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'rich_description') Map<String, dynamic>? richDescription,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') OfferCreator? creator
 });
 
 
@@ -363,7 +363,7 @@ class _$SearchedOfferCopyWithImpl<$Res>
 
 /// Create a copy of SearchedOffer
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isDeleted = freezed,Object? isArchived = freezed,Object? isActive = freezed,Object? postCreatorType = freezed,Object? userUid = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? ctaAction = freezed,Object? ctaActionUrl = freezed,Object? filesData = freezed,Object? status = freezed,Object? targetGender = freezed,Object? targetAreas = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? richDescription = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isDeleted = freezed,Object? isArchived = freezed,Object? isActive = freezed,Object? postCreatorType = freezed,Object? userUid = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? ctaAction = freezed,Object? ctaActionUrl = freezed,Object? filesData = freezed,Object? status = freezed,Object? targetGender = freezed,Object? targetAreas = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? richDescription = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_self.copyWith(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
@@ -394,7 +394,7 @@ as List<String>?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeig
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,richDescription: freezed == richDescription ? _self.richDescription : richDescription // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as OfferCreator?,
   ));
@@ -490,10 +490,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  OfferCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  OfferCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchedOffer() when $default != null:
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.externalSearchIndexedAt,_that.creator);case _:
   return orElse();
 
 }
@@ -511,10 +511,10 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  OfferCreator? creator)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  OfferCreator? creator)  $default,) {final _that = this;
 switch (_that) {
 case _SearchedOffer():
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.openSearchCrawledAt,_that.creator);}
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.externalSearchIndexedAt,_that.creator);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -528,10 +528,10 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  OfferCreator? creator)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids')  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted')  bool? isDeleted, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'is_active')  bool? isActive, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'total_comments')  int? totalComments, @JsonKey(name: 'internal_ai_description')  String? internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids')  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares')  int? totalShares, @JsonKey(name: 'cumulative_score')  int? cumulativeScore, @JsonKey(name: 'cta_action')  String? ctaAction, @JsonKey(name: 'cta_action_url')  String? ctaActionUrl, @JsonKey(name: 'files_data')  List<OfferFileData>? filesData, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'target_gender')  String? targetGender, @JsonKey(name: 'target_areas')  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'rich_description')  Map<String, dynamic>? richDescription, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  OfferCreator? creator)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchedOffer() when $default != null:
-return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.hashtags,_that.taggedUserUids,_that.isDeleted,_that.isArchived,_that.isActive,_that.postCreatorType,_that.userUid,_that.totalImpressions,_that.totalReactions,_that.totalComments,_that.internalAiDescription,_that.creatorLatLongWkb,_that.taggedCommunityUids,_that.totalShares,_that.cumulativeScore,_that.ctaAction,_that.ctaActionUrl,_that.filesData,_that.status,_that.targetGender,_that.targetAreas,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.richDescription,_that.externalSearchIndexedAt,_that.creator);case _:
   return null;
 
 }
@@ -543,7 +543,7 @@ return $default(_that.createdAt,_that.uid,_that.title,_that.description,_that.ha
 @JsonSerializable()
 
 class _SearchedOffer implements SearchedOffer {
-  const _SearchedOffer({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'hashtags') final  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids') final  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted') this.isDeleted, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'is_active') this.isActive, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'total_comments') this.totalComments, @JsonKey(name: 'internal_ai_description') this.internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids') final  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares') this.totalShares, @JsonKey(name: 'cumulative_score') this.cumulativeScore, @JsonKey(name: 'cta_action') this.ctaAction, @JsonKey(name: 'cta_action_url') this.ctaActionUrl, @JsonKey(name: 'files_data') final  List<OfferFileData>? filesData, @JsonKey(name: 'status') this.status, @JsonKey(name: 'target_gender') this.targetGender, @JsonKey(name: 'target_areas') final  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'rich_description') final  Map<String, dynamic>? richDescription, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt, @JsonKey(name: 'creator') this.creator}): _hashtags = hashtags,_taggedUserUids = taggedUserUids,_taggedCommunityUids = taggedCommunityUids,_filesData = filesData,_targetAreas = targetAreas,_richDescription = richDescription;
+  const _SearchedOffer({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'hashtags') final  List<String>? hashtags, @JsonKey(name: 'tagged_user_uids') final  List<String>? taggedUserUids, @JsonKey(name: 'is_deleted') this.isDeleted, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'is_active') this.isActive, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'total_comments') this.totalComments, @JsonKey(name: 'internal_ai_description') this.internalAiDescription, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'tagged_community_uids') final  List<String>? taggedCommunityUids, @JsonKey(name: 'total_shares') this.totalShares, @JsonKey(name: 'cumulative_score') this.cumulativeScore, @JsonKey(name: 'cta_action') this.ctaAction, @JsonKey(name: 'cta_action_url') this.ctaActionUrl, @JsonKey(name: 'files_data') final  List<OfferFileData>? filesData, @JsonKey(name: 'status') this.status, @JsonKey(name: 'target_gender') this.targetGender, @JsonKey(name: 'target_areas') final  List<String>? targetAreas, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'rich_description') final  Map<String, dynamic>? richDescription, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt, @JsonKey(name: 'creator') this.creator}): _hashtags = hashtags,_taggedUserUids = taggedUserUids,_taggedCommunityUids = taggedCommunityUids,_filesData = filesData,_targetAreas = targetAreas,_richDescription = richDescription;
   factory _SearchedOffer.fromJson(Map<String, dynamic> json) => _$SearchedOfferFromJson(json);
 
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
@@ -623,7 +623,7 @@ class _SearchedOffer implements SearchedOffer {
   return EqualUnmodifiableMapView(value);
 }
 
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
 @override@JsonKey(name: 'creator') final  OfferCreator? creator;
 
 /// Create a copy of SearchedOffer
@@ -639,16 +639,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedOffer&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags)&&const DeepCollectionEquality().equals(other._taggedUserUids, _taggedUserUids)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other._taggedCommunityUids, _taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&(identical(other.ctaAction, ctaAction) || other.ctaAction == ctaAction)&&(identical(other.ctaActionUrl, ctaActionUrl) || other.ctaActionUrl == ctaActionUrl)&&const DeepCollectionEquality().equals(other._filesData, _filesData)&&(identical(other.status, status) || other.status == status)&&(identical(other.targetGender, targetGender) || other.targetGender == targetGender)&&const DeepCollectionEquality().equals(other._targetAreas, _targetAreas)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._richDescription, _richDescription)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedOffer&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._hashtags, _hashtags)&&const DeepCollectionEquality().equals(other._taggedUserUids, _taggedUserUids)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.totalComments, totalComments) || other.totalComments == totalComments)&&(identical(other.internalAiDescription, internalAiDescription) || other.internalAiDescription == internalAiDescription)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&const DeepCollectionEquality().equals(other._taggedCommunityUids, _taggedCommunityUids)&&(identical(other.totalShares, totalShares) || other.totalShares == totalShares)&&(identical(other.cumulativeScore, cumulativeScore) || other.cumulativeScore == cumulativeScore)&&(identical(other.ctaAction, ctaAction) || other.ctaAction == ctaAction)&&(identical(other.ctaActionUrl, ctaActionUrl) || other.ctaActionUrl == ctaActionUrl)&&const DeepCollectionEquality().equals(other._filesData, _filesData)&&(identical(other.status, status) || other.status == status)&&(identical(other.targetGender, targetGender) || other.targetGender == targetGender)&&const DeepCollectionEquality().equals(other._targetAreas, _targetAreas)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._richDescription, _richDescription)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(_hashtags),const DeepCollectionEquality().hash(_taggedUserUids),isDeleted,isArchived,isActive,postCreatorType,userUid,totalImpressions,totalReactions,totalComments,internalAiDescription,creatorLatLongWkb,const DeepCollectionEquality().hash(_taggedCommunityUids),totalShares,cumulativeScore,ctaAction,ctaActionUrl,const DeepCollectionEquality().hash(_filesData),status,targetGender,const DeepCollectionEquality().hash(_targetAreas),seoDataWeighted,communityUid,updatedAt,const DeepCollectionEquality().hash(_richDescription),openSearchCrawledAt,creator]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,uid,title,description,const DeepCollectionEquality().hash(_hashtags),const DeepCollectionEquality().hash(_taggedUserUids),isDeleted,isArchived,isActive,postCreatorType,userUid,totalImpressions,totalReactions,totalComments,internalAiDescription,creatorLatLongWkb,const DeepCollectionEquality().hash(_taggedCommunityUids),totalShares,cumulativeScore,ctaAction,ctaActionUrl,const DeepCollectionEquality().hash(_filesData),status,targetGender,const DeepCollectionEquality().hash(_targetAreas),seoDataWeighted,communityUid,updatedAt,const DeepCollectionEquality().hash(_richDescription),externalSearchIndexedAt,creator]);
 
 @override
 String toString() {
-  return 'SearchedOffer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedOffer(createdAt: $createdAt, uid: $uid, title: $title, description: $description, hashtags: $hashtags, taggedUserUids: $taggedUserUids, isDeleted: $isDeleted, isArchived: $isArchived, isActive: $isActive, postCreatorType: $postCreatorType, userUid: $userUid, totalImpressions: $totalImpressions, totalReactions: $totalReactions, totalComments: $totalComments, internalAiDescription: $internalAiDescription, creatorLatLongWkb: $creatorLatLongWkb, taggedCommunityUids: $taggedCommunityUids, totalShares: $totalShares, cumulativeScore: $cumulativeScore, ctaAction: $ctaAction, ctaActionUrl: $ctaActionUrl, filesData: $filesData, status: $status, targetGender: $targetGender, targetAreas: $targetAreas, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, richDescription: $richDescription, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -659,7 +659,7 @@ abstract mixin class _$SearchedOfferCopyWith<$Res> implements $SearchedOfferCopy
   factory _$SearchedOfferCopyWith(_SearchedOffer value, $Res Function(_SearchedOffer) _then) = __$SearchedOfferCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_deleted') bool? isDeleted,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'is_active') bool? isActive,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'cta_action') String? ctaAction,@JsonKey(name: 'cta_action_url') String? ctaActionUrl,@JsonKey(name: 'files_data') List<OfferFileData>? filesData,@JsonKey(name: 'status') String? status,@JsonKey(name: 'target_gender') String? targetGender,@JsonKey(name: 'target_areas') List<String>? targetAreas,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'rich_description') Map<String, dynamic>? richDescription,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') OfferCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'tagged_user_uids') List<String>? taggedUserUids,@JsonKey(name: 'is_deleted') bool? isDeleted,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'is_active') bool? isActive,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'total_comments') int? totalComments,@JsonKey(name: 'internal_ai_description') String? internalAiDescription,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'tagged_community_uids') List<String>? taggedCommunityUids,@JsonKey(name: 'total_shares') int? totalShares,@JsonKey(name: 'cumulative_score') int? cumulativeScore,@JsonKey(name: 'cta_action') String? ctaAction,@JsonKey(name: 'cta_action_url') String? ctaActionUrl,@JsonKey(name: 'files_data') List<OfferFileData>? filesData,@JsonKey(name: 'status') String? status,@JsonKey(name: 'target_gender') String? targetGender,@JsonKey(name: 'target_areas') List<String>? targetAreas,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'rich_description') Map<String, dynamic>? richDescription,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') OfferCreator? creator
 });
 
 
@@ -676,7 +676,7 @@ class __$SearchedOfferCopyWithImpl<$Res>
 
 /// Create a copy of SearchedOffer
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isDeleted = freezed,Object? isArchived = freezed,Object? isActive = freezed,Object? postCreatorType = freezed,Object? userUid = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? ctaAction = freezed,Object? ctaActionUrl = freezed,Object? filesData = freezed,Object? status = freezed,Object? targetGender = freezed,Object? targetAreas = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? richDescription = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? uid = freezed,Object? title = freezed,Object? description = freezed,Object? hashtags = freezed,Object? taggedUserUids = freezed,Object? isDeleted = freezed,Object? isArchived = freezed,Object? isActive = freezed,Object? postCreatorType = freezed,Object? userUid = freezed,Object? totalImpressions = freezed,Object? totalReactions = freezed,Object? totalComments = freezed,Object? internalAiDescription = freezed,Object? creatorLatLongWkb = freezed,Object? taggedCommunityUids = freezed,Object? totalShares = freezed,Object? cumulativeScore = freezed,Object? ctaAction = freezed,Object? ctaActionUrl = freezed,Object? filesData = freezed,Object? status = freezed,Object? targetGender = freezed,Object? targetAreas = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? richDescription = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_SearchedOffer(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
@@ -707,7 +707,7 @@ as List<String>?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeig
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,richDescription: freezed == richDescription ? _self._richDescription : richDescription // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as OfferCreator?,
   ));
@@ -982,293 +982,6 @@ class __$OfferFileDataCopyWithImpl<$Res>
 type: freezed == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String?,imageUrl: freezed == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String?,
-  ));
-}
-
-
-}
-
-
-/// @nodoc
-mixin _$OfferHighlight {
-
-@JsonKey(name: 'hashtags') List<String>? get hashtags;@JsonKey(name: 'description') List<String>? get description;@JsonKey(name: 'title') List<String>? get title;
-/// Create a copy of OfferHighlight
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$OfferHighlightCopyWith<OfferHighlight> get copyWith => _$OfferHighlightCopyWithImpl<OfferHighlight>(this as OfferHighlight, _$identity);
-
-  /// Serializes this OfferHighlight to a JSON map.
-  Map<String, dynamic> toJson();
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OfferHighlight&&const DeepCollectionEquality().equals(other.hashtags, hashtags)&&const DeepCollectionEquality().equals(other.description, description)&&const DeepCollectionEquality().equals(other.title, title));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(hashtags),const DeepCollectionEquality().hash(description),const DeepCollectionEquality().hash(title));
-
-@override
-String toString() {
-  return 'OfferHighlight(hashtags: $hashtags, description: $description, title: $title)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $OfferHighlightCopyWith<$Res>  {
-  factory $OfferHighlightCopyWith(OfferHighlight value, $Res Function(OfferHighlight) _then) = _$OfferHighlightCopyWithImpl;
-@useResult
-$Res call({
-@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'description') List<String>? description,@JsonKey(name: 'title') List<String>? title
-});
-
-
-
-
-}
-/// @nodoc
-class _$OfferHighlightCopyWithImpl<$Res>
-    implements $OfferHighlightCopyWith<$Res> {
-  _$OfferHighlightCopyWithImpl(this._self, this._then);
-
-  final OfferHighlight _self;
-  final $Res Function(OfferHighlight) _then;
-
-/// Create a copy of OfferHighlight
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hashtags = freezed,Object? description = freezed,Object? title = freezed,}) {
-  return _then(_self.copyWith(
-hashtags: freezed == hashtags ? _self.hashtags : hashtags // ignore: cast_nullable_to_non_nullable
-as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as List<String>?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as List<String>?,
-  ));
-}
-
-}
-
-
-/// Adds pattern-matching-related methods to [OfferHighlight].
-extension OfferHighlightPatterns on OfferHighlight {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OfferHighlight value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _OfferHighlight() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OfferHighlight value)  $default,){
-final _that = this;
-switch (_that) {
-case _OfferHighlight():
-return $default(_that);}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OfferHighlight value)?  $default,){
-final _that = this;
-switch (_that) {
-case _OfferHighlight() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'description')  List<String>? description, @JsonKey(name: 'title')  List<String>? title)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _OfferHighlight() when $default != null:
-return $default(_that.hashtags,_that.description,_that.title);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'description')  List<String>? description, @JsonKey(name: 'title')  List<String>? title)  $default,) {final _that = this;
-switch (_that) {
-case _OfferHighlight():
-return $default(_that.hashtags,_that.description,_that.title);}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'hashtags')  List<String>? hashtags, @JsonKey(name: 'description')  List<String>? description, @JsonKey(name: 'title')  List<String>? title)?  $default,) {final _that = this;
-switch (_that) {
-case _OfferHighlight() when $default != null:
-return $default(_that.hashtags,_that.description,_that.title);case _:
-  return null;
-
-}
-}
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class _OfferHighlight implements OfferHighlight {
-  const _OfferHighlight({@JsonKey(name: 'hashtags') final  List<String>? hashtags, @JsonKey(name: 'description') final  List<String>? description, @JsonKey(name: 'title') final  List<String>? title}): _hashtags = hashtags,_description = description,_title = title;
-  factory _OfferHighlight.fromJson(Map<String, dynamic> json) => _$OfferHighlightFromJson(json);
-
- final  List<String>? _hashtags;
-@override@JsonKey(name: 'hashtags') List<String>? get hashtags {
-  final value = _hashtags;
-  if (value == null) return null;
-  if (_hashtags is EqualUnmodifiableListView) return _hashtags;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(value);
-}
-
- final  List<String>? _description;
-@override@JsonKey(name: 'description') List<String>? get description {
-  final value = _description;
-  if (value == null) return null;
-  if (_description is EqualUnmodifiableListView) return _description;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(value);
-}
-
- final  List<String>? _title;
-@override@JsonKey(name: 'title') List<String>? get title {
-  final value = _title;
-  if (value == null) return null;
-  if (_title is EqualUnmodifiableListView) return _title;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(value);
-}
-
-
-/// Create a copy of OfferHighlight
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$OfferHighlightCopyWith<_OfferHighlight> get copyWith => __$OfferHighlightCopyWithImpl<_OfferHighlight>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$OfferHighlightToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OfferHighlight&&const DeepCollectionEquality().equals(other._hashtags, _hashtags)&&const DeepCollectionEquality().equals(other._description, _description)&&const DeepCollectionEquality().equals(other._title, _title));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_hashtags),const DeepCollectionEquality().hash(_description),const DeepCollectionEquality().hash(_title));
-
-@override
-String toString() {
-  return 'OfferHighlight(hashtags: $hashtags, description: $description, title: $title)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$OfferHighlightCopyWith<$Res> implements $OfferHighlightCopyWith<$Res> {
-  factory _$OfferHighlightCopyWith(_OfferHighlight value, $Res Function(_OfferHighlight) _then) = __$OfferHighlightCopyWithImpl;
-@override @useResult
-$Res call({
-@JsonKey(name: 'hashtags') List<String>? hashtags,@JsonKey(name: 'description') List<String>? description,@JsonKey(name: 'title') List<String>? title
-});
-
-
-
-
-}
-/// @nodoc
-class __$OfferHighlightCopyWithImpl<$Res>
-    implements _$OfferHighlightCopyWith<$Res> {
-  __$OfferHighlightCopyWithImpl(this._self, this._then);
-
-  final _OfferHighlight _self;
-  final $Res Function(_OfferHighlight) _then;
-
-/// Create a copy of OfferHighlight
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? hashtags = freezed,Object? description = freezed,Object? title = freezed,}) {
-  return _then(_OfferHighlight(
-hashtags: freezed == hashtags ? _self._hashtags : hashtags // ignore: cast_nullable_to_non_nullable
-as List<String>?,description: freezed == description ? _self._description : description // ignore: cast_nullable_to_non_nullable
-as List<String>?,title: freezed == title ? _self._title : title // ignore: cast_nullable_to_non_nullable
-as List<String>?,
   ));
 }
 

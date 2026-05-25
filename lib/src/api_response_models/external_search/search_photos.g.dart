@@ -1,30 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_flicks.dart';
+part of 'search_photos.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchFlicksResult _$OpenSearchFlicksResultFromJson(
+_ExternalSearchPhotosResult _$ExternalSearchPhotosResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchFlicksResult(
+) => _ExternalSearchPhotosResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
       (json['results'] as List<dynamic>?)
-          ?.map((e) => SearchedFlick.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SearchedPhoto.fromJson(e as Map<String, dynamic>))
           .toList(),
   pagination:
       json['pagination'] == null
           ? null
-          : FlicksPagination.fromJson(
+          : PhotosPagination.fromJson(
             json['pagination'] as Map<String, dynamic>,
           ),
 );
 
-Map<String, dynamic> _$OpenSearchFlicksResultToJson(
-  _OpenSearchFlicksResult instance,
+Map<String, dynamic> _$ExternalSearchPhotosResultToJson(
+  _ExternalSearchPhotosResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -32,8 +32,8 @@ Map<String, dynamic> _$OpenSearchFlicksResultToJson(
   'pagination': instance.pagination,
 };
 
-_SearchedFlick _$SearchedFlickFromJson(Map<String, dynamic> json) =>
-    _SearchedFlick(
+_SearchedPhoto _$SearchedPhotoFromJson(Map<String, dynamic> json) =>
+    _SearchedPhoto(
       createdAt:
           json['created_at'] == null
               ? null
@@ -50,17 +50,14 @@ _SearchedFlick _$SearchedFlickFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toList(),
       isArchived: json['is_archived'] as bool?,
-      isActive: json['is_active'] as bool?,
       postCreatorType: json['post_creator_type'] as String?,
       updatedAt:
           json['updated_at'] == null
               ? null
               : DateTime.parse(json['updated_at'] as String),
       userUid: json['user_uid'] as String?,
-      thumbnail: json['thumbnail'] as String?,
-      videoUrl: json['video_url'] as String?,
       location: json['location'] as String?,
-      totalViews: (json['total_views'] as num?)?.toInt(),
+      totalImpressions: (json['total_impressions'] as num?)?.toInt(),
       totalReactions: (json['total_reactions'] as num?)?.toInt(),
       totalComments: (json['total_comments'] as num?)?.toInt(),
       internalAiDescription: json['internal_ai_description'] as String?,
@@ -72,21 +69,23 @@ _SearchedFlick _$SearchedFlickFromJson(Map<String, dynamic> json) =>
               .toList(),
       totalShares: (json['total_shares'] as num?)?.toInt(),
       cumulativeScore: (json['cumulative_score'] as num?)?.toInt(),
-      videoDurationInSec: (json['video_duration_in_sec'] as num?)?.toInt(),
+      filesData:
+          (json['files_data'] as List<dynamic>?)
+              ?.map((e) => PhotoFileData.fromJson(e as Map<String, dynamic>))
+              .toList(),
       seoDataWeighted: json['seo_data_weighted'] as String?,
       communityUid: json['community_uid'] as String?,
-      relatedContentUid: json['related_content_uid'] as String?,
-      openSearchCrawledAt:
-          json['open_search_crawled_at'] == null
+      externalSearchIndexedAt:
+          json['external_search_indexed_at'] == null
               ? null
-              : DateTime.parse(json['open_search_crawled_at'] as String),
+              : DateTime.parse(json['external_search_indexed_at'] as String),
       creator:
           json['creator'] == null
               ? null
-              : FlickCreator.fromJson(json['creator'] as Map<String, dynamic>),
+              : PhotoCreator.fromJson(json['creator'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SearchedFlickToJson(_SearchedFlick instance) =>
+Map<String, dynamic> _$SearchedPhotoToJson(_SearchedPhoto instance) =>
     <String, dynamic>{
       'created_at': instance.createdAt?.toIso8601String(),
       'uid': instance.uid,
@@ -95,14 +94,11 @@ Map<String, dynamic> _$SearchedFlickToJson(_SearchedFlick instance) =>
       'hashtags': instance.hashtags,
       'tagged_user_uids': instance.taggedUserUids,
       'is_archived': instance.isArchived,
-      'is_active': instance.isActive,
       'post_creator_type': instance.postCreatorType,
       'updated_at': instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
-      'thumbnail': instance.thumbnail,
-      'video_url': instance.videoUrl,
       'location': instance.location,
-      'total_views': instance.totalViews,
+      'total_impressions': instance.totalImpressions,
       'total_reactions': instance.totalReactions,
       'total_comments': instance.totalComments,
       'internal_ai_description': instance.internalAiDescription,
@@ -111,16 +107,25 @@ Map<String, dynamic> _$SearchedFlickToJson(_SearchedFlick instance) =>
       'tagged_community_uids': instance.taggedCommunityUids,
       'total_shares': instance.totalShares,
       'cumulative_score': instance.cumulativeScore,
-      'video_duration_in_sec': instance.videoDurationInSec,
+      'files_data': instance.filesData,
       'seo_data_weighted': instance.seoDataWeighted,
       'community_uid': instance.communityUid,
-      'related_content_uid': instance.relatedContentUid,
-      'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+      'external_search_indexed_at':
+          instance.externalSearchIndexedAt?.toIso8601String(),
       'creator': instance.creator,
     };
 
-_FlicksPagination _$FlicksPaginationFromJson(Map<String, dynamic> json) =>
-    _FlicksPagination(
+_PhotoFileData _$PhotoFileDataFromJson(Map<String, dynamic> json) =>
+    _PhotoFileData(
+      type: json['type'] as String?,
+      imageUrl: json['image_url'] as String?,
+    );
+
+Map<String, dynamic> _$PhotoFileDataToJson(_PhotoFileData instance) =>
+    <String, dynamic>{'type': instance.type, 'image_url': instance.imageUrl};
+
+_PhotosPagination _$PhotosPaginationFromJson(Map<String, dynamic> json) =>
+    _PhotosPagination(
       currentPage: (json['current_page'] as num?)?.toInt(),
       pageSize: (json['page_size'] as num?)?.toInt(),
       from: (json['from'] as num?)?.toInt(),
@@ -130,7 +135,7 @@ _FlicksPagination _$FlicksPaginationFromJson(Map<String, dynamic> json) =>
       totalPages: (json['total_pages'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$FlicksPaginationToJson(_FlicksPagination instance) =>
+Map<String, dynamic> _$PhotosPaginationToJson(_PhotosPagination instance) =>
     <String, dynamic>{
       'current_page': instance.currentPage,
       'page_size': instance.pageSize,
@@ -141,8 +146,8 @@ Map<String, dynamic> _$FlicksPaginationToJson(_FlicksPagination instance) =>
       'total_pages': instance.totalPages,
     };
 
-_FlickCreator _$FlickCreatorFromJson(Map<String, dynamic> json) =>
-    _FlickCreator(
+_PhotoCreator _$PhotoCreatorFromJson(Map<String, dynamic> json) =>
+    _PhotoCreator(
       uid: json['uid'] as String?,
       name: json['name'] as String?,
       username: json['username'] as String?,
@@ -153,7 +158,7 @@ _FlickCreator _$FlickCreatorFromJson(Map<String, dynamic> json) =>
       isLegallyVerified: json['is_legally_verified'] as bool?,
     );
 
-Map<String, dynamic> _$FlickCreatorToJson(_FlickCreator instance) =>
+Map<String, dynamic> _$PhotoCreatorToJson(_PhotoCreator instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,

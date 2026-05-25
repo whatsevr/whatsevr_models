@@ -4,8 +4,8 @@ part 'search_users.freezed.dart';
 part 'search_users.g.dart';
 
 @freezed
-sealed class OpenSearchUsersResult with _$OpenSearchUsersResult {
-  const factory OpenSearchUsersResult({
+sealed class ExternalSearchUsersResult with _$ExternalSearchUsersResult {
+  const factory ExternalSearchUsersResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -13,22 +13,22 @@ sealed class OpenSearchUsersResult with _$OpenSearchUsersResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<OpenSearchUser>? results,
+    List<ExternalSearchUser>? results,
     
 
     
     @JsonKey(name: 'pagination')
     UsersPagination? pagination,
 
-  }) = _OpenSearchUsersResult;
+  }) = _ExternalSearchUsersResult;
 
-  factory OpenSearchUsersResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchUsersResultFromJson(json);
+  factory ExternalSearchUsersResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchUsersResultFromJson(json);
 }
 
 @freezed
-sealed class OpenSearchUser with _$OpenSearchUser {
-  const factory OpenSearchUser({
+sealed class ExternalSearchUser with _$ExternalSearchUser {
+  const factory ExternalSearchUser({
     @JsonKey(name: 'registered_at')
     DateTime? registeredAt,
     
@@ -128,8 +128,8 @@ sealed class OpenSearchUser with _$OpenSearchUser {
     @JsonKey(name: 'is_legally_verified')
     bool? isLegallyVerified,
     
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'educations')
     List<SearchedUserEducation>? educations,
@@ -142,10 +142,10 @@ sealed class OpenSearchUser with _$OpenSearchUser {
     
     @JsonKey(name: 'services')
     List<UserService>? services,
-  }) = _OpenSearchUser;
+  }) = _ExternalSearchUser;
 
-  factory OpenSearchUser.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchUserFromJson(json);
+  factory ExternalSearchUser.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchUserFromJson(json);
 }
 
 @freezed

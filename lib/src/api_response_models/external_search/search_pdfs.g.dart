@@ -6,9 +6,9 @@ part of 'search_pdfs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchPdfsResult _$OpenSearchPdfsResultFromJson(
+_ExternalSearchPdfsResult _$ExternalSearchPdfsResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchPdfsResult(
+) => _ExternalSearchPdfsResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
@@ -21,8 +21,8 @@ _OpenSearchPdfsResult _$OpenSearchPdfsResultFromJson(
           : PdfsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$OpenSearchPdfsResultToJson(
-  _OpenSearchPdfsResult instance,
+Map<String, dynamic> _$ExternalSearchPdfsResultToJson(
+  _ExternalSearchPdfsResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -50,10 +50,10 @@ _SearchedPdf _$SearchedPdfFromJson(Map<String, dynamic> json) => _SearchedPdf(
           ? null
           : DateTime.parse(json['updated_at'] as String),
   totalImpressions: (json['total_impressions'] as num?)?.toInt(),
-  openSearchCrawledAt:
-      json['open_search_crawled_at'] == null
+  externalSearchIndexedAt:
+      json['external_search_indexed_at'] == null
           ? null
-          : DateTime.parse(json['open_search_crawled_at'] as String),
+          : DateTime.parse(json['external_search_indexed_at'] as String),
   creator:
       json['creator'] == null
           ? null
@@ -75,7 +75,8 @@ Map<String, dynamic> _$SearchedPdfToJson(_SearchedPdf instance) =>
       'community_uid': instance.communityUid,
       'updated_at': instance.updatedAt?.toIso8601String(),
       'total_impressions': instance.totalImpressions,
-      'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+      'external_search_indexed_at':
+          instance.externalSearchIndexedAt?.toIso8601String(),
       'creator': instance.creator,
     };
 

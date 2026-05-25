@@ -13,22 +13,22 @@ part of 'search_users.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchUsersResult {
+mixin _$ExternalSearchUsersResult {
 
-@JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<OpenSearchUser>? get results;@JsonKey(name: 'pagination') UsersPagination? get pagination;
-/// Create a copy of OpenSearchUsersResult
+@JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<ExternalSearchUser>? get results;@JsonKey(name: 'pagination') UsersPagination? get pagination;
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchUsersResultCopyWith<OpenSearchUsersResult> get copyWith => _$OpenSearchUsersResultCopyWithImpl<OpenSearchUsersResult>(this as OpenSearchUsersResult, _$identity);
+$ExternalSearchUsersResultCopyWith<ExternalSearchUsersResult> get copyWith => _$ExternalSearchUsersResultCopyWithImpl<ExternalSearchUsersResult>(this as ExternalSearchUsersResult, _$identity);
 
-  /// Serializes this OpenSearchUsersResult to a JSON map.
+  /// Serializes this ExternalSearchUsersResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchUsersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchUsersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,18 +37,18 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchUsersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchUsersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchUsersResultCopyWith<$Res>  {
-  factory $OpenSearchUsersResultCopyWith(OpenSearchUsersResult value, $Res Function(OpenSearchUsersResult) _then) = _$OpenSearchUsersResultCopyWithImpl;
+abstract mixin class $ExternalSearchUsersResultCopyWith<$Res>  {
+  factory $ExternalSearchUsersResultCopyWith(ExternalSearchUsersResult value, $Res Function(ExternalSearchUsersResult) _then) = _$ExternalSearchUsersResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<OpenSearchUser>? results,@JsonKey(name: 'pagination') UsersPagination? pagination
+@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<ExternalSearchUser>? results,@JsonKey(name: 'pagination') UsersPagination? pagination
 });
 
 
@@ -56,25 +56,25 @@ $UsersPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchUsersResultCopyWithImpl<$Res>
-    implements $OpenSearchUsersResultCopyWith<$Res> {
-  _$OpenSearchUsersResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchUsersResultCopyWithImpl<$Res>
+    implements $ExternalSearchUsersResultCopyWith<$Res> {
+  _$ExternalSearchUsersResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchUsersResult _self;
-  final $Res Function(OpenSearchUsersResult) _then;
+  final ExternalSearchUsersResult _self;
+  final $Res Function(ExternalSearchUsersResult) _then;
 
-/// Create a copy of OpenSearchUsersResult
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
-as List<OpenSearchUser>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as List<ExternalSearchUser>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as UsersPagination?,
   ));
 }
-/// Create a copy of OpenSearchUsersResult
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -90,8 +90,8 @@ $UsersPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchUsersResult].
-extension OpenSearchUsersResultPatterns on OpenSearchUsersResult {
+/// Adds pattern-matching-related methods to [ExternalSearchUsersResult].
+extension ExternalSearchUsersResultPatterns on ExternalSearchUsersResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -104,10 +104,10 @@ extension OpenSearchUsersResultPatterns on OpenSearchUsersResult {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchUsersResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchUsersResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult() when $default != null:
+case _ExternalSearchUsersResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -126,10 +126,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchUsersResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchUsersResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult():
+case _ExternalSearchUsersResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -144,10 +144,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchUsersResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchUsersResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult() when $default != null:
+case _ExternalSearchUsersResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -165,9 +165,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult() when $default != null:
+case _ExternalSearchUsersResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return orElse();
 
@@ -186,9 +186,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult():
+case _ExternalSearchUsersResult():
 return $default(_that.success,_that.message,_that.results,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -203,9 +203,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchUser>? results, @JsonKey(name: 'pagination')  UsersPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchUsersResult() when $default != null:
+case _ExternalSearchUsersResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return null;
 
@@ -217,14 +217,14 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchUsersResult implements OpenSearchUsersResult {
-  const _OpenSearchUsersResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<OpenSearchUser>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
-  factory _OpenSearchUsersResult.fromJson(Map<String, dynamic> json) => _$OpenSearchUsersResultFromJson(json);
+class _ExternalSearchUsersResult implements ExternalSearchUsersResult {
+  const _ExternalSearchUsersResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<ExternalSearchUser>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
+  factory _ExternalSearchUsersResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchUsersResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
- final  List<OpenSearchUser>? _results;
-@override@JsonKey(name: 'results') List<OpenSearchUser>? get results {
+ final  List<ExternalSearchUser>? _results;
+@override@JsonKey(name: 'results') List<ExternalSearchUser>? get results {
   final value = _results;
   if (value == null) return null;
   if (_results is EqualUnmodifiableListView) return _results;
@@ -234,20 +234,20 @@ class _OpenSearchUsersResult implements OpenSearchUsersResult {
 
 @override@JsonKey(name: 'pagination') final  UsersPagination? pagination;
 
-/// Create a copy of OpenSearchUsersResult
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchUsersResultCopyWith<_OpenSearchUsersResult> get copyWith => __$OpenSearchUsersResultCopyWithImpl<_OpenSearchUsersResult>(this, _$identity);
+_$ExternalSearchUsersResultCopyWith<_ExternalSearchUsersResult> get copyWith => __$ExternalSearchUsersResultCopyWithImpl<_ExternalSearchUsersResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchUsersResultToJson(this, );
+  return _$ExternalSearchUsersResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchUsersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchUsersResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,18 +256,18 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchUsersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchUsersResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchUsersResultCopyWith<$Res> implements $OpenSearchUsersResultCopyWith<$Res> {
-  factory _$OpenSearchUsersResultCopyWith(_OpenSearchUsersResult value, $Res Function(_OpenSearchUsersResult) _then) = __$OpenSearchUsersResultCopyWithImpl;
+abstract mixin class _$ExternalSearchUsersResultCopyWith<$Res> implements $ExternalSearchUsersResultCopyWith<$Res> {
+  factory _$ExternalSearchUsersResultCopyWith(_ExternalSearchUsersResult value, $Res Function(_ExternalSearchUsersResult) _then) = __$ExternalSearchUsersResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<OpenSearchUser>? results,@JsonKey(name: 'pagination') UsersPagination? pagination
+@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<ExternalSearchUser>? results,@JsonKey(name: 'pagination') UsersPagination? pagination
 });
 
 
@@ -275,26 +275,26 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchUsersResultCopyWithImpl<$Res>
-    implements _$OpenSearchUsersResultCopyWith<$Res> {
-  __$OpenSearchUsersResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchUsersResultCopyWithImpl<$Res>
+    implements _$ExternalSearchUsersResultCopyWith<$Res> {
+  __$ExternalSearchUsersResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchUsersResult _self;
-  final $Res Function(_OpenSearchUsersResult) _then;
+  final _ExternalSearchUsersResult _self;
+  final $Res Function(_ExternalSearchUsersResult) _then;
 
-/// Create a copy of OpenSearchUsersResult
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchUsersResult(
+  return _then(_ExternalSearchUsersResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
-as List<OpenSearchUser>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as List<ExternalSearchUser>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as UsersPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchUsersResult
+/// Create a copy of ExternalSearchUsersResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -311,42 +311,42 @@ $UsersPaginationCopyWith<$Res>? get pagination {
 
 
 /// @nodoc
-mixin _$OpenSearchUser {
+mixin _$ExternalSearchUser {
 
-@JsonKey(name: 'registered_at') DateTime? get registeredAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'username') String? get username;@JsonKey(name: 'mobile_number') String? get mobileNumber;@JsonKey(name: 'email_id') String? get emailId;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'bio') String? get bio;@JsonKey(name: 'address') String? get address;@JsonKey(name: 'dob') DateTime? get dob;@JsonKey(name: 'profile_picture') String? get profilePicture;@JsonKey(name: 'is_portfolio') bool? get isPortfolio;@JsonKey(name: 'portfolio_status') String? get portfolioStatus;@JsonKey(name: 'portfolio_description') String? get portfolioDescription;@JsonKey(name: 'is_banned') bool? get isBanned;@JsonKey(name: 'is_spam') bool? get isSpam;@JsonKey(name: 'is_deactivated') bool? get isDeactivated;@JsonKey(name: 'portfolio_toggled_at') DateTime? get portfolioToggledAt;@JsonKey(name: 'portfolio_title') String? get portfolioTitle;@JsonKey(name: 'total_followers') int? get totalFollowers;@JsonKey(name: 'total_followings') int? get totalFollowings;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'gender') String? get gender;@JsonKey(name: 'last_active_at') DateTime? get lastActiveAt;@JsonKey(name: 'user_last_lat_long_wkb') String? get userLastLatLongWkb;@JsonKey(name: 'total_connections') int? get totalConnections;@JsonKey(name: 'public_email_id') String? get publicEmailId;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'auth_provider_id') String? get authProviderId;@JsonKey(name: 'auth_provider') String? get authProvider;@JsonKey(name: 'public_mobile_number') String? get publicMobileNumber;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'is_private') bool? get isPrivate;@JsonKey(name: 'is_legally_verified') bool? get isLegallyVerified;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;@JsonKey(name: 'educations') List<SearchedUserEducation>? get educations;@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? get workExperiences;@JsonKey(name: 'cover_media') List<UserCoverMedia>? get coverMedia;@JsonKey(name: 'services') List<UserService>? get services;
-/// Create a copy of OpenSearchUser
+@JsonKey(name: 'registered_at') DateTime? get registeredAt;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'username') String? get username;@JsonKey(name: 'mobile_number') String? get mobileNumber;@JsonKey(name: 'email_id') String? get emailId;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'bio') String? get bio;@JsonKey(name: 'address') String? get address;@JsonKey(name: 'dob') DateTime? get dob;@JsonKey(name: 'profile_picture') String? get profilePicture;@JsonKey(name: 'is_portfolio') bool? get isPortfolio;@JsonKey(name: 'portfolio_status') String? get portfolioStatus;@JsonKey(name: 'portfolio_description') String? get portfolioDescription;@JsonKey(name: 'is_banned') bool? get isBanned;@JsonKey(name: 'is_spam') bool? get isSpam;@JsonKey(name: 'is_deactivated') bool? get isDeactivated;@JsonKey(name: 'portfolio_toggled_at') DateTime? get portfolioToggledAt;@JsonKey(name: 'portfolio_title') String? get portfolioTitle;@JsonKey(name: 'total_followers') int? get totalFollowers;@JsonKey(name: 'total_followings') int? get totalFollowings;@JsonKey(name: 'total_reactions') int? get totalReactions;@JsonKey(name: 'gender') String? get gender;@JsonKey(name: 'last_active_at') DateTime? get lastActiveAt;@JsonKey(name: 'user_last_lat_long_wkb') String? get userLastLatLongWkb;@JsonKey(name: 'total_connections') int? get totalConnections;@JsonKey(name: 'public_email_id') String? get publicEmailId;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'auth_provider_id') String? get authProviderId;@JsonKey(name: 'auth_provider') String? get authProvider;@JsonKey(name: 'public_mobile_number') String? get publicMobileNumber;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'is_private') bool? get isPrivate;@JsonKey(name: 'is_legally_verified') bool? get isLegallyVerified;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;@JsonKey(name: 'educations') List<SearchedUserEducation>? get educations;@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? get workExperiences;@JsonKey(name: 'cover_media') List<UserCoverMedia>? get coverMedia;@JsonKey(name: 'services') List<UserService>? get services;
+/// Create a copy of ExternalSearchUser
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchUserCopyWith<OpenSearchUser> get copyWith => _$OpenSearchUserCopyWithImpl<OpenSearchUser>(this as OpenSearchUser, _$identity);
+$ExternalSearchUserCopyWith<ExternalSearchUser> get copyWith => _$ExternalSearchUserCopyWithImpl<ExternalSearchUser>(this as ExternalSearchUser, _$identity);
 
-  /// Serializes this OpenSearchUser to a JSON map.
+  /// Serializes this ExternalSearchUser to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchUser&&(identical(other.registeredAt, registeredAt) || other.registeredAt == registeredAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.mobileNumber, mobileNumber) || other.mobileNumber == mobileNumber)&&(identical(other.emailId, emailId) || other.emailId == emailId)&&(identical(other.name, name) || other.name == name)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.address, address) || other.address == address)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.isPortfolio, isPortfolio) || other.isPortfolio == isPortfolio)&&(identical(other.portfolioStatus, portfolioStatus) || other.portfolioStatus == portfolioStatus)&&(identical(other.portfolioDescription, portfolioDescription) || other.portfolioDescription == portfolioDescription)&&(identical(other.isBanned, isBanned) || other.isBanned == isBanned)&&(identical(other.isSpam, isSpam) || other.isSpam == isSpam)&&(identical(other.isDeactivated, isDeactivated) || other.isDeactivated == isDeactivated)&&(identical(other.portfolioToggledAt, portfolioToggledAt) || other.portfolioToggledAt == portfolioToggledAt)&&(identical(other.portfolioTitle, portfolioTitle) || other.portfolioTitle == portfolioTitle)&&(identical(other.totalFollowers, totalFollowers) || other.totalFollowers == totalFollowers)&&(identical(other.totalFollowings, totalFollowings) || other.totalFollowings == totalFollowings)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.lastActiveAt, lastActiveAt) || other.lastActiveAt == lastActiveAt)&&(identical(other.userLastLatLongWkb, userLastLatLongWkb) || other.userLastLatLongWkb == userLastLatLongWkb)&&(identical(other.totalConnections, totalConnections) || other.totalConnections == totalConnections)&&(identical(other.publicEmailId, publicEmailId) || other.publicEmailId == publicEmailId)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.authProviderId, authProviderId) || other.authProviderId == authProviderId)&&(identical(other.authProvider, authProvider) || other.authProvider == authProvider)&&(identical(other.publicMobileNumber, publicMobileNumber) || other.publicMobileNumber == publicMobileNumber)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&const DeepCollectionEquality().equals(other.educations, educations)&&const DeepCollectionEquality().equals(other.workExperiences, workExperiences)&&const DeepCollectionEquality().equals(other.coverMedia, coverMedia)&&const DeepCollectionEquality().equals(other.services, services));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchUser&&(identical(other.registeredAt, registeredAt) || other.registeredAt == registeredAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.mobileNumber, mobileNumber) || other.mobileNumber == mobileNumber)&&(identical(other.emailId, emailId) || other.emailId == emailId)&&(identical(other.name, name) || other.name == name)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.address, address) || other.address == address)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.isPortfolio, isPortfolio) || other.isPortfolio == isPortfolio)&&(identical(other.portfolioStatus, portfolioStatus) || other.portfolioStatus == portfolioStatus)&&(identical(other.portfolioDescription, portfolioDescription) || other.portfolioDescription == portfolioDescription)&&(identical(other.isBanned, isBanned) || other.isBanned == isBanned)&&(identical(other.isSpam, isSpam) || other.isSpam == isSpam)&&(identical(other.isDeactivated, isDeactivated) || other.isDeactivated == isDeactivated)&&(identical(other.portfolioToggledAt, portfolioToggledAt) || other.portfolioToggledAt == portfolioToggledAt)&&(identical(other.portfolioTitle, portfolioTitle) || other.portfolioTitle == portfolioTitle)&&(identical(other.totalFollowers, totalFollowers) || other.totalFollowers == totalFollowers)&&(identical(other.totalFollowings, totalFollowings) || other.totalFollowings == totalFollowings)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.lastActiveAt, lastActiveAt) || other.lastActiveAt == lastActiveAt)&&(identical(other.userLastLatLongWkb, userLastLatLongWkb) || other.userLastLatLongWkb == userLastLatLongWkb)&&(identical(other.totalConnections, totalConnections) || other.totalConnections == totalConnections)&&(identical(other.publicEmailId, publicEmailId) || other.publicEmailId == publicEmailId)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.authProviderId, authProviderId) || other.authProviderId == authProviderId)&&(identical(other.authProvider, authProvider) || other.authProvider == authProvider)&&(identical(other.publicMobileNumber, publicMobileNumber) || other.publicMobileNumber == publicMobileNumber)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&const DeepCollectionEquality().equals(other.educations, educations)&&const DeepCollectionEquality().equals(other.workExperiences, workExperiences)&&const DeepCollectionEquality().equals(other.coverMedia, coverMedia)&&const DeepCollectionEquality().equals(other.services, services));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,registeredAt,uid,username,mobileNumber,emailId,name,bio,address,dob,profilePicture,isPortfolio,portfolioStatus,portfolioDescription,isBanned,isSpam,isDeactivated,portfolioToggledAt,portfolioTitle,totalFollowers,totalFollowings,totalReactions,gender,lastActiveAt,userLastLatLongWkb,totalConnections,publicEmailId,seoDataWeighted,authProviderId,authProvider,publicMobileNumber,updatedAt,isPrivate,isLegallyVerified,openSearchCrawledAt,const DeepCollectionEquality().hash(educations),const DeepCollectionEquality().hash(workExperiences),const DeepCollectionEquality().hash(coverMedia),const DeepCollectionEquality().hash(services)]);
+int get hashCode => Object.hashAll([runtimeType,registeredAt,uid,username,mobileNumber,emailId,name,bio,address,dob,profilePicture,isPortfolio,portfolioStatus,portfolioDescription,isBanned,isSpam,isDeactivated,portfolioToggledAt,portfolioTitle,totalFollowers,totalFollowings,totalReactions,gender,lastActiveAt,userLastLatLongWkb,totalConnections,publicEmailId,seoDataWeighted,authProviderId,authProvider,publicMobileNumber,updatedAt,isPrivate,isLegallyVerified,externalSearchIndexedAt,const DeepCollectionEquality().hash(educations),const DeepCollectionEquality().hash(workExperiences),const DeepCollectionEquality().hash(coverMedia),const DeepCollectionEquality().hash(services)]);
 
 @override
 String toString() {
-  return 'OpenSearchUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, isLegallyVerified: $isLegallyVerified, openSearchCrawledAt: $openSearchCrawledAt, educations: $educations, workExperiences: $workExperiences, coverMedia: $coverMedia, services: $services)';
+  return 'ExternalSearchUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, isLegallyVerified: $isLegallyVerified, externalSearchIndexedAt: $externalSearchIndexedAt, educations: $educations, workExperiences: $workExperiences, coverMedia: $coverMedia, services: $services)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchUserCopyWith<$Res>  {
-  factory $OpenSearchUserCopyWith(OpenSearchUser value, $Res Function(OpenSearchUser) _then) = _$OpenSearchUserCopyWithImpl;
+abstract mixin class $ExternalSearchUserCopyWith<$Res>  {
+  factory $ExternalSearchUserCopyWith(ExternalSearchUser value, $Res Function(ExternalSearchUser) _then) = _$ExternalSearchUserCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'registered_at') DateTime? registeredAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'mobile_number') String? mobileNumber,@JsonKey(name: 'email_id') String? emailId,@JsonKey(name: 'name') String? name,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'address') String? address,@JsonKey(name: 'dob') DateTime? dob,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'is_portfolio') bool? isPortfolio,@JsonKey(name: 'portfolio_status') String? portfolioStatus,@JsonKey(name: 'portfolio_description') String? portfolioDescription,@JsonKey(name: 'is_banned') bool? isBanned,@JsonKey(name: 'is_spam') bool? isSpam,@JsonKey(name: 'is_deactivated') bool? isDeactivated,@JsonKey(name: 'portfolio_toggled_at') DateTime? portfolioToggledAt,@JsonKey(name: 'portfolio_title') String? portfolioTitle,@JsonKey(name: 'total_followers') int? totalFollowers,@JsonKey(name: 'total_followings') int? totalFollowings,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'last_active_at') DateTime? lastActiveAt,@JsonKey(name: 'user_last_lat_long_wkb') String? userLastLatLongWkb,@JsonKey(name: 'total_connections') int? totalConnections,@JsonKey(name: 'public_email_id') String? publicEmailId,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'auth_provider_id') String? authProviderId,@JsonKey(name: 'auth_provider') String? authProvider,@JsonKey(name: 'public_mobile_number') String? publicMobileNumber,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'educations') List<SearchedUserEducation>? educations,@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? workExperiences,@JsonKey(name: 'cover_media') List<UserCoverMedia>? coverMedia,@JsonKey(name: 'services') List<UserService>? services
+@JsonKey(name: 'registered_at') DateTime? registeredAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'mobile_number') String? mobileNumber,@JsonKey(name: 'email_id') String? emailId,@JsonKey(name: 'name') String? name,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'address') String? address,@JsonKey(name: 'dob') DateTime? dob,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'is_portfolio') bool? isPortfolio,@JsonKey(name: 'portfolio_status') String? portfolioStatus,@JsonKey(name: 'portfolio_description') String? portfolioDescription,@JsonKey(name: 'is_banned') bool? isBanned,@JsonKey(name: 'is_spam') bool? isSpam,@JsonKey(name: 'is_deactivated') bool? isDeactivated,@JsonKey(name: 'portfolio_toggled_at') DateTime? portfolioToggledAt,@JsonKey(name: 'portfolio_title') String? portfolioTitle,@JsonKey(name: 'total_followers') int? totalFollowers,@JsonKey(name: 'total_followings') int? totalFollowings,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'last_active_at') DateTime? lastActiveAt,@JsonKey(name: 'user_last_lat_long_wkb') String? userLastLatLongWkb,@JsonKey(name: 'total_connections') int? totalConnections,@JsonKey(name: 'public_email_id') String? publicEmailId,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'auth_provider_id') String? authProviderId,@JsonKey(name: 'auth_provider') String? authProvider,@JsonKey(name: 'public_mobile_number') String? publicMobileNumber,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'educations') List<SearchedUserEducation>? educations,@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? workExperiences,@JsonKey(name: 'cover_media') List<UserCoverMedia>? coverMedia,@JsonKey(name: 'services') List<UserService>? services
 });
 
 
@@ -354,16 +354,16 @@ $Res call({
 
 }
 /// @nodoc
-class _$OpenSearchUserCopyWithImpl<$Res>
-    implements $OpenSearchUserCopyWith<$Res> {
-  _$OpenSearchUserCopyWithImpl(this._self, this._then);
+class _$ExternalSearchUserCopyWithImpl<$Res>
+    implements $ExternalSearchUserCopyWith<$Res> {
+  _$ExternalSearchUserCopyWithImpl(this._self, this._then);
 
-  final OpenSearchUser _self;
-  final $Res Function(OpenSearchUser) _then;
+  final ExternalSearchUser _self;
+  final $Res Function(ExternalSearchUser) _then;
 
-/// Create a copy of OpenSearchUser
+/// Create a copy of ExternalSearchUser
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? registeredAt = freezed,Object? uid = freezed,Object? username = freezed,Object? mobileNumber = freezed,Object? emailId = freezed,Object? name = freezed,Object? bio = freezed,Object? address = freezed,Object? dob = freezed,Object? profilePicture = freezed,Object? isPortfolio = freezed,Object? portfolioStatus = freezed,Object? portfolioDescription = freezed,Object? isBanned = freezed,Object? isSpam = freezed,Object? isDeactivated = freezed,Object? portfolioToggledAt = freezed,Object? portfolioTitle = freezed,Object? totalFollowers = freezed,Object? totalFollowings = freezed,Object? totalReactions = freezed,Object? gender = freezed,Object? lastActiveAt = freezed,Object? userLastLatLongWkb = freezed,Object? totalConnections = freezed,Object? publicEmailId = freezed,Object? seoDataWeighted = freezed,Object? authProviderId = freezed,Object? authProvider = freezed,Object? publicMobileNumber = freezed,Object? updatedAt = freezed,Object? isPrivate = freezed,Object? isLegallyVerified = freezed,Object? openSearchCrawledAt = freezed,Object? educations = freezed,Object? workExperiences = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? registeredAt = freezed,Object? uid = freezed,Object? username = freezed,Object? mobileNumber = freezed,Object? emailId = freezed,Object? name = freezed,Object? bio = freezed,Object? address = freezed,Object? dob = freezed,Object? profilePicture = freezed,Object? isPortfolio = freezed,Object? portfolioStatus = freezed,Object? portfolioDescription = freezed,Object? isBanned = freezed,Object? isSpam = freezed,Object? isDeactivated = freezed,Object? portfolioToggledAt = freezed,Object? portfolioTitle = freezed,Object? totalFollowers = freezed,Object? totalFollowings = freezed,Object? totalReactions = freezed,Object? gender = freezed,Object? lastActiveAt = freezed,Object? userLastLatLongWkb = freezed,Object? totalConnections = freezed,Object? publicEmailId = freezed,Object? seoDataWeighted = freezed,Object? authProviderId = freezed,Object? authProvider = freezed,Object? publicMobileNumber = freezed,Object? updatedAt = freezed,Object? isPrivate = freezed,Object? isLegallyVerified = freezed,Object? externalSearchIndexedAt = freezed,Object? educations = freezed,Object? workExperiences = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
   return _then(_self.copyWith(
 registeredAt: freezed == registeredAt ? _self.registeredAt : registeredAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
@@ -398,7 +398,7 @@ as String?,publicMobileNumber: freezed == publicMobileNumber ? _self.publicMobil
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isPrivate: freezed == isPrivate ? _self.isPrivate : isPrivate // ignore: cast_nullable_to_non_nullable
 as bool?,isLegallyVerified: freezed == isLegallyVerified ? _self.isLegallyVerified : isLegallyVerified // ignore: cast_nullable_to_non_nullable
-as bool?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as bool?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,educations: freezed == educations ? _self.educations : educations // ignore: cast_nullable_to_non_nullable
 as List<SearchedUserEducation>?,workExperiences: freezed == workExperiences ? _self.workExperiences : workExperiences // ignore: cast_nullable_to_non_nullable
 as List<SearchedUserWorkExperience>?,coverMedia: freezed == coverMedia ? _self.coverMedia : coverMedia // ignore: cast_nullable_to_non_nullable
@@ -410,8 +410,8 @@ as List<UserService>?,
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchUser].
-extension OpenSearchUserPatterns on OpenSearchUser {
+/// Adds pattern-matching-related methods to [ExternalSearchUser].
+extension ExternalSearchUserPatterns on ExternalSearchUser {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -424,10 +424,10 @@ extension OpenSearchUserPatterns on OpenSearchUser {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchUser value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchUser value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchUser() when $default != null:
+case _ExternalSearchUser() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -446,10 +446,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchUser value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchUser value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchUser():
+case _ExternalSearchUser():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -464,10 +464,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchUser value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchUser value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchUser() when $default != null:
+case _ExternalSearchUser() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -485,10 +485,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchUser() when $default != null:
-return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.openSearchCrawledAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);case _:
+case _ExternalSearchUser() when $default != null:
+return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.externalSearchIndexedAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);case _:
   return orElse();
 
 }
@@ -506,10 +506,10 @@ return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchUser():
-return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.openSearchCrawledAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);}
+case _ExternalSearchUser():
+return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.externalSearchIndexedAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -523,10 +523,10 @@ return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'registered_at')  DateTime? registeredAt, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'mobile_number')  String? mobileNumber, @JsonKey(name: 'email_id')  String? emailId, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'address')  String? address, @JsonKey(name: 'dob')  DateTime? dob, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'is_portfolio')  bool? isPortfolio, @JsonKey(name: 'portfolio_status')  String? portfolioStatus, @JsonKey(name: 'portfolio_description')  String? portfolioDescription, @JsonKey(name: 'is_banned')  bool? isBanned, @JsonKey(name: 'is_spam')  bool? isSpam, @JsonKey(name: 'is_deactivated')  bool? isDeactivated, @JsonKey(name: 'portfolio_toggled_at')  DateTime? portfolioToggledAt, @JsonKey(name: 'portfolio_title')  String? portfolioTitle, @JsonKey(name: 'total_followers')  int? totalFollowers, @JsonKey(name: 'total_followings')  int? totalFollowings, @JsonKey(name: 'total_reactions')  int? totalReactions, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'last_active_at')  DateTime? lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb')  String? userLastLatLongWkb, @JsonKey(name: 'total_connections')  int? totalConnections, @JsonKey(name: 'public_email_id')  String? publicEmailId, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'auth_provider_id')  String? authProviderId, @JsonKey(name: 'auth_provider')  String? authProvider, @JsonKey(name: 'public_mobile_number')  String? publicMobileNumber, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'is_legally_verified')  bool? isLegallyVerified, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'educations')  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences')  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media')  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<UserService>? services)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchUser() when $default != null:
-return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.openSearchCrawledAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);case _:
+case _ExternalSearchUser() when $default != null:
+return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_that.emailId,_that.name,_that.bio,_that.address,_that.dob,_that.profilePicture,_that.isPortfolio,_that.portfolioStatus,_that.portfolioDescription,_that.isBanned,_that.isSpam,_that.isDeactivated,_that.portfolioToggledAt,_that.portfolioTitle,_that.totalFollowers,_that.totalFollowings,_that.totalReactions,_that.gender,_that.lastActiveAt,_that.userLastLatLongWkb,_that.totalConnections,_that.publicEmailId,_that.seoDataWeighted,_that.authProviderId,_that.authProvider,_that.publicMobileNumber,_that.updatedAt,_that.isPrivate,_that.isLegallyVerified,_that.externalSearchIndexedAt,_that.educations,_that.workExperiences,_that.coverMedia,_that.services);case _:
   return null;
 
 }
@@ -537,9 +537,9 @@ return $default(_that.registeredAt,_that.uid,_that.username,_that.mobileNumber,_
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchUser implements OpenSearchUser {
-  const _OpenSearchUser({@JsonKey(name: 'registered_at') this.registeredAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'username') this.username, @JsonKey(name: 'mobile_number') this.mobileNumber, @JsonKey(name: 'email_id') this.emailId, @JsonKey(name: 'name') this.name, @JsonKey(name: 'bio') this.bio, @JsonKey(name: 'address') this.address, @JsonKey(name: 'dob') this.dob, @JsonKey(name: 'profile_picture') this.profilePicture, @JsonKey(name: 'is_portfolio') this.isPortfolio, @JsonKey(name: 'portfolio_status') this.portfolioStatus, @JsonKey(name: 'portfolio_description') this.portfolioDescription, @JsonKey(name: 'is_banned') this.isBanned, @JsonKey(name: 'is_spam') this.isSpam, @JsonKey(name: 'is_deactivated') this.isDeactivated, @JsonKey(name: 'portfolio_toggled_at') this.portfolioToggledAt, @JsonKey(name: 'portfolio_title') this.portfolioTitle, @JsonKey(name: 'total_followers') this.totalFollowers, @JsonKey(name: 'total_followings') this.totalFollowings, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'gender') this.gender, @JsonKey(name: 'last_active_at') this.lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb') this.userLastLatLongWkb, @JsonKey(name: 'total_connections') this.totalConnections, @JsonKey(name: 'public_email_id') this.publicEmailId, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'auth_provider_id') this.authProviderId, @JsonKey(name: 'auth_provider') this.authProvider, @JsonKey(name: 'public_mobile_number') this.publicMobileNumber, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'is_private') this.isPrivate, @JsonKey(name: 'is_legally_verified') this.isLegallyVerified, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt, @JsonKey(name: 'educations') final  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences') final  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media') final  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services') final  List<UserService>? services}): _educations = educations,_workExperiences = workExperiences,_coverMedia = coverMedia,_services = services;
-  factory _OpenSearchUser.fromJson(Map<String, dynamic> json) => _$OpenSearchUserFromJson(json);
+class _ExternalSearchUser implements ExternalSearchUser {
+  const _ExternalSearchUser({@JsonKey(name: 'registered_at') this.registeredAt, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'username') this.username, @JsonKey(name: 'mobile_number') this.mobileNumber, @JsonKey(name: 'email_id') this.emailId, @JsonKey(name: 'name') this.name, @JsonKey(name: 'bio') this.bio, @JsonKey(name: 'address') this.address, @JsonKey(name: 'dob') this.dob, @JsonKey(name: 'profile_picture') this.profilePicture, @JsonKey(name: 'is_portfolio') this.isPortfolio, @JsonKey(name: 'portfolio_status') this.portfolioStatus, @JsonKey(name: 'portfolio_description') this.portfolioDescription, @JsonKey(name: 'is_banned') this.isBanned, @JsonKey(name: 'is_spam') this.isSpam, @JsonKey(name: 'is_deactivated') this.isDeactivated, @JsonKey(name: 'portfolio_toggled_at') this.portfolioToggledAt, @JsonKey(name: 'portfolio_title') this.portfolioTitle, @JsonKey(name: 'total_followers') this.totalFollowers, @JsonKey(name: 'total_followings') this.totalFollowings, @JsonKey(name: 'total_reactions') this.totalReactions, @JsonKey(name: 'gender') this.gender, @JsonKey(name: 'last_active_at') this.lastActiveAt, @JsonKey(name: 'user_last_lat_long_wkb') this.userLastLatLongWkb, @JsonKey(name: 'total_connections') this.totalConnections, @JsonKey(name: 'public_email_id') this.publicEmailId, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'auth_provider_id') this.authProviderId, @JsonKey(name: 'auth_provider') this.authProvider, @JsonKey(name: 'public_mobile_number') this.publicMobileNumber, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'is_private') this.isPrivate, @JsonKey(name: 'is_legally_verified') this.isLegallyVerified, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt, @JsonKey(name: 'educations') final  List<SearchedUserEducation>? educations, @JsonKey(name: 'work_experiences') final  List<SearchedUserWorkExperience>? workExperiences, @JsonKey(name: 'cover_media') final  List<UserCoverMedia>? coverMedia, @JsonKey(name: 'services') final  List<UserService>? services}): _educations = educations,_workExperiences = workExperiences,_coverMedia = coverMedia,_services = services;
+  factory _ExternalSearchUser.fromJson(Map<String, dynamic> json) => _$ExternalSearchUserFromJson(json);
 
 @override@JsonKey(name: 'registered_at') final  DateTime? registeredAt;
 @override@JsonKey(name: 'uid') final  String? uid;
@@ -574,7 +574,7 @@ class _OpenSearchUser implements OpenSearchUser {
 @override@JsonKey(name: 'updated_at') final  DateTime? updatedAt;
 @override@JsonKey(name: 'is_private') final  bool? isPrivate;
 @override@JsonKey(name: 'is_legally_verified') final  bool? isLegallyVerified;
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
  final  List<SearchedUserEducation>? _educations;
 @override@JsonKey(name: 'educations') List<SearchedUserEducation>? get educations {
   final value = _educations;
@@ -612,40 +612,40 @@ class _OpenSearchUser implements OpenSearchUser {
 }
 
 
-/// Create a copy of OpenSearchUser
+/// Create a copy of ExternalSearchUser
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchUserCopyWith<_OpenSearchUser> get copyWith => __$OpenSearchUserCopyWithImpl<_OpenSearchUser>(this, _$identity);
+_$ExternalSearchUserCopyWith<_ExternalSearchUser> get copyWith => __$ExternalSearchUserCopyWithImpl<_ExternalSearchUser>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchUserToJson(this, );
+  return _$ExternalSearchUserToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchUser&&(identical(other.registeredAt, registeredAt) || other.registeredAt == registeredAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.mobileNumber, mobileNumber) || other.mobileNumber == mobileNumber)&&(identical(other.emailId, emailId) || other.emailId == emailId)&&(identical(other.name, name) || other.name == name)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.address, address) || other.address == address)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.isPortfolio, isPortfolio) || other.isPortfolio == isPortfolio)&&(identical(other.portfolioStatus, portfolioStatus) || other.portfolioStatus == portfolioStatus)&&(identical(other.portfolioDescription, portfolioDescription) || other.portfolioDescription == portfolioDescription)&&(identical(other.isBanned, isBanned) || other.isBanned == isBanned)&&(identical(other.isSpam, isSpam) || other.isSpam == isSpam)&&(identical(other.isDeactivated, isDeactivated) || other.isDeactivated == isDeactivated)&&(identical(other.portfolioToggledAt, portfolioToggledAt) || other.portfolioToggledAt == portfolioToggledAt)&&(identical(other.portfolioTitle, portfolioTitle) || other.portfolioTitle == portfolioTitle)&&(identical(other.totalFollowers, totalFollowers) || other.totalFollowers == totalFollowers)&&(identical(other.totalFollowings, totalFollowings) || other.totalFollowings == totalFollowings)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.lastActiveAt, lastActiveAt) || other.lastActiveAt == lastActiveAt)&&(identical(other.userLastLatLongWkb, userLastLatLongWkb) || other.userLastLatLongWkb == userLastLatLongWkb)&&(identical(other.totalConnections, totalConnections) || other.totalConnections == totalConnections)&&(identical(other.publicEmailId, publicEmailId) || other.publicEmailId == publicEmailId)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.authProviderId, authProviderId) || other.authProviderId == authProviderId)&&(identical(other.authProvider, authProvider) || other.authProvider == authProvider)&&(identical(other.publicMobileNumber, publicMobileNumber) || other.publicMobileNumber == publicMobileNumber)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&const DeepCollectionEquality().equals(other._educations, _educations)&&const DeepCollectionEquality().equals(other._workExperiences, _workExperiences)&&const DeepCollectionEquality().equals(other._coverMedia, _coverMedia)&&const DeepCollectionEquality().equals(other._services, _services));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchUser&&(identical(other.registeredAt, registeredAt) || other.registeredAt == registeredAt)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.mobileNumber, mobileNumber) || other.mobileNumber == mobileNumber)&&(identical(other.emailId, emailId) || other.emailId == emailId)&&(identical(other.name, name) || other.name == name)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.address, address) || other.address == address)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.isPortfolio, isPortfolio) || other.isPortfolio == isPortfolio)&&(identical(other.portfolioStatus, portfolioStatus) || other.portfolioStatus == portfolioStatus)&&(identical(other.portfolioDescription, portfolioDescription) || other.portfolioDescription == portfolioDescription)&&(identical(other.isBanned, isBanned) || other.isBanned == isBanned)&&(identical(other.isSpam, isSpam) || other.isSpam == isSpam)&&(identical(other.isDeactivated, isDeactivated) || other.isDeactivated == isDeactivated)&&(identical(other.portfolioToggledAt, portfolioToggledAt) || other.portfolioToggledAt == portfolioToggledAt)&&(identical(other.portfolioTitle, portfolioTitle) || other.portfolioTitle == portfolioTitle)&&(identical(other.totalFollowers, totalFollowers) || other.totalFollowers == totalFollowers)&&(identical(other.totalFollowings, totalFollowings) || other.totalFollowings == totalFollowings)&&(identical(other.totalReactions, totalReactions) || other.totalReactions == totalReactions)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.lastActiveAt, lastActiveAt) || other.lastActiveAt == lastActiveAt)&&(identical(other.userLastLatLongWkb, userLastLatLongWkb) || other.userLastLatLongWkb == userLastLatLongWkb)&&(identical(other.totalConnections, totalConnections) || other.totalConnections == totalConnections)&&(identical(other.publicEmailId, publicEmailId) || other.publicEmailId == publicEmailId)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.authProviderId, authProviderId) || other.authProviderId == authProviderId)&&(identical(other.authProvider, authProvider) || other.authProvider == authProvider)&&(identical(other.publicMobileNumber, publicMobileNumber) || other.publicMobileNumber == publicMobileNumber)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&const DeepCollectionEquality().equals(other._educations, _educations)&&const DeepCollectionEquality().equals(other._workExperiences, _workExperiences)&&const DeepCollectionEquality().equals(other._coverMedia, _coverMedia)&&const DeepCollectionEquality().equals(other._services, _services));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,registeredAt,uid,username,mobileNumber,emailId,name,bio,address,dob,profilePicture,isPortfolio,portfolioStatus,portfolioDescription,isBanned,isSpam,isDeactivated,portfolioToggledAt,portfolioTitle,totalFollowers,totalFollowings,totalReactions,gender,lastActiveAt,userLastLatLongWkb,totalConnections,publicEmailId,seoDataWeighted,authProviderId,authProvider,publicMobileNumber,updatedAt,isPrivate,isLegallyVerified,openSearchCrawledAt,const DeepCollectionEquality().hash(_educations),const DeepCollectionEquality().hash(_workExperiences),const DeepCollectionEquality().hash(_coverMedia),const DeepCollectionEquality().hash(_services)]);
+int get hashCode => Object.hashAll([runtimeType,registeredAt,uid,username,mobileNumber,emailId,name,bio,address,dob,profilePicture,isPortfolio,portfolioStatus,portfolioDescription,isBanned,isSpam,isDeactivated,portfolioToggledAt,portfolioTitle,totalFollowers,totalFollowings,totalReactions,gender,lastActiveAt,userLastLatLongWkb,totalConnections,publicEmailId,seoDataWeighted,authProviderId,authProvider,publicMobileNumber,updatedAt,isPrivate,isLegallyVerified,externalSearchIndexedAt,const DeepCollectionEquality().hash(_educations),const DeepCollectionEquality().hash(_workExperiences),const DeepCollectionEquality().hash(_coverMedia),const DeepCollectionEquality().hash(_services)]);
 
 @override
 String toString() {
-  return 'OpenSearchUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, isLegallyVerified: $isLegallyVerified, openSearchCrawledAt: $openSearchCrawledAt, educations: $educations, workExperiences: $workExperiences, coverMedia: $coverMedia, services: $services)';
+  return 'ExternalSearchUser(registeredAt: $registeredAt, uid: $uid, username: $username, mobileNumber: $mobileNumber, emailId: $emailId, name: $name, bio: $bio, address: $address, dob: $dob, profilePicture: $profilePicture, isPortfolio: $isPortfolio, portfolioStatus: $portfolioStatus, portfolioDescription: $portfolioDescription, isBanned: $isBanned, isSpam: $isSpam, isDeactivated: $isDeactivated, portfolioToggledAt: $portfolioToggledAt, portfolioTitle: $portfolioTitle, totalFollowers: $totalFollowers, totalFollowings: $totalFollowings, totalReactions: $totalReactions, gender: $gender, lastActiveAt: $lastActiveAt, userLastLatLongWkb: $userLastLatLongWkb, totalConnections: $totalConnections, publicEmailId: $publicEmailId, seoDataWeighted: $seoDataWeighted, authProviderId: $authProviderId, authProvider: $authProvider, publicMobileNumber: $publicMobileNumber, updatedAt: $updatedAt, isPrivate: $isPrivate, isLegallyVerified: $isLegallyVerified, externalSearchIndexedAt: $externalSearchIndexedAt, educations: $educations, workExperiences: $workExperiences, coverMedia: $coverMedia, services: $services)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchUserCopyWith<$Res> implements $OpenSearchUserCopyWith<$Res> {
-  factory _$OpenSearchUserCopyWith(_OpenSearchUser value, $Res Function(_OpenSearchUser) _then) = __$OpenSearchUserCopyWithImpl;
+abstract mixin class _$ExternalSearchUserCopyWith<$Res> implements $ExternalSearchUserCopyWith<$Res> {
+  factory _$ExternalSearchUserCopyWith(_ExternalSearchUser value, $Res Function(_ExternalSearchUser) _then) = __$ExternalSearchUserCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'registered_at') DateTime? registeredAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'mobile_number') String? mobileNumber,@JsonKey(name: 'email_id') String? emailId,@JsonKey(name: 'name') String? name,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'address') String? address,@JsonKey(name: 'dob') DateTime? dob,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'is_portfolio') bool? isPortfolio,@JsonKey(name: 'portfolio_status') String? portfolioStatus,@JsonKey(name: 'portfolio_description') String? portfolioDescription,@JsonKey(name: 'is_banned') bool? isBanned,@JsonKey(name: 'is_spam') bool? isSpam,@JsonKey(name: 'is_deactivated') bool? isDeactivated,@JsonKey(name: 'portfolio_toggled_at') DateTime? portfolioToggledAt,@JsonKey(name: 'portfolio_title') String? portfolioTitle,@JsonKey(name: 'total_followers') int? totalFollowers,@JsonKey(name: 'total_followings') int? totalFollowings,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'last_active_at') DateTime? lastActiveAt,@JsonKey(name: 'user_last_lat_long_wkb') String? userLastLatLongWkb,@JsonKey(name: 'total_connections') int? totalConnections,@JsonKey(name: 'public_email_id') String? publicEmailId,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'auth_provider_id') String? authProviderId,@JsonKey(name: 'auth_provider') String? authProvider,@JsonKey(name: 'public_mobile_number') String? publicMobileNumber,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'educations') List<SearchedUserEducation>? educations,@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? workExperiences,@JsonKey(name: 'cover_media') List<UserCoverMedia>? coverMedia,@JsonKey(name: 'services') List<UserService>? services
+@JsonKey(name: 'registered_at') DateTime? registeredAt,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'mobile_number') String? mobileNumber,@JsonKey(name: 'email_id') String? emailId,@JsonKey(name: 'name') String? name,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'address') String? address,@JsonKey(name: 'dob') DateTime? dob,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'is_portfolio') bool? isPortfolio,@JsonKey(name: 'portfolio_status') String? portfolioStatus,@JsonKey(name: 'portfolio_description') String? portfolioDescription,@JsonKey(name: 'is_banned') bool? isBanned,@JsonKey(name: 'is_spam') bool? isSpam,@JsonKey(name: 'is_deactivated') bool? isDeactivated,@JsonKey(name: 'portfolio_toggled_at') DateTime? portfolioToggledAt,@JsonKey(name: 'portfolio_title') String? portfolioTitle,@JsonKey(name: 'total_followers') int? totalFollowers,@JsonKey(name: 'total_followings') int? totalFollowings,@JsonKey(name: 'total_reactions') int? totalReactions,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'last_active_at') DateTime? lastActiveAt,@JsonKey(name: 'user_last_lat_long_wkb') String? userLastLatLongWkb,@JsonKey(name: 'total_connections') int? totalConnections,@JsonKey(name: 'public_email_id') String? publicEmailId,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'auth_provider_id') String? authProviderId,@JsonKey(name: 'auth_provider') String? authProvider,@JsonKey(name: 'public_mobile_number') String? publicMobileNumber,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'educations') List<SearchedUserEducation>? educations,@JsonKey(name: 'work_experiences') List<SearchedUserWorkExperience>? workExperiences,@JsonKey(name: 'cover_media') List<UserCoverMedia>? coverMedia,@JsonKey(name: 'services') List<UserService>? services
 });
 
 
@@ -653,17 +653,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchUserCopyWithImpl<$Res>
-    implements _$OpenSearchUserCopyWith<$Res> {
-  __$OpenSearchUserCopyWithImpl(this._self, this._then);
+class __$ExternalSearchUserCopyWithImpl<$Res>
+    implements _$ExternalSearchUserCopyWith<$Res> {
+  __$ExternalSearchUserCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchUser _self;
-  final $Res Function(_OpenSearchUser) _then;
+  final _ExternalSearchUser _self;
+  final $Res Function(_ExternalSearchUser) _then;
 
-/// Create a copy of OpenSearchUser
+/// Create a copy of ExternalSearchUser
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? registeredAt = freezed,Object? uid = freezed,Object? username = freezed,Object? mobileNumber = freezed,Object? emailId = freezed,Object? name = freezed,Object? bio = freezed,Object? address = freezed,Object? dob = freezed,Object? profilePicture = freezed,Object? isPortfolio = freezed,Object? portfolioStatus = freezed,Object? portfolioDescription = freezed,Object? isBanned = freezed,Object? isSpam = freezed,Object? isDeactivated = freezed,Object? portfolioToggledAt = freezed,Object? portfolioTitle = freezed,Object? totalFollowers = freezed,Object? totalFollowings = freezed,Object? totalReactions = freezed,Object? gender = freezed,Object? lastActiveAt = freezed,Object? userLastLatLongWkb = freezed,Object? totalConnections = freezed,Object? publicEmailId = freezed,Object? seoDataWeighted = freezed,Object? authProviderId = freezed,Object? authProvider = freezed,Object? publicMobileNumber = freezed,Object? updatedAt = freezed,Object? isPrivate = freezed,Object? isLegallyVerified = freezed,Object? openSearchCrawledAt = freezed,Object? educations = freezed,Object? workExperiences = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
-  return _then(_OpenSearchUser(
+@override @pragma('vm:prefer-inline') $Res call({Object? registeredAt = freezed,Object? uid = freezed,Object? username = freezed,Object? mobileNumber = freezed,Object? emailId = freezed,Object? name = freezed,Object? bio = freezed,Object? address = freezed,Object? dob = freezed,Object? profilePicture = freezed,Object? isPortfolio = freezed,Object? portfolioStatus = freezed,Object? portfolioDescription = freezed,Object? isBanned = freezed,Object? isSpam = freezed,Object? isDeactivated = freezed,Object? portfolioToggledAt = freezed,Object? portfolioTitle = freezed,Object? totalFollowers = freezed,Object? totalFollowings = freezed,Object? totalReactions = freezed,Object? gender = freezed,Object? lastActiveAt = freezed,Object? userLastLatLongWkb = freezed,Object? totalConnections = freezed,Object? publicEmailId = freezed,Object? seoDataWeighted = freezed,Object? authProviderId = freezed,Object? authProvider = freezed,Object? publicMobileNumber = freezed,Object? updatedAt = freezed,Object? isPrivate = freezed,Object? isLegallyVerified = freezed,Object? externalSearchIndexedAt = freezed,Object? educations = freezed,Object? workExperiences = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
+  return _then(_ExternalSearchUser(
 registeredAt: freezed == registeredAt ? _self.registeredAt : registeredAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,username: freezed == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
@@ -697,7 +697,7 @@ as String?,publicMobileNumber: freezed == publicMobileNumber ? _self.publicMobil
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isPrivate: freezed == isPrivate ? _self.isPrivate : isPrivate // ignore: cast_nullable_to_non_nullable
 as bool?,isLegallyVerified: freezed == isLegallyVerified ? _self.isLegallyVerified : isLegallyVerified // ignore: cast_nullable_to_non_nullable
-as bool?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as bool?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,educations: freezed == educations ? _self._educations : educations // ignore: cast_nullable_to_non_nullable
 as List<SearchedUserEducation>?,workExperiences: freezed == workExperiences ? _self._workExperiences : workExperiences // ignore: cast_nullable_to_non_nullable
 as List<SearchedUserWorkExperience>?,coverMedia: freezed == coverMedia ? _self._coverMedia : coverMedia // ignore: cast_nullable_to_non_nullable

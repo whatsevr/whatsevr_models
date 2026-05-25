@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'search_offers.freezed.dart';
-part 'search_offers.g.dart';
+part 'search_flicks.freezed.dart';
+part 'search_flicks.g.dart';
 
 @freezed
-sealed class OpenSearchOffersResult with _$OpenSearchOffersResult {
-  const factory OpenSearchOffersResult({
+sealed class ExternalSearchFlicksResult with _$ExternalSearchFlicksResult {
+  const factory ExternalSearchFlicksResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -13,20 +13,20 @@ sealed class OpenSearchOffersResult with _$OpenSearchOffersResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<SearchedOffer>? results,
+    List<SearchedFlick>? results,
     
     @JsonKey(name: 'pagination')
-    OffersPagination? pagination,
+    FlicksPagination? pagination,
 
-  }) = _OpenSearchOffersResult;
+  }) = _ExternalSearchFlicksResult;
 
-  factory OpenSearchOffersResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchOffersResultFromJson(json);
+  factory ExternalSearchFlicksResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchFlicksResultFromJson(json);
 }
 
 @freezed
-sealed class SearchedOffer with _$SearchedOffer {
-  const factory SearchedOffer({
+sealed class SearchedFlick with _$SearchedFlick {
+  const factory SearchedFlick({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
     
@@ -45,9 +45,6 @@ sealed class SearchedOffer with _$SearchedOffer {
     @JsonKey(name: 'tagged_user_uids')
     List<String>? taggedUserUids,
     
-    @JsonKey(name: 'is_deleted')
-    bool? isDeleted,
-    
     @JsonKey(name: 'is_archived')
     bool? isArchived,
     
@@ -57,11 +54,23 @@ sealed class SearchedOffer with _$SearchedOffer {
     @JsonKey(name: 'post_creator_type')
     String? postCreatorType,
     
+    @JsonKey(name: 'updated_at')
+    DateTime? updatedAt,
+    
     @JsonKey(name: 'user_uid')
     String? userUid,
     
-    @JsonKey(name: 'total_impressions')
-    int? totalImpressions,
+    @JsonKey(name: 'thumbnail')
+    String? thumbnail,
+    
+    @JsonKey(name: 'video_url')
+    String? videoUrl,
+    
+    @JsonKey(name: 'location')
+    String? location,
+    
+    @JsonKey(name: 'total_views')
+    int? totalViews,
     
     @JsonKey(name: 'total_reactions')
     int? totalReactions,
@@ -71,6 +80,9 @@ sealed class SearchedOffer with _$SearchedOffer {
     
     @JsonKey(name: 'internal_ai_description')
     String? internalAiDescription,
+    
+    @JsonKey(name: 'address_lat_long_wkb')
+    String? addressLatLongWkb,
     
     @JsonKey(name: 'creator_lat_long_wkb')
     String? creatorLatLongWkb,
@@ -84,23 +96,8 @@ sealed class SearchedOffer with _$SearchedOffer {
     @JsonKey(name: 'cumulative_score')
     int? cumulativeScore,
     
-    @JsonKey(name: 'cta_action')
-    String? ctaAction,
-    
-    @JsonKey(name: 'cta_action_url')
-    String? ctaActionUrl,
-    
-    @JsonKey(name: 'files_data')
-    List<OfferFileData>? filesData,
-    
-    @JsonKey(name: 'status')
-    String? status,
-    
-    @JsonKey(name: 'target_gender')
-    String? targetGender,
-    
-    @JsonKey(name: 'target_areas')
-    List<String>? targetAreas,
+    @JsonKey(name: 'video_duration_in_sec')
+    int? videoDurationInSec,
     
     @JsonKey(name: 'seo_data_weighted')
     String? seoDataWeighted,
@@ -108,57 +105,23 @@ sealed class SearchedOffer with _$SearchedOffer {
     @JsonKey(name: 'community_uid')
     String? communityUid,
     
-    @JsonKey(name: 'updated_at')
-    DateTime? updatedAt,
+    @JsonKey(name: 'related_content_uid')
+    String? relatedContentUid,
     
-    @JsonKey(name: 'rich_description')
-    Map<String,dynamic>? richDescription,
-    
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'creator')
-    OfferCreator? creator,
-  }) = _SearchedOffer;
+    FlickCreator? creator,
+  }) = _SearchedFlick;
 
-  factory SearchedOffer.fromJson(Map<String, dynamic> json) => 
-      _$SearchedOfferFromJson(json);
+  factory SearchedFlick.fromJson(Map<String, dynamic> json) => 
+      _$SearchedFlickFromJson(json);
 }
 
 @freezed
-sealed class OfferFileData with _$OfferFileData {
-  const factory OfferFileData({
-    @JsonKey(name: 'type')
-    String? type,
-    
-    @JsonKey(name: 'image_url')
-    String? imageUrl,
-  }) = _OfferFileData;
-
-  factory OfferFileData.fromJson(Map<String, dynamic> json) => 
-      _$OfferFileDataFromJson(json);
-}
-
-@freezed
-sealed class OfferHighlight with _$OfferHighlight {
-  const factory OfferHighlight({
-    @JsonKey(name: 'hashtags')
-    List<String>? hashtags,
-    
-    @JsonKey(name: 'description')
-    List<String>? description,
-    
-    @JsonKey(name: 'title')
-    List<String>? title,
-  }) = _OfferHighlight;
-
-  factory OfferHighlight.fromJson(Map<String, dynamic> json) => 
-      _$OfferHighlightFromJson(json);
-}
-
-@freezed
-sealed class OffersPagination with _$OffersPagination {
-  const factory OffersPagination({
+sealed class FlicksPagination with _$FlicksPagination {
+  const factory FlicksPagination({
     @JsonKey(name: 'current_page')
     int? currentPage,
     
@@ -179,15 +142,15 @@ sealed class OffersPagination with _$OffersPagination {
     
     @JsonKey(name: 'total_pages')
     int? totalPages,
-  }) = _OffersPagination;
+  }) = _FlicksPagination;
 
-  factory OffersPagination.fromJson(Map<String, dynamic> json) => 
-      _$OffersPaginationFromJson(json);
+  factory FlicksPagination.fromJson(Map<String, dynamic> json) => 
+      _$FlicksPaginationFromJson(json);
 }
 
 @freezed
-sealed class OfferCreator with _$OfferCreator {
-  const factory OfferCreator({
+sealed class FlickCreator with _$FlickCreator {
+  const factory FlickCreator({
     @JsonKey(name: 'uid')
     String? uid,
     
@@ -211,9 +174,8 @@ sealed class OfferCreator with _$OfferCreator {
     
     @JsonKey(name: 'is_legally_verified')
     bool? isLegallyVerified,
-  }) = _OfferCreator;
+  }) = _FlickCreator;
 
-  factory OfferCreator.fromJson(Map<String, dynamic> json) => 
-      _$OfferCreatorFromJson(json);
+  factory FlickCreator.fromJson(Map<String, dynamic> json) => 
+      _$FlickCreatorFromJson(json);
 }
-

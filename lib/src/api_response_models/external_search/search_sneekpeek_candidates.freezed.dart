@@ -13,22 +13,22 @@ part of 'search_sneekpeek_candidates.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchSneekpeekCandidatesResult {
+mixin _$ExternalSearchSneekpeekCandidatesResult {
 
 @JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<SearchedSneekpeekCandidate>? get results;@JsonKey(name: 'uids') List<String>? get uids;@JsonKey(name: 'pagination') SneekpeekCandidatesPagination? get pagination;
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchSneekpeekCandidatesResultCopyWith<OpenSearchSneekpeekCandidatesResult> get copyWith => _$OpenSearchSneekpeekCandidatesResultCopyWithImpl<OpenSearchSneekpeekCandidatesResult>(this as OpenSearchSneekpeekCandidatesResult, _$identity);
+$ExternalSearchSneekpeekCandidatesResultCopyWith<ExternalSearchSneekpeekCandidatesResult> get copyWith => _$ExternalSearchSneekpeekCandidatesResultCopyWithImpl<ExternalSearchSneekpeekCandidatesResult>(this as ExternalSearchSneekpeekCandidatesResult, _$identity);
 
-  /// Serializes this OpenSearchSneekpeekCandidatesResult to a JSON map.
+  /// Serializes this ExternalSearchSneekpeekCandidatesResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchSneekpeekCandidatesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&const DeepCollectionEquality().equals(other.uids, uids)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchSneekpeekCandidatesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&const DeepCollectionEquality().equals(other.uids, uids)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchSneekpeekCandidatesResult(success: $success, message: $message, results: $results, uids: $uids, pagination: $pagination)';
+  return 'ExternalSearchSneekpeekCandidatesResult(success: $success, message: $message, results: $results, uids: $uids, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchSneekpeekCandidatesResultCopyWith<$Res>  {
-  factory $OpenSearchSneekpeekCandidatesResultCopyWith(OpenSearchSneekpeekCandidatesResult value, $Res Function(OpenSearchSneekpeekCandidatesResult) _then) = _$OpenSearchSneekpeekCandidatesResultCopyWithImpl;
+abstract mixin class $ExternalSearchSneekpeekCandidatesResultCopyWith<$Res>  {
+  factory $ExternalSearchSneekpeekCandidatesResultCopyWith(ExternalSearchSneekpeekCandidatesResult value, $Res Function(ExternalSearchSneekpeekCandidatesResult) _then) = _$ExternalSearchSneekpeekCandidatesResultCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedSneekpeekCandidate>? results,@JsonKey(name: 'uids') List<String>? uids,@JsonKey(name: 'pagination') SneekpeekCandidatesPagination? pagination
@@ -56,14 +56,14 @@ $SneekpeekCandidatesPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchSneekpeekCandidatesResultCopyWithImpl<$Res>
-    implements $OpenSearchSneekpeekCandidatesResultCopyWith<$Res> {
-  _$OpenSearchSneekpeekCandidatesResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchSneekpeekCandidatesResultCopyWithImpl<$Res>
+    implements $ExternalSearchSneekpeekCandidatesResultCopyWith<$Res> {
+  _$ExternalSearchSneekpeekCandidatesResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchSneekpeekCandidatesResult _self;
-  final $Res Function(OpenSearchSneekpeekCandidatesResult) _then;
+  final ExternalSearchSneekpeekCandidatesResult _self;
+  final $Res Function(ExternalSearchSneekpeekCandidatesResult) _then;
 
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? uids = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
@@ -75,7 +75,7 @@ as List<String>?,pagination: freezed == pagination ? _self.pagination : paginati
 as SneekpeekCandidatesPagination?,
   ));
 }
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -91,8 +91,8 @@ $SneekpeekCandidatesPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchSneekpeekCandidatesResult].
-extension OpenSearchSneekpeekCandidatesResultPatterns on OpenSearchSneekpeekCandidatesResult {
+/// Adds pattern-matching-related methods to [ExternalSearchSneekpeekCandidatesResult].
+extension ExternalSearchSneekpeekCandidatesResultPatterns on ExternalSearchSneekpeekCandidatesResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -105,10 +105,10 @@ extension OpenSearchSneekpeekCandidatesResultPatterns on OpenSearchSneekpeekCand
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchSneekpeekCandidatesResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchSneekpeekCandidatesResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult() when $default != null:
+case _ExternalSearchSneekpeekCandidatesResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -127,10 +127,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchSneekpeekCandidatesResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchSneekpeekCandidatesResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult():
+case _ExternalSearchSneekpeekCandidatesResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -145,10 +145,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchSneekpeekCandidatesResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchSneekpeekCandidatesResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult() when $default != null:
+case _ExternalSearchSneekpeekCandidatesResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -168,7 +168,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedSneekpeekCandidate>? results, @JsonKey(name: 'uids')  List<String>? uids, @JsonKey(name: 'pagination')  SneekpeekCandidatesPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult() when $default != null:
+case _ExternalSearchSneekpeekCandidatesResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagination);case _:
   return orElse();
 
@@ -189,7 +189,7 @@ return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagin
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedSneekpeekCandidate>? results, @JsonKey(name: 'uids')  List<String>? uids, @JsonKey(name: 'pagination')  SneekpeekCandidatesPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult():
+case _ExternalSearchSneekpeekCandidatesResult():
 return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -206,7 +206,7 @@ return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagin
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedSneekpeekCandidate>? results, @JsonKey(name: 'uids')  List<String>? uids, @JsonKey(name: 'pagination')  SneekpeekCandidatesPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchSneekpeekCandidatesResult() when $default != null:
+case _ExternalSearchSneekpeekCandidatesResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagination);case _:
   return null;
 
@@ -218,9 +218,9 @@ return $default(_that.success,_that.message,_that.results,_that.uids,_that.pagin
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchSneekpeekCandidatesResult implements OpenSearchSneekpeekCandidatesResult {
-  const _OpenSearchSneekpeekCandidatesResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedSneekpeekCandidate>? results, @JsonKey(name: 'uids') final  List<String>? uids, @JsonKey(name: 'pagination') this.pagination}): _results = results,_uids = uids;
-  factory _OpenSearchSneekpeekCandidatesResult.fromJson(Map<String, dynamic> json) => _$OpenSearchSneekpeekCandidatesResultFromJson(json);
+class _ExternalSearchSneekpeekCandidatesResult implements ExternalSearchSneekpeekCandidatesResult {
+  const _ExternalSearchSneekpeekCandidatesResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedSneekpeekCandidate>? results, @JsonKey(name: 'uids') final  List<String>? uids, @JsonKey(name: 'pagination') this.pagination}): _results = results,_uids = uids;
+  factory _ExternalSearchSneekpeekCandidatesResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchSneekpeekCandidatesResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
@@ -244,20 +244,20 @@ class _OpenSearchSneekpeekCandidatesResult implements OpenSearchSneekpeekCandida
 
 @override@JsonKey(name: 'pagination') final  SneekpeekCandidatesPagination? pagination;
 
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchSneekpeekCandidatesResultCopyWith<_OpenSearchSneekpeekCandidatesResult> get copyWith => __$OpenSearchSneekpeekCandidatesResultCopyWithImpl<_OpenSearchSneekpeekCandidatesResult>(this, _$identity);
+_$ExternalSearchSneekpeekCandidatesResultCopyWith<_ExternalSearchSneekpeekCandidatesResult> get copyWith => __$ExternalSearchSneekpeekCandidatesResultCopyWithImpl<_ExternalSearchSneekpeekCandidatesResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchSneekpeekCandidatesResultToJson(this, );
+  return _$ExternalSearchSneekpeekCandidatesResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchSneekpeekCandidatesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&const DeepCollectionEquality().equals(other._uids, _uids)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchSneekpeekCandidatesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&const DeepCollectionEquality().equals(other._uids, _uids)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -266,15 +266,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchSneekpeekCandidatesResult(success: $success, message: $message, results: $results, uids: $uids, pagination: $pagination)';
+  return 'ExternalSearchSneekpeekCandidatesResult(success: $success, message: $message, results: $results, uids: $uids, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchSneekpeekCandidatesResultCopyWith<$Res> implements $OpenSearchSneekpeekCandidatesResultCopyWith<$Res> {
-  factory _$OpenSearchSneekpeekCandidatesResultCopyWith(_OpenSearchSneekpeekCandidatesResult value, $Res Function(_OpenSearchSneekpeekCandidatesResult) _then) = __$OpenSearchSneekpeekCandidatesResultCopyWithImpl;
+abstract mixin class _$ExternalSearchSneekpeekCandidatesResultCopyWith<$Res> implements $ExternalSearchSneekpeekCandidatesResultCopyWith<$Res> {
+  factory _$ExternalSearchSneekpeekCandidatesResultCopyWith(_ExternalSearchSneekpeekCandidatesResult value, $Res Function(_ExternalSearchSneekpeekCandidatesResult) _then) = __$ExternalSearchSneekpeekCandidatesResultCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedSneekpeekCandidate>? results,@JsonKey(name: 'uids') List<String>? uids,@JsonKey(name: 'pagination') SneekpeekCandidatesPagination? pagination
@@ -285,17 +285,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchSneekpeekCandidatesResultCopyWithImpl<$Res>
-    implements _$OpenSearchSneekpeekCandidatesResultCopyWith<$Res> {
-  __$OpenSearchSneekpeekCandidatesResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchSneekpeekCandidatesResultCopyWithImpl<$Res>
+    implements _$ExternalSearchSneekpeekCandidatesResultCopyWith<$Res> {
+  __$ExternalSearchSneekpeekCandidatesResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchSneekpeekCandidatesResult _self;
-  final $Res Function(_OpenSearchSneekpeekCandidatesResult) _then;
+  final _ExternalSearchSneekpeekCandidatesResult _self;
+  final $Res Function(_ExternalSearchSneekpeekCandidatesResult) _then;
 
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? uids = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchSneekpeekCandidatesResult(
+  return _then(_ExternalSearchSneekpeekCandidatesResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
@@ -305,7 +305,7 @@ as SneekpeekCandidatesPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchSneekpeekCandidatesResult
+/// Create a copy of ExternalSearchSneekpeekCandidatesResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -324,7 +324,7 @@ $SneekpeekCandidatesPaginationCopyWith<$Res>? get pagination {
 /// @nodoc
 mixin _$SearchedSneekpeekCandidate {
 
-@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'is_in_queue') bool? get isInQueue;@JsonKey(name: 'queue_joined_at') DateTime? get queueJoinedAt;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'profile_picture_url') String? get profilePictureUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'direct_availability') String? get directAvailability;@JsonKey(name: 'direct_call_types') String? get directCallTypes;@JsonKey(name: 'gender') String? get gender;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;
+@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'name') String? get name;@JsonKey(name: 'is_in_queue') bool? get isInQueue;@JsonKey(name: 'queue_joined_at') DateTime? get queueJoinedAt;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'profile_picture_url') String? get profilePictureUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'direct_availability') String? get directAvailability;@JsonKey(name: 'direct_call_types') String? get directCallTypes;@JsonKey(name: 'gender') String? get gender;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -337,16 +337,16 @@ $SearchedSneekpeekCandidateCopyWith<SearchedSneekpeekCandidate> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,openSearchCrawledAt);
+int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,externalSearchIndexedAt);
 
 @override
 String toString() {
-  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, openSearchCrawledAt: $openSearchCrawledAt)';
+  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, externalSearchIndexedAt: $externalSearchIndexedAt)';
 }
 
 
@@ -357,7 +357,7 @@ abstract mixin class $SearchedSneekpeekCandidateCopyWith<$Res>  {
   factory $SearchedSneekpeekCandidateCopyWith(SearchedSneekpeekCandidate value, $Res Function(SearchedSneekpeekCandidate) _then) = _$SearchedSneekpeekCandidateCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt
 });
 
 
@@ -374,7 +374,7 @@ class _$SearchedSneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? openSearchCrawledAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? externalSearchIndexedAt = freezed,}) {
   return _then(_self.copyWith(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -388,7 +388,7 @@ as String?,description: freezed == description ? _self.description : description
 as String?,directAvailability: freezed == directAvailability ? _self.directAvailability : directAvailability // ignore: cast_nullable_to_non_nullable
 as String?,directCallTypes: freezed == directCallTypes ? _self.directCallTypes : directCallTypes // ignore: cast_nullable_to_non_nullable
 as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as String?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }
@@ -471,10 +471,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);case _:
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.externalSearchIndexedAt);case _:
   return orElse();
 
 }
@@ -492,10 +492,10 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt)  $default,) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate():
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);}
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.externalSearchIndexedAt);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -509,10 +509,10 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'name')  String? name, @JsonKey(name: 'is_in_queue')  bool? isInQueue, @JsonKey(name: 'queue_joined_at')  DateTime? queueJoinedAt, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'direct_availability')  String? directAvailability, @JsonKey(name: 'direct_call_types')  String? directCallTypes, @JsonKey(name: 'gender')  String? gender, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchedSneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.openSearchCrawledAt);case _:
+return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.currentChatSessionUid,_that.createdAt,_that.updatedAt,_that.profilePictureUrl,_that.description,_that.directAvailability,_that.directCallTypes,_that.gender,_that.externalSearchIndexedAt);case _:
   return null;
 
 }
@@ -524,7 +524,7 @@ return $default(_that.uid,_that.name,_that.isInQueue,_that.queueJoinedAt,_that.c
 @JsonSerializable()
 
 class _SearchedSneekpeekCandidate implements SearchedSneekpeekCandidate {
-  const _SearchedSneekpeekCandidate({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'name') this.name, @JsonKey(name: 'is_in_queue') this.isInQueue, @JsonKey(name: 'queue_joined_at') this.queueJoinedAt, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'direct_availability') this.directAvailability, @JsonKey(name: 'direct_call_types') this.directCallTypes, @JsonKey(name: 'gender') this.gender, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt});
+  const _SearchedSneekpeekCandidate({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'name') this.name, @JsonKey(name: 'is_in_queue') this.isInQueue, @JsonKey(name: 'queue_joined_at') this.queueJoinedAt, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'direct_availability') this.directAvailability, @JsonKey(name: 'direct_call_types') this.directCallTypes, @JsonKey(name: 'gender') this.gender, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt});
   factory _SearchedSneekpeekCandidate.fromJson(Map<String, dynamic> json) => _$SearchedSneekpeekCandidateFromJson(json);
 
 @override@JsonKey(name: 'uid') final  String? uid;
@@ -539,7 +539,7 @@ class _SearchedSneekpeekCandidate implements SearchedSneekpeekCandidate {
 @override@JsonKey(name: 'direct_availability') final  String? directAvailability;
 @override@JsonKey(name: 'direct_call_types') final  String? directCallTypes;
 @override@JsonKey(name: 'gender') final  String? gender;
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
 
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
@@ -554,16 +554,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedSneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.queueJoinedAt, queueJoinedAt) || other.queueJoinedAt == queueJoinedAt)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.directAvailability, directAvailability) || other.directAvailability == directAvailability)&&(identical(other.directCallTypes, directCallTypes) || other.directCallTypes == directCallTypes)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,openSearchCrawledAt);
+int get hashCode => Object.hash(runtimeType,uid,name,isInQueue,queueJoinedAt,currentChatSessionUid,createdAt,updatedAt,profilePictureUrl,description,directAvailability,directCallTypes,gender,externalSearchIndexedAt);
 
 @override
 String toString() {
-  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, openSearchCrawledAt: $openSearchCrawledAt)';
+  return 'SearchedSneekpeekCandidate(uid: $uid, name: $name, isInQueue: $isInQueue, queueJoinedAt: $queueJoinedAt, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, updatedAt: $updatedAt, profilePictureUrl: $profilePictureUrl, description: $description, directAvailability: $directAvailability, directCallTypes: $directCallTypes, gender: $gender, externalSearchIndexedAt: $externalSearchIndexedAt)';
 }
 
 
@@ -574,7 +574,7 @@ abstract mixin class _$SearchedSneekpeekCandidateCopyWith<$Res> implements $Sear
   factory _$SearchedSneekpeekCandidateCopyWith(_SearchedSneekpeekCandidate value, $Res Function(_SearchedSneekpeekCandidate) _then) = __$SearchedSneekpeekCandidateCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'name') String? name,@JsonKey(name: 'is_in_queue') bool? isInQueue,@JsonKey(name: 'queue_joined_at') DateTime? queueJoinedAt,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'direct_availability') String? directAvailability,@JsonKey(name: 'direct_call_types') String? directCallTypes,@JsonKey(name: 'gender') String? gender,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt
 });
 
 
@@ -591,7 +591,7 @@ class __$SearchedSneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SearchedSneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? openSearchCrawledAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? name = freezed,Object? isInQueue = freezed,Object? queueJoinedAt = freezed,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? profilePictureUrl = freezed,Object? description = freezed,Object? directAvailability = freezed,Object? directCallTypes = freezed,Object? gender = freezed,Object? externalSearchIndexedAt = freezed,}) {
   return _then(_SearchedSneekpeekCandidate(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -605,7 +605,7 @@ as String?,description: freezed == description ? _self.description : description
 as String?,directAvailability: freezed == directAvailability ? _self.directAvailability : directAvailability // ignore: cast_nullable_to_non_nullable
 as String?,directCallTypes: freezed == directCallTypes ? _self.directCallTypes : directCallTypes // ignore: cast_nullable_to_non_nullable
 as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as String?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as String?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }

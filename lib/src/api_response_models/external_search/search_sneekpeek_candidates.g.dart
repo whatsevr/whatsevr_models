@@ -6,9 +6,9 @@ part of 'search_sneekpeek_candidates.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchSneekpeekCandidatesResult
-_$OpenSearchSneekpeekCandidatesResultFromJson(Map<String, dynamic> json) =>
-    _OpenSearchSneekpeekCandidatesResult(
+_ExternalSearchSneekpeekCandidatesResult
+_$ExternalSearchSneekpeekCandidatesResultFromJson(Map<String, dynamic> json) =>
+    _ExternalSearchSneekpeekCandidatesResult(
       success: json['success'] as bool?,
       message: json['message'] as String?,
       results:
@@ -28,8 +28,8 @@ _$OpenSearchSneekpeekCandidatesResultFromJson(Map<String, dynamic> json) =>
               ),
     );
 
-Map<String, dynamic> _$OpenSearchSneekpeekCandidatesResultToJson(
-  _OpenSearchSneekpeekCandidatesResult instance,
+Map<String, dynamic> _$ExternalSearchSneekpeekCandidatesResultToJson(
+  _ExternalSearchSneekpeekCandidatesResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -62,10 +62,10 @@ _SearchedSneekpeekCandidate _$SearchedSneekpeekCandidateFromJson(
   directAvailability: json['direct_availability'] as String?,
   directCallTypes: json['direct_call_types'] as String?,
   gender: json['gender'] as String?,
-  openSearchCrawledAt:
-      json['open_search_crawled_at'] == null
+  externalSearchIndexedAt:
+      json['external_search_indexed_at'] == null
           ? null
-          : DateTime.parse(json['open_search_crawled_at'] as String),
+          : DateTime.parse(json['external_search_indexed_at'] as String),
 );
 
 Map<String, dynamic> _$SearchedSneekpeekCandidateToJson(
@@ -83,7 +83,8 @@ Map<String, dynamic> _$SearchedSneekpeekCandidateToJson(
   'direct_availability': instance.directAvailability,
   'direct_call_types': instance.directCallTypes,
   'gender': instance.gender,
-  'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+  'external_search_indexed_at':
+      instance.externalSearchIndexedAt?.toIso8601String(),
 };
 
 _SneekpeekCandidatesPagination _$SneekpeekCandidatesPaginationFromJson(

@@ -6,15 +6,16 @@ part of 'search_communities.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchCommunitiesResult _$OpenSearchCommunitiesResultFromJson(
+_ExternalSearchCommunitiesResult _$ExternalSearchCommunitiesResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchCommunitiesResult(
+) => _ExternalSearchCommunitiesResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
       (json['results'] as List<dynamic>?)
           ?.map(
-            (e) => OpenSearchedCommunity.fromJson(e as Map<String, dynamic>),
+            (e) =>
+                ExternalSearchedCommunity.fromJson(e as Map<String, dynamic>),
           )
           .toList(),
   pagination:
@@ -25,8 +26,8 @@ _OpenSearchCommunitiesResult _$OpenSearchCommunitiesResultFromJson(
           ),
 );
 
-Map<String, dynamic> _$OpenSearchCommunitiesResultToJson(
-  _OpenSearchCommunitiesResult instance,
+Map<String, dynamic> _$ExternalSearchCommunitiesResultToJson(
+  _ExternalSearchCommunitiesResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -34,9 +35,9 @@ Map<String, dynamic> _$OpenSearchCommunitiesResultToJson(
   'pagination': instance.pagination,
 };
 
-_OpenSearchedCommunity _$OpenSearchedCommunityFromJson(
+_ExternalSearchedCommunity _$ExternalSearchedCommunityFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchedCommunity(
+) => _ExternalSearchedCommunity(
   createdAt:
       json['created_at'] == null
           ? null
@@ -64,10 +65,10 @@ _OpenSearchedCommunity _$OpenSearchedCommunityFromJson(
           : DateTime.parse(json['updated_at'] as String),
   isBroadcasting: json['is_broadcasting'] as bool?,
   isArchived: json['is_archived'] as bool?,
-  openSearchCrawledAt:
-      json['open_search_crawled_at'] == null
+  externalSearchIndexedAt:
+      json['external_search_indexed_at'] == null
           ? null
-          : DateTime.parse(json['open_search_crawled_at'] as String),
+          : DateTime.parse(json['external_search_indexed_at'] as String),
   admin:
       json['admin'] == null
           ? null
@@ -87,8 +88,8 @@ _OpenSearchedCommunity _$OpenSearchedCommunityFromJson(
           .toList(),
 );
 
-Map<String, dynamic> _$OpenSearchedCommunityToJson(
-  _OpenSearchedCommunity instance,
+Map<String, dynamic> _$ExternalSearchedCommunityToJson(
+  _ExternalSearchedCommunity instance,
 ) => <String, dynamic>{
   'created_at': instance.createdAt?.toIso8601String(),
   'admin_user_uid': instance.adminUserUid,
@@ -108,7 +109,8 @@ Map<String, dynamic> _$OpenSearchedCommunityToJson(
   'updated_at': instance.updatedAt?.toIso8601String(),
   'is_broadcasting': instance.isBroadcasting,
   'is_archived': instance.isArchived,
-  'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+  'external_search_indexed_at':
+      instance.externalSearchIndexedAt?.toIso8601String(),
   'admin': instance.admin,
   'cover_media': instance.coverMedia,
   'services': instance.services,

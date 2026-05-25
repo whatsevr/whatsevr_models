@@ -1,30 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_offers.dart';
+part of 'search_flicks.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_OpenSearchOffersResult _$OpenSearchOffersResultFromJson(
+_ExternalSearchFlicksResult _$ExternalSearchFlicksResultFromJson(
   Map<String, dynamic> json,
-) => _OpenSearchOffersResult(
+) => _ExternalSearchFlicksResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
   results:
       (json['results'] as List<dynamic>?)
-          ?.map((e) => SearchedOffer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SearchedFlick.fromJson(e as Map<String, dynamic>))
           .toList(),
   pagination:
       json['pagination'] == null
           ? null
-          : OffersPagination.fromJson(
+          : FlicksPagination.fromJson(
             json['pagination'] as Map<String, dynamic>,
           ),
 );
 
-Map<String, dynamic> _$OpenSearchOffersResultToJson(
-  _OpenSearchOffersResult instance,
+Map<String, dynamic> _$ExternalSearchFlicksResultToJson(
+  _ExternalSearchFlicksResult instance,
 ) => <String, dynamic>{
   'success': instance.success,
   'message': instance.message,
@@ -32,8 +32,8 @@ Map<String, dynamic> _$OpenSearchOffersResultToJson(
   'pagination': instance.pagination,
 };
 
-_SearchedOffer _$SearchedOfferFromJson(Map<String, dynamic> json) =>
-    _SearchedOffer(
+_SearchedFlick _$SearchedFlickFromJson(Map<String, dynamic> json) =>
+    _SearchedFlick(
       createdAt:
           json['created_at'] == null
               ? null
@@ -49,15 +49,22 @@ _SearchedOffer _$SearchedOfferFromJson(Map<String, dynamic> json) =>
           (json['tagged_user_uids'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList(),
-      isDeleted: json['is_deleted'] as bool?,
       isArchived: json['is_archived'] as bool?,
       isActive: json['is_active'] as bool?,
       postCreatorType: json['post_creator_type'] as String?,
+      updatedAt:
+          json['updated_at'] == null
+              ? null
+              : DateTime.parse(json['updated_at'] as String),
       userUid: json['user_uid'] as String?,
-      totalImpressions: (json['total_impressions'] as num?)?.toInt(),
+      thumbnail: json['thumbnail'] as String?,
+      videoUrl: json['video_url'] as String?,
+      location: json['location'] as String?,
+      totalViews: (json['total_views'] as num?)?.toInt(),
       totalReactions: (json['total_reactions'] as num?)?.toInt(),
       totalComments: (json['total_comments'] as num?)?.toInt(),
       internalAiDescription: json['internal_ai_description'] as String?,
+      addressLatLongWkb: json['address_lat_long_wkb'] as String?,
       creatorLatLongWkb: json['creator_lat_long_wkb'] as String?,
       taggedCommunityUids:
           (json['tagged_community_uids'] as List<dynamic>?)
@@ -65,36 +72,21 @@ _SearchedOffer _$SearchedOfferFromJson(Map<String, dynamic> json) =>
               .toList(),
       totalShares: (json['total_shares'] as num?)?.toInt(),
       cumulativeScore: (json['cumulative_score'] as num?)?.toInt(),
-      ctaAction: json['cta_action'] as String?,
-      ctaActionUrl: json['cta_action_url'] as String?,
-      filesData:
-          (json['files_data'] as List<dynamic>?)
-              ?.map((e) => OfferFileData.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      status: json['status'] as String?,
-      targetGender: json['target_gender'] as String?,
-      targetAreas:
-          (json['target_areas'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList(),
+      videoDurationInSec: (json['video_duration_in_sec'] as num?)?.toInt(),
       seoDataWeighted: json['seo_data_weighted'] as String?,
       communityUid: json['community_uid'] as String?,
-      updatedAt:
-          json['updated_at'] == null
+      relatedContentUid: json['related_content_uid'] as String?,
+      externalSearchIndexedAt:
+          json['external_search_indexed_at'] == null
               ? null
-              : DateTime.parse(json['updated_at'] as String),
-      richDescription: json['rich_description'] as Map<String, dynamic>?,
-      openSearchCrawledAt:
-          json['open_search_crawled_at'] == null
-              ? null
-              : DateTime.parse(json['open_search_crawled_at'] as String),
+              : DateTime.parse(json['external_search_indexed_at'] as String),
       creator:
           json['creator'] == null
               ? null
-              : OfferCreator.fromJson(json['creator'] as Map<String, dynamic>),
+              : FlickCreator.fromJson(json['creator'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SearchedOfferToJson(_SearchedOffer instance) =>
+Map<String, dynamic> _$SearchedFlickToJson(_SearchedFlick instance) =>
     <String, dynamic>{
       'created_at': instance.createdAt?.toIso8601String(),
       'uid': instance.uid,
@@ -102,61 +94,34 @@ Map<String, dynamic> _$SearchedOfferToJson(_SearchedOffer instance) =>
       'description': instance.description,
       'hashtags': instance.hashtags,
       'tagged_user_uids': instance.taggedUserUids,
-      'is_deleted': instance.isDeleted,
       'is_archived': instance.isArchived,
       'is_active': instance.isActive,
       'post_creator_type': instance.postCreatorType,
+      'updated_at': instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
-      'total_impressions': instance.totalImpressions,
+      'thumbnail': instance.thumbnail,
+      'video_url': instance.videoUrl,
+      'location': instance.location,
+      'total_views': instance.totalViews,
       'total_reactions': instance.totalReactions,
       'total_comments': instance.totalComments,
       'internal_ai_description': instance.internalAiDescription,
+      'address_lat_long_wkb': instance.addressLatLongWkb,
       'creator_lat_long_wkb': instance.creatorLatLongWkb,
       'tagged_community_uids': instance.taggedCommunityUids,
       'total_shares': instance.totalShares,
       'cumulative_score': instance.cumulativeScore,
-      'cta_action': instance.ctaAction,
-      'cta_action_url': instance.ctaActionUrl,
-      'files_data': instance.filesData,
-      'status': instance.status,
-      'target_gender': instance.targetGender,
-      'target_areas': instance.targetAreas,
+      'video_duration_in_sec': instance.videoDurationInSec,
       'seo_data_weighted': instance.seoDataWeighted,
       'community_uid': instance.communityUid,
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'rich_description': instance.richDescription,
-      'open_search_crawled_at': instance.openSearchCrawledAt?.toIso8601String(),
+      'related_content_uid': instance.relatedContentUid,
+      'external_search_indexed_at':
+          instance.externalSearchIndexedAt?.toIso8601String(),
       'creator': instance.creator,
     };
 
-_OfferFileData _$OfferFileDataFromJson(Map<String, dynamic> json) =>
-    _OfferFileData(
-      type: json['type'] as String?,
-      imageUrl: json['image_url'] as String?,
-    );
-
-Map<String, dynamic> _$OfferFileDataToJson(_OfferFileData instance) =>
-    <String, dynamic>{'type': instance.type, 'image_url': instance.imageUrl};
-
-_OfferHighlight _$OfferHighlightFromJson(
-  Map<String, dynamic> json,
-) => _OfferHighlight(
-  hashtags:
-      (json['hashtags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  description:
-      (json['description'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  title: (json['title'] as List<dynamic>?)?.map((e) => e as String).toList(),
-);
-
-Map<String, dynamic> _$OfferHighlightToJson(_OfferHighlight instance) =>
-    <String, dynamic>{
-      'hashtags': instance.hashtags,
-      'description': instance.description,
-      'title': instance.title,
-    };
-
-_OffersPagination _$OffersPaginationFromJson(Map<String, dynamic> json) =>
-    _OffersPagination(
+_FlicksPagination _$FlicksPaginationFromJson(Map<String, dynamic> json) =>
+    _FlicksPagination(
       currentPage: (json['current_page'] as num?)?.toInt(),
       pageSize: (json['page_size'] as num?)?.toInt(),
       from: (json['from'] as num?)?.toInt(),
@@ -166,7 +131,7 @@ _OffersPagination _$OffersPaginationFromJson(Map<String, dynamic> json) =>
       totalPages: (json['total_pages'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$OffersPaginationToJson(_OffersPagination instance) =>
+Map<String, dynamic> _$FlicksPaginationToJson(_FlicksPagination instance) =>
     <String, dynamic>{
       'current_page': instance.currentPage,
       'page_size': instance.pageSize,
@@ -177,8 +142,8 @@ Map<String, dynamic> _$OffersPaginationToJson(_OffersPagination instance) =>
       'total_pages': instance.totalPages,
     };
 
-_OfferCreator _$OfferCreatorFromJson(Map<String, dynamic> json) =>
-    _OfferCreator(
+_FlickCreator _$FlickCreatorFromJson(Map<String, dynamic> json) =>
+    _FlickCreator(
       uid: json['uid'] as String?,
       name: json['name'] as String?,
       username: json['username'] as String?,
@@ -189,7 +154,7 @@ _OfferCreator _$OfferCreatorFromJson(Map<String, dynamic> json) =>
       isLegallyVerified: json['is_legally_verified'] as bool?,
     );
 
-Map<String, dynamic> _$OfferCreatorToJson(_OfferCreator instance) =>
+Map<String, dynamic> _$FlickCreatorToJson(_FlickCreator instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,

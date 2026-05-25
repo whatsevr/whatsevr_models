@@ -13,22 +13,22 @@ part of 'search_pdfs.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchPdfsResult {
+mixin _$ExternalSearchPdfsResult {
 
 @JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<SearchedPdf>? get results;@JsonKey(name: 'pagination') PdfsPagination? get pagination;
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchPdfsResultCopyWith<OpenSearchPdfsResult> get copyWith => _$OpenSearchPdfsResultCopyWithImpl<OpenSearchPdfsResult>(this as OpenSearchPdfsResult, _$identity);
+$ExternalSearchPdfsResultCopyWith<ExternalSearchPdfsResult> get copyWith => _$ExternalSearchPdfsResultCopyWithImpl<ExternalSearchPdfsResult>(this as ExternalSearchPdfsResult, _$identity);
 
-  /// Serializes this OpenSearchPdfsResult to a JSON map.
+  /// Serializes this ExternalSearchPdfsResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchPdfsResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchPdfsResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchPdfsResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchPdfsResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchPdfsResultCopyWith<$Res>  {
-  factory $OpenSearchPdfsResultCopyWith(OpenSearchPdfsResult value, $Res Function(OpenSearchPdfsResult) _then) = _$OpenSearchPdfsResultCopyWithImpl;
+abstract mixin class $ExternalSearchPdfsResultCopyWith<$Res>  {
+  factory $ExternalSearchPdfsResultCopyWith(ExternalSearchPdfsResult value, $Res Function(ExternalSearchPdfsResult) _then) = _$ExternalSearchPdfsResultCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedPdf>? results,@JsonKey(name: 'pagination') PdfsPagination? pagination
@@ -56,14 +56,14 @@ $PdfsPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchPdfsResultCopyWithImpl<$Res>
-    implements $OpenSearchPdfsResultCopyWith<$Res> {
-  _$OpenSearchPdfsResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchPdfsResultCopyWithImpl<$Res>
+    implements $ExternalSearchPdfsResultCopyWith<$Res> {
+  _$ExternalSearchPdfsResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchPdfsResult _self;
-  final $Res Function(OpenSearchPdfsResult) _then;
+  final ExternalSearchPdfsResult _self;
+  final $Res Function(ExternalSearchPdfsResult) _then;
 
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
@@ -74,7 +74,7 @@ as List<SearchedPdf>?,pagination: freezed == pagination ? _self.pagination : pag
 as PdfsPagination?,
   ));
 }
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -90,8 +90,8 @@ $PdfsPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchPdfsResult].
-extension OpenSearchPdfsResultPatterns on OpenSearchPdfsResult {
+/// Adds pattern-matching-related methods to [ExternalSearchPdfsResult].
+extension ExternalSearchPdfsResultPatterns on ExternalSearchPdfsResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -104,10 +104,10 @@ extension OpenSearchPdfsResultPatterns on OpenSearchPdfsResult {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchPdfsResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchPdfsResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult() when $default != null:
+case _ExternalSearchPdfsResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -126,10 +126,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchPdfsResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchPdfsResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult():
+case _ExternalSearchPdfsResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -144,10 +144,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchPdfsResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchPdfsResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult() when $default != null:
+case _ExternalSearchPdfsResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPdf>? results, @JsonKey(name: 'pagination')  PdfsPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult() when $default != null:
+case _ExternalSearchPdfsResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return orElse();
 
@@ -188,7 +188,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPdf>? results, @JsonKey(name: 'pagination')  PdfsPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult():
+case _ExternalSearchPdfsResult():
 return $default(_that.success,_that.message,_that.results,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -205,7 +205,7 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<SearchedPdf>? results, @JsonKey(name: 'pagination')  PdfsPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchPdfsResult() when $default != null:
+case _ExternalSearchPdfsResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return null;
 
@@ -217,9 +217,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchPdfsResult implements OpenSearchPdfsResult {
-  const _OpenSearchPdfsResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedPdf>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
-  factory _OpenSearchPdfsResult.fromJson(Map<String, dynamic> json) => _$OpenSearchPdfsResultFromJson(json);
+class _ExternalSearchPdfsResult implements ExternalSearchPdfsResult {
+  const _ExternalSearchPdfsResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<SearchedPdf>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
+  factory _ExternalSearchPdfsResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchPdfsResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
@@ -234,20 +234,20 @@ class _OpenSearchPdfsResult implements OpenSearchPdfsResult {
 
 @override@JsonKey(name: 'pagination') final  PdfsPagination? pagination;
 
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchPdfsResultCopyWith<_OpenSearchPdfsResult> get copyWith => __$OpenSearchPdfsResultCopyWithImpl<_OpenSearchPdfsResult>(this, _$identity);
+_$ExternalSearchPdfsResultCopyWith<_ExternalSearchPdfsResult> get copyWith => __$ExternalSearchPdfsResultCopyWithImpl<_ExternalSearchPdfsResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchPdfsResultToJson(this, );
+  return _$ExternalSearchPdfsResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchPdfsResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchPdfsResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,15 +256,15 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchPdfsResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchPdfsResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchPdfsResultCopyWith<$Res> implements $OpenSearchPdfsResultCopyWith<$Res> {
-  factory _$OpenSearchPdfsResultCopyWith(_OpenSearchPdfsResult value, $Res Function(_OpenSearchPdfsResult) _then) = __$OpenSearchPdfsResultCopyWithImpl;
+abstract mixin class _$ExternalSearchPdfsResultCopyWith<$Res> implements $ExternalSearchPdfsResultCopyWith<$Res> {
+  factory _$ExternalSearchPdfsResultCopyWith(_ExternalSearchPdfsResult value, $Res Function(_ExternalSearchPdfsResult) _then) = __$ExternalSearchPdfsResultCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<SearchedPdf>? results,@JsonKey(name: 'pagination') PdfsPagination? pagination
@@ -275,17 +275,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchPdfsResultCopyWithImpl<$Res>
-    implements _$OpenSearchPdfsResultCopyWith<$Res> {
-  __$OpenSearchPdfsResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchPdfsResultCopyWithImpl<$Res>
+    implements _$ExternalSearchPdfsResultCopyWith<$Res> {
+  __$ExternalSearchPdfsResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchPdfsResult _self;
-  final $Res Function(_OpenSearchPdfsResult) _then;
+  final _ExternalSearchPdfsResult _self;
+  final $Res Function(_ExternalSearchPdfsResult) _then;
 
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchPdfsResult(
+  return _then(_ExternalSearchPdfsResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
@@ -294,7 +294,7 @@ as PdfsPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchPdfsResult
+/// Create a copy of ExternalSearchPdfsResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -313,7 +313,7 @@ $PdfsPaginationCopyWith<$Res>? get pagination {
 /// @nodoc
 mixin _$SearchedPdf {
 
-@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'file_url') String? get fileUrl;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'thumbnail_url') String? get thumbnailUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;@JsonKey(name: 'creator') PdfCreator? get creator;
+@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'file_url') String? get fileUrl;@JsonKey(name: 'user_uid') String? get userUid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'thumbnail_url') String? get thumbnailUrl;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'post_creator_type') String? get postCreatorType;@JsonKey(name: 'creator_lat_long_wkb') String? get creatorLatLongWkb;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'community_uid') String? get communityUid;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'total_impressions') int? get totalImpressions;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;@JsonKey(name: 'creator') PdfCreator? get creator;
 /// Create a copy of SearchedPdf
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -326,16 +326,16 @@ $SearchedPdfCopyWith<SearchedPdf> get copyWith => _$SearchedPdfCopyWithImpl<Sear
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedPdf&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchedPdf&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,createdAt,fileUrl,userUid,title,thumbnailUrl,description,postCreatorType,creatorLatLongWkb,uid,seoDataWeighted,communityUid,updatedAt,totalImpressions,openSearchCrawledAt,creator);
+int get hashCode => Object.hash(runtimeType,createdAt,fileUrl,userUid,title,thumbnailUrl,description,postCreatorType,creatorLatLongWkb,uid,seoDataWeighted,communityUid,updatedAt,totalImpressions,externalSearchIndexedAt,creator);
 
 @override
 String toString() {
-  return 'SearchedPdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedPdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -346,7 +346,7 @@ abstract mixin class $SearchedPdfCopyWith<$Res>  {
   factory $SearchedPdfCopyWith(SearchedPdf value, $Res Function(SearchedPdf) _then) = _$SearchedPdfCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'file_url') String? fileUrl,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'thumbnail_url') String? thumbnailUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') PdfCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'file_url') String? fileUrl,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'thumbnail_url') String? thumbnailUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') PdfCreator? creator
 });
 
 
@@ -363,7 +363,7 @@ class _$SearchedPdfCopyWithImpl<$Res>
 
 /// Create a copy of SearchedPdf
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? fileUrl = freezed,Object? userUid = freezed,Object? title = freezed,Object? thumbnailUrl = freezed,Object? description = freezed,Object? postCreatorType = freezed,Object? creatorLatLongWkb = freezed,Object? uid = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? totalImpressions = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? fileUrl = freezed,Object? userUid = freezed,Object? title = freezed,Object? thumbnailUrl = freezed,Object? description = freezed,Object? postCreatorType = freezed,Object? creatorLatLongWkb = freezed,Object? uid = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? totalImpressions = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_self.copyWith(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,fileUrl: freezed == fileUrl ? _self.fileUrl : fileUrl // ignore: cast_nullable_to_non_nullable
@@ -378,7 +378,7 @@ as String?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeighted :
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,totalImpressions: freezed == totalImpressions ? _self.totalImpressions : totalImpressions // ignore: cast_nullable_to_non_nullable
-as int?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as int?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as PdfCreator?,
   ));
@@ -474,10 +474,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PdfCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PdfCreator? creator)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchedPdf() when $default != null:
-return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.externalSearchIndexedAt,_that.creator);case _:
   return orElse();
 
 }
@@ -495,10 +495,10 @@ return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PdfCreator? creator)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PdfCreator? creator)  $default,) {final _that = this;
 switch (_that) {
 case _SearchedPdf():
-return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.openSearchCrawledAt,_that.creator);}
+return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.externalSearchIndexedAt,_that.creator);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -512,10 +512,10 @@ return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'creator')  PdfCreator? creator)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'file_url')  String? fileUrl, @JsonKey(name: 'user_uid')  String? userUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'thumbnail_url')  String? thumbnailUrl, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'post_creator_type')  String? postCreatorType, @JsonKey(name: 'creator_lat_long_wkb')  String? creatorLatLongWkb, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'community_uid')  String? communityUid, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'total_impressions')  int? totalImpressions, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'creator')  PdfCreator? creator)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchedPdf() when $default != null:
-return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.openSearchCrawledAt,_that.creator);case _:
+return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.thumbnailUrl,_that.description,_that.postCreatorType,_that.creatorLatLongWkb,_that.uid,_that.seoDataWeighted,_that.communityUid,_that.updatedAt,_that.totalImpressions,_that.externalSearchIndexedAt,_that.creator);case _:
   return null;
 
 }
@@ -527,7 +527,7 @@ return $default(_that.createdAt,_that.fileUrl,_that.userUid,_that.title,_that.th
 @JsonSerializable()
 
 class _SearchedPdf implements SearchedPdf {
-  const _SearchedPdf({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'file_url') this.fileUrl, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'thumbnail_url') this.thumbnailUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt, @JsonKey(name: 'creator') this.creator});
+  const _SearchedPdf({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'file_url') this.fileUrl, @JsonKey(name: 'user_uid') this.userUid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'thumbnail_url') this.thumbnailUrl, @JsonKey(name: 'description') this.description, @JsonKey(name: 'post_creator_type') this.postCreatorType, @JsonKey(name: 'creator_lat_long_wkb') this.creatorLatLongWkb, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'community_uid') this.communityUid, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'total_impressions') this.totalImpressions, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt, @JsonKey(name: 'creator') this.creator});
   factory _SearchedPdf.fromJson(Map<String, dynamic> json) => _$SearchedPdfFromJson(json);
 
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
@@ -543,7 +543,7 @@ class _SearchedPdf implements SearchedPdf {
 @override@JsonKey(name: 'community_uid') final  String? communityUid;
 @override@JsonKey(name: 'updated_at') final  DateTime? updatedAt;
 @override@JsonKey(name: 'total_impressions') final  int? totalImpressions;
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
 @override@JsonKey(name: 'creator') final  PdfCreator? creator;
 
 /// Create a copy of SearchedPdf
@@ -559,16 +559,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedPdf&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.creator, creator) || other.creator == creator));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchedPdf&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.fileUrl, fileUrl) || other.fileUrl == fileUrl)&&(identical(other.userUid, userUid) || other.userUid == userUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.postCreatorType, postCreatorType) || other.postCreatorType == postCreatorType)&&(identical(other.creatorLatLongWkb, creatorLatLongWkb) || other.creatorLatLongWkb == creatorLatLongWkb)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.communityUid, communityUid) || other.communityUid == communityUid)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.totalImpressions, totalImpressions) || other.totalImpressions == totalImpressions)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.creator, creator) || other.creator == creator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,createdAt,fileUrl,userUid,title,thumbnailUrl,description,postCreatorType,creatorLatLongWkb,uid,seoDataWeighted,communityUid,updatedAt,totalImpressions,openSearchCrawledAt,creator);
+int get hashCode => Object.hash(runtimeType,createdAt,fileUrl,userUid,title,thumbnailUrl,description,postCreatorType,creatorLatLongWkb,uid,seoDataWeighted,communityUid,updatedAt,totalImpressions,externalSearchIndexedAt,creator);
 
 @override
 String toString() {
-  return 'SearchedPdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions, openSearchCrawledAt: $openSearchCrawledAt, creator: $creator)';
+  return 'SearchedPdf(createdAt: $createdAt, fileUrl: $fileUrl, userUid: $userUid, title: $title, thumbnailUrl: $thumbnailUrl, description: $description, postCreatorType: $postCreatorType, creatorLatLongWkb: $creatorLatLongWkb, uid: $uid, seoDataWeighted: $seoDataWeighted, communityUid: $communityUid, updatedAt: $updatedAt, totalImpressions: $totalImpressions, externalSearchIndexedAt: $externalSearchIndexedAt, creator: $creator)';
 }
 
 
@@ -579,7 +579,7 @@ abstract mixin class _$SearchedPdfCopyWith<$Res> implements $SearchedPdfCopyWith
   factory _$SearchedPdfCopyWith(_SearchedPdf value, $Res Function(_SearchedPdf) _then) = __$SearchedPdfCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'file_url') String? fileUrl,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'thumbnail_url') String? thumbnailUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'creator') PdfCreator? creator
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'file_url') String? fileUrl,@JsonKey(name: 'user_uid') String? userUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'thumbnail_url') String? thumbnailUrl,@JsonKey(name: 'description') String? description,@JsonKey(name: 'post_creator_type') String? postCreatorType,@JsonKey(name: 'creator_lat_long_wkb') String? creatorLatLongWkb,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'community_uid') String? communityUid,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'total_impressions') int? totalImpressions,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'creator') PdfCreator? creator
 });
 
 
@@ -596,7 +596,7 @@ class __$SearchedPdfCopyWithImpl<$Res>
 
 /// Create a copy of SearchedPdf
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? fileUrl = freezed,Object? userUid = freezed,Object? title = freezed,Object? thumbnailUrl = freezed,Object? description = freezed,Object? postCreatorType = freezed,Object? creatorLatLongWkb = freezed,Object? uid = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? totalImpressions = freezed,Object? openSearchCrawledAt = freezed,Object? creator = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? fileUrl = freezed,Object? userUid = freezed,Object? title = freezed,Object? thumbnailUrl = freezed,Object? description = freezed,Object? postCreatorType = freezed,Object? creatorLatLongWkb = freezed,Object? uid = freezed,Object? seoDataWeighted = freezed,Object? communityUid = freezed,Object? updatedAt = freezed,Object? totalImpressions = freezed,Object? externalSearchIndexedAt = freezed,Object? creator = freezed,}) {
   return _then(_SearchedPdf(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,fileUrl: freezed == fileUrl ? _self.fileUrl : fileUrl // ignore: cast_nullable_to_non_nullable
@@ -611,7 +611,7 @@ as String?,seoDataWeighted: freezed == seoDataWeighted ? _self.seoDataWeighted :
 as String?,communityUid: freezed == communityUid ? _self.communityUid : communityUid // ignore: cast_nullable_to_non_nullable
 as String?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,totalImpressions: freezed == totalImpressions ? _self.totalImpressions : totalImpressions // ignore: cast_nullable_to_non_nullable
-as int?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as int?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,creator: freezed == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as PdfCreator?,
   ));

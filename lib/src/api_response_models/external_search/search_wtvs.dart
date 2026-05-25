@@ -4,8 +4,8 @@ part 'search_wtvs.freezed.dart';
 part 'search_wtvs.g.dart';
 
 @freezed
-sealed class OpenSearchWtvsResult with _$OpenSearchWtvsResult {
-  const factory OpenSearchWtvsResult({
+sealed class ExternalSearchWtvsResult with _$ExternalSearchWtvsResult {
+  const factory ExternalSearchWtvsResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -18,10 +18,10 @@ sealed class OpenSearchWtvsResult with _$OpenSearchWtvsResult {
     @JsonKey(name: 'pagination')
     WtvsPagination? pagination,
 
-  }) = _OpenSearchWtvsResult;
+  }) = _ExternalSearchWtvsResult;
 
-  factory OpenSearchWtvsResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchWtvsResultFromJson(json);
+  factory ExternalSearchWtvsResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchWtvsResultFromJson(json);
 }
 
 @freezed
@@ -105,8 +105,8 @@ sealed class SearchedWtv with _$SearchedWtv {
     @JsonKey(name: 'community_uid')
     String? communityUid,
     
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'creator')
     WtvCreator? creator,

@@ -4,8 +4,8 @@ part 'search_communities.freezed.dart';
 part 'search_communities.g.dart';
 
 @freezed
-sealed class OpenSearchCommunitiesResult with _$OpenSearchCommunitiesResult {
-  const factory OpenSearchCommunitiesResult({
+sealed class ExternalSearchCommunitiesResult with _$ExternalSearchCommunitiesResult {
+  const factory ExternalSearchCommunitiesResult({
     @JsonKey(name: 'success')
     bool? success,
     
@@ -13,22 +13,22 @@ sealed class OpenSearchCommunitiesResult with _$OpenSearchCommunitiesResult {
     String? message,
     
     @JsonKey(name: 'results')
-    List<OpenSearchedCommunity>? results,
+    List<ExternalSearchedCommunity>? results,
     
   
     
     @JsonKey(name: 'pagination')
     CommunitiesPagination? pagination,
 
-  }) = _OpenSearchCommunitiesResult;
+  }) = _ExternalSearchCommunitiesResult;
 
-  factory OpenSearchCommunitiesResult.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchCommunitiesResultFromJson(json);
+  factory ExternalSearchCommunitiesResult.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchCommunitiesResultFromJson(json);
 }
 
 @freezed
-sealed class OpenSearchedCommunity with _$OpenSearchedCommunity {
-  const factory OpenSearchedCommunity({
+sealed class ExternalSearchedCommunity with _$ExternalSearchedCommunity {
+  const factory ExternalSearchedCommunity({
     @JsonKey(name: 'created_at')
     DateTime? createdAt,
     
@@ -83,8 +83,8 @@ sealed class OpenSearchedCommunity with _$OpenSearchedCommunity {
     @JsonKey(name: 'is_archived')
     bool? isArchived,
     
-    @JsonKey(name: 'open_search_crawled_at')
-    DateTime? openSearchCrawledAt,
+    @JsonKey(name: 'external_search_indexed_at')
+    DateTime? externalSearchIndexedAt,
     
     @JsonKey(name: 'admin')
     Admin? admin,
@@ -94,10 +94,10 @@ sealed class OpenSearchedCommunity with _$OpenSearchedCommunity {
     
     @JsonKey(name: 'services')
     List<SearchedCommunityService>? services,
-  }) = _OpenSearchedCommunity;
+  }) = _ExternalSearchedCommunity;
 
-  factory OpenSearchedCommunity.fromJson(Map<String, dynamic> json) => 
-      _$OpenSearchedCommunityFromJson(json);
+  factory ExternalSearchedCommunity.fromJson(Map<String, dynamic> json) => 
+      _$ExternalSearchedCommunityFromJson(json);
 }
 
 @freezed

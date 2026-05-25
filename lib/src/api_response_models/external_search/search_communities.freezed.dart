@@ -13,22 +13,22 @@ part of 'search_communities.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$OpenSearchCommunitiesResult {
+mixin _$ExternalSearchCommunitiesResult {
 
-@JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<OpenSearchedCommunity>? get results;@JsonKey(name: 'pagination') CommunitiesPagination? get pagination;
-/// Create a copy of OpenSearchCommunitiesResult
+@JsonKey(name: 'success') bool? get success;@JsonKey(name: 'message') String? get message;@JsonKey(name: 'results') List<ExternalSearchedCommunity>? get results;@JsonKey(name: 'pagination') CommunitiesPagination? get pagination;
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchCommunitiesResultCopyWith<OpenSearchCommunitiesResult> get copyWith => _$OpenSearchCommunitiesResultCopyWithImpl<OpenSearchCommunitiesResult>(this as OpenSearchCommunitiesResult, _$identity);
+$ExternalSearchCommunitiesResultCopyWith<ExternalSearchCommunitiesResult> get copyWith => _$ExternalSearchCommunitiesResultCopyWithImpl<ExternalSearchCommunitiesResult>(this as ExternalSearchCommunitiesResult, _$identity);
 
-  /// Serializes this OpenSearchCommunitiesResult to a JSON map.
+  /// Serializes this ExternalSearchCommunitiesResult to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchCommunitiesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchCommunitiesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,18 +37,18 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchCommunitiesResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchCommunitiesResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchCommunitiesResultCopyWith<$Res>  {
-  factory $OpenSearchCommunitiesResultCopyWith(OpenSearchCommunitiesResult value, $Res Function(OpenSearchCommunitiesResult) _then) = _$OpenSearchCommunitiesResultCopyWithImpl;
+abstract mixin class $ExternalSearchCommunitiesResultCopyWith<$Res>  {
+  factory $ExternalSearchCommunitiesResultCopyWith(ExternalSearchCommunitiesResult value, $Res Function(ExternalSearchCommunitiesResult) _then) = _$ExternalSearchCommunitiesResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<OpenSearchedCommunity>? results,@JsonKey(name: 'pagination') CommunitiesPagination? pagination
+@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<ExternalSearchedCommunity>? results,@JsonKey(name: 'pagination') CommunitiesPagination? pagination
 });
 
 
@@ -56,25 +56,25 @@ $CommunitiesPaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
-class _$OpenSearchCommunitiesResultCopyWithImpl<$Res>
-    implements $OpenSearchCommunitiesResultCopyWith<$Res> {
-  _$OpenSearchCommunitiesResultCopyWithImpl(this._self, this._then);
+class _$ExternalSearchCommunitiesResultCopyWithImpl<$Res>
+    implements $ExternalSearchCommunitiesResultCopyWith<$Res> {
+  _$ExternalSearchCommunitiesResultCopyWithImpl(this._self, this._then);
 
-  final OpenSearchCommunitiesResult _self;
-  final $Res Function(OpenSearchCommunitiesResult) _then;
+  final ExternalSearchCommunitiesResult _self;
+  final $Res Function(ExternalSearchCommunitiesResult) _then;
 
-/// Create a copy of OpenSearchCommunitiesResult
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
   return _then(_self.copyWith(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
-as List<OpenSearchedCommunity>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as List<ExternalSearchedCommunity>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as CommunitiesPagination?,
   ));
 }
-/// Create a copy of OpenSearchCommunitiesResult
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -90,8 +90,8 @@ $CommunitiesPaginationCopyWith<$Res>? get pagination {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchCommunitiesResult].
-extension OpenSearchCommunitiesResultPatterns on OpenSearchCommunitiesResult {
+/// Adds pattern-matching-related methods to [ExternalSearchCommunitiesResult].
+extension ExternalSearchCommunitiesResultPatterns on ExternalSearchCommunitiesResult {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -104,10 +104,10 @@ extension OpenSearchCommunitiesResultPatterns on OpenSearchCommunitiesResult {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchCommunitiesResult value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchCommunitiesResult value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult() when $default != null:
+case _ExternalSearchCommunitiesResult() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -126,10 +126,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchCommunitiesResult value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchCommunitiesResult value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult():
+case _ExternalSearchCommunitiesResult():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -144,10 +144,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchCommunitiesResult value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchCommunitiesResult value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult() when $default != null:
+case _ExternalSearchCommunitiesResult() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -165,9 +165,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult() when $default != null:
+case _ExternalSearchCommunitiesResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return orElse();
 
@@ -186,9 +186,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult():
+case _ExternalSearchCommunitiesResult():
 return $default(_that.success,_that.message,_that.results,_that.pagination);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -203,9 +203,9 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<OpenSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'success')  bool? success, @JsonKey(name: 'message')  String? message, @JsonKey(name: 'results')  List<ExternalSearchedCommunity>? results, @JsonKey(name: 'pagination')  CommunitiesPagination? pagination)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchCommunitiesResult() when $default != null:
+case _ExternalSearchCommunitiesResult() when $default != null:
 return $default(_that.success,_that.message,_that.results,_that.pagination);case _:
   return null;
 
@@ -217,14 +217,14 @@ return $default(_that.success,_that.message,_that.results,_that.pagination);case
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchCommunitiesResult implements OpenSearchCommunitiesResult {
-  const _OpenSearchCommunitiesResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<OpenSearchedCommunity>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
-  factory _OpenSearchCommunitiesResult.fromJson(Map<String, dynamic> json) => _$OpenSearchCommunitiesResultFromJson(json);
+class _ExternalSearchCommunitiesResult implements ExternalSearchCommunitiesResult {
+  const _ExternalSearchCommunitiesResult({@JsonKey(name: 'success') this.success, @JsonKey(name: 'message') this.message, @JsonKey(name: 'results') final  List<ExternalSearchedCommunity>? results, @JsonKey(name: 'pagination') this.pagination}): _results = results;
+  factory _ExternalSearchCommunitiesResult.fromJson(Map<String, dynamic> json) => _$ExternalSearchCommunitiesResultFromJson(json);
 
 @override@JsonKey(name: 'success') final  bool? success;
 @override@JsonKey(name: 'message') final  String? message;
- final  List<OpenSearchedCommunity>? _results;
-@override@JsonKey(name: 'results') List<OpenSearchedCommunity>? get results {
+ final  List<ExternalSearchedCommunity>? _results;
+@override@JsonKey(name: 'results') List<ExternalSearchedCommunity>? get results {
   final value = _results;
   if (value == null) return null;
   if (_results is EqualUnmodifiableListView) return _results;
@@ -234,20 +234,20 @@ class _OpenSearchCommunitiesResult implements OpenSearchCommunitiesResult {
 
 @override@JsonKey(name: 'pagination') final  CommunitiesPagination? pagination;
 
-/// Create a copy of OpenSearchCommunitiesResult
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchCommunitiesResultCopyWith<_OpenSearchCommunitiesResult> get copyWith => __$OpenSearchCommunitiesResultCopyWithImpl<_OpenSearchCommunitiesResult>(this, _$identity);
+_$ExternalSearchCommunitiesResultCopyWith<_ExternalSearchCommunitiesResult> get copyWith => __$ExternalSearchCommunitiesResultCopyWithImpl<_ExternalSearchCommunitiesResult>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchCommunitiesResultToJson(this, );
+  return _$ExternalSearchCommunitiesResultToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchCommunitiesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchCommunitiesResult&&(identical(other.success, success) || other.success == success)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,18 +256,18 @@ int get hashCode => Object.hash(runtimeType,success,message,const DeepCollection
 
 @override
 String toString() {
-  return 'OpenSearchCommunitiesResult(success: $success, message: $message, results: $results, pagination: $pagination)';
+  return 'ExternalSearchCommunitiesResult(success: $success, message: $message, results: $results, pagination: $pagination)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchCommunitiesResultCopyWith<$Res> implements $OpenSearchCommunitiesResultCopyWith<$Res> {
-  factory _$OpenSearchCommunitiesResultCopyWith(_OpenSearchCommunitiesResult value, $Res Function(_OpenSearchCommunitiesResult) _then) = __$OpenSearchCommunitiesResultCopyWithImpl;
+abstract mixin class _$ExternalSearchCommunitiesResultCopyWith<$Res> implements $ExternalSearchCommunitiesResultCopyWith<$Res> {
+  factory _$ExternalSearchCommunitiesResultCopyWith(_ExternalSearchCommunitiesResult value, $Res Function(_ExternalSearchCommunitiesResult) _then) = __$ExternalSearchCommunitiesResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<OpenSearchedCommunity>? results,@JsonKey(name: 'pagination') CommunitiesPagination? pagination
+@JsonKey(name: 'success') bool? success,@JsonKey(name: 'message') String? message,@JsonKey(name: 'results') List<ExternalSearchedCommunity>? results,@JsonKey(name: 'pagination') CommunitiesPagination? pagination
 });
 
 
@@ -275,26 +275,26 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchCommunitiesResultCopyWithImpl<$Res>
-    implements _$OpenSearchCommunitiesResultCopyWith<$Res> {
-  __$OpenSearchCommunitiesResultCopyWithImpl(this._self, this._then);
+class __$ExternalSearchCommunitiesResultCopyWithImpl<$Res>
+    implements _$ExternalSearchCommunitiesResultCopyWith<$Res> {
+  __$ExternalSearchCommunitiesResultCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchCommunitiesResult _self;
-  final $Res Function(_OpenSearchCommunitiesResult) _then;
+  final _ExternalSearchCommunitiesResult _self;
+  final $Res Function(_ExternalSearchCommunitiesResult) _then;
 
-/// Create a copy of OpenSearchCommunitiesResult
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? success = freezed,Object? message = freezed,Object? results = freezed,Object? pagination = freezed,}) {
-  return _then(_OpenSearchCommunitiesResult(
+  return _then(_ExternalSearchCommunitiesResult(
 success: freezed == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as bool?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,results: freezed == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
-as List<OpenSearchedCommunity>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
+as List<ExternalSearchedCommunity>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as CommunitiesPagination?,
   ));
 }
 
-/// Create a copy of OpenSearchCommunitiesResult
+/// Create a copy of ExternalSearchCommunitiesResult
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -311,42 +311,42 @@ $CommunitiesPaginationCopyWith<$Res>? get pagination {
 
 
 /// @nodoc
-mixin _$OpenSearchedCommunity {
+mixin _$ExternalSearchedCommunity {
 
-@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'admin_user_uid') String? get adminUserUid;@JsonKey(name: 'status') String? get status;@JsonKey(name: 'bio') String? get bio;@JsonKey(name: 'location') String? get location;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'profile_picture') String? get profilePicture;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'username') String? get username;@JsonKey(name: 'total_members') int? get totalMembers;@JsonKey(name: 'is_private') bool? get isPrivate;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'plain_last_message') String? get plainLastMessage;@JsonKey(name: 'last_message_at') DateTime? get lastMessageAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'is_broadcasting') bool? get isBroadcasting;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'open_search_crawled_at') DateTime? get openSearchCrawledAt;@JsonKey(name: 'admin') Admin? get admin;@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? get coverMedia;@JsonKey(name: 'services') List<SearchedCommunityService>? get services;
-/// Create a copy of OpenSearchedCommunity
+@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'admin_user_uid') String? get adminUserUid;@JsonKey(name: 'status') String? get status;@JsonKey(name: 'bio') String? get bio;@JsonKey(name: 'location') String? get location;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'profile_picture') String? get profilePicture;@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'username') String? get username;@JsonKey(name: 'total_members') int? get totalMembers;@JsonKey(name: 'is_private') bool? get isPrivate;@JsonKey(name: 'seo_data_weighted') String? get seoDataWeighted;@JsonKey(name: 'plain_last_message') String? get plainLastMessage;@JsonKey(name: 'last_message_at') DateTime? get lastMessageAt;@JsonKey(name: 'updated_at') DateTime? get updatedAt;@JsonKey(name: 'is_broadcasting') bool? get isBroadcasting;@JsonKey(name: 'is_archived') bool? get isArchived;@JsonKey(name: 'external_search_indexed_at') DateTime? get externalSearchIndexedAt;@JsonKey(name: 'admin') Admin? get admin;@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? get coverMedia;@JsonKey(name: 'services') List<SearchedCommunityService>? get services;
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$OpenSearchedCommunityCopyWith<OpenSearchedCommunity> get copyWith => _$OpenSearchedCommunityCopyWithImpl<OpenSearchedCommunity>(this as OpenSearchedCommunity, _$identity);
+$ExternalSearchedCommunityCopyWith<ExternalSearchedCommunity> get copyWith => _$ExternalSearchedCommunityCopyWithImpl<ExternalSearchedCommunity>(this as ExternalSearchedCommunity, _$identity);
 
-  /// Serializes this OpenSearchedCommunity to a JSON map.
+  /// Serializes this ExternalSearchedCommunity to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OpenSearchedCommunity&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.adminUserUid, adminUserUid) || other.adminUserUid == adminUserUid)&&(identical(other.status, status) || other.status == status)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.location, location) || other.location == location)&&(identical(other.description, description) || other.description == description)&&(identical(other.title, title) || other.title == title)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.totalMembers, totalMembers) || other.totalMembers == totalMembers)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.plainLastMessage, plainLastMessage) || other.plainLastMessage == plainLastMessage)&&(identical(other.lastMessageAt, lastMessageAt) || other.lastMessageAt == lastMessageAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isBroadcasting, isBroadcasting) || other.isBroadcasting == isBroadcasting)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.admin, admin) || other.admin == admin)&&const DeepCollectionEquality().equals(other.coverMedia, coverMedia)&&const DeepCollectionEquality().equals(other.services, services));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExternalSearchedCommunity&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.adminUserUid, adminUserUid) || other.adminUserUid == adminUserUid)&&(identical(other.status, status) || other.status == status)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.location, location) || other.location == location)&&(identical(other.description, description) || other.description == description)&&(identical(other.title, title) || other.title == title)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.totalMembers, totalMembers) || other.totalMembers == totalMembers)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.plainLastMessage, plainLastMessage) || other.plainLastMessage == plainLastMessage)&&(identical(other.lastMessageAt, lastMessageAt) || other.lastMessageAt == lastMessageAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isBroadcasting, isBroadcasting) || other.isBroadcasting == isBroadcasting)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.admin, admin) || other.admin == admin)&&const DeepCollectionEquality().equals(other.coverMedia, coverMedia)&&const DeepCollectionEquality().equals(other.services, services));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,adminUserUid,status,bio,location,description,title,profilePicture,uid,username,totalMembers,isPrivate,seoDataWeighted,plainLastMessage,lastMessageAt,updatedAt,isBroadcasting,isArchived,openSearchCrawledAt,admin,const DeepCollectionEquality().hash(coverMedia),const DeepCollectionEquality().hash(services)]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,adminUserUid,status,bio,location,description,title,profilePicture,uid,username,totalMembers,isPrivate,seoDataWeighted,plainLastMessage,lastMessageAt,updatedAt,isBroadcasting,isArchived,externalSearchIndexedAt,admin,const DeepCollectionEquality().hash(coverMedia),const DeepCollectionEquality().hash(services)]);
 
 @override
 String toString() {
-  return 'OpenSearchedCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, isArchived: $isArchived, openSearchCrawledAt: $openSearchCrawledAt, admin: $admin, coverMedia: $coverMedia, services: $services)';
+  return 'ExternalSearchedCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, isArchived: $isArchived, externalSearchIndexedAt: $externalSearchIndexedAt, admin: $admin, coverMedia: $coverMedia, services: $services)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $OpenSearchedCommunityCopyWith<$Res>  {
-  factory $OpenSearchedCommunityCopyWith(OpenSearchedCommunity value, $Res Function(OpenSearchedCommunity) _then) = _$OpenSearchedCommunityCopyWithImpl;
+abstract mixin class $ExternalSearchedCommunityCopyWith<$Res>  {
+  factory $ExternalSearchedCommunityCopyWith(ExternalSearchedCommunity value, $Res Function(ExternalSearchedCommunity) _then) = _$ExternalSearchedCommunityCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'admin_user_uid') String? adminUserUid,@JsonKey(name: 'status') String? status,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'location') String? location,@JsonKey(name: 'description') String? description,@JsonKey(name: 'title') String? title,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'total_members') int? totalMembers,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'plain_last_message') String? plainLastMessage,@JsonKey(name: 'last_message_at') DateTime? lastMessageAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_broadcasting') bool? isBroadcasting,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'admin') Admin? admin,@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? coverMedia,@JsonKey(name: 'services') List<SearchedCommunityService>? services
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'admin_user_uid') String? adminUserUid,@JsonKey(name: 'status') String? status,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'location') String? location,@JsonKey(name: 'description') String? description,@JsonKey(name: 'title') String? title,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'total_members') int? totalMembers,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'plain_last_message') String? plainLastMessage,@JsonKey(name: 'last_message_at') DateTime? lastMessageAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_broadcasting') bool? isBroadcasting,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'admin') Admin? admin,@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? coverMedia,@JsonKey(name: 'services') List<SearchedCommunityService>? services
 });
 
 
@@ -354,16 +354,16 @@ $AdminCopyWith<$Res>? get admin;
 
 }
 /// @nodoc
-class _$OpenSearchedCommunityCopyWithImpl<$Res>
-    implements $OpenSearchedCommunityCopyWith<$Res> {
-  _$OpenSearchedCommunityCopyWithImpl(this._self, this._then);
+class _$ExternalSearchedCommunityCopyWithImpl<$Res>
+    implements $ExternalSearchedCommunityCopyWith<$Res> {
+  _$ExternalSearchedCommunityCopyWithImpl(this._self, this._then);
 
-  final OpenSearchedCommunity _self;
-  final $Res Function(OpenSearchedCommunity) _then;
+  final ExternalSearchedCommunity _self;
+  final $Res Function(ExternalSearchedCommunity) _then;
 
-/// Create a copy of OpenSearchedCommunity
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? adminUserUid = freezed,Object? status = freezed,Object? bio = freezed,Object? location = freezed,Object? description = freezed,Object? title = freezed,Object? profilePicture = freezed,Object? uid = freezed,Object? username = freezed,Object? totalMembers = freezed,Object? isPrivate = freezed,Object? seoDataWeighted = freezed,Object? plainLastMessage = freezed,Object? lastMessageAt = freezed,Object? updatedAt = freezed,Object? isBroadcasting = freezed,Object? isArchived = freezed,Object? openSearchCrawledAt = freezed,Object? admin = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? createdAt = freezed,Object? adminUserUid = freezed,Object? status = freezed,Object? bio = freezed,Object? location = freezed,Object? description = freezed,Object? title = freezed,Object? profilePicture = freezed,Object? uid = freezed,Object? username = freezed,Object? totalMembers = freezed,Object? isPrivate = freezed,Object? seoDataWeighted = freezed,Object? plainLastMessage = freezed,Object? lastMessageAt = freezed,Object? updatedAt = freezed,Object? isBroadcasting = freezed,Object? isArchived = freezed,Object? externalSearchIndexedAt = freezed,Object? admin = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
   return _then(_self.copyWith(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,adminUserUid: freezed == adminUserUid ? _self.adminUserUid : adminUserUid // ignore: cast_nullable_to_non_nullable
@@ -383,14 +383,14 @@ as String?,lastMessageAt: freezed == lastMessageAt ? _self.lastMessageAt : lastM
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isBroadcasting: freezed == isBroadcasting ? _self.isBroadcasting : isBroadcasting // ignore: cast_nullable_to_non_nullable
 as bool?,isArchived: freezed == isArchived ? _self.isArchived : isArchived // ignore: cast_nullable_to_non_nullable
-as bool?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as bool?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,admin: freezed == admin ? _self.admin : admin // ignore: cast_nullable_to_non_nullable
 as Admin?,coverMedia: freezed == coverMedia ? _self.coverMedia : coverMedia // ignore: cast_nullable_to_non_nullable
 as List<SearchedCommunityCoverMedia>?,services: freezed == services ? _self.services : services // ignore: cast_nullable_to_non_nullable
 as List<SearchedCommunityService>?,
   ));
 }
-/// Create a copy of OpenSearchedCommunity
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -406,8 +406,8 @@ $AdminCopyWith<$Res>? get admin {
 }
 
 
-/// Adds pattern-matching-related methods to [OpenSearchedCommunity].
-extension OpenSearchedCommunityPatterns on OpenSearchedCommunity {
+/// Adds pattern-matching-related methods to [ExternalSearchedCommunity].
+extension ExternalSearchedCommunityPatterns on ExternalSearchedCommunity {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -420,10 +420,10 @@ extension OpenSearchedCommunityPatterns on OpenSearchedCommunity {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OpenSearchedCommunity value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ExternalSearchedCommunity value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity() when $default != null:
+case _ExternalSearchedCommunity() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -442,10 +442,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OpenSearchedCommunity value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ExternalSearchedCommunity value)  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity():
+case _ExternalSearchedCommunity():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -460,10 +460,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OpenSearchedCommunity value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ExternalSearchedCommunity value)?  $default,){
 final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity() when $default != null:
+case _ExternalSearchedCommunity() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -481,10 +481,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity() when $default != null:
-return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.openSearchCrawledAt,_that.admin,_that.coverMedia,_that.services);case _:
+case _ExternalSearchedCommunity() when $default != null:
+return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.externalSearchIndexedAt,_that.admin,_that.coverMedia,_that.services);case _:
   return orElse();
 
 }
@@ -502,10 +502,10 @@ return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity():
-return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.openSearchCrawledAt,_that.admin,_that.coverMedia,_that.services);}
+case _ExternalSearchedCommunity():
+return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.externalSearchIndexedAt,_that.admin,_that.coverMedia,_that.services);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -519,10 +519,10 @@ return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'open_search_crawled_at')  DateTime? openSearchCrawledAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'admin_user_uid')  String? adminUserUid, @JsonKey(name: 'status')  String? status, @JsonKey(name: 'bio')  String? bio, @JsonKey(name: 'location')  String? location, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'profile_picture')  String? profilePicture, @JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'username')  String? username, @JsonKey(name: 'total_members')  int? totalMembers, @JsonKey(name: 'is_private')  bool? isPrivate, @JsonKey(name: 'seo_data_weighted')  String? seoDataWeighted, @JsonKey(name: 'plain_last_message')  String? plainLastMessage, @JsonKey(name: 'last_message_at')  DateTime? lastMessageAt, @JsonKey(name: 'updated_at')  DateTime? updatedAt, @JsonKey(name: 'is_broadcasting')  bool? isBroadcasting, @JsonKey(name: 'is_archived')  bool? isArchived, @JsonKey(name: 'external_search_indexed_at')  DateTime? externalSearchIndexedAt, @JsonKey(name: 'admin')  Admin? admin, @JsonKey(name: 'cover_media')  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services')  List<SearchedCommunityService>? services)?  $default,) {final _that = this;
 switch (_that) {
-case _OpenSearchedCommunity() when $default != null:
-return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.openSearchCrawledAt,_that.admin,_that.coverMedia,_that.services);case _:
+case _ExternalSearchedCommunity() when $default != null:
+return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.location,_that.description,_that.title,_that.profilePicture,_that.uid,_that.username,_that.totalMembers,_that.isPrivate,_that.seoDataWeighted,_that.plainLastMessage,_that.lastMessageAt,_that.updatedAt,_that.isBroadcasting,_that.isArchived,_that.externalSearchIndexedAt,_that.admin,_that.coverMedia,_that.services);case _:
   return null;
 
 }
@@ -533,9 +533,9 @@ return $default(_that.createdAt,_that.adminUserUid,_that.status,_that.bio,_that.
 /// @nodoc
 @JsonSerializable()
 
-class _OpenSearchedCommunity implements OpenSearchedCommunity {
-  const _OpenSearchedCommunity({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'admin_user_uid') this.adminUserUid, @JsonKey(name: 'status') this.status, @JsonKey(name: 'bio') this.bio, @JsonKey(name: 'location') this.location, @JsonKey(name: 'description') this.description, @JsonKey(name: 'title') this.title, @JsonKey(name: 'profile_picture') this.profilePicture, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'username') this.username, @JsonKey(name: 'total_members') this.totalMembers, @JsonKey(name: 'is_private') this.isPrivate, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'plain_last_message') this.plainLastMessage, @JsonKey(name: 'last_message_at') this.lastMessageAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'is_broadcasting') this.isBroadcasting, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'open_search_crawled_at') this.openSearchCrawledAt, @JsonKey(name: 'admin') this.admin, @JsonKey(name: 'cover_media') final  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services') final  List<SearchedCommunityService>? services}): _coverMedia = coverMedia,_services = services;
-  factory _OpenSearchedCommunity.fromJson(Map<String, dynamic> json) => _$OpenSearchedCommunityFromJson(json);
+class _ExternalSearchedCommunity implements ExternalSearchedCommunity {
+  const _ExternalSearchedCommunity({@JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'admin_user_uid') this.adminUserUid, @JsonKey(name: 'status') this.status, @JsonKey(name: 'bio') this.bio, @JsonKey(name: 'location') this.location, @JsonKey(name: 'description') this.description, @JsonKey(name: 'title') this.title, @JsonKey(name: 'profile_picture') this.profilePicture, @JsonKey(name: 'uid') this.uid, @JsonKey(name: 'username') this.username, @JsonKey(name: 'total_members') this.totalMembers, @JsonKey(name: 'is_private') this.isPrivate, @JsonKey(name: 'seo_data_weighted') this.seoDataWeighted, @JsonKey(name: 'plain_last_message') this.plainLastMessage, @JsonKey(name: 'last_message_at') this.lastMessageAt, @JsonKey(name: 'updated_at') this.updatedAt, @JsonKey(name: 'is_broadcasting') this.isBroadcasting, @JsonKey(name: 'is_archived') this.isArchived, @JsonKey(name: 'external_search_indexed_at') this.externalSearchIndexedAt, @JsonKey(name: 'admin') this.admin, @JsonKey(name: 'cover_media') final  List<SearchedCommunityCoverMedia>? coverMedia, @JsonKey(name: 'services') final  List<SearchedCommunityService>? services}): _coverMedia = coverMedia,_services = services;
+  factory _ExternalSearchedCommunity.fromJson(Map<String, dynamic> json) => _$ExternalSearchedCommunityFromJson(json);
 
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
 @override@JsonKey(name: 'admin_user_uid') final  String? adminUserUid;
@@ -555,7 +555,7 @@ class _OpenSearchedCommunity implements OpenSearchedCommunity {
 @override@JsonKey(name: 'updated_at') final  DateTime? updatedAt;
 @override@JsonKey(name: 'is_broadcasting') final  bool? isBroadcasting;
 @override@JsonKey(name: 'is_archived') final  bool? isArchived;
-@override@JsonKey(name: 'open_search_crawled_at') final  DateTime? openSearchCrawledAt;
+@override@JsonKey(name: 'external_search_indexed_at') final  DateTime? externalSearchIndexedAt;
 @override@JsonKey(name: 'admin') final  Admin? admin;
  final  List<SearchedCommunityCoverMedia>? _coverMedia;
 @override@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? get coverMedia {
@@ -576,40 +576,40 @@ class _OpenSearchedCommunity implements OpenSearchedCommunity {
 }
 
 
-/// Create a copy of OpenSearchedCommunity
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$OpenSearchedCommunityCopyWith<_OpenSearchedCommunity> get copyWith => __$OpenSearchedCommunityCopyWithImpl<_OpenSearchedCommunity>(this, _$identity);
+_$ExternalSearchedCommunityCopyWith<_ExternalSearchedCommunity> get copyWith => __$ExternalSearchedCommunityCopyWithImpl<_ExternalSearchedCommunity>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$OpenSearchedCommunityToJson(this, );
+  return _$ExternalSearchedCommunityToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OpenSearchedCommunity&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.adminUserUid, adminUserUid) || other.adminUserUid == adminUserUid)&&(identical(other.status, status) || other.status == status)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.location, location) || other.location == location)&&(identical(other.description, description) || other.description == description)&&(identical(other.title, title) || other.title == title)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.totalMembers, totalMembers) || other.totalMembers == totalMembers)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.plainLastMessage, plainLastMessage) || other.plainLastMessage == plainLastMessage)&&(identical(other.lastMessageAt, lastMessageAt) || other.lastMessageAt == lastMessageAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isBroadcasting, isBroadcasting) || other.isBroadcasting == isBroadcasting)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.openSearchCrawledAt, openSearchCrawledAt) || other.openSearchCrawledAt == openSearchCrawledAt)&&(identical(other.admin, admin) || other.admin == admin)&&const DeepCollectionEquality().equals(other._coverMedia, _coverMedia)&&const DeepCollectionEquality().equals(other._services, _services));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExternalSearchedCommunity&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.adminUserUid, adminUserUid) || other.adminUserUid == adminUserUid)&&(identical(other.status, status) || other.status == status)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.location, location) || other.location == location)&&(identical(other.description, description) || other.description == description)&&(identical(other.title, title) || other.title == title)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.username, username) || other.username == username)&&(identical(other.totalMembers, totalMembers) || other.totalMembers == totalMembers)&&(identical(other.isPrivate, isPrivate) || other.isPrivate == isPrivate)&&(identical(other.seoDataWeighted, seoDataWeighted) || other.seoDataWeighted == seoDataWeighted)&&(identical(other.plainLastMessage, plainLastMessage) || other.plainLastMessage == plainLastMessage)&&(identical(other.lastMessageAt, lastMessageAt) || other.lastMessageAt == lastMessageAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isBroadcasting, isBroadcasting) || other.isBroadcasting == isBroadcasting)&&(identical(other.isArchived, isArchived) || other.isArchived == isArchived)&&(identical(other.externalSearchIndexedAt, externalSearchIndexedAt) || other.externalSearchIndexedAt == externalSearchIndexedAt)&&(identical(other.admin, admin) || other.admin == admin)&&const DeepCollectionEquality().equals(other._coverMedia, _coverMedia)&&const DeepCollectionEquality().equals(other._services, _services));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,createdAt,adminUserUid,status,bio,location,description,title,profilePicture,uid,username,totalMembers,isPrivate,seoDataWeighted,plainLastMessage,lastMessageAt,updatedAt,isBroadcasting,isArchived,openSearchCrawledAt,admin,const DeepCollectionEquality().hash(_coverMedia),const DeepCollectionEquality().hash(_services)]);
+int get hashCode => Object.hashAll([runtimeType,createdAt,adminUserUid,status,bio,location,description,title,profilePicture,uid,username,totalMembers,isPrivate,seoDataWeighted,plainLastMessage,lastMessageAt,updatedAt,isBroadcasting,isArchived,externalSearchIndexedAt,admin,const DeepCollectionEquality().hash(_coverMedia),const DeepCollectionEquality().hash(_services)]);
 
 @override
 String toString() {
-  return 'OpenSearchedCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, isArchived: $isArchived, openSearchCrawledAt: $openSearchCrawledAt, admin: $admin, coverMedia: $coverMedia, services: $services)';
+  return 'ExternalSearchedCommunity(createdAt: $createdAt, adminUserUid: $adminUserUid, status: $status, bio: $bio, location: $location, description: $description, title: $title, profilePicture: $profilePicture, uid: $uid, username: $username, totalMembers: $totalMembers, isPrivate: $isPrivate, seoDataWeighted: $seoDataWeighted, plainLastMessage: $plainLastMessage, lastMessageAt: $lastMessageAt, updatedAt: $updatedAt, isBroadcasting: $isBroadcasting, isArchived: $isArchived, externalSearchIndexedAt: $externalSearchIndexedAt, admin: $admin, coverMedia: $coverMedia, services: $services)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$OpenSearchedCommunityCopyWith<$Res> implements $OpenSearchedCommunityCopyWith<$Res> {
-  factory _$OpenSearchedCommunityCopyWith(_OpenSearchedCommunity value, $Res Function(_OpenSearchedCommunity) _then) = __$OpenSearchedCommunityCopyWithImpl;
+abstract mixin class _$ExternalSearchedCommunityCopyWith<$Res> implements $ExternalSearchedCommunityCopyWith<$Res> {
+  factory _$ExternalSearchedCommunityCopyWith(_ExternalSearchedCommunity value, $Res Function(_ExternalSearchedCommunity) _then) = __$ExternalSearchedCommunityCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'admin_user_uid') String? adminUserUid,@JsonKey(name: 'status') String? status,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'location') String? location,@JsonKey(name: 'description') String? description,@JsonKey(name: 'title') String? title,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'total_members') int? totalMembers,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'plain_last_message') String? plainLastMessage,@JsonKey(name: 'last_message_at') DateTime? lastMessageAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_broadcasting') bool? isBroadcasting,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'open_search_crawled_at') DateTime? openSearchCrawledAt,@JsonKey(name: 'admin') Admin? admin,@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? coverMedia,@JsonKey(name: 'services') List<SearchedCommunityService>? services
+@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'admin_user_uid') String? adminUserUid,@JsonKey(name: 'status') String? status,@JsonKey(name: 'bio') String? bio,@JsonKey(name: 'location') String? location,@JsonKey(name: 'description') String? description,@JsonKey(name: 'title') String? title,@JsonKey(name: 'profile_picture') String? profilePicture,@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'username') String? username,@JsonKey(name: 'total_members') int? totalMembers,@JsonKey(name: 'is_private') bool? isPrivate,@JsonKey(name: 'seo_data_weighted') String? seoDataWeighted,@JsonKey(name: 'plain_last_message') String? plainLastMessage,@JsonKey(name: 'last_message_at') DateTime? lastMessageAt,@JsonKey(name: 'updated_at') DateTime? updatedAt,@JsonKey(name: 'is_broadcasting') bool? isBroadcasting,@JsonKey(name: 'is_archived') bool? isArchived,@JsonKey(name: 'external_search_indexed_at') DateTime? externalSearchIndexedAt,@JsonKey(name: 'admin') Admin? admin,@JsonKey(name: 'cover_media') List<SearchedCommunityCoverMedia>? coverMedia,@JsonKey(name: 'services') List<SearchedCommunityService>? services
 });
 
 
@@ -617,17 +617,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$OpenSearchedCommunityCopyWithImpl<$Res>
-    implements _$OpenSearchedCommunityCopyWith<$Res> {
-  __$OpenSearchedCommunityCopyWithImpl(this._self, this._then);
+class __$ExternalSearchedCommunityCopyWithImpl<$Res>
+    implements _$ExternalSearchedCommunityCopyWith<$Res> {
+  __$ExternalSearchedCommunityCopyWithImpl(this._self, this._then);
 
-  final _OpenSearchedCommunity _self;
-  final $Res Function(_OpenSearchedCommunity) _then;
+  final _ExternalSearchedCommunity _self;
+  final $Res Function(_ExternalSearchedCommunity) _then;
 
-/// Create a copy of OpenSearchedCommunity
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? adminUserUid = freezed,Object? status = freezed,Object? bio = freezed,Object? location = freezed,Object? description = freezed,Object? title = freezed,Object? profilePicture = freezed,Object? uid = freezed,Object? username = freezed,Object? totalMembers = freezed,Object? isPrivate = freezed,Object? seoDataWeighted = freezed,Object? plainLastMessage = freezed,Object? lastMessageAt = freezed,Object? updatedAt = freezed,Object? isBroadcasting = freezed,Object? isArchived = freezed,Object? openSearchCrawledAt = freezed,Object? admin = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
-  return _then(_OpenSearchedCommunity(
+@override @pragma('vm:prefer-inline') $Res call({Object? createdAt = freezed,Object? adminUserUid = freezed,Object? status = freezed,Object? bio = freezed,Object? location = freezed,Object? description = freezed,Object? title = freezed,Object? profilePicture = freezed,Object? uid = freezed,Object? username = freezed,Object? totalMembers = freezed,Object? isPrivate = freezed,Object? seoDataWeighted = freezed,Object? plainLastMessage = freezed,Object? lastMessageAt = freezed,Object? updatedAt = freezed,Object? isBroadcasting = freezed,Object? isArchived = freezed,Object? externalSearchIndexedAt = freezed,Object? admin = freezed,Object? coverMedia = freezed,Object? services = freezed,}) {
+  return _then(_ExternalSearchedCommunity(
 createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,adminUserUid: freezed == adminUserUid ? _self.adminUserUid : adminUserUid // ignore: cast_nullable_to_non_nullable
 as String?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -646,7 +646,7 @@ as String?,lastMessageAt: freezed == lastMessageAt ? _self.lastMessageAt : lastM
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isBroadcasting: freezed == isBroadcasting ? _self.isBroadcasting : isBroadcasting // ignore: cast_nullable_to_non_nullable
 as bool?,isArchived: freezed == isArchived ? _self.isArchived : isArchived // ignore: cast_nullable_to_non_nullable
-as bool?,openSearchCrawledAt: freezed == openSearchCrawledAt ? _self.openSearchCrawledAt : openSearchCrawledAt // ignore: cast_nullable_to_non_nullable
+as bool?,externalSearchIndexedAt: freezed == externalSearchIndexedAt ? _self.externalSearchIndexedAt : externalSearchIndexedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,admin: freezed == admin ? _self.admin : admin // ignore: cast_nullable_to_non_nullable
 as Admin?,coverMedia: freezed == coverMedia ? _self._coverMedia : coverMedia // ignore: cast_nullable_to_non_nullable
 as List<SearchedCommunityCoverMedia>?,services: freezed == services ? _self._services : services // ignore: cast_nullable_to_non_nullable
@@ -654,7 +654,7 @@ as List<SearchedCommunityService>?,
   ));
 }
 
-/// Create a copy of OpenSearchedCommunity
+/// Create a copy of ExternalSearchedCommunity
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
