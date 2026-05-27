@@ -56,3 +56,6 @@
 - Every change must pass `dart analyze` with zero warnings.
 - Run `build_runner` after any change — never commit stale `.g.dart` / `.freezed.dart`.
 - No `// ignore:` pragmas unless accompanied by a justification comment.
+
+### Live DB Schema Reference
+- **Get Schema:** Use `supabase-mcp-server` tool -> `list_projects` to get project ID (e.g., `dxvbdpxfzdpgiscphujy`) -> `execute_sql` with `SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'your_table'` to check live schema.
