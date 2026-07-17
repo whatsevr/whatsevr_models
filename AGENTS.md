@@ -1,8 +1,10 @@
 # Whatsevr Models — AI Coding Instructions
 
+> **Run logs:** every product's console tees into the workspace-root `logs/` folder — launch via the root `Makefile` (`make server-run` / `make app-up` / `make site-up`) and tail all live with `make logs`.
+
 ## Project Overview
 
-- Shared Dart package: models, DTOs, enums, constants for `whatsevr_app` and `whatsevr_server`.
+- Shared Dart package: models, DTOs, enums, constants for `whatsevr_app`.
 - Core deps: `freezed` + `json_serializable`.
 
 ## Mandatory Rules
