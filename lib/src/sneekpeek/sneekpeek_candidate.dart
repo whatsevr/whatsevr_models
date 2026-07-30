@@ -1,0 +1,117 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'sneekpeek_candidate.freezed.dart';
+part 'sneekpeek_candidate.g.dart';
+
+/// A SneekPeek candidate profile (schema v2).
+///
+/// Returned by `sneekpeek/get-candidates-details`, and as `other_candidate` on
+/// `sneekpeek/get-session` for the random-chat peer preview.
+///
+/// **Two shapes, one type.** For anyone other than yourself the server strips
+/// [dob], [latitude] and [longitude] and hands back the derived [age] instead —
+/// so those three are null on every profile but your own. Never render them:
+/// [dob] exists only to populate your own edit form, and the coordinates are
+/// substrate for a future distance filter that the product does not display.
+@freezed
+sealed class SneekpeekCandidate with _$SneekpeekCandidate {
+  const factory SneekpeekCandidate({
+    @Default('') String uid,
+    @Default('') String name,
+
+    /// Short tagline shown on the card, above the fold.
+    String? headline,
+
+    /// The "About" intro. The server column is `description`, not `about`.
+    String? description,
+
+    /// Long free text, detail view only.
+    String? bio,
+
+    /// `male`, `female` or `other`. Locked once set — the server answers 403
+    /// on any attempt to change it, so the edit form must render it read-only
+    /// rather than letting the user try.
+    String? gender,
+
+    /// Derived server-side from `dob`. This is the only age representation that
+    /// appears on someone else's profile.
+    int? age,
+    String? occupation,
+
+    /// One of the values in `kSneekpeekRelationshipStatuses`. Null/blank means
+    /// "prefer not to say" — there is no separate value for it.
+    @JsonKey(name: 'relationship_status') String? relationshipStatus,
+
+    /// Values drawn from `kSneekpeekLanguages`; the server rejects anything else.
+    @Default(<String>[]) List<String> languages,
+    String? city,
+    String? state,
+
+    /// ISO 3166-1 alpha-2, from `kSneekpeekCountries`.
+    String? country,
+    @JsonKey(name: 'profile_picture_url') String? profilePictureUrl,
+
+    /// Gallery image URLs in display order, capped at `kSneekpeekMediaMax`.
+    @Default(<String>[]) List<String> media,
+
+    /// The same gallery, with the uids needed to delete or reorder a specific
+    /// photo. Owner-only: a viewer gets [media] alone, because only the owner
+    /// can act on an individual image.
+    @JsonKey(name: 'media_items')
+    @Default(<CandidateMediaItem>[])
+    List<CandidateMediaItem> mediaItems,
+
+    /// Self only — drives the edit form's date picker. Never rendered.
+    DateTime? dob,
+
+    /// Self only, and server-side only by design. Never rendered.
+    double? latitude,
+
+    /// Self only, and server-side only by design. Never rendered.
+    double? longitude,
+    @JsonKey(name: 'is_in_queue') @Default(false) bool isInQueue,
+    @JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+  }) = _SneekpeekCandidate;
+
+  const SneekpeekCandidate._();
+
+  factory SneekpeekCandidate.fromJson(Map<String, dynamic> json) =>
+      _$SneekpeekCandidateFromJson(json);
+
+  /// True only on your own profile — the server withholds these otherwise.
+  bool get isSelfView => dob != null || latitude != null;
+
+  /// "Name, 26" when an age is known, otherwise just the name.
+  String get displayNameWithAge => age == null ? name : '$name, $age';
+
+  /// "Lucknow, Uttar Pradesh" — empty when neither is set.
+  String get locationLine =>
+      [city, state].where((p) => p != null && p.isNotEmpty).join(', ');
+
+  /// Photos to show, falling back to the avatar when the gallery is empty so a
+  /// profile is never a blank frame.
+  List<String> get galleryOrAvatar {
+    if (media.isNotEmpty) return media;
+    final avatar = profilePictureUrl;
+    return (avatar == null || avatar.isEmpty) ? const <String>[] : <String>[avatar];
+  }
+
+  /// Whether this profile has enough on it to be worth showing to someone else.
+  /// Used to nudge a new user into finishing setup before their first spin.
+  bool get isComplete =>
+      name.isNotEmpty && gender != null && age != null;
+}
+
+/// One gallery entry, addressable by uid.
+@freezed
+sealed class CandidateMediaItem with _$CandidateMediaItem {
+  const factory CandidateMediaItem({
+    @Default('') String uid,
+    @JsonKey(name: 'image_url') @Default('') String imageUrl,
+    @Default(0) int position,
+  }) = _CandidateMediaItem;
+
+  factory CandidateMediaItem.fromJson(Map<String, dynamic> json) =>
+      _$CandidateMediaItemFromJson(json);
+}
