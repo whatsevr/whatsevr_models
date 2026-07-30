@@ -59,5 +59,8 @@
 - Run `build_runner` after any change — never commit stale `.g.dart` / `.freezed.dart`.
 - No `// ignore:` pragmas unless accompanied by a justification comment.
 
-### Live DB Schema Reference
-- **Get Schema:** Use `supabase-mcp-server` tool -> `list_projects` to get project ID (e.g., `dxvbdpxfzdpgiscphujy`) -> `execute_sql` with `SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'your_table'` to check live schema.
+### DB Schema Reference
+- Read the schema from the LOCAL Supabase mirror, not the live project
+  (`make server-up` from the workspace root starts it):
+  `psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -c '\d your_table'`
+- Schema truth lives in `whatsevr_django_backend/supabase/migrations/`.
