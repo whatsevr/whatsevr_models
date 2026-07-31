@@ -34,7 +34,9 @@ mixin _$SneekpeekCandidate {
 @JsonKey(name: 'media_items') List<CandidateMediaItem> get mediaItems;/// Self only — drives the edit form's date picker. Never rendered.
  DateTime? get dob;/// Self only, and server-side only by design. Never rendered.
  double? get latitude;/// Self only, and server-side only by design. Never rendered.
- double? get longitude;@JsonKey(name: 'is_in_queue') bool get isInQueue;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;
+ double? get longitude;@JsonKey(name: 'is_in_queue') bool get isInQueue;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;/// Connect terms when this candidate is a verified host, null otherwise.
+/// Present so a profile page can offer the call without a second request.
+@JsonKey(name: 'host_info') CandidateHostInfo? get hostInfo;
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -47,16 +49,16 @@ $SneekpeekCandidateCopyWith<SneekpeekCandidate> get copyWith => _$SneekpeekCandi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other.languages, languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other.media, media)&&const DeepCollectionEquality().equals(other.mediaItems, mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other.languages, languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other.media, media)&&const DeepCollectionEquality().equals(other.mediaItems, mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(media),const DeepCollectionEquality().hash(mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt]);
+int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(media),const DeepCollectionEquality().hash(mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo]);
 
 @override
 String toString() {
-  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt)';
+  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo)';
 }
 
 
@@ -67,11 +69,11 @@ abstract mixin class $SneekpeekCandidateCopyWith<$Res>  {
   factory $SneekpeekCandidateCopyWith(SneekpeekCandidate value, $Res Function(SneekpeekCandidate) _then) = _$SneekpeekCandidateCopyWithImpl;
 @useResult
 $Res call({
- String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt
+ String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo
 });
 
 
-
+$CandidateHostInfoCopyWith<$Res>? get hostInfo;
 
 }
 /// @nodoc
@@ -84,7 +86,7 @@ class _$SneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,}) {
   return _then(_self.copyWith(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -108,10 +110,23 @@ as double?,longitude: freezed == longitude ? _self.longitude : longitude // igno
 as double?,isInQueue: null == isInQueue ? _self.isInQueue : isInQueue // ignore: cast_nullable_to_non_nullable
 as bool,currentChatSessionUid: freezed == currentChatSessionUid ? _self.currentChatSessionUid : currentChatSessionUid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,hostInfo: freezed == hostInfo ? _self.hostInfo : hostInfo // ignore: cast_nullable_to_non_nullable
+as CandidateHostInfo?,
   ));
 }
+/// Create a copy of SneekpeekCandidate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CandidateHostInfoCopyWith<$Res>? get hostInfo {
+    if (_self.hostInfo == null) {
+    return null;
+  }
 
+  return $CandidateHostInfoCopyWith<$Res>(_self.hostInfo!, (value) {
+    return _then(_self.copyWith(hostInfo: value));
+  });
+}
 }
 
 
@@ -190,10 +205,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt);case _:
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo);case _:
   return orElse();
 
 }
@@ -211,10 +226,10 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo)  $default,) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate():
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt);}
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -228,10 +243,10 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo)?  $default,) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt);case _:
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo);case _:
   return null;
 
 }
@@ -243,7 +258,7 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 @JsonSerializable()
 
 class _SneekpeekCandidate extends SneekpeekCandidate {
-  const _SneekpeekCandidate({this.uid = '', this.name = '', this.headline, this.description, this.bio, this.gender, this.age, this.occupation, @JsonKey(name: 'relationship_status') this.relationshipStatus, final  List<String> languages = const <String>[], this.city, this.state, this.country, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, final  List<String> media = const <String>[], @JsonKey(name: 'media_items') final  List<CandidateMediaItem> mediaItems = const <CandidateMediaItem>[], this.dob, this.latitude, this.longitude, @JsonKey(name: 'is_in_queue') this.isInQueue = false, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt}): _languages = languages,_media = media,_mediaItems = mediaItems,super._();
+  const _SneekpeekCandidate({this.uid = '', this.name = '', this.headline, this.description, this.bio, this.gender, this.age, this.occupation, @JsonKey(name: 'relationship_status') this.relationshipStatus, final  List<String> languages = const <String>[], this.city, this.state, this.country, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, final  List<String> media = const <String>[], @JsonKey(name: 'media_items') final  List<CandidateMediaItem> mediaItems = const <CandidateMediaItem>[], this.dob, this.latitude, this.longitude, @JsonKey(name: 'is_in_queue') this.isInQueue = false, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'host_info') this.hostInfo}): _languages = languages,_media = media,_mediaItems = mediaItems,super._();
   factory _SneekpeekCandidate.fromJson(Map<String, dynamic> json) => _$SneekpeekCandidateFromJson(json);
 
 @override@JsonKey() final  String uid;
@@ -310,6 +325,9 @@ class _SneekpeekCandidate extends SneekpeekCandidate {
 @override@JsonKey(name: 'is_in_queue') final  bool isInQueue;
 @override@JsonKey(name: 'current_chat_session_uid') final  String? currentChatSessionUid;
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
+/// Connect terms when this candidate is a verified host, null otherwise.
+/// Present so a profile page can offer the call without a second request.
+@override@JsonKey(name: 'host_info') final  CandidateHostInfo? hostInfo;
 
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
@@ -324,16 +342,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other._languages, _languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other._media, _media)&&const DeepCollectionEquality().equals(other._mediaItems, _mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other._languages, _languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other._media, _media)&&const DeepCollectionEquality().equals(other._mediaItems, _mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(_languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(_media),const DeepCollectionEquality().hash(_mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt]);
+int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(_languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(_media),const DeepCollectionEquality().hash(_mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo]);
 
 @override
 String toString() {
-  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt)';
+  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo)';
 }
 
 
@@ -344,11 +362,11 @@ abstract mixin class _$SneekpeekCandidateCopyWith<$Res> implements $SneekpeekCan
   factory _$SneekpeekCandidateCopyWith(_SneekpeekCandidate value, $Res Function(_SneekpeekCandidate) _then) = __$SneekpeekCandidateCopyWithImpl;
 @override @useResult
 $Res call({
- String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt
+ String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo
 });
 
 
-
+@override $CandidateHostInfoCopyWith<$Res>? get hostInfo;
 
 }
 /// @nodoc
@@ -361,7 +379,7 @@ class __$SneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,}) {
   return _then(_SneekpeekCandidate(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -385,7 +403,292 @@ as double?,longitude: freezed == longitude ? _self.longitude : longitude // igno
 as double?,isInQueue: null == isInQueue ? _self.isInQueue : isInQueue // ignore: cast_nullable_to_non_nullable
 as bool,currentChatSessionUid: freezed == currentChatSessionUid ? _self.currentChatSessionUid : currentChatSessionUid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,hostInfo: freezed == hostInfo ? _self.hostInfo : hostInfo // ignore: cast_nullable_to_non_nullable
+as CandidateHostInfo?,
+  ));
+}
+
+/// Create a copy of SneekpeekCandidate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CandidateHostInfoCopyWith<$Res>? get hostInfo {
+    if (_self.hostInfo == null) {
+    return null;
+  }
+
+  return $CandidateHostInfoCopyWith<$Res>(_self.hostInfo!, (value) {
+    return _then(_self.copyWith(hostInfo: value));
+  });
+}
+}
+
+
+/// @nodoc
+mixin _$CandidateHostInfo {
+
+@JsonKey(name: 'is_host') bool get isHost;/// `audio_video` or `audio_only`.
+@JsonKey(name: 'call_mode') String get callMode;/// What the caller pays per minute, already adjusted for the call mode.
+@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;/// `available`, `busy` or `offline`.
+ String get status;
+/// Create a copy of CandidateHostInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CandidateHostInfoCopyWith<CandidateHostInfo> get copyWith => _$CandidateHostInfoCopyWithImpl<CandidateHostInfo>(this as CandidateHostInfo, _$identity);
+
+  /// Serializes this CandidateHostInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,status);
+
+@override
+String toString() {
+  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, status: $status)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CandidateHostInfoCopyWith<$Res>  {
+  factory $CandidateHostInfoCopyWith(CandidateHostInfo value, $Res Function(CandidateHostInfo) _then) = _$CandidateHostInfoCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status
+});
+
+
+
+
+}
+/// @nodoc
+class _$CandidateHostInfoCopyWithImpl<$Res>
+    implements $CandidateHostInfoCopyWith<$Res> {
+  _$CandidateHostInfoCopyWithImpl(this._self, this._then);
+
+  final CandidateHostInfo _self;
+  final $Res Function(CandidateHostInfo) _then;
+
+/// Create a copy of CandidateHostInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? status = null,}) {
+  return _then(_self.copyWith(
+isHost: null == isHost ? _self.isHost : isHost // ignore: cast_nullable_to_non_nullable
+as bool,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
+as String,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [CandidateHostInfo].
+extension CandidateHostInfoPatterns on CandidateHostInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CandidateHostInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _CandidateHostInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CandidateHostInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _CandidateHostInfo():
+return $default(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CandidateHostInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _CandidateHostInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _CandidateHostInfo() when $default != null:
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)  $default,) {final _that = this;
+switch (_that) {
+case _CandidateHostInfo():
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)?  $default,) {final _that = this;
+switch (_that) {
+case _CandidateHostInfo() when $default != null:
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _CandidateHostInfo extends CandidateHostInfo {
+  const _CandidateHostInfo({@JsonKey(name: 'is_host') this.isHost = false, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, this.status = 'offline'}): super._();
+  factory _CandidateHostInfo.fromJson(Map<String, dynamic> json) => _$CandidateHostInfoFromJson(json);
+
+@override@JsonKey(name: 'is_host') final  bool isHost;
+/// `audio_video` or `audio_only`.
+@override@JsonKey(name: 'call_mode') final  String callMode;
+/// What the caller pays per minute, already adjusted for the call mode.
+@override@JsonKey(name: 'price_per_minute_paise') final  int pricePerMinutePaise;
+/// `available`, `busy` or `offline`.
+@override@JsonKey() final  String status;
+
+/// Create a copy of CandidateHostInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CandidateHostInfoCopyWith<_CandidateHostInfo> get copyWith => __$CandidateHostInfoCopyWithImpl<_CandidateHostInfo>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CandidateHostInfoToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,status);
+
+@override
+String toString() {
+  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, status: $status)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CandidateHostInfoCopyWith<$Res> implements $CandidateHostInfoCopyWith<$Res> {
+  factory _$CandidateHostInfoCopyWith(_CandidateHostInfo value, $Res Function(_CandidateHostInfo) _then) = __$CandidateHostInfoCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status
+});
+
+
+
+
+}
+/// @nodoc
+class __$CandidateHostInfoCopyWithImpl<$Res>
+    implements _$CandidateHostInfoCopyWith<$Res> {
+  __$CandidateHostInfoCopyWithImpl(this._self, this._then);
+
+  final _CandidateHostInfo _self;
+  final $Res Function(_CandidateHostInfo) _then;
+
+/// Create a copy of CandidateHostInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? status = null,}) {
+  return _then(_CandidateHostInfo(
+isHost: null == isHost ? _self.isHost : isHost // ignore: cast_nullable_to_non_nullable
+as bool,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
+as String,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

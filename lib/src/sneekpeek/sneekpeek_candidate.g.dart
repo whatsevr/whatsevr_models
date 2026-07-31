@@ -42,6 +42,12 @@ _SneekpeekCandidate _$SneekpeekCandidateFromJson(
       json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
+  hostInfo:
+      json['host_info'] == null
+          ? null
+          : CandidateHostInfo.fromJson(
+            json['host_info'] as Map<String, dynamic>,
+          ),
 );
 
 Map<String, dynamic> _$SneekpeekCandidateToJson(_SneekpeekCandidate instance) =>
@@ -68,6 +74,24 @@ Map<String, dynamic> _$SneekpeekCandidateToJson(_SneekpeekCandidate instance) =>
       'is_in_queue': instance.isInQueue,
       'current_chat_session_uid': instance.currentChatSessionUid,
       'created_at': instance.createdAt?.toIso8601String(),
+      'host_info': instance.hostInfo,
+    };
+
+_CandidateHostInfo _$CandidateHostInfoFromJson(Map<String, dynamic> json) =>
+    _CandidateHostInfo(
+      isHost: json['is_host'] as bool? ?? false,
+      callMode: json['call_mode'] as String? ?? 'audio_video',
+      pricePerMinutePaise:
+          (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      status: json['status'] as String? ?? 'offline',
+    );
+
+Map<String, dynamic> _$CandidateHostInfoToJson(_CandidateHostInfo instance) =>
+    <String, dynamic>{
+      'is_host': instance.isHost,
+      'call_mode': instance.callMode,
+      'price_per_minute_paise': instance.pricePerMinutePaise,
+      'status': instance.status,
     };
 
 _CandidateMediaItem _$CandidateMediaItemFromJson(Map<String, dynamic> json) =>

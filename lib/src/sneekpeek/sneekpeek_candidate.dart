@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:whatsevr_models/src/calls/one_to_one_call_host.dart';
+
 part 'sneekpeek_candidate.freezed.dart';
 part 'sneekpeek_candidate.g.dart';
 
@@ -72,6 +74,10 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
     @JsonKey(name: 'is_in_queue') @Default(false) bool isInQueue,
     @JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
+
+    /// Connect terms when this candidate is a verified host, null otherwise.
+    /// Present so a profile page can offer the call without a second request.
+    @JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,
   }) = _SneekpeekCandidate;
 
   const SneekpeekCandidate._();
@@ -101,6 +107,43 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
   /// Used to nudge a new user into finishing setup before their first spin.
   bool get isComplete =>
       name.isNotEmpty && gender != null && age != null;
+}
+
+/// Connect terms on a candidate profile, for verified hosts only.
+///
+/// Same numbers and presence the grid shows — the server computes both from
+/// one source so the profile can never quote a different price than the card
+/// the user just tapped.
+@freezed
+sealed class CandidateHostInfo with _$CandidateHostInfo {
+  const factory CandidateHostInfo({
+    @JsonKey(name: 'is_host') @Default(false) bool isHost,
+
+    /// `audio_video` or `audio_only`.
+    @JsonKey(name: 'call_mode') @Default('audio_video') String callMode,
+
+    /// What the caller pays per minute, already adjusted for the call mode.
+    @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+
+    /// `available`, `busy` or `offline`.
+    @Default('offline') String status,
+  }) = _CandidateHostInfo;
+
+  const CandidateHostInfo._();
+
+  factory CandidateHostInfo.fromJson(Map<String, dynamic> json) =>
+      _$CandidateHostInfoFromJson(json);
+
+  HostPresence get presence => switch (status) {
+        'available' => HostPresence.available,
+        'busy' => HostPresence.busy,
+        _ => HostPresence.offline,
+      };
+
+  bool get isAudioOnly => callMode == 'audio_only';
+
+  /// Only a host already in a call cannot be reached — offline still rings.
+  bool get isConnectable => presence != HostPresence.busy;
 }
 
 /// One gallery entry, addressable by uid.
