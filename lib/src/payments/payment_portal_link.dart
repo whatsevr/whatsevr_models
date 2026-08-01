@@ -8,7 +8,7 @@ part 'payment_portal_link.g.dart';
 ///
 /// The app ships zero payment SDKs (owner-locked): topping up, withdrawing,
 /// buying perks and redeeming coupons all happen on the web. Every "not enough
-/// UC" path in the app ends here, in an in-app browser.
+/// balance" path in the app ends here, in an in-app browser.
 ///
 /// The link expires in [expiresInSeconds] (600), so mint one per tap rather
 /// than holding on to it. Refresh wallet-status when the user comes back — a

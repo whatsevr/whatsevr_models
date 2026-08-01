@@ -12,14 +12,13 @@ part 'wallet_status.g.dart';
 /// - the **host gate**: `earnings.earnerVerified && candidate gender is female`
 ///   — the client-side mirror of the server's `is_billable_female`.
 ///
-/// Every amount is integer **paise**. The app displays rupees (paise / 100) and
-/// never shows UC — UC branding survives only on the web top-up packs. Never
-/// recompute a price the server already sent.
+/// Every amount is integer **paise** — the only unit the backend stores. The
+/// app displays rupees (paise / 100). Never recompute a price the server
+/// already sent.
 @freezed
 sealed class WalletStatus with _$WalletStatus {
   const factory WalletStatus({
     @JsonKey(name: 'balance_paise') @Default(0) int balancePaise,
-    @JsonKey(name: 'balance_uc') @Default(0) double balanceUc,
 
     /// Spendable free spins, expired grants already excluded by the server.
     /// Spent before cash — the app never chooses which to use.

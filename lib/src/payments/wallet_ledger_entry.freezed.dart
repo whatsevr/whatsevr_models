@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'credit_ledger_entry.dart';
+part of 'wallet_ledger_entry.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,25 +13,25 @@ part of 'credit_ledger_entry.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$CreditLedgerEntry {
+mixin _$WalletLedgerEntry {
 
  String get uid;@JsonKey(name: 'created_at') DateTime? get createdAt;/// Machine reason, e.g. `call_minutes`, `spin`, `topup`.
  String get reason;/// Human line for the row, resolved by the server so app and web read the
 /// same words.
 @JsonKey(name: 'reason_label') String get reasonLabel;@JsonKey(name: 'delta_paise') int get deltaPaise;@JsonKey(name: 'balance_after_paise') int get balanceAfterPaise;
-/// Create a copy of CreditLedgerEntry
+/// Create a copy of WalletLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$CreditLedgerEntryCopyWith<CreditLedgerEntry> get copyWith => _$CreditLedgerEntryCopyWithImpl<CreditLedgerEntry>(this as CreditLedgerEntry, _$identity);
+$WalletLedgerEntryCopyWith<WalletLedgerEntry> get copyWith => _$WalletLedgerEntryCopyWithImpl<WalletLedgerEntry>(this as WalletLedgerEntry, _$identity);
 
-  /// Serializes this CreditLedgerEntry to a JSON map.
+  /// Serializes this WalletLedgerEntry to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreditLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.reasonLabel, reasonLabel) || other.reasonLabel == reasonLabel)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalletLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.reasonLabel, reasonLabel) || other.reasonLabel == reasonLabel)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -40,15 +40,15 @@ int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,reasonLabel,del
 
 @override
 String toString() {
-  return 'CreditLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, reasonLabel: $reasonLabel, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise)';
+  return 'WalletLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, reasonLabel: $reasonLabel, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $CreditLedgerEntryCopyWith<$Res>  {
-  factory $CreditLedgerEntryCopyWith(CreditLedgerEntry value, $Res Function(CreditLedgerEntry) _then) = _$CreditLedgerEntryCopyWithImpl;
+abstract mixin class $WalletLedgerEntryCopyWith<$Res>  {
+  factory $WalletLedgerEntryCopyWith(WalletLedgerEntry value, $Res Function(WalletLedgerEntry) _then) = _$WalletLedgerEntryCopyWithImpl;
 @useResult
 $Res call({
  String uid,@JsonKey(name: 'created_at') DateTime? createdAt, String reason,@JsonKey(name: 'reason_label') String reasonLabel,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise
@@ -59,14 +59,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$CreditLedgerEntryCopyWithImpl<$Res>
-    implements $CreditLedgerEntryCopyWith<$Res> {
-  _$CreditLedgerEntryCopyWithImpl(this._self, this._then);
+class _$WalletLedgerEntryCopyWithImpl<$Res>
+    implements $WalletLedgerEntryCopyWith<$Res> {
+  _$WalletLedgerEntryCopyWithImpl(this._self, this._then);
 
-  final CreditLedgerEntry _self;
-  final $Res Function(CreditLedgerEntry) _then;
+  final WalletLedgerEntry _self;
+  final $Res Function(WalletLedgerEntry) _then;
 
-/// Create a copy of CreditLedgerEntry
+/// Create a copy of WalletLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? reasonLabel = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,}) {
   return _then(_self.copyWith(
@@ -83,8 +83,8 @@ as int,
 }
 
 
-/// Adds pattern-matching-related methods to [CreditLedgerEntry].
-extension CreditLedgerEntryPatterns on CreditLedgerEntry {
+/// Adds pattern-matching-related methods to [WalletLedgerEntry].
+extension WalletLedgerEntryPatterns on WalletLedgerEntry {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -97,10 +97,10 @@ extension CreditLedgerEntryPatterns on CreditLedgerEntry {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CreditLedgerEntry value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _WalletLedgerEntry value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _CreditLedgerEntry() when $default != null:
+case _WalletLedgerEntry() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -119,10 +119,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CreditLedgerEntry value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _WalletLedgerEntry value)  $default,){
 final _that = this;
 switch (_that) {
-case _CreditLedgerEntry():
+case _WalletLedgerEntry():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -137,10 +137,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CreditLedgerEntry value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _WalletLedgerEntry value)?  $default,){
 final _that = this;
 switch (_that) {
-case _CreditLedgerEntry() when $default != null:
+case _WalletLedgerEntry() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt,  String reason, @JsonKey(name: 'reason_label')  String reasonLabel, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _CreditLedgerEntry() when $default != null:
+case _WalletLedgerEntry() when $default != null:
 return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.deltaPaise,_that.balanceAfterPaise);case _:
   return orElse();
 
@@ -181,7 +181,7 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.d
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt,  String reason, @JsonKey(name: 'reason_label')  String reasonLabel, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise)  $default,) {final _that = this;
 switch (_that) {
-case _CreditLedgerEntry():
+case _WalletLedgerEntry():
 return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.deltaPaise,_that.balanceAfterPaise);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -198,7 +198,7 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.d
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt,  String reason, @JsonKey(name: 'reason_label')  String reasonLabel, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise)?  $default,) {final _that = this;
 switch (_that) {
-case _CreditLedgerEntry() when $default != null:
+case _WalletLedgerEntry() when $default != null:
 return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.deltaPaise,_that.balanceAfterPaise);case _:
   return null;
 
@@ -210,9 +210,9 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.reasonLabel,_that.d
 /// @nodoc
 @JsonSerializable()
 
-class _CreditLedgerEntry extends CreditLedgerEntry {
-  const _CreditLedgerEntry({this.uid = '', @JsonKey(name: 'created_at') this.createdAt, this.reason = '', @JsonKey(name: 'reason_label') this.reasonLabel = '', @JsonKey(name: 'delta_paise') this.deltaPaise = 0, @JsonKey(name: 'balance_after_paise') this.balanceAfterPaise = 0}): super._();
-  factory _CreditLedgerEntry.fromJson(Map<String, dynamic> json) => _$CreditLedgerEntryFromJson(json);
+class _WalletLedgerEntry extends WalletLedgerEntry {
+  const _WalletLedgerEntry({this.uid = '', @JsonKey(name: 'created_at') this.createdAt, this.reason = '', @JsonKey(name: 'reason_label') this.reasonLabel = '', @JsonKey(name: 'delta_paise') this.deltaPaise = 0, @JsonKey(name: 'balance_after_paise') this.balanceAfterPaise = 0}): super._();
+  factory _WalletLedgerEntry.fromJson(Map<String, dynamic> json) => _$WalletLedgerEntryFromJson(json);
 
 @override@JsonKey() final  String uid;
 @override@JsonKey(name: 'created_at') final  DateTime? createdAt;
@@ -224,20 +224,20 @@ class _CreditLedgerEntry extends CreditLedgerEntry {
 @override@JsonKey(name: 'delta_paise') final  int deltaPaise;
 @override@JsonKey(name: 'balance_after_paise') final  int balanceAfterPaise;
 
-/// Create a copy of CreditLedgerEntry
+/// Create a copy of WalletLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$CreditLedgerEntryCopyWith<_CreditLedgerEntry> get copyWith => __$CreditLedgerEntryCopyWithImpl<_CreditLedgerEntry>(this, _$identity);
+_$WalletLedgerEntryCopyWith<_WalletLedgerEntry> get copyWith => __$WalletLedgerEntryCopyWithImpl<_WalletLedgerEntry>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$CreditLedgerEntryToJson(this, );
+  return _$WalletLedgerEntryToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreditLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.reasonLabel, reasonLabel) || other.reasonLabel == reasonLabel)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalletLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.reasonLabel, reasonLabel) || other.reasonLabel == reasonLabel)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -246,15 +246,15 @@ int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,reasonLabel,del
 
 @override
 String toString() {
-  return 'CreditLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, reasonLabel: $reasonLabel, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise)';
+  return 'WalletLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, reasonLabel: $reasonLabel, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$CreditLedgerEntryCopyWith<$Res> implements $CreditLedgerEntryCopyWith<$Res> {
-  factory _$CreditLedgerEntryCopyWith(_CreditLedgerEntry value, $Res Function(_CreditLedgerEntry) _then) = __$CreditLedgerEntryCopyWithImpl;
+abstract mixin class _$WalletLedgerEntryCopyWith<$Res> implements $WalletLedgerEntryCopyWith<$Res> {
+  factory _$WalletLedgerEntryCopyWith(_WalletLedgerEntry value, $Res Function(_WalletLedgerEntry) _then) = __$WalletLedgerEntryCopyWithImpl;
 @override @useResult
 $Res call({
  String uid,@JsonKey(name: 'created_at') DateTime? createdAt, String reason,@JsonKey(name: 'reason_label') String reasonLabel,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise
@@ -265,17 +265,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$CreditLedgerEntryCopyWithImpl<$Res>
-    implements _$CreditLedgerEntryCopyWith<$Res> {
-  __$CreditLedgerEntryCopyWithImpl(this._self, this._then);
+class __$WalletLedgerEntryCopyWithImpl<$Res>
+    implements _$WalletLedgerEntryCopyWith<$Res> {
+  __$WalletLedgerEntryCopyWithImpl(this._self, this._then);
 
-  final _CreditLedgerEntry _self;
-  final $Res Function(_CreditLedgerEntry) _then;
+  final _WalletLedgerEntry _self;
+  final $Res Function(_WalletLedgerEntry) _then;
 
-/// Create a copy of CreditLedgerEntry
+/// Create a copy of WalletLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? reasonLabel = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,}) {
-  return _then(_CreditLedgerEntry(
+  return _then(_WalletLedgerEntry(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable

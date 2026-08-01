@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'credit_ledger_entry.freezed.dart';
-part 'credit_ledger_entry.g.dart';
+part 'wallet_ledger_entry.freezed.dart';
+part 'wallet_ledger_entry.g.dart';
 
 /// One row of `GET /api/v1/payments/ledger` — the wallet's money movement.
 ///
@@ -11,11 +11,10 @@ part 'credit_ledger_entry.g.dart';
 /// reconstruct an amount client-side.
 ///
 /// [deltaPaise] is signed — negative for a spend, positive for a top-up or
-/// refund. Amounts are integer paise; the app renders them as rupees and never
-/// shows UC.
+/// refund. Amounts are integer paise; the app renders them as rupees.
 @freezed
-sealed class CreditLedgerEntry with _$CreditLedgerEntry {
-  const factory CreditLedgerEntry({
+sealed class WalletLedgerEntry with _$WalletLedgerEntry {
+  const factory WalletLedgerEntry({
     @Default('') String uid,
     @JsonKey(name: 'created_at') DateTime? createdAt,
 
@@ -27,12 +26,12 @@ sealed class CreditLedgerEntry with _$CreditLedgerEntry {
     @JsonKey(name: 'reason_label') @Default('') String reasonLabel,
     @JsonKey(name: 'delta_paise') @Default(0) int deltaPaise,
     @JsonKey(name: 'balance_after_paise') @Default(0) int balanceAfterPaise,
-  }) = _CreditLedgerEntry;
+  }) = _WalletLedgerEntry;
 
-  const CreditLedgerEntry._();
+  const WalletLedgerEntry._();
 
-  factory CreditLedgerEntry.fromJson(Map<String, dynamic> json) =>
-      _$CreditLedgerEntryFromJson(json);
+  factory WalletLedgerEntry.fromJson(Map<String, dynamic> json) =>
+      _$WalletLedgerEntryFromJson(json);
 
   bool get isCredit => deltaPaise > 0;
 }

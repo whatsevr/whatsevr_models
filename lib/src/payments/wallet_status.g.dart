@@ -10,7 +10,6 @@ _WalletStatus _$WalletStatusFromJson(
   Map<String, dynamic> json,
 ) => _WalletStatus(
   balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
-  balanceUc: (json['balance_uc'] as num?)?.toDouble() ?? 0,
   freeSpins: (json['free_spins'] as num?)?.toInt() ?? 0,
   activePerks:
       (json['active_perks'] as Map<String, dynamic>?)?.map(
@@ -33,7 +32,6 @@ _WalletStatus _$WalletStatusFromJson(
 Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
     <String, dynamic>{
       'balance_paise': instance.balancePaise,
-      'balance_uc': instance.balanceUc,
       'free_spins': instance.freeSpins,
       'active_perks': instance.activePerks,
       'earnings': instance.earnings,

@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'credit_ledger_entry.dart';
+part of 'wallet_ledger_entry.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_CreditLedgerEntry _$CreditLedgerEntryFromJson(Map<String, dynamic> json) =>
-    _CreditLedgerEntry(
+_WalletLedgerEntry _$WalletLedgerEntryFromJson(Map<String, dynamic> json) =>
+    _WalletLedgerEntry(
       uid: json['uid'] as String? ?? '',
       createdAt:
           json['created_at'] == null
@@ -19,7 +19,7 @@ _CreditLedgerEntry _$CreditLedgerEntryFromJson(Map<String, dynamic> json) =>
       balanceAfterPaise: (json['balance_after_paise'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$CreditLedgerEntryToJson(_CreditLedgerEntry instance) =>
+Map<String, dynamic> _$WalletLedgerEntryToJson(_WalletLedgerEntry instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'created_at': instance.createdAt?.toIso8601String(),
