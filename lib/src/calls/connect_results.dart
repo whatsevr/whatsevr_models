@@ -5,15 +5,15 @@ part 'connect_results.g.dart';
 
 /// How the backend chose to connect you.
 ///
-/// The client never picks. Presence decides: a live host is joined in her
+/// The client never picks. Presence decides: a live host is joined in their
 /// room, an offline one is rung.
 enum ConnectTransport {
   /// The host is offline. You are the caller, and the response already carries
   /// your room and token — join and wait for `call.accepted`.
   ring,
 
-  /// The host is live. Poll `connect/status` until she answers; the token
-  /// arrives only once she accepts.
+  /// The host is live. Poll `connect/status` until they answer; the token
+  /// arrives only once they accept.
   liveRoom,
 }
 
@@ -28,7 +28,7 @@ sealed class ConnectRequestResult with _$ConnectRequestResult {
     String? token,
     @JsonKey(name: 'server_url') String? serverUrl,
 
-    // --- live_room only: wait for her to accept ---
+    // --- live_room only: wait for the host to accept ---
     @JsonKey(name: 'request_uid') String? requestUid,
     @JsonKey(name: 'ring_window_seconds') @Default(20) int ringWindowSeconds,
 

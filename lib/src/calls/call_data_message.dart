@@ -32,7 +32,7 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// Host declines; nothing about the call changes.
   const factory CallDataMessage.upgradeDecline() = CallUpgradeDecline;
 
-  /// Server to host: a guest wants into her live room. Answered over HTTP with
+  /// Server to host: a guest wants into their live room. Answered over HTTP with
   /// `one-to-one-call/respond`, not over the data channel.
   const factory CallDataMessage.hostJoinRequest({
     required String requestUid,

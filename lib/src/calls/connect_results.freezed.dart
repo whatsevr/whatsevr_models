@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ConnectRequestResult {
 
  String get transport;// --- ring only: you are already the caller ---
- String? get room; String? get token;@JsonKey(name: 'server_url') String? get serverUrl;// --- live_room only: wait for her to accept ---
+ String? get room; String? get token;@JsonKey(name: 'server_url') String? get serverUrl;// --- live_room only: wait for the host to accept ---
 @JsonKey(name: 'request_uid') String? get requestUid;@JsonKey(name: 'ring_window_seconds') int get ringWindowSeconds;// --- billing, on both ---
 @JsonKey(name: 'is_billed') bool get isBilled;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'rate_paise') int get ratePaise;@JsonKey(name: 'audio_only') bool get audioOnly;@JsonKey(name: 'payer_uid') String? get payerUid;
 /// Create a copy of ConnectRequestResult
@@ -224,7 +224,7 @@ class _ConnectRequestResult extends ConnectRequestResult {
 @override final  String? room;
 @override final  String? token;
 @override@JsonKey(name: 'server_url') final  String? serverUrl;
-// --- live_room only: wait for her to accept ---
+// --- live_room only: wait for the host to accept ---
 @override@JsonKey(name: 'request_uid') final  String? requestUid;
 @override@JsonKey(name: 'ring_window_seconds') final  int ringWindowSeconds;
 // --- billing, on both ---

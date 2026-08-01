@@ -12,7 +12,8 @@ part 'wallet_status.g.dart';
 /// - the **host gate**: `earnings.earnerVerified && candidate gender is female`
 ///   — the client-side mirror of the server's `is_billable_female`.
 ///
-/// Every amount is integer **paise**. Display UC = paise / 100 at 2 dp. Never
+/// Every amount is integer **paise**. The app displays rupees (paise / 100) and
+/// never shows UC — UC branding survives only on the web top-up packs. Never
 /// recompute a price the server already sent.
 @freezed
 sealed class WalletStatus with _$WalletStatus {

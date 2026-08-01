@@ -11,7 +11,7 @@ enum HostPresence {
   /// Live but already in a call.
   busy,
 
-  /// Not live. Still connectable — the backend rings her instead.
+  /// Not live. Still connectable — the backend rings the host instead.
   offline,
 }
 
@@ -68,7 +68,7 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
 
   String get connectLabel => switch (presence) {
         HostPresence.busy => 'In a call',
-        HostPresence.offline => 'Ring her',
+        HostPresence.offline => 'Ring',
         HostPresence.available => 'Connect',
       };
 
