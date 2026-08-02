@@ -39,6 +39,7 @@ sealed class CallDataMessage with _$CallDataMessage {
     required String guestUid,
     @Default('') String guestName,
     @Default('') String guestAvatar,
+    @Default(false) bool guestIsPremiumProfile,
     @Default(true) bool isVideo,
     @Default(20) int ringWindowSeconds,
   }) = CallHostJoinRequest;
@@ -56,6 +57,7 @@ sealed class CallDataMessage with _$CallDataMessage {
           :final guestUid,
           :final guestName,
           :final guestAvatar,
+          :final guestIsPremiumProfile,
           :final isVideo,
           :final ringWindowSeconds,
         ) =>
@@ -65,6 +67,7 @@ sealed class CallDataMessage with _$CallDataMessage {
             'guest_uid': guestUid,
             'guest_name': guestName,
             'guest_avatar': guestAvatar,
+            'guest_is_premium_profile': guestIsPremiumProfile,
             'is_video': isVideo,
             'ring_window_seconds': ringWindowSeconds,
           },
@@ -84,6 +87,7 @@ sealed class CallDataMessage with _$CallDataMessage {
           guestUid: '${json['guest_uid'] ?? ''}',
           guestName: '${json['guest_name'] ?? ''}',
           guestAvatar: '${json['guest_avatar'] ?? ''}',
+          guestIsPremiumProfile: json['guest_is_premium_profile'] == true,
           isVideo: json['is_video'] != false,
           ringWindowSeconds:
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,

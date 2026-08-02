@@ -128,14 +128,14 @@ return hostJoinRequest(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function()?  upgradeRequest,TResult Function()?  upgradeAccept,TResult Function()?  upgradeDecline,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function()?  upgradeRequest,TResult Function()?  upgradeAccept,TResult Function()?  upgradeDecline,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallUpgradeRequest() when upgradeRequest != null:
 return upgradeRequest();case CallUpgradeAccept() when upgradeAccept != null:
 return upgradeAccept();case CallUpgradeDecline() when upgradeDecline != null:
 return upgradeDecline();case CallHostJoinRequest() when hostJoinRequest != null:
-return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.isVideo,_that.ringWindowSeconds);case _:
+return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);case _:
   return orElse();
 
 }
@@ -153,14 +153,14 @@ return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.gue
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function()  upgradeRequest,required TResult Function()  upgradeAccept,required TResult Function()  upgradeDecline,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool isVideo,  int ringWindowSeconds)  hostJoinRequest,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function()  upgradeRequest,required TResult Function()  upgradeAccept,required TResult Function()  upgradeDecline,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)  hostJoinRequest,}) {final _that = this;
 switch (_that) {
 case CallChatMessage():
 return chat(_that.text);case CallUpgradeRequest():
 return upgradeRequest();case CallUpgradeAccept():
 return upgradeAccept();case CallUpgradeDecline():
 return upgradeDecline();case CallHostJoinRequest():
-return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.isVideo,_that.ringWindowSeconds);}
+return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -174,14 +174,14 @@ return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.gue
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function()?  upgradeRequest,TResult? Function()?  upgradeAccept,TResult? Function()?  upgradeDecline,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function()?  upgradeRequest,TResult? Function()?  upgradeAccept,TResult? Function()?  upgradeDecline,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallUpgradeRequest() when upgradeRequest != null:
 return upgradeRequest();case CallUpgradeAccept() when upgradeAccept != null:
 return upgradeAccept();case CallUpgradeDecline() when upgradeDecline != null:
 return upgradeDecline();case CallHostJoinRequest() when hostJoinRequest != null:
-return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.isVideo,_that.ringWindowSeconds);case _:
+return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);case _:
   return null;
 
 }
@@ -355,13 +355,14 @@ String toString() {
 
 
 class CallHostJoinRequest extends CallDataMessage {
-  const CallHostJoinRequest({required this.requestUid, required this.guestUid, this.guestName = '', this.guestAvatar = '', this.isVideo = true, this.ringWindowSeconds = 20}): super._();
+  const CallHostJoinRequest({required this.requestUid, required this.guestUid, this.guestName = '', this.guestAvatar = '', this.guestIsPremiumProfile = false, this.isVideo = true, this.ringWindowSeconds = 20}): super._();
   
 
  final  String requestUid;
  final  String guestUid;
 @JsonKey() final  String guestName;
 @JsonKey() final  String guestAvatar;
+@JsonKey() final  bool guestIsPremiumProfile;
 @JsonKey() final  bool isVideo;
 @JsonKey() final  int ringWindowSeconds;
 
@@ -375,16 +376,16 @@ $CallHostJoinRequestCopyWith<CallHostJoinRequest> get copyWith => _$CallHostJoin
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallHostJoinRequest&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.guestUid, guestUid) || other.guestUid == guestUid)&&(identical(other.guestName, guestName) || other.guestName == guestName)&&(identical(other.guestAvatar, guestAvatar) || other.guestAvatar == guestAvatar)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallHostJoinRequest&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.guestUid, guestUid) || other.guestUid == guestUid)&&(identical(other.guestName, guestName) || other.guestName == guestName)&&(identical(other.guestAvatar, guestAvatar) || other.guestAvatar == guestAvatar)&&(identical(other.guestIsPremiumProfile, guestIsPremiumProfile) || other.guestIsPremiumProfile == guestIsPremiumProfile)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,requestUid,guestUid,guestName,guestAvatar,isVideo,ringWindowSeconds);
+int get hashCode => Object.hash(runtimeType,requestUid,guestUid,guestName,guestAvatar,guestIsPremiumProfile,isVideo,ringWindowSeconds);
 
 @override
 String toString() {
-  return 'CallDataMessage.hostJoinRequest(requestUid: $requestUid, guestUid: $guestUid, guestName: $guestName, guestAvatar: $guestAvatar, isVideo: $isVideo, ringWindowSeconds: $ringWindowSeconds)';
+  return 'CallDataMessage.hostJoinRequest(requestUid: $requestUid, guestUid: $guestUid, guestName: $guestName, guestAvatar: $guestAvatar, guestIsPremiumProfile: $guestIsPremiumProfile, isVideo: $isVideo, ringWindowSeconds: $ringWindowSeconds)';
 }
 
 
@@ -395,7 +396,7 @@ abstract mixin class $CallHostJoinRequestCopyWith<$Res> implements $CallDataMess
   factory $CallHostJoinRequestCopyWith(CallHostJoinRequest value, $Res Function(CallHostJoinRequest) _then) = _$CallHostJoinRequestCopyWithImpl;
 @useResult
 $Res call({
- String requestUid, String guestUid, String guestName, String guestAvatar, bool isVideo, int ringWindowSeconds
+ String requestUid, String guestUid, String guestName, String guestAvatar, bool guestIsPremiumProfile, bool isVideo, int ringWindowSeconds
 });
 
 
@@ -412,13 +413,14 @@ class _$CallHostJoinRequestCopyWithImpl<$Res>
 
 /// Create a copy of CallDataMessage
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? requestUid = null,Object? guestUid = null,Object? guestName = null,Object? guestAvatar = null,Object? isVideo = null,Object? ringWindowSeconds = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? requestUid = null,Object? guestUid = null,Object? guestName = null,Object? guestAvatar = null,Object? guestIsPremiumProfile = null,Object? isVideo = null,Object? ringWindowSeconds = null,}) {
   return _then(CallHostJoinRequest(
 requestUid: null == requestUid ? _self.requestUid : requestUid // ignore: cast_nullable_to_non_nullable
 as String,guestUid: null == guestUid ? _self.guestUid : guestUid // ignore: cast_nullable_to_non_nullable
 as String,guestName: null == guestName ? _self.guestName : guestName // ignore: cast_nullable_to_non_nullable
 as String,guestAvatar: null == guestAvatar ? _self.guestAvatar : guestAvatar // ignore: cast_nullable_to_non_nullable
-as String,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
+as String,guestIsPremiumProfile: null == guestIsPremiumProfile ? _self.guestIsPremiumProfile : guestIsPremiumProfile // ignore: cast_nullable_to_non_nullable
+as bool,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
 as bool,ringWindowSeconds: null == ringWindowSeconds ? _self.ringWindowSeconds : ringWindowSeconds // ignore: cast_nullable_to_non_nullable
 as int,
   ));

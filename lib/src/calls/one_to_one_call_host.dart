@@ -41,6 +41,11 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// is the only price a caller should ever see.
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
     @Default('offline') String status,
+
+    /// The paid Premium Profile badge, shown beside the name on the card.
+    @JsonKey(name: 'is_premium_profile')
+    @Default(false)
+    bool isPremiumProfile,
   }) = _OneToOneCallHost;
 
   const OneToOneCallHost._();

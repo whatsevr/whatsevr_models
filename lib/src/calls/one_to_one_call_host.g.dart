@@ -21,6 +21,7 @@ _OneToOneCallHost _$OneToOneCallHostFromJson(Map<String, dynamic> json) =>
       pricePerMinutePaise:
           (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
+      isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
@@ -37,4 +38,5 @@ Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
       'rate_paise': instance.ratePaise,
       'price_per_minute_paise': instance.pricePerMinutePaise,
       'status': instance.status,
+      'is_premium_profile': instance.isPremiumProfile,
     };

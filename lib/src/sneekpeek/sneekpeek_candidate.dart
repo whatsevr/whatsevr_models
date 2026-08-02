@@ -78,6 +78,13 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
     /// Connect terms when this candidate is a verified host, null otherwise.
     /// Present so a profile page can offer the call without a second request.
     @JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,
+
+    /// The paid Premium Profile badge on the account behind this persona.
+    /// Shown here on purpose: it says someone paid, never who they are, so it
+    /// gives away nothing the persona is hiding.
+    @JsonKey(name: 'is_premium_profile')
+    @Default(false)
+    bool isPremiumProfile,
   }) = _SneekpeekCandidate;
 
   const SneekpeekCandidate._();

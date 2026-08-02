@@ -50,6 +50,7 @@ _BaseUser _$BaseUserFromJson(Map<String, dynamic> json) => _BaseUser(
       json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String),
+  isPremiumProfile: json['is_premium_profile'] as bool?,
 );
 
 Map<String, dynamic> _$BaseUserToJson(_BaseUser instance) => <String, dynamic>{
@@ -84,4 +85,5 @@ Map<String, dynamic> _$BaseUserToJson(_BaseUser instance) => <String, dynamic>{
   'auth_provider': instance.authProvider,
   'public_mobile_number': instance.publicMobileNumber,
   'updated_at': instance.updatedAt?.toIso8601String(),
+  'is_premium_profile': instance.isPremiumProfile,
 };
