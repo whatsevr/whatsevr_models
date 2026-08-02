@@ -21,10 +21,14 @@ void main() {
           'rate_paise': '500',
           'audio_only': 'False',
           'price_per_minute_paise': '715',
+          'caller_is_premium_profile': 'True',
         },
       );
 
       expect(payload.isRing, isTrue);
+      // Same trap as is_video: `"True" == true` is false, so a naive read shows
+      // a paying caller as an ordinary one on every Android ring.
+      expect(payload.callerIsPremiumProfile, isTrue);
       expect(payload.room, 'room-abc');
       expect(payload.isVideo, isTrue);
       expect(payload.isBilled, isTrue);

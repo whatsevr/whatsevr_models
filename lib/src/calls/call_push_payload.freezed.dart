@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CallPushPayload {
 
- String get type; String get room;@JsonKey(name: 'caller_uid') String? get callerUid;@JsonKey(name: 'caller_name') String? get callerName;@JsonKey(name: 'caller_avatar') String? get callerAvatar;@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool get isVideo;@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool get isBilled;@JsonKey(name: 'payer_uid') String? get payerUid;@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int get ratePaise;@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool get audioOnly;@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int get pricePerMinutePaise;/// `declined`, `cancelled_by_caller` or `ring_timeout`. Cancel only.
+ String get type; String get room;@JsonKey(name: 'caller_uid') String? get callerUid;@JsonKey(name: 'caller_name') String? get callerName;@JsonKey(name: 'caller_avatar') String? get callerAvatar;/// The caller's paid Premium Profile badge, for the incoming-call screen.
+/// Read through [boolFromCallWire] like every other flag here — FCM data
+/// messages stringify booleans as `"True"`/`"False"`.
+@JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire) bool get callerIsPremiumProfile;@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool get isVideo;@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool get isBilled;@JsonKey(name: 'payer_uid') String? get payerUid;@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int get ratePaise;@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool get audioOnly;@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int get pricePerMinutePaise;/// `declined`, `cancelled_by_caller` or `ring_timeout`. Cancel only.
  String? get reason;
 /// Create a copy of CallPushPayload
 /// with the given fields replaced by the non-null parameter values.
@@ -29,16 +32,16 @@ $CallPushPayloadCopyWith<CallPushPayload> get copyWith => _$CallPushPayloadCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallPushPayload&&(identical(other.type, type) || other.type == type)&&(identical(other.room, room) || other.room == room)&&(identical(other.callerUid, callerUid) || other.callerUid == callerUid)&&(identical(other.callerName, callerName) || other.callerName == callerName)&&(identical(other.callerAvatar, callerAvatar) || other.callerAvatar == callerAvatar)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.reason, reason) || other.reason == reason));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallPushPayload&&(identical(other.type, type) || other.type == type)&&(identical(other.room, room) || other.room == room)&&(identical(other.callerUid, callerUid) || other.callerUid == callerUid)&&(identical(other.callerName, callerName) || other.callerName == callerName)&&(identical(other.callerAvatar, callerAvatar) || other.callerAvatar == callerAvatar)&&(identical(other.callerIsPremiumProfile, callerIsPremiumProfile) || other.callerIsPremiumProfile == callerIsPremiumProfile)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.reason, reason) || other.reason == reason));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,room,callerUid,callerName,callerAvatar,isVideo,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,reason);
+int get hashCode => Object.hash(runtimeType,type,room,callerUid,callerName,callerAvatar,callerIsPremiumProfile,isVideo,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,reason);
 
 @override
 String toString() {
-  return 'CallPushPayload(type: $type, room: $room, callerUid: $callerUid, callerName: $callerName, callerAvatar: $callerAvatar, isVideo: $isVideo, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, reason: $reason)';
+  return 'CallPushPayload(type: $type, room: $room, callerUid: $callerUid, callerName: $callerName, callerAvatar: $callerAvatar, callerIsPremiumProfile: $callerIsPremiumProfile, isVideo: $isVideo, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, reason: $reason)';
 }
 
 
@@ -49,7 +52,7 @@ abstract mixin class $CallPushPayloadCopyWith<$Res>  {
   factory $CallPushPayloadCopyWith(CallPushPayload value, $Res Function(CallPushPayload) _then) = _$CallPushPayloadCopyWithImpl;
 @useResult
 $Res call({
- String type, String room,@JsonKey(name: 'caller_uid') String? callerUid,@JsonKey(name: 'caller_name') String? callerName,@JsonKey(name: 'caller_avatar') String? callerAvatar,@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool isVideo,@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int ratePaise,@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool audioOnly,@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int pricePerMinutePaise, String? reason
+ String type, String room,@JsonKey(name: 'caller_uid') String? callerUid,@JsonKey(name: 'caller_name') String? callerName,@JsonKey(name: 'caller_avatar') String? callerAvatar,@JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire) bool callerIsPremiumProfile,@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool isVideo,@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int ratePaise,@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool audioOnly,@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int pricePerMinutePaise, String? reason
 });
 
 
@@ -66,14 +69,15 @@ class _$CallPushPayloadCopyWithImpl<$Res>
 
 /// Create a copy of CallPushPayload
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? room = null,Object? callerUid = freezed,Object? callerName = freezed,Object? callerAvatar = freezed,Object? isVideo = null,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? reason = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? room = null,Object? callerUid = freezed,Object? callerName = freezed,Object? callerAvatar = freezed,Object? callerIsPremiumProfile = null,Object? isVideo = null,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? reason = freezed,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,callerUid: freezed == callerUid ? _self.callerUid : callerUid // ignore: cast_nullable_to_non_nullable
 as String?,callerName: freezed == callerName ? _self.callerName : callerName // ignore: cast_nullable_to_non_nullable
 as String?,callerAvatar: freezed == callerAvatar ? _self.callerAvatar : callerAvatar // ignore: cast_nullable_to_non_nullable
-as String?,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
+as String?,callerIsPremiumProfile: null == callerIsPremiumProfile ? _self.callerIsPremiumProfile : callerIsPremiumProfile // ignore: cast_nullable_to_non_nullable
+as bool,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
 as bool,isBilled: null == isBilled ? _self.isBilled : isBilled // ignore: cast_nullable_to_non_nullable
 as bool,payerUid: freezed == payerUid ? _self.payerUid : payerUid // ignore: cast_nullable_to_non_nullable
 as String?,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable
@@ -162,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire)  bool callerIsPremiumProfile, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CallPushPayload() when $default != null:
-return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);case _:
+return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.callerIsPremiumProfile,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);case _:
   return orElse();
 
 }
@@ -183,10 +187,10 @@ return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.cal
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire)  bool callerIsPremiumProfile, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)  $default,) {final _that = this;
 switch (_that) {
 case _CallPushPayload():
-return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);}
+return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.callerIsPremiumProfile,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -200,10 +204,10 @@ return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.cal
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String room, @JsonKey(name: 'caller_uid')  String? callerUid, @JsonKey(name: 'caller_name')  String? callerName, @JsonKey(name: 'caller_avatar')  String? callerAvatar, @JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire)  bool callerIsPremiumProfile, @JsonKey(name: 'is_video', fromJson: boolFromCallWire)  bool isVideo, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire)  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)  int ratePaise, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire)  bool audioOnly, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire)  int pricePerMinutePaise,  String? reason)?  $default,) {final _that = this;
 switch (_that) {
 case _CallPushPayload() when $default != null:
-return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);case _:
+return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.callerAvatar,_that.callerIsPremiumProfile,_that.isVideo,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.reason);case _:
   return null;
 
 }
@@ -215,7 +219,7 @@ return $default(_that.type,_that.room,_that.callerUid,_that.callerName,_that.cal
 @JsonSerializable()
 
 class _CallPushPayload extends CallPushPayload {
-  const _CallPushPayload({this.type = '', this.room = '', @JsonKey(name: 'caller_uid') this.callerUid, @JsonKey(name: 'caller_name') this.callerName, @JsonKey(name: 'caller_avatar') this.callerAvatar, @JsonKey(name: 'is_video', fromJson: boolFromCallWire) this.isVideo = false, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire) this.isBilled = false, @JsonKey(name: 'payer_uid') this.payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire) this.ratePaise = 0, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire) this.audioOnly = false, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) this.pricePerMinutePaise = 0, this.reason}): super._();
+  const _CallPushPayload({this.type = '', this.room = '', @JsonKey(name: 'caller_uid') this.callerUid, @JsonKey(name: 'caller_name') this.callerName, @JsonKey(name: 'caller_avatar') this.callerAvatar, @JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire) this.callerIsPremiumProfile = false, @JsonKey(name: 'is_video', fromJson: boolFromCallWire) this.isVideo = false, @JsonKey(name: 'is_billed', fromJson: boolFromCallWire) this.isBilled = false, @JsonKey(name: 'payer_uid') this.payerUid, @JsonKey(name: 'rate_paise', fromJson: intFromCallWire) this.ratePaise = 0, @JsonKey(name: 'audio_only', fromJson: boolFromCallWire) this.audioOnly = false, @JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) this.pricePerMinutePaise = 0, this.reason}): super._();
   factory _CallPushPayload.fromJson(Map<String, dynamic> json) => _$CallPushPayloadFromJson(json);
 
 @override@JsonKey() final  String type;
@@ -223,6 +227,10 @@ class _CallPushPayload extends CallPushPayload {
 @override@JsonKey(name: 'caller_uid') final  String? callerUid;
 @override@JsonKey(name: 'caller_name') final  String? callerName;
 @override@JsonKey(name: 'caller_avatar') final  String? callerAvatar;
+/// The caller's paid Premium Profile badge, for the incoming-call screen.
+/// Read through [boolFromCallWire] like every other flag here — FCM data
+/// messages stringify booleans as `"True"`/`"False"`.
+@override@JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire) final  bool callerIsPremiumProfile;
 @override@JsonKey(name: 'is_video', fromJson: boolFromCallWire) final  bool isVideo;
 @override@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) final  bool isBilled;
 @override@JsonKey(name: 'payer_uid') final  String? payerUid;
@@ -245,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallPushPayload&&(identical(other.type, type) || other.type == type)&&(identical(other.room, room) || other.room == room)&&(identical(other.callerUid, callerUid) || other.callerUid == callerUid)&&(identical(other.callerName, callerName) || other.callerName == callerName)&&(identical(other.callerAvatar, callerAvatar) || other.callerAvatar == callerAvatar)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.reason, reason) || other.reason == reason));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallPushPayload&&(identical(other.type, type) || other.type == type)&&(identical(other.room, room) || other.room == room)&&(identical(other.callerUid, callerUid) || other.callerUid == callerUid)&&(identical(other.callerName, callerName) || other.callerName == callerName)&&(identical(other.callerAvatar, callerAvatar) || other.callerAvatar == callerAvatar)&&(identical(other.callerIsPremiumProfile, callerIsPremiumProfile) || other.callerIsPremiumProfile == callerIsPremiumProfile)&&(identical(other.isVideo, isVideo) || other.isVideo == isVideo)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.reason, reason) || other.reason == reason));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,room,callerUid,callerName,callerAvatar,isVideo,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,reason);
+int get hashCode => Object.hash(runtimeType,type,room,callerUid,callerName,callerAvatar,callerIsPremiumProfile,isVideo,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,reason);
 
 @override
 String toString() {
-  return 'CallPushPayload(type: $type, room: $room, callerUid: $callerUid, callerName: $callerName, callerAvatar: $callerAvatar, isVideo: $isVideo, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, reason: $reason)';
+  return 'CallPushPayload(type: $type, room: $room, callerUid: $callerUid, callerName: $callerName, callerAvatar: $callerAvatar, callerIsPremiumProfile: $callerIsPremiumProfile, isVideo: $isVideo, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, reason: $reason)';
 }
 
 
@@ -265,7 +273,7 @@ abstract mixin class _$CallPushPayloadCopyWith<$Res> implements $CallPushPayload
   factory _$CallPushPayloadCopyWith(_CallPushPayload value, $Res Function(_CallPushPayload) _then) = __$CallPushPayloadCopyWithImpl;
 @override @useResult
 $Res call({
- String type, String room,@JsonKey(name: 'caller_uid') String? callerUid,@JsonKey(name: 'caller_name') String? callerName,@JsonKey(name: 'caller_avatar') String? callerAvatar,@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool isVideo,@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int ratePaise,@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool audioOnly,@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int pricePerMinutePaise, String? reason
+ String type, String room,@JsonKey(name: 'caller_uid') String? callerUid,@JsonKey(name: 'caller_name') String? callerName,@JsonKey(name: 'caller_avatar') String? callerAvatar,@JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire) bool callerIsPremiumProfile,@JsonKey(name: 'is_video', fromJson: boolFromCallWire) bool isVideo,@JsonKey(name: 'is_billed', fromJson: boolFromCallWire) bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise', fromJson: intFromCallWire) int ratePaise,@JsonKey(name: 'audio_only', fromJson: boolFromCallWire) bool audioOnly,@JsonKey(name: 'price_per_minute_paise', fromJson: intFromCallWire) int pricePerMinutePaise, String? reason
 });
 
 
@@ -282,14 +290,15 @@ class __$CallPushPayloadCopyWithImpl<$Res>
 
 /// Create a copy of CallPushPayload
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? room = null,Object? callerUid = freezed,Object? callerName = freezed,Object? callerAvatar = freezed,Object? isVideo = null,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? reason = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? room = null,Object? callerUid = freezed,Object? callerName = freezed,Object? callerAvatar = freezed,Object? callerIsPremiumProfile = null,Object? isVideo = null,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? reason = freezed,}) {
   return _then(_CallPushPayload(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,callerUid: freezed == callerUid ? _self.callerUid : callerUid // ignore: cast_nullable_to_non_nullable
 as String?,callerName: freezed == callerName ? _self.callerName : callerName // ignore: cast_nullable_to_non_nullable
 as String?,callerAvatar: freezed == callerAvatar ? _self.callerAvatar : callerAvatar // ignore: cast_nullable_to_non_nullable
-as String?,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
+as String?,callerIsPremiumProfile: null == callerIsPremiumProfile ? _self.callerIsPremiumProfile : callerIsPremiumProfile // ignore: cast_nullable_to_non_nullable
+as bool,isVideo: null == isVideo ? _self.isVideo : isVideo // ignore: cast_nullable_to_non_nullable
 as bool,isBilled: null == isBilled ? _self.isBilled : isBilled // ignore: cast_nullable_to_non_nullable
 as bool,payerUid: freezed == payerUid ? _self.payerUid : payerUid // ignore: cast_nullable_to_non_nullable
 as String?,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable

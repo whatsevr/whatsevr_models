@@ -44,6 +44,13 @@ sealed class CallPushPayload with _$CallPushPayload {
     @JsonKey(name: 'caller_uid') String? callerUid,
     @JsonKey(name: 'caller_name') String? callerName,
     @JsonKey(name: 'caller_avatar') String? callerAvatar,
+
+    /// The caller's paid Premium Profile badge, for the incoming-call screen.
+    /// Read through [boolFromCallWire] like every other flag here — FCM data
+    /// messages stringify booleans as `"True"`/`"False"`.
+    @JsonKey(name: 'caller_is_premium_profile', fromJson: boolFromCallWire)
+    @Default(false)
+    bool callerIsPremiumProfile,
     @JsonKey(name: 'is_video', fromJson: boolFromCallWire)
     @Default(false)
     bool isVideo,

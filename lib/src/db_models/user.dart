@@ -98,6 +98,11 @@ sealed class BaseUser with _$BaseUser {
     
     @JsonKey(name: 'updated_at')
     DateTime? updatedAt,
+
+    /// The paid Premium Profile badge. Server-owned — it follows the
+    /// subscription's status and no client write touches it.
+    @JsonKey(name: 'is_premium_profile')
+    bool? isPremiumProfile,
   }) = _BaseUser;
 
   factory BaseUser.fromJson(Map<String, dynamic> json) => _$BaseUserFromJson(json);

@@ -48,6 +48,7 @@ _SneekpeekCandidate _$SneekpeekCandidateFromJson(
           : CandidateHostInfo.fromJson(
             json['host_info'] as Map<String, dynamic>,
           ),
+  isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$SneekpeekCandidateToJson(_SneekpeekCandidate instance) =>
@@ -75,6 +76,7 @@ Map<String, dynamic> _$SneekpeekCandidateToJson(_SneekpeekCandidate instance) =>
       'current_chat_session_uid': instance.currentChatSessionUid,
       'created_at': instance.createdAt?.toIso8601String(),
       'host_info': instance.hostInfo,
+      'is_premium_profile': instance.isPremiumProfile,
     };
 
 _CandidateHostInfo _$CandidateHostInfoFromJson(Map<String, dynamic> json) =>

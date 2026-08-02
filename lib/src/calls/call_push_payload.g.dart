@@ -14,6 +14,10 @@ _CallPushPayload _$CallPushPayloadFromJson(
   callerUid: json['caller_uid'] as String?,
   callerName: json['caller_name'] as String?,
   callerAvatar: json['caller_avatar'] as String?,
+  callerIsPremiumProfile:
+      json['caller_is_premium_profile'] == null
+          ? false
+          : boolFromCallWire(json['caller_is_premium_profile']),
   isVideo:
       json['is_video'] == null ? false : boolFromCallWire(json['is_video']),
   isBilled:
@@ -37,6 +41,7 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'caller_uid': instance.callerUid,
       'caller_name': instance.callerName,
       'caller_avatar': instance.callerAvatar,
+      'caller_is_premium_profile': instance.callerIsPremiumProfile,
       'is_video': instance.isVideo,
       'is_billed': instance.isBilled,
       'payer_uid': instance.payerUid,
