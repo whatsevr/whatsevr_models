@@ -85,6 +85,10 @@ _CandidateHostInfo _$CandidateHostInfoFromJson(Map<String, dynamic> json) =>
       callMode: json['call_mode'] as String? ?? 'audio_video',
       pricePerMinutePaise:
           (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      audioPricePerMinutePaise:
+          (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      videoPricePerMinutePaise:
+          (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
     );
 
@@ -93,6 +97,8 @@ Map<String, dynamic> _$CandidateHostInfoToJson(_CandidateHostInfo instance) =>
       'is_host': instance.isHost,
       'call_mode': instance.callMode,
       'price_per_minute_paise': instance.pricePerMinutePaise,
+      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
       'status': instance.status,
     };
 

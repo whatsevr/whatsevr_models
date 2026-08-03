@@ -47,6 +47,7 @@ export 'src/social/blocked_user.dart';
 export 'src/sneekpeek/sneekpeek_candidate.dart';
 export 'src/calls/livekit_token_grant.dart';
 export 'src/calls/call_data_message.dart';
+export 'src/calls/call_mode.dart';
 export 'src/calls/one_to_one_call_host.dart';
 export 'src/calls/one_to_one_call_host_filters.dart';
 export 'src/calls/connect_results.dart';

@@ -35,6 +35,12 @@ sealed class ConnectRequestResult with _$ConnectRequestResult {
     // --- billing, on both ---
     @JsonKey(name: 'is_billed') @Default(false) bool isBilled,
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+    @JsonKey(name: 'audio_price_per_minute_paise')
+    @Default(0)
+    int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_paise')
+    @Default(0)
+    int videoPricePerMinutePaise,
     @JsonKey(name: 'rate_paise') @Default(0) int ratePaise,
     @JsonKey(name: 'audio_only') @Default(false) bool audioOnly,
     @JsonKey(name: 'payer_uid') String? payerUid,

@@ -24,6 +24,12 @@ sealed class CallAcceptResult with _$CallAcceptResult {
     @JsonKey(name: 'rate_paise') @Default(0) int ratePaise,
     @JsonKey(name: 'audio_only') @Default(false) bool audioOnly,
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+    @JsonKey(name: 'audio_price_per_minute_paise')
+    @Default(0)
+    int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_paise')
+    @Default(0)
+    int videoPricePerMinutePaise,
   }) = _CallAcceptResult;
 
   const CallAcceptResult._();

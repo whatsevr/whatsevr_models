@@ -19,7 +19,9 @@ mixin _$OneToOneCallHost {
 @JsonKey(name: 'call_mode') String get callMode;/// What the host earns per minute. Never shown to a caller.
 @JsonKey(name: 'rate_paise') int get ratePaise;/// What the caller pays per minute — rate grossed up for commission. This
 /// is the only price a caller should ever see.
-@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise; String get status;/// The paid Premium Profile badge, shown beside the name on the card.
+@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;/// Both modes' prices, for a host who takes either. Voice is half — that
+/// is the whole reason the caller is asked to choose.
+@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'video_price_per_minute_paise') int get videoPricePerMinutePaise; String get status;/// The paid Premium Profile badge, shown beside the name on the card.
 @JsonKey(name: 'is_premium_profile') bool get isPremiumProfile;
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
@@ -33,16 +35,16 @@ $OneToOneCallHostCopyWith<OneToOneCallHost> get copyWith => _$OneToOneCallHostCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,status,isPremiumProfile);
+int get hashCode => Object.hash(runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile);
 
 @override
 String toString() {
-  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile)';
+  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile)';
 }
 
 
@@ -53,7 +55,7 @@ abstract mixin class $OneToOneCallHostCopyWith<$Res>  {
   factory $OneToOneCallHostCopyWith(OneToOneCallHost value, $Res Function(OneToOneCallHost) _then) = _$OneToOneCallHostCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
+@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
 });
 
 
@@ -70,7 +72,7 @@ class _$OneToOneCallHostCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,}) {
   return _then(_self.copyWith(
 hostUid: null == hostUid ? _self.hostUid : hostUid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -83,6 +85,8 @@ as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nul
 as String?,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
 as String,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,
@@ -167,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost() when $default != null:
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.status,_that.isPremiumProfile);case _:
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile);case _:
   return orElse();
 
 }
@@ -188,10 +192,10 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost():
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.status,_that.isPremiumProfile);}
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -205,10 +209,10 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost() when $default != null:
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.status,_that.isPremiumProfile);case _:
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile);case _:
   return null;
 
 }
@@ -220,7 +224,7 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 @JsonSerializable()
 
 class _OneToOneCallHost extends OneToOneCallHost {
-  const _OneToOneCallHost({@JsonKey(name: 'one_to_one_call_host_uid') this.hostUid = '', this.name = '', @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, this.country, this.age, this.city, this.state, this.gender, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, this.status = 'offline', @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false}): super._();
+  const _OneToOneCallHost({@JsonKey(name: 'one_to_one_call_host_uid') this.hostUid = '', this.name = '', @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, this.country, this.age, this.city, this.state, this.gender, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, this.status = 'offline', @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false}): super._();
   factory _OneToOneCallHost.fromJson(Map<String, dynamic> json) => _$OneToOneCallHostFromJson(json);
 
 @override@JsonKey(name: 'one_to_one_call_host_uid') final  String hostUid;
@@ -238,6 +242,10 @@ class _OneToOneCallHost extends OneToOneCallHost {
 /// What the caller pays per minute — rate grossed up for commission. This
 /// is the only price a caller should ever see.
 @override@JsonKey(name: 'price_per_minute_paise') final  int pricePerMinutePaise;
+/// Both modes' prices, for a host who takes either. Voice is half — that
+/// is the whole reason the caller is asked to choose.
+@override@JsonKey(name: 'audio_price_per_minute_paise') final  int audioPricePerMinutePaise;
+@override@JsonKey(name: 'video_price_per_minute_paise') final  int videoPricePerMinutePaise;
 @override@JsonKey() final  String status;
 /// The paid Premium Profile badge, shown beside the name on the card.
 @override@JsonKey(name: 'is_premium_profile') final  bool isPremiumProfile;
@@ -255,16 +263,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,status,isPremiumProfile);
+int get hashCode => Object.hash(runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile);
 
 @override
 String toString() {
-  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile)';
+  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile)';
 }
 
 
@@ -275,7 +283,7 @@ abstract mixin class _$OneToOneCallHostCopyWith<$Res> implements $OneToOneCallHo
   factory _$OneToOneCallHostCopyWith(_OneToOneCallHost value, $Res Function(_OneToOneCallHost) _then) = __$OneToOneCallHostCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
+@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
 });
 
 
@@ -292,7 +300,7 @@ class __$OneToOneCallHostCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,}) {
   return _then(_OneToOneCallHost(
 hostUid: null == hostUid ? _self.hostUid : hostUid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -305,6 +313,8 @@ as String?,gender: freezed == gender ? _self.gender : gender // ignore: cast_nul
 as String?,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
 as String,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,

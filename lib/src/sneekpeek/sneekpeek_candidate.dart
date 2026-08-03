@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:whatsevr_models/src/calls/call_mode.dart';
 import 'package:whatsevr_models/src/calls/one_to_one_call_host.dart';
 
 part 'sneekpeek_candidate.freezed.dart';
@@ -132,6 +133,14 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
     /// What the caller pays per minute, already adjusted for the call mode.
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
 
+    /// Both modes' prices, for a host who takes either — the caller picks.
+    @JsonKey(name: 'audio_price_per_minute_paise')
+    @Default(0)
+    int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_paise')
+    @Default(0)
+    int videoPricePerMinutePaise,
+
     /// `available`, `busy` or `offline`.
     @Default('offline') String status,
   }) = _CandidateHostInfo;
@@ -148,6 +157,15 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
       };
 
   bool get isAudioOnly => callMode == 'audio_only';
+
+  /// What calling her costs either way — what the picker is built from.
+  CallModeQuote get callModeQuote => CallModeQuote(
+        callMode: callMode,
+        audioPricePerMinutePaise: audioPricePerMinutePaise,
+        videoPricePerMinutePaise: videoPricePerMinutePaise,
+      );
+
+  int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 
   /// Only a host already in a call cannot be reached — offline still rings.
   bool get isConnectable => presence != HostPresence.busy;

@@ -17,6 +17,10 @@ _ConnectRequestResult _$ConnectRequestResultFromJson(
   ringWindowSeconds: (json['ring_window_seconds'] as num?)?.toInt() ?? 20,
   isBilled: json['is_billed'] as bool? ?? false,
   pricePerMinutePaise: (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
+  audioPricePerMinutePaise:
+      (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+  videoPricePerMinutePaise:
+      (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
   ratePaise: (json['rate_paise'] as num?)?.toInt() ?? 0,
   audioOnly: json['audio_only'] as bool? ?? false,
   payerUid: json['payer_uid'] as String?,
@@ -33,6 +37,8 @@ Map<String, dynamic> _$ConnectRequestResultToJson(
   'ring_window_seconds': instance.ringWindowSeconds,
   'is_billed': instance.isBilled,
   'price_per_minute_paise': instance.pricePerMinutePaise,
+  'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+  'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
   'rate_paise': instance.ratePaise,
   'audio_only': instance.audioOnly,
   'payer_uid': instance.payerUid,

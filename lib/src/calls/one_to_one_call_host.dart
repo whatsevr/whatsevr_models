@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'call_mode.dart';
+
 part 'one_to_one_call_host.freezed.dart';
 part 'one_to_one_call_host.g.dart';
 
@@ -40,6 +42,15 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// What the caller pays per minute — rate grossed up for commission. This
     /// is the only price a caller should ever see.
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+
+    /// Both modes' prices, for a host who takes either. Voice is half — that
+    /// is the whole reason the caller is asked to choose.
+    @JsonKey(name: 'audio_price_per_minute_paise')
+    @Default(0)
+    int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_paise')
+    @Default(0)
+    int videoPricePerMinutePaise,
     @Default('offline') String status,
 
     /// The paid Premium Profile badge, shown beside the name on the card.
@@ -78,6 +89,15 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
       };
 
   bool get isAudioOnly => callMode == 'audio_only';
+
+  /// What calling her costs either way — what the picker is built from.
+  CallModeQuote get callModeQuote => CallModeQuote(
+        callMode: callMode,
+        audioPricePerMinutePaise: audioPricePerMinutePaise,
+        videoPricePerMinutePaise: videoPricePerMinutePaise,
+      );
+
+  int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 
   String get displayNameWithAge => age == null ? name : '$name, $age';
 

@@ -55,14 +55,15 @@ extension CallDataMessagePatterns on CallDataMessage {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( CallChatMessage value)?  chat,TResult Function( CallUpgradeRequest value)?  upgradeRequest,TResult Function( CallUpgradeAccept value)?  upgradeAccept,TResult Function( CallUpgradeDecline value)?  upgradeDecline,TResult Function( CallHostJoinRequest value)?  hostJoinRequest,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( CallChatMessage value)?  chat,TResult Function( CallModeRequest value)?  modeRequest,TResult Function( CallModeAccept value)?  modeAccept,TResult Function( CallModeDecline value)?  modeDecline,TResult Function( CallModeChanged value)?  modeChanged,TResult Function( CallHostJoinRequest value)?  hostJoinRequest,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
-return chat(_that);case CallUpgradeRequest() when upgradeRequest != null:
-return upgradeRequest(_that);case CallUpgradeAccept() when upgradeAccept != null:
-return upgradeAccept(_that);case CallUpgradeDecline() when upgradeDecline != null:
-return upgradeDecline(_that);case CallHostJoinRequest() when hostJoinRequest != null:
+return chat(_that);case CallModeRequest() when modeRequest != null:
+return modeRequest(_that);case CallModeAccept() when modeAccept != null:
+return modeAccept(_that);case CallModeDecline() when modeDecline != null:
+return modeDecline(_that);case CallModeChanged() when modeChanged != null:
+return modeChanged(_that);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that);case _:
   return orElse();
 
@@ -81,14 +82,15 @@ return hostJoinRequest(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( CallChatMessage value)  chat,required TResult Function( CallUpgradeRequest value)  upgradeRequest,required TResult Function( CallUpgradeAccept value)  upgradeAccept,required TResult Function( CallUpgradeDecline value)  upgradeDecline,required TResult Function( CallHostJoinRequest value)  hostJoinRequest,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( CallChatMessage value)  chat,required TResult Function( CallModeRequest value)  modeRequest,required TResult Function( CallModeAccept value)  modeAccept,required TResult Function( CallModeDecline value)  modeDecline,required TResult Function( CallModeChanged value)  modeChanged,required TResult Function( CallHostJoinRequest value)  hostJoinRequest,}){
 final _that = this;
 switch (_that) {
 case CallChatMessage():
-return chat(_that);case CallUpgradeRequest():
-return upgradeRequest(_that);case CallUpgradeAccept():
-return upgradeAccept(_that);case CallUpgradeDecline():
-return upgradeDecline(_that);case CallHostJoinRequest():
+return chat(_that);case CallModeRequest():
+return modeRequest(_that);case CallModeAccept():
+return modeAccept(_that);case CallModeDecline():
+return modeDecline(_that);case CallModeChanged():
+return modeChanged(_that);case CallHostJoinRequest():
 return hostJoinRequest(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -103,14 +105,15 @@ return hostJoinRequest(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( CallChatMessage value)?  chat,TResult? Function( CallUpgradeRequest value)?  upgradeRequest,TResult? Function( CallUpgradeAccept value)?  upgradeAccept,TResult? Function( CallUpgradeDecline value)?  upgradeDecline,TResult? Function( CallHostJoinRequest value)?  hostJoinRequest,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( CallChatMessage value)?  chat,TResult? Function( CallModeRequest value)?  modeRequest,TResult? Function( CallModeAccept value)?  modeAccept,TResult? Function( CallModeDecline value)?  modeDecline,TResult? Function( CallModeChanged value)?  modeChanged,TResult? Function( CallHostJoinRequest value)?  hostJoinRequest,}){
 final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
-return chat(_that);case CallUpgradeRequest() when upgradeRequest != null:
-return upgradeRequest(_that);case CallUpgradeAccept() when upgradeAccept != null:
-return upgradeAccept(_that);case CallUpgradeDecline() when upgradeDecline != null:
-return upgradeDecline(_that);case CallHostJoinRequest() when hostJoinRequest != null:
+return chat(_that);case CallModeRequest() when modeRequest != null:
+return modeRequest(_that);case CallModeAccept() when modeAccept != null:
+return modeAccept(_that);case CallModeDecline() when modeDecline != null:
+return modeDecline(_that);case CallModeChanged() when modeChanged != null:
+return modeChanged(_that);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that);case _:
   return null;
 
@@ -128,13 +131,14 @@ return hostJoinRequest(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function()?  upgradeRequest,TResult Function()?  upgradeAccept,TResult Function()?  upgradeDecline,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function( CallMode mode)?  modeRequest,TResult Function( CallMode mode)?  modeAccept,TResult Function( CallMode mode)?  modeDecline,TResult Function( CallMode mode)?  modeChanged,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
-return chat(_that.text);case CallUpgradeRequest() when upgradeRequest != null:
-return upgradeRequest();case CallUpgradeAccept() when upgradeAccept != null:
-return upgradeAccept();case CallUpgradeDecline() when upgradeDecline != null:
-return upgradeDecline();case CallHostJoinRequest() when hostJoinRequest != null:
+return chat(_that.text);case CallModeRequest() when modeRequest != null:
+return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
+return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
+return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
+return modeChanged(_that.mode);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);case _:
   return orElse();
 
@@ -153,13 +157,14 @@ return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.gue
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function()  upgradeRequest,required TResult Function()  upgradeAccept,required TResult Function()  upgradeDecline,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)  hostJoinRequest,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function( CallMode mode)  modeRequest,required TResult Function( CallMode mode)  modeAccept,required TResult Function( CallMode mode)  modeDecline,required TResult Function( CallMode mode)  modeChanged,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)  hostJoinRequest,}) {final _that = this;
 switch (_that) {
 case CallChatMessage():
-return chat(_that.text);case CallUpgradeRequest():
-return upgradeRequest();case CallUpgradeAccept():
-return upgradeAccept();case CallUpgradeDecline():
-return upgradeDecline();case CallHostJoinRequest():
+return chat(_that.text);case CallModeRequest():
+return modeRequest(_that.mode);case CallModeAccept():
+return modeAccept(_that.mode);case CallModeDecline():
+return modeDecline(_that.mode);case CallModeChanged():
+return modeChanged(_that.mode);case CallHostJoinRequest():
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -174,13 +179,14 @@ return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.gue
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function()?  upgradeRequest,TResult? Function()?  upgradeAccept,TResult? Function()?  upgradeDecline,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function( CallMode mode)?  modeRequest,TResult? Function( CallMode mode)?  modeAccept,TResult? Function( CallMode mode)?  modeDecline,TResult? Function( CallMode mode)?  modeChanged,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int ringWindowSeconds)?  hostJoinRequest,}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
-return chat(_that.text);case CallUpgradeRequest() when upgradeRequest != null:
-return upgradeRequest();case CallUpgradeAccept() when upgradeAccept != null:
-return upgradeAccept();case CallUpgradeDecline() when upgradeDecline != null:
-return upgradeDecline();case CallHostJoinRequest() when hostJoinRequest != null:
+return chat(_that.text);case CallModeRequest() when modeRequest != null:
+return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
+return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
+return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
+return modeChanged(_that.mode);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.ringWindowSeconds);case _:
   return null;
 
@@ -258,98 +264,266 @@ as String,
 /// @nodoc
 
 
-class CallUpgradeRequest extends CallDataMessage {
-  const CallUpgradeRequest(): super._();
+class CallModeRequest extends CallDataMessage {
+  const CallModeRequest({required this.mode}): super._();
   
 
+ final  CallMode mode;
 
-
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallModeRequestCopyWith<CallModeRequest> get copyWith => _$CallModeRequestCopyWithImpl<CallModeRequest>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallUpgradeRequest);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallModeRequest&&(identical(other.mode, mode) || other.mode == mode));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,mode);
 
 @override
 String toString() {
-  return 'CallDataMessage.upgradeRequest()';
+  return 'CallDataMessage.modeRequest(mode: $mode)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $CallModeRequestCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallModeRequestCopyWith(CallModeRequest value, $Res Function(CallModeRequest) _then) = _$CallModeRequestCopyWithImpl;
+@useResult
+$Res call({
+ CallMode mode
+});
 
 
+
+
+}
+/// @nodoc
+class _$CallModeRequestCopyWithImpl<$Res>
+    implements $CallModeRequestCopyWith<$Res> {
+  _$CallModeRequestCopyWithImpl(this._self, this._then);
+
+  final CallModeRequest _self;
+  final $Res Function(CallModeRequest) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? mode = null,}) {
+  return _then(CallModeRequest(
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as CallMode,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
 
-class CallUpgradeAccept extends CallDataMessage {
-  const CallUpgradeAccept(): super._();
+class CallModeAccept extends CallDataMessage {
+  const CallModeAccept({required this.mode}): super._();
   
 
+ final  CallMode mode;
 
-
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallModeAcceptCopyWith<CallModeAccept> get copyWith => _$CallModeAcceptCopyWithImpl<CallModeAccept>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallUpgradeAccept);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallModeAccept&&(identical(other.mode, mode) || other.mode == mode));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,mode);
 
 @override
 String toString() {
-  return 'CallDataMessage.upgradeAccept()';
+  return 'CallDataMessage.modeAccept(mode: $mode)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $CallModeAcceptCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallModeAcceptCopyWith(CallModeAccept value, $Res Function(CallModeAccept) _then) = _$CallModeAcceptCopyWithImpl;
+@useResult
+$Res call({
+ CallMode mode
+});
 
 
+
+
+}
+/// @nodoc
+class _$CallModeAcceptCopyWithImpl<$Res>
+    implements $CallModeAcceptCopyWith<$Res> {
+  _$CallModeAcceptCopyWithImpl(this._self, this._then);
+
+  final CallModeAccept _self;
+  final $Res Function(CallModeAccept) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? mode = null,}) {
+  return _then(CallModeAccept(
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as CallMode,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
 
-class CallUpgradeDecline extends CallDataMessage {
-  const CallUpgradeDecline(): super._();
+class CallModeDecline extends CallDataMessage {
+  const CallModeDecline({required this.mode}): super._();
   
 
+ final  CallMode mode;
 
-
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallModeDeclineCopyWith<CallModeDecline> get copyWith => _$CallModeDeclineCopyWithImpl<CallModeDecline>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallUpgradeDecline);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallModeDecline&&(identical(other.mode, mode) || other.mode == mode));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,mode);
 
 @override
 String toString() {
-  return 'CallDataMessage.upgradeDecline()';
+  return 'CallDataMessage.modeDecline(mode: $mode)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $CallModeDeclineCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallModeDeclineCopyWith(CallModeDecline value, $Res Function(CallModeDecline) _then) = _$CallModeDeclineCopyWithImpl;
+@useResult
+$Res call({
+ CallMode mode
+});
 
 
+
+
+}
+/// @nodoc
+class _$CallModeDeclineCopyWithImpl<$Res>
+    implements $CallModeDeclineCopyWith<$Res> {
+  _$CallModeDeclineCopyWithImpl(this._self, this._then);
+
+  final CallModeDecline _self;
+  final $Res Function(CallModeDecline) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? mode = null,}) {
+  return _then(CallModeDecline(
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as CallMode,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class CallModeChanged extends CallDataMessage {
+  const CallModeChanged({required this.mode}): super._();
+  
+
+ final  CallMode mode;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallModeChangedCopyWith<CallModeChanged> get copyWith => _$CallModeChangedCopyWithImpl<CallModeChanged>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallModeChanged&&(identical(other.mode, mode) || other.mode == mode));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,mode);
+
+@override
+String toString() {
+  return 'CallDataMessage.modeChanged(mode: $mode)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CallModeChangedCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallModeChangedCopyWith(CallModeChanged value, $Res Function(CallModeChanged) _then) = _$CallModeChangedCopyWithImpl;
+@useResult
+$Res call({
+ CallMode mode
+});
+
+
+
+
+}
+/// @nodoc
+class _$CallModeChangedCopyWithImpl<$Res>
+    implements $CallModeChangedCopyWith<$Res> {
+  _$CallModeChangedCopyWithImpl(this._self, this._then);
+
+  final CallModeChanged _self;
+  final $Res Function(CallModeChanged) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? mode = null,}) {
+  return _then(CallModeChanged(
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as CallMode,
+  ));
+}
+
+
+}
 
 /// @nodoc
 

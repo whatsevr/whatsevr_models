@@ -68,6 +68,15 @@ sealed class CallPushPayload with _$CallPushPayload {
     @Default(0)
     int pricePerMinutePaise,
 
+    /// Both modes' prices ride along so the call screen can re-price itself
+    /// when the mode moves mid-session, without another round trip.
+    @JsonKey(name: 'audio_price_per_minute_paise', fromJson: intFromCallWire)
+    @Default(0)
+    int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_paise', fromJson: intFromCallWire)
+    @Default(0)
+    int videoPricePerMinutePaise,
+
     /// `declined`, `cancelled_by_caller` or `ring_timeout`. Cancel only.
     String? reason,
   }) = _CallPushPayload;

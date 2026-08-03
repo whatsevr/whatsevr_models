@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'call_mode.dart';
+
 part 'call_data_message.freezed.dart';
 
 /// The in-call data protocol, spoken over LiveKit `publishData`.
@@ -22,15 +24,25 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// Peer to peer. Sender identity comes from the participant, never the body.
   const factory CallDataMessage.chat({required String text}) = CallChatMessage;
 
-  /// Payer asks the host to turn an audio-only call into video.
-  const factory CallDataMessage.upgradeRequest() = CallUpgradeRequest;
+  /// Ask the peer to move the call to [mode]. Only ever sent for
+  /// [CallMode.video] — dropping to voice needs nobody's permission.
+  const factory CallDataMessage.modeRequest({required CallMode mode}) =
+      CallModeRequest;
 
-  /// Host agrees. The PAYER then calls `calls/upgrade` — that HTTP call, not
-  /// this message, is the authoritative billing stamp.
-  const factory CallDataMessage.upgradeAccept() = CallUpgradeAccept;
+  /// Peer agrees. The PAYER then calls `calls/mode` — that HTTP call, not this
+  /// message, is the authoritative billing stamp.
+  const factory CallDataMessage.modeAccept({required CallMode mode}) =
+      CallModeAccept;
 
-  /// Host declines; nothing about the call changes.
-  const factory CallDataMessage.upgradeDecline() = CallUpgradeDecline;
+  /// Peer refuses; nothing about the call changes.
+  const factory CallDataMessage.modeDecline({required CallMode mode}) =
+      CallModeDecline;
+
+  /// A stamped change, announced so the peer can re-price its own screen. Also
+  /// how a unilateral drop to voice is told: the sender stops its camera,
+  /// stamps, and says so.
+  const factory CallDataMessage.modeChanged({required CallMode mode}) =
+      CallModeChanged;
 
   /// Server to host: a guest wants into their live room. Answered over HTTP with
   /// `one-to-one-call/respond`, not over the data channel.
@@ -49,9 +61,14 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// Wire form. Key names are fixed by the protocol document.
   Map<String, dynamic> toWireJson() => switch (this) {
         CallChatMessage(:final text) => {'type': 'chat', 'text': text},
-        CallUpgradeRequest() => {'type': 'upgrade.request'},
-        CallUpgradeAccept() => {'type': 'upgrade.accept'},
-        CallUpgradeDecline() => {'type': 'upgrade.decline'},
+        CallModeRequest(:final mode) =>
+          {'type': 'mode.request', 'mode': mode.wireValue},
+        CallModeAccept(:final mode) =>
+          {'type': 'mode.accept', 'mode': mode.wireValue},
+        CallModeDecline(:final mode) =>
+          {'type': 'mode.decline', 'mode': mode.wireValue},
+        CallModeChanged(:final mode) =>
+          {'type': 'mode.changed', 'mode': mode.wireValue},
         CallHostJoinRequest(
           :final requestUid,
           :final guestUid,
@@ -79,9 +96,14 @@ sealed class CallDataMessage with _$CallDataMessage {
   static CallDataMessage? fromWireJson(Map<String, dynamic> json) {
     return switch (json['type']) {
       'chat' => CallDataMessage.chat(text: '${json['text'] ?? ''}'),
-      'upgrade.request' => const CallDataMessage.upgradeRequest(),
-      'upgrade.accept' => const CallDataMessage.upgradeAccept(),
-      'upgrade.decline' => const CallDataMessage.upgradeDecline(),
+      'mode.request' =>
+        CallDataMessage.modeRequest(mode: CallMode.fromWire(json['mode'])),
+      'mode.accept' =>
+        CallDataMessage.modeAccept(mode: CallMode.fromWire(json['mode'])),
+      'mode.decline' =>
+        CallDataMessage.modeDecline(mode: CallMode.fromWire(json['mode'])),
+      'mode.changed' =>
+        CallDataMessage.modeChanged(mode: CallMode.fromWire(json['mode'])),
       'one_to_one_call.join_request' => CallDataMessage.hostJoinRequest(
           requestUid: '${json['request_uid'] ?? ''}',
           guestUid: '${json['guest_uid'] ?? ''}',

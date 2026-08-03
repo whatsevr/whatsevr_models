@@ -438,7 +438,8 @@ mixin _$CandidateHostInfo {
 
 @JsonKey(name: 'is_host') bool get isHost;/// `audio_video` or `audio_only`.
 @JsonKey(name: 'call_mode') String get callMode;/// What the caller pays per minute, already adjusted for the call mode.
-@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;/// `available`, `busy` or `offline`.
+@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;/// Both modes' prices, for a host who takes either — the caller picks.
+@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'video_price_per_minute_paise') int get videoPricePerMinutePaise;/// `available`, `busy` or `offline`.
  String get status;
 /// Create a copy of CandidateHostInfo
 /// with the given fields replaced by the non-null parameter values.
@@ -452,16 +453,16 @@ $CandidateHostInfoCopyWith<CandidateHostInfo> get copyWith => _$CandidateHostInf
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,status);
+int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status);
 
 @override
 String toString() {
-  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, status: $status)';
+  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status)';
 }
 
 
@@ -472,7 +473,7 @@ abstract mixin class $CandidateHostInfoCopyWith<$Res>  {
   factory $CandidateHostInfoCopyWith(CandidateHostInfo value, $Res Function(CandidateHostInfo) _then) = _$CandidateHostInfoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status
+@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status
 });
 
 
@@ -489,11 +490,13 @@ class _$CandidateHostInfoCopyWithImpl<$Res>
 
 /// Create a copy of CandidateHostInfo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? status = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,}) {
   return _then(_self.copyWith(
 isHost: null == isHost ? _self.isHost : isHost // ignore: cast_nullable_to_non_nullable
 as bool,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
 as String,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -577,10 +580,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CandidateHostInfo() when $default != null:
-return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);case _:
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status);case _:
   return orElse();
 
 }
@@ -598,10 +601,10 @@ return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.stat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status)  $default,) {final _that = this;
 switch (_that) {
 case _CandidateHostInfo():
-return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);}
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -615,10 +618,10 @@ return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.stat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise,  String status)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'is_host')  bool isHost, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status)?  $default,) {final _that = this;
 switch (_that) {
 case _CandidateHostInfo() when $default != null:
-return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.status);case _:
+return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status);case _:
   return null;
 
 }
@@ -630,7 +633,7 @@ return $default(_that.isHost,_that.callMode,_that.pricePerMinutePaise,_that.stat
 @JsonSerializable()
 
 class _CandidateHostInfo extends CandidateHostInfo {
-  const _CandidateHostInfo({@JsonKey(name: 'is_host') this.isHost = false, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, this.status = 'offline'}): super._();
+  const _CandidateHostInfo({@JsonKey(name: 'is_host') this.isHost = false, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, this.status = 'offline'}): super._();
   factory _CandidateHostInfo.fromJson(Map<String, dynamic> json) => _$CandidateHostInfoFromJson(json);
 
 @override@JsonKey(name: 'is_host') final  bool isHost;
@@ -638,6 +641,9 @@ class _CandidateHostInfo extends CandidateHostInfo {
 @override@JsonKey(name: 'call_mode') final  String callMode;
 /// What the caller pays per minute, already adjusted for the call mode.
 @override@JsonKey(name: 'price_per_minute_paise') final  int pricePerMinutePaise;
+/// Both modes' prices, for a host who takes either — the caller picks.
+@override@JsonKey(name: 'audio_price_per_minute_paise') final  int audioPricePerMinutePaise;
+@override@JsonKey(name: 'video_price_per_minute_paise') final  int videoPricePerMinutePaise;
 /// `available`, `busy` or `offline`.
 @override@JsonKey() final  String status;
 
@@ -654,16 +660,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CandidateHostInfo&&(identical(other.isHost, isHost) || other.isHost == isHost)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,status);
+int get hashCode => Object.hash(runtimeType,isHost,callMode,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status);
 
 @override
 String toString() {
-  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, status: $status)';
+  return 'CandidateHostInfo(isHost: $isHost, callMode: $callMode, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status)';
 }
 
 
@@ -674,7 +680,7 @@ abstract mixin class _$CandidateHostInfoCopyWith<$Res> implements $CandidateHost
   factory _$CandidateHostInfoCopyWith(_CandidateHostInfo value, $Res Function(_CandidateHostInfo) _then) = __$CandidateHostInfoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise, String status
+@JsonKey(name: 'is_host') bool isHost,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status
 });
 
 
@@ -691,11 +697,13 @@ class __$CandidateHostInfoCopyWithImpl<$Res>
 
 /// Create a copy of CandidateHostInfo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? status = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isHost = null,Object? callMode = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,}) {
   return _then(_CandidateHostInfo(
 isHost: null == isHost ? _self.isHost : isHost // ignore: cast_nullable_to_non_nullable
 as bool,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
 as String,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,
   ));

@@ -31,6 +31,14 @@ _CallPushPayload _$CallPushPayloadFromJson(
       json['price_per_minute_paise'] == null
           ? 0
           : intFromCallWire(json['price_per_minute_paise']),
+  audioPricePerMinutePaise:
+      json['audio_price_per_minute_paise'] == null
+          ? 0
+          : intFromCallWire(json['audio_price_per_minute_paise']),
+  videoPricePerMinutePaise:
+      json['video_price_per_minute_paise'] == null
+          ? 0
+          : intFromCallWire(json['video_price_per_minute_paise']),
   reason: json['reason'] as String?,
 );
 
@@ -48,5 +56,7 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'rate_paise': instance.ratePaise,
       'audio_only': instance.audioOnly,
       'price_per_minute_paise': instance.pricePerMinutePaise,
+      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
       'reason': instance.reason,
     };

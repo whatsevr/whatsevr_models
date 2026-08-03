@@ -18,7 +18,7 @@ mixin _$ConnectRequestResult {
  String get transport;// --- ring only: you are already the caller ---
  String? get room; String? get token;@JsonKey(name: 'server_url') String? get serverUrl;// --- live_room only: wait for the host to accept ---
 @JsonKey(name: 'request_uid') String? get requestUid;@JsonKey(name: 'ring_window_seconds') int get ringWindowSeconds;// --- billing, on both ---
-@JsonKey(name: 'is_billed') bool get isBilled;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'rate_paise') int get ratePaise;@JsonKey(name: 'audio_only') bool get audioOnly;@JsonKey(name: 'payer_uid') String? get payerUid;
+@JsonKey(name: 'is_billed') bool get isBilled;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'video_price_per_minute_paise') int get videoPricePerMinutePaise;@JsonKey(name: 'rate_paise') int get ratePaise;@JsonKey(name: 'audio_only') bool get audioOnly;@JsonKey(name: 'payer_uid') String? get payerUid;
 /// Create a copy of ConnectRequestResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +31,16 @@ $ConnectRequestResultCopyWith<ConnectRequestResult> get copyWith => _$ConnectReq
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConnectRequestResult&&(identical(other.transport, transport) || other.transport == transport)&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConnectRequestResult&&(identical(other.transport, transport) || other.transport == transport)&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,transport,room,token,serverUrl,requestUid,ringWindowSeconds,isBilled,pricePerMinutePaise,ratePaise,audioOnly,payerUid);
+int get hashCode => Object.hash(runtimeType,transport,room,token,serverUrl,requestUid,ringWindowSeconds,isBilled,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,ratePaise,audioOnly,payerUid);
 
 @override
 String toString() {
-  return 'ConnectRequestResult(transport: $transport, room: $room, token: $token, serverUrl: $serverUrl, requestUid: $requestUid, ringWindowSeconds: $ringWindowSeconds, isBilled: $isBilled, pricePerMinutePaise: $pricePerMinutePaise, ratePaise: $ratePaise, audioOnly: $audioOnly, payerUid: $payerUid)';
+  return 'ConnectRequestResult(transport: $transport, room: $room, token: $token, serverUrl: $serverUrl, requestUid: $requestUid, ringWindowSeconds: $ringWindowSeconds, isBilled: $isBilled, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, ratePaise: $ratePaise, audioOnly: $audioOnly, payerUid: $payerUid)';
 }
 
 
@@ -51,7 +51,7 @@ abstract mixin class $ConnectRequestResultCopyWith<$Res>  {
   factory $ConnectRequestResultCopyWith(ConnectRequestResult value, $Res Function(ConnectRequestResult) _then) = _$ConnectRequestResultCopyWithImpl;
 @useResult
 $Res call({
- String transport, String? room, String? token,@JsonKey(name: 'server_url') String? serverUrl,@JsonKey(name: 'request_uid') String? requestUid,@JsonKey(name: 'ring_window_seconds') int ringWindowSeconds,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'payer_uid') String? payerUid
+ String transport, String? room, String? token,@JsonKey(name: 'server_url') String? serverUrl,@JsonKey(name: 'request_uid') String? requestUid,@JsonKey(name: 'ring_window_seconds') int ringWindowSeconds,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'payer_uid') String? payerUid
 });
 
 
@@ -68,7 +68,7 @@ class _$ConnectRequestResultCopyWithImpl<$Res>
 
 /// Create a copy of ConnectRequestResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? transport = null,Object? room = freezed,Object? token = freezed,Object? serverUrl = freezed,Object? requestUid = freezed,Object? ringWindowSeconds = null,Object? isBilled = null,Object? pricePerMinutePaise = null,Object? ratePaise = null,Object? audioOnly = null,Object? payerUid = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? transport = null,Object? room = freezed,Object? token = freezed,Object? serverUrl = freezed,Object? requestUid = freezed,Object? ringWindowSeconds = null,Object? isBilled = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? ratePaise = null,Object? audioOnly = null,Object? payerUid = freezed,}) {
   return _then(_self.copyWith(
 transport: null == transport ? _self.transport : transport // ignore: cast_nullable_to_non_nullable
 as String,room: freezed == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
@@ -78,6 +78,8 @@ as String?,requestUid: freezed == requestUid ? _self.requestUid : requestUid // 
 as String?,ringWindowSeconds: null == ringWindowSeconds ? _self.ringWindowSeconds : ringWindowSeconds // ignore: cast_nullable_to_non_nullable
 as int,isBilled: null == isBilled ? _self.isBilled : isBilled // ignore: cast_nullable_to_non_nullable
 as bool,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable
 as int,audioOnly: null == audioOnly ? _self.audioOnly : audioOnly // ignore: cast_nullable_to_non_nullable
 as bool,payerUid: freezed == payerUid ? _self.payerUid : payerUid // ignore: cast_nullable_to_non_nullable
@@ -163,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConnectRequestResult() when $default != null:
-return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);case _:
+return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);case _:
   return orElse();
 
 }
@@ -184,10 +186,10 @@ return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.req
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)  $default,) {final _that = this;
 switch (_that) {
 case _ConnectRequestResult():
-return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);}
+return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -201,10 +203,10 @@ return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.req
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String transport,  String? room,  String? token, @JsonKey(name: 'server_url')  String? serverUrl, @JsonKey(name: 'request_uid')  String? requestUid, @JsonKey(name: 'ring_window_seconds')  int ringWindowSeconds, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'payer_uid')  String? payerUid)?  $default,) {final _that = this;
 switch (_that) {
 case _ConnectRequestResult() when $default != null:
-return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);case _:
+return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.requestUid,_that.ringWindowSeconds,_that.isBilled,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.ratePaise,_that.audioOnly,_that.payerUid);case _:
   return null;
 
 }
@@ -216,7 +218,7 @@ return $default(_that.transport,_that.room,_that.token,_that.serverUrl,_that.req
 @JsonSerializable()
 
 class _ConnectRequestResult extends ConnectRequestResult {
-  const _ConnectRequestResult({this.transport = '', this.room, this.token, @JsonKey(name: 'server_url') this.serverUrl, @JsonKey(name: 'request_uid') this.requestUid, @JsonKey(name: 'ring_window_seconds') this.ringWindowSeconds = 20, @JsonKey(name: 'is_billed') this.isBilled = false, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'audio_only') this.audioOnly = false, @JsonKey(name: 'payer_uid') this.payerUid}): super._();
+  const _ConnectRequestResult({this.transport = '', this.room, this.token, @JsonKey(name: 'server_url') this.serverUrl, @JsonKey(name: 'request_uid') this.requestUid, @JsonKey(name: 'ring_window_seconds') this.ringWindowSeconds = 20, @JsonKey(name: 'is_billed') this.isBilled = false, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'audio_only') this.audioOnly = false, @JsonKey(name: 'payer_uid') this.payerUid}): super._();
   factory _ConnectRequestResult.fromJson(Map<String, dynamic> json) => _$ConnectRequestResultFromJson(json);
 
 @override@JsonKey() final  String transport;
@@ -230,6 +232,8 @@ class _ConnectRequestResult extends ConnectRequestResult {
 // --- billing, on both ---
 @override@JsonKey(name: 'is_billed') final  bool isBilled;
 @override@JsonKey(name: 'price_per_minute_paise') final  int pricePerMinutePaise;
+@override@JsonKey(name: 'audio_price_per_minute_paise') final  int audioPricePerMinutePaise;
+@override@JsonKey(name: 'video_price_per_minute_paise') final  int videoPricePerMinutePaise;
 @override@JsonKey(name: 'rate_paise') final  int ratePaise;
 @override@JsonKey(name: 'audio_only') final  bool audioOnly;
 @override@JsonKey(name: 'payer_uid') final  String? payerUid;
@@ -247,16 +251,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConnectRequestResult&&(identical(other.transport, transport) || other.transport == transport)&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConnectRequestResult&&(identical(other.transport, transport) || other.transport == transport)&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.requestUid, requestUid) || other.requestUid == requestUid)&&(identical(other.ringWindowSeconds, ringWindowSeconds) || other.ringWindowSeconds == ringWindowSeconds)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,transport,room,token,serverUrl,requestUid,ringWindowSeconds,isBilled,pricePerMinutePaise,ratePaise,audioOnly,payerUid);
+int get hashCode => Object.hash(runtimeType,transport,room,token,serverUrl,requestUid,ringWindowSeconds,isBilled,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,ratePaise,audioOnly,payerUid);
 
 @override
 String toString() {
-  return 'ConnectRequestResult(transport: $transport, room: $room, token: $token, serverUrl: $serverUrl, requestUid: $requestUid, ringWindowSeconds: $ringWindowSeconds, isBilled: $isBilled, pricePerMinutePaise: $pricePerMinutePaise, ratePaise: $ratePaise, audioOnly: $audioOnly, payerUid: $payerUid)';
+  return 'ConnectRequestResult(transport: $transport, room: $room, token: $token, serverUrl: $serverUrl, requestUid: $requestUid, ringWindowSeconds: $ringWindowSeconds, isBilled: $isBilled, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, ratePaise: $ratePaise, audioOnly: $audioOnly, payerUid: $payerUid)';
 }
 
 
@@ -267,7 +271,7 @@ abstract mixin class _$ConnectRequestResultCopyWith<$Res> implements $ConnectReq
   factory _$ConnectRequestResultCopyWith(_ConnectRequestResult value, $Res Function(_ConnectRequestResult) _then) = __$ConnectRequestResultCopyWithImpl;
 @override @useResult
 $Res call({
- String transport, String? room, String? token,@JsonKey(name: 'server_url') String? serverUrl,@JsonKey(name: 'request_uid') String? requestUid,@JsonKey(name: 'ring_window_seconds') int ringWindowSeconds,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'payer_uid') String? payerUid
+ String transport, String? room, String? token,@JsonKey(name: 'server_url') String? serverUrl,@JsonKey(name: 'request_uid') String? requestUid,@JsonKey(name: 'ring_window_seconds') int ringWindowSeconds,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'payer_uid') String? payerUid
 });
 
 
@@ -284,7 +288,7 @@ class __$ConnectRequestResultCopyWithImpl<$Res>
 
 /// Create a copy of ConnectRequestResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? transport = null,Object? room = freezed,Object? token = freezed,Object? serverUrl = freezed,Object? requestUid = freezed,Object? ringWindowSeconds = null,Object? isBilled = null,Object? pricePerMinutePaise = null,Object? ratePaise = null,Object? audioOnly = null,Object? payerUid = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? transport = null,Object? room = freezed,Object? token = freezed,Object? serverUrl = freezed,Object? requestUid = freezed,Object? ringWindowSeconds = null,Object? isBilled = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? ratePaise = null,Object? audioOnly = null,Object? payerUid = freezed,}) {
   return _then(_ConnectRequestResult(
 transport: null == transport ? _self.transport : transport // ignore: cast_nullable_to_non_nullable
 as String,room: freezed == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
@@ -294,6 +298,8 @@ as String?,requestUid: freezed == requestUid ? _self.requestUid : requestUid // 
 as String?,ringWindowSeconds: null == ringWindowSeconds ? _self.ringWindowSeconds : ringWindowSeconds // ignore: cast_nullable_to_non_nullable
 as int,isBilled: null == isBilled ? _self.isBilled : isBilled // ignore: cast_nullable_to_non_nullable
 as bool,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,ratePaise: null == ratePaise ? _self.ratePaise : ratePaise // ignore: cast_nullable_to_non_nullable
 as int,audioOnly: null == audioOnly ? _self.audioOnly : audioOnly // ignore: cast_nullable_to_non_nullable
 as bool,payerUid: freezed == payerUid ? _self.payerUid : payerUid // ignore: cast_nullable_to_non_nullable

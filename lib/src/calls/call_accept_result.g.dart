@@ -21,6 +21,10 @@ _CallAcceptResult _$CallAcceptResultFromJson(Map<String, dynamic> json) =>
       audioOnly: json['audio_only'] as bool? ?? false,
       pricePerMinutePaise:
           (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      audioPricePerMinutePaise:
+          (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      videoPricePerMinutePaise:
+          (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$CallAcceptResultToJson(_CallAcceptResult instance) =>
@@ -34,4 +38,6 @@ Map<String, dynamic> _$CallAcceptResultToJson(_CallAcceptResult instance) =>
       'rate_paise': instance.ratePaise,
       'audio_only': instance.audioOnly,
       'price_per_minute_paise': instance.pricePerMinutePaise,
+      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
     };
