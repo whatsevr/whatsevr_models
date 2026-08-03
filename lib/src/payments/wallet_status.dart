@@ -61,6 +61,12 @@ sealed class PerkGrant with _$PerkGrant {
       _$PerkGrantFromJson(json);
 }
 
+/// How far along a woman is in becoming a verified host.
+///
+/// [none] is deliberately distinct from [rejected]: "you have never applied"
+/// and "we said no, here is why" need different copy and a different button.
+enum HostApplicationStatus { none, pending, approved, rejected, withdrawn }
+
 /// Host earnings. The server deliberately withholds `upi_id` here — payouts
 /// happen on the web portal, so the app never needs it.
 @freezed
@@ -71,10 +77,32 @@ sealed class WalletEarnings with _$WalletEarnings {
     /// Admin-verified earner. Combined with a female gender this is the
     /// server's `is_billable_female` — the gate for taking paid calls.
     @JsonKey(name: 'earner_verified') @Default(false) bool earnerVerified,
+
+    /// Raw status of her host application, or null if she has never sent one.
+    /// Read through [applicationStatus] rather than directly.
+    @JsonKey(name: 'host_application_status') String? hostApplicationStatus,
   }) = _WalletEarnings;
+
+  const WalletEarnings._();
 
   factory WalletEarnings.fromJson(Map<String, dynamic> json) =>
       _$WalletEarningsFromJson(json);
+
+  /// The wire value as something exhaustively switchable. An unrecognised
+  /// status reads as [HostApplicationStatus.none], so a server that grows a
+  /// new one shows the apply button rather than a blank card.
+  HostApplicationStatus get applicationStatus => switch (hostApplicationStatus) {
+        'pending' => HostApplicationStatus.pending,
+        'approved' => HostApplicationStatus.approved,
+        'rejected' => HostApplicationStatus.rejected,
+        'withdrawn' => HostApplicationStatus.withdrawn,
+        _ => HostApplicationStatus.none,
+      };
+
+  /// Her application is with a human right now, so the only honest thing to
+  /// show is that we are looking at it.
+  bool get isApplicationPending =>
+      applicationStatus == HostApplicationStatus.pending;
 }
 
 /// The host's own rate, plus the bounds the web rate editor enforces.
