@@ -53,6 +53,10 @@ sealed class CallDataMessage with _$CallDataMessage {
     @Default('') String guestAvatar,
     @Default(false) bool guestIsPremiumProfile,
     @Default(true) bool isVideo,
+    /// What this minute pays HER, at the mode the caller picked. The caller
+    /// owns the mode now, so answering without it is answering blind.
+    @Default(0) int earnRatePaise,
+    @Default(false) bool isBilled,
     @Default(20) int ringWindowSeconds,
   }) = CallHostJoinRequest;
 
@@ -111,6 +115,9 @@ sealed class CallDataMessage with _$CallDataMessage {
           guestAvatar: '${json['guest_avatar'] ?? ''}',
           guestIsPremiumProfile: json['guest_is_premium_profile'] == true,
           isVideo: json['is_video'] != false,
+          earnRatePaise:
+              json['earn_rate_paise'] is int ? json['earn_rate_paise'] as int : 0,
+          isBilled: json['is_billed'] == true,
           ringWindowSeconds:
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
         ),
