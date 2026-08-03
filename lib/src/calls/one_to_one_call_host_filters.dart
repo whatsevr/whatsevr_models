@@ -10,12 +10,15 @@ enum HostAvailabilityFilter {
   String get wireValue => name;
 }
 
-/// Which transport a host bills on. A host is one or the other, never both, so
-/// this doubles as the "voice call vs video call" price question: the caller
-/// picks the mode, and the price band applies to it.
+/// Which modes a host's calls may run in — her promise, not a default.
+///
+/// `audioVideo` is the only switchable one: the caller picks at the start and
+/// either side can move it later. The other two fix the call for its whole
+/// life, and price it accordingly.
 enum HostCallModeFilter {
   audioVideo('audio_video'),
-  audioOnly('audio_only');
+  audioOnly('audio_only'),
+  videoOnly('video_only');
 
   const HostCallModeFilter(this.wireValue);
 

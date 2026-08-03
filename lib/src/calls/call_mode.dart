@@ -46,7 +46,7 @@ class CallModeQuote {
     required this.videoPricePerMinutePaise,
   });
 
-  /// `audio_video` or `audio_only`, as the host set it.
+  /// `audio_video`, `audio_only` or `video_only`, as the host set it.
   final String callMode;
   final int audioPricePerMinutePaise;
   final int videoPricePerMinutePaise;
@@ -54,7 +54,8 @@ class CallModeQuote {
   /// She answers either way, so the caller picks — and pays accordingly.
   bool get supportsBothModes => callMode == 'audio_video';
 
-  /// The mode when there is nothing to pick.
+  /// The mode when there is nothing to pick. Both single-mode values fix the
+  /// call for its whole life; the server refuses to move it afterwards.
   CallMode get onlyMode =>
       callMode == 'audio_only' ? CallMode.audio : CallMode.video;
 

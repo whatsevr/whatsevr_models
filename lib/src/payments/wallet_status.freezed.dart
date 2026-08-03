@@ -875,8 +875,10 @@ as bool,
 /// @nodoc
 mixin _$OneToOneCallRate {
 
-@JsonKey(name: 'call_rate_paise') int get callRatePaise;/// `audio_video` or `audio_only`.
-@JsonKey(name: 'call_mode') String get callMode;@JsonKey(name: 'rate_min_paise') int get rateMinPaise;/// Capped to an intro ceiling for the first 30 days after registration,
+@JsonKey(name: 'call_rate_paise') int get callRatePaise;/// `audio_video`, `audio_only` or `video_only`.
+@JsonKey(name: 'call_mode') String get callMode;/// Her standing answer to a mid-call video request. Her own client reads
+/// it to decide whether to prompt her or answer for her.
+@JsonKey(name: 'auto_accept_video') bool get autoAcceptVideo;@JsonKey(name: 'rate_min_paise') int get rateMinPaise;/// Capped to an intro ceiling for the first 30 days after registration,
 /// which is why this is read from the server rather than a constant.
 @JsonKey(name: 'rate_max_paise') int get rateMaxPaise;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'audio_rate_paise') int get audioRatePaise;
 /// Create a copy of OneToOneCallRate
@@ -891,16 +893,16 @@ $OneToOneCallRateCopyWith<OneToOneCallRate> get copyWith => _$OneToOneCallRateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallRate&&(identical(other.callRatePaise, callRatePaise) || other.callRatePaise == callRatePaise)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.rateMinPaise, rateMinPaise) || other.rateMinPaise == rateMinPaise)&&(identical(other.rateMaxPaise, rateMaxPaise) || other.rateMaxPaise == rateMaxPaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.audioRatePaise, audioRatePaise) || other.audioRatePaise == audioRatePaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallRate&&(identical(other.callRatePaise, callRatePaise) || other.callRatePaise == callRatePaise)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.autoAcceptVideo, autoAcceptVideo) || other.autoAcceptVideo == autoAcceptVideo)&&(identical(other.rateMinPaise, rateMinPaise) || other.rateMinPaise == rateMinPaise)&&(identical(other.rateMaxPaise, rateMaxPaise) || other.rateMaxPaise == rateMaxPaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.audioRatePaise, audioRatePaise) || other.audioRatePaise == audioRatePaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,callRatePaise,callMode,rateMinPaise,rateMaxPaise,pricePerMinutePaise,audioPricePerMinutePaise,audioRatePaise);
+int get hashCode => Object.hash(runtimeType,callRatePaise,callMode,autoAcceptVideo,rateMinPaise,rateMaxPaise,pricePerMinutePaise,audioPricePerMinutePaise,audioRatePaise);
 
 @override
 String toString() {
-  return 'OneToOneCallRate(callRatePaise: $callRatePaise, callMode: $callMode, rateMinPaise: $rateMinPaise, rateMaxPaise: $rateMaxPaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, audioRatePaise: $audioRatePaise)';
+  return 'OneToOneCallRate(callRatePaise: $callRatePaise, callMode: $callMode, autoAcceptVideo: $autoAcceptVideo, rateMinPaise: $rateMinPaise, rateMaxPaise: $rateMaxPaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, audioRatePaise: $audioRatePaise)';
 }
 
 
@@ -911,7 +913,7 @@ abstract mixin class $OneToOneCallRateCopyWith<$Res>  {
   factory $OneToOneCallRateCopyWith(OneToOneCallRate value, $Res Function(OneToOneCallRate) _then) = _$OneToOneCallRateCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'call_rate_paise') int callRatePaise,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_min_paise') int rateMinPaise,@JsonKey(name: 'rate_max_paise') int rateMaxPaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'audio_rate_paise') int audioRatePaise
+@JsonKey(name: 'call_rate_paise') int callRatePaise,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'auto_accept_video') bool autoAcceptVideo,@JsonKey(name: 'rate_min_paise') int rateMinPaise,@JsonKey(name: 'rate_max_paise') int rateMaxPaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'audio_rate_paise') int audioRatePaise
 });
 
 
@@ -928,11 +930,12 @@ class _$OneToOneCallRateCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallRate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? callRatePaise = null,Object? callMode = null,Object? rateMinPaise = null,Object? rateMaxPaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? audioRatePaise = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? callRatePaise = null,Object? callMode = null,Object? autoAcceptVideo = null,Object? rateMinPaise = null,Object? rateMaxPaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? audioRatePaise = null,}) {
   return _then(_self.copyWith(
 callRatePaise: null == callRatePaise ? _self.callRatePaise : callRatePaise // ignore: cast_nullable_to_non_nullable
 as int,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
-as String,rateMinPaise: null == rateMinPaise ? _self.rateMinPaise : rateMinPaise // ignore: cast_nullable_to_non_nullable
+as String,autoAcceptVideo: null == autoAcceptVideo ? _self.autoAcceptVideo : autoAcceptVideo // ignore: cast_nullable_to_non_nullable
+as bool,rateMinPaise: null == rateMinPaise ? _self.rateMinPaise : rateMinPaise // ignore: cast_nullable_to_non_nullable
 as int,rateMaxPaise: null == rateMaxPaise ? _self.rateMaxPaise : rateMaxPaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
@@ -1019,10 +1022,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'auto_accept_video')  bool autoAcceptVideo, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OneToOneCallRate() when $default != null:
-return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);case _:
+return $default(_that.callRatePaise,_that.callMode,_that.autoAcceptVideo,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);case _:
   return orElse();
 
 }
@@ -1040,10 +1043,10 @@ return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rate
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'auto_accept_video')  bool autoAcceptVideo, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallRate():
-return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);}
+return $default(_that.callRatePaise,_that.callMode,_that.autoAcceptVideo,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -1057,10 +1060,10 @@ return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rate
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'call_rate_paise')  int callRatePaise, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'auto_accept_video')  bool autoAcceptVideo, @JsonKey(name: 'rate_min_paise')  int rateMinPaise, @JsonKey(name: 'rate_max_paise')  int rateMaxPaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'audio_rate_paise')  int audioRatePaise)?  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallRate() when $default != null:
-return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);case _:
+return $default(_that.callRatePaise,_that.callMode,_that.autoAcceptVideo,_that.rateMinPaise,_that.rateMaxPaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.audioRatePaise);case _:
   return null;
 
 }
@@ -1072,12 +1075,15 @@ return $default(_that.callRatePaise,_that.callMode,_that.rateMinPaise,_that.rate
 @JsonSerializable()
 
 class _OneToOneCallRate extends OneToOneCallRate {
-  const _OneToOneCallRate({@JsonKey(name: 'call_rate_paise') this.callRatePaise = 0, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'rate_min_paise') this.rateMinPaise = 0, @JsonKey(name: 'rate_max_paise') this.rateMaxPaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'audio_rate_paise') this.audioRatePaise = 0}): super._();
+  const _OneToOneCallRate({@JsonKey(name: 'call_rate_paise') this.callRatePaise = 0, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'auto_accept_video') this.autoAcceptVideo = false, @JsonKey(name: 'rate_min_paise') this.rateMinPaise = 0, @JsonKey(name: 'rate_max_paise') this.rateMaxPaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'audio_rate_paise') this.audioRatePaise = 0}): super._();
   factory _OneToOneCallRate.fromJson(Map<String, dynamic> json) => _$OneToOneCallRateFromJson(json);
 
 @override@JsonKey(name: 'call_rate_paise') final  int callRatePaise;
-/// `audio_video` or `audio_only`.
+/// `audio_video`, `audio_only` or `video_only`.
 @override@JsonKey(name: 'call_mode') final  String callMode;
+/// Her standing answer to a mid-call video request. Her own client reads
+/// it to decide whether to prompt her or answer for her.
+@override@JsonKey(name: 'auto_accept_video') final  bool autoAcceptVideo;
 @override@JsonKey(name: 'rate_min_paise') final  int rateMinPaise;
 /// Capped to an intro ceiling for the first 30 days after registration,
 /// which is why this is read from the server rather than a constant.
@@ -1099,16 +1105,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallRate&&(identical(other.callRatePaise, callRatePaise) || other.callRatePaise == callRatePaise)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.rateMinPaise, rateMinPaise) || other.rateMinPaise == rateMinPaise)&&(identical(other.rateMaxPaise, rateMaxPaise) || other.rateMaxPaise == rateMaxPaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.audioRatePaise, audioRatePaise) || other.audioRatePaise == audioRatePaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallRate&&(identical(other.callRatePaise, callRatePaise) || other.callRatePaise == callRatePaise)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.autoAcceptVideo, autoAcceptVideo) || other.autoAcceptVideo == autoAcceptVideo)&&(identical(other.rateMinPaise, rateMinPaise) || other.rateMinPaise == rateMinPaise)&&(identical(other.rateMaxPaise, rateMaxPaise) || other.rateMaxPaise == rateMaxPaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.audioRatePaise, audioRatePaise) || other.audioRatePaise == audioRatePaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,callRatePaise,callMode,rateMinPaise,rateMaxPaise,pricePerMinutePaise,audioPricePerMinutePaise,audioRatePaise);
+int get hashCode => Object.hash(runtimeType,callRatePaise,callMode,autoAcceptVideo,rateMinPaise,rateMaxPaise,pricePerMinutePaise,audioPricePerMinutePaise,audioRatePaise);
 
 @override
 String toString() {
-  return 'OneToOneCallRate(callRatePaise: $callRatePaise, callMode: $callMode, rateMinPaise: $rateMinPaise, rateMaxPaise: $rateMaxPaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, audioRatePaise: $audioRatePaise)';
+  return 'OneToOneCallRate(callRatePaise: $callRatePaise, callMode: $callMode, autoAcceptVideo: $autoAcceptVideo, rateMinPaise: $rateMinPaise, rateMaxPaise: $rateMaxPaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, audioRatePaise: $audioRatePaise)';
 }
 
 
@@ -1119,7 +1125,7 @@ abstract mixin class _$OneToOneCallRateCopyWith<$Res> implements $OneToOneCallRa
   factory _$OneToOneCallRateCopyWith(_OneToOneCallRate value, $Res Function(_OneToOneCallRate) _then) = __$OneToOneCallRateCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'call_rate_paise') int callRatePaise,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_min_paise') int rateMinPaise,@JsonKey(name: 'rate_max_paise') int rateMaxPaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'audio_rate_paise') int audioRatePaise
+@JsonKey(name: 'call_rate_paise') int callRatePaise,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'auto_accept_video') bool autoAcceptVideo,@JsonKey(name: 'rate_min_paise') int rateMinPaise,@JsonKey(name: 'rate_max_paise') int rateMaxPaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'audio_rate_paise') int audioRatePaise
 });
 
 
@@ -1136,11 +1142,12 @@ class __$OneToOneCallRateCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallRate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? callRatePaise = null,Object? callMode = null,Object? rateMinPaise = null,Object? rateMaxPaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? audioRatePaise = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? callRatePaise = null,Object? callMode = null,Object? autoAcceptVideo = null,Object? rateMinPaise = null,Object? rateMaxPaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? audioRatePaise = null,}) {
   return _then(_OneToOneCallRate(
 callRatePaise: null == callRatePaise ? _self.callRatePaise : callRatePaise // ignore: cast_nullable_to_non_nullable
 as int,callMode: null == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
-as String,rateMinPaise: null == rateMinPaise ? _self.rateMinPaise : rateMinPaise // ignore: cast_nullable_to_non_nullable
+as String,autoAcceptVideo: null == autoAcceptVideo ? _self.autoAcceptVideo : autoAcceptVideo // ignore: cast_nullable_to_non_nullable
+as bool,rateMinPaise: null == rateMinPaise ? _self.rateMinPaise : rateMinPaise // ignore: cast_nullable_to_non_nullable
 as int,rateMaxPaise: null == rateMaxPaise ? _self.rateMaxPaise : rateMaxPaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable

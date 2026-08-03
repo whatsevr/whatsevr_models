@@ -69,6 +69,7 @@ _OneToOneCallRate _$OneToOneCallRateFromJson(Map<String, dynamic> json) =>
     _OneToOneCallRate(
       callRatePaise: (json['call_rate_paise'] as num?)?.toInt() ?? 0,
       callMode: json['call_mode'] as String? ?? 'audio_video',
+      autoAcceptVideo: json['auto_accept_video'] as bool? ?? false,
       rateMinPaise: (json['rate_min_paise'] as num?)?.toInt() ?? 0,
       rateMaxPaise: (json['rate_max_paise'] as num?)?.toInt() ?? 0,
       pricePerMinutePaise:
@@ -82,6 +83,7 @@ Map<String, dynamic> _$OneToOneCallRateToJson(_OneToOneCallRate instance) =>
     <String, dynamic>{
       'call_rate_paise': instance.callRatePaise,
       'call_mode': instance.callMode,
+      'auto_accept_video': instance.autoAcceptVideo,
       'rate_min_paise': instance.rateMinPaise,
       'rate_max_paise': instance.rateMaxPaise,
       'price_per_minute_paise': instance.pricePerMinutePaise,

@@ -43,6 +43,8 @@ sealed class ConnectRequestResult with _$ConnectRequestResult {
     int videoPricePerMinutePaise,
     @JsonKey(name: 'rate_paise') @Default(0) int ratePaise,
     @JsonKey(name: 'audio_only') @Default(false) bool audioOnly,
+    @JsonKey(name: 'can_switch_mode') @Default(false) bool canSwitchMode,
+    @JsonKey(name: 'video_needs_consent') @Default(true) bool videoNeedsConsent,
     @JsonKey(name: 'payer_uid') String? payerUid,
   }) = _ConnectRequestResult;
 

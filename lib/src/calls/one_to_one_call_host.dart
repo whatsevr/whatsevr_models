@@ -89,6 +89,7 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
       };
 
   bool get isAudioOnly => callMode == 'audio_only';
+  bool get isVideoOnly => callMode == 'video_only';
 
   /// What calling her costs either way — what the picker is built from.
   CallModeQuote get callModeQuote => CallModeQuote(

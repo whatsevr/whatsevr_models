@@ -30,6 +30,8 @@ sealed class CallAcceptResult with _$CallAcceptResult {
     @JsonKey(name: 'video_price_per_minute_paise')
     @Default(0)
     int videoPricePerMinutePaise,
+    @JsonKey(name: 'can_switch_mode') @Default(false) bool canSwitchMode,
+    @JsonKey(name: 'video_needs_consent') @Default(true) bool videoNeedsConsent,
   }) = _CallAcceptResult;
 
   const CallAcceptResult._();

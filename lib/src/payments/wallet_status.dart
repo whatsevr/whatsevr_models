@@ -87,8 +87,12 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
   const factory OneToOneCallRate({
     @JsonKey(name: 'call_rate_paise') @Default(0) int callRatePaise,
 
-    /// `audio_video` or `audio_only`.
+    /// `audio_video`, `audio_only` or `video_only`.
     @JsonKey(name: 'call_mode') @Default('audio_video') String callMode,
+
+    /// Her standing answer to a mid-call video request. Her own client reads
+    /// it to decide whether to prompt her or answer for her.
+    @JsonKey(name: 'auto_accept_video') @Default(false) bool autoAcceptVideo,
     @JsonKey(name: 'rate_min_paise') @Default(0) int rateMinPaise,
 
     /// Capped to an intro ceiling for the first 30 days after registration,
@@ -107,4 +111,8 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
       _$OneToOneCallRateFromJson(json);
 
   bool get isAudioOnly => callMode == 'audio_only';
+  bool get isVideoOnly => callMode == 'video_only';
+
+  /// Only a both-modes host has anything to auto-accept.
+  bool get canAutoAcceptVideo => callMode == 'audio_video';
 }

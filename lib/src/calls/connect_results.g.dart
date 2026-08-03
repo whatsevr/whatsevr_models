@@ -23,6 +23,8 @@ _ConnectRequestResult _$ConnectRequestResultFromJson(
       (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
   ratePaise: (json['rate_paise'] as num?)?.toInt() ?? 0,
   audioOnly: json['audio_only'] as bool? ?? false,
+  canSwitchMode: json['can_switch_mode'] as bool? ?? false,
+  videoNeedsConsent: json['video_needs_consent'] as bool? ?? true,
   payerUid: json['payer_uid'] as String?,
 );
 
@@ -41,6 +43,8 @@ Map<String, dynamic> _$ConnectRequestResultToJson(
   'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
   'rate_paise': instance.ratePaise,
   'audio_only': instance.audioOnly,
+  'can_switch_mode': instance.canSwitchMode,
+  'video_needs_consent': instance.videoNeedsConsent,
   'payer_uid': instance.payerUid,
 };
 

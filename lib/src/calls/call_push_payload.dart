@@ -77,6 +77,16 @@ sealed class CallPushPayload with _$CallPushPayload {
     @Default(0)
     int videoPricePerMinutePaise,
 
+    /// Whether this call may change mode at all, and whether turning video on
+    /// still needs the host's answer. Both decide which buttons a call screen
+    /// draws, so they ride the ring push too.
+    @JsonKey(name: 'can_switch_mode', fromJson: boolFromCallWire)
+    @Default(false)
+    bool canSwitchMode,
+    @JsonKey(name: 'video_needs_consent', fromJson: boolFromCallWire)
+    @Default(true)
+    bool videoNeedsConsent,
+
     /// `declined`, `cancelled_by_caller` or `ring_timeout`. Cancel only.
     String? reason,
   }) = _CallPushPayload;
