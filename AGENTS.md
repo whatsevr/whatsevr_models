@@ -63,4 +63,4 @@
 - Read the schema from the LOCAL Supabase mirror, not the live project
   (`make server-up` from the workspace root starts it):
   `psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -c '\d your_table'`
-- Schema truth lives in `whatsevr_django_backend/supabase/migrations/`.
+- Schema truth lives in `whatsevr_django_server/supabase/migrations/`.
