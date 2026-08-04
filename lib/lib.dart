@@ -50,6 +50,7 @@ export 'src/calls/call_data_message.dart';
 export 'src/calls/call_mode.dart';
 export 'src/calls/one_to_one_call_host.dart';
 export 'src/calls/one_to_one_call_host_filters.dart';
+export 'src/calls/search_highlight.dart';
 export 'src/calls/connect_results.dart';
 export 'src/calls/call_push_payload.dart';
 export 'src/calls/call_accept_result.dart';

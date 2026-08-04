@@ -57,6 +57,23 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     @JsonKey(name: 'is_premium_profile')
     @Default(false)
     bool isPremiumProfile,
+
+    /// The identity tick, beside the name. Distinct from the paid Premium
+    /// badge: this one says the person is who they claim to be.
+    @JsonKey(name: 'is_legally_verified')
+    @Default(false)
+    bool isLegallyVerified,
+
+    /// What the host says she offers, in her words — the card's hero line and
+    /// the text intent search matches against.
+    String? headline,
+    String? occupation,
+
+    /// The same headline with Algolia's `<em>` markers around the terms that
+    /// matched. Present on search responses only; the client renders the
+    /// markers rather than re-deriving the match, because the query sent to
+    /// Algolia is keyword-extracted and no longer the words the user typed.
+    @JsonKey(name: 'headline_highlight') String? headlineHighlight,
   }) = _OneToOneCallHost;
 
   const OneToOneCallHost._();
@@ -101,6 +118,34 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
   int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 
   String get displayNameWithAge => age == null ? name : '$name, $age';
+
+  /// The hero line: headline, else occupation, else nothing.
+  ///
+  /// Most hosts have no headline yet, and an empty hero on an otherwise full
+  /// card reads as a rendering bug rather than as a host who said nothing.
+  /// Occupation is the honest second-best — it is still what she does.
+  String? get displayIntent {
+    final String? line = headline?.trim();
+    if (line != null && line.isNotEmpty) return line;
+    final String? work = occupation?.trim();
+    if (work != null && work.isNotEmpty) return work;
+    return null;
+  }
+
+  /// Only the headline is ever highlighted — an occupation fallback is not what
+  /// the query matched, so marking words inside it would be a lie.
+  String? get displayIntentHighlight {
+    final String? line = headline?.trim();
+    if (line == null || line.isEmpty) return null;
+    return headlineHighlight;
+  }
+
+  /// Age and occupation are one meta line on the card; either may be missing.
+  String get ageAndOccupationLine => [
+        if (age != null) '$age',
+        if (occupation != null && occupation!.trim().isNotEmpty)
+          occupation!.trim(),
+      ].join('  •  ');
 
   String get locationLine =>
       [city, state].where((p) => p != null && p.isNotEmpty).join(', ');

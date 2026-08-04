@@ -26,6 +26,10 @@ _OneToOneCallHost _$OneToOneCallHostFromJson(Map<String, dynamic> json) =>
           (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
       isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
+      isLegallyVerified: json['is_legally_verified'] as bool? ?? false,
+      headline: json['headline'] as String?,
+      occupation: json['occupation'] as String?,
+      headlineHighlight: json['headline_highlight'] as String?,
     );
 
 Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
@@ -45,4 +49,8 @@ Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
       'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
       'status': instance.status,
       'is_premium_profile': instance.isPremiumProfile,
+      'is_legally_verified': instance.isLegallyVerified,
+      'headline': instance.headline,
+      'occupation': instance.occupation,
+      'headline_highlight': instance.headlineHighlight,
     };
