@@ -58,17 +58,42 @@ void main() {
 
   group('ageAndOccupationLine', () {
     test('joins both when both are known', () {
-      expect(_host(age: 24, occupation: 'Homemaker').ageAndOccupationLine,
-          '24  •  Homemaker');
+      expect(
+        _host(age: 24, occupation: 'Homemaker', headline: 'a good listener')
+            .ageAndOccupationLine,
+        '24  •  Homemaker',
+      );
     });
 
     test('drops the separator when only one is known', () {
       expect(_host(age: 24).ageAndOccupationLine, '24');
-      expect(_host(occupation: 'Student').ageAndOccupationLine, 'Student');
+      expect(
+        _host(occupation: 'Student', headline: 'a good listener')
+            .ageAndOccupationLine,
+        'Student',
+      );
     });
 
     test('is empty when neither is known', () {
       expect(_host().ageAndOccupationLine, isEmpty);
+    });
+
+    test('does not repeat an occupation that is already the hero line', () {
+      // No headline, so the card leads with "Nurse". Printing "27 • Nurse"
+      // under it says the same thing twice, and until hosts start writing
+      // headlines this is the majority of cards.
+      final host = _host(age: 27, occupation: 'Nurse');
+      expect(host.displayIntent, 'Nurse');
+      expect(host.intentIsOccupation, isTrue);
+      expect(host.ageAndOccupationLine, '27');
+    });
+
+    test('a host who wrote a headline keeps her occupation on the meta line',
+        () {
+      final host =
+          _host(age: 27, occupation: 'Nurse', headline: 'a good listener');
+      expect(host.intentIsOccupation, isFalse);
+      expect(host.ageAndOccupationLine, '27  •  Nurse');
     });
   });
 

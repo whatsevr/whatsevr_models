@@ -140,10 +140,24 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     return headlineHighlight;
   }
 
+  /// True when the hero line is the occupation fallback rather than something
+  /// the host wrote.
+  bool get intentIsOccupation {
+    final String? line = headline?.trim();
+    return (line == null || line.isEmpty) && displayIntent != null;
+  }
+
   /// Age and occupation are one meta line on the card; either may be missing.
+  ///
+  /// Occupation drops out when it is already the hero line above. A host with
+  /// no headline was otherwise printed twice — "Nurse", then "27 · Nurse" —
+  /// which reads as a rendering bug, and it is the majority case until hosts
+  /// start writing headlines.
   String get ageAndOccupationLine => [
         if (age != null) '$age',
-        if (occupation != null && occupation!.trim().isNotEmpty)
+        if (!intentIsOccupation &&
+            occupation != null &&
+            occupation!.trim().isNotEmpty)
           occupation!.trim(),
       ].join('  •  ');
 
