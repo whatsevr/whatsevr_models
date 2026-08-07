@@ -30,7 +30,11 @@ mixin _$OneToOneCallHost {
 /// matched. Present on search responses only; the client renders the
 /// markers rather than re-deriving the match, because the query sent to
 /// Algolia is keyword-extracted and no longer the words the user typed.
-@JsonKey(name: 'headline_highlight') String? get headlineHighlight;
+@JsonKey(name: 'headline_highlight') String? get headlineHighlight;/// When this host invited the person reading the card. Present only on the
+/// `pokes_for_you` rail — an ordinary grid card carries no such key, which
+/// is why this is nullable with no default: absent must stay absent rather
+/// than becoming an epoch that reads as "invited you long ago".
+@JsonKey(name: 'invited_at') DateTime? get invitedAt;
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -43,16 +47,16 @@ $OneToOneCallHostCopyWith<OneToOneCallHost> get copyWith => _$OneToOneCallHostCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.headlineHighlight, headlineHighlight) || other.headlineHighlight == headlineHighlight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.headlineHighlight, headlineHighlight) || other.headlineHighlight == headlineHighlight)&&(identical(other.invitedAt, invitedAt) || other.invitedAt == invitedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile,isLegallyVerified,headline,occupation,headlineHighlight]);
+int get hashCode => Object.hashAll([runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile,isLegallyVerified,headline,occupation,headlineHighlight,invitedAt]);
 
 @override
 String toString() {
-  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile, isLegallyVerified: $isLegallyVerified, headline: $headline, occupation: $occupation, headlineHighlight: $headlineHighlight)';
+  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile, isLegallyVerified: $isLegallyVerified, headline: $headline, occupation: $occupation, headlineHighlight: $headlineHighlight, invitedAt: $invitedAt)';
 }
 
 
@@ -63,7 +67,7 @@ abstract mixin class $OneToOneCallHostCopyWith<$Res>  {
   factory $OneToOneCallHostCopyWith(OneToOneCallHost value, $Res Function(OneToOneCallHost) _then) = _$OneToOneCallHostCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'is_legally_verified') bool isLegallyVerified, String? headline, String? occupation,@JsonKey(name: 'headline_highlight') String? headlineHighlight
+@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'is_legally_verified') bool isLegallyVerified, String? headline, String? occupation,@JsonKey(name: 'headline_highlight') String? headlineHighlight,@JsonKey(name: 'invited_at') DateTime? invitedAt
 });
 
 
@@ -80,7 +84,7 @@ class _$OneToOneCallHostCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,Object? isLegallyVerified = null,Object? headline = freezed,Object? occupation = freezed,Object? headlineHighlight = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,Object? isLegallyVerified = null,Object? headline = freezed,Object? occupation = freezed,Object? headlineHighlight = freezed,Object? invitedAt = freezed,}) {
   return _then(_self.copyWith(
 hostUid: null == hostUid ? _self.hostUid : hostUid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -101,7 +105,8 @@ as bool,isLegallyVerified: null == isLegallyVerified ? _self.isLegallyVerified :
 as bool,headline: freezed == headline ? _self.headline : headline // ignore: cast_nullable_to_non_nullable
 as String?,occupation: freezed == occupation ? _self.occupation : occupation // ignore: cast_nullable_to_non_nullable
 as String?,headlineHighlight: freezed == headlineHighlight ? _self.headlineHighlight : headlineHighlight // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,invitedAt: freezed == invitedAt ? _self.invitedAt : invitedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
@@ -183,10 +188,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight, @JsonKey(name: 'invited_at')  DateTime? invitedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost() when $default != null:
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight);case _:
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight,_that.invitedAt);case _:
   return orElse();
 
 }
@@ -204,10 +209,10 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight, @JsonKey(name: 'invited_at')  DateTime? invitedAt)  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost():
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight);}
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight,_that.invitedAt);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -221,10 +226,10 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'one_to_one_call_host_uid')  String hostUid,  String name, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  String? country,  int? age,  String? city,  String? state,  String? gender, @JsonKey(name: 'call_mode')  String callMode, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise,  String status, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'is_legally_verified')  bool isLegallyVerified,  String? headline,  String? occupation, @JsonKey(name: 'headline_highlight')  String? headlineHighlight, @JsonKey(name: 'invited_at')  DateTime? invitedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _OneToOneCallHost() when $default != null:
-return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight);case _:
+return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_that.age,_that.city,_that.state,_that.gender,_that.callMode,_that.ratePaise,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.status,_that.isPremiumProfile,_that.isLegallyVerified,_that.headline,_that.occupation,_that.headlineHighlight,_that.invitedAt);case _:
   return null;
 
 }
@@ -236,7 +241,7 @@ return $default(_that.hostUid,_that.name,_that.profilePictureUrl,_that.country,_
 @JsonSerializable()
 
 class _OneToOneCallHost extends OneToOneCallHost {
-  const _OneToOneCallHost({@JsonKey(name: 'one_to_one_call_host_uid') this.hostUid = '', this.name = '', @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, this.country, this.age, this.city, this.state, this.gender, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, this.status = 'offline', @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false, @JsonKey(name: 'is_legally_verified') this.isLegallyVerified = false, this.headline, this.occupation, @JsonKey(name: 'headline_highlight') this.headlineHighlight}): super._();
+  const _OneToOneCallHost({@JsonKey(name: 'one_to_one_call_host_uid') this.hostUid = '', this.name = '', @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, this.country, this.age, this.city, this.state, this.gender, @JsonKey(name: 'call_mode') this.callMode = 'audio_video', @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, this.status = 'offline', @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false, @JsonKey(name: 'is_legally_verified') this.isLegallyVerified = false, this.headline, this.occupation, @JsonKey(name: 'headline_highlight') this.headlineHighlight, @JsonKey(name: 'invited_at') this.invitedAt}): super._();
   factory _OneToOneCallHost.fromJson(Map<String, dynamic> json) => _$OneToOneCallHostFromJson(json);
 
 @override@JsonKey(name: 'one_to_one_call_host_uid') final  String hostUid;
@@ -273,6 +278,11 @@ class _OneToOneCallHost extends OneToOneCallHost {
 /// markers rather than re-deriving the match, because the query sent to
 /// Algolia is keyword-extracted and no longer the words the user typed.
 @override@JsonKey(name: 'headline_highlight') final  String? headlineHighlight;
+/// When this host invited the person reading the card. Present only on the
+/// `pokes_for_you` rail — an ordinary grid card carries no such key, which
+/// is why this is nullable with no default: absent must stay absent rather
+/// than becoming an epoch that reads as "invited you long ago".
+@override@JsonKey(name: 'invited_at') final  DateTime? invitedAt;
 
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
@@ -287,16 +297,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.headlineHighlight, headlineHighlight) || other.headlineHighlight == headlineHighlight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OneToOneCallHost&&(identical(other.hostUid, hostUid) || other.hostUid == hostUid)&&(identical(other.name, name) || other.name == name)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&(identical(other.country, country) || other.country == country)&&(identical(other.age, age) || other.age == age)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.status, status) || other.status == status)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.isLegallyVerified, isLegallyVerified) || other.isLegallyVerified == isLegallyVerified)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.headlineHighlight, headlineHighlight) || other.headlineHighlight == headlineHighlight)&&(identical(other.invitedAt, invitedAt) || other.invitedAt == invitedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile,isLegallyVerified,headline,occupation,headlineHighlight]);
+int get hashCode => Object.hashAll([runtimeType,hostUid,name,profilePictureUrl,country,age,city,state,gender,callMode,ratePaise,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,status,isPremiumProfile,isLegallyVerified,headline,occupation,headlineHighlight,invitedAt]);
 
 @override
 String toString() {
-  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile, isLegallyVerified: $isLegallyVerified, headline: $headline, occupation: $occupation, headlineHighlight: $headlineHighlight)';
+  return 'OneToOneCallHost(hostUid: $hostUid, name: $name, profilePictureUrl: $profilePictureUrl, country: $country, age: $age, city: $city, state: $state, gender: $gender, callMode: $callMode, ratePaise: $ratePaise, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, status: $status, isPremiumProfile: $isPremiumProfile, isLegallyVerified: $isLegallyVerified, headline: $headline, occupation: $occupation, headlineHighlight: $headlineHighlight, invitedAt: $invitedAt)';
 }
 
 
@@ -307,7 +317,7 @@ abstract mixin class _$OneToOneCallHostCopyWith<$Res> implements $OneToOneCallHo
   factory _$OneToOneCallHostCopyWith(_OneToOneCallHost value, $Res Function(_OneToOneCallHost) _then) = __$OneToOneCallHostCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'is_legally_verified') bool isLegallyVerified, String? headline, String? occupation,@JsonKey(name: 'headline_highlight') String? headlineHighlight
+@JsonKey(name: 'one_to_one_call_host_uid') String hostUid, String name,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, String? country, int? age, String? city, String? state, String? gender,@JsonKey(name: 'call_mode') String callMode,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise, String status,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'is_legally_verified') bool isLegallyVerified, String? headline, String? occupation,@JsonKey(name: 'headline_highlight') String? headlineHighlight,@JsonKey(name: 'invited_at') DateTime? invitedAt
 });
 
 
@@ -324,7 +334,7 @@ class __$OneToOneCallHostCopyWithImpl<$Res>
 
 /// Create a copy of OneToOneCallHost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,Object? isLegallyVerified = null,Object? headline = freezed,Object? occupation = freezed,Object? headlineHighlight = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? hostUid = null,Object? name = null,Object? profilePictureUrl = freezed,Object? country = freezed,Object? age = freezed,Object? city = freezed,Object? state = freezed,Object? gender = freezed,Object? callMode = null,Object? ratePaise = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? status = null,Object? isPremiumProfile = null,Object? isLegallyVerified = null,Object? headline = freezed,Object? occupation = freezed,Object? headlineHighlight = freezed,Object? invitedAt = freezed,}) {
   return _then(_OneToOneCallHost(
 hostUid: null == hostUid ? _self.hostUid : hostUid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -345,7 +355,8 @@ as bool,isLegallyVerified: null == isLegallyVerified ? _self.isLegallyVerified :
 as bool,headline: freezed == headline ? _self.headline : headline // ignore: cast_nullable_to_non_nullable
 as String?,occupation: freezed == occupation ? _self.occupation : occupation // ignore: cast_nullable_to_non_nullable
 as String?,headlineHighlight: freezed == headlineHighlight ? _self.headlineHighlight : headlineHighlight // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,invitedAt: freezed == invitedAt ? _self.invitedAt : invitedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 

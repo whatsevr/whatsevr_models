@@ -74,6 +74,12 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// markers rather than re-deriving the match, because the query sent to
     /// Algolia is keyword-extracted and no longer the words the user typed.
     @JsonKey(name: 'headline_highlight') String? headlineHighlight,
+
+    /// When this host invited the person reading the card. Present only on the
+    /// `pokes_for_you` rail — an ordinary grid card carries no such key, which
+    /// is why this is nullable with no default: absent must stay absent rather
+    /// than becoming an epoch that reads as "invited you long ago".
+    @JsonKey(name: 'invited_at') DateTime? invitedAt,
   }) = _OneToOneCallHost;
 
   const OneToOneCallHost._();
@@ -98,6 +104,9 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
   /// Only a host already in a call cannot be reached at all — an offline one
   /// still rings.
   bool get isConnectable => presence != HostPresence.busy;
+
+  /// Whether this card came from the "invited you" rail rather than the grid.
+  bool get invitedYou => invitedAt != null;
 
   String get connectLabel => switch (presence) {
         HostPresence.busy => 'In a call',
