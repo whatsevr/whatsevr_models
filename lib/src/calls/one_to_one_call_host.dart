@@ -80,6 +80,19 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// is why this is nullable with no default: absent must stay absent rather
     /// than becoming an epoch that reads as "invited you long ago".
     @JsonKey(name: 'invited_at') DateTime? invitedAt,
+
+    /// How often she picks up, over direct rings in the last 30 days. Null
+    /// below the server's confidence threshold — "100%" off one answered ring
+    /// would be worse than saying nothing — in which case [isNewHost] is true.
+    ///
+    /// Display only. The grid's order is the server's, and it is deliberately
+    /// live-first/longest-waiting rather than reputation-ranked.
+    @JsonKey(name: 'answer_rate_percent') int? answerRatePercent,
+    @JsonKey(name: 'answered_call_count') @Default(0) int answeredCallCount,
+
+    /// Too little history to state a rate. Said out loud rather than left
+    /// blank: it is honest, and it is a reason to try her.
+    @JsonKey(name: 'is_new_host') @Default(false) bool isNewHost,
   }) = _OneToOneCallHost;
 
   const OneToOneCallHost._();
@@ -107,6 +120,16 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
 
   /// Whether this card came from the "invited you" rail rather than the grid.
   bool get invitedYou => invitedAt != null;
+
+  /// The one line a card can say about how she behaves, or null when there is
+  /// nothing honest to say. Kept here so the grid card, the rail and the
+  /// profile cannot word the same fact three ways.
+  String? get answerRateLabel {
+    if (isNewHost) return 'New host';
+    final int? percent = answerRatePercent;
+    if (percent == null) return null;
+    return 'Answers $percent% of calls';
+  }
 
   String get connectLabel => switch (presence) {
         HostPresence.busy => 'In a call',

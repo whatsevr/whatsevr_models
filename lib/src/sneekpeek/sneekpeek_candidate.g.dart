@@ -90,6 +90,9 @@ _CandidateHostInfo _$CandidateHostInfoFromJson(Map<String, dynamic> json) =>
       videoPricePerMinutePaise:
           (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
+      answerRatePercent: (json['answer_rate_percent'] as num?)?.toInt(),
+      answeredCallCount: (json['answered_call_count'] as num?)?.toInt() ?? 0,
+      isNewHost: json['is_new_host'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$CandidateHostInfoToJson(_CandidateHostInfo instance) =>
@@ -100,6 +103,9 @@ Map<String, dynamic> _$CandidateHostInfoToJson(_CandidateHostInfo instance) =>
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
       'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
       'status': instance.status,
+      'answer_rate_percent': instance.answerRatePercent,
+      'answered_call_count': instance.answeredCallCount,
+      'is_new_host': instance.isNewHost,
     };
 
 _CandidateMediaItem _$CandidateMediaItemFromJson(Map<String, dynamic> json) =>

@@ -34,6 +34,9 @@ _OneToOneCallHost _$OneToOneCallHostFromJson(Map<String, dynamic> json) =>
           json['invited_at'] == null
               ? null
               : DateTime.parse(json['invited_at'] as String),
+      answerRatePercent: (json['answer_rate_percent'] as num?)?.toInt(),
+      answeredCallCount: (json['answered_call_count'] as num?)?.toInt() ?? 0,
+      isNewHost: json['is_new_host'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
@@ -58,4 +61,7 @@ Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
       'occupation': instance.occupation,
       'headline_highlight': instance.headlineHighlight,
       'invited_at': instance.invitedAt?.toIso8601String(),
+      'answer_rate_percent': instance.answerRatePercent,
+      'answered_call_count': instance.answeredCallCount,
+      'is_new_host': instance.isNewHost,
     };

@@ -143,6 +143,13 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
 
     /// `available`, `busy` or `offline`.
     @Default('offline') String status,
+
+    /// How often she picks up, over direct rings in the last 30 days. Null
+    /// below the server's confidence threshold, where [isNewHost] is true
+    /// instead — one answered ring is not "100%".
+    @JsonKey(name: 'answer_rate_percent') int? answerRatePercent,
+    @JsonKey(name: 'answered_call_count') @Default(0) int answeredCallCount,
+    @JsonKey(name: 'is_new_host') @Default(false) bool isNewHost,
   }) = _CandidateHostInfo;
 
   const CandidateHostInfo._();
@@ -165,10 +172,27 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
         videoPricePerMinutePaise: videoPricePerMinutePaise,
       );
 
+  /// The lowest price a caller can actually pay her. A both-modes host has two
+  /// and voice is half, so a CTA that leads with the video one hides the cheap
+  /// way in — and quotes a rise to somebody who just paid the voice rate.
+  int get cheapestPricePerMinutePaise =>
+      audioPricePerMinutePaise < videoPricePerMinutePaise
+          ? audioPricePerMinutePaise
+          : videoPricePerMinutePaise;
+
   int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 
   /// Only a host already in a call cannot be reached — offline still rings.
   bool get isConnectable => presence != HostPresence.busy;
+
+  /// The one line worth saying about how she behaves, or null when there is
+  /// nothing honest to say. Worded identically to the grid card's.
+  String? get answerRateLabel {
+    if (isNewHost) return 'New host';
+    final int? percent = answerRatePercent;
+    if (percent == null) return null;
+    return 'Answers $percent% of calls';
+  }
 }
 
 /// One gallery entry, addressable by uid.
