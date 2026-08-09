@@ -45,6 +45,7 @@ export 'src/payments/payment_portal_link.dart';
 export 'src/payments/wallet_ledger_entry.dart';
 export 'src/payments/earnings_ledger_entry.dart';
 export 'src/payments/earnings_ledger_page.dart';
+export 'src/payments/host_earnings_summary.dart';
 export 'src/social/blocked_user.dart';
 export 'src/sneekpeek/sneekpeek_candidate.dart';
 export 'src/calls/livekit_token_grant.dart';
