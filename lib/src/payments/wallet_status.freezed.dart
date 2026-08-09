@@ -615,7 +615,13 @@ mixin _$WalletEarnings {
 /// server's `is_billable_female` — the gate for taking paid calls.
 @JsonKey(name: 'earner_verified') bool get earnerVerified;/// Raw status of her host application, or null if she has never sent one.
 /// Read through [applicationStatus] rather than directly.
-@JsonKey(name: 'host_application_status') String? get hostApplicationStatus;
+@JsonKey(name: 'host_application_status') String? get hostApplicationStatus;/// Why the last application was refused, in the reviewer's own words and
+/// already humanized by the server. Empty when there is nothing to explain.
+///
+/// Without it the app had to invent a reason, and told everyone it turned
+/// down to send clearer photos — including the ones refused for being
+/// underage, who would resubmit the same document and be refused again.
+@JsonKey(name: 'host_application_rejection_reason') String get hostApplicationRejectionReason;
 /// Create a copy of WalletEarnings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -628,16 +634,16 @@ $WalletEarningsCopyWith<WalletEarnings> get copyWith => _$WalletEarningsCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalletEarnings&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.earnerVerified, earnerVerified) || other.earnerVerified == earnerVerified)&&(identical(other.hostApplicationStatus, hostApplicationStatus) || other.hostApplicationStatus == hostApplicationStatus));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalletEarnings&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.earnerVerified, earnerVerified) || other.earnerVerified == earnerVerified)&&(identical(other.hostApplicationStatus, hostApplicationStatus) || other.hostApplicationStatus == hostApplicationStatus)&&(identical(other.hostApplicationRejectionReason, hostApplicationRejectionReason) || other.hostApplicationRejectionReason == hostApplicationRejectionReason));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balancePaise,earnerVerified,hostApplicationStatus);
+int get hashCode => Object.hash(runtimeType,balancePaise,earnerVerified,hostApplicationStatus,hostApplicationRejectionReason);
 
 @override
 String toString() {
-  return 'WalletEarnings(balancePaise: $balancePaise, earnerVerified: $earnerVerified, hostApplicationStatus: $hostApplicationStatus)';
+  return 'WalletEarnings(balancePaise: $balancePaise, earnerVerified: $earnerVerified, hostApplicationStatus: $hostApplicationStatus, hostApplicationRejectionReason: $hostApplicationRejectionReason)';
 }
 
 
@@ -648,7 +654,7 @@ abstract mixin class $WalletEarningsCopyWith<$Res>  {
   factory $WalletEarningsCopyWith(WalletEarnings value, $Res Function(WalletEarnings) _then) = _$WalletEarningsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'earner_verified') bool earnerVerified,@JsonKey(name: 'host_application_status') String? hostApplicationStatus
+@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'earner_verified') bool earnerVerified,@JsonKey(name: 'host_application_status') String? hostApplicationStatus,@JsonKey(name: 'host_application_rejection_reason') String hostApplicationRejectionReason
 });
 
 
@@ -665,12 +671,13 @@ class _$WalletEarningsCopyWithImpl<$Res>
 
 /// Create a copy of WalletEarnings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? balancePaise = null,Object? earnerVerified = null,Object? hostApplicationStatus = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? balancePaise = null,Object? earnerVerified = null,Object? hostApplicationStatus = freezed,Object? hostApplicationRejectionReason = null,}) {
   return _then(_self.copyWith(
 balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,earnerVerified: null == earnerVerified ? _self.earnerVerified : earnerVerified // ignore: cast_nullable_to_non_nullable
 as bool,hostApplicationStatus: freezed == hostApplicationStatus ? _self.hostApplicationStatus : hostApplicationStatus // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,hostApplicationRejectionReason: null == hostApplicationRejectionReason ? _self.hostApplicationRejectionReason : hostApplicationRejectionReason // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -752,10 +759,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus, @JsonKey(name: 'host_application_rejection_reason')  String hostApplicationRejectionReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _WalletEarnings() when $default != null:
-return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus);case _:
+return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus,_that.hostApplicationRejectionReason);case _:
   return orElse();
 
 }
@@ -773,10 +780,10 @@ return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationSta
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus, @JsonKey(name: 'host_application_rejection_reason')  String hostApplicationRejectionReason)  $default,) {final _that = this;
 switch (_that) {
 case _WalletEarnings():
-return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus);}
+return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus,_that.hostApplicationRejectionReason);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -790,10 +797,10 @@ return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationSta
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'earner_verified')  bool earnerVerified, @JsonKey(name: 'host_application_status')  String? hostApplicationStatus, @JsonKey(name: 'host_application_rejection_reason')  String hostApplicationRejectionReason)?  $default,) {final _that = this;
 switch (_that) {
 case _WalletEarnings() when $default != null:
-return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus);case _:
+return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationStatus,_that.hostApplicationRejectionReason);case _:
   return null;
 
 }
@@ -805,7 +812,7 @@ return $default(_that.balancePaise,_that.earnerVerified,_that.hostApplicationSta
 @JsonSerializable()
 
 class _WalletEarnings extends WalletEarnings {
-  const _WalletEarnings({@JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'earner_verified') this.earnerVerified = false, @JsonKey(name: 'host_application_status') this.hostApplicationStatus}): super._();
+  const _WalletEarnings({@JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'earner_verified') this.earnerVerified = false, @JsonKey(name: 'host_application_status') this.hostApplicationStatus, @JsonKey(name: 'host_application_rejection_reason') this.hostApplicationRejectionReason = ''}): super._();
   factory _WalletEarnings.fromJson(Map<String, dynamic> json) => _$WalletEarningsFromJson(json);
 
 @override@JsonKey(name: 'balance_paise') final  int balancePaise;
@@ -815,6 +822,13 @@ class _WalletEarnings extends WalletEarnings {
 /// Raw status of her host application, or null if she has never sent one.
 /// Read through [applicationStatus] rather than directly.
 @override@JsonKey(name: 'host_application_status') final  String? hostApplicationStatus;
+/// Why the last application was refused, in the reviewer's own words and
+/// already humanized by the server. Empty when there is nothing to explain.
+///
+/// Without it the app had to invent a reason, and told everyone it turned
+/// down to send clearer photos — including the ones refused for being
+/// underage, who would resubmit the same document and be refused again.
+@override@JsonKey(name: 'host_application_rejection_reason') final  String hostApplicationRejectionReason;
 
 /// Create a copy of WalletEarnings
 /// with the given fields replaced by the non-null parameter values.
@@ -829,16 +843,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalletEarnings&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.earnerVerified, earnerVerified) || other.earnerVerified == earnerVerified)&&(identical(other.hostApplicationStatus, hostApplicationStatus) || other.hostApplicationStatus == hostApplicationStatus));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalletEarnings&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.earnerVerified, earnerVerified) || other.earnerVerified == earnerVerified)&&(identical(other.hostApplicationStatus, hostApplicationStatus) || other.hostApplicationStatus == hostApplicationStatus)&&(identical(other.hostApplicationRejectionReason, hostApplicationRejectionReason) || other.hostApplicationRejectionReason == hostApplicationRejectionReason));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balancePaise,earnerVerified,hostApplicationStatus);
+int get hashCode => Object.hash(runtimeType,balancePaise,earnerVerified,hostApplicationStatus,hostApplicationRejectionReason);
 
 @override
 String toString() {
-  return 'WalletEarnings(balancePaise: $balancePaise, earnerVerified: $earnerVerified, hostApplicationStatus: $hostApplicationStatus)';
+  return 'WalletEarnings(balancePaise: $balancePaise, earnerVerified: $earnerVerified, hostApplicationStatus: $hostApplicationStatus, hostApplicationRejectionReason: $hostApplicationRejectionReason)';
 }
 
 
@@ -849,7 +863,7 @@ abstract mixin class _$WalletEarningsCopyWith<$Res> implements $WalletEarningsCo
   factory _$WalletEarningsCopyWith(_WalletEarnings value, $Res Function(_WalletEarnings) _then) = __$WalletEarningsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'earner_verified') bool earnerVerified,@JsonKey(name: 'host_application_status') String? hostApplicationStatus
+@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'earner_verified') bool earnerVerified,@JsonKey(name: 'host_application_status') String? hostApplicationStatus,@JsonKey(name: 'host_application_rejection_reason') String hostApplicationRejectionReason
 });
 
 
@@ -866,12 +880,13 @@ class __$WalletEarningsCopyWithImpl<$Res>
 
 /// Create a copy of WalletEarnings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? balancePaise = null,Object? earnerVerified = null,Object? hostApplicationStatus = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? balancePaise = null,Object? earnerVerified = null,Object? hostApplicationStatus = freezed,Object? hostApplicationRejectionReason = null,}) {
   return _then(_WalletEarnings(
 balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,earnerVerified: null == earnerVerified ? _self.earnerVerified : earnerVerified // ignore: cast_nullable_to_non_nullable
 as bool,hostApplicationStatus: freezed == hostApplicationStatus ? _self.hostApplicationStatus : hostApplicationStatus // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,hostApplicationRejectionReason: null == hostApplicationRejectionReason ? _self.hostApplicationRejectionReason : hostApplicationRejectionReason // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

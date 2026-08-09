@@ -58,14 +58,18 @@ _WalletEarnings _$WalletEarningsFromJson(Map<String, dynamic> json) =>
       balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
       earnerVerified: json['earner_verified'] as bool? ?? false,
       hostApplicationStatus: json['host_application_status'] as String?,
+      hostApplicationRejectionReason:
+          json['host_application_rejection_reason'] as String? ?? '',
     );
 
-Map<String, dynamic> _$WalletEarningsToJson(_WalletEarnings instance) =>
-    <String, dynamic>{
-      'balance_paise': instance.balancePaise,
-      'earner_verified': instance.earnerVerified,
-      'host_application_status': instance.hostApplicationStatus,
-    };
+Map<String, dynamic> _$WalletEarningsToJson(
+  _WalletEarnings instance,
+) => <String, dynamic>{
+  'balance_paise': instance.balancePaise,
+  'earner_verified': instance.earnerVerified,
+  'host_application_status': instance.hostApplicationStatus,
+  'host_application_rejection_reason': instance.hostApplicationRejectionReason,
+};
 
 _OneToOneCallRate _$OneToOneCallRateFromJson(Map<String, dynamic> json) =>
     _OneToOneCallRate(

@@ -81,6 +81,16 @@ sealed class WalletEarnings with _$WalletEarnings {
     /// Raw status of her host application, or null if she has never sent one.
     /// Read through [applicationStatus] rather than directly.
     @JsonKey(name: 'host_application_status') String? hostApplicationStatus,
+
+    /// Why the last application was refused, in the reviewer's own words and
+    /// already humanized by the server. Empty when there is nothing to explain.
+    ///
+    /// Without it the app had to invent a reason, and told everyone it turned
+    /// down to send clearer photos — including the ones refused for being
+    /// underage, who would resubmit the same document and be refused again.
+    @JsonKey(name: 'host_application_rejection_reason')
+    @Default('')
+    String hostApplicationRejectionReason,
   }) = _WalletEarnings;
 
   const WalletEarnings._();
