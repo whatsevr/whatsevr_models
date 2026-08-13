@@ -16,7 +16,11 @@ T _$identity<T>(T value) => value;
 mixin _$HostEarningsSummary {
 
 @JsonKey(name: 'today_paise') int get todayPaise;@JsonKey(name: 'week_paise') int get weekPaise;/// What she can withdraw right now.
-@JsonKey(name: 'balance_paise') int get balancePaise;@JsonKey(name: 'lifetime_paise') int get lifetimePaise;
+@JsonKey(name: 'balance_paise') int get balancePaise;@JsonKey(name: 'lifetime_paise') int get lifetimePaise;/// How much of [balancePaise] came from gifts. Not an extra pot — the
+/// money is already in the balance — but gift money is commissioned at a
+/// higher rate at withdrawal, so a host is shown how much of hers that
+/// applies to.
+@JsonKey(name: 'gift_earnings_paise') int get giftEarningsPaise;
 /// Create a copy of HostEarningsSummary
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +33,16 @@ $HostEarningsSummaryCopyWith<HostEarningsSummary> get copyWith => _$HostEarnings
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostEarningsSummary&&(identical(other.todayPaise, todayPaise) || other.todayPaise == todayPaise)&&(identical(other.weekPaise, weekPaise) || other.weekPaise == weekPaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.lifetimePaise, lifetimePaise) || other.lifetimePaise == lifetimePaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostEarningsSummary&&(identical(other.todayPaise, todayPaise) || other.todayPaise == todayPaise)&&(identical(other.weekPaise, weekPaise) || other.weekPaise == weekPaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.lifetimePaise, lifetimePaise) || other.lifetimePaise == lifetimePaise)&&(identical(other.giftEarningsPaise, giftEarningsPaise) || other.giftEarningsPaise == giftEarningsPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,todayPaise,weekPaise,balancePaise,lifetimePaise);
+int get hashCode => Object.hash(runtimeType,todayPaise,weekPaise,balancePaise,lifetimePaise,giftEarningsPaise);
 
 @override
 String toString() {
-  return 'HostEarningsSummary(todayPaise: $todayPaise, weekPaise: $weekPaise, balancePaise: $balancePaise, lifetimePaise: $lifetimePaise)';
+  return 'HostEarningsSummary(todayPaise: $todayPaise, weekPaise: $weekPaise, balancePaise: $balancePaise, lifetimePaise: $lifetimePaise, giftEarningsPaise: $giftEarningsPaise)';
 }
 
 
@@ -49,7 +53,7 @@ abstract mixin class $HostEarningsSummaryCopyWith<$Res>  {
   factory $HostEarningsSummaryCopyWith(HostEarningsSummary value, $Res Function(HostEarningsSummary) _then) = _$HostEarningsSummaryCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'today_paise') int todayPaise,@JsonKey(name: 'week_paise') int weekPaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'lifetime_paise') int lifetimePaise
+@JsonKey(name: 'today_paise') int todayPaise,@JsonKey(name: 'week_paise') int weekPaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'lifetime_paise') int lifetimePaise,@JsonKey(name: 'gift_earnings_paise') int giftEarningsPaise
 });
 
 
@@ -66,12 +70,13 @@ class _$HostEarningsSummaryCopyWithImpl<$Res>
 
 /// Create a copy of HostEarningsSummary
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? todayPaise = null,Object? weekPaise = null,Object? balancePaise = null,Object? lifetimePaise = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? todayPaise = null,Object? weekPaise = null,Object? balancePaise = null,Object? lifetimePaise = null,Object? giftEarningsPaise = null,}) {
   return _then(_self.copyWith(
 todayPaise: null == todayPaise ? _self.todayPaise : todayPaise // ignore: cast_nullable_to_non_nullable
 as int,weekPaise: null == weekPaise ? _self.weekPaise : weekPaise // ignore: cast_nullable_to_non_nullable
 as int,balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,lifetimePaise: null == lifetimePaise ? _self.lifetimePaise : lifetimePaise // ignore: cast_nullable_to_non_nullable
+as int,giftEarningsPaise: null == giftEarningsPaise ? _self.giftEarningsPaise : giftEarningsPaise // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -154,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise, @JsonKey(name: 'gift_earnings_paise')  int giftEarningsPaise)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HostEarningsSummary() when $default != null:
-return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise);case _:
+return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise,_that.giftEarningsPaise);case _:
   return orElse();
 
 }
@@ -175,10 +180,10 @@ return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifeti
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise, @JsonKey(name: 'gift_earnings_paise')  int giftEarningsPaise)  $default,) {final _that = this;
 switch (_that) {
 case _HostEarningsSummary():
-return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise);}
+return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise,_that.giftEarningsPaise);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -192,10 +197,10 @@ return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifeti
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'today_paise')  int todayPaise, @JsonKey(name: 'week_paise')  int weekPaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'lifetime_paise')  int lifetimePaise, @JsonKey(name: 'gift_earnings_paise')  int giftEarningsPaise)?  $default,) {final _that = this;
 switch (_that) {
 case _HostEarningsSummary() when $default != null:
-return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise);case _:
+return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifetimePaise,_that.giftEarningsPaise);case _:
   return null;
 
 }
@@ -207,7 +212,7 @@ return $default(_that.todayPaise,_that.weekPaise,_that.balancePaise,_that.lifeti
 @JsonSerializable()
 
 class _HostEarningsSummary implements HostEarningsSummary {
-  const _HostEarningsSummary({@JsonKey(name: 'today_paise') this.todayPaise = 0, @JsonKey(name: 'week_paise') this.weekPaise = 0, @JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'lifetime_paise') this.lifetimePaise = 0});
+  const _HostEarningsSummary({@JsonKey(name: 'today_paise') this.todayPaise = 0, @JsonKey(name: 'week_paise') this.weekPaise = 0, @JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'lifetime_paise') this.lifetimePaise = 0, @JsonKey(name: 'gift_earnings_paise') this.giftEarningsPaise = 0});
   factory _HostEarningsSummary.fromJson(Map<String, dynamic> json) => _$HostEarningsSummaryFromJson(json);
 
 @override@JsonKey(name: 'today_paise') final  int todayPaise;
@@ -215,6 +220,11 @@ class _HostEarningsSummary implements HostEarningsSummary {
 /// What she can withdraw right now.
 @override@JsonKey(name: 'balance_paise') final  int balancePaise;
 @override@JsonKey(name: 'lifetime_paise') final  int lifetimePaise;
+/// How much of [balancePaise] came from gifts. Not an extra pot — the
+/// money is already in the balance — but gift money is commissioned at a
+/// higher rate at withdrawal, so a host is shown how much of hers that
+/// applies to.
+@override@JsonKey(name: 'gift_earnings_paise') final  int giftEarningsPaise;
 
 /// Create a copy of HostEarningsSummary
 /// with the given fields replaced by the non-null parameter values.
@@ -229,16 +239,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostEarningsSummary&&(identical(other.todayPaise, todayPaise) || other.todayPaise == todayPaise)&&(identical(other.weekPaise, weekPaise) || other.weekPaise == weekPaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.lifetimePaise, lifetimePaise) || other.lifetimePaise == lifetimePaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostEarningsSummary&&(identical(other.todayPaise, todayPaise) || other.todayPaise == todayPaise)&&(identical(other.weekPaise, weekPaise) || other.weekPaise == weekPaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.lifetimePaise, lifetimePaise) || other.lifetimePaise == lifetimePaise)&&(identical(other.giftEarningsPaise, giftEarningsPaise) || other.giftEarningsPaise == giftEarningsPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,todayPaise,weekPaise,balancePaise,lifetimePaise);
+int get hashCode => Object.hash(runtimeType,todayPaise,weekPaise,balancePaise,lifetimePaise,giftEarningsPaise);
 
 @override
 String toString() {
-  return 'HostEarningsSummary(todayPaise: $todayPaise, weekPaise: $weekPaise, balancePaise: $balancePaise, lifetimePaise: $lifetimePaise)';
+  return 'HostEarningsSummary(todayPaise: $todayPaise, weekPaise: $weekPaise, balancePaise: $balancePaise, lifetimePaise: $lifetimePaise, giftEarningsPaise: $giftEarningsPaise)';
 }
 
 
@@ -249,7 +259,7 @@ abstract mixin class _$HostEarningsSummaryCopyWith<$Res> implements $HostEarning
   factory _$HostEarningsSummaryCopyWith(_HostEarningsSummary value, $Res Function(_HostEarningsSummary) _then) = __$HostEarningsSummaryCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'today_paise') int todayPaise,@JsonKey(name: 'week_paise') int weekPaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'lifetime_paise') int lifetimePaise
+@JsonKey(name: 'today_paise') int todayPaise,@JsonKey(name: 'week_paise') int weekPaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'lifetime_paise') int lifetimePaise,@JsonKey(name: 'gift_earnings_paise') int giftEarningsPaise
 });
 
 
@@ -266,12 +276,13 @@ class __$HostEarningsSummaryCopyWithImpl<$Res>
 
 /// Create a copy of HostEarningsSummary
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? todayPaise = null,Object? weekPaise = null,Object? balancePaise = null,Object? lifetimePaise = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? todayPaise = null,Object? weekPaise = null,Object? balancePaise = null,Object? lifetimePaise = null,Object? giftEarningsPaise = null,}) {
   return _then(_HostEarningsSummary(
 todayPaise: null == todayPaise ? _self.todayPaise : todayPaise // ignore: cast_nullable_to_non_nullable
 as int,weekPaise: null == weekPaise ? _self.weekPaise : weekPaise // ignore: cast_nullable_to_non_nullable
 as int,balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,lifetimePaise: null == lifetimePaise ? _self.lifetimePaise : lifetimePaise // ignore: cast_nullable_to_non_nullable
+as int,giftEarningsPaise: null == giftEarningsPaise ? _self.giftEarningsPaise : giftEarningsPaise // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }

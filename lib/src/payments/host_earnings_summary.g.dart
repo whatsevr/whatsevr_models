@@ -12,6 +12,7 @@ _HostEarningsSummary _$HostEarningsSummaryFromJson(Map<String, dynamic> json) =>
       weekPaise: (json['week_paise'] as num?)?.toInt() ?? 0,
       balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
       lifetimePaise: (json['lifetime_paise'] as num?)?.toInt() ?? 0,
+      giftEarningsPaise: (json['gift_earnings_paise'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$HostEarningsSummaryToJson(
@@ -21,4 +22,5 @@ Map<String, dynamic> _$HostEarningsSummaryToJson(
   'week_paise': instance.weekPaise,
   'balance_paise': instance.balancePaise,
   'lifetime_paise': instance.lifetimePaise,
+  'gift_earnings_paise': instance.giftEarningsPaise,
 };

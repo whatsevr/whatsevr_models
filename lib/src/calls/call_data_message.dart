@@ -60,6 +60,39 @@ sealed class CallDataMessage with _$CallDataMessage {
     @Default(20) int ringWindowSeconds,
   }) = CallHostJoinRequest;
 
+  /// Server to room: a gift was paid for and recorded, broadcast after the
+  /// money committed. Never sent by a peer — a copy carrying a participant
+  /// identity is forged and must be discarded by the caller.
+  ///
+  /// [giftLedgerUid] is the unique identity of THIS send. A combo burst
+  /// repeats [giftUid] within seconds, so overlay identity and de-duplication
+  /// key on the ledger id — never the gift id, never a timestamp.
+  ///
+  /// [tier] is `chat_lane` or `fullscreen` today, but is carried as a plain
+  /// string on purpose: an older build receiving a tier it has never heard of
+  /// (or none at all) still renders the gift — falls back to a chat-lane chip
+  /// — instead of dropping it, which an enum-with-no-fallback field could not
+  /// do. See [_giftFromWireJson] for the missing/unknown-tier carve-out.
+  ///
+  /// [name] is display-only and carries no identity guarantee: a client
+  /// renders a gift's artwork from [assetUrl]/[assetKind], never from a name
+  /// lookup, and falls back to the generic chip when there is none.
+  /// [assetKind] names what is at [assetUrl] and is deliberately open-ended —
+  /// a kind this build does not recognise falls back to the chip too.
+  /// [pricePaise] is both what the sender paid and what the host earned:
+  /// nothing is taken at send time; the platform's cut is charged at
+  /// withdrawal.
+  const factory CallDataMessage.gift({
+    required String giftLedgerUid,
+    required String giftUid,
+    required String name,
+    required String tier,
+    required int pricePaise,
+    required String senderUid,
+    String? assetUrl,
+    String? assetKind,
+  }) = CallDataGift;
+
   const CallDataMessage._();
 
   /// Wire form. Key names are fixed by the protocol document.
@@ -92,6 +125,28 @@ sealed class CallDataMessage with _$CallDataMessage {
             'is_video': isVideo,
             'ring_window_seconds': ringWindowSeconds,
           },
+        CallDataGift(
+          :final giftLedgerUid,
+          :final giftUid,
+          :final name,
+          :final tier,
+          :final pricePaise,
+          :final senderUid,
+          :final assetUrl,
+          :final assetKind,
+        ) =>
+          {
+            'type': 'gift.sent',
+            'v': 1,
+            'gift_ledger_uid': giftLedgerUid,
+            'gift_uid': giftUid,
+            'name': name,
+            'tier': tier,
+            'price_paise': pricePaise,
+            'sender_uid': senderUid,
+            'asset_url': assetUrl,
+            'asset_kind': assetKind,
+          },
       };
 
   /// Decodes one packet, or null when the type is unknown or the shape is
@@ -121,7 +176,51 @@ sealed class CallDataMessage with _$CallDataMessage {
           ringWindowSeconds:
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
         ),
+      'gift.sent' => _giftFromWireJson(json),
       _ => null,
     };
+  }
+
+  /// `gift.sent` is money that already moved, so — unlike every case above,
+  /// which defaults a missing field rather than refuse the packet — a
+  /// required key that is absent or the wrong type decodes to null.
+  ///
+  /// `tier` and the asset pair are the lenient half: each has a documented
+  /// render fallback (the chat lane; the generic chip), so a missing OR
+  /// unknown value still parses rather than dropping a paid gift over a
+  /// display detail. The other five required keys have no such fallback —
+  /// without `gift_ledger_uid` nothing can dedupe, without
+  /// `name`/`price_paise`/`sender_uid` there is nothing honest to render —
+  /// so those stay strict.
+  static CallDataMessage? _giftFromWireJson(Map<String, dynamic> json) {
+    final giftLedgerUid = json['gift_ledger_uid'];
+    final giftUid = json['gift_uid'];
+    final name = json['name'];
+    final pricePaise = json['price_paise'];
+    final senderUid = json['sender_uid'];
+    if (giftLedgerUid is! String ||
+        giftUid is! String ||
+        name is! String ||
+        pricePaise is! int ||
+        senderUid is! String) {
+      return null;
+    }
+    final tier = json['tier'];
+    final assetUrl = json['asset_url'];
+    final assetKind = json['asset_kind'];
+    return CallDataMessage.gift(
+      giftLedgerUid: giftLedgerUid,
+      giftUid: giftUid,
+      name: name,
+      // A tier this build predates is still money somebody spent, so it
+      // decodes and renders in the lane every build understands.
+      tier: tier is String ? tier : '',
+      pricePaise: pricePaise,
+      senderUid: senderUid,
+      // Same rule for the artwork: an asset we cannot name is an asset we
+      // do not draw, not a packet we drop.
+      assetUrl: assetUrl is String ? assetUrl : null,
+      assetKind: assetKind is String ? assetKind : null,
+    );
   }
 }
