@@ -19,6 +19,16 @@ sealed class HostEarningsSummary with _$HostEarningsSummary {
     /// What she can withdraw right now.
     @JsonKey(name: 'balance_paise') @Default(0) int balancePaise,
     @JsonKey(name: 'lifetime_paise') @Default(0) int lifetimePaise,
+
+    /// Gift points she holds, and what they are worth at TODAY's conversion
+    /// rate. A separate balance, deliberately not folded into the paise
+    /// figures above: points become money only at withdrawal, at whatever rate
+    /// is current then, so the rupee figure is indicative and every surface
+    /// showing it has to say so.
+    @JsonKey(name: 'gift_points') @Default(0) int giftPoints,
+    @JsonKey(name: 'gift_points_value_paise')
+    @Default(0)
+    int giftPointsValuePaise,
   }) = _HostEarningsSummary;
 
   factory HostEarningsSummary.fromJson(Map<String, dynamic> json) =>
