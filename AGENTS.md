@@ -47,11 +47,12 @@
 - Constants live in `lib/src/constants/` — no inline magic strings or numbers.
 - No stringly-typed enums — always define a proper Dart enum.
 
-### Backwards Compatibility
+### Lockstep Changes (no back-compat dance)
 
-- Never remove or rename a public field without a deprecation step.
-- New required fields must have a default or be nullable to avoid breaking consumers.
-- Breaking changes require explicit mention in commit message.
+- The app is the only consumer and models are a path dependency: field
+  removals/renames land in the same change set as the matching server and app
+  edits (deploy order: models → server → app). No deprecation steps.
+- Owner-locked rules: `../.agents/docs/OWNER_RULES.md`.
 
 ### Quality Gates
 
