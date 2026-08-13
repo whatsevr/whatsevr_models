@@ -23,7 +23,9 @@ mixin _$EarningsLedgerEntry {
 @JsonKey(name: 'duration_seconds') int get durationSeconds;/// `audio` or `video`, or null when the row is not a call. A session that
 /// started on voice and turned the camera on reads as video, because that
 /// is how it was priced.
-@JsonKey(name: 'call_mode') String? get callMode;
+@JsonKey(name: 'call_mode') String? get callMode;/// Which gift this credit is, when the row is a gift — the catalog's name
+/// and artwork at read time. Null for everything that is not a gift.
+@JsonKey(name: 'gift_name') String? get giftName;@JsonKey(name: 'gift_asset_url') String? get giftAssetUrl;
 /// Create a copy of EarningsLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -36,16 +38,16 @@ $EarningsLedgerEntryCopyWith<EarningsLedgerEntry> get copyWith => _$EarningsLedg
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EarningsLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.label, label) || other.label == label)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise)&&(identical(other.counterpartName, counterpartName) || other.counterpartName == counterpartName)&&(identical(other.counterpartProfilePicture, counterpartProfilePicture) || other.counterpartProfilePicture == counterpartProfilePicture)&&(identical(other.durationSeconds, durationSeconds) || other.durationSeconds == durationSeconds)&&(identical(other.callMode, callMode) || other.callMode == callMode));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EarningsLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.label, label) || other.label == label)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise)&&(identical(other.counterpartName, counterpartName) || other.counterpartName == counterpartName)&&(identical(other.counterpartProfilePicture, counterpartProfilePicture) || other.counterpartProfilePicture == counterpartProfilePicture)&&(identical(other.durationSeconds, durationSeconds) || other.durationSeconds == durationSeconds)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.giftName, giftName) || other.giftName == giftName)&&(identical(other.giftAssetUrl, giftAssetUrl) || other.giftAssetUrl == giftAssetUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,label,deltaPaise,balanceAfterPaise,counterpartName,counterpartProfilePicture,durationSeconds,callMode);
+int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,label,deltaPaise,balanceAfterPaise,counterpartName,counterpartProfilePicture,durationSeconds,callMode,giftName,giftAssetUrl);
 
 @override
 String toString() {
-  return 'EarningsLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, label: $label, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise, counterpartName: $counterpartName, counterpartProfilePicture: $counterpartProfilePicture, durationSeconds: $durationSeconds, callMode: $callMode)';
+  return 'EarningsLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, label: $label, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise, counterpartName: $counterpartName, counterpartProfilePicture: $counterpartProfilePicture, durationSeconds: $durationSeconds, callMode: $callMode, giftName: $giftName, giftAssetUrl: $giftAssetUrl)';
 }
 
 
@@ -56,7 +58,7 @@ abstract mixin class $EarningsLedgerEntryCopyWith<$Res>  {
   factory $EarningsLedgerEntryCopyWith(EarningsLedgerEntry value, $Res Function(EarningsLedgerEntry) _then) = _$EarningsLedgerEntryCopyWithImpl;
 @useResult
 $Res call({
- String uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) EarningsLedgerReason reason, String label,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise,@JsonKey(name: 'counterpart_name') String? counterpartName,@JsonKey(name: 'counterpart_profile_picture') String? counterpartProfilePicture,@JsonKey(name: 'duration_seconds') int durationSeconds,@JsonKey(name: 'call_mode') String? callMode
+ String uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) EarningsLedgerReason reason, String label,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise,@JsonKey(name: 'counterpart_name') String? counterpartName,@JsonKey(name: 'counterpart_profile_picture') String? counterpartProfilePicture,@JsonKey(name: 'duration_seconds') int durationSeconds,@JsonKey(name: 'call_mode') String? callMode,@JsonKey(name: 'gift_name') String? giftName,@JsonKey(name: 'gift_asset_url') String? giftAssetUrl
 });
 
 
@@ -73,7 +75,7 @@ class _$EarningsLedgerEntryCopyWithImpl<$Res>
 
 /// Create a copy of EarningsLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? label = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,Object? counterpartName = freezed,Object? counterpartProfilePicture = freezed,Object? durationSeconds = null,Object? callMode = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? label = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,Object? counterpartName = freezed,Object? counterpartProfilePicture = freezed,Object? durationSeconds = null,Object? callMode = freezed,Object? giftName = freezed,Object? giftAssetUrl = freezed,}) {
   return _then(_self.copyWith(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -85,6 +87,8 @@ as int,counterpartName: freezed == counterpartName ? _self.counterpartName : cou
 as String?,counterpartProfilePicture: freezed == counterpartProfilePicture ? _self.counterpartProfilePicture : counterpartProfilePicture // ignore: cast_nullable_to_non_nullable
 as String?,durationSeconds: null == durationSeconds ? _self.durationSeconds : durationSeconds // ignore: cast_nullable_to_non_nullable
 as int,callMode: freezed == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
+as String?,giftName: freezed == giftName ? _self.giftName : giftName // ignore: cast_nullable_to_non_nullable
+as String?,giftAssetUrl: freezed == giftAssetUrl ? _self.giftAssetUrl : giftAssetUrl // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -167,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode, @JsonKey(name: 'gift_name')  String? giftName, @JsonKey(name: 'gift_asset_url')  String? giftAssetUrl)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EarningsLedgerEntry() when $default != null:
-return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode);case _:
+return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode,_that.giftName,_that.giftAssetUrl);case _:
   return orElse();
 
 }
@@ -188,10 +192,10 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode, @JsonKey(name: 'gift_name')  String? giftName, @JsonKey(name: 'gift_asset_url')  String? giftAssetUrl)  $default,) {final _that = this;
 switch (_that) {
 case _EarningsLedgerEntry():
-return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode);}
+return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode,_that.giftName,_that.giftAssetUrl);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -205,10 +209,10 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown)  EarningsLedgerReason reason,  String label, @JsonKey(name: 'delta_paise')  int deltaPaise, @JsonKey(name: 'balance_after_paise')  int balanceAfterPaise, @JsonKey(name: 'counterpart_name')  String? counterpartName, @JsonKey(name: 'counterpart_profile_picture')  String? counterpartProfilePicture, @JsonKey(name: 'duration_seconds')  int durationSeconds, @JsonKey(name: 'call_mode')  String? callMode, @JsonKey(name: 'gift_name')  String? giftName, @JsonKey(name: 'gift_asset_url')  String? giftAssetUrl)?  $default,) {final _that = this;
 switch (_that) {
 case _EarningsLedgerEntry() when $default != null:
-return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode);case _:
+return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPaise,_that.balanceAfterPaise,_that.counterpartName,_that.counterpartProfilePicture,_that.durationSeconds,_that.callMode,_that.giftName,_that.giftAssetUrl);case _:
   return null;
 
 }
@@ -220,7 +224,7 @@ return $default(_that.uid,_that.createdAt,_that.reason,_that.label,_that.deltaPa
 @JsonSerializable()
 
 class _EarningsLedgerEntry extends EarningsLedgerEntry {
-  const _EarningsLedgerEntry({this.uid = '', @JsonKey(name: 'created_at') this.createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) this.reason = EarningsLedgerReason.unknown, this.label = '', @JsonKey(name: 'delta_paise') this.deltaPaise = 0, @JsonKey(name: 'balance_after_paise') this.balanceAfterPaise = 0, @JsonKey(name: 'counterpart_name') this.counterpartName, @JsonKey(name: 'counterpart_profile_picture') this.counterpartProfilePicture, @JsonKey(name: 'duration_seconds') this.durationSeconds = 0, @JsonKey(name: 'call_mode') this.callMode}): super._();
+  const _EarningsLedgerEntry({this.uid = '', @JsonKey(name: 'created_at') this.createdAt, @JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) this.reason = EarningsLedgerReason.unknown, this.label = '', @JsonKey(name: 'delta_paise') this.deltaPaise = 0, @JsonKey(name: 'balance_after_paise') this.balanceAfterPaise = 0, @JsonKey(name: 'counterpart_name') this.counterpartName, @JsonKey(name: 'counterpart_profile_picture') this.counterpartProfilePicture, @JsonKey(name: 'duration_seconds') this.durationSeconds = 0, @JsonKey(name: 'call_mode') this.callMode, @JsonKey(name: 'gift_name') this.giftName, @JsonKey(name: 'gift_asset_url') this.giftAssetUrl}): super._();
   factory _EarningsLedgerEntry.fromJson(Map<String, dynamic> json) => _$EarningsLedgerEntryFromJson(json);
 
 @override@JsonKey() final  String uid;
@@ -241,6 +245,10 @@ class _EarningsLedgerEntry extends EarningsLedgerEntry {
 /// started on voice and turned the camera on reads as video, because that
 /// is how it was priced.
 @override@JsonKey(name: 'call_mode') final  String? callMode;
+/// Which gift this credit is, when the row is a gift — the catalog's name
+/// and artwork at read time. Null for everything that is not a gift.
+@override@JsonKey(name: 'gift_name') final  String? giftName;
+@override@JsonKey(name: 'gift_asset_url') final  String? giftAssetUrl;
 
 /// Create a copy of EarningsLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
@@ -255,16 +263,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EarningsLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.label, label) || other.label == label)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise)&&(identical(other.counterpartName, counterpartName) || other.counterpartName == counterpartName)&&(identical(other.counterpartProfilePicture, counterpartProfilePicture) || other.counterpartProfilePicture == counterpartProfilePicture)&&(identical(other.durationSeconds, durationSeconds) || other.durationSeconds == durationSeconds)&&(identical(other.callMode, callMode) || other.callMode == callMode));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EarningsLedgerEntry&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.label, label) || other.label == label)&&(identical(other.deltaPaise, deltaPaise) || other.deltaPaise == deltaPaise)&&(identical(other.balanceAfterPaise, balanceAfterPaise) || other.balanceAfterPaise == balanceAfterPaise)&&(identical(other.counterpartName, counterpartName) || other.counterpartName == counterpartName)&&(identical(other.counterpartProfilePicture, counterpartProfilePicture) || other.counterpartProfilePicture == counterpartProfilePicture)&&(identical(other.durationSeconds, durationSeconds) || other.durationSeconds == durationSeconds)&&(identical(other.callMode, callMode) || other.callMode == callMode)&&(identical(other.giftName, giftName) || other.giftName == giftName)&&(identical(other.giftAssetUrl, giftAssetUrl) || other.giftAssetUrl == giftAssetUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,label,deltaPaise,balanceAfterPaise,counterpartName,counterpartProfilePicture,durationSeconds,callMode);
+int get hashCode => Object.hash(runtimeType,uid,createdAt,reason,label,deltaPaise,balanceAfterPaise,counterpartName,counterpartProfilePicture,durationSeconds,callMode,giftName,giftAssetUrl);
 
 @override
 String toString() {
-  return 'EarningsLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, label: $label, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise, counterpartName: $counterpartName, counterpartProfilePicture: $counterpartProfilePicture, durationSeconds: $durationSeconds, callMode: $callMode)';
+  return 'EarningsLedgerEntry(uid: $uid, createdAt: $createdAt, reason: $reason, label: $label, deltaPaise: $deltaPaise, balanceAfterPaise: $balanceAfterPaise, counterpartName: $counterpartName, counterpartProfilePicture: $counterpartProfilePicture, durationSeconds: $durationSeconds, callMode: $callMode, giftName: $giftName, giftAssetUrl: $giftAssetUrl)';
 }
 
 
@@ -275,7 +283,7 @@ abstract mixin class _$EarningsLedgerEntryCopyWith<$Res> implements $EarningsLed
   factory _$EarningsLedgerEntryCopyWith(_EarningsLedgerEntry value, $Res Function(_EarningsLedgerEntry) _then) = __$EarningsLedgerEntryCopyWithImpl;
 @override @useResult
 $Res call({
- String uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) EarningsLedgerReason reason, String label,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise,@JsonKey(name: 'counterpart_name') String? counterpartName,@JsonKey(name: 'counterpart_profile_picture') String? counterpartProfilePicture,@JsonKey(name: 'duration_seconds') int durationSeconds,@JsonKey(name: 'call_mode') String? callMode
+ String uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(unknownEnumValue: EarningsLedgerReason.unknown) EarningsLedgerReason reason, String label,@JsonKey(name: 'delta_paise') int deltaPaise,@JsonKey(name: 'balance_after_paise') int balanceAfterPaise,@JsonKey(name: 'counterpart_name') String? counterpartName,@JsonKey(name: 'counterpart_profile_picture') String? counterpartProfilePicture,@JsonKey(name: 'duration_seconds') int durationSeconds,@JsonKey(name: 'call_mode') String? callMode,@JsonKey(name: 'gift_name') String? giftName,@JsonKey(name: 'gift_asset_url') String? giftAssetUrl
 });
 
 
@@ -292,7 +300,7 @@ class __$EarningsLedgerEntryCopyWithImpl<$Res>
 
 /// Create a copy of EarningsLedgerEntry
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? label = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,Object? counterpartName = freezed,Object? counterpartProfilePicture = freezed,Object? durationSeconds = null,Object? callMode = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? createdAt = freezed,Object? reason = null,Object? label = null,Object? deltaPaise = null,Object? balanceAfterPaise = null,Object? counterpartName = freezed,Object? counterpartProfilePicture = freezed,Object? durationSeconds = null,Object? callMode = freezed,Object? giftName = freezed,Object? giftAssetUrl = freezed,}) {
   return _then(_EarningsLedgerEntry(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -304,6 +312,8 @@ as int,counterpartName: freezed == counterpartName ? _self.counterpartName : cou
 as String?,counterpartProfilePicture: freezed == counterpartProfilePicture ? _self.counterpartProfilePicture : counterpartProfilePicture // ignore: cast_nullable_to_non_nullable
 as String?,durationSeconds: null == durationSeconds ? _self.durationSeconds : durationSeconds // ignore: cast_nullable_to_non_nullable
 as int,callMode: freezed == callMode ? _self.callMode : callMode // ignore: cast_nullable_to_non_nullable
+as String?,giftName: freezed == giftName ? _self.giftName : giftName // ignore: cast_nullable_to_non_nullable
+as String?,giftAssetUrl: freezed == giftAssetUrl ? _self.giftAssetUrl : giftAssetUrl // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

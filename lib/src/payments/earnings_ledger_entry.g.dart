@@ -27,6 +27,8 @@ _EarningsLedgerEntry _$EarningsLedgerEntryFromJson(Map<String, dynamic> json) =>
       counterpartProfilePicture: json['counterpart_profile_picture'] as String?,
       durationSeconds: (json['duration_seconds'] as num?)?.toInt() ?? 0,
       callMode: json['call_mode'] as String?,
+      giftName: json['gift_name'] as String?,
+      giftAssetUrl: json['gift_asset_url'] as String?,
     );
 
 Map<String, dynamic> _$EarningsLedgerEntryToJson(
@@ -42,10 +44,13 @@ Map<String, dynamic> _$EarningsLedgerEntryToJson(
   'counterpart_profile_picture': instance.counterpartProfilePicture,
   'duration_seconds': instance.durationSeconds,
   'call_mode': instance.callMode,
+  'gift_name': instance.giftName,
+  'gift_asset_url': instance.giftAssetUrl,
 };
 
 const _$EarningsLedgerReasonEnumMap = {
   EarningsLedgerReason.callMinutes: 'call_minutes',
+  EarningsLedgerReason.giftReceived: 'gift_received',
   EarningsLedgerReason.payout: 'payout',
   EarningsLedgerReason.payoutReversal: 'payout_reversal',
   EarningsLedgerReason.adminAdjust: 'admin_adjust',
