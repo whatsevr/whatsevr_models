@@ -60,6 +60,29 @@ sealed class CallDataMessage with _$CallDataMessage {
     @Default(20) int ringWindowSeconds,
   }) = CallHostJoinRequest;
 
+  /// Server to room: a gift was paid for and recorded, broadcast after the
+  /// money committed. Never sent by a peer — a copy carrying a participant
+  /// identity is forged and must be discarded by the caller.
+  ///
+  /// [giftLedgerUid] is the unique identity of THIS send. A combo burst
+  /// repeats [giftUid] within seconds, so overlay identity and de-duplication
+  /// key on the ledger id — never the gift id, never a timestamp.
+  ///
+  /// [tier] is `chat_lane` or `fullscreen` today, but is carried as a plain
+  /// string on purpose: an older build receiving a tier it has never heard of
+  /// (or none at all) still renders the gift — falls back to a chat-lane chip
+  /// — instead of dropping it, which an enum-with-no-fallback field could not
+  /// do. See [_giftFromWireJson] for the missing/unknown-tier carve-out.
+  const factory CallDataMessage.gift({
+    required String giftLedgerUid,
+    required String giftUid,
+    required String name,
+    required String tier,
+    required int pointValue,
+    required String senderUid,
+    String? animationUrl,
+  }) = CallDataGift;
+
   const CallDataMessage._();
 
   /// Wire form. Key names are fixed by the protocol document.
@@ -92,6 +115,26 @@ sealed class CallDataMessage with _$CallDataMessage {
             'is_video': isVideo,
             'ring_window_seconds': ringWindowSeconds,
           },
+        CallDataGift(
+          :final giftLedgerUid,
+          :final giftUid,
+          :final name,
+          :final tier,
+          :final pointValue,
+          :final senderUid,
+          :final animationUrl,
+        ) =>
+          {
+            'type': 'gift.sent',
+            'v': 1,
+            'gift_ledger_uid': giftLedgerUid,
+            'gift_uid': giftUid,
+            'name': name,
+            'tier': tier,
+            'point_value': pointValue,
+            'sender_uid': senderUid,
+            'animation_url': animationUrl,
+          },
       };
 
   /// Decodes one packet, or null when the type is unknown or the shape is
@@ -121,7 +164,44 @@ sealed class CallDataMessage with _$CallDataMessage {
           ringWindowSeconds:
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
         ),
+      'gift.sent' => _giftFromWireJson(json),
       _ => null,
     };
+  }
+
+  /// `gift.sent` is money that already moved, so — unlike every case above,
+  /// which defaults a missing field rather than refuse the packet — a
+  /// required key that is absent or the wrong type decodes to null.
+  ///
+  /// `tier` is the one carve-out: it has a documented render fallback
+  /// (chat-lane) downstream, so a missing OR unknown value still parses
+  /// rather than dropping a paid gift over a display detail. The other five
+  /// required keys have no such fallback — without `gift_ledger_uid` nothing
+  /// can dedupe, without `name`/`point_value`/`sender_uid` there is nothing
+  /// honest to render — so those stay strict.
+  static CallDataMessage? _giftFromWireJson(Map<String, dynamic> json) {
+    final giftLedgerUid = json['gift_ledger_uid'];
+    final giftUid = json['gift_uid'];
+    final name = json['name'];
+    final pointValue = json['point_value'];
+    final senderUid = json['sender_uid'];
+    if (giftLedgerUid is! String ||
+        giftUid is! String ||
+        name is! String ||
+        pointValue is! int ||
+        senderUid is! String) {
+      return null;
+    }
+    final tier = json['tier'];
+    final animationUrl = json['animation_url'];
+    return CallDataMessage.gift(
+      giftLedgerUid: giftLedgerUid,
+      giftUid: giftUid,
+      name: name,
+      tier: tier is String ? tier : '',
+      pointValue: pointValue,
+      senderUid: senderUid,
+      animationUrl: animationUrl is String ? animationUrl : null,
+    );
   }
 }
