@@ -3,15 +3,19 @@ import 'package:whatsevr_models/lib.dart';
 
 void main() {
   group('CallDataMessage.gift wire codec', () {
-    CallDataMessage gift({String? animationUrl = 'https://cdn/lottie.json'}) =>
+    CallDataMessage gift({
+      String? assetUrl = 'https://cdn/rose.png',
+      String? assetKind = 'image',
+    }) =>
         CallDataMessage.gift(
           giftLedgerUid: 'ledger-1',
           giftUid: 'gift-1',
           name: 'Rose',
           tier: 'chat_lane',
-          pointValue: 10,
+          pricePaise: 1000,
           senderUid: 'sender-1',
-          animationUrl: animationUrl,
+          assetUrl: assetUrl,
+          assetKind: assetKind,
         );
 
     test('round-trips through the wire form', () {
@@ -32,22 +36,25 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'chat_lane',
-        'point_value': 10,
+        'price_paise': 1000,
         'sender_uid': 'sender-1',
-        'animation_url': 'https://cdn/lottie.json',
+        'asset_url': 'https://cdn/rose.png',
+        'asset_kind': 'image',
       });
     });
 
-    test('a null animation_url round-trips as null, not dropped', () {
-      final message = gift(animationUrl: null);
+    test('a null asset pair round-trips as null, not dropped', () {
+      final message = gift(assetUrl: null, assetKind: null);
 
       final json = message.toWireJson();
-      expect(json.containsKey('animation_url'), isTrue);
-      expect(json['animation_url'], isNull);
+      expect(json.containsKey('asset_url'), isTrue);
+      expect(json['asset_url'], isNull);
+      expect(json['asset_kind'], isNull);
 
       final decoded = CallDataMessage.fromWireJson(json);
       expect(decoded, message);
-      expect((decoded! as CallDataGift).animationUrl, isNull);
+      expect((decoded! as CallDataGift).assetUrl, isNull);
+      expect((decoded as CallDataGift).assetKind, isNull);
     });
 
     test('an unknown tier still parses — does not decode to null', () {
@@ -57,9 +64,10 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'diamond_confetti',
-        'point_value': 10,
+        'price_paise': 1000,
         'sender_uid': 'sender-1',
-        'animation_url': null,
+        'asset_url': null,
+        'asset_kind': null,
       });
 
       expect(decoded, isNotNull);
@@ -72,7 +80,7 @@ void main() {
         'gift_ledger_uid': 'ledger-1',
         'gift_uid': 'gift-1',
         'name': 'Rose',
-        'point_value': 10,
+        'price_paise': 1000,
         'sender_uid': 'sender-1',
       });
 
@@ -91,7 +99,7 @@ void main() {
             'gift_uid': 'gift-1',
             'name': 'Rose',
             'tier': 'chat_lane',
-            'point_value': 10,
+            'price_paise': 1000,
             'sender_uid': 'sender-1',
           };
 
@@ -99,7 +107,7 @@ void main() {
         'gift_ledger_uid',
         'gift_uid',
         'name',
-        'point_value',
+        'price_paise',
         'sender_uid',
       ]) {
         final json = full()..remove(key);
@@ -118,7 +126,7 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'chat_lane',
-        'point_value': 'ten',
+        'price_paise': 'ten rupees',
         'sender_uid': 'sender-1',
       };
 

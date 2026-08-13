@@ -73,14 +73,24 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// (or none at all) still renders the gift — falls back to a chat-lane chip
   /// — instead of dropping it, which an enum-with-no-fallback field could not
   /// do. See [_giftFromWireJson] for the missing/unknown-tier carve-out.
+  ///
+  /// [name] is display-only and carries no identity guarantee: a client
+  /// renders a gift's artwork from [assetUrl]/[assetKind], never from a name
+  /// lookup, and falls back to the generic chip when there is none.
+  /// [assetKind] names what is at [assetUrl] and is deliberately open-ended —
+  /// a kind this build does not recognise falls back to the chip too.
+  /// [pricePaise] is both what the sender paid and what the host earned:
+  /// nothing is taken at send time; the platform's cut is charged at
+  /// withdrawal.
   const factory CallDataMessage.gift({
     required String giftLedgerUid,
     required String giftUid,
     required String name,
     required String tier,
-    required int pointValue,
+    required int pricePaise,
     required String senderUid,
-    String? animationUrl,
+    String? assetUrl,
+    String? assetKind,
   }) = CallDataGift;
 
   const CallDataMessage._();
@@ -120,9 +130,10 @@ sealed class CallDataMessage with _$CallDataMessage {
           :final giftUid,
           :final name,
           :final tier,
-          :final pointValue,
+          :final pricePaise,
           :final senderUid,
-          :final animationUrl,
+          :final assetUrl,
+          :final assetKind,
         ) =>
           {
             'type': 'gift.sent',
@@ -131,9 +142,10 @@ sealed class CallDataMessage with _$CallDataMessage {
             'gift_uid': giftUid,
             'name': name,
             'tier': tier,
-            'point_value': pointValue,
+            'price_paise': pricePaise,
             'sender_uid': senderUid,
-            'animation_url': animationUrl,
+            'asset_url': assetUrl,
+            'asset_kind': assetKind,
           },
       };
 
@@ -173,35 +185,42 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// which defaults a missing field rather than refuse the packet — a
   /// required key that is absent or the wrong type decodes to null.
   ///
-  /// `tier` is the one carve-out: it has a documented render fallback
-  /// (chat-lane) downstream, so a missing OR unknown value still parses
-  /// rather than dropping a paid gift over a display detail. The other five
-  /// required keys have no such fallback — without `gift_ledger_uid` nothing
-  /// can dedupe, without `name`/`point_value`/`sender_uid` there is nothing
-  /// honest to render — so those stay strict.
+  /// `tier` and the asset pair are the lenient half: each has a documented
+  /// render fallback (the chat lane; the generic chip), so a missing OR
+  /// unknown value still parses rather than dropping a paid gift over a
+  /// display detail. The other five required keys have no such fallback —
+  /// without `gift_ledger_uid` nothing can dedupe, without
+  /// `name`/`price_paise`/`sender_uid` there is nothing honest to render —
+  /// so those stay strict.
   static CallDataMessage? _giftFromWireJson(Map<String, dynamic> json) {
     final giftLedgerUid = json['gift_ledger_uid'];
     final giftUid = json['gift_uid'];
     final name = json['name'];
-    final pointValue = json['point_value'];
+    final pricePaise = json['price_paise'];
     final senderUid = json['sender_uid'];
     if (giftLedgerUid is! String ||
         giftUid is! String ||
         name is! String ||
-        pointValue is! int ||
+        pricePaise is! int ||
         senderUid is! String) {
       return null;
     }
     final tier = json['tier'];
-    final animationUrl = json['animation_url'];
+    final assetUrl = json['asset_url'];
+    final assetKind = json['asset_kind'];
     return CallDataMessage.gift(
       giftLedgerUid: giftLedgerUid,
       giftUid: giftUid,
       name: name,
+      // A tier this build predates is still money somebody spent, so it
+      // decodes and renders in the lane every build understands.
       tier: tier is String ? tier : '',
-      pointValue: pointValue,
+      pricePaise: pricePaise,
       senderUid: senderUid,
-      animationUrl: animationUrl is String ? animationUrl : null,
+      // Same rule for the artwork: an asset we cannot name is an asset we
+      // do not draw, not a packet we drop.
+      assetUrl: assetUrl is String ? assetUrl : null,
+      assetKind: assetKind is String ? assetKind : null,
     );
   }
 }
