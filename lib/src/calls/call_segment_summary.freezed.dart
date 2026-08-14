@@ -17,7 +17,13 @@ mixin _$CallSegmentSummary {
 
 /// The BILLING key (`<room>:<n>`, or the call uid for a direct call), never
 /// the LiveKit room name.
- String get segment;@JsonKey(name: 'billed_seconds') int get billedSeconds;@JsonKey(name: 'spent_paise') int get spentPaise;/// `audio` or `video`. A call that turned the camera on is video, because
+ String get segment;@JsonKey(name: 'billed_seconds') int get billedSeconds;/// What this call debited the payer. Zero for an earner, who is never told
+/// what the other side was charged.
+@JsonKey(name: 'spent_paise') int get spentPaise;/// What this call credited the earner, after the platform cut. Zero for a
+/// payer.
+@JsonKey(name: 'earned_paise') int get earnedPaise;/// `payer` or `earner`. Defaults to `payer` so a response from a server too
+/// old to send it reads exactly as it did before this field existed.
+@JsonKey(name: 'viewer_role') String get viewerRole;/// `audio` or `video`. A call that turned the camera on is video, because
 /// that is how its minutes were priced.
  String get mode; bool get settled;
 /// Create a copy of CallSegmentSummary
@@ -32,16 +38,16 @@ $CallSegmentSummaryCopyWith<CallSegmentSummary> get copyWith => _$CallSegmentSum
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallSegmentSummary&&(identical(other.segment, segment) || other.segment == segment)&&(identical(other.billedSeconds, billedSeconds) || other.billedSeconds == billedSeconds)&&(identical(other.spentPaise, spentPaise) || other.spentPaise == spentPaise)&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.settled, settled) || other.settled == settled));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallSegmentSummary&&(identical(other.segment, segment) || other.segment == segment)&&(identical(other.billedSeconds, billedSeconds) || other.billedSeconds == billedSeconds)&&(identical(other.spentPaise, spentPaise) || other.spentPaise == spentPaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.viewerRole, viewerRole) || other.viewerRole == viewerRole)&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.settled, settled) || other.settled == settled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,segment,billedSeconds,spentPaise,mode,settled);
+int get hashCode => Object.hash(runtimeType,segment,billedSeconds,spentPaise,earnedPaise,viewerRole,mode,settled);
 
 @override
 String toString() {
-  return 'CallSegmentSummary(segment: $segment, billedSeconds: $billedSeconds, spentPaise: $spentPaise, mode: $mode, settled: $settled)';
+  return 'CallSegmentSummary(segment: $segment, billedSeconds: $billedSeconds, spentPaise: $spentPaise, earnedPaise: $earnedPaise, viewerRole: $viewerRole, mode: $mode, settled: $settled)';
 }
 
 
@@ -52,7 +58,7 @@ abstract mixin class $CallSegmentSummaryCopyWith<$Res>  {
   factory $CallSegmentSummaryCopyWith(CallSegmentSummary value, $Res Function(CallSegmentSummary) _then) = _$CallSegmentSummaryCopyWithImpl;
 @useResult
 $Res call({
- String segment,@JsonKey(name: 'billed_seconds') int billedSeconds,@JsonKey(name: 'spent_paise') int spentPaise, String mode, bool settled
+ String segment,@JsonKey(name: 'billed_seconds') int billedSeconds,@JsonKey(name: 'spent_paise') int spentPaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'viewer_role') String viewerRole, String mode, bool settled
 });
 
 
@@ -69,12 +75,14 @@ class _$CallSegmentSummaryCopyWithImpl<$Res>
 
 /// Create a copy of CallSegmentSummary
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? segment = null,Object? billedSeconds = null,Object? spentPaise = null,Object? mode = null,Object? settled = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? segment = null,Object? billedSeconds = null,Object? spentPaise = null,Object? earnedPaise = null,Object? viewerRole = null,Object? mode = null,Object? settled = null,}) {
   return _then(_self.copyWith(
 segment: null == segment ? _self.segment : segment // ignore: cast_nullable_to_non_nullable
 as String,billedSeconds: null == billedSeconds ? _self.billedSeconds : billedSeconds // ignore: cast_nullable_to_non_nullable
 as int,spentPaise: null == spentPaise ? _self.spentPaise : spentPaise // ignore: cast_nullable_to_non_nullable
-as int,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as int,earnedPaise: null == earnedPaise ? _self.earnedPaise : earnedPaise // ignore: cast_nullable_to_non_nullable
+as int,viewerRole: null == viewerRole ? _self.viewerRole : viewerRole // ignore: cast_nullable_to_non_nullable
+as String,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as String,settled: null == settled ? _self.settled : settled // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -158,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise,  String mode,  bool settled)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'viewer_role')  String viewerRole,  String mode,  bool settled)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CallSegmentSummary() when $default != null:
-return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_that.settled);case _:
+return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.earnedPaise,_that.viewerRole,_that.mode,_that.settled);case _:
   return orElse();
 
 }
@@ -179,10 +187,10 @@ return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise,  String mode,  bool settled)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'viewer_role')  String viewerRole,  String mode,  bool settled)  $default,) {final _that = this;
 switch (_that) {
 case _CallSegmentSummary():
-return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_that.settled);}
+return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.earnedPaise,_that.viewerRole,_that.mode,_that.settled);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -196,10 +204,10 @@ return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise,  String mode,  bool settled)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String segment, @JsonKey(name: 'billed_seconds')  int billedSeconds, @JsonKey(name: 'spent_paise')  int spentPaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'viewer_role')  String viewerRole,  String mode,  bool settled)?  $default,) {final _that = this;
 switch (_that) {
 case _CallSegmentSummary() when $default != null:
-return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_that.settled);case _:
+return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.earnedPaise,_that.viewerRole,_that.mode,_that.settled);case _:
   return null;
 
 }
@@ -211,14 +219,22 @@ return $default(_that.segment,_that.billedSeconds,_that.spentPaise,_that.mode,_t
 @JsonSerializable()
 
 class _CallSegmentSummary extends CallSegmentSummary {
-  const _CallSegmentSummary({this.segment = '', @JsonKey(name: 'billed_seconds') this.billedSeconds = 0, @JsonKey(name: 'spent_paise') this.spentPaise = 0, this.mode = 'video', this.settled = false}): super._();
+  const _CallSegmentSummary({this.segment = '', @JsonKey(name: 'billed_seconds') this.billedSeconds = 0, @JsonKey(name: 'spent_paise') this.spentPaise = 0, @JsonKey(name: 'earned_paise') this.earnedPaise = 0, @JsonKey(name: 'viewer_role') this.viewerRole = 'payer', this.mode = 'video', this.settled = false}): super._();
   factory _CallSegmentSummary.fromJson(Map<String, dynamic> json) => _$CallSegmentSummaryFromJson(json);
 
 /// The BILLING key (`<room>:<n>`, or the call uid for a direct call), never
 /// the LiveKit room name.
 @override@JsonKey() final  String segment;
 @override@JsonKey(name: 'billed_seconds') final  int billedSeconds;
+/// What this call debited the payer. Zero for an earner, who is never told
+/// what the other side was charged.
 @override@JsonKey(name: 'spent_paise') final  int spentPaise;
+/// What this call credited the earner, after the platform cut. Zero for a
+/// payer.
+@override@JsonKey(name: 'earned_paise') final  int earnedPaise;
+/// `payer` or `earner`. Defaults to `payer` so a response from a server too
+/// old to send it reads exactly as it did before this field existed.
+@override@JsonKey(name: 'viewer_role') final  String viewerRole;
 /// `audio` or `video`. A call that turned the camera on is video, because
 /// that is how its minutes were priced.
 @override@JsonKey() final  String mode;
@@ -237,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallSegmentSummary&&(identical(other.segment, segment) || other.segment == segment)&&(identical(other.billedSeconds, billedSeconds) || other.billedSeconds == billedSeconds)&&(identical(other.spentPaise, spentPaise) || other.spentPaise == spentPaise)&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.settled, settled) || other.settled == settled));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallSegmentSummary&&(identical(other.segment, segment) || other.segment == segment)&&(identical(other.billedSeconds, billedSeconds) || other.billedSeconds == billedSeconds)&&(identical(other.spentPaise, spentPaise) || other.spentPaise == spentPaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.viewerRole, viewerRole) || other.viewerRole == viewerRole)&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.settled, settled) || other.settled == settled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,segment,billedSeconds,spentPaise,mode,settled);
+int get hashCode => Object.hash(runtimeType,segment,billedSeconds,spentPaise,earnedPaise,viewerRole,mode,settled);
 
 @override
 String toString() {
-  return 'CallSegmentSummary(segment: $segment, billedSeconds: $billedSeconds, spentPaise: $spentPaise, mode: $mode, settled: $settled)';
+  return 'CallSegmentSummary(segment: $segment, billedSeconds: $billedSeconds, spentPaise: $spentPaise, earnedPaise: $earnedPaise, viewerRole: $viewerRole, mode: $mode, settled: $settled)';
 }
 
 
@@ -257,7 +273,7 @@ abstract mixin class _$CallSegmentSummaryCopyWith<$Res> implements $CallSegmentS
   factory _$CallSegmentSummaryCopyWith(_CallSegmentSummary value, $Res Function(_CallSegmentSummary) _then) = __$CallSegmentSummaryCopyWithImpl;
 @override @useResult
 $Res call({
- String segment,@JsonKey(name: 'billed_seconds') int billedSeconds,@JsonKey(name: 'spent_paise') int spentPaise, String mode, bool settled
+ String segment,@JsonKey(name: 'billed_seconds') int billedSeconds,@JsonKey(name: 'spent_paise') int spentPaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'viewer_role') String viewerRole, String mode, bool settled
 });
 
 
@@ -274,12 +290,14 @@ class __$CallSegmentSummaryCopyWithImpl<$Res>
 
 /// Create a copy of CallSegmentSummary
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? segment = null,Object? billedSeconds = null,Object? spentPaise = null,Object? mode = null,Object? settled = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? segment = null,Object? billedSeconds = null,Object? spentPaise = null,Object? earnedPaise = null,Object? viewerRole = null,Object? mode = null,Object? settled = null,}) {
   return _then(_CallSegmentSummary(
 segment: null == segment ? _self.segment : segment // ignore: cast_nullable_to_non_nullable
 as String,billedSeconds: null == billedSeconds ? _self.billedSeconds : billedSeconds // ignore: cast_nullable_to_non_nullable
 as int,spentPaise: null == spentPaise ? _self.spentPaise : spentPaise // ignore: cast_nullable_to_non_nullable
-as int,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as int,earnedPaise: null == earnedPaise ? _self.earnedPaise : earnedPaise // ignore: cast_nullable_to_non_nullable
+as int,viewerRole: null == viewerRole ? _self.viewerRole : viewerRole // ignore: cast_nullable_to_non_nullable
+as String,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as String,settled: null == settled ? _self.settled : settled // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
