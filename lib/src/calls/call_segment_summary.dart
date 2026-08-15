@@ -48,6 +48,13 @@ sealed class CallSegmentSummary with _$CallSegmentSummary {
     /// that is how its minutes were priced.
     @Default('video') String mode,
     @Default(false) bool settled,
+
+    /// Why the call ended, or null while nothing has stamped a reason yet.
+    /// `out_of_funds` when the prepaid balance was exhausted; other values
+    /// (`declined`, `cancelled_by_caller`, `ring_timeout`,
+    /// `ended_by_moderator`, `room_finished`) cover the rest. The server owns
+    /// this classification — never infer it from a locally-held balance.
+    @JsonKey(name: 'end_reason') String? endReason,
   }) = _CallSegmentSummary;
 
   const CallSegmentSummary._();
@@ -59,6 +66,11 @@ sealed class CallSegmentSummary with _$CallSegmentSummary {
 
   /// Whether this response describes the side that was PAID for the call.
   bool get isEarner => viewerRole == 'earner';
+
+  /// Whether the server has confirmed the prepaid balance ran out. The only
+  /// truthful source for this: never reconstruct it from a locally-held
+  /// wallet snapshot compared against a per-minute price.
+  bool get isOutOfFunds => endReason == 'out_of_funds';
 
   /// The one figure that belongs on this side's screen.
   int get amountPaise => isEarner ? earnedPaise : spentPaise;

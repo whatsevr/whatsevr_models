@@ -15,6 +15,7 @@ _CallSegmentSummary _$CallSegmentSummaryFromJson(Map<String, dynamic> json) =>
       viewerRole: json['viewer_role'] as String? ?? 'payer',
       mode: json['mode'] as String? ?? 'video',
       settled: json['settled'] as bool? ?? false,
+      endReason: json['end_reason'] as String?,
     );
 
 Map<String, dynamic> _$CallSegmentSummaryToJson(_CallSegmentSummary instance) =>
@@ -26,4 +27,5 @@ Map<String, dynamic> _$CallSegmentSummaryToJson(_CallSegmentSummary instance) =>
       'viewer_role': instance.viewerRole,
       'mode': instance.mode,
       'settled': instance.settled,
+      'end_reason': instance.endReason,
     };

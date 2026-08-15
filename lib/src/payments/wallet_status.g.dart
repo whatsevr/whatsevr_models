@@ -27,6 +27,12 @@ _WalletStatus _$WalletStatusFromJson(
             json['one_to_one_call_rate'] as Map<String, dynamic>,
           ),
   isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
+  spinFeePaise: (json['spin_fee_paise'] as num?)?.toInt() ?? 0,
+  yourSpinCostPaise: (json['your_spin_cost_paise'] as num?)?.toInt() ?? 0,
+  nextSpinIsFree: json['next_spin_is_free'] as bool? ?? false,
+  canAffordSpin: json['can_afford_spin'] as bool? ?? false,
+  hostEligibility: json['host_eligibility'] as String? ?? 'not_host',
+  canApplyToBeHost: json['can_apply_to_be_host'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
@@ -37,6 +43,12 @@ Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
       'earnings': instance.earnings,
       'one_to_one_call_rate': instance.oneToOneCallRate,
       'is_premium_profile': instance.isPremiumProfile,
+      'spin_fee_paise': instance.spinFeePaise,
+      'your_spin_cost_paise': instance.yourSpinCostPaise,
+      'next_spin_is_free': instance.nextSpinIsFree,
+      'can_afford_spin': instance.canAffordSpin,
+      'host_eligibility': instance.hostEligibility,
+      'can_apply_to_be_host': instance.canApplyToBeHost,
     };
 
 _PerkGrant _$PerkGrantFromJson(Map<String, dynamic> json) => _PerkGrant(

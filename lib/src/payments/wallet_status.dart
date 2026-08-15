@@ -4,17 +4,18 @@ part 'wallet_status.freezed.dart';
 part 'wallet_status.g.dart';
 
 /// `GET /api/v1/payments/wallet-status` — the whole money display state in one
-/// call, and the source of truth for two gates the app must get right:
+/// call, and the answer to two gates the app used to work out for itself:
 ///
-/// - the **spin gate**: `freeSpins > 0 || balancePaise >= spinFeePaise`. Gating
-///   on the balance alone locks out exactly the new user the welcome gift
-///   exists to convert.
-/// - the **host gate**: `earnings.earnerVerified && candidate gender is female`
-///   — the client-side mirror of the server's `is_billable_female`.
+/// - the **spin gate**: [canAffordSpin], the server's own `can_afford_spin`.
+///   The app used to compare a balance against a fee, which locked out exactly
+///   the new user the welcome gift exists to convert.
+/// - the **host gate**: [hostEligibility] and [canApplyToBeHost], the server's
+///   `is_billable_female` and `is_female_candidate`. The app used to rebuild
+///   both from a gender it fetched from a second endpoint.
 ///
 /// Every amount is integer **paise** — the only unit the backend stores. The
-/// app displays rupees (paise / 100). Never recompute a price the server
-/// already sent.
+/// app displays rupees (paise / 100). Never recompute a price or a gate the
+/// server already sent.
 @freezed
 sealed class WalletStatus with _$WalletStatus {
   const factory WalletStatus({
@@ -32,20 +33,40 @@ sealed class WalletStatus with _$WalletStatus {
     @Default(WalletEarnings()) WalletEarnings earnings,
     @JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
+
+    /// The list price of a spin — what the consent screen quotes to everyone.
+    @JsonKey(name: 'spin_fee_paise') @Default(0) int spinFeePaise,
+
+    /// What THIS account's next spin actually costs, which is a different
+    /// number for a verified earner and for anyone holding a free spin.
+    @JsonKey(name: 'your_spin_cost_paise') @Default(0) int yourSpinCostPaise,
+    @JsonKey(name: 'next_spin_is_free') @Default(false) bool nextSpinIsFree,
+
+    /// The server's own affordability answer. Defaults false so a build
+    /// talking to a server that predates the field shows the top-up path
+    /// rather than sending a spin the API would refuse.
+    @JsonKey(name: 'can_afford_spin') @Default(false) bool canAffordSpin,
+
+    /// `host` or `not_host`, straight from the server's `is_billable_female`.
+    ///
+    /// Defaults to `not_host` rather than null on purpose: the gate this feeds
+    /// guards Host Studio and the earnings history, and an absent field must
+    /// close that door, not hold it open. "We have not asked yet" is carried
+    /// by the caller's own loaded flag, not by this value.
+    @JsonKey(name: 'host_eligibility')
+    @Default('not_host')
+    String hostEligibility,
+
+    /// Whether to offer the way in to becoming a paid host.
+    @JsonKey(name: 'can_apply_to_be_host')
+    @Default(false)
+    bool canApplyToBeHost,
   }) = _WalletStatus;
 
   const WalletStatus._();
 
   factory WalletStatus.fromJson(Map<String, dynamic> json) =>
       _$WalletStatusFromJson(json);
-
-  /// Whether a spin can be started at all. [spinFeePaise] comes from the spin
-  /// endpoint's own response, not a client constant.
-  bool canSpin({required int spinFeePaise}) =>
-      freeSpins > 0 || balancePaise >= spinFeePaise;
-
-  /// Verified earners take calls for free — they are the paid side.
-  bool get isVerifiedEarner => earnings.earnerVerified;
 }
 
 /// One active paid filter. `config` is perk-specific: `{"gender": "female"}`
