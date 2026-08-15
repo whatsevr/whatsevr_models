@@ -48,6 +48,7 @@ _UserAlert _$UserAlertFromJson(Map<String, dynamic> json) => _UserAlert(
       json['actor_user'] == null
           ? null
           : ActorUser.fromJson(json['actor_user'] as Map<String, dynamic>),
+  target: json['target'] as Map<String, dynamic>?,
 );
 
 Map<String, dynamic> _$UserAlertToJson(_UserAlert instance) =>
@@ -61,6 +62,7 @@ Map<String, dynamic> _$UserAlertToJson(_UserAlert instance) =>
       'alert_type': instance.alertType,
       'content': instance.content,
       'actor_user': instance.actorUser,
+      'target': instance.target,
     };
 
 _AlertContent _$AlertContentFromJson(Map<String, dynamic> json) =>

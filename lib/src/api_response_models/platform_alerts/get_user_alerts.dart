@@ -29,6 +29,7 @@ sealed class UserAlert with _$UserAlert {
     @JsonKey(name: 'alert_type') String? alertType,
     @JsonKey(name: 'content') List<AlertContent>? content,
     @JsonKey(name: 'actor_user') ActorUser? actorUser,
+    @JsonKey(name: 'target') Map<String, dynamic>? target,
   }) = _UserAlert;
 
   factory UserAlert.fromJson(Map<String, dynamic> json) =>

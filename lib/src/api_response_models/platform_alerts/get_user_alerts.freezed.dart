@@ -292,7 +292,7 @@ as bool?,
 /// @nodoc
 mixin _$UserAlert {
 
-@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'recipient_user_uid') String? get recipientUserUid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'actor_user_uid') String? get actorUserUid;@JsonKey(name: 'alert_type') String? get alertType;@JsonKey(name: 'content') List<AlertContent>? get content;@JsonKey(name: 'actor_user') ActorUser? get actorUser;
+@JsonKey(name: 'uid') String? get uid;@JsonKey(name: 'created_at') DateTime? get createdAt;@JsonKey(name: 'recipient_user_uid') String? get recipientUserUid;@JsonKey(name: 'title') String? get title;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'actor_user_uid') String? get actorUserUid;@JsonKey(name: 'alert_type') String? get alertType;@JsonKey(name: 'content') List<AlertContent>? get content;@JsonKey(name: 'actor_user') ActorUser? get actorUser;@JsonKey(name: 'target') Map<String, dynamic>? get target;
 /// Create a copy of UserAlert
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -305,16 +305,16 @@ $UserAlertCopyWith<UserAlert> get copyWith => _$UserAlertCopyWithImpl<UserAlert>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserAlert&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.recipientUserUid, recipientUserUid) || other.recipientUserUid == recipientUserUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.actorUserUid, actorUserUid) || other.actorUserUid == actorUserUid)&&(identical(other.alertType, alertType) || other.alertType == alertType)&&const DeepCollectionEquality().equals(other.content, content)&&(identical(other.actorUser, actorUser) || other.actorUser == actorUser));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserAlert&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.recipientUserUid, recipientUserUid) || other.recipientUserUid == recipientUserUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.actorUserUid, actorUserUid) || other.actorUserUid == actorUserUid)&&(identical(other.alertType, alertType) || other.alertType == alertType)&&const DeepCollectionEquality().equals(other.content, content)&&(identical(other.actorUser, actorUser) || other.actorUser == actorUser)&&const DeepCollectionEquality().equals(other.target, target));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,createdAt,recipientUserUid,title,description,actorUserUid,alertType,const DeepCollectionEquality().hash(content),actorUser);
+int get hashCode => Object.hash(runtimeType,uid,createdAt,recipientUserUid,title,description,actorUserUid,alertType,const DeepCollectionEquality().hash(content),actorUser,const DeepCollectionEquality().hash(target));
 
 @override
 String toString() {
-  return 'UserAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content, actorUser: $actorUser)';
+  return 'UserAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content, actorUser: $actorUser, target: $target)';
 }
 
 
@@ -325,7 +325,7 @@ abstract mixin class $UserAlertCopyWith<$Res>  {
   factory $UserAlertCopyWith(UserAlert value, $Res Function(UserAlert) _then) = _$UserAlertCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'recipient_user_uid') String? recipientUserUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'actor_user_uid') String? actorUserUid,@JsonKey(name: 'alert_type') String? alertType,@JsonKey(name: 'content') List<AlertContent>? content,@JsonKey(name: 'actor_user') ActorUser? actorUser
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'recipient_user_uid') String? recipientUserUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'actor_user_uid') String? actorUserUid,@JsonKey(name: 'alert_type') String? alertType,@JsonKey(name: 'content') List<AlertContent>? content,@JsonKey(name: 'actor_user') ActorUser? actorUser,@JsonKey(name: 'target') Map<String, dynamic>? target
 });
 
 
@@ -342,7 +342,7 @@ class _$UserAlertCopyWithImpl<$Res>
 
 /// Create a copy of UserAlert
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? createdAt = freezed,Object? recipientUserUid = freezed,Object? title = freezed,Object? description = freezed,Object? actorUserUid = freezed,Object? alertType = freezed,Object? content = freezed,Object? actorUser = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = freezed,Object? createdAt = freezed,Object? recipientUserUid = freezed,Object? title = freezed,Object? description = freezed,Object? actorUserUid = freezed,Object? alertType = freezed,Object? content = freezed,Object? actorUser = freezed,Object? target = freezed,}) {
   return _then(_self.copyWith(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -353,7 +353,8 @@ as String?,actorUserUid: freezed == actorUserUid ? _self.actorUserUid : actorUse
 as String?,alertType: freezed == alertType ? _self.alertType : alertType // ignore: cast_nullable_to_non_nullable
 as String?,content: freezed == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as List<AlertContent>?,actorUser: freezed == actorUser ? _self.actorUser : actorUser // ignore: cast_nullable_to_non_nullable
-as ActorUser?,
+as ActorUser?,target: freezed == target ? _self.target : target // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of UserAlert
@@ -447,10 +448,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser, @JsonKey(name: 'target')  Map<String, dynamic>? target)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserAlert() when $default != null:
-return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser);case _:
+return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser,_that.target);case _:
   return orElse();
 
 }
@@ -468,10 +469,10 @@ return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser, @JsonKey(name: 'target')  Map<String, dynamic>? target)  $default,) {final _that = this;
 switch (_that) {
 case _UserAlert():
-return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser);}
+return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser,_that.target);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -485,10 +486,10 @@ return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'uid')  String? uid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'recipient_user_uid')  String? recipientUserUid, @JsonKey(name: 'title')  String? title, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'actor_user_uid')  String? actorUserUid, @JsonKey(name: 'alert_type')  String? alertType, @JsonKey(name: 'content')  List<AlertContent>? content, @JsonKey(name: 'actor_user')  ActorUser? actorUser, @JsonKey(name: 'target')  Map<String, dynamic>? target)?  $default,) {final _that = this;
 switch (_that) {
 case _UserAlert() when $default != null:
-return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser);case _:
+return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_that.description,_that.actorUserUid,_that.alertType,_that.content,_that.actorUser,_that.target);case _:
   return null;
 
 }
@@ -500,7 +501,7 @@ return $default(_that.uid,_that.createdAt,_that.recipientUserUid,_that.title,_th
 @JsonSerializable()
 
 class _UserAlert implements UserAlert {
-  const _UserAlert({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'recipient_user_uid') this.recipientUserUid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'actor_user_uid') this.actorUserUid, @JsonKey(name: 'alert_type') this.alertType, @JsonKey(name: 'content') final  List<AlertContent>? content, @JsonKey(name: 'actor_user') this.actorUser}): _content = content;
+  const _UserAlert({@JsonKey(name: 'uid') this.uid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'recipient_user_uid') this.recipientUserUid, @JsonKey(name: 'title') this.title, @JsonKey(name: 'description') this.description, @JsonKey(name: 'actor_user_uid') this.actorUserUid, @JsonKey(name: 'alert_type') this.alertType, @JsonKey(name: 'content') final  List<AlertContent>? content, @JsonKey(name: 'actor_user') this.actorUser, @JsonKey(name: 'target') final  Map<String, dynamic>? target}): _content = content,_target = target;
   factory _UserAlert.fromJson(Map<String, dynamic> json) => _$UserAlertFromJson(json);
 
 @override@JsonKey(name: 'uid') final  String? uid;
@@ -520,6 +521,15 @@ class _UserAlert implements UserAlert {
 }
 
 @override@JsonKey(name: 'actor_user') final  ActorUser? actorUser;
+ final  Map<String, dynamic>? _target;
+@override@JsonKey(name: 'target') Map<String, dynamic>? get target {
+  final value = _target;
+  if (value == null) return null;
+  if (_target is EqualUnmodifiableMapView) return _target;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
 
 /// Create a copy of UserAlert
 /// with the given fields replaced by the non-null parameter values.
@@ -534,16 +544,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserAlert&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.recipientUserUid, recipientUserUid) || other.recipientUserUid == recipientUserUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.actorUserUid, actorUserUid) || other.actorUserUid == actorUserUid)&&(identical(other.alertType, alertType) || other.alertType == alertType)&&const DeepCollectionEquality().equals(other._content, _content)&&(identical(other.actorUser, actorUser) || other.actorUser == actorUser));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserAlert&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.recipientUserUid, recipientUserUid) || other.recipientUserUid == recipientUserUid)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.actorUserUid, actorUserUid) || other.actorUserUid == actorUserUid)&&(identical(other.alertType, alertType) || other.alertType == alertType)&&const DeepCollectionEquality().equals(other._content, _content)&&(identical(other.actorUser, actorUser) || other.actorUser == actorUser)&&const DeepCollectionEquality().equals(other._target, _target));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,createdAt,recipientUserUid,title,description,actorUserUid,alertType,const DeepCollectionEquality().hash(_content),actorUser);
+int get hashCode => Object.hash(runtimeType,uid,createdAt,recipientUserUid,title,description,actorUserUid,alertType,const DeepCollectionEquality().hash(_content),actorUser,const DeepCollectionEquality().hash(_target));
 
 @override
 String toString() {
-  return 'UserAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content, actorUser: $actorUser)';
+  return 'UserAlert(uid: $uid, createdAt: $createdAt, recipientUserUid: $recipientUserUid, title: $title, description: $description, actorUserUid: $actorUserUid, alertType: $alertType, content: $content, actorUser: $actorUser, target: $target)';
 }
 
 
@@ -554,7 +564,7 @@ abstract mixin class _$UserAlertCopyWith<$Res> implements $UserAlertCopyWith<$Re
   factory _$UserAlertCopyWith(_UserAlert value, $Res Function(_UserAlert) _then) = __$UserAlertCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'recipient_user_uid') String? recipientUserUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'actor_user_uid') String? actorUserUid,@JsonKey(name: 'alert_type') String? alertType,@JsonKey(name: 'content') List<AlertContent>? content,@JsonKey(name: 'actor_user') ActorUser? actorUser
+@JsonKey(name: 'uid') String? uid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'recipient_user_uid') String? recipientUserUid,@JsonKey(name: 'title') String? title,@JsonKey(name: 'description') String? description,@JsonKey(name: 'actor_user_uid') String? actorUserUid,@JsonKey(name: 'alert_type') String? alertType,@JsonKey(name: 'content') List<AlertContent>? content,@JsonKey(name: 'actor_user') ActorUser? actorUser,@JsonKey(name: 'target') Map<String, dynamic>? target
 });
 
 
@@ -571,7 +581,7 @@ class __$UserAlertCopyWithImpl<$Res>
 
 /// Create a copy of UserAlert
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? createdAt = freezed,Object? recipientUserUid = freezed,Object? title = freezed,Object? description = freezed,Object? actorUserUid = freezed,Object? alertType = freezed,Object? content = freezed,Object? actorUser = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = freezed,Object? createdAt = freezed,Object? recipientUserUid = freezed,Object? title = freezed,Object? description = freezed,Object? actorUserUid = freezed,Object? alertType = freezed,Object? content = freezed,Object? actorUser = freezed,Object? target = freezed,}) {
   return _then(_UserAlert(
 uid: freezed == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -582,7 +592,8 @@ as String?,actorUserUid: freezed == actorUserUid ? _self.actorUserUid : actorUse
 as String?,alertType: freezed == alertType ? _self.alertType : alertType // ignore: cast_nullable_to_non_nullable
 as String?,content: freezed == content ? _self._content : content // ignore: cast_nullable_to_non_nullable
 as List<AlertContent>?,actorUser: freezed == actorUser ? _self.actorUser : actorUser // ignore: cast_nullable_to_non_nullable
-as ActorUser?,
+as ActorUser?,target: freezed == target ? _self._target : target // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
   ));
 }
 
