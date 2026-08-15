@@ -55,6 +55,12 @@ sealed class PerkGrant with _$PerkGrant {
   const factory PerkGrant({
     @Default(<String, dynamic>{}) Map<String, dynamic> config,
     @JsonKey(name: 'expires_at') DateTime? expiresAt,
+
+    /// Whether the filter is actually being applied right now. A perk can be
+    /// paused without being given up: the week keeps running, the filter
+    /// stops narrowing. Defaults true so a build talking to a server that
+    /// predates the switch reads every perk as live, which is what it is.
+    @JsonKey(name: 'is_enabled') @Default(true) bool isEnabled,
   }) = _PerkGrant;
 
   factory PerkGrant.fromJson(Map<String, dynamic> json) =>

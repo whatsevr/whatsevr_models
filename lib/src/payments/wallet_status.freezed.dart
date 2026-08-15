@@ -345,7 +345,11 @@ $OneToOneCallRateCopyWith<$Res>? get oneToOneCallRate {
 /// @nodoc
 mixin _$PerkGrant {
 
- Map<String, dynamic> get config;@JsonKey(name: 'expires_at') DateTime? get expiresAt;
+ Map<String, dynamic> get config;@JsonKey(name: 'expires_at') DateTime? get expiresAt;/// Whether the filter is actually being applied right now. A perk can be
+/// paused without being given up: the week keeps running, the filter
+/// stops narrowing. Defaults true so a build talking to a server that
+/// predates the switch reads every perk as live, which is what it is.
+@JsonKey(name: 'is_enabled') bool get isEnabled;
 /// Create a copy of PerkGrant
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -358,16 +362,16 @@ $PerkGrantCopyWith<PerkGrant> get copyWith => _$PerkGrantCopyWithImpl<PerkGrant>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PerkGrant&&const DeepCollectionEquality().equals(other.config, config)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PerkGrant&&const DeepCollectionEquality().equals(other.config, config)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(config),expiresAt);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(config),expiresAt,isEnabled);
 
 @override
 String toString() {
-  return 'PerkGrant(config: $config, expiresAt: $expiresAt)';
+  return 'PerkGrant(config: $config, expiresAt: $expiresAt, isEnabled: $isEnabled)';
 }
 
 
@@ -378,7 +382,7 @@ abstract mixin class $PerkGrantCopyWith<$Res>  {
   factory $PerkGrantCopyWith(PerkGrant value, $Res Function(PerkGrant) _then) = _$PerkGrantCopyWithImpl;
 @useResult
 $Res call({
- Map<String, dynamic> config,@JsonKey(name: 'expires_at') DateTime? expiresAt
+ Map<String, dynamic> config,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_enabled') bool isEnabled
 });
 
 
@@ -395,11 +399,12 @@ class _$PerkGrantCopyWithImpl<$Res>
 
 /// Create a copy of PerkGrant
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? config = null,Object? expiresAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? config = null,Object? expiresAt = freezed,Object? isEnabled = null,}) {
   return _then(_self.copyWith(
 config: null == config ? _self.config : config // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
@@ -481,10 +486,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_enabled')  bool isEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PerkGrant() when $default != null:
-return $default(_that.config,_that.expiresAt);case _:
+return $default(_that.config,_that.expiresAt,_that.isEnabled);case _:
   return orElse();
 
 }
@@ -502,10 +507,10 @@ return $default(_that.config,_that.expiresAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_enabled')  bool isEnabled)  $default,) {final _that = this;
 switch (_that) {
 case _PerkGrant():
-return $default(_that.config,_that.expiresAt);}
+return $default(_that.config,_that.expiresAt,_that.isEnabled);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -519,10 +524,10 @@ return $default(_that.config,_that.expiresAt);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Map<String, dynamic> config, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_enabled')  bool isEnabled)?  $default,) {final _that = this;
 switch (_that) {
 case _PerkGrant() when $default != null:
-return $default(_that.config,_that.expiresAt);case _:
+return $default(_that.config,_that.expiresAt,_that.isEnabled);case _:
   return null;
 
 }
@@ -534,7 +539,7 @@ return $default(_that.config,_that.expiresAt);case _:
 @JsonSerializable()
 
 class _PerkGrant implements PerkGrant {
-  const _PerkGrant({final  Map<String, dynamic> config = const <String, dynamic>{}, @JsonKey(name: 'expires_at') this.expiresAt}): _config = config;
+  const _PerkGrant({final  Map<String, dynamic> config = const <String, dynamic>{}, @JsonKey(name: 'expires_at') this.expiresAt, @JsonKey(name: 'is_enabled') this.isEnabled = true}): _config = config;
   factory _PerkGrant.fromJson(Map<String, dynamic> json) => _$PerkGrantFromJson(json);
 
  final  Map<String, dynamic> _config;
@@ -545,6 +550,11 @@ class _PerkGrant implements PerkGrant {
 }
 
 @override@JsonKey(name: 'expires_at') final  DateTime? expiresAt;
+/// Whether the filter is actually being applied right now. A perk can be
+/// paused without being given up: the week keeps running, the filter
+/// stops narrowing. Defaults true so a build talking to a server that
+/// predates the switch reads every perk as live, which is what it is.
+@override@JsonKey(name: 'is_enabled') final  bool isEnabled;
 
 /// Create a copy of PerkGrant
 /// with the given fields replaced by the non-null parameter values.
@@ -559,16 +569,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PerkGrant&&const DeepCollectionEquality().equals(other._config, _config)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PerkGrant&&const DeepCollectionEquality().equals(other._config, _config)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_config),expiresAt);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_config),expiresAt,isEnabled);
 
 @override
 String toString() {
-  return 'PerkGrant(config: $config, expiresAt: $expiresAt)';
+  return 'PerkGrant(config: $config, expiresAt: $expiresAt, isEnabled: $isEnabled)';
 }
 
 
@@ -579,7 +589,7 @@ abstract mixin class _$PerkGrantCopyWith<$Res> implements $PerkGrantCopyWith<$Re
   factory _$PerkGrantCopyWith(_PerkGrant value, $Res Function(_PerkGrant) _then) = __$PerkGrantCopyWithImpl;
 @override @useResult
 $Res call({
- Map<String, dynamic> config,@JsonKey(name: 'expires_at') DateTime? expiresAt
+ Map<String, dynamic> config,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_enabled') bool isEnabled
 });
 
 
@@ -596,11 +606,12 @@ class __$PerkGrantCopyWithImpl<$Res>
 
 /// Create a copy of PerkGrant
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? config = null,Object? expiresAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? config = null,Object? expiresAt = freezed,Object? isEnabled = null,}) {
   return _then(_PerkGrant(
 config: null == config ? _self._config : config // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as DateTime?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

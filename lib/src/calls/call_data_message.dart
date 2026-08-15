@@ -44,6 +44,26 @@ sealed class CallDataMessage with _$CallDataMessage {
   const factory CallDataMessage.modeChanged({required CallMode mode}) =
       CallModeChanged;
 
+  /// Server to payer only: the wallet is about to run dry. [secondsRemaining]
+  /// is the server's own estimate of how long is left at [pricePerMinutePaise]
+  /// — never recomputed from [balancePaise] here, for the same reason no price
+  /// in this app is ever derived client-side. The earner never receives this;
+  /// her wallet is not the one the call is drawing down.
+  const factory CallDataMessage.lowBalance({
+    required String room,
+    required int secondsRemaining,
+    required int balancePaise,
+    required int pricePerMinutePaise,
+  }) = CallLowBalance;
+
+  /// Server to payer only: the call has been ended for [reason]. Today the
+  /// only reason the protocol defines is `out_of_funds` — the confirmed
+  /// version of the same ending a plain LiveKit disconnect can only guess at.
+  const factory CallDataMessage.callEnded({
+    required String room,
+    required String reason,
+  }) = CallEndedSignal;
+
   /// Server to host: a guest wants into their live room. Answered over HTTP with
   /// `one-to-one-call/respond`, not over the data channel.
   const factory CallDataMessage.hostJoinRequest({
@@ -106,6 +126,21 @@ sealed class CallDataMessage with _$CallDataMessage {
           {'type': 'mode.decline', 'mode': mode.wireValue},
         CallModeChanged(:final mode) =>
           {'type': 'mode.changed', 'mode': mode.wireValue},
+        CallLowBalance(
+          :final room,
+          :final secondsRemaining,
+          :final balancePaise,
+          :final pricePerMinutePaise,
+        ) =>
+          {
+            'type': 'call.low_balance',
+            'room': room,
+            'seconds_remaining': secondsRemaining,
+            'balance_paise': balancePaise,
+            'price_per_minute_paise': pricePerMinutePaise,
+          },
+        CallEndedSignal(:final room, :final reason) =>
+          {'type': 'call.ended', 'room': room, 'reason': reason},
         CallHostJoinRequest(
           :final requestUid,
           :final guestUid,
@@ -163,6 +198,21 @@ sealed class CallDataMessage with _$CallDataMessage {
         CallDataMessage.modeDecline(mode: CallMode.fromWire(json['mode'])),
       'mode.changed' =>
         CallDataMessage.modeChanged(mode: CallMode.fromWire(json['mode'])),
+      'call.low_balance' => CallDataMessage.lowBalance(
+          room: '${json['room'] ?? ''}',
+          secondsRemaining: json['seconds_remaining'] is int
+              ? json['seconds_remaining'] as int
+              : 0,
+          balancePaise:
+              json['balance_paise'] is int ? json['balance_paise'] as int : 0,
+          pricePerMinutePaise: json['price_per_minute_paise'] is int
+              ? json['price_per_minute_paise'] as int
+              : 0,
+        ),
+      'call.ended' => CallDataMessage.callEnded(
+          room: '${json['room'] ?? ''}',
+          reason: '${json['reason'] ?? ''}',
+        ),
       'one_to_one_call.join_request' => CallDataMessage.hostJoinRequest(
           requestUid: '${json['request_uid'] ?? ''}',
           guestUid: '${json['guest_uid'] ?? ''}',

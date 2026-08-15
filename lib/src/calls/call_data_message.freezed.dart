@@ -55,7 +55,7 @@ extension CallDataMessagePatterns on CallDataMessage {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( CallChatMessage value)?  chat,TResult Function( CallModeRequest value)?  modeRequest,TResult Function( CallModeAccept value)?  modeAccept,TResult Function( CallModeDecline value)?  modeDecline,TResult Function( CallModeChanged value)?  modeChanged,TResult Function( CallHostJoinRequest value)?  hostJoinRequest,TResult Function( CallDataGift value)?  gift,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( CallChatMessage value)?  chat,TResult Function( CallModeRequest value)?  modeRequest,TResult Function( CallModeAccept value)?  modeAccept,TResult Function( CallModeDecline value)?  modeDecline,TResult Function( CallModeChanged value)?  modeChanged,TResult Function( CallLowBalance value)?  lowBalance,TResult Function( CallEndedSignal value)?  callEnded,TResult Function( CallHostJoinRequest value)?  hostJoinRequest,TResult Function( CallDataGift value)?  gift,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
@@ -63,7 +63,9 @@ return chat(_that);case CallModeRequest() when modeRequest != null:
 return modeRequest(_that);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that);case CallModeChanged() when modeChanged != null:
-return modeChanged(_that);case CallHostJoinRequest() when hostJoinRequest != null:
+return modeChanged(_that);case CallLowBalance() when lowBalance != null:
+return lowBalance(_that);case CallEndedSignal() when callEnded != null:
+return callEnded(_that);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that);case CallDataGift() when gift != null:
 return gift(_that);case _:
   return orElse();
@@ -83,7 +85,7 @@ return gift(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( CallChatMessage value)  chat,required TResult Function( CallModeRequest value)  modeRequest,required TResult Function( CallModeAccept value)  modeAccept,required TResult Function( CallModeDecline value)  modeDecline,required TResult Function( CallModeChanged value)  modeChanged,required TResult Function( CallHostJoinRequest value)  hostJoinRequest,required TResult Function( CallDataGift value)  gift,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( CallChatMessage value)  chat,required TResult Function( CallModeRequest value)  modeRequest,required TResult Function( CallModeAccept value)  modeAccept,required TResult Function( CallModeDecline value)  modeDecline,required TResult Function( CallModeChanged value)  modeChanged,required TResult Function( CallLowBalance value)  lowBalance,required TResult Function( CallEndedSignal value)  callEnded,required TResult Function( CallHostJoinRequest value)  hostJoinRequest,required TResult Function( CallDataGift value)  gift,}){
 final _that = this;
 switch (_that) {
 case CallChatMessage():
@@ -91,7 +93,9 @@ return chat(_that);case CallModeRequest():
 return modeRequest(_that);case CallModeAccept():
 return modeAccept(_that);case CallModeDecline():
 return modeDecline(_that);case CallModeChanged():
-return modeChanged(_that);case CallHostJoinRequest():
+return modeChanged(_that);case CallLowBalance():
+return lowBalance(_that);case CallEndedSignal():
+return callEnded(_that);case CallHostJoinRequest():
 return hostJoinRequest(_that);case CallDataGift():
 return gift(_that);}
 }
@@ -107,7 +111,7 @@ return gift(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( CallChatMessage value)?  chat,TResult? Function( CallModeRequest value)?  modeRequest,TResult? Function( CallModeAccept value)?  modeAccept,TResult? Function( CallModeDecline value)?  modeDecline,TResult? Function( CallModeChanged value)?  modeChanged,TResult? Function( CallHostJoinRequest value)?  hostJoinRequest,TResult? Function( CallDataGift value)?  gift,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( CallChatMessage value)?  chat,TResult? Function( CallModeRequest value)?  modeRequest,TResult? Function( CallModeAccept value)?  modeAccept,TResult? Function( CallModeDecline value)?  modeDecline,TResult? Function( CallModeChanged value)?  modeChanged,TResult? Function( CallLowBalance value)?  lowBalance,TResult? Function( CallEndedSignal value)?  callEnded,TResult? Function( CallHostJoinRequest value)?  hostJoinRequest,TResult? Function( CallDataGift value)?  gift,}){
 final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
@@ -115,7 +119,9 @@ return chat(_that);case CallModeRequest() when modeRequest != null:
 return modeRequest(_that);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that);case CallModeChanged() when modeChanged != null:
-return modeChanged(_that);case CallHostJoinRequest() when hostJoinRequest != null:
+return modeChanged(_that);case CallLowBalance() when lowBalance != null:
+return lowBalance(_that);case CallEndedSignal() when callEnded != null:
+return callEnded(_that);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that);case CallDataGift() when gift != null:
 return gift(_that);case _:
   return null;
@@ -134,14 +140,16 @@ return gift(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function( CallMode mode)?  modeRequest,TResult Function( CallMode mode)?  modeAccept,TResult Function( CallMode mode)?  modeDecline,TResult Function( CallMode mode)?  modeChanged,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function( CallMode mode)?  modeRequest,TResult Function( CallMode mode)?  modeAccept,TResult Function( CallMode mode)?  modeDecline,TResult Function( CallMode mode)?  modeChanged,TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)?  lowBalance,TResult Function( String room,  String reason)?  callEnded,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallModeRequest() when modeRequest != null:
 return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
-return modeChanged(_that.mode);case CallHostJoinRequest() when hostJoinRequest != null:
+return modeChanged(_that.mode);case CallLowBalance() when lowBalance != null:
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal() when callEnded != null:
+return callEnded(_that.room,_that.reason);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift() when gift != null:
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);case _:
   return orElse();
@@ -161,14 +169,16 @@ return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.priceP
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function( CallMode mode)  modeRequest,required TResult Function( CallMode mode)  modeAccept,required TResult Function( CallMode mode)  modeDecline,required TResult Function( CallMode mode)  modeChanged,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)  hostJoinRequest,required TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)  gift,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function( CallMode mode)  modeRequest,required TResult Function( CallMode mode)  modeAccept,required TResult Function( CallMode mode)  modeDecline,required TResult Function( CallMode mode)  modeChanged,required TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)  lowBalance,required TResult Function( String room,  String reason)  callEnded,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)  hostJoinRequest,required TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)  gift,}) {final _that = this;
 switch (_that) {
 case CallChatMessage():
 return chat(_that.text);case CallModeRequest():
 return modeRequest(_that.mode);case CallModeAccept():
 return modeAccept(_that.mode);case CallModeDecline():
 return modeDecline(_that.mode);case CallModeChanged():
-return modeChanged(_that.mode);case CallHostJoinRequest():
+return modeChanged(_that.mode);case CallLowBalance():
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal():
+return callEnded(_that.room,_that.reason);case CallHostJoinRequest():
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift():
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);}
 }
@@ -184,14 +194,16 @@ return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.priceP
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function( CallMode mode)?  modeRequest,TResult? Function( CallMode mode)?  modeAccept,TResult? Function( CallMode mode)?  modeDecline,TResult? Function( CallMode mode)?  modeChanged,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult? Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function( CallMode mode)?  modeRequest,TResult? Function( CallMode mode)?  modeAccept,TResult? Function( CallMode mode)?  modeDecline,TResult? Function( CallMode mode)?  modeChanged,TResult? Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)?  lowBalance,TResult? Function( String room,  String reason)?  callEnded,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult? Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallModeRequest() when modeRequest != null:
 return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
-return modeChanged(_that.mode);case CallHostJoinRequest() when hostJoinRequest != null:
+return modeChanged(_that.mode);case CallLowBalance() when lowBalance != null:
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal() when callEnded != null:
+return callEnded(_that.room,_that.reason);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift() when gift != null:
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);case _:
   return null;
@@ -525,6 +537,146 @@ class _$CallModeChangedCopyWithImpl<$Res>
   return _then(CallModeChanged(
 mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as CallMode,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class CallLowBalance extends CallDataMessage {
+  const CallLowBalance({required this.room, required this.secondsRemaining, required this.balancePaise, required this.pricePerMinutePaise}): super._();
+  
+
+ final  String room;
+ final  int secondsRemaining;
+ final  int balancePaise;
+ final  int pricePerMinutePaise;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallLowBalanceCopyWith<CallLowBalance> get copyWith => _$CallLowBalanceCopyWithImpl<CallLowBalance>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallLowBalance&&(identical(other.room, room) || other.room == room)&&(identical(other.secondsRemaining, secondsRemaining) || other.secondsRemaining == secondsRemaining)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,room,secondsRemaining,balancePaise,pricePerMinutePaise);
+
+@override
+String toString() {
+  return 'CallDataMessage.lowBalance(room: $room, secondsRemaining: $secondsRemaining, balancePaise: $balancePaise, pricePerMinutePaise: $pricePerMinutePaise)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CallLowBalanceCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallLowBalanceCopyWith(CallLowBalance value, $Res Function(CallLowBalance) _then) = _$CallLowBalanceCopyWithImpl;
+@useResult
+$Res call({
+ String room, int secondsRemaining, int balancePaise, int pricePerMinutePaise
+});
+
+
+
+
+}
+/// @nodoc
+class _$CallLowBalanceCopyWithImpl<$Res>
+    implements $CallLowBalanceCopyWith<$Res> {
+  _$CallLowBalanceCopyWithImpl(this._self, this._then);
+
+  final CallLowBalance _self;
+  final $Res Function(CallLowBalance) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? room = null,Object? secondsRemaining = null,Object? balancePaise = null,Object? pricePerMinutePaise = null,}) {
+  return _then(CallLowBalance(
+room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
+as String,secondsRemaining: null == secondsRemaining ? _self.secondsRemaining : secondsRemaining // ignore: cast_nullable_to_non_nullable
+as int,balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
+as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class CallEndedSignal extends CallDataMessage {
+  const CallEndedSignal({required this.room, required this.reason}): super._();
+  
+
+ final  String room;
+ final  String reason;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CallEndedSignalCopyWith<CallEndedSignal> get copyWith => _$CallEndedSignalCopyWithImpl<CallEndedSignal>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallEndedSignal&&(identical(other.room, room) || other.room == room)&&(identical(other.reason, reason) || other.reason == reason));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,room,reason);
+
+@override
+String toString() {
+  return 'CallDataMessage.callEnded(room: $room, reason: $reason)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CallEndedSignalCopyWith<$Res> implements $CallDataMessageCopyWith<$Res> {
+  factory $CallEndedSignalCopyWith(CallEndedSignal value, $Res Function(CallEndedSignal) _then) = _$CallEndedSignalCopyWithImpl;
+@useResult
+$Res call({
+ String room, String reason
+});
+
+
+
+
+}
+/// @nodoc
+class _$CallEndedSignalCopyWithImpl<$Res>
+    implements $CallEndedSignalCopyWith<$Res> {
+  _$CallEndedSignalCopyWithImpl(this._self, this._then);
+
+  final CallEndedSignal _self;
+  final $Res Function(CallEndedSignal) _then;
+
+/// Create a copy of CallDataMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? room = null,Object? reason = null,}) {
+  return _then(CallEndedSignal(
+room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
+as String,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

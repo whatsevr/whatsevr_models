@@ -45,12 +45,14 @@ _PerkGrant _$PerkGrantFromJson(Map<String, dynamic> json) => _PerkGrant(
       json['expires_at'] == null
           ? null
           : DateTime.parse(json['expires_at'] as String),
+  isEnabled: json['is_enabled'] as bool? ?? true,
 );
 
 Map<String, dynamic> _$PerkGrantToJson(_PerkGrant instance) =>
     <String, dynamic>{
       'config': instance.config,
       'expires_at': instance.expiresAt?.toIso8601String(),
+      'is_enabled': instance.isEnabled,
     };
 
 _WalletEarnings _$WalletEarningsFromJson(Map<String, dynamic> json) =>
