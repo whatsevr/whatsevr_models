@@ -140,4 +140,81 @@ void main() {
       );
     });
   });
+
+  _profileShareTests();
+}
+
+void _profileShareTests() {
+  group('CallDataMessage.profileShare wire codec', () {
+    Map<String, dynamic> full() => {
+          'type': 'profile.share',
+          'kind': 'user',
+          'uid': 'user-1',
+          'name': 'Asha',
+          'avatar_url': 'https://cdn/asha.png',
+          'count': 1200,
+          'is_private': false,
+        };
+
+    test('a shared account survives a round trip', () {
+      const message = CallDataMessage.profileShare(
+        kind: SharedProfileKind.user,
+        uid: 'user-1',
+        name: 'Asha',
+        avatarUrl: 'https://cdn/asha.png',
+        count: 1200,
+      );
+
+      expect(message.toWireJson(), full());
+      expect(CallDataMessage.fromWireJson(message.toWireJson()), message);
+    });
+
+    test('a shared community carries its privacy so the button can decide', () {
+      const message = CallDataMessage.profileShare(
+        kind: SharedProfileKind.community,
+        uid: 'community-1',
+        name: 'Night Owls',
+        count: 42,
+        isPrivate: true,
+      );
+
+      final decoded = CallDataMessage.fromWireJson(message.toWireJson());
+
+      expect(decoded, message);
+      expect((decoded! as CallProfileShare).isPrivate, isTrue);
+    });
+
+    test('an absent avatar or count still decodes', () {
+      final json = full()
+        ..remove('avatar_url')
+        ..remove('count')
+        ..remove('is_private');
+
+      final decoded = CallDataMessage.fromWireJson(json);
+
+      expect(decoded, isA<CallProfileShare>());
+      expect((decoded! as CallProfileShare).avatarUrl, isNull);
+      expect((decoded as CallProfileShare).count, isNull);
+      expect((decoded as CallProfileShare).isPrivate, isFalse);
+    });
+
+    test('a missing strict key decodes to null', () {
+      for (final key in ['kind', 'uid', 'name']) {
+        expect(
+          CallDataMessage.fromWireJson(full()..remove(key)),
+          isNull,
+          reason: 'missing $key should decode to null',
+        );
+      }
+    });
+
+    test('a blank uid or name decodes to null', () {
+      expect(CallDataMessage.fromWireJson(full()..['uid'] = ''), isNull);
+      expect(CallDataMessage.fromWireJson(full()..['name'] = ''), isNull);
+    });
+
+    test('a kind this build does not know decodes to null', () {
+      expect(CallDataMessage.fromWireJson(full()..['kind'] = 'page'), isNull);
+    });
+  });
 }

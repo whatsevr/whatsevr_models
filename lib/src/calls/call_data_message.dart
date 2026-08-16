@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'call_mode.dart';
+import 'shared_profile_kind.dart';
 
 part 'call_data_message.freezed.dart';
 
@@ -113,6 +114,29 @@ sealed class CallDataMessage with _$CallDataMessage {
     String? assetKind,
   }) = CallDataGift;
 
+  /// Peer to peer: one participant drops a social account or community into
+  /// the in-call chat so the other can act on it without leaving the call.
+  ///
+  /// [kind], [uid], and [name] are the strict trio: without a valid [kind]
+  /// there is no honest way to route the tap (profile screen vs. community
+  /// screen), and without [uid]/[name] there is nothing to act on or render
+  /// — so all three fail the whole packet rather than degrade. Everything
+  /// else has a documented fallback and stays lenient: [avatarUrl] absent
+  /// just means the receiver draws its placeholder avatar, and [count]
+  /// absent means the receiver hides the count line instead of showing a
+  /// wrong one. [isPrivate] only means something for a community, but is
+  /// carried unconditionally and defaults to false so the receiver can pick
+  /// the right join affordance (request vs. join) immediately, without a
+  /// second network round-trip just to learn that.
+  const factory CallDataMessage.profileShare({
+    required SharedProfileKind kind,
+    required String uid,
+    required String name,
+    String? avatarUrl,
+    int? count,
+    @Default(false) bool isPrivate,
+  }) = CallProfileShare;
+
   const CallDataMessage._();
 
   /// Wire form. Key names are fixed by the protocol document.
@@ -182,6 +206,23 @@ sealed class CallDataMessage with _$CallDataMessage {
             'asset_url': assetUrl,
             'asset_kind': assetKind,
           },
+        CallProfileShare(
+          :final kind,
+          :final uid,
+          :final name,
+          :final avatarUrl,
+          :final count,
+          :final isPrivate,
+        ) =>
+          {
+            'type': 'profile.share',
+            'kind': kind.wireValue,
+            'uid': uid,
+            'name': name,
+            'avatar_url': avatarUrl,
+            'count': count,
+            'is_private': isPrivate,
+          },
       };
 
   /// Decodes one packet, or null when the type is unknown or the shape is
@@ -227,6 +268,7 @@ sealed class CallDataMessage with _$CallDataMessage {
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
         ),
       'gift.sent' => _giftFromWireJson(json),
+      'profile.share' => _profileShareFromWireJson(json),
       _ => null,
     };
   }
@@ -271,6 +313,42 @@ sealed class CallDataMessage with _$CallDataMessage {
       // do not draw, not a packet we drop.
       assetUrl: assetUrl is String ? assetUrl : null,
       assetKind: assetKind is String ? assetKind : null,
+    );
+  }
+
+  /// `kind`, `uid`, and `name` are the strict half: `kind` picks which
+  /// screen the tap opens, so an unrecognised or missing value leaves
+  /// nowhere honest to route to; `uid`/`name` are what the receiver acts on
+  /// and renders, so blank or absent fails the packet rather than show an
+  /// empty share bubble.
+  ///
+  /// `avatar_url` and `count` are lenient — each has a documented render
+  /// fallback (placeholder avatar; hidden count line) — so absence still
+  /// parses. `is_private` is lenient too, defaulting to false: it only
+  /// matters for a community, where it tells the receiver's join button
+  /// whether to request or join outright, without a second network call
+  /// just to find out.
+  static CallDataMessage? _profileShareFromWireJson(
+    Map<String, dynamic> json,
+  ) {
+    final kind = SharedProfileKind.fromWire(json['kind']);
+    final uid = json['uid'];
+    final name = json['name'];
+    if (kind == null) {
+      return null;
+    }
+    if (uid is! String || uid.isEmpty || name is! String || name.isEmpty) {
+      return null;
+    }
+    final avatarUrl = json['avatar_url'];
+    final count = json['count'];
+    return CallDataMessage.profileShare(
+      kind: kind,
+      uid: uid,
+      name: name,
+      avatarUrl: avatarUrl is String ? avatarUrl : null,
+      count: count is int ? count : null,
+      isPrivate: json['is_private'] == true,
     );
   }
 }

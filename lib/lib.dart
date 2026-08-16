@@ -50,6 +50,7 @@ export 'src/sneekpeek/sneekpeek_candidate.dart';
 export 'src/calls/livekit_token_grant.dart';
 export 'src/calls/call_data_message.dart';
 export 'src/calls/call_mode.dart';
+export 'src/calls/shared_profile_kind.dart';
 export 'src/calls/one_to_one_call_host.dart';
 export 'src/calls/one_to_one_call_host_filters.dart';
 export 'src/calls/search_highlight.dart';
