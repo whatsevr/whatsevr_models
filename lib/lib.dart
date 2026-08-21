@@ -60,3 +60,4 @@ export 'src/calls/connect_results.dart';
 export 'src/calls/call_push_payload.dart';
 export 'src/calls/call_accept_result.dart';
 export 'src/calls/call_segment_summary.dart';
+export 'src/calls/call_outcome.dart';

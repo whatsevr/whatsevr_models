@@ -5,7 +5,7 @@
 /// `whatsevr_django_server/core/constants.py`; regenerate with
 /// `make shared-constants` from the workspace root.
 ///
-/// Fingerprint: c0816562d87c (schema v1).
+/// Fingerprint: e55059035cb6 (schema v1).
 library;
 
 /// Server: `CALL_END_REASONS`, stored on `call_history.end_reason`.
@@ -31,6 +31,43 @@ abstract final class CallEndReasons {
         'user_ended',
         'room_finished',
         'maintenance_sweep_stuck_active',
+      ];
+}
+
+/// Server: `CALL_VIEWER_ROLES`. Which side of a call the viewer was on.
+///
+/// Read from the response, never from a local `isPayer` flag — deciding it
+/// client-side is what once put "you ran out of balance" on a host's screen.
+/// `participant` is a free pairing, which has neither a payer nor an earner.
+abstract final class CallViewerRoles {
+  static const String payer = 'payer';
+  static const String earner = 'earner';
+  static const String participant = 'participant';
+
+  static const List<String> all =
+      <String>[
+        'payer',
+        'earner',
+        'participant',
+      ];
+}
+
+/// Server: `CALL_OUTCOME_STATUSES`. What to do with a call-outcome answer.
+///
+/// `pending` means ask again after `retry_after_ms`; `unavailable` means stop
+/// asking and show what you have. The retry POLICY is the server's — it is the
+/// only side that knows how long settlement takes. The retry LOOP is still the
+/// client's, because a dead room leaves no channel to push down.
+abstract final class CallOutcomeStatuses {
+  static const String finalized = 'finalized';
+  static const String pending = 'pending';
+  static const String unavailable = 'unavailable';
+
+  static const List<String> all =
+      <String>[
+        'finalized',
+        'pending',
+        'unavailable',
       ];
 }
 
