@@ -1,9 +1,12 @@
-/// Mirrors of the server's SneekPeek pick-lists and field caps.
+/// Mirrors of the server's SneekPeek profile pick-lists and field caps.
 ///
-/// GENERATED from `whatsevr_django_server/core/constants.py` — the server
-/// rejects any value outside these lists with a 422, so a drift here ships a
-/// form the user cannot submit. Regenerate rather than hand-edit whenever
-/// `core/constants.py` changes.
+/// GENERATED — do not hand-edit. Source of truth is
+/// `whatsevr_django_server/core/constants.py`; regenerate with
+/// `make shared-constants` from the workspace root.
+///
+/// Fingerprint: c0816562d87c (schema v1). The server prints
+/// the same string; if they differ, this file is behind and the app is
+/// rendering pick-lists the server will reject with a 422.
 library;
 
 /// Server: `SNEEKPEEK_MIN_AGE_YEARS`. Under-18 is rejected with a 422, so the
