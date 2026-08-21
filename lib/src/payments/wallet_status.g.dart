@@ -92,6 +92,11 @@ _OneToOneCallRate _$OneToOneCallRateFromJson(Map<String, dynamic> json) =>
       autoAcceptVideo: json['auto_accept_video'] as bool? ?? false,
       rateMinPaise: (json['rate_min_paise'] as num?)?.toInt() ?? 0,
       rateMaxPaise: (json['rate_max_paise'] as num?)?.toInt() ?? 0,
+      introWindowActive: json['intro_window_active'] as bool? ?? false,
+      introWindowEndsAt:
+          json['intro_window_ends_at'] == null
+              ? null
+              : DateTime.parse(json['intro_window_ends_at'] as String),
       pricePerMinutePaise:
           (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
       audioPricePerMinutePaise:
@@ -106,6 +111,8 @@ Map<String, dynamic> _$OneToOneCallRateToJson(_OneToOneCallRate instance) =>
       'auto_accept_video': instance.autoAcceptVideo,
       'rate_min_paise': instance.rateMinPaise,
       'rate_max_paise': instance.rateMaxPaise,
+      'intro_window_active': instance.introWindowActive,
+      'intro_window_ends_at': instance.introWindowEndsAt?.toIso8601String(),
       'price_per_minute_paise': instance.pricePerMinutePaise,
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
       'audio_rate_paise': instance.audioRatePaise,

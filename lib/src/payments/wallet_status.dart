@@ -163,6 +163,15 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     /// Capped to an intro ceiling for the first 30 days after registration,
     /// which is why this is read from the server rather than a constant.
     @JsonKey(name: 'rate_max_paise') @Default(0) int rateMaxPaise,
+
+    /// Whether [rateMaxPaise] is the intro ceiling right now, so the editor
+    /// can say why the top of her range is what it is instead of leaving her
+    /// to guess.
+    @JsonKey(name: 'intro_window_active') @Default(false) bool introWindowActive,
+
+    /// When the intro ceiling lifts. Null whenever [introWindowActive] is
+    /// false — there is nothing counting down to show.
+    @JsonKey(name: 'intro_window_ends_at') DateTime? introWindowEndsAt,
     @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
     @JsonKey(name: 'audio_price_per_minute_paise')
     @Default(0)
