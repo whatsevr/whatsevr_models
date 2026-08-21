@@ -4,7 +4,7 @@
 /// `whatsevr_django_server/core/constants.py`; regenerate with
 /// `make shared-constants` from the workspace root.
 ///
-/// Fingerprint: 39961d3067f4 (schema v2). The server prints
+/// Fingerprint: 495a80251bc7 (schema v2). The server prints
 /// the same string; if they differ, this file is behind and the app is
 /// rendering pick-lists the server will reject with a 422.
 library;

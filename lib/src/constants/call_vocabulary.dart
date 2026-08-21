@@ -5,7 +5,7 @@
 /// `whatsevr_django_server/core/constants.py`; regenerate with
 /// `make shared-constants` from the workspace root.
 ///
-/// Fingerprint: 39961d3067f4 (schema v2).
+/// Fingerprint: 495a80251bc7 (schema v2).
 library;
 
 /// Server: `CALL_END_REASONS`, stored on `call_history.end_reason`.
@@ -107,13 +107,18 @@ abstract final class SpinPhases {
 ///
 /// `skipped` and `left` are different events, not softer wordings of one. A
 /// skip happens inside the consent window, before the room exists and before
-/// anybody is charged.
+/// anybody is charged. Not answering is a third thing again: nobody decided
+/// anything, the match simply ran out of time with the handshake unfinished,
+/// and the server finalizes it and names which side went quiet.
 abstract final class SpinEndReasons {
   static const String youEnded = 'you_ended';
   static const String peerLeft = 'peer_left';
   static const String youSkipped = 'you_skipped';
   static const String peerSkipped = 'peer_skipped';
   static const String outOfFunds = 'out_of_funds';
+  static const String youDidntAnswer = 'you_didnt_answer';
+  static const String peerDidntAnswer = 'peer_didnt_answer';
+  static const String nobodyAnswered = 'nobody_answered';
 
   static const List<String> all =
       <String>[
@@ -122,5 +127,8 @@ abstract final class SpinEndReasons {
         'you_skipped',
         'peer_skipped',
         'out_of_funds',
+        'you_didnt_answer',
+        'peer_didnt_answer',
+        'nobody_answered',
       ];
 }
