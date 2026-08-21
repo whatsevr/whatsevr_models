@@ -58,6 +58,21 @@ sealed class CallPushPayload with _$CallPushPayload {
     @Default(false)
     bool isBilled,
     @JsonKey(name: 'payer_uid') String? payerUid,
+
+    /// How long the SERVER will actually ring for.
+    ///
+    /// The ringing UI expires on this, not on a constant of the app's own. The
+    /// two were separate numbers that agreed only until somebody changed one:
+    /// raising the window on the server left the app still giving up at its
+    /// mirrored value, so the call was live while the screen that could answer
+    /// it had gone.
+    ///
+    /// Zero when an older server did not send it, and the caller falls back to
+    /// [kCallRingTimeoutSeconds] — a ring that never expires locally is worse
+    /// than one that expires early.
+    @JsonKey(name: 'ring_window_seconds', fromJson: intFromCallWire)
+    @Default(0)
+    int ringWindowSeconds,
     @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)
     @Default(0)
     int ratePaise,

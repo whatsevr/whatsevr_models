@@ -23,6 +23,10 @@ _CallPushPayload _$CallPushPayloadFromJson(
   isBilled:
       json['is_billed'] == null ? false : boolFromCallWire(json['is_billed']),
   payerUid: json['payer_uid'] as String?,
+  ringWindowSeconds:
+      json['ring_window_seconds'] == null
+          ? 0
+          : intFromCallWire(json['ring_window_seconds']),
   ratePaise:
       json['rate_paise'] == null ? 0 : intFromCallWire(json['rate_paise']),
   audioOnly:
@@ -61,6 +65,7 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'is_video': instance.isVideo,
       'is_billed': instance.isBilled,
       'payer_uid': instance.payerUid,
+      'ring_window_seconds': instance.ringWindowSeconds,
       'rate_paise': instance.ratePaise,
       'audio_only': instance.audioOnly,
       'price_per_minute_paise': instance.pricePerMinutePaise,
