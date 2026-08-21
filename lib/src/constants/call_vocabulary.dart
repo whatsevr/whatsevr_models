@@ -5,7 +5,7 @@
 /// `whatsevr_django_server/core/constants.py`; regenerate with
 /// `make shared-constants` from the workspace root.
 ///
-/// Fingerprint: 235fb044368f (schema v1).
+/// Fingerprint: 39961d3067f4 (schema v2).
 library;
 
 /// Server: `CALL_END_REASONS`, stored on `call_history.end_reason`.
@@ -124,8 +124,3 @@ abstract final class SpinEndReasons {
         'out_of_funds',
       ];
 }
-
-/// Server: `SPIN_CONSENT_WINDOW_SECONDS`. How long a matched pair has to
-/// confirm before the match auto-advances. Hardcoded as a bare `3` in the app
-/// and again in the web page before this existed.
-const int kSpinConsentWindowSeconds = 3;
