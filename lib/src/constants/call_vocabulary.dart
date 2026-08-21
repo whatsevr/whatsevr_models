@@ -5,7 +5,7 @@
 /// `whatsevr_django_server/core/constants.py`; regenerate with
 /// `make shared-constants` from the workspace root.
 ///
-/// Fingerprint: e55059035cb6 (schema v1).
+/// Fingerprint: 235fb044368f (schema v1).
 library;
 
 /// Server: `CALL_END_REASONS`, stored on `call_history.end_reason`.
@@ -93,6 +93,35 @@ abstract final class SpinPhases {
         'waiting_peer',
         'in_room',
         'ended',
+      ];
+}
+
+/// Server: `SPIN_END_REASONS`. Why a spin ended, as told to THIS viewer.
+///
+/// Per-viewer, which is why only the server can issue it: the one who walked
+/// out and the one left behind read the same session record and must not be
+/// shown the same sentence. Fetch it from `sneekpeek/outcome`; never name the
+/// cause from a LiveKit event, and never read "they skipped" out of a poll in
+/// which a session uid has merely gone missing — a skip, a crashed tab and an
+/// expired session are indistinguishable from there.
+///
+/// `skipped` and `left` are different events, not softer wordings of one. A
+/// skip happens inside the consent window, before the room exists and before
+/// anybody is charged.
+abstract final class SpinEndReasons {
+  static const String youEnded = 'you_ended';
+  static const String peerLeft = 'peer_left';
+  static const String youSkipped = 'you_skipped';
+  static const String peerSkipped = 'peer_skipped';
+  static const String outOfFunds = 'out_of_funds';
+
+  static const List<String> all =
+      <String>[
+        'you_ended',
+        'peer_left',
+        'you_skipped',
+        'peer_skipped',
+        'out_of_funds',
       ];
 }
 

@@ -49,6 +49,7 @@ export 'src/payments/earnings_ledger_page.dart';
 export 'src/payments/host_earnings_summary.dart';
 export 'src/social/blocked_user.dart';
 export 'src/sneekpeek/sneekpeek_candidate.dart';
+export 'src/sneekpeek/spin_outcome.dart';
 export 'src/calls/livekit_token_grant.dart';
 export 'src/calls/call_data_message.dart';
 export 'src/calls/call_mode.dart';
