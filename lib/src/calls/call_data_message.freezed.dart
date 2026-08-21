@@ -143,7 +143,7 @@ return profileShare(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function( CallMode mode)?  modeRequest,TResult Function( CallMode mode)?  modeAccept,TResult Function( CallMode mode)?  modeDecline,TResult Function( CallMode mode)?  modeChanged,TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)?  lowBalance,TResult Function( String room,  String reason)?  callEnded,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,TResult Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)?  profileShare,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String text)?  chat,TResult Function( CallMode mode)?  modeRequest,TResult Function( CallMode mode)?  modeAccept,TResult Function( CallMode mode)?  modeDecline,TResult Function( CallMode mode)?  modeChanged,TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise,  int spentSoFarPaise,  int balanceLeftPaise,  bool isLowBalanceWarning)?  lowBalance,TResult Function( String room,  String reason)?  callEnded,TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,TResult Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)?  profileShare,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallModeRequest() when modeRequest != null:
@@ -151,7 +151,7 @@ return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
 return modeChanged(_that.mode);case CallLowBalance() when lowBalance != null:
-return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal() when callEnded != null:
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise,_that.spentSoFarPaise,_that.balanceLeftPaise,_that.isLowBalanceWarning);case CallEndedSignal() when callEnded != null:
 return callEnded(_that.room,_that.reason);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift() when gift != null:
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);case CallProfileShare() when profileShare != null:
@@ -173,7 +173,7 @@ return profileShare(_that.kind,_that.uid,_that.name,_that.avatarUrl,_that.count,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function( CallMode mode)  modeRequest,required TResult Function( CallMode mode)  modeAccept,required TResult Function( CallMode mode)  modeDecline,required TResult Function( CallMode mode)  modeChanged,required TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)  lowBalance,required TResult Function( String room,  String reason)  callEnded,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)  hostJoinRequest,required TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)  gift,required TResult Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)  profileShare,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String text)  chat,required TResult Function( CallMode mode)  modeRequest,required TResult Function( CallMode mode)  modeAccept,required TResult Function( CallMode mode)  modeDecline,required TResult Function( CallMode mode)  modeChanged,required TResult Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise,  int spentSoFarPaise,  int balanceLeftPaise,  bool isLowBalanceWarning)  lowBalance,required TResult Function( String room,  String reason)  callEnded,required TResult Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)  hostJoinRequest,required TResult Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)  gift,required TResult Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)  profileShare,}) {final _that = this;
 switch (_that) {
 case CallChatMessage():
 return chat(_that.text);case CallModeRequest():
@@ -181,7 +181,7 @@ return modeRequest(_that.mode);case CallModeAccept():
 return modeAccept(_that.mode);case CallModeDecline():
 return modeDecline(_that.mode);case CallModeChanged():
 return modeChanged(_that.mode);case CallLowBalance():
-return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal():
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise,_that.spentSoFarPaise,_that.balanceLeftPaise,_that.isLowBalanceWarning);case CallEndedSignal():
 return callEnded(_that.room,_that.reason);case CallHostJoinRequest():
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift():
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);case CallProfileShare():
@@ -199,7 +199,7 @@ return profileShare(_that.kind,_that.uid,_that.name,_that.avatarUrl,_that.count,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function( CallMode mode)?  modeRequest,TResult? Function( CallMode mode)?  modeAccept,TResult? Function( CallMode mode)?  modeDecline,TResult? Function( CallMode mode)?  modeChanged,TResult? Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise)?  lowBalance,TResult? Function( String room,  String reason)?  callEnded,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult? Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,TResult? Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)?  profileShare,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String text)?  chat,TResult? Function( CallMode mode)?  modeRequest,TResult? Function( CallMode mode)?  modeAccept,TResult? Function( CallMode mode)?  modeDecline,TResult? Function( CallMode mode)?  modeChanged,TResult? Function( String room,  int secondsRemaining,  int balancePaise,  int pricePerMinutePaise,  int spentSoFarPaise,  int balanceLeftPaise,  bool isLowBalanceWarning)?  lowBalance,TResult? Function( String room,  String reason)?  callEnded,TResult? Function( String requestUid,  String guestUid,  String guestName,  String guestAvatar,  bool guestIsPremiumProfile,  bool isVideo,  int earnRatePaise,  bool isBilled,  int ringWindowSeconds)?  hostJoinRequest,TResult? Function( String giftLedgerUid,  String giftUid,  String name,  String tier,  int pricePaise,  String senderUid,  String? assetUrl,  String? assetKind)?  gift,TResult? Function( SharedProfileKind kind,  String uid,  String name,  String? avatarUrl,  int? count,  bool isPrivate)?  profileShare,}) {final _that = this;
 switch (_that) {
 case CallChatMessage() when chat != null:
 return chat(_that.text);case CallModeRequest() when modeRequest != null:
@@ -207,7 +207,7 @@ return modeRequest(_that.mode);case CallModeAccept() when modeAccept != null:
 return modeAccept(_that.mode);case CallModeDecline() when modeDecline != null:
 return modeDecline(_that.mode);case CallModeChanged() when modeChanged != null:
 return modeChanged(_that.mode);case CallLowBalance() when lowBalance != null:
-return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise);case CallEndedSignal() when callEnded != null:
+return lowBalance(_that.room,_that.secondsRemaining,_that.balancePaise,_that.pricePerMinutePaise,_that.spentSoFarPaise,_that.balanceLeftPaise,_that.isLowBalanceWarning);case CallEndedSignal() when callEnded != null:
 return callEnded(_that.room,_that.reason);case CallHostJoinRequest() when hostJoinRequest != null:
 return hostJoinRequest(_that.requestUid,_that.guestUid,_that.guestName,_that.guestAvatar,_that.guestIsPremiumProfile,_that.isVideo,_that.earnRatePaise,_that.isBilled,_that.ringWindowSeconds);case CallDataGift() when gift != null:
 return gift(_that.giftLedgerUid,_that.giftUid,_that.name,_that.tier,_that.pricePaise,_that.senderUid,_that.assetUrl,_that.assetKind);case CallProfileShare() when profileShare != null:
@@ -553,13 +553,16 @@ as CallMode,
 
 
 class CallLowBalance extends CallDataMessage {
-  const CallLowBalance({required this.room, required this.secondsRemaining, required this.balancePaise, required this.pricePerMinutePaise}): super._();
+  const CallLowBalance({required this.room, required this.secondsRemaining, required this.balancePaise, required this.pricePerMinutePaise, required this.spentSoFarPaise, required this.balanceLeftPaise, required this.isLowBalanceWarning}): super._();
   
 
  final  String room;
  final  int secondsRemaining;
  final  int balancePaise;
  final  int pricePerMinutePaise;
+ final  int spentSoFarPaise;
+ final  int balanceLeftPaise;
+ final  bool isLowBalanceWarning;
 
 /// Create a copy of CallDataMessage
 /// with the given fields replaced by the non-null parameter values.
@@ -571,16 +574,16 @@ $CallLowBalanceCopyWith<CallLowBalance> get copyWith => _$CallLowBalanceCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallLowBalance&&(identical(other.room, room) || other.room == room)&&(identical(other.secondsRemaining, secondsRemaining) || other.secondsRemaining == secondsRemaining)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallLowBalance&&(identical(other.room, room) || other.room == room)&&(identical(other.secondsRemaining, secondsRemaining) || other.secondsRemaining == secondsRemaining)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.spentSoFarPaise, spentSoFarPaise) || other.spentSoFarPaise == spentSoFarPaise)&&(identical(other.balanceLeftPaise, balanceLeftPaise) || other.balanceLeftPaise == balanceLeftPaise)&&(identical(other.isLowBalanceWarning, isLowBalanceWarning) || other.isLowBalanceWarning == isLowBalanceWarning));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,room,secondsRemaining,balancePaise,pricePerMinutePaise);
+int get hashCode => Object.hash(runtimeType,room,secondsRemaining,balancePaise,pricePerMinutePaise,spentSoFarPaise,balanceLeftPaise,isLowBalanceWarning);
 
 @override
 String toString() {
-  return 'CallDataMessage.lowBalance(room: $room, secondsRemaining: $secondsRemaining, balancePaise: $balancePaise, pricePerMinutePaise: $pricePerMinutePaise)';
+  return 'CallDataMessage.lowBalance(room: $room, secondsRemaining: $secondsRemaining, balancePaise: $balancePaise, pricePerMinutePaise: $pricePerMinutePaise, spentSoFarPaise: $spentSoFarPaise, balanceLeftPaise: $balanceLeftPaise, isLowBalanceWarning: $isLowBalanceWarning)';
 }
 
 
@@ -591,7 +594,7 @@ abstract mixin class $CallLowBalanceCopyWith<$Res> implements $CallDataMessageCo
   factory $CallLowBalanceCopyWith(CallLowBalance value, $Res Function(CallLowBalance) _then) = _$CallLowBalanceCopyWithImpl;
 @useResult
 $Res call({
- String room, int secondsRemaining, int balancePaise, int pricePerMinutePaise
+ String room, int secondsRemaining, int balancePaise, int pricePerMinutePaise, int spentSoFarPaise, int balanceLeftPaise, bool isLowBalanceWarning
 });
 
 
@@ -608,13 +611,16 @@ class _$CallLowBalanceCopyWithImpl<$Res>
 
 /// Create a copy of CallDataMessage
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? room = null,Object? secondsRemaining = null,Object? balancePaise = null,Object? pricePerMinutePaise = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? room = null,Object? secondsRemaining = null,Object? balancePaise = null,Object? pricePerMinutePaise = null,Object? spentSoFarPaise = null,Object? balanceLeftPaise = null,Object? isLowBalanceWarning = null,}) {
   return _then(CallLowBalance(
 room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,secondsRemaining: null == secondsRemaining ? _self.secondsRemaining : secondsRemaining // ignore: cast_nullable_to_non_nullable
 as int,balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
-as int,
+as int,spentSoFarPaise: null == spentSoFarPaise ? _self.spentSoFarPaise : spentSoFarPaise // ignore: cast_nullable_to_non_nullable
+as int,balanceLeftPaise: null == balanceLeftPaise ? _self.balanceLeftPaise : balanceLeftPaise // ignore: cast_nullable_to_non_nullable
+as int,isLowBalanceWarning: null == isLowBalanceWarning ? _self.isLowBalanceWarning : isLowBalanceWarning // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

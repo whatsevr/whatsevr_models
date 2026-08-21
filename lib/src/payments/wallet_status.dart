@@ -177,6 +177,16 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     @Default(0)
     int audioPricePerMinutePaise,
     @JsonKey(name: 'audio_rate_paise') @Default(0) int audioRatePaise,
+
+    /// Every legal rate step between [rateMinPaise] and [rateMaxPaise],
+    /// priced both ways by the server
+    /// (`payments/call_billing_service.py:rate_quote_table`). The rate
+    /// editor's slider indexes this instead of re-deriving the commission
+    /// gross-up (`price_for_rate`) or the audio-is-half-rate rule
+    /// (`effective_rate`) for a value she has not saved yet.
+    @JsonKey(name: 'rate_quote_table')
+    @Default(<RateQuote>[])
+    List<RateQuote> rateQuoteTable,
   }) = _OneToOneCallRate;
 
   const OneToOneCallRate._();
@@ -189,4 +199,37 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
 
   /// Only a both-modes host has anything to auto-accept.
   bool get canAutoAcceptVideo => callMode == 'audio_video';
+
+  /// The table row for the rate closest to [candidateRatePaise] — the honest
+  /// quote for a slider position she has not saved yet, without spelling the
+  /// pricing formula client-side. Null only when the server sent no table.
+  RateQuote? quoteNear(int candidateRatePaise) {
+    if (rateQuoteTable.isEmpty) return null;
+    return rateQuoteTable.reduce(
+      (closest, row) =>
+          (row.callRatePaise - candidateRatePaise).abs() <
+              (closest.callRatePaise - candidateRatePaise).abs()
+          ? row
+          : closest,
+    );
+  }
+}
+
+/// One row of the server-precomputed rate quote table: what a host earns and
+/// what a caller pays, on video and on audio, for one legal rate step.
+@freezed
+sealed class RateQuote with _$RateQuote {
+  const factory RateQuote({
+    @JsonKey(name: 'call_rate_paise') @Default(0) int callRatePaise,
+    @JsonKey(name: 'audio_rate_paise') @Default(0) int audioRatePaise,
+    @JsonKey(name: 'video_price_per_minute_paise')
+    @Default(0)
+    int videoPricePerMinutePaise,
+    @JsonKey(name: 'audio_price_per_minute_paise')
+    @Default(0)
+    int audioPricePerMinutePaise,
+  }) = _RateQuote;
+
+  factory RateQuote.fromJson(Map<String, dynamic> json) =>
+      _$RateQuoteFromJson(json);
 }

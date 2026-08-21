@@ -45,16 +45,24 @@ sealed class CallDataMessage with _$CallDataMessage {
   const factory CallDataMessage.modeChanged({required CallMode mode}) =
       CallModeChanged;
 
-  /// Server to payer only: the wallet is about to run dry. [secondsRemaining]
-  /// is the server's own estimate of how long is left at [pricePerMinutePaise]
-  /// — never recomputed from [balancePaise] here, for the same reason no price
-  /// in this app is ever derived client-side. The earner never receives this;
-  /// her wallet is not the one the call is drawing down.
+  /// Server to payer only: the prepaid enforcer's periodic status packet for
+  /// a billed call — sent on every wake for the whole call, not only near the
+  /// cutoff. [spentSoFarPaise] and [balanceLeftPaise] are the authoritative
+  /// running total, exactly what settlement would bill if the call ended this
+  /// second — never recomputed here, for the same reason no price in this app
+  /// is ever derived client-side. [isLowBalanceWarning] is the server's own
+  /// verdict on whether this is close enough to the kick to show the warning
+  /// banner; a client must render that flag, never re-threshold
+  /// [secondsRemaining] itself. The earner never receives this; her wallet is
+  /// not the one the call is drawing down.
   const factory CallDataMessage.lowBalance({
     required String room,
     required int secondsRemaining,
     required int balancePaise,
     required int pricePerMinutePaise,
+    required int spentSoFarPaise,
+    required int balanceLeftPaise,
+    required bool isLowBalanceWarning,
   }) = CallLowBalance;
 
   /// Server to payer only: the call has been ended for [reason]. Today the
@@ -155,6 +163,9 @@ sealed class CallDataMessage with _$CallDataMessage {
           :final secondsRemaining,
           :final balancePaise,
           :final pricePerMinutePaise,
+          :final spentSoFarPaise,
+          :final balanceLeftPaise,
+          :final isLowBalanceWarning,
         ) =>
           {
             'type': 'call.low_balance',
@@ -162,6 +173,9 @@ sealed class CallDataMessage with _$CallDataMessage {
             'seconds_remaining': secondsRemaining,
             'balance_paise': balancePaise,
             'price_per_minute_paise': pricePerMinutePaise,
+            'spent_so_far_paise': spentSoFarPaise,
+            'balance_left_paise': balanceLeftPaise,
+            'is_low_balance_warning': isLowBalanceWarning,
           },
         CallEndedSignal(:final room, :final reason) =>
           {'type': 'call.ended', 'room': room, 'reason': reason},
@@ -249,6 +263,13 @@ sealed class CallDataMessage with _$CallDataMessage {
           pricePerMinutePaise: json['price_per_minute_paise'] is int
               ? json['price_per_minute_paise'] as int
               : 0,
+          spentSoFarPaise: json['spent_so_far_paise'] is int
+              ? json['spent_so_far_paise'] as int
+              : 0,
+          balanceLeftPaise: json['balance_left_paise'] is int
+              ? json['balance_left_paise'] as int
+              : 0,
+          isLowBalanceWarning: json['is_low_balance_warning'] == true,
         ),
       'call.ended' => CallDataMessage.callEnded(
           room: '${json['room'] ?? ''}',

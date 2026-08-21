@@ -102,6 +102,11 @@ _OneToOneCallRate _$OneToOneCallRateFromJson(Map<String, dynamic> json) =>
       audioPricePerMinutePaise:
           (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
       audioRatePaise: (json['audio_rate_paise'] as num?)?.toInt() ?? 0,
+      rateQuoteTable:
+          (json['rate_quote_table'] as List<dynamic>?)
+              ?.map((e) => RateQuote.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <RateQuote>[],
     );
 
 Map<String, dynamic> _$OneToOneCallRateToJson(_OneToOneCallRate instance) =>
@@ -116,4 +121,22 @@ Map<String, dynamic> _$OneToOneCallRateToJson(_OneToOneCallRate instance) =>
       'price_per_minute_paise': instance.pricePerMinutePaise,
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
       'audio_rate_paise': instance.audioRatePaise,
+      'rate_quote_table': instance.rateQuoteTable,
+    };
+
+_RateQuote _$RateQuoteFromJson(Map<String, dynamic> json) => _RateQuote(
+  callRatePaise: (json['call_rate_paise'] as num?)?.toInt() ?? 0,
+  audioRatePaise: (json['audio_rate_paise'] as num?)?.toInt() ?? 0,
+  videoPricePerMinutePaise:
+      (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+  audioPricePerMinutePaise:
+      (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+);
+
+Map<String, dynamic> _$RateQuoteToJson(_RateQuote instance) =>
+    <String, dynamic>{
+      'call_rate_paise': instance.callRatePaise,
+      'audio_rate_paise': instance.audioRatePaise,
+      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
+      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
     };
