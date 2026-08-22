@@ -31,9 +31,8 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
     /// Long free text, detail view only.
     String? bio,
 
-    /// `male`, `female` or `other`. Locked once set — the server answers 403
-    /// on any attempt to change it, so the edit form must render it read-only
-    /// rather than letting the user try.
+    /// `male`, `female` or `other`. Editable until the account is a verified
+    /// host; frozen from then on — see [isIdentityLocked].
     String? gender,
 
     /// Derived server-side from `dob`. This is the only age representation that
@@ -79,6 +78,16 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
     /// Connect terms when this candidate is a verified host, null otherwise.
     /// Present so a profile page can offer the call without a second request.
     @JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,
+
+    /// Self only. True once an admin has verified this account as a host, at
+    /// which point [gender] and [dob] are frozen and the server answers 403 on
+    /// any attempt to change either. Before that both stay editable: only a
+    /// verified host can earn, so only a verified host has a side of the
+    /// economy worth gaming. Render both read-only when this is set rather
+    /// than offering a control that fails.
+    @JsonKey(name: 'is_identity_locked')
+    @Default(false)
+    bool isIdentityLocked,
 
     /// The paid Premium Profile badge on the account behind this persona.
     /// Shown here on purpose: it says someone paid, never who they are, so it

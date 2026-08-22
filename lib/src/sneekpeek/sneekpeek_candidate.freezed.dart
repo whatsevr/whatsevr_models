@@ -18,9 +18,8 @@ mixin _$SneekpeekCandidate {
  String get uid; String get name;/// Short tagline shown on the card, above the fold.
  String? get headline;/// The "About" intro. The server column is `description`, not `about`.
  String? get description;/// Long free text, detail view only.
- String? get bio;/// `male`, `female` or `other`. Locked once set — the server answers 403
-/// on any attempt to change it, so the edit form must render it read-only
-/// rather than letting the user try.
+ String? get bio;/// `male`, `female` or `other`. Editable until the account is a verified
+/// host; frozen from then on — see [isIdentityLocked].
  String? get gender;/// Derived server-side from `dob`. This is the only age representation that
 /// appears on someone else's profile.
  int? get age; String? get occupation;/// One of the values in `kSneekpeekRelationshipStatuses`. Null/blank means
@@ -36,7 +35,13 @@ mixin _$SneekpeekCandidate {
  double? get latitude;/// Self only, and server-side only by design. Never rendered.
  double? get longitude;@JsonKey(name: 'is_in_queue') bool get isInQueue;@JsonKey(name: 'current_chat_session_uid') String? get currentChatSessionUid;@JsonKey(name: 'created_at') DateTime? get createdAt;/// Connect terms when this candidate is a verified host, null otherwise.
 /// Present so a profile page can offer the call without a second request.
-@JsonKey(name: 'host_info') CandidateHostInfo? get hostInfo;/// The paid Premium Profile badge on the account behind this persona.
+@JsonKey(name: 'host_info') CandidateHostInfo? get hostInfo;/// Self only. True once an admin has verified this account as a host, at
+/// which point [gender] and [dob] are frozen and the server answers 403 on
+/// any attempt to change either. Before that both stay editable: only a
+/// verified host can earn, so only a verified host has a side of the
+/// economy worth gaming. Render both read-only when this is set rather
+/// than offering a control that fails.
+@JsonKey(name: 'is_identity_locked') bool get isIdentityLocked;/// The paid Premium Profile badge on the account behind this persona.
 /// Shown here on purpose: it says someone paid, never who they are, so it
 /// gives away nothing the persona is hiding.
 @JsonKey(name: 'is_premium_profile') bool get isPremiumProfile;
@@ -52,16 +57,16 @@ $SneekpeekCandidateCopyWith<SneekpeekCandidate> get copyWith => _$SneekpeekCandi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other.languages, languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other.media, media)&&const DeepCollectionEquality().equals(other.mediaItems, mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other.languages, languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other.media, media)&&const DeepCollectionEquality().equals(other.mediaItems, mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo)&&(identical(other.isIdentityLocked, isIdentityLocked) || other.isIdentityLocked == isIdentityLocked)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(media),const DeepCollectionEquality().hash(mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo,isPremiumProfile]);
+int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(media),const DeepCollectionEquality().hash(mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo,isIdentityLocked,isPremiumProfile]);
 
 @override
 String toString() {
-  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo, isPremiumProfile: $isPremiumProfile)';
+  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo, isIdentityLocked: $isIdentityLocked, isPremiumProfile: $isPremiumProfile)';
 }
 
 
@@ -72,7 +77,7 @@ abstract mixin class $SneekpeekCandidateCopyWith<$Res>  {
   factory $SneekpeekCandidateCopyWith(SneekpeekCandidate value, $Res Function(SneekpeekCandidate) _then) = _$SneekpeekCandidateCopyWithImpl;
 @useResult
 $Res call({
- String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
+ String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,@JsonKey(name: 'is_identity_locked') bool isIdentityLocked,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
 });
 
 
@@ -89,7 +94,7 @@ class _$SneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,Object? isPremiumProfile = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,Object? isIdentityLocked = null,Object? isPremiumProfile = null,}) {
   return _then(_self.copyWith(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -114,7 +119,8 @@ as double?,isInQueue: null == isInQueue ? _self.isInQueue : isInQueue // ignore:
 as bool,currentChatSessionUid: freezed == currentChatSessionUid ? _self.currentChatSessionUid : currentChatSessionUid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,hostInfo: freezed == hostInfo ? _self.hostInfo : hostInfo // ignore: cast_nullable_to_non_nullable
-as CandidateHostInfo?,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
+as CandidateHostInfo?,isIdentityLocked: null == isIdentityLocked ? _self.isIdentityLocked : isIdentityLocked // ignore: cast_nullable_to_non_nullable
+as bool,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -209,10 +215,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_identity_locked')  bool isIdentityLocked, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isPremiumProfile);case _:
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isIdentityLocked,_that.isPremiumProfile);case _:
   return orElse();
 
 }
@@ -230,10 +236,10 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_identity_locked')  bool isIdentityLocked, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)  $default,) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate():
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isPremiumProfile);}
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isIdentityLocked,_that.isPremiumProfile);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -247,10 +253,10 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid,  String name,  String? headline,  String? description,  String? bio,  String? gender,  int? age,  String? occupation, @JsonKey(name: 'relationship_status')  String? relationshipStatus,  List<String> languages,  String? city,  String? state,  String? country, @JsonKey(name: 'profile_picture_url')  String? profilePictureUrl,  List<String> media, @JsonKey(name: 'media_items')  List<CandidateMediaItem> mediaItems,  DateTime? dob,  double? latitude,  double? longitude, @JsonKey(name: 'is_in_queue')  bool isInQueue, @JsonKey(name: 'current_chat_session_uid')  String? currentChatSessionUid, @JsonKey(name: 'created_at')  DateTime? createdAt, @JsonKey(name: 'host_info')  CandidateHostInfo? hostInfo, @JsonKey(name: 'is_identity_locked')  bool isIdentityLocked, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile)?  $default,) {final _that = this;
 switch (_that) {
 case _SneekpeekCandidate() when $default != null:
-return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isPremiumProfile);case _:
+return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,_that.gender,_that.age,_that.occupation,_that.relationshipStatus,_that.languages,_that.city,_that.state,_that.country,_that.profilePictureUrl,_that.media,_that.mediaItems,_that.dob,_that.latitude,_that.longitude,_that.isInQueue,_that.currentChatSessionUid,_that.createdAt,_that.hostInfo,_that.isIdentityLocked,_that.isPremiumProfile);case _:
   return null;
 
 }
@@ -262,7 +268,7 @@ return $default(_that.uid,_that.name,_that.headline,_that.description,_that.bio,
 @JsonSerializable()
 
 class _SneekpeekCandidate extends SneekpeekCandidate {
-  const _SneekpeekCandidate({this.uid = '', this.name = '', this.headline, this.description, this.bio, this.gender, this.age, this.occupation, @JsonKey(name: 'relationship_status') this.relationshipStatus, final  List<String> languages = const <String>[], this.city, this.state, this.country, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, final  List<String> media = const <String>[], @JsonKey(name: 'media_items') final  List<CandidateMediaItem> mediaItems = const <CandidateMediaItem>[], this.dob, this.latitude, this.longitude, @JsonKey(name: 'is_in_queue') this.isInQueue = false, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'host_info') this.hostInfo, @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false}): _languages = languages,_media = media,_mediaItems = mediaItems,super._();
+  const _SneekpeekCandidate({this.uid = '', this.name = '', this.headline, this.description, this.bio, this.gender, this.age, this.occupation, @JsonKey(name: 'relationship_status') this.relationshipStatus, final  List<String> languages = const <String>[], this.city, this.state, this.country, @JsonKey(name: 'profile_picture_url') this.profilePictureUrl, final  List<String> media = const <String>[], @JsonKey(name: 'media_items') final  List<CandidateMediaItem> mediaItems = const <CandidateMediaItem>[], this.dob, this.latitude, this.longitude, @JsonKey(name: 'is_in_queue') this.isInQueue = false, @JsonKey(name: 'current_chat_session_uid') this.currentChatSessionUid, @JsonKey(name: 'created_at') this.createdAt, @JsonKey(name: 'host_info') this.hostInfo, @JsonKey(name: 'is_identity_locked') this.isIdentityLocked = false, @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false}): _languages = languages,_media = media,_mediaItems = mediaItems,super._();
   factory _SneekpeekCandidate.fromJson(Map<String, dynamic> json) => _$SneekpeekCandidateFromJson(json);
 
 @override@JsonKey() final  String uid;
@@ -273,9 +279,8 @@ class _SneekpeekCandidate extends SneekpeekCandidate {
 @override final  String? description;
 /// Long free text, detail view only.
 @override final  String? bio;
-/// `male`, `female` or `other`. Locked once set — the server answers 403
-/// on any attempt to change it, so the edit form must render it read-only
-/// rather than letting the user try.
+/// `male`, `female` or `other`. Editable until the account is a verified
+/// host; frozen from then on — see [isIdentityLocked].
 @override final  String? gender;
 /// Derived server-side from `dob`. This is the only age representation that
 /// appears on someone else's profile.
@@ -332,6 +337,13 @@ class _SneekpeekCandidate extends SneekpeekCandidate {
 /// Connect terms when this candidate is a verified host, null otherwise.
 /// Present so a profile page can offer the call without a second request.
 @override@JsonKey(name: 'host_info') final  CandidateHostInfo? hostInfo;
+/// Self only. True once an admin has verified this account as a host, at
+/// which point [gender] and [dob] are frozen and the server answers 403 on
+/// any attempt to change either. Before that both stay editable: only a
+/// verified host can earn, so only a verified host has a side of the
+/// economy worth gaming. Render both read-only when this is set rather
+/// than offering a control that fails.
+@override@JsonKey(name: 'is_identity_locked') final  bool isIdentityLocked;
 /// The paid Premium Profile badge on the account behind this persona.
 /// Shown here on purpose: it says someone paid, never who they are, so it
 /// gives away nothing the persona is hiding.
@@ -350,16 +362,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other._languages, _languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other._media, _media)&&const DeepCollectionEquality().equals(other._mediaItems, _mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SneekpeekCandidate&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.headline, headline) || other.headline == headline)&&(identical(other.description, description) || other.description == description)&&(identical(other.bio, bio) || other.bio == bio)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.occupation, occupation) || other.occupation == occupation)&&(identical(other.relationshipStatus, relationshipStatus) || other.relationshipStatus == relationshipStatus)&&const DeepCollectionEquality().equals(other._languages, _languages)&&(identical(other.city, city) || other.city == city)&&(identical(other.state, state) || other.state == state)&&(identical(other.country, country) || other.country == country)&&(identical(other.profilePictureUrl, profilePictureUrl) || other.profilePictureUrl == profilePictureUrl)&&const DeepCollectionEquality().equals(other._media, _media)&&const DeepCollectionEquality().equals(other._mediaItems, _mediaItems)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.isInQueue, isInQueue) || other.isInQueue == isInQueue)&&(identical(other.currentChatSessionUid, currentChatSessionUid) || other.currentChatSessionUid == currentChatSessionUid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.hostInfo, hostInfo) || other.hostInfo == hostInfo)&&(identical(other.isIdentityLocked, isIdentityLocked) || other.isIdentityLocked == isIdentityLocked)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(_languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(_media),const DeepCollectionEquality().hash(_mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo,isPremiumProfile]);
+int get hashCode => Object.hashAll([runtimeType,uid,name,headline,description,bio,gender,age,occupation,relationshipStatus,const DeepCollectionEquality().hash(_languages),city,state,country,profilePictureUrl,const DeepCollectionEquality().hash(_media),const DeepCollectionEquality().hash(_mediaItems),dob,latitude,longitude,isInQueue,currentChatSessionUid,createdAt,hostInfo,isIdentityLocked,isPremiumProfile]);
 
 @override
 String toString() {
-  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo, isPremiumProfile: $isPremiumProfile)';
+  return 'SneekpeekCandidate(uid: $uid, name: $name, headline: $headline, description: $description, bio: $bio, gender: $gender, age: $age, occupation: $occupation, relationshipStatus: $relationshipStatus, languages: $languages, city: $city, state: $state, country: $country, profilePictureUrl: $profilePictureUrl, media: $media, mediaItems: $mediaItems, dob: $dob, latitude: $latitude, longitude: $longitude, isInQueue: $isInQueue, currentChatSessionUid: $currentChatSessionUid, createdAt: $createdAt, hostInfo: $hostInfo, isIdentityLocked: $isIdentityLocked, isPremiumProfile: $isPremiumProfile)';
 }
 
 
@@ -370,7 +382,7 @@ abstract mixin class _$SneekpeekCandidateCopyWith<$Res> implements $SneekpeekCan
   factory _$SneekpeekCandidateCopyWith(_SneekpeekCandidate value, $Res Function(_SneekpeekCandidate) _then) = __$SneekpeekCandidateCopyWithImpl;
 @override @useResult
 $Res call({
- String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
+ String uid, String name, String? headline, String? description, String? bio, String? gender, int? age, String? occupation,@JsonKey(name: 'relationship_status') String? relationshipStatus, List<String> languages, String? city, String? state, String? country,@JsonKey(name: 'profile_picture_url') String? profilePictureUrl, List<String> media,@JsonKey(name: 'media_items') List<CandidateMediaItem> mediaItems, DateTime? dob, double? latitude, double? longitude,@JsonKey(name: 'is_in_queue') bool isInQueue,@JsonKey(name: 'current_chat_session_uid') String? currentChatSessionUid,@JsonKey(name: 'created_at') DateTime? createdAt,@JsonKey(name: 'host_info') CandidateHostInfo? hostInfo,@JsonKey(name: 'is_identity_locked') bool isIdentityLocked,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile
 });
 
 
@@ -387,7 +399,7 @@ class __$SneekpeekCandidateCopyWithImpl<$Res>
 
 /// Create a copy of SneekpeekCandidate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,Object? isPremiumProfile = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = null,Object? headline = freezed,Object? description = freezed,Object? bio = freezed,Object? gender = freezed,Object? age = freezed,Object? occupation = freezed,Object? relationshipStatus = freezed,Object? languages = null,Object? city = freezed,Object? state = freezed,Object? country = freezed,Object? profilePictureUrl = freezed,Object? media = null,Object? mediaItems = null,Object? dob = freezed,Object? latitude = freezed,Object? longitude = freezed,Object? isInQueue = null,Object? currentChatSessionUid = freezed,Object? createdAt = freezed,Object? hostInfo = freezed,Object? isIdentityLocked = null,Object? isPremiumProfile = null,}) {
   return _then(_SneekpeekCandidate(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -412,7 +424,8 @@ as double?,isInQueue: null == isInQueue ? _self.isInQueue : isInQueue // ignore:
 as bool,currentChatSessionUid: freezed == currentChatSessionUid ? _self.currentChatSessionUid : currentChatSessionUid // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,hostInfo: freezed == hostInfo ? _self.hostInfo : hostInfo // ignore: cast_nullable_to_non_nullable
-as CandidateHostInfo?,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
+as CandidateHostInfo?,isIdentityLocked: null == isIdentityLocked ? _self.isIdentityLocked : isIdentityLocked // ignore: cast_nullable_to_non_nullable
+as bool,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

@@ -48,6 +48,7 @@ _SneekpeekCandidate _$SneekpeekCandidateFromJson(
           : CandidateHostInfo.fromJson(
             json['host_info'] as Map<String, dynamic>,
           ),
+  isIdentityLocked: json['is_identity_locked'] as bool? ?? false,
   isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
 );
 
@@ -76,6 +77,7 @@ Map<String, dynamic> _$SneekpeekCandidateToJson(_SneekpeekCandidate instance) =>
       'current_chat_session_uid': instance.currentChatSessionUid,
       'created_at': instance.createdAt?.toIso8601String(),
       'host_info': instance.hostInfo,
+      'is_identity_locked': instance.isIdentityLocked,
       'is_premium_profile': instance.isPremiumProfile,
     };
 
