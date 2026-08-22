@@ -18,8 +18,16 @@ mixin _$WalletStatus {
 @JsonKey(name: 'balance_paise') int get balancePaise;/// Spendable free spins, expired grants already excluded by the server.
 /// Spent before cash — the app never chooses which to use.
 @JsonKey(name: 'free_spins') int get freeSpins;/// Keyed by perk type: `gender_filter`, `country_filter`. Empty when none.
-/// Read-only in the app — perks are bought on the web portal.
-@JsonKey(name: 'active_perks') Map<String, PerkGrant> get activePerks; WalletEarnings get earnings;@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? get oneToOneCallRate;@JsonKey(name: 'is_premium_profile') bool get isPremiumProfile;/// The list price of a spin — what the consent screen quotes to everyone.
+///
+/// Named `owned_perks`, not `active_perks`: a paused perk still appears
+/// here (`is_enabled: false`) because its owner needs the Resume control
+/// to be visible, not the filter to still be running. "Owned" is the
+/// display gate, never "active".
+@JsonKey(name: 'owned_perks') Map<String, PerkGrant> get ownedPerks;/// What a week of each perk costs right now, keyed by perk type. The app
+/// "displays price fields it receives and never recomputes" — the Buy CTA
+/// on the random-match filter panel prices itself from this, the same
+/// rule the spin orb's price already follows.
+@JsonKey(name: 'perk_costs_paise') Map<String, int> get perkCostsPaise; WalletEarnings get earnings;@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? get oneToOneCallRate;@JsonKey(name: 'is_premium_profile') bool get isPremiumProfile;/// The list price of a spin — what the consent screen quotes to everyone.
 @JsonKey(name: 'spin_fee_paise') int get spinFeePaise;/// What THIS account's next spin actually costs, which is a different
 /// number for a verified earner and for anyone holding a free spin.
 @JsonKey(name: 'your_spin_cost_paise') int get yourSpinCostPaise;@JsonKey(name: 'next_spin_is_free') bool get nextSpinIsFree;/// The server's own affordability answer. Defaults false so a build
@@ -45,16 +53,16 @@ $WalletStatusCopyWith<WalletStatus> get copyWith => _$WalletStatusCopyWithImpl<W
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalletStatus&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.freeSpins, freeSpins) || other.freeSpins == freeSpins)&&const DeepCollectionEquality().equals(other.activePerks, activePerks)&&(identical(other.earnings, earnings) || other.earnings == earnings)&&(identical(other.oneToOneCallRate, oneToOneCallRate) || other.oneToOneCallRate == oneToOneCallRate)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.spinFeePaise, spinFeePaise) || other.spinFeePaise == spinFeePaise)&&(identical(other.yourSpinCostPaise, yourSpinCostPaise) || other.yourSpinCostPaise == yourSpinCostPaise)&&(identical(other.nextSpinIsFree, nextSpinIsFree) || other.nextSpinIsFree == nextSpinIsFree)&&(identical(other.canAffordSpin, canAffordSpin) || other.canAffordSpin == canAffordSpin)&&(identical(other.hostEligibility, hostEligibility) || other.hostEligibility == hostEligibility)&&(identical(other.canApplyToBeHost, canApplyToBeHost) || other.canApplyToBeHost == canApplyToBeHost));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalletStatus&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.freeSpins, freeSpins) || other.freeSpins == freeSpins)&&const DeepCollectionEquality().equals(other.ownedPerks, ownedPerks)&&const DeepCollectionEquality().equals(other.perkCostsPaise, perkCostsPaise)&&(identical(other.earnings, earnings) || other.earnings == earnings)&&(identical(other.oneToOneCallRate, oneToOneCallRate) || other.oneToOneCallRate == oneToOneCallRate)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.spinFeePaise, spinFeePaise) || other.spinFeePaise == spinFeePaise)&&(identical(other.yourSpinCostPaise, yourSpinCostPaise) || other.yourSpinCostPaise == yourSpinCostPaise)&&(identical(other.nextSpinIsFree, nextSpinIsFree) || other.nextSpinIsFree == nextSpinIsFree)&&(identical(other.canAffordSpin, canAffordSpin) || other.canAffordSpin == canAffordSpin)&&(identical(other.hostEligibility, hostEligibility) || other.hostEligibility == hostEligibility)&&(identical(other.canApplyToBeHost, canApplyToBeHost) || other.canApplyToBeHost == canApplyToBeHost));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balancePaise,freeSpins,const DeepCollectionEquality().hash(activePerks),earnings,oneToOneCallRate,isPremiumProfile,spinFeePaise,yourSpinCostPaise,nextSpinIsFree,canAffordSpin,hostEligibility,canApplyToBeHost);
+int get hashCode => Object.hash(runtimeType,balancePaise,freeSpins,const DeepCollectionEquality().hash(ownedPerks),const DeepCollectionEquality().hash(perkCostsPaise),earnings,oneToOneCallRate,isPremiumProfile,spinFeePaise,yourSpinCostPaise,nextSpinIsFree,canAffordSpin,hostEligibility,canApplyToBeHost);
 
 @override
 String toString() {
-  return 'WalletStatus(balancePaise: $balancePaise, freeSpins: $freeSpins, activePerks: $activePerks, earnings: $earnings, oneToOneCallRate: $oneToOneCallRate, isPremiumProfile: $isPremiumProfile, spinFeePaise: $spinFeePaise, yourSpinCostPaise: $yourSpinCostPaise, nextSpinIsFree: $nextSpinIsFree, canAffordSpin: $canAffordSpin, hostEligibility: $hostEligibility, canApplyToBeHost: $canApplyToBeHost)';
+  return 'WalletStatus(balancePaise: $balancePaise, freeSpins: $freeSpins, ownedPerks: $ownedPerks, perkCostsPaise: $perkCostsPaise, earnings: $earnings, oneToOneCallRate: $oneToOneCallRate, isPremiumProfile: $isPremiumProfile, spinFeePaise: $spinFeePaise, yourSpinCostPaise: $yourSpinCostPaise, nextSpinIsFree: $nextSpinIsFree, canAffordSpin: $canAffordSpin, hostEligibility: $hostEligibility, canApplyToBeHost: $canApplyToBeHost)';
 }
 
 
@@ -65,7 +73,7 @@ abstract mixin class $WalletStatusCopyWith<$Res>  {
   factory $WalletStatusCopyWith(WalletStatus value, $Res Function(WalletStatus) _then) = _$WalletStatusCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'free_spins') int freeSpins,@JsonKey(name: 'active_perks') Map<String, PerkGrant> activePerks, WalletEarnings earnings,@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'spin_fee_paise') int spinFeePaise,@JsonKey(name: 'your_spin_cost_paise') int yourSpinCostPaise,@JsonKey(name: 'next_spin_is_free') bool nextSpinIsFree,@JsonKey(name: 'can_afford_spin') bool canAffordSpin,@JsonKey(name: 'host_eligibility') String hostEligibility,@JsonKey(name: 'can_apply_to_be_host') bool canApplyToBeHost
+@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'free_spins') int freeSpins,@JsonKey(name: 'owned_perks') Map<String, PerkGrant> ownedPerks,@JsonKey(name: 'perk_costs_paise') Map<String, int> perkCostsPaise, WalletEarnings earnings,@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'spin_fee_paise') int spinFeePaise,@JsonKey(name: 'your_spin_cost_paise') int yourSpinCostPaise,@JsonKey(name: 'next_spin_is_free') bool nextSpinIsFree,@JsonKey(name: 'can_afford_spin') bool canAffordSpin,@JsonKey(name: 'host_eligibility') String hostEligibility,@JsonKey(name: 'can_apply_to_be_host') bool canApplyToBeHost
 });
 
 
@@ -82,12 +90,13 @@ class _$WalletStatusCopyWithImpl<$Res>
 
 /// Create a copy of WalletStatus
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? balancePaise = null,Object? freeSpins = null,Object? activePerks = null,Object? earnings = null,Object? oneToOneCallRate = freezed,Object? isPremiumProfile = null,Object? spinFeePaise = null,Object? yourSpinCostPaise = null,Object? nextSpinIsFree = null,Object? canAffordSpin = null,Object? hostEligibility = null,Object? canApplyToBeHost = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? balancePaise = null,Object? freeSpins = null,Object? ownedPerks = null,Object? perkCostsPaise = null,Object? earnings = null,Object? oneToOneCallRate = freezed,Object? isPremiumProfile = null,Object? spinFeePaise = null,Object? yourSpinCostPaise = null,Object? nextSpinIsFree = null,Object? canAffordSpin = null,Object? hostEligibility = null,Object? canApplyToBeHost = null,}) {
   return _then(_self.copyWith(
 balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,freeSpins: null == freeSpins ? _self.freeSpins : freeSpins // ignore: cast_nullable_to_non_nullable
-as int,activePerks: null == activePerks ? _self.activePerks : activePerks // ignore: cast_nullable_to_non_nullable
-as Map<String, PerkGrant>,earnings: null == earnings ? _self.earnings : earnings // ignore: cast_nullable_to_non_nullable
+as int,ownedPerks: null == ownedPerks ? _self.ownedPerks : ownedPerks // ignore: cast_nullable_to_non_nullable
+as Map<String, PerkGrant>,perkCostsPaise: null == perkCostsPaise ? _self.perkCostsPaise : perkCostsPaise // ignore: cast_nullable_to_non_nullable
+as Map<String, int>,earnings: null == earnings ? _self.earnings : earnings // ignore: cast_nullable_to_non_nullable
 as WalletEarnings,oneToOneCallRate: freezed == oneToOneCallRate ? _self.oneToOneCallRate : oneToOneCallRate // ignore: cast_nullable_to_non_nullable
 as OneToOneCallRate?,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,spinFeePaise: null == spinFeePaise ? _self.spinFeePaise : spinFeePaise // ignore: cast_nullable_to_non_nullable
@@ -199,10 +208,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'active_perks')  Map<String, PerkGrant> activePerks,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'owned_perks')  Map<String, PerkGrant> ownedPerks, @JsonKey(name: 'perk_costs_paise')  Map<String, int> perkCostsPaise,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _WalletStatus() when $default != null:
-return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);case _:
+return $default(_that.balancePaise,_that.freeSpins,_that.ownedPerks,_that.perkCostsPaise,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);case _:
   return orElse();
 
 }
@@ -220,10 +229,10 @@ return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earni
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'active_perks')  Map<String, PerkGrant> activePerks,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'owned_perks')  Map<String, PerkGrant> ownedPerks, @JsonKey(name: 'perk_costs_paise')  Map<String, int> perkCostsPaise,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)  $default,) {final _that = this;
 switch (_that) {
 case _WalletStatus():
-return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);}
+return $default(_that.balancePaise,_that.freeSpins,_that.ownedPerks,_that.perkCostsPaise,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -237,10 +246,10 @@ return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earni
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'active_perks')  Map<String, PerkGrant> activePerks,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'free_spins')  int freeSpins, @JsonKey(name: 'owned_perks')  Map<String, PerkGrant> ownedPerks, @JsonKey(name: 'perk_costs_paise')  Map<String, int> perkCostsPaise,  WalletEarnings earnings, @JsonKey(name: 'one_to_one_call_rate')  OneToOneCallRate? oneToOneCallRate, @JsonKey(name: 'is_premium_profile')  bool isPremiumProfile, @JsonKey(name: 'spin_fee_paise')  int spinFeePaise, @JsonKey(name: 'your_spin_cost_paise')  int yourSpinCostPaise, @JsonKey(name: 'next_spin_is_free')  bool nextSpinIsFree, @JsonKey(name: 'can_afford_spin')  bool canAffordSpin, @JsonKey(name: 'host_eligibility')  String hostEligibility, @JsonKey(name: 'can_apply_to_be_host')  bool canApplyToBeHost)?  $default,) {final _that = this;
 switch (_that) {
 case _WalletStatus() when $default != null:
-return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);case _:
+return $default(_that.balancePaise,_that.freeSpins,_that.ownedPerks,_that.perkCostsPaise,_that.earnings,_that.oneToOneCallRate,_that.isPremiumProfile,_that.spinFeePaise,_that.yourSpinCostPaise,_that.nextSpinIsFree,_that.canAffordSpin,_that.hostEligibility,_that.canApplyToBeHost);case _:
   return null;
 
 }
@@ -252,7 +261,7 @@ return $default(_that.balancePaise,_that.freeSpins,_that.activePerks,_that.earni
 @JsonSerializable()
 
 class _WalletStatus extends WalletStatus {
-  const _WalletStatus({@JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'free_spins') this.freeSpins = 0, @JsonKey(name: 'active_perks') final  Map<String, PerkGrant> activePerks = const <String, PerkGrant>{}, this.earnings = const WalletEarnings(), @JsonKey(name: 'one_to_one_call_rate') this.oneToOneCallRate, @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false, @JsonKey(name: 'spin_fee_paise') this.spinFeePaise = 0, @JsonKey(name: 'your_spin_cost_paise') this.yourSpinCostPaise = 0, @JsonKey(name: 'next_spin_is_free') this.nextSpinIsFree = false, @JsonKey(name: 'can_afford_spin') this.canAffordSpin = false, @JsonKey(name: 'host_eligibility') this.hostEligibility = 'not_host', @JsonKey(name: 'can_apply_to_be_host') this.canApplyToBeHost = false}): _activePerks = activePerks,super._();
+  const _WalletStatus({@JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'free_spins') this.freeSpins = 0, @JsonKey(name: 'owned_perks') final  Map<String, PerkGrant> ownedPerks = const <String, PerkGrant>{}, @JsonKey(name: 'perk_costs_paise') final  Map<String, int> perkCostsPaise = const <String, int>{}, this.earnings = const WalletEarnings(), @JsonKey(name: 'one_to_one_call_rate') this.oneToOneCallRate, @JsonKey(name: 'is_premium_profile') this.isPremiumProfile = false, @JsonKey(name: 'spin_fee_paise') this.spinFeePaise = 0, @JsonKey(name: 'your_spin_cost_paise') this.yourSpinCostPaise = 0, @JsonKey(name: 'next_spin_is_free') this.nextSpinIsFree = false, @JsonKey(name: 'can_afford_spin') this.canAffordSpin = false, @JsonKey(name: 'host_eligibility') this.hostEligibility = 'not_host', @JsonKey(name: 'can_apply_to_be_host') this.canApplyToBeHost = false}): _ownedPerks = ownedPerks,_perkCostsPaise = perkCostsPaise,super._();
   factory _WalletStatus.fromJson(Map<String, dynamic> json) => _$WalletStatusFromJson(json);
 
 @override@JsonKey(name: 'balance_paise') final  int balancePaise;
@@ -260,14 +269,37 @@ class _WalletStatus extends WalletStatus {
 /// Spent before cash — the app never chooses which to use.
 @override@JsonKey(name: 'free_spins') final  int freeSpins;
 /// Keyed by perk type: `gender_filter`, `country_filter`. Empty when none.
-/// Read-only in the app — perks are bought on the web portal.
- final  Map<String, PerkGrant> _activePerks;
+///
+/// Named `owned_perks`, not `active_perks`: a paused perk still appears
+/// here (`is_enabled: false`) because its owner needs the Resume control
+/// to be visible, not the filter to still be running. "Owned" is the
+/// display gate, never "active".
+ final  Map<String, PerkGrant> _ownedPerks;
 /// Keyed by perk type: `gender_filter`, `country_filter`. Empty when none.
-/// Read-only in the app — perks are bought on the web portal.
-@override@JsonKey(name: 'active_perks') Map<String, PerkGrant> get activePerks {
-  if (_activePerks is EqualUnmodifiableMapView) return _activePerks;
+///
+/// Named `owned_perks`, not `active_perks`: a paused perk still appears
+/// here (`is_enabled: false`) because its owner needs the Resume control
+/// to be visible, not the filter to still be running. "Owned" is the
+/// display gate, never "active".
+@override@JsonKey(name: 'owned_perks') Map<String, PerkGrant> get ownedPerks {
+  if (_ownedPerks is EqualUnmodifiableMapView) return _ownedPerks;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(_activePerks);
+  return EqualUnmodifiableMapView(_ownedPerks);
+}
+
+/// What a week of each perk costs right now, keyed by perk type. The app
+/// "displays price fields it receives and never recomputes" — the Buy CTA
+/// on the random-match filter panel prices itself from this, the same
+/// rule the spin orb's price already follows.
+ final  Map<String, int> _perkCostsPaise;
+/// What a week of each perk costs right now, keyed by perk type. The app
+/// "displays price fields it receives and never recomputes" — the Buy CTA
+/// on the random-match filter panel prices itself from this, the same
+/// rule the spin orb's price already follows.
+@override@JsonKey(name: 'perk_costs_paise') Map<String, int> get perkCostsPaise {
+  if (_perkCostsPaise is EqualUnmodifiableMapView) return _perkCostsPaise;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_perkCostsPaise);
 }
 
 @override@JsonKey() final  WalletEarnings earnings;
@@ -306,16 +338,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalletStatus&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.freeSpins, freeSpins) || other.freeSpins == freeSpins)&&const DeepCollectionEquality().equals(other._activePerks, _activePerks)&&(identical(other.earnings, earnings) || other.earnings == earnings)&&(identical(other.oneToOneCallRate, oneToOneCallRate) || other.oneToOneCallRate == oneToOneCallRate)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.spinFeePaise, spinFeePaise) || other.spinFeePaise == spinFeePaise)&&(identical(other.yourSpinCostPaise, yourSpinCostPaise) || other.yourSpinCostPaise == yourSpinCostPaise)&&(identical(other.nextSpinIsFree, nextSpinIsFree) || other.nextSpinIsFree == nextSpinIsFree)&&(identical(other.canAffordSpin, canAffordSpin) || other.canAffordSpin == canAffordSpin)&&(identical(other.hostEligibility, hostEligibility) || other.hostEligibility == hostEligibility)&&(identical(other.canApplyToBeHost, canApplyToBeHost) || other.canApplyToBeHost == canApplyToBeHost));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalletStatus&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.freeSpins, freeSpins) || other.freeSpins == freeSpins)&&const DeepCollectionEquality().equals(other._ownedPerks, _ownedPerks)&&const DeepCollectionEquality().equals(other._perkCostsPaise, _perkCostsPaise)&&(identical(other.earnings, earnings) || other.earnings == earnings)&&(identical(other.oneToOneCallRate, oneToOneCallRate) || other.oneToOneCallRate == oneToOneCallRate)&&(identical(other.isPremiumProfile, isPremiumProfile) || other.isPremiumProfile == isPremiumProfile)&&(identical(other.spinFeePaise, spinFeePaise) || other.spinFeePaise == spinFeePaise)&&(identical(other.yourSpinCostPaise, yourSpinCostPaise) || other.yourSpinCostPaise == yourSpinCostPaise)&&(identical(other.nextSpinIsFree, nextSpinIsFree) || other.nextSpinIsFree == nextSpinIsFree)&&(identical(other.canAffordSpin, canAffordSpin) || other.canAffordSpin == canAffordSpin)&&(identical(other.hostEligibility, hostEligibility) || other.hostEligibility == hostEligibility)&&(identical(other.canApplyToBeHost, canApplyToBeHost) || other.canApplyToBeHost == canApplyToBeHost));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balancePaise,freeSpins,const DeepCollectionEquality().hash(_activePerks),earnings,oneToOneCallRate,isPremiumProfile,spinFeePaise,yourSpinCostPaise,nextSpinIsFree,canAffordSpin,hostEligibility,canApplyToBeHost);
+int get hashCode => Object.hash(runtimeType,balancePaise,freeSpins,const DeepCollectionEquality().hash(_ownedPerks),const DeepCollectionEquality().hash(_perkCostsPaise),earnings,oneToOneCallRate,isPremiumProfile,spinFeePaise,yourSpinCostPaise,nextSpinIsFree,canAffordSpin,hostEligibility,canApplyToBeHost);
 
 @override
 String toString() {
-  return 'WalletStatus(balancePaise: $balancePaise, freeSpins: $freeSpins, activePerks: $activePerks, earnings: $earnings, oneToOneCallRate: $oneToOneCallRate, isPremiumProfile: $isPremiumProfile, spinFeePaise: $spinFeePaise, yourSpinCostPaise: $yourSpinCostPaise, nextSpinIsFree: $nextSpinIsFree, canAffordSpin: $canAffordSpin, hostEligibility: $hostEligibility, canApplyToBeHost: $canApplyToBeHost)';
+  return 'WalletStatus(balancePaise: $balancePaise, freeSpins: $freeSpins, ownedPerks: $ownedPerks, perkCostsPaise: $perkCostsPaise, earnings: $earnings, oneToOneCallRate: $oneToOneCallRate, isPremiumProfile: $isPremiumProfile, spinFeePaise: $spinFeePaise, yourSpinCostPaise: $yourSpinCostPaise, nextSpinIsFree: $nextSpinIsFree, canAffordSpin: $canAffordSpin, hostEligibility: $hostEligibility, canApplyToBeHost: $canApplyToBeHost)';
 }
 
 
@@ -326,7 +358,7 @@ abstract mixin class _$WalletStatusCopyWith<$Res> implements $WalletStatusCopyWi
   factory _$WalletStatusCopyWith(_WalletStatus value, $Res Function(_WalletStatus) _then) = __$WalletStatusCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'free_spins') int freeSpins,@JsonKey(name: 'active_perks') Map<String, PerkGrant> activePerks, WalletEarnings earnings,@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'spin_fee_paise') int spinFeePaise,@JsonKey(name: 'your_spin_cost_paise') int yourSpinCostPaise,@JsonKey(name: 'next_spin_is_free') bool nextSpinIsFree,@JsonKey(name: 'can_afford_spin') bool canAffordSpin,@JsonKey(name: 'host_eligibility') String hostEligibility,@JsonKey(name: 'can_apply_to_be_host') bool canApplyToBeHost
+@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'free_spins') int freeSpins,@JsonKey(name: 'owned_perks') Map<String, PerkGrant> ownedPerks,@JsonKey(name: 'perk_costs_paise') Map<String, int> perkCostsPaise, WalletEarnings earnings,@JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,@JsonKey(name: 'is_premium_profile') bool isPremiumProfile,@JsonKey(name: 'spin_fee_paise') int spinFeePaise,@JsonKey(name: 'your_spin_cost_paise') int yourSpinCostPaise,@JsonKey(name: 'next_spin_is_free') bool nextSpinIsFree,@JsonKey(name: 'can_afford_spin') bool canAffordSpin,@JsonKey(name: 'host_eligibility') String hostEligibility,@JsonKey(name: 'can_apply_to_be_host') bool canApplyToBeHost
 });
 
 
@@ -343,12 +375,13 @@ class __$WalletStatusCopyWithImpl<$Res>
 
 /// Create a copy of WalletStatus
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? balancePaise = null,Object? freeSpins = null,Object? activePerks = null,Object? earnings = null,Object? oneToOneCallRate = freezed,Object? isPremiumProfile = null,Object? spinFeePaise = null,Object? yourSpinCostPaise = null,Object? nextSpinIsFree = null,Object? canAffordSpin = null,Object? hostEligibility = null,Object? canApplyToBeHost = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? balancePaise = null,Object? freeSpins = null,Object? ownedPerks = null,Object? perkCostsPaise = null,Object? earnings = null,Object? oneToOneCallRate = freezed,Object? isPremiumProfile = null,Object? spinFeePaise = null,Object? yourSpinCostPaise = null,Object? nextSpinIsFree = null,Object? canAffordSpin = null,Object? hostEligibility = null,Object? canApplyToBeHost = null,}) {
   return _then(_WalletStatus(
 balancePaise: null == balancePaise ? _self.balancePaise : balancePaise // ignore: cast_nullable_to_non_nullable
 as int,freeSpins: null == freeSpins ? _self.freeSpins : freeSpins // ignore: cast_nullable_to_non_nullable
-as int,activePerks: null == activePerks ? _self._activePerks : activePerks // ignore: cast_nullable_to_non_nullable
-as Map<String, PerkGrant>,earnings: null == earnings ? _self.earnings : earnings // ignore: cast_nullable_to_non_nullable
+as int,ownedPerks: null == ownedPerks ? _self._ownedPerks : ownedPerks // ignore: cast_nullable_to_non_nullable
+as Map<String, PerkGrant>,perkCostsPaise: null == perkCostsPaise ? _self._perkCostsPaise : perkCostsPaise // ignore: cast_nullable_to_non_nullable
+as Map<String, int>,earnings: null == earnings ? _self.earnings : earnings // ignore: cast_nullable_to_non_nullable
 as WalletEarnings,oneToOneCallRate: freezed == oneToOneCallRate ? _self.oneToOneCallRate : oneToOneCallRate // ignore: cast_nullable_to_non_nullable
 as OneToOneCallRate?,isPremiumProfile: null == isPremiumProfile ? _self.isPremiumProfile : isPremiumProfile // ignore: cast_nullable_to_non_nullable
 as bool,spinFeePaise: null == spinFeePaise ? _self.spinFeePaise : spinFeePaise // ignore: cast_nullable_to_non_nullable

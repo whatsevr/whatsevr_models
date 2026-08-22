@@ -26,10 +26,22 @@ sealed class WalletStatus with _$WalletStatus {
     @JsonKey(name: 'free_spins') @Default(0) int freeSpins,
 
     /// Keyed by perk type: `gender_filter`, `country_filter`. Empty when none.
-    /// Read-only in the app — perks are bought on the web portal.
-    @JsonKey(name: 'active_perks')
+    ///
+    /// Named `owned_perks`, not `active_perks`: a paused perk still appears
+    /// here (`is_enabled: false`) because its owner needs the Resume control
+    /// to be visible, not the filter to still be running. "Owned" is the
+    /// display gate, never "active".
+    @JsonKey(name: 'owned_perks')
     @Default(<String, PerkGrant>{})
-    Map<String, PerkGrant> activePerks,
+    Map<String, PerkGrant> ownedPerks,
+
+    /// What a week of each perk costs right now, keyed by perk type. The app
+    /// "displays price fields it receives and never recomputes" — the Buy CTA
+    /// on the random-match filter panel prices itself from this, the same
+    /// rule the spin orb's price already follows.
+    @JsonKey(name: 'perk_costs_paise')
+    @Default(<String, int>{})
+    Map<String, int> perkCostsPaise,
     @Default(WalletEarnings()) WalletEarnings earnings,
     @JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,

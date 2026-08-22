@@ -11,11 +11,16 @@ _WalletStatus _$WalletStatusFromJson(
 ) => _WalletStatus(
   balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
   freeSpins: (json['free_spins'] as num?)?.toInt() ?? 0,
-  activePerks:
-      (json['active_perks'] as Map<String, dynamic>?)?.map(
+  ownedPerks:
+      (json['owned_perks'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, PerkGrant.fromJson(e as Map<String, dynamic>)),
       ) ??
       const <String, PerkGrant>{},
+  perkCostsPaise:
+      (json['perk_costs_paise'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toInt()),
+      ) ??
+      const <String, int>{},
   earnings:
       json['earnings'] == null
           ? const WalletEarnings()
@@ -39,7 +44,8 @@ Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
     <String, dynamic>{
       'balance_paise': instance.balancePaise,
       'free_spins': instance.freeSpins,
-      'active_perks': instance.activePerks,
+      'owned_perks': instance.ownedPerks,
+      'perk_costs_paise': instance.perkCostsPaise,
       'earnings': instance.earnings,
       'one_to_one_call_rate': instance.oneToOneCallRate,
       'is_premium_profile': instance.isPremiumProfile,
