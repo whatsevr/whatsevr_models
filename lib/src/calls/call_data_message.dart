@@ -89,6 +89,16 @@ sealed class CallDataMessage with _$CallDataMessage {
     @Default(20) int ringWindowSeconds,
   }) = CallHostJoinRequest;
 
+  /// Server to host: the segment she accepted ended before the guest arrived
+  /// — the join timeout, or her own End call. Her studio leaves its
+  /// "waiting for them to arrive" state. Never sent by a peer: a copy
+  /// carrying a participant identity is forged and must be discarded.
+  const factory CallDataMessage.hostSegmentUpdate({
+    required String segment,
+    required String status,
+    @Default('') String reason,
+  }) = CallHostSegmentUpdate;
+
   /// Server to room: a gift was paid for and recorded, broadcast after the
   /// money committed. Never sent by a peer — a copy carrying a participant
   /// identity is forged and must be discarded by the caller.
@@ -198,6 +208,13 @@ sealed class CallDataMessage with _$CallDataMessage {
             'is_video': isVideo,
             'ring_window_seconds': ringWindowSeconds,
           },
+        CallHostSegmentUpdate(:final segment, :final status, :final reason) =>
+          {
+            'type': 'one_to_one_call.segment_update',
+            'segment': segment,
+            'status': status,
+            'reason': reason,
+          },
         CallDataGift(
           :final giftLedgerUid,
           :final giftUid,
@@ -287,6 +304,11 @@ sealed class CallDataMessage with _$CallDataMessage {
           isBilled: json['is_billed'] == true,
           ringWindowSeconds:
               json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
+        ),
+      'one_to_one_call.segment_update' => CallDataMessage.hostSegmentUpdate(
+          segment: '${json['segment'] ?? ''}',
+          status: '${json['status'] ?? ''}',
+          reason: '${json['reason'] ?? ''}',
         ),
       'gift.sent' => _giftFromWireJson(json),
       'profile.share' => _profileShareFromWireJson(json),

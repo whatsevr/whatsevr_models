@@ -217,4 +217,22 @@ void _profileShareTests() {
       expect(CallDataMessage.fromWireJson(full()..['kind'] = 'page'), isNull);
     });
   });
+
+  group('CallDataMessage.hostSegmentUpdate wire codec', () {
+    test('round-trips with the protocol keys', () {
+      const message = CallDataMessage.hostSegmentUpdate(
+        segment: 'one-to-one-call-abc:2',
+        status: 'missed',
+        reason: 'ring_timeout',
+      );
+      final json = message.toWireJson();
+      expect(json, {
+        'type': 'one_to_one_call.segment_update',
+        'segment': 'one-to-one-call-abc:2',
+        'status': 'missed',
+        'reason': 'ring_timeout',
+      });
+      expect(CallDataMessage.fromWireJson(json), message);
+    });
+  });
 }
