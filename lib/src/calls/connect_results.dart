@@ -54,6 +54,9 @@ sealed class ConnectRequestResult with _$ConnectRequestResult {
     @JsonKey(name: 'video_price_per_minute_credits')
     @Default(0)
     int videoPricePerMinuteCredits,
+
+    /// What the EARNER makes per minute at the mode the call opened in.
+    @JsonKey(name: 'earn_rate_paise') @Default(0) int earnRatePaise,
     @JsonKey(name: 'rate_paise') @Default(0) int ratePaise,
     @JsonKey(name: 'audio_only') @Default(false) bool audioOnly,
     @JsonKey(name: 'can_switch_mode') @Default(false) bool canSwitchMode,

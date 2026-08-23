@@ -31,6 +31,7 @@ _CallAcceptResult _$CallAcceptResultFromJson(Map<String, dynamic> json) =>
           (json['audio_price_per_minute_credits'] as num?)?.toInt() ?? 0,
       videoPricePerMinuteCredits:
           (json['video_price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      earnRatePaise: (json['earn_rate_paise'] as num?)?.toInt() ?? 0,
       canSwitchMode: json['can_switch_mode'] as bool? ?? false,
       videoNeedsConsent: json['video_needs_consent'] as bool? ?? true,
     );
@@ -51,6 +52,7 @@ Map<String, dynamic> _$CallAcceptResultToJson(_CallAcceptResult instance) =>
       'price_per_minute_credits': instance.pricePerMinuteCredits,
       'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
       'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
+      'earn_rate_paise': instance.earnRatePaise,
       'can_switch_mode': instance.canSwitchMode,
       'video_needs_consent': instance.videoNeedsConsent,
     };
