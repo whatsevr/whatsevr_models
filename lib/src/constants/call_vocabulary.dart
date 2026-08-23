@@ -20,18 +20,18 @@ abstract final class CallEndReasons {
   static const String outOfFunds = 'out_of_funds';
   static const String userEnded = 'user_ended';
   static const String roomFinished = 'room_finished';
-  static const String maintenanceSweepStuckActive = 'maintenance_sweep_stuck_active';
+  static const String maintenanceSweepStuckActive =
+      'maintenance_sweep_stuck_active';
 
-  static const List<String> all =
-      <String>[
-        'declined',
-        'cancelled_by_caller',
-        'ring_timeout',
-        'out_of_funds',
-        'user_ended',
-        'room_finished',
-        'maintenance_sweep_stuck_active',
-      ];
+  static const List<String> all = <String>[
+    'declined',
+    'cancelled_by_caller',
+    'ring_timeout',
+    'out_of_funds',
+    'user_ended',
+    'room_finished',
+    'maintenance_sweep_stuck_active',
+  ];
 }
 
 /// Server: `CALL_VIEWER_ROLES`. Which side of a call the viewer was on.
@@ -44,12 +44,7 @@ abstract final class CallViewerRoles {
   static const String earner = 'earner';
   static const String participant = 'participant';
 
-  static const List<String> all =
-      <String>[
-        'payer',
-        'earner',
-        'participant',
-      ];
+  static const List<String> all = <String>['payer', 'earner', 'participant'];
 }
 
 /// Server: `CALL_OUTCOME_STATUSES`. What to do with a call-outcome answer.
@@ -63,12 +58,11 @@ abstract final class CallOutcomeStatuses {
   static const String pending = 'pending';
   static const String unavailable = 'unavailable';
 
-  static const List<String> all =
-      <String>[
-        'finalized',
-        'pending',
-        'unavailable',
-      ];
+  static const List<String> all = <String>[
+    'finalized',
+    'pending',
+    'unavailable',
+  ];
 }
 
 /// Server: `SPIN_PHASES`. Issued by the server; never inferred from whether
@@ -83,17 +77,16 @@ abstract final class SpinPhases {
   static const String inRoom = 'in_room';
   static const String ended = 'ended';
 
-  static const List<String> all =
-      <String>[
-        'idle',
-        'joining',
-        'queued',
-        'consent',
-        'confirming',
-        'waiting_peer',
-        'in_room',
-        'ended',
-      ];
+  static const List<String> all = <String>[
+    'idle',
+    'joining',
+    'queued',
+    'consent',
+    'confirming',
+    'waiting_peer',
+    'in_room',
+    'ended',
+  ];
 }
 
 /// Server: `SPIN_END_REASONS`. Why a spin ended, as told to THIS viewer.
@@ -120,15 +113,14 @@ abstract final class SpinEndReasons {
   static const String peerDidntAnswer = 'peer_didnt_answer';
   static const String nobodyAnswered = 'nobody_answered';
 
-  static const List<String> all =
-      <String>[
-        'you_ended',
-        'peer_left',
-        'you_skipped',
-        'peer_skipped',
-        'out_of_funds',
-        'you_didnt_answer',
-        'peer_didnt_answer',
-        'nobody_answered',
-      ];
+  static const List<String> all = <String>[
+    'you_ended',
+    'peer_left',
+    'you_skipped',
+    'peer_skipped',
+    'out_of_funds',
+    'you_didnt_answer',
+    'peer_didnt_answer',
+    'nobody_answered',
+  ];
 }

@@ -20,6 +20,6 @@ sealed class BaseService with _$BaseService {
   }) = _BaseService;
 
   /// Creates a Service from Json map
-  factory BaseService.fromJson(Map<String, dynamic> json) => 
+  factory BaseService.fromJson(Map<String, dynamic> json) =>
       _$BaseServiceFromJson(json);
 }

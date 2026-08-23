@@ -31,5 +31,6 @@ sealed class LiveKitTokenGrant with _$LiveKitTokenGrant {
   factory LiveKitTokenGrant.fromJson(Map<String, dynamic> json) =>
       _$LiveKitTokenGrantFromJson(json);
 
-  bool get isUsable => room.isNotEmpty && token.isNotEmpty && serverUrl.isNotEmpty;
+  bool get isUsable =>
+      room.isNotEmpty && token.isNotEmpty && serverUrl.isNotEmpty;
 }

@@ -9,15 +9,25 @@ part 'host_earnings_summary.g.dart';
 sealed class WithdrawalTerms with _$WithdrawalTerms {
   const factory WithdrawalTerms({
     @JsonKey(name: 'commission_percent') @Default(20) int commissionPercent,
-    @JsonKey(name: 'gift_commission_percent') @Default(45) int giftCommissionPercent,
+    @JsonKey(name: 'gift_commission_percent')
+    @Default(45)
+    int giftCommissionPercent,
     @JsonKey(name: 'transfer_fee_paise') @Default(0) int transferFeePaise,
     @JsonKey(name: 'tds_percent_label') @Default('0.1%') String tdsPercentLabel,
     @JsonKey(name: 'tds_threshold_paise') @Default(0) int tdsThresholdPaise,
-    @JsonKey(name: 'tds_free_remaining_paise') @Default(0) int tdsFreeRemainingPaise,
+    @JsonKey(name: 'tds_free_remaining_paise')
+    @Default(0)
+    int tdsFreeRemainingPaise,
     @JsonKey(name: 'financial_year') @Default('') String financialYear,
-    @JsonKey(name: 'withdrawn_this_year_paise') @Default(0) int withdrawnThisYearPaise,
-    @JsonKey(name: 'tds_withheld_this_year_paise') @Default(0) int tdsWithheldThisYearPaise,
-    @JsonKey(name: 'minimum_withdrawal_paise') @Default(0) int minimumWithdrawalPaise,
+    @JsonKey(name: 'withdrawn_this_year_paise')
+    @Default(0)
+    int withdrawnThisYearPaise,
+    @JsonKey(name: 'tds_withheld_this_year_paise')
+    @Default(0)
+    int tdsWithheldThisYearPaise,
+    @JsonKey(name: 'minimum_withdrawal_paise')
+    @Default(0)
+    int minimumWithdrawalPaise,
   }) = _WithdrawalTerms;
 
   factory WithdrawalTerms.fromJson(Map<String, dynamic> json) =>
@@ -40,15 +50,21 @@ sealed class HostEarningsStatement with _$HostEarningsStatement {
     @JsonKey(name: 'period_last_day') DateTime? periodLastDay,
     @JsonKey(name: 'opening_balance_paise') @Default(0) int openingBalancePaise,
     @JsonKey(name: 'earned_paise') @Default(0) int earnedPaise,
-    @JsonKey(name: 'earned_from_calls_paise') @Default(0) int earnedFromCallsPaise,
-    @JsonKey(name: 'earned_from_gifts_paise') @Default(0) int earnedFromGiftsPaise,
+    @JsonKey(name: 'earned_from_calls_paise')
+    @Default(0)
+    int earnedFromCallsPaise,
+    @JsonKey(name: 'earned_from_gifts_paise')
+    @Default(0)
+    int earnedFromGiftsPaise,
     @JsonKey(name: 'withdrawn_paise') @Default(0) int withdrawnPaise,
     @JsonKey(name: 'returned_paise') @Default(0) int returnedPaise,
     @JsonKey(name: 'adjusted_paise') @Default(0) int adjustedPaise,
     @JsonKey(name: 'closing_balance_paise') @Default(0) int closingBalancePaise,
     @JsonKey(name: 'balance_paise') @Default(0) int balancePaise,
     @JsonKey(name: 'available_now_paise') @Default(0) int availableNowPaise,
-    @JsonKey(name: 'waiting_for_review_paise') @Default(0) int waitingForReviewPaise,
+    @JsonKey(name: 'waiting_for_review_paise')
+    @Default(0)
+    int waitingForReviewPaise,
     @JsonKey(name: 'hold_hours') @Default(24) int holdHours,
   }) = _HostEarningsStatement;
 

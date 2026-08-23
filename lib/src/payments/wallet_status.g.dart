@@ -9,15 +9,15 @@ part of 'wallet_status.dart';
 _WalletStatus _$WalletStatusFromJson(
   Map<String, dynamic> json,
 ) => _WalletStatus(
-  balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
+  balanceCredits: (json['balance_credits'] as num?)?.toInt() ?? 0,
   freeSpins: (json['free_spins'] as num?)?.toInt() ?? 0,
   ownedPerks:
       (json['owned_perks'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, PerkGrant.fromJson(e as Map<String, dynamic>)),
       ) ??
       const <String, PerkGrant>{},
-  perkCostsPaise:
-      (json['perk_costs_paise'] as Map<String, dynamic>?)?.map(
+  perkCostsCredits:
+      (json['perk_costs_credits'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toInt()),
       ) ??
       const <String, int>{},
@@ -32,8 +32,8 @@ _WalletStatus _$WalletStatusFromJson(
             json['one_to_one_call_rate'] as Map<String, dynamic>,
           ),
   isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
-  spinFeePaise: (json['spin_fee_paise'] as num?)?.toInt() ?? 0,
-  yourSpinCostPaise: (json['your_spin_cost_paise'] as num?)?.toInt() ?? 0,
+  spinFeeCredits: (json['spin_fee_credits'] as num?)?.toInt() ?? 0,
+  yourSpinCostCredits: (json['your_spin_cost_credits'] as num?)?.toInt() ?? 0,
   nextSpinIsFree: json['next_spin_is_free'] as bool? ?? false,
   canAffordSpin: json['can_afford_spin'] as bool? ?? false,
   hostEligibility: json['host_eligibility'] as String? ?? 'not_host',
@@ -42,15 +42,15 @@ _WalletStatus _$WalletStatusFromJson(
 
 Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
     <String, dynamic>{
-      'balance_paise': instance.balancePaise,
+      'balance_credits': instance.balanceCredits,
       'free_spins': instance.freeSpins,
       'owned_perks': instance.ownedPerks,
-      'perk_costs_paise': instance.perkCostsPaise,
+      'perk_costs_credits': instance.perkCostsCredits,
       'earnings': instance.earnings,
       'one_to_one_call_rate': instance.oneToOneCallRate,
       'is_premium_profile': instance.isPremiumProfile,
-      'spin_fee_paise': instance.spinFeePaise,
-      'your_spin_cost_paise': instance.yourSpinCostPaise,
+      'spin_fee_credits': instance.spinFeeCredits,
+      'your_spin_cost_credits': instance.yourSpinCostCredits,
       'next_spin_is_free': instance.nextSpinIsFree,
       'can_afford_spin': instance.canAffordSpin,
       'host_eligibility': instance.hostEligibility,
@@ -107,6 +107,10 @@ _OneToOneCallRate _$OneToOneCallRateFromJson(Map<String, dynamic> json) =>
           (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
       audioPricePerMinutePaise:
           (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      pricePerMinuteCredits:
+          (json['price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      audioPricePerMinuteCredits:
+          (json['audio_price_per_minute_credits'] as num?)?.toInt() ?? 0,
       audioRatePaise: (json['audio_rate_paise'] as num?)?.toInt() ?? 0,
       rateQuoteTable:
           (json['rate_quote_table'] as List<dynamic>?)
@@ -126,6 +130,8 @@ Map<String, dynamic> _$OneToOneCallRateToJson(_OneToOneCallRate instance) =>
       'intro_window_ends_at': instance.introWindowEndsAt?.toIso8601String(),
       'price_per_minute_paise': instance.pricePerMinutePaise,
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+      'price_per_minute_credits': instance.pricePerMinuteCredits,
+      'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
       'audio_rate_paise': instance.audioRatePaise,
       'rate_quote_table': instance.rateQuoteTable,
     };
@@ -137,6 +143,10 @@ _RateQuote _$RateQuoteFromJson(Map<String, dynamic> json) => _RateQuote(
       (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
   audioPricePerMinutePaise:
       (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+  videoPricePerMinuteCredits:
+      (json['video_price_per_minute_credits'] as num?)?.toInt() ?? 0,
+  audioPricePerMinuteCredits:
+      (json['audio_price_per_minute_credits'] as num?)?.toInt() ?? 0,
 );
 
 Map<String, dynamic> _$RateQuoteToJson(_RateQuote instance) =>
@@ -145,4 +155,6 @@ Map<String, dynamic> _$RateQuoteToJson(_RateQuote instance) =>
       'audio_rate_paise': instance.audioRatePaise,
       'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+      'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
+      'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
     };

@@ -20,6 +20,6 @@ sealed class BaseUsersRelation with _$BaseUsersRelation {
   }) = _BaseUsersRelation;
 
   /// Creates a UsersRelation from Json map
-  factory BaseUsersRelation.fromJson(Map<String, dynamic> json) => 
+  factory BaseUsersRelation.fromJson(Map<String, dynamic> json) =>
       _$BaseUsersRelationFromJson(json);
 }

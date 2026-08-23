@@ -25,5 +25,6 @@ sealed class BasePdf with _$BasePdf {
   }) = _BasePdf;
 
   /// Creates a PDF from Json map
-  factory BasePdf.fromJson(Map<String, dynamic> json) => _$BasePdfFromJson(json);
+  factory BasePdf.fromJson(Map<String, dynamic> json) =>
+      _$BasePdfFromJson(json);
 }

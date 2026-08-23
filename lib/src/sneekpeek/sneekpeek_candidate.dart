@@ -85,16 +85,12 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
     /// verified host can earn, so only a verified host has a side of the
     /// economy worth gaming. Render both read-only when this is set rather
     /// than offering a control that fails.
-    @JsonKey(name: 'is_identity_locked')
-    @Default(false)
-    bool isIdentityLocked,
+    @JsonKey(name: 'is_identity_locked') @Default(false) bool isIdentityLocked,
 
     /// The paid Premium Profile badge on the account behind this persona.
     /// Shown here on purpose: it says someone paid, never who they are, so it
     /// gives away nothing the persona is hiding.
-    @JsonKey(name: 'is_premium_profile')
-    @Default(false)
-    bool isPremiumProfile,
+    @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
   }) = _SneekpeekCandidate;
 
   const SneekpeekCandidate._();
@@ -117,13 +113,14 @@ sealed class SneekpeekCandidate with _$SneekpeekCandidate {
   List<String> get galleryOrAvatar {
     if (media.isNotEmpty) return media;
     final avatar = profilePictureUrl;
-    return (avatar == null || avatar.isEmpty) ? const <String>[] : <String>[avatar];
+    return (avatar == null || avatar.isEmpty)
+        ? const <String>[]
+        : <String>[avatar];
   }
 
   /// Whether this profile has enough on it to be worth showing to someone else.
   /// Used to nudge a new user into finishing setup before their first spin.
-  bool get isComplete =>
-      name.isNotEmpty && gender != null && age != null;
+  bool get isComplete => name.isNotEmpty && gender != null && age != null;
 }
 
 /// Connect terms on a candidate profile, for verified hosts only.
@@ -140,7 +137,9 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
     @JsonKey(name: 'call_mode') @Default('audio_video') String callMode,
 
     /// What the caller pays per minute, already adjusted for the call mode.
-    @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+    @JsonKey(name: 'price_per_minute_paise')
+    @Default(0)
+    int pricePerMinutePaise,
 
     /// Both modes' prices, for a host who takes either — the caller picks.
     @JsonKey(name: 'audio_price_per_minute_paise')
@@ -167,19 +166,19 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
       _$CandidateHostInfoFromJson(json);
 
   HostPresence get presence => switch (status) {
-        'available' => HostPresence.available,
-        'busy' => HostPresence.busy,
-        _ => HostPresence.offline,
-      };
+    'available' => HostPresence.available,
+    'busy' => HostPresence.busy,
+    _ => HostPresence.offline,
+  };
 
   bool get isAudioOnly => callMode == 'audio_only';
 
   /// What calling her costs either way — what the picker is built from.
   CallModeQuote get callModeQuote => CallModeQuote(
-        callMode: callMode,
-        audioPricePerMinutePaise: audioPricePerMinutePaise,
-        videoPricePerMinutePaise: videoPricePerMinutePaise,
-      );
+    callMode: callMode,
+    audioPricePerMinutePaise: audioPricePerMinutePaise,
+    videoPricePerMinutePaise: videoPricePerMinutePaise,
+  );
 
   /// The lowest price a caller can actually pay her. A both-modes host has two
   /// and voice is half, so a CTA that leads with the video one hides the cheap

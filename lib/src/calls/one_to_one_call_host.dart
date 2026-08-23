@@ -41,7 +41,9 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
 
     /// What the caller pays per minute — rate grossed up for commission. This
     /// is the only price a caller should ever see.
-    @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+    @JsonKey(name: 'price_per_minute_paise')
+    @Default(0)
+    int pricePerMinutePaise,
 
     /// Both modes' prices, for a host who takes either. Voice is half — that
     /// is the whole reason the caller is asked to choose.
@@ -54,9 +56,7 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     @Default('offline') String status,
 
     /// The paid Premium Profile badge, shown beside the name on the card.
-    @JsonKey(name: 'is_premium_profile')
-    @Default(false)
-    bool isPremiumProfile,
+    @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
 
     /// The identity tick, beside the name. Distinct from the paid Premium
     /// badge: this one says the person is who they claim to be.
@@ -101,18 +101,18 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
       _$OneToOneCallHostFromJson(json);
 
   HostPresence get presence => switch (status) {
-        'available' => HostPresence.available,
-        'busy' => HostPresence.busy,
-        _ => HostPresence.offline,
-      };
+    'available' => HostPresence.available,
+    'busy' => HostPresence.busy,
+    _ => HostPresence.offline,
+  };
 
   /// Plain words, not system states: "Live" reads as an invitation where
   /// "available" reads as a status field.
   String get presenceLabel => switch (presence) {
-        HostPresence.available => 'Live',
-        HostPresence.busy => 'In a call',
-        HostPresence.offline => 'Away',
-      };
+    HostPresence.available => 'Live',
+    HostPresence.busy => 'In a call',
+    HostPresence.offline => 'Away',
+  };
 
   /// Only a host already in a call cannot be reached at all — an offline one
   /// still rings.
@@ -132,20 +132,20 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
   }
 
   String get connectLabel => switch (presence) {
-        HostPresence.busy => 'In a call',
-        HostPresence.offline => 'Ring',
-        HostPresence.available => 'Connect',
-      };
+    HostPresence.busy => 'In a call',
+    HostPresence.offline => 'Ring',
+    HostPresence.available => 'Connect',
+  };
 
   bool get isAudioOnly => callMode == 'audio_only';
   bool get isVideoOnly => callMode == 'video_only';
 
   /// What calling her costs either way — what the picker is built from.
   CallModeQuote get callModeQuote => CallModeQuote(
-        callMode: callMode,
-        audioPricePerMinutePaise: audioPricePerMinutePaise,
-        videoPricePerMinutePaise: videoPricePerMinutePaise,
-      );
+    callMode: callMode,
+    audioPricePerMinutePaise: audioPricePerMinutePaise,
+    videoPricePerMinutePaise: videoPricePerMinutePaise,
+  );
 
   int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 
@@ -186,12 +186,12 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
   /// which reads as a rendering bug, and it is the majority case until hosts
   /// start writing headlines.
   String get ageAndOccupationLine => [
-        if (age != null) '$age',
-        if (!intentIsOccupation &&
-            occupation != null &&
-            occupation!.trim().isNotEmpty)
-          occupation!.trim(),
-      ].join('  •  ');
+    if (age != null) '$age',
+    if (!intentIsOccupation &&
+        occupation != null &&
+        occupation!.trim().isNotEmpty)
+      occupation!.trim(),
+  ].join('  •  ');
 
   String get locationLine =>
       [city, state].where((p) => p != null && p.isNotEmpty).join(', ');

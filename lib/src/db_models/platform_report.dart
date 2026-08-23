@@ -31,6 +31,6 @@ sealed class BasePlatformReport with _$BasePlatformReport {
   }) = _BasePlatformReport;
 
   /// Creates a PlatformReport from Json map
-  factory BasePlatformReport.fromJson(Map<String, dynamic> json) => 
+  factory BasePlatformReport.fromJson(Map<String, dynamic> json) =>
       _$BasePlatformReportFromJson(json);
 }

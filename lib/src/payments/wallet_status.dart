@@ -13,13 +13,14 @@ part 'wallet_status.g.dart';
 ///   `is_billable_female` and `is_female_candidate`. The app used to rebuild
 ///   both from a gender it fetched from a second endpoint.
 ///
-/// Every amount is integer **paise** — the only unit the backend stores. The
-/// app displays rupees (paise / 100). Never recompute a price or a gate the
-/// server already sent.
+/// Two units. The SPEND side is integer **credits** (1 credit = 10 paise,
+/// pegged on the server); the EARN side is integer **paise**. The app shows
+/// credits as a count (and as minutes where a rate is in scope) and paise as
+/// rupees. Never recompute a price or a gate the server already sent.
 @freezed
 sealed class WalletStatus with _$WalletStatus {
   const factory WalletStatus({
-    @JsonKey(name: 'balance_paise') @Default(0) int balancePaise,
+    @JsonKey(name: 'balance_credits') @Default(0) int balanceCredits,
 
     /// Spendable free spins, expired grants already excluded by the server.
     /// Spent before cash — the app never chooses which to use.
@@ -39,19 +40,21 @@ sealed class WalletStatus with _$WalletStatus {
     /// "displays price fields it receives and never recomputes" — the Buy CTA
     /// on the random-match filter panel prices itself from this, the same
     /// rule the spin orb's price already follows.
-    @JsonKey(name: 'perk_costs_paise')
+    @JsonKey(name: 'perk_costs_credits')
     @Default(<String, int>{})
-    Map<String, int> perkCostsPaise,
+    Map<String, int> perkCostsCredits,
     @Default(WalletEarnings()) WalletEarnings earnings,
     @JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
 
     /// The list price of a spin — what the consent screen quotes to everyone.
-    @JsonKey(name: 'spin_fee_paise') @Default(0) int spinFeePaise,
+    @JsonKey(name: 'spin_fee_credits') @Default(0) int spinFeeCredits,
 
     /// What THIS account's next spin actually costs, which is a different
     /// number for a verified earner and for anyone holding a free spin.
-    @JsonKey(name: 'your_spin_cost_paise') @Default(0) int yourSpinCostPaise,
+    @JsonKey(name: 'your_spin_cost_credits')
+    @Default(0)
+    int yourSpinCostCredits,
     @JsonKey(name: 'next_spin_is_free') @Default(false) bool nextSpinIsFree,
 
     /// The server's own affordability answer. Defaults false so a build
@@ -140,7 +143,8 @@ sealed class WalletEarnings with _$WalletEarnings {
   /// The wire value as something exhaustively switchable. An unrecognised
   /// status reads as [HostApplicationStatus.none], so a server that grows a
   /// new one shows the apply button rather than a blank card.
-  HostApplicationStatus get applicationStatus => switch (hostApplicationStatus) {
+  HostApplicationStatus get applicationStatus =>
+      switch (hostApplicationStatus) {
         'pending' => HostApplicationStatus.pending,
         'approved' => HostApplicationStatus.approved,
         'rejected' => HostApplicationStatus.rejected,
@@ -179,15 +183,27 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     /// Whether [rateMaxPaise] is the intro ceiling right now, so the editor
     /// can say why the top of her range is what it is instead of leaving her
     /// to guess.
-    @JsonKey(name: 'intro_window_active') @Default(false) bool introWindowActive,
+    @JsonKey(name: 'intro_window_active')
+    @Default(false)
+    bool introWindowActive,
 
     /// When the intro ceiling lifts. Null whenever [introWindowActive] is
     /// false — there is nothing counting down to show.
     @JsonKey(name: 'intro_window_ends_at') DateTime? introWindowEndsAt,
-    @JsonKey(name: 'price_per_minute_paise') @Default(0) int pricePerMinutePaise,
+    @JsonKey(name: 'price_per_minute_paise')
+    @Default(0)
+    int pricePerMinutePaise,
     @JsonKey(name: 'audio_price_per_minute_paise')
     @Default(0)
     int audioPricePerMinutePaise,
+
+    /// The same two prices in the unit a CALLER pays.
+    @JsonKey(name: 'price_per_minute_credits')
+    @Default(0)
+    int pricePerMinuteCredits,
+    @JsonKey(name: 'audio_price_per_minute_credits')
+    @Default(0)
+    int audioPricePerMinuteCredits,
     @JsonKey(name: 'audio_rate_paise') @Default(0) int audioRatePaise,
 
     /// Every legal rate step between [rateMinPaise] and [rateMaxPaise],
@@ -220,9 +236,9 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     return rateQuoteTable.reduce(
       (closest, row) =>
           (row.callRatePaise - candidateRatePaise).abs() <
-              (closest.callRatePaise - candidateRatePaise).abs()
-          ? row
-          : closest,
+                  (closest.callRatePaise - candidateRatePaise).abs()
+              ? row
+              : closest,
     );
   }
 }
@@ -240,6 +256,12 @@ sealed class RateQuote with _$RateQuote {
     @JsonKey(name: 'audio_price_per_minute_paise')
     @Default(0)
     int audioPricePerMinutePaise,
+    @JsonKey(name: 'video_price_per_minute_credits')
+    @Default(0)
+    int videoPricePerMinuteCredits,
+    @JsonKey(name: 'audio_price_per_minute_credits')
+    @Default(0)
+    int audioPricePerMinuteCredits,
   }) = _RateQuote;
 
   factory RateQuote.fromJson(Map<String, dynamic> json) =>

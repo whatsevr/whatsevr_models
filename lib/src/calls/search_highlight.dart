@@ -31,23 +31,29 @@ List<SearchHighlightSegment> parseSearchHighlight(
 
   for (final RegExpMatch match in marked.allMatches(highlighted)) {
     if (match.start > cursor) {
-      segments.add(SearchHighlightSegment(
-        text: _unescape(highlighted.substring(cursor, match.start)),
-        isMatch: false,
-      ));
+      segments.add(
+        SearchHighlightSegment(
+          text: _unescape(highlighted.substring(cursor, match.start)),
+          isMatch: false,
+        ),
+      );
     }
-    segments.add(SearchHighlightSegment(
-      text: _unescape(match.group(1) ?? ''),
-      isMatch: true,
-    ));
+    segments.add(
+      SearchHighlightSegment(
+        text: _unescape(match.group(1) ?? ''),
+        isMatch: true,
+      ),
+    );
     cursor = match.end;
   }
 
   if (cursor < highlighted.length) {
-    segments.add(SearchHighlightSegment(
-      text: _unescape(highlighted.substring(cursor)),
-      isMatch: false,
-    ));
+    segments.add(
+      SearchHighlightSegment(
+        text: _unescape(highlighted.substring(cursor)),
+        isMatch: false,
+      ),
+    );
   }
 
   if (segments.isEmpty) {

@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'search_communities.freezed.dart';
 part 'search_communities.g.dart';
 
@@ -13,7 +12,7 @@ sealed class SearchCommunitiesResponse with _$SearchCommunitiesResponse {
     @JsonKey(name: 'communities') List<SearchedCommunity>? communities,
   }) = _SearchCommunitiesResponse;
 
-  factory SearchCommunitiesResponse.fromJson(Map<String, dynamic> json) => 
+  factory SearchCommunitiesResponse.fromJson(Map<String, dynamic> json) =>
       _$SearchCommunitiesResponseFromJson(json);
 }
 
@@ -42,7 +41,7 @@ sealed class SearchedCommunity with _$SearchedCommunity {
     @JsonKey(name: 'services') List<Service>? services,
   }) = _SearchedCommunity;
 
-  factory SearchedCommunity.fromJson(Map<String, dynamic> json) => 
+  factory SearchedCommunity.fromJson(Map<String, dynamic> json) =>
       _$SearchedCommunityFromJson(json);
 }
 
@@ -56,7 +55,7 @@ sealed class SearchedCommunityAdmin with _$SearchedCommunityAdmin {
     @JsonKey(name: 'bio') String? bio,
   }) = _CommunityAdmin;
 
-  factory SearchedCommunityAdmin.fromJson(Map<String, dynamic> json) => 
+  factory SearchedCommunityAdmin.fromJson(Map<String, dynamic> json) =>
       _$SearchedCommunityAdminFromJson(json);
 }
 
@@ -74,7 +73,7 @@ sealed class CoverMedia with _$CoverMedia {
     @JsonKey(name: 'uid') String? uid,
   }) = _CoverMedia;
 
-  factory CoverMedia.fromJson(Map<String, dynamic> json) => 
+  factory CoverMedia.fromJson(Map<String, dynamic> json) =>
       _$CoverMediaFromJson(json);
 }
 
@@ -91,6 +90,6 @@ sealed class Service with _$Service {
     @JsonKey(name: 'uid') String? uid,
   }) = _Service;
 
-  factory Service.fromJson(Map<String, dynamic> json) => 
+  factory Service.fromJson(Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
 }

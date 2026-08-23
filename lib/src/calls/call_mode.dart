@@ -29,9 +29,9 @@ enum CallMode {
   /// What a person calls it. "Voice" reads as a choice; "audio-only" reads as
   /// a restriction, and here it is neither — it is the cheaper option.
   String get label => switch (this) {
-        CallMode.audio => 'Voice',
-        CallMode.video => 'Video',
-      };
+    CallMode.audio => 'Voice',
+    CallMode.video => 'Video',
+  };
 }
 
 /// What calling someone costs, per mode, and whether they leave the choice open.

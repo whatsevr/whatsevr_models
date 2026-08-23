@@ -24,8 +24,8 @@ sealed class WalletLedgerEntry with _$WalletLedgerEntry {
     /// Human line for the row, resolved by the server so app and web read the
     /// same words.
     @JsonKey(name: 'reason_label') @Default('') String reasonLabel,
-    @JsonKey(name: 'delta_paise') @Default(0) int deltaPaise,
-    @JsonKey(name: 'balance_after_paise') @Default(0) int balanceAfterPaise,
+    @JsonKey(name: 'delta_credits') @Default(0) int deltaCredits,
+    @JsonKey(name: 'balance_after_credits') @Default(0) int balanceAfterCredits,
   }) = _WalletLedgerEntry;
 
   const WalletLedgerEntry._();
@@ -33,5 +33,5 @@ sealed class WalletLedgerEntry with _$WalletLedgerEntry {
   factory WalletLedgerEntry.fromJson(Map<String, dynamic> json) =>
       _$WalletLedgerEntryFromJson(json);
 
-  bool get isCredit => deltaPaise > 0;
+  bool get isCredit => deltaCredits > 0;
 }

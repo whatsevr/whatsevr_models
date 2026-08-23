@@ -18,10 +18,10 @@ enum SharedProfileKind {
   /// here: guessing wrong sends the tap to the wrong screen and offers the
   /// wrong action. The caller drops the whole packet instead.
   static SharedProfileKind? fromWire(Object? value) => switch (value) {
-        'user' => SharedProfileKind.user,
-        'community' => SharedProfileKind.community,
-        _ => null,
-      };
+    'user' => SharedProfileKind.user,
+    'community' => SharedProfileKind.community,
+    _ => null,
+  };
 
   bool get isUser => this == SharedProfileKind.user;
   bool get isCommunity => this == SharedProfileKind.community;

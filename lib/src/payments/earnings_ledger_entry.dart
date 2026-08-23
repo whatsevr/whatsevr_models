@@ -56,7 +56,8 @@ sealed class EarningsLedgerEntry with _$EarningsLedgerEntry {
     /// Who was on the other end, when the row is a call. Null otherwise, and
     /// null for a call whose counterpart account has since gone.
     @JsonKey(name: 'counterpart_name') String? counterpartName,
-    @JsonKey(name: 'counterpart_profile_picture') String? counterpartProfilePicture,
+    @JsonKey(name: 'counterpart_profile_picture')
+    String? counterpartProfilePicture,
 
     /// How long the call ran. Zero when the row is not a call.
     @JsonKey(name: 'duration_seconds') @Default(0) int durationSeconds,

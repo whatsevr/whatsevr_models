@@ -19,5 +19,6 @@ sealed class BaseCommentReply with _$BaseCommentReply {
   }) = _BaseCommentReply;
 
   /// Creates a CommentReply from Json map
-  factory BaseCommentReply.fromJson(Map<String, dynamic> json) => _$BaseCommentReplyFromJson(json);
+  factory BaseCommentReply.fromJson(Map<String, dynamic> json) =>
+      _$BaseCommentReplyFromJson(json);
 }

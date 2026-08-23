@@ -25,6 +25,6 @@ sealed class BaseChatMessage with _$BaseChatMessage {
     @JsonKey(name: 'related_content') List<dynamic>? relatedContent,
   }) = _BaseChatMessage;
 
-  factory BaseChatMessage.fromJson(Map<String, dynamic> json) => 
+  factory BaseChatMessage.fromJson(Map<String, dynamic> json) =>
       _$BaseChatMessageFromJson(json);
 }

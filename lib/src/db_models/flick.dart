@@ -39,5 +39,6 @@ sealed class BaseFlick with _$BaseFlick {
   }) = _BaseFlick;
 
   /// Creates a Flick from Json map
-  factory BaseFlick.fromJson(Map<String, dynamic> json) => _$BaseFlickFromJson(json);
+  factory BaseFlick.fromJson(Map<String, dynamic> json) =>
+      _$BaseFlickFromJson(json);
 }

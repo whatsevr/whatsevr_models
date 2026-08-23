@@ -43,6 +43,6 @@ sealed class BaseTrackedActivity with _$BaseTrackedActivity {
   }) = _BaseTrackedActivity;
 
   /// Creates a TrackedActivity from Json map
-  factory BaseTrackedActivity.fromJson(Map<String, dynamic> json) => 
+  factory BaseTrackedActivity.fromJson(Map<String, dynamic> json) =>
       _$BaseTrackedActivityFromJson(json);
 }

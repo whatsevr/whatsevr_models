@@ -41,5 +41,6 @@ sealed class BaseOffer with _$BaseOffer {
   }) = _BaseOffer;
 
   /// Creates an Offer from Json map
-  factory BaseOffer.fromJson(Map<String, dynamic> json) => _$BaseOfferFromJson(json);
+  factory BaseOffer.fromJson(Map<String, dynamic> json) =>
+      _$BaseOfferFromJson(json);
 }

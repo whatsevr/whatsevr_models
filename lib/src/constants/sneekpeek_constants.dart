@@ -84,11 +84,17 @@ class SneekpeekRelationshipStatus {
 /// answer, and the server stores it as NULL.
 const List<SneekpeekRelationshipStatus> kSneekpeekRelationshipStatuses =
     <SneekpeekRelationshipStatus>[
-  SneekpeekRelationshipStatus(value: 'single', label: 'Single'),
-  SneekpeekRelationshipStatus(value: 'in_relationship', label: 'In a relationship'),
-  SneekpeekRelationshipStatus(value: 'married', label: 'Married'),
-  SneekpeekRelationshipStatus(value: 'complicated', label: 'It\'s complicated'),
-];
+      SneekpeekRelationshipStatus(value: 'single', label: 'Single'),
+      SneekpeekRelationshipStatus(
+        value: 'in_relationship',
+        label: 'In a relationship',
+      ),
+      SneekpeekRelationshipStatus(value: 'married', label: 'Married'),
+      SneekpeekRelationshipStatus(
+        value: 'complicated',
+        label: 'It\'s complicated',
+      ),
+    ];
 
 class SneekpeekCountry {
   const SneekpeekCountry({required this.code, required this.name});

@@ -36,5 +36,6 @@ sealed class BasePhoto with _$BasePhoto {
   }) = _BasePhoto;
 
   /// Creates a Photo from Json map
-  factory BasePhoto.fromJson(Map<String, dynamic> json) => _$BasePhotoFromJson(json);
+  factory BasePhoto.fromJson(Map<String, dynamic> json) =>
+      _$BasePhotoFromJson(json);
 }

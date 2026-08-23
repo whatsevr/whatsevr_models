@@ -43,5 +43,6 @@ sealed class BaseMemory with _$BaseMemory {
   }) = _BaseMemory;
 
   /// Creates a Memory from Json map
-  factory BaseMemory.fromJson(Map<String, dynamic> json) => _$BaseMemoryFromJson(json);
+  factory BaseMemory.fromJson(Map<String, dynamic> json) =>
+      _$BaseMemoryFromJson(json);
 }

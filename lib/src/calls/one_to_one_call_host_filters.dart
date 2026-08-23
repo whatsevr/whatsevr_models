@@ -67,17 +67,18 @@ sealed class OneToOneCallHostFilters with _$OneToOneCallHostFilters {
   bool get isNotEmpty => !isEmpty;
 
   /// How many controls the user has set, for the "Filters (3)" affordance.
-  int get activeCount => [
-    country,
-    city,
-    state,
-    languages.isEmpty ? null : languages,
-    callMode,
-    // A price window is one decision to the user even when both ends are set.
-    (minPricePaise == null && maxPricePaise == null) ? null : 'price',
-    availability,
-    isPremium,
-  ].where((value) => value != null).length;
+  int get activeCount =>
+      [
+        country,
+        city,
+        state,
+        languages.isEmpty ? null : languages,
+        callMode,
+        // A price window is one decision to the user even when both ends are set.
+        (minPricePaise == null && maxPricePaise == null) ? null : 'price',
+        availability,
+        isPremium,
+      ].where((value) => value != null).length;
 
   /// Omits every unset filter rather than sending empty strings: the server
   /// treats a blank value as absent, but not sending it at all is the honest

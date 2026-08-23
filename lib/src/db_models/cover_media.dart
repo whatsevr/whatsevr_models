@@ -21,5 +21,6 @@ sealed class BaseCoverMedia with _$BaseCoverMedia {
   }) = _BaseCoverMedia;
 
   /// Creates a CoverMedia from Json map
-  factory BaseCoverMedia.fromJson(Map<String, dynamic> json) => _$BaseCoverMediaFromJson(json);
+  factory BaseCoverMedia.fromJson(Map<String, dynamic> json) =>
+      _$BaseCoverMediaFromJson(json);
 }

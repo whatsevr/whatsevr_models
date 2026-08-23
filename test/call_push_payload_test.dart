@@ -8,22 +8,21 @@ import 'package:whatsevr_models/lib.dart';
 void main() {
   group('CallPushPayload.fromWire', () {
     test('parses a Python-stringified Android ring', () {
-      final CallPushPayload payload = CallPushPayload.fromWire(
-        <dynamic, dynamic>{
-          'type': 'call.ring',
-          'room': 'room-abc',
-          'caller_uid': 'caller-1',
-          'caller_name': 'Asha',
-          'caller_avatar': 'https://cdn.example/a.jpg',
-          'is_video': 'True',
-          'is_billed': 'True',
-          'payer_uid': 'callee-1',
-          'rate_paise': '500',
-          'audio_only': 'False',
-          'price_per_minute_paise': '715',
-          'caller_is_premium_profile': 'True',
-        },
-      );
+      final CallPushPayload payload =
+          CallPushPayload.fromWire(<dynamic, dynamic>{
+            'type': 'call.ring',
+            'room': 'room-abc',
+            'caller_uid': 'caller-1',
+            'caller_name': 'Asha',
+            'caller_avatar': 'https://cdn.example/a.jpg',
+            'is_video': 'True',
+            'is_billed': 'True',
+            'payer_uid': 'callee-1',
+            'rate_paise': '500',
+            'audio_only': 'False',
+            'price_per_minute_paise': '715',
+            'caller_is_premium_profile': 'True',
+          });
 
       expect(payload.isRing, isTrue);
       // Same trap as is_video: `"True" == true` is false, so a naive read shows
@@ -40,33 +39,35 @@ void main() {
     });
 
     test('parses native iOS VoIP types', () {
-      final CallPushPayload payload = CallPushPayload.fromWire(
-        <dynamic, dynamic>{
-          'type': 'call.ring',
-          'room': 'room-xyz',
-          'is_video': true,
-          'is_billed': false,
-          'rate_paise': 0,
-        },
-      );
+      final CallPushPayload payload =
+          CallPushPayload.fromWire(<dynamic, dynamic>{
+            'type': 'call.ring',
+            'room': 'room-xyz',
+            'is_video': true,
+            'is_billed': false,
+            'rate_paise': 0,
+          });
 
       expect(payload.isVideo, isTrue);
       expect(payload.isBilled, isFalse);
       expect(payload.isPayer('anyone'), isFalse);
     });
 
-    test('treats a free unbilled call as free rather than defaulting to paid', () {
-      final CallPushPayload payload = CallPushPayload.fromWire(
-        <dynamic, dynamic>{
-          'type': 'call.ring',
-          'room': 'r',
-          'is_billed': 'False',
-        },
-      );
+    test(
+      'treats a free unbilled call as free rather than defaulting to paid',
+      () {
+        final CallPushPayload payload = CallPushPayload.fromWire(
+          <dynamic, dynamic>{
+            'type': 'call.ring',
+            'room': 'r',
+            'is_billed': 'False',
+          },
+        );
 
-      expect(payload.isBilled, isFalse);
-      expect(payload.pricePerMinutePaise, 0);
-    });
+        expect(payload.isBilled, isFalse);
+        expect(payload.pricePerMinutePaise, 0);
+      },
+    );
 
     test('reads a cancel with its reason', () {
       final CallPushPayload payload = CallPushPayload.fromWire(
@@ -93,8 +94,9 @@ void main() {
 
     test('survives an unknown type and a ring with no room', () {
       expect(
-        CallPushPayload.fromWire(<dynamic, dynamic>{'type': 'call.whatever'})
-            .signalType,
+        CallPushPayload.fromWire(<dynamic, dynamic>{
+          'type': 'call.whatever',
+        }).signalType,
         CallSignalType.unknown,
       );
       expect(
@@ -121,19 +123,18 @@ void main() {
 
   group('CallAcceptResult', () {
     test('exposes a usable grant and the authoritative payer', () {
-      final CallAcceptResult result = CallAcceptResult.fromJson(
-        <String, dynamic>{
-          'room': 'room-abc',
-          'token': 'jwt',
-          'server_url': 'ws://127.0.0.1:7880',
-          'expires_at': '2026-08-01T10:00:00Z',
-          'is_billed': true,
-          'payer_uid': 'callee-1',
-          'rate_paise': 500,
-          'audio_only': false,
-          'price_per_minute_paise': 715,
-        },
-      );
+      final CallAcceptResult result =
+          CallAcceptResult.fromJson(<String, dynamic>{
+            'room': 'room-abc',
+            'token': 'jwt',
+            'server_url': 'ws://127.0.0.1:7880',
+            'expires_at': '2026-08-01T10:00:00Z',
+            'is_billed': true,
+            'payer_uid': 'callee-1',
+            'rate_paise': 500,
+            'audio_only': false,
+            'price_per_minute_paise': 715,
+          });
 
       expect(result.grant.isUsable, isTrue);
       expect(result.grant.room, 'room-abc');

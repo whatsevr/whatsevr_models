@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CallAcceptResult {
 
- String get room; String get token;@JsonKey(name: 'server_url') String get serverUrl;@JsonKey(name: 'expires_at') DateTime? get expiresAt;@JsonKey(name: 'is_billed') bool get isBilled;@JsonKey(name: 'payer_uid') String? get payerUid;@JsonKey(name: 'rate_paise') int get ratePaise;@JsonKey(name: 'audio_only') bool get audioOnly;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'video_price_per_minute_paise') int get videoPricePerMinutePaise;@JsonKey(name: 'can_switch_mode') bool get canSwitchMode;@JsonKey(name: 'video_needs_consent') bool get videoNeedsConsent;
+ String get room; String get token;@JsonKey(name: 'server_url') String get serverUrl;@JsonKey(name: 'expires_at') DateTime? get expiresAt;@JsonKey(name: 'is_billed') bool get isBilled;@JsonKey(name: 'payer_uid') String? get payerUid;@JsonKey(name: 'rate_paise') int get ratePaise;@JsonKey(name: 'audio_only') bool get audioOnly;@JsonKey(name: 'price_per_minute_paise') int get pricePerMinutePaise;@JsonKey(name: 'audio_price_per_minute_paise') int get audioPricePerMinutePaise;@JsonKey(name: 'video_price_per_minute_paise') int get videoPricePerMinutePaise;/// The same prices in the unit the PAYER holds — credits.
+@JsonKey(name: 'price_per_minute_credits') int get pricePerMinuteCredits;@JsonKey(name: 'audio_price_per_minute_credits') int get audioPricePerMinuteCredits;@JsonKey(name: 'video_price_per_minute_credits') int get videoPricePerMinuteCredits;@JsonKey(name: 'can_switch_mode') bool get canSwitchMode;@JsonKey(name: 'video_needs_consent') bool get videoNeedsConsent;
 /// Create a copy of CallAcceptResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $CallAcceptResultCopyWith<CallAcceptResult> get copyWith => _$CallAcceptResultCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallAcceptResult&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.canSwitchMode, canSwitchMode) || other.canSwitchMode == canSwitchMode)&&(identical(other.videoNeedsConsent, videoNeedsConsent) || other.videoNeedsConsent == videoNeedsConsent));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CallAcceptResult&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.audioPricePerMinuteCredits, audioPricePerMinuteCredits) || other.audioPricePerMinuteCredits == audioPricePerMinuteCredits)&&(identical(other.videoPricePerMinuteCredits, videoPricePerMinuteCredits) || other.videoPricePerMinuteCredits == videoPricePerMinuteCredits)&&(identical(other.canSwitchMode, canSwitchMode) || other.canSwitchMode == canSwitchMode)&&(identical(other.videoNeedsConsent, videoNeedsConsent) || other.videoNeedsConsent == videoNeedsConsent));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,room,token,serverUrl,expiresAt,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,canSwitchMode,videoNeedsConsent);
+int get hashCode => Object.hash(runtimeType,room,token,serverUrl,expiresAt,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,pricePerMinuteCredits,audioPricePerMinuteCredits,videoPricePerMinuteCredits,canSwitchMode,videoNeedsConsent);
 
 @override
 String toString() {
-  return 'CallAcceptResult(room: $room, token: $token, serverUrl: $serverUrl, expiresAt: $expiresAt, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, canSwitchMode: $canSwitchMode, videoNeedsConsent: $videoNeedsConsent)';
+  return 'CallAcceptResult(room: $room, token: $token, serverUrl: $serverUrl, expiresAt: $expiresAt, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, pricePerMinuteCredits: $pricePerMinuteCredits, audioPricePerMinuteCredits: $audioPricePerMinuteCredits, videoPricePerMinuteCredits: $videoPricePerMinuteCredits, canSwitchMode: $canSwitchMode, videoNeedsConsent: $videoNeedsConsent)';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $CallAcceptResultCopyWith<$Res>  {
   factory $CallAcceptResultCopyWith(CallAcceptResult value, $Res Function(CallAcceptResult) _then) = _$CallAcceptResultCopyWithImpl;
 @useResult
 $Res call({
- String room, String token,@JsonKey(name: 'server_url') String serverUrl,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'can_switch_mode') bool canSwitchMode,@JsonKey(name: 'video_needs_consent') bool videoNeedsConsent
+ String room, String token,@JsonKey(name: 'server_url') String serverUrl,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'audio_price_per_minute_credits') int audioPricePerMinuteCredits,@JsonKey(name: 'video_price_per_minute_credits') int videoPricePerMinuteCredits,@JsonKey(name: 'can_switch_mode') bool canSwitchMode,@JsonKey(name: 'video_needs_consent') bool videoNeedsConsent
 });
 
 
@@ -65,7 +66,7 @@ class _$CallAcceptResultCopyWithImpl<$Res>
 
 /// Create a copy of CallAcceptResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? room = null,Object? token = null,Object? serverUrl = null,Object? expiresAt = freezed,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? canSwitchMode = null,Object? videoNeedsConsent = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? room = null,Object? token = null,Object? serverUrl = null,Object? expiresAt = freezed,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? pricePerMinuteCredits = null,Object? audioPricePerMinuteCredits = null,Object? videoPricePerMinuteCredits = null,Object? canSwitchMode = null,Object? videoNeedsConsent = null,}) {
   return _then(_self.copyWith(
 room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
@@ -78,6 +79,9 @@ as int,audioOnly: null == audioOnly ? _self.audioOnly : audioOnly // ignore: cas
 as bool,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,pricePerMinuteCredits: null == pricePerMinuteCredits ? _self.pricePerMinuteCredits : pricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinuteCredits: null == audioPricePerMinuteCredits ? _self.audioPricePerMinuteCredits : audioPricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinuteCredits: null == videoPricePerMinuteCredits ? _self.videoPricePerMinuteCredits : videoPricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
 as int,canSwitchMode: null == canSwitchMode ? _self.canSwitchMode : canSwitchMode // ignore: cast_nullable_to_non_nullable
 as bool,videoNeedsConsent: null == videoNeedsConsent ? _self.videoNeedsConsent : videoNeedsConsent // ignore: cast_nullable_to_non_nullable
 as bool,
@@ -162,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'audio_price_per_minute_credits')  int audioPricePerMinuteCredits, @JsonKey(name: 'video_price_per_minute_credits')  int videoPricePerMinuteCredits, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CallAcceptResult() when $default != null:
-return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.canSwitchMode,_that.videoNeedsConsent);case _:
+return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.pricePerMinuteCredits,_that.audioPricePerMinuteCredits,_that.videoPricePerMinuteCredits,_that.canSwitchMode,_that.videoNeedsConsent);case _:
   return orElse();
 
 }
@@ -183,10 +187,10 @@ return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isB
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'audio_price_per_minute_credits')  int audioPricePerMinuteCredits, @JsonKey(name: 'video_price_per_minute_credits')  int videoPricePerMinuteCredits, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)  $default,) {final _that = this;
 switch (_that) {
 case _CallAcceptResult():
-return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.canSwitchMode,_that.videoNeedsConsent);}
+return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.pricePerMinuteCredits,_that.audioPricePerMinuteCredits,_that.videoPricePerMinuteCredits,_that.canSwitchMode,_that.videoNeedsConsent);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -200,10 +204,10 @@ return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isB
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String room,  String token, @JsonKey(name: 'server_url')  String serverUrl, @JsonKey(name: 'expires_at')  DateTime? expiresAt, @JsonKey(name: 'is_billed')  bool isBilled, @JsonKey(name: 'payer_uid')  String? payerUid, @JsonKey(name: 'rate_paise')  int ratePaise, @JsonKey(name: 'audio_only')  bool audioOnly, @JsonKey(name: 'price_per_minute_paise')  int pricePerMinutePaise, @JsonKey(name: 'audio_price_per_minute_paise')  int audioPricePerMinutePaise, @JsonKey(name: 'video_price_per_minute_paise')  int videoPricePerMinutePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'audio_price_per_minute_credits')  int audioPricePerMinuteCredits, @JsonKey(name: 'video_price_per_minute_credits')  int videoPricePerMinuteCredits, @JsonKey(name: 'can_switch_mode')  bool canSwitchMode, @JsonKey(name: 'video_needs_consent')  bool videoNeedsConsent)?  $default,) {final _that = this;
 switch (_that) {
 case _CallAcceptResult() when $default != null:
-return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.canSwitchMode,_that.videoNeedsConsent);case _:
+return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isBilled,_that.payerUid,_that.ratePaise,_that.audioOnly,_that.pricePerMinutePaise,_that.audioPricePerMinutePaise,_that.videoPricePerMinutePaise,_that.pricePerMinuteCredits,_that.audioPricePerMinuteCredits,_that.videoPricePerMinuteCredits,_that.canSwitchMode,_that.videoNeedsConsent);case _:
   return null;
 
 }
@@ -215,7 +219,7 @@ return $default(_that.room,_that.token,_that.serverUrl,_that.expiresAt,_that.isB
 @JsonSerializable()
 
 class _CallAcceptResult extends CallAcceptResult {
-  const _CallAcceptResult({this.room = '', this.token = '', @JsonKey(name: 'server_url') this.serverUrl = '', @JsonKey(name: 'expires_at') this.expiresAt, @JsonKey(name: 'is_billed') this.isBilled = false, @JsonKey(name: 'payer_uid') this.payerUid, @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'audio_only') this.audioOnly = false, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, @JsonKey(name: 'can_switch_mode') this.canSwitchMode = false, @JsonKey(name: 'video_needs_consent') this.videoNeedsConsent = true}): super._();
+  const _CallAcceptResult({this.room = '', this.token = '', @JsonKey(name: 'server_url') this.serverUrl = '', @JsonKey(name: 'expires_at') this.expiresAt, @JsonKey(name: 'is_billed') this.isBilled = false, @JsonKey(name: 'payer_uid') this.payerUid, @JsonKey(name: 'rate_paise') this.ratePaise = 0, @JsonKey(name: 'audio_only') this.audioOnly = false, @JsonKey(name: 'price_per_minute_paise') this.pricePerMinutePaise = 0, @JsonKey(name: 'audio_price_per_minute_paise') this.audioPricePerMinutePaise = 0, @JsonKey(name: 'video_price_per_minute_paise') this.videoPricePerMinutePaise = 0, @JsonKey(name: 'price_per_minute_credits') this.pricePerMinuteCredits = 0, @JsonKey(name: 'audio_price_per_minute_credits') this.audioPricePerMinuteCredits = 0, @JsonKey(name: 'video_price_per_minute_credits') this.videoPricePerMinuteCredits = 0, @JsonKey(name: 'can_switch_mode') this.canSwitchMode = false, @JsonKey(name: 'video_needs_consent') this.videoNeedsConsent = true}): super._();
   factory _CallAcceptResult.fromJson(Map<String, dynamic> json) => _$CallAcceptResultFromJson(json);
 
 @override@JsonKey() final  String room;
@@ -229,6 +233,10 @@ class _CallAcceptResult extends CallAcceptResult {
 @override@JsonKey(name: 'price_per_minute_paise') final  int pricePerMinutePaise;
 @override@JsonKey(name: 'audio_price_per_minute_paise') final  int audioPricePerMinutePaise;
 @override@JsonKey(name: 'video_price_per_minute_paise') final  int videoPricePerMinutePaise;
+/// The same prices in the unit the PAYER holds — credits.
+@override@JsonKey(name: 'price_per_minute_credits') final  int pricePerMinuteCredits;
+@override@JsonKey(name: 'audio_price_per_minute_credits') final  int audioPricePerMinuteCredits;
+@override@JsonKey(name: 'video_price_per_minute_credits') final  int videoPricePerMinuteCredits;
 @override@JsonKey(name: 'can_switch_mode') final  bool canSwitchMode;
 @override@JsonKey(name: 'video_needs_consent') final  bool videoNeedsConsent;
 
@@ -245,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallAcceptResult&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.canSwitchMode, canSwitchMode) || other.canSwitchMode == canSwitchMode)&&(identical(other.videoNeedsConsent, videoNeedsConsent) || other.videoNeedsConsent == videoNeedsConsent));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CallAcceptResult&&(identical(other.room, room) || other.room == room)&&(identical(other.token, token) || other.token == token)&&(identical(other.serverUrl, serverUrl) || other.serverUrl == serverUrl)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isBilled, isBilled) || other.isBilled == isBilled)&&(identical(other.payerUid, payerUid) || other.payerUid == payerUid)&&(identical(other.ratePaise, ratePaise) || other.ratePaise == ratePaise)&&(identical(other.audioOnly, audioOnly) || other.audioOnly == audioOnly)&&(identical(other.pricePerMinutePaise, pricePerMinutePaise) || other.pricePerMinutePaise == pricePerMinutePaise)&&(identical(other.audioPricePerMinutePaise, audioPricePerMinutePaise) || other.audioPricePerMinutePaise == audioPricePerMinutePaise)&&(identical(other.videoPricePerMinutePaise, videoPricePerMinutePaise) || other.videoPricePerMinutePaise == videoPricePerMinutePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.audioPricePerMinuteCredits, audioPricePerMinuteCredits) || other.audioPricePerMinuteCredits == audioPricePerMinuteCredits)&&(identical(other.videoPricePerMinuteCredits, videoPricePerMinuteCredits) || other.videoPricePerMinuteCredits == videoPricePerMinuteCredits)&&(identical(other.canSwitchMode, canSwitchMode) || other.canSwitchMode == canSwitchMode)&&(identical(other.videoNeedsConsent, videoNeedsConsent) || other.videoNeedsConsent == videoNeedsConsent));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,room,token,serverUrl,expiresAt,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,canSwitchMode,videoNeedsConsent);
+int get hashCode => Object.hash(runtimeType,room,token,serverUrl,expiresAt,isBilled,payerUid,ratePaise,audioOnly,pricePerMinutePaise,audioPricePerMinutePaise,videoPricePerMinutePaise,pricePerMinuteCredits,audioPricePerMinuteCredits,videoPricePerMinuteCredits,canSwitchMode,videoNeedsConsent);
 
 @override
 String toString() {
-  return 'CallAcceptResult(room: $room, token: $token, serverUrl: $serverUrl, expiresAt: $expiresAt, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, canSwitchMode: $canSwitchMode, videoNeedsConsent: $videoNeedsConsent)';
+  return 'CallAcceptResult(room: $room, token: $token, serverUrl: $serverUrl, expiresAt: $expiresAt, isBilled: $isBilled, payerUid: $payerUid, ratePaise: $ratePaise, audioOnly: $audioOnly, pricePerMinutePaise: $pricePerMinutePaise, audioPricePerMinutePaise: $audioPricePerMinutePaise, videoPricePerMinutePaise: $videoPricePerMinutePaise, pricePerMinuteCredits: $pricePerMinuteCredits, audioPricePerMinuteCredits: $audioPricePerMinuteCredits, videoPricePerMinuteCredits: $videoPricePerMinuteCredits, canSwitchMode: $canSwitchMode, videoNeedsConsent: $videoNeedsConsent)';
 }
 
 
@@ -265,7 +273,7 @@ abstract mixin class _$CallAcceptResultCopyWith<$Res> implements $CallAcceptResu
   factory _$CallAcceptResultCopyWith(_CallAcceptResult value, $Res Function(_CallAcceptResult) _then) = __$CallAcceptResultCopyWithImpl;
 @override @useResult
 $Res call({
- String room, String token,@JsonKey(name: 'server_url') String serverUrl,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'can_switch_mode') bool canSwitchMode,@JsonKey(name: 'video_needs_consent') bool videoNeedsConsent
+ String room, String token,@JsonKey(name: 'server_url') String serverUrl,@JsonKey(name: 'expires_at') DateTime? expiresAt,@JsonKey(name: 'is_billed') bool isBilled,@JsonKey(name: 'payer_uid') String? payerUid,@JsonKey(name: 'rate_paise') int ratePaise,@JsonKey(name: 'audio_only') bool audioOnly,@JsonKey(name: 'price_per_minute_paise') int pricePerMinutePaise,@JsonKey(name: 'audio_price_per_minute_paise') int audioPricePerMinutePaise,@JsonKey(name: 'video_price_per_minute_paise') int videoPricePerMinutePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'audio_price_per_minute_credits') int audioPricePerMinuteCredits,@JsonKey(name: 'video_price_per_minute_credits') int videoPricePerMinuteCredits,@JsonKey(name: 'can_switch_mode') bool canSwitchMode,@JsonKey(name: 'video_needs_consent') bool videoNeedsConsent
 });
 
 
@@ -282,7 +290,7 @@ class __$CallAcceptResultCopyWithImpl<$Res>
 
 /// Create a copy of CallAcceptResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? room = null,Object? token = null,Object? serverUrl = null,Object? expiresAt = freezed,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? canSwitchMode = null,Object? videoNeedsConsent = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? room = null,Object? token = null,Object? serverUrl = null,Object? expiresAt = freezed,Object? isBilled = null,Object? payerUid = freezed,Object? ratePaise = null,Object? audioOnly = null,Object? pricePerMinutePaise = null,Object? audioPricePerMinutePaise = null,Object? videoPricePerMinutePaise = null,Object? pricePerMinuteCredits = null,Object? audioPricePerMinuteCredits = null,Object? videoPricePerMinuteCredits = null,Object? canSwitchMode = null,Object? videoNeedsConsent = null,}) {
   return _then(_CallAcceptResult(
 room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
@@ -295,6 +303,9 @@ as int,audioOnly: null == audioOnly ? _self.audioOnly : audioOnly // ignore: cas
 as bool,pricePerMinutePaise: null == pricePerMinutePaise ? _self.pricePerMinutePaise : pricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePerMinutePaise: null == audioPricePerMinutePaise ? _self.audioPricePerMinutePaise : audioPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
 as int,videoPricePerMinutePaise: null == videoPricePerMinutePaise ? _self.videoPricePerMinutePaise : videoPricePerMinutePaise // ignore: cast_nullable_to_non_nullable
+as int,pricePerMinuteCredits: null == pricePerMinuteCredits ? _self.pricePerMinuteCredits : pricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
+as int,audioPricePerMinuteCredits: null == audioPricePerMinuteCredits ? _self.audioPricePerMinuteCredits : audioPricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
+as int,videoPricePerMinuteCredits: null == videoPricePerMinuteCredits ? _self.videoPricePerMinuteCredits : videoPricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
 as int,canSwitchMode: null == canSwitchMode ? _self.canSwitchMode : canSwitchMode // ignore: cast_nullable_to_non_nullable
 as bool,videoNeedsConsent: null == videoNeedsConsent ? _self.videoNeedsConsent : videoNeedsConsent // ignore: cast_nullable_to_non_nullable
 as bool,

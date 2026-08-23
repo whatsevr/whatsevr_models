@@ -22,6 +22,6 @@ sealed class BaseEducation with _$BaseEducation {
   }) = _BaseEducation;
 
   /// Creates an Education from Json map
-  factory BaseEducation.fromJson(Map<String, dynamic> json) => 
+  factory BaseEducation.fromJson(Map<String, dynamic> json) =>
       _$BaseEducationFromJson(json);
 }

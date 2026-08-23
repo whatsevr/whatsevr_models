@@ -59,8 +59,11 @@ void main() {
   group('ageAndOccupationLine', () {
     test('joins both when both are known', () {
       expect(
-        _host(age: 24, occupation: 'Homemaker', headline: 'a good listener')
-            .ageAndOccupationLine,
+        _host(
+          age: 24,
+          occupation: 'Homemaker',
+          headline: 'a good listener',
+        ).ageAndOccupationLine,
         '24  •  Homemaker',
       );
     });
@@ -68,8 +71,10 @@ void main() {
     test('drops the separator when only one is known', () {
       expect(_host(age: 24).ageAndOccupationLine, '24');
       expect(
-        _host(occupation: 'Student', headline: 'a good listener')
-            .ageAndOccupationLine,
+        _host(
+          occupation: 'Student',
+          headline: 'a good listener',
+        ).ageAndOccupationLine,
         'Student',
       );
     });
@@ -88,13 +93,18 @@ void main() {
       expect(host.ageAndOccupationLine, '27');
     });
 
-    test('a host who wrote a headline keeps her occupation on the meta line',
-        () {
-      final host =
-          _host(age: 27, occupation: 'Nurse', headline: 'a good listener');
-      expect(host.intentIsOccupation, isFalse);
-      expect(host.ageAndOccupationLine, '27  •  Nurse');
-    });
+    test(
+      'a host who wrote a headline keeps her occupation on the meta line',
+      () {
+        final host = _host(
+          age: 27,
+          occupation: 'Nurse',
+          headline: 'a good listener',
+        );
+        expect(host.intentIsOccupation, isFalse);
+        expect(host.ageAndOccupationLine, '27  •  Nurse');
+      },
+    );
   });
 
   group('parseSearchHighlight', () {
@@ -103,15 +113,21 @@ void main() {
         'a good <em>listener</em> for anyone feeling <em>lonely</em>',
         fallback: 'ignored',
       );
-      expect(segments.map((s) => s.text).join(),
-          'a good listener for anyone feeling lonely');
-      expect(segments.where((s) => s.isMatch).map((s) => s.text),
-          ['listener', 'lonely']);
+      expect(
+        segments.map((s) => s.text).join(),
+        'a good listener for anyone feeling lonely',
+      );
+      expect(segments.where((s) => s.isMatch).map((s) => s.text), [
+        'listener',
+        'lonely',
+      ]);
     });
 
     test('handles a match at the very start', () {
-      final segments =
-          parseSearchHighlight('<em>lonely</em> nights', fallback: 'x');
+      final segments = parseSearchHighlight(
+        '<em>lonely</em> nights',
+        fallback: 'x',
+      );
       expect(segments.first.isMatch, isTrue);
       expect(segments.first.text, 'lonely');
       expect(segments.last.text, ' nights');
@@ -135,8 +151,10 @@ void main() {
     test('degrades to unhighlighted text rather than dropping content', () {
       // A malformed value must still render the words. A card with no
       // emphasis is right in every way except one; an empty card is broken.
-      final segments =
-          parseSearchHighlight('a good <em>listener', fallback: 'x');
+      final segments = parseSearchHighlight(
+        'a good <em>listener',
+        fallback: 'x',
+      );
       expect(segments.map((s) => s.text).join(), 'a good <em>listener');
     });
   });

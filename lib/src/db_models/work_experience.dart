@@ -22,6 +22,6 @@ sealed class BaseWorkExperience with _$BaseWorkExperience {
   }) = _BaseWorkExperience;
 
   /// Creates a WorkExperience from Json map
-  factory BaseWorkExperience.fromJson(Map<String, dynamic> json) => 
+  factory BaseWorkExperience.fromJson(Map<String, dynamic> json) =>
       _$BaseWorkExperienceFromJson(json);
 }

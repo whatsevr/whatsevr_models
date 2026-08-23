@@ -28,5 +28,6 @@ sealed class BaseCollection with _$BaseCollection {
   }) = _BaseCollection;
 
   /// Creates a Collection from Json map
-  factory BaseCollection.fromJson(Map<String, dynamic> json) => _$BaseCollectionFromJson(json);
+  factory BaseCollection.fromJson(Map<String, dynamic> json) =>
+      _$BaseCollectionFromJson(json);
 }

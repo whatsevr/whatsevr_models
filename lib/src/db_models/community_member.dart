@@ -24,5 +24,6 @@ sealed class BaseCommunityMember with _$BaseCommunityMember {
   }) = _BaseCommunityMember;
 
   /// Creates a CommunityMember from Json map
-  factory BaseCommunityMember.fromJson(Map<String, dynamic> json) => _$BaseCommunityMemberFromJson(json);
+  factory BaseCommunityMember.fromJson(Map<String, dynamic> json) =>
+      _$BaseCommunityMemberFromJson(json);
 }

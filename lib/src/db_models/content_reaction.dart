@@ -25,5 +25,6 @@ sealed class BaseContentReaction with _$BaseContentReaction {
   }) = _BaseContentReaction;
 
   /// Creates a ContentReaction from Json map
-  factory BaseContentReaction.fromJson(Map<String, dynamic> json) => _$BaseContentReactionFromJson(json);
+  factory BaseContentReaction.fromJson(Map<String, dynamic> json) =>
+      _$BaseContentReactionFromJson(json);
 }

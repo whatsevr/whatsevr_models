@@ -20,5 +20,6 @@ sealed class BasePlatformAlert with _$BasePlatformAlert {
   }) = _BasePlatformAlert;
 
   /// Creates a PlatformAlert from Json map
-  factory BasePlatformAlert.fromJson(Map<String, dynamic> json) => _$BasePlatformAlertFromJson(json);
+  factory BasePlatformAlert.fromJson(Map<String, dynamic> json) =>
+      _$BasePlatformAlertFromJson(json);
 }

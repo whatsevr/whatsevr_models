@@ -26,5 +26,6 @@ sealed class BaseComment with _$BaseComment {
   }) = _BaseComment;
 
   /// Creates a Comment from Json map
-  factory BaseComment.fromJson(Map<String, dynamic> json) => _$BaseCommentFromJson(json);
+  factory BaseComment.fromJson(Map<String, dynamic> json) =>
+      _$BaseCommentFromJson(json);
 }

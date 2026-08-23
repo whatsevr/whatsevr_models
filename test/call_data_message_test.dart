@@ -6,17 +6,17 @@ void main() {
     CallDataMessage gift({
       String? assetUrl = 'https://cdn/rose.png',
       String? assetKind = 'image',
-    }) =>
-        CallDataMessage.gift(
-          giftLedgerUid: 'ledger-1',
-          giftUid: 'gift-1',
-          name: 'Rose',
-          tier: 'chat_lane',
-          pricePaise: 1000,
-          senderUid: 'sender-1',
-          assetUrl: assetUrl,
-          assetKind: assetKind,
-        );
+    }) => CallDataMessage.gift(
+      giftLedgerUid: 'ledger-1',
+      giftUid: 'gift-1',
+      name: 'Rose',
+      tier: 'chat_lane',
+      priceCredits: 100,
+      earnedPaise: 1000,
+      senderUid: 'sender-1',
+      assetUrl: assetUrl,
+      assetKind: assetKind,
+    );
 
     test('round-trips through the wire form', () {
       final message = gift();
@@ -36,7 +36,8 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'chat_lane',
-        'price_paise': 1000,
+        'price_credits': 100,
+        'earned_paise': 1000,
         'sender_uid': 'sender-1',
         'asset_url': 'https://cdn/rose.png',
         'asset_kind': 'image',
@@ -64,7 +65,8 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'diamond_confetti',
-        'price_paise': 1000,
+        'price_credits': 100,
+        'earned_paise': 1000,
         'sender_uid': 'sender-1',
         'asset_url': null,
         'asset_kind': null,
@@ -80,7 +82,8 @@ void main() {
         'gift_ledger_uid': 'ledger-1',
         'gift_uid': 'gift-1',
         'name': 'Rose',
-        'price_paise': 1000,
+        'price_credits': 100,
+        'earned_paise': 1000,
         'sender_uid': 'sender-1',
       });
 
@@ -94,20 +97,21 @@ void main() {
 
     test('each required key, when missing on its own, decodes to null', () {
       Map<String, dynamic> full() => {
-            'type': 'gift.sent',
-            'gift_ledger_uid': 'ledger-1',
-            'gift_uid': 'gift-1',
-            'name': 'Rose',
-            'tier': 'chat_lane',
-            'price_paise': 1000,
-            'sender_uid': 'sender-1',
-          };
+        'type': 'gift.sent',
+        'gift_ledger_uid': 'ledger-1',
+        'gift_uid': 'gift-1',
+        'name': 'Rose',
+        'tier': 'chat_lane',
+        'price_credits': 100,
+        'earned_paise': 1000,
+        'sender_uid': 'sender-1',
+      };
 
       for (final key in [
         'gift_ledger_uid',
         'gift_uid',
         'name',
-        'price_paise',
+        'price_credits',
         'sender_uid',
       ]) {
         final json = full()..remove(key);
@@ -126,7 +130,7 @@ void main() {
         'gift_uid': 'gift-1',
         'name': 'Rose',
         'tier': 'chat_lane',
-        'price_paise': 'ten rupees',
+        'price_credits': 'ten rupees',
         'sender_uid': 'sender-1',
       };
 
@@ -134,10 +138,7 @@ void main() {
     });
 
     test('an unknown type decodes to null', () {
-      expect(
-        CallDataMessage.fromWireJson({'type': 'gift.received'}),
-        isNull,
-      );
+      expect(CallDataMessage.fromWireJson({'type': 'gift.received'}), isNull);
     });
   });
 
@@ -147,14 +148,14 @@ void main() {
 void _profileShareTests() {
   group('CallDataMessage.profileShare wire codec', () {
     Map<String, dynamic> full() => {
-          'type': 'profile.share',
-          'kind': 'user',
-          'uid': 'user-1',
-          'name': 'Asha',
-          'avatar_url': 'https://cdn/asha.png',
-          'count': 1200,
-          'is_private': false,
-        };
+      'type': 'profile.share',
+      'kind': 'user',
+      'uid': 'user-1',
+      'name': 'Asha',
+      'avatar_url': 'https://cdn/asha.png',
+      'count': 1200,
+      'is_private': false,
+    };
 
     test('a shared account survives a round trip', () {
       const message = CallDataMessage.profileShare(
@@ -185,10 +186,11 @@ void _profileShareTests() {
     });
 
     test('an absent avatar or count still decodes', () {
-      final json = full()
-        ..remove('avatar_url')
-        ..remove('count')
-        ..remove('is_private');
+      final json =
+          full()
+            ..remove('avatar_url')
+            ..remove('count')
+            ..remove('is_private');
 
       final decoded = CallDataMessage.fromWireJson(json);
 

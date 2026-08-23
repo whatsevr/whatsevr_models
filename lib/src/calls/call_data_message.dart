@@ -48,10 +48,13 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// Server to payer only: the prepaid enforcer's periodic status packet for
   /// a billed call — sent on every wake for the whole call, not only near the
   /// cutoff. Every started minute is debited from the wallet as it starts, so
-  /// [balancePaise] is the wallet row after that debit — the one in-call
-  /// balance every surface shows — and [spentSoFarPaise] is what this call
-  /// has taken so far. Neither is ever recomputed here, for the same reason
-  /// no price in this app is derived client-side. [isLowBalanceWarning] is the server's own
+  /// [balanceCredits] is the wallet row after that debit — the one in-call
+  /// balance every surface shows — [spentSoFarCredits] is what this call has
+  /// taken so far, and [minutesLeft] is the number a person reads: whole
+  /// minutes the balance still buys after the running minute. None is ever
+  /// recomputed here, for the same reason no price in this app is derived
+  /// client-side. The payer's unit is CREDITS (1 credit = 10 paise, pegged
+  /// on the server). [isLowBalanceWarning] is the server's own
   /// verdict on whether this is close enough to the kick to show the warning
   /// banner; a client must render that flag, never re-threshold
   /// [secondsRemaining] itself. The earner never receives this; her wallet is
@@ -59,9 +62,10 @@ sealed class CallDataMessage with _$CallDataMessage {
   const factory CallDataMessage.lowBalance({
     required String room,
     required int secondsRemaining,
-    required int balancePaise,
-    required int pricePerMinutePaise,
-    required int spentSoFarPaise,
+    required int balanceCredits,
+    required int pricePerMinuteCredits,
+    required int spentSoFarCredits,
+    required int minutesLeft,
     required bool isLowBalanceWarning,
   }) = CallLowBalance;
 
@@ -82,6 +86,7 @@ sealed class CallDataMessage with _$CallDataMessage {
     @Default('') String guestAvatar,
     @Default(false) bool guestIsPremiumProfile,
     @Default(true) bool isVideo,
+
     /// What this minute pays HER, at the mode the caller picked. The caller
     /// owns the mode now, so answering without it is answering blind.
     @Default(0) int earnRatePaise,
@@ -118,15 +123,16 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// lookup, and falls back to the generic chip when there is none.
   /// [assetKind] names what is at [assetUrl] and is deliberately open-ended —
   /// a kind this build does not recognise falls back to the chip too.
-  /// [pricePaise] is both what the sender paid and what the host earned:
-  /// nothing is taken at send time; the platform's cut is charged at
-  /// withdrawal.
+  /// [priceCredits] is what the sender paid and [earnedPaise] what the host
+  /// earned — the same gift in the two units the two people hold. Nothing
+  /// is taken at send time.
   const factory CallDataMessage.gift({
     required String giftLedgerUid,
     required String giftUid,
     required String name,
     required String tier,
-    required int pricePaise,
+    required int priceCredits,
+    required int earnedPaise,
     required String senderUid,
     String? assetUrl,
     String? assetKind,
@@ -159,100 +165,114 @@ sealed class CallDataMessage with _$CallDataMessage {
 
   /// Wire form. Key names are fixed by the protocol document.
   Map<String, dynamic> toWireJson() => switch (this) {
-        CallChatMessage(:final text) => {'type': 'chat', 'text': text},
-        CallModeRequest(:final mode) =>
-          {'type': 'mode.request', 'mode': mode.wireValue},
-        CallModeAccept(:final mode) =>
-          {'type': 'mode.accept', 'mode': mode.wireValue},
-        CallModeDecline(:final mode) =>
-          {'type': 'mode.decline', 'mode': mode.wireValue},
-        CallModeChanged(:final mode) =>
-          {'type': 'mode.changed', 'mode': mode.wireValue},
-        CallLowBalance(
-          :final room,
-          :final secondsRemaining,
-          :final balancePaise,
-          :final pricePerMinutePaise,
-          :final spentSoFarPaise,
-          :final isLowBalanceWarning,
-        ) =>
-          {
-            'type': 'call.low_balance',
-            'room': room,
-            'seconds_remaining': secondsRemaining,
-            'balance_paise': balancePaise,
-            'price_per_minute_paise': pricePerMinutePaise,
-            'spent_so_far_paise': spentSoFarPaise,
-            'is_low_balance_warning': isLowBalanceWarning,
-          },
-        CallEndedSignal(:final room, :final reason) =>
-          {'type': 'call.ended', 'room': room, 'reason': reason},
-        CallHostJoinRequest(
-          :final requestUid,
-          :final guestUid,
-          :final guestName,
-          :final guestAvatar,
-          :final guestIsPremiumProfile,
-          :final isVideo,
-          :final ringWindowSeconds,
-        ) =>
-          {
-            'type': 'one_to_one_call.join_request',
-            'request_uid': requestUid,
-            'guest_uid': guestUid,
-            'guest_name': guestName,
-            'guest_avatar': guestAvatar,
-            'guest_is_premium_profile': guestIsPremiumProfile,
-            'is_video': isVideo,
-            'ring_window_seconds': ringWindowSeconds,
-          },
-        CallHostSegmentUpdate(:final segment, :final status, :final reason) =>
-          {
-            'type': 'one_to_one_call.segment_update',
-            'segment': segment,
-            'status': status,
-            'reason': reason,
-          },
-        CallDataGift(
-          :final giftLedgerUid,
-          :final giftUid,
-          :final name,
-          :final tier,
-          :final pricePaise,
-          :final senderUid,
-          :final assetUrl,
-          :final assetKind,
-        ) =>
-          {
-            'type': 'gift.sent',
-            'v': 1,
-            'gift_ledger_uid': giftLedgerUid,
-            'gift_uid': giftUid,
-            'name': name,
-            'tier': tier,
-            'price_paise': pricePaise,
-            'sender_uid': senderUid,
-            'asset_url': assetUrl,
-            'asset_kind': assetKind,
-          },
-        CallProfileShare(
-          :final kind,
-          :final uid,
-          :final name,
-          :final avatarUrl,
-          :final count,
-          :final isPrivate,
-        ) =>
-          {
-            'type': 'profile.share',
-            'kind': kind.wireValue,
-            'uid': uid,
-            'name': name,
-            'avatar_url': avatarUrl,
-            'count': count,
-            'is_private': isPrivate,
-          },
-      };
+    CallChatMessage(:final text) => {'type': 'chat', 'text': text},
+    CallModeRequest(:final mode) => {
+      'type': 'mode.request',
+      'mode': mode.wireValue,
+    },
+    CallModeAccept(:final mode) => {
+      'type': 'mode.accept',
+      'mode': mode.wireValue,
+    },
+    CallModeDecline(:final mode) => {
+      'type': 'mode.decline',
+      'mode': mode.wireValue,
+    },
+    CallModeChanged(:final mode) => {
+      'type': 'mode.changed',
+      'mode': mode.wireValue,
+    },
+    CallLowBalance(
+      :final room,
+      :final secondsRemaining,
+      :final balanceCredits,
+      :final pricePerMinuteCredits,
+      :final spentSoFarCredits,
+      :final minutesLeft,
+      :final isLowBalanceWarning,
+    ) =>
+      {
+        'type': 'call.low_balance',
+        'room': room,
+        'seconds_remaining': secondsRemaining,
+        'balance_credits': balanceCredits,
+        'price_per_minute_credits': pricePerMinuteCredits,
+        'spent_so_far_credits': spentSoFarCredits,
+        'minutes_left': minutesLeft,
+        'is_low_balance_warning': isLowBalanceWarning,
+      },
+    CallEndedSignal(:final room, :final reason) => {
+      'type': 'call.ended',
+      'room': room,
+      'reason': reason,
+    },
+    CallHostJoinRequest(
+      :final requestUid,
+      :final guestUid,
+      :final guestName,
+      :final guestAvatar,
+      :final guestIsPremiumProfile,
+      :final isVideo,
+      :final ringWindowSeconds,
+    ) =>
+      {
+        'type': 'one_to_one_call.join_request',
+        'request_uid': requestUid,
+        'guest_uid': guestUid,
+        'guest_name': guestName,
+        'guest_avatar': guestAvatar,
+        'guest_is_premium_profile': guestIsPremiumProfile,
+        'is_video': isVideo,
+        'ring_window_seconds': ringWindowSeconds,
+      },
+    CallHostSegmentUpdate(:final segment, :final status, :final reason) => {
+      'type': 'one_to_one_call.segment_update',
+      'segment': segment,
+      'status': status,
+      'reason': reason,
+    },
+    CallDataGift(
+      :final giftLedgerUid,
+      :final giftUid,
+      :final name,
+      :final tier,
+      :final priceCredits,
+      :final earnedPaise,
+      :final senderUid,
+      :final assetUrl,
+      :final assetKind,
+    ) =>
+      {
+        'type': 'gift.sent',
+        'v': 1,
+        'gift_ledger_uid': giftLedgerUid,
+        'gift_uid': giftUid,
+        'name': name,
+        'tier': tier,
+        'price_credits': priceCredits,
+        'earned_paise': earnedPaise,
+        'sender_uid': senderUid,
+        'asset_url': assetUrl,
+        'asset_kind': assetKind,
+      },
+    CallProfileShare(
+      :final kind,
+      :final uid,
+      :final name,
+      :final avatarUrl,
+      :final count,
+      :final isPrivate,
+    ) =>
+      {
+        'type': 'profile.share',
+        'kind': kind.wireValue,
+        'uid': uid,
+        'name': name,
+        'avatar_url': avatarUrl,
+        'count': count,
+        'is_private': isPrivate,
+      },
+  };
 
   /// Decodes one packet, or null when the type is unknown or the shape is
   /// wrong. Callers act only on a non-null result, which is what makes
@@ -260,51 +280,62 @@ sealed class CallDataMessage with _$CallDataMessage {
   static CallDataMessage? fromWireJson(Map<String, dynamic> json) {
     return switch (json['type']) {
       'chat' => CallDataMessage.chat(text: '${json['text'] ?? ''}'),
-      'mode.request' =>
-        CallDataMessage.modeRequest(mode: CallMode.fromWire(json['mode'])),
-      'mode.accept' =>
-        CallDataMessage.modeAccept(mode: CallMode.fromWire(json['mode'])),
-      'mode.decline' =>
-        CallDataMessage.modeDecline(mode: CallMode.fromWire(json['mode'])),
-      'mode.changed' =>
-        CallDataMessage.modeChanged(mode: CallMode.fromWire(json['mode'])),
+      'mode.request' => CallDataMessage.modeRequest(
+        mode: CallMode.fromWire(json['mode']),
+      ),
+      'mode.accept' => CallDataMessage.modeAccept(
+        mode: CallMode.fromWire(json['mode']),
+      ),
+      'mode.decline' => CallDataMessage.modeDecline(
+        mode: CallMode.fromWire(json['mode']),
+      ),
+      'mode.changed' => CallDataMessage.modeChanged(
+        mode: CallMode.fromWire(json['mode']),
+      ),
       'call.low_balance' => CallDataMessage.lowBalance(
-          room: '${json['room'] ?? ''}',
-          secondsRemaining: json['seconds_remaining'] is int
-              ? json['seconds_remaining'] as int
-              : 0,
-          balancePaise:
-              json['balance_paise'] is int ? json['balance_paise'] as int : 0,
-          pricePerMinutePaise: json['price_per_minute_paise'] is int
-              ? json['price_per_minute_paise'] as int
-              : 0,
-          spentSoFarPaise: json['spent_so_far_paise'] is int
-              ? json['spent_so_far_paise'] as int
-              : 0,
-          isLowBalanceWarning: json['is_low_balance_warning'] == true,
-        ),
+        room: '${json['room'] ?? ''}',
+        secondsRemaining:
+            json['seconds_remaining'] is int
+                ? json['seconds_remaining'] as int
+                : 0,
+        balanceCredits:
+            json['balance_credits'] is int ? json['balance_credits'] as int : 0,
+        pricePerMinuteCredits:
+            json['price_per_minute_credits'] is int
+                ? json['price_per_minute_credits'] as int
+                : 0,
+        spentSoFarCredits:
+            json['spent_so_far_credits'] is int
+                ? json['spent_so_far_credits'] as int
+                : 0,
+        minutesLeft:
+            json['minutes_left'] is int ? json['minutes_left'] as int : 0,
+        isLowBalanceWarning: json['is_low_balance_warning'] == true,
+      ),
       'call.ended' => CallDataMessage.callEnded(
-          room: '${json['room'] ?? ''}',
-          reason: '${json['reason'] ?? ''}',
-        ),
+        room: '${json['room'] ?? ''}',
+        reason: '${json['reason'] ?? ''}',
+      ),
       'one_to_one_call.join_request' => CallDataMessage.hostJoinRequest(
-          requestUid: '${json['request_uid'] ?? ''}',
-          guestUid: '${json['guest_uid'] ?? ''}',
-          guestName: '${json['guest_name'] ?? ''}',
-          guestAvatar: '${json['guest_avatar'] ?? ''}',
-          guestIsPremiumProfile: json['guest_is_premium_profile'] == true,
-          isVideo: json['is_video'] != false,
-          earnRatePaise:
-              json['earn_rate_paise'] is int ? json['earn_rate_paise'] as int : 0,
-          isBilled: json['is_billed'] == true,
-          ringWindowSeconds:
-              json['ring_window_seconds'] is int ? json['ring_window_seconds'] as int : 20,
-        ),
+        requestUid: '${json['request_uid'] ?? ''}',
+        guestUid: '${json['guest_uid'] ?? ''}',
+        guestName: '${json['guest_name'] ?? ''}',
+        guestAvatar: '${json['guest_avatar'] ?? ''}',
+        guestIsPremiumProfile: json['guest_is_premium_profile'] == true,
+        isVideo: json['is_video'] != false,
+        earnRatePaise:
+            json['earn_rate_paise'] is int ? json['earn_rate_paise'] as int : 0,
+        isBilled: json['is_billed'] == true,
+        ringWindowSeconds:
+            json['ring_window_seconds'] is int
+                ? json['ring_window_seconds'] as int
+                : 20,
+      ),
       'one_to_one_call.segment_update' => CallDataMessage.hostSegmentUpdate(
-          segment: '${json['segment'] ?? ''}',
-          status: '${json['status'] ?? ''}',
-          reason: '${json['reason'] ?? ''}',
-        ),
+        segment: '${json['segment'] ?? ''}',
+        status: '${json['status'] ?? ''}',
+        reason: '${json['reason'] ?? ''}',
+      ),
       'gift.sent' => _giftFromWireJson(json),
       'profile.share' => _profileShareFromWireJson(json),
       _ => null,
@@ -320,18 +351,19 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// unknown value still parses rather than dropping a paid gift over a
   /// display detail. The other five required keys have no such fallback —
   /// without `gift_ledger_uid` nothing can dedupe, without
-  /// `name`/`price_paise`/`sender_uid` there is nothing honest to render —
+  /// `name`/`price_credits`/`sender_uid` there is nothing honest to render —
   /// so those stay strict.
   static CallDataMessage? _giftFromWireJson(Map<String, dynamic> json) {
     final giftLedgerUid = json['gift_ledger_uid'];
     final giftUid = json['gift_uid'];
     final name = json['name'];
-    final pricePaise = json['price_paise'];
+    final priceCredits = json['price_credits'];
+    final earnedPaise = json['earned_paise'];
     final senderUid = json['sender_uid'];
     if (giftLedgerUid is! String ||
         giftUid is! String ||
         name is! String ||
-        pricePaise is! int ||
+        priceCredits is! int ||
         senderUid is! String) {
       return null;
     }
@@ -345,7 +377,9 @@ sealed class CallDataMessage with _$CallDataMessage {
       // A tier this build predates is still money somebody spent, so it
       // decodes and renders in the lane every build understands.
       tier: tier is String ? tier : '',
-      pricePaise: pricePaise,
+      priceCredits: priceCredits,
+      // The host's figure; an old packet without it is rendered at the peg.
+      earnedPaise: earnedPaise is int ? earnedPaise : priceCredits * 10,
       senderUid: senderUid,
       // Same rule for the artwork: an asset we cannot name is an asset we
       // do not draw, not a packet we drop.
@@ -366,9 +400,7 @@ sealed class CallDataMessage with _$CallDataMessage {
   /// matters for a community, where it tells the receiver's join button
   /// whether to request or join outright, without a second network call
   /// just to find out.
-  static CallDataMessage? _profileShareFromWireJson(
-    Map<String, dynamic> json,
-  ) {
+  static CallDataMessage? _profileShareFromWireJson(Map<String, dynamic> json) {
     final kind = SharedProfileKind.fromWire(json['kind']);
     final uid = json['uid'];
     final name = json['name'];

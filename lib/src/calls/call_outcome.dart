@@ -58,7 +58,8 @@ sealed class CallOutcome with _$CallOutcome {
     @JsonKey(name: 'retry_after_ms') int? retryAfterMs,
     @JsonKey(name: 'end_reason') String? endReason,
     @JsonKey(name: 'billed_seconds') @Default(0) int billedSeconds,
-    @JsonKey(name: 'viewer_role') @Default(CallViewerRoles.participant)
+    @JsonKey(name: 'viewer_role')
+    @Default(CallViewerRoles.participant)
     String viewerRole,
     @JsonKey(name: 'is_billed') @Default(false) bool isBilled,
 

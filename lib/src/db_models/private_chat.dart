@@ -23,6 +23,6 @@ sealed class BasePrivateChat with _$BasePrivateChat {
   }) = _BasePrivateChat;
 
   /// Creates a PrivateChat from Json map
-  factory BasePrivateChat.fromJson(Map<String, dynamic> json) => 
+  factory BasePrivateChat.fromJson(Map<String, dynamic> json) =>
       _$BasePrivateChatFromJson(json);
 }

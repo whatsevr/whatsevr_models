@@ -4,7 +4,8 @@ part 'get_join_pending_community_members.freezed.dart';
 part 'get_join_pending_community_members.g.dart';
 
 @Freezed()
-sealed class GetJoinPendingCommunityMembersResponse with _$GetJoinPendingCommunityMembersResponse {
+sealed class GetJoinPendingCommunityMembersResponse
+    with _$GetJoinPendingCommunityMembersResponse {
   const factory GetJoinPendingCommunityMembersResponse({
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'page') int? page,
@@ -12,8 +13,9 @@ sealed class GetJoinPendingCommunityMembersResponse with _$GetJoinPendingCommuni
     @JsonKey(name: 'result') List<CommunityMemberJoinRequest>? result,
   }) = _GetJoinPendingCommunityMembersResponse;
 
-  factory GetJoinPendingCommunityMembersResponse.fromJson(Map<String, dynamic> json) =>
-      _$GetJoinPendingCommunityMembersResponseFromJson(json);
+  factory GetJoinPendingCommunityMembersResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$GetJoinPendingCommunityMembersResponseFromJson(json);
 }
 
 @Freezed()

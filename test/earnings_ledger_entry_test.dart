@@ -66,17 +66,20 @@ void main() {
   });
 
   group('EarningsLedgerPage', () {
-    test('reads the has_next envelope, which is not the wallet ledger shape', () {
-      final page = EarningsLedgerPage.fromJson({
-        'items': [
-          {'uid': 'a', 'reason': 'call_minutes', 'delta_paise': 100},
-        ],
-        'has_next': true,
-      });
+    test(
+      'reads the has_next envelope, which is not the wallet ledger shape',
+      () {
+        final page = EarningsLedgerPage.fromJson({
+          'items': [
+            {'uid': 'a', 'reason': 'call_minutes', 'delta_paise': 100},
+          ],
+          'has_next': true,
+        });
 
-      expect(page.items.single.deltaPaise, 100);
-      expect(page.hasNext, isTrue);
-    });
+        expect(page.items.single.deltaPaise, 100);
+        expect(page.hasNext, isTrue);
+      },
+    );
 
     test('an empty history is an empty list, never null', () {
       expect(EarningsLedgerPage.fromJson(const {}).items, isEmpty);

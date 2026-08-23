@@ -57,10 +57,12 @@ sealed class PortfolioUser with _$PortfolioUser {
     @JsonKey(name: 'cover_media') List<PortfolioCoverMedia>? coverMedia,
     @JsonKey(name: 'services') List<PortfolioService>? services,
     @JsonKey(name: 'educations') List<PortfolioEducation>? educations,
-    @JsonKey(name: 'work_experiences') List<PortfolioWorkExperience>? workExperiences,
+    @JsonKey(name: 'work_experiences')
+    List<PortfolioWorkExperience>? workExperiences,
   }) = _PortfolioUser;
 
-  factory PortfolioUser.fromJson(Map<String, dynamic> json) => _$PortfolioUserFromJson(json);
+  factory PortfolioUser.fromJson(Map<String, dynamic> json) =>
+      _$PortfolioUserFromJson(json);
 }
 
 @freezed
