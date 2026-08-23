@@ -47,10 +47,11 @@ sealed class CallDataMessage with _$CallDataMessage {
 
   /// Server to payer only: the prepaid enforcer's periodic status packet for
   /// a billed call — sent on every wake for the whole call, not only near the
-  /// cutoff. [spentSoFarPaise] and [balanceLeftPaise] are the authoritative
-  /// running total, exactly what settlement would bill if the call ended this
-  /// second — never recomputed here, for the same reason no price in this app
-  /// is ever derived client-side. [isLowBalanceWarning] is the server's own
+  /// cutoff. Every started minute is debited from the wallet as it starts, so
+  /// [balancePaise] is the wallet row after that debit — the one in-call
+  /// balance every surface shows — and [spentSoFarPaise] is what this call
+  /// has taken so far. Neither is ever recomputed here, for the same reason
+  /// no price in this app is derived client-side. [isLowBalanceWarning] is the server's own
   /// verdict on whether this is close enough to the kick to show the warning
   /// banner; a client must render that flag, never re-threshold
   /// [secondsRemaining] itself. The earner never receives this; her wallet is
@@ -61,7 +62,6 @@ sealed class CallDataMessage with _$CallDataMessage {
     required int balancePaise,
     required int pricePerMinutePaise,
     required int spentSoFarPaise,
-    required int balanceLeftPaise,
     required bool isLowBalanceWarning,
   }) = CallLowBalance;
 
@@ -174,7 +174,6 @@ sealed class CallDataMessage with _$CallDataMessage {
           :final balancePaise,
           :final pricePerMinutePaise,
           :final spentSoFarPaise,
-          :final balanceLeftPaise,
           :final isLowBalanceWarning,
         ) =>
           {
@@ -184,7 +183,6 @@ sealed class CallDataMessage with _$CallDataMessage {
             'balance_paise': balancePaise,
             'price_per_minute_paise': pricePerMinutePaise,
             'spent_so_far_paise': spentSoFarPaise,
-            'balance_left_paise': balanceLeftPaise,
             'is_low_balance_warning': isLowBalanceWarning,
           },
         CallEndedSignal(:final room, :final reason) =>
@@ -282,9 +280,6 @@ sealed class CallDataMessage with _$CallDataMessage {
               : 0,
           spentSoFarPaise: json['spent_so_far_paise'] is int
               ? json['spent_so_far_paise'] as int
-              : 0,
-          balanceLeftPaise: json['balance_left_paise'] is int
-              ? json['balance_left_paise'] as int
               : 0,
           isLowBalanceWarning: json['is_low_balance_warning'] == true,
         ),
