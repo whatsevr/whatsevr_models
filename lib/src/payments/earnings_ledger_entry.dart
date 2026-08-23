@@ -66,6 +66,16 @@ sealed class EarningsLedgerEntry with _$EarningsLedgerEntry {
     /// is how it was priced.
     @JsonKey(name: 'call_mode') String? callMode,
 
+    /// How a call row was earned: the minutes that were billed, at the
+    /// per-minute rate the call was priced at — the snapshot taken at ring,
+    /// never today's rate. Null when the row is not a call.
+    @JsonKey(name: 'billed_minutes') int? billedMinutes,
+    @JsonKey(name: 'rate_paise') int? ratePaise,
+
+    /// The withdrawal this row belongs to (a payout or its return), so the
+    /// row can open its slip. Null otherwise.
+    @JsonKey(name: 'payout_request_uid') String? payoutRequestUid,
+
     /// Which gift this credit is, when the row is a gift — the catalog's name
     /// and artwork at read time. Null for everything that is not a gift.
     @JsonKey(name: 'gift_name') String? giftName,
