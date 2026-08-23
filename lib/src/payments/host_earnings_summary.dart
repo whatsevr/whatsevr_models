@@ -3,6 +3,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'host_earnings_summary.freezed.dart';
 part 'host_earnings_summary.g.dart';
 
+/// What a withdrawal will cost, said BEFORE she asks for one — the same
+/// settings the payout is priced under, so no screen can contradict the slip.
+@freezed
+sealed class WithdrawalTerms with _$WithdrawalTerms {
+  const factory WithdrawalTerms({
+    @JsonKey(name: 'commission_percent') @Default(20) int commissionPercent,
+    @JsonKey(name: 'gift_commission_percent') @Default(45) int giftCommissionPercent,
+    @JsonKey(name: 'transfer_fee_paise') @Default(0) int transferFeePaise,
+    @JsonKey(name: 'tds_percent_label') @Default('0.1%') String tdsPercentLabel,
+    @JsonKey(name: 'tds_threshold_paise') @Default(0) int tdsThresholdPaise,
+    @JsonKey(name: 'tds_free_remaining_paise') @Default(0) int tdsFreeRemainingPaise,
+    @JsonKey(name: 'financial_year') @Default('') String financialYear,
+    @JsonKey(name: 'withdrawn_this_year_paise') @Default(0) int withdrawnThisYearPaise,
+    @JsonKey(name: 'tds_withheld_this_year_paise') @Default(0) int tdsWithheldThisYearPaise,
+    @JsonKey(name: 'minimum_withdrawal_paise') @Default(0) int minimumWithdrawalPaise,
+  }) = _WithdrawalTerms;
+
+  factory WithdrawalTerms.fromJson(Map<String, dynamic> json) =>
+      _$WithdrawalTermsFromJson(json);
+}
+
 /// The host's statement for the current calendar month (IST), carried inside
 /// `GET /api/v1/payments/earnings-summary`.
 ///
@@ -14,6 +35,7 @@ part 'host_earnings_summary.g.dart';
 @freezed
 sealed class HostEarningsStatement with _$HostEarningsStatement {
   const factory HostEarningsStatement({
+    @JsonKey(name: 'withdrawal_terms') WithdrawalTerms? withdrawalTerms,
     @JsonKey(name: 'period_start') DateTime? periodStart,
     @JsonKey(name: 'period_last_day') DateTime? periodLastDay,
     @JsonKey(name: 'opening_balance_paise') @Default(0) int openingBalancePaise,

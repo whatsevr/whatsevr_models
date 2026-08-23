@@ -6,9 +6,48 @@ part of 'host_earnings_summary.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_WithdrawalTerms _$WithdrawalTermsFromJson(Map<String, dynamic> json) =>
+    _WithdrawalTerms(
+      commissionPercent: (json['commission_percent'] as num?)?.toInt() ?? 20,
+      giftCommissionPercent:
+          (json['gift_commission_percent'] as num?)?.toInt() ?? 45,
+      transferFeePaise: (json['transfer_fee_paise'] as num?)?.toInt() ?? 0,
+      tdsPercentLabel: json['tds_percent_label'] as String? ?? '0.1%',
+      tdsThresholdPaise: (json['tds_threshold_paise'] as num?)?.toInt() ?? 0,
+      tdsFreeRemainingPaise:
+          (json['tds_free_remaining_paise'] as num?)?.toInt() ?? 0,
+      financialYear: json['financial_year'] as String? ?? '',
+      withdrawnThisYearPaise:
+          (json['withdrawn_this_year_paise'] as num?)?.toInt() ?? 0,
+      tdsWithheldThisYearPaise:
+          (json['tds_withheld_this_year_paise'] as num?)?.toInt() ?? 0,
+      minimumWithdrawalPaise:
+          (json['minimum_withdrawal_paise'] as num?)?.toInt() ?? 0,
+    );
+
+Map<String, dynamic> _$WithdrawalTermsToJson(_WithdrawalTerms instance) =>
+    <String, dynamic>{
+      'commission_percent': instance.commissionPercent,
+      'gift_commission_percent': instance.giftCommissionPercent,
+      'transfer_fee_paise': instance.transferFeePaise,
+      'tds_percent_label': instance.tdsPercentLabel,
+      'tds_threshold_paise': instance.tdsThresholdPaise,
+      'tds_free_remaining_paise': instance.tdsFreeRemainingPaise,
+      'financial_year': instance.financialYear,
+      'withdrawn_this_year_paise': instance.withdrawnThisYearPaise,
+      'tds_withheld_this_year_paise': instance.tdsWithheldThisYearPaise,
+      'minimum_withdrawal_paise': instance.minimumWithdrawalPaise,
+    };
+
 _HostEarningsStatement _$HostEarningsStatementFromJson(
   Map<String, dynamic> json,
 ) => _HostEarningsStatement(
+  withdrawalTerms:
+      json['withdrawal_terms'] == null
+          ? null
+          : WithdrawalTerms.fromJson(
+            json['withdrawal_terms'] as Map<String, dynamic>,
+          ),
   periodStart:
       json['period_start'] == null
           ? null
@@ -35,6 +74,7 @@ _HostEarningsStatement _$HostEarningsStatementFromJson(
 Map<String, dynamic> _$HostEarningsStatementToJson(
   _HostEarningsStatement instance,
 ) => <String, dynamic>{
+  'withdrawal_terms': instance.withdrawalTerms,
   'period_start': instance.periodStart?.toIso8601String(),
   'period_last_day': instance.periodLastDay?.toIso8601String(),
   'opening_balance_paise': instance.openingBalancePaise,

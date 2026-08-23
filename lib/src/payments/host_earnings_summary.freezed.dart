@@ -13,9 +13,293 @@ part of 'host_earnings_summary.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+mixin _$WithdrawalTerms {
+
+@JsonKey(name: 'commission_percent') int get commissionPercent;@JsonKey(name: 'gift_commission_percent') int get giftCommissionPercent;@JsonKey(name: 'transfer_fee_paise') int get transferFeePaise;@JsonKey(name: 'tds_percent_label') String get tdsPercentLabel;@JsonKey(name: 'tds_threshold_paise') int get tdsThresholdPaise;@JsonKey(name: 'tds_free_remaining_paise') int get tdsFreeRemainingPaise;@JsonKey(name: 'financial_year') String get financialYear;@JsonKey(name: 'withdrawn_this_year_paise') int get withdrawnThisYearPaise;@JsonKey(name: 'tds_withheld_this_year_paise') int get tdsWithheldThisYearPaise;@JsonKey(name: 'minimum_withdrawal_paise') int get minimumWithdrawalPaise;
+/// Create a copy of WithdrawalTerms
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WithdrawalTermsCopyWith<WithdrawalTerms> get copyWith => _$WithdrawalTermsCopyWithImpl<WithdrawalTerms>(this as WithdrawalTerms, _$identity);
+
+  /// Serializes this WithdrawalTerms to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.giftCommissionPercent, giftCommissionPercent) || other.giftCommissionPercent == giftCommissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,commissionPercent,giftCommissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
+
+@override
+String toString() {
+  return 'WithdrawalTerms(commissionPercent: $commissionPercent, giftCommissionPercent: $giftCommissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $WithdrawalTermsCopyWith<$Res>  {
+  factory $WithdrawalTermsCopyWith(WithdrawalTerms value, $Res Function(WithdrawalTerms) _then) = _$WithdrawalTermsCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'gift_commission_percent') int giftCommissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
+});
+
+
+
+
+}
+/// @nodoc
+class _$WithdrawalTermsCopyWithImpl<$Res>
+    implements $WithdrawalTermsCopyWith<$Res> {
+  _$WithdrawalTermsCopyWithImpl(this._self, this._then);
+
+  final WithdrawalTerms _self;
+  final $Res Function(WithdrawalTerms) _then;
+
+/// Create a copy of WithdrawalTerms
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? commissionPercent = null,Object? giftCommissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
+  return _then(_self.copyWith(
+commissionPercent: null == commissionPercent ? _self.commissionPercent : commissionPercent // ignore: cast_nullable_to_non_nullable
+as int,giftCommissionPercent: null == giftCommissionPercent ? _self.giftCommissionPercent : giftCommissionPercent // ignore: cast_nullable_to_non_nullable
+as int,transferFeePaise: null == transferFeePaise ? _self.transferFeePaise : transferFeePaise // ignore: cast_nullable_to_non_nullable
+as int,tdsPercentLabel: null == tdsPercentLabel ? _self.tdsPercentLabel : tdsPercentLabel // ignore: cast_nullable_to_non_nullable
+as String,tdsThresholdPaise: null == tdsThresholdPaise ? _self.tdsThresholdPaise : tdsThresholdPaise // ignore: cast_nullable_to_non_nullable
+as int,tdsFreeRemainingPaise: null == tdsFreeRemainingPaise ? _self.tdsFreeRemainingPaise : tdsFreeRemainingPaise // ignore: cast_nullable_to_non_nullable
+as int,financialYear: null == financialYear ? _self.financialYear : financialYear // ignore: cast_nullable_to_non_nullable
+as String,withdrawnThisYearPaise: null == withdrawnThisYearPaise ? _self.withdrawnThisYearPaise : withdrawnThisYearPaise // ignore: cast_nullable_to_non_nullable
+as int,tdsWithheldThisYearPaise: null == tdsWithheldThisYearPaise ? _self.tdsWithheldThisYearPaise : tdsWithheldThisYearPaise // ignore: cast_nullable_to_non_nullable
+as int,minimumWithdrawalPaise: null == minimumWithdrawalPaise ? _self.minimumWithdrawalPaise : minimumWithdrawalPaise // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [WithdrawalTerms].
+extension WithdrawalTermsPatterns on WithdrawalTerms {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _WithdrawalTerms value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _WithdrawalTerms() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _WithdrawalTerms value)  $default,){
+final _that = this;
+switch (_that) {
+case _WithdrawalTerms():
+return $default(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _WithdrawalTerms value)?  $default,){
+final _that = this;
+switch (_that) {
+case _WithdrawalTerms() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _WithdrawalTerms() when $default != null:
+return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)  $default,) {final _that = this;
+switch (_that) {
+case _WithdrawalTerms():
+return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,) {final _that = this;
+switch (_that) {
+case _WithdrawalTerms() when $default != null:
+return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _WithdrawalTerms implements WithdrawalTerms {
+  const _WithdrawalTerms({@JsonKey(name: 'commission_percent') this.commissionPercent = 20, @JsonKey(name: 'gift_commission_percent') this.giftCommissionPercent = 45, @JsonKey(name: 'transfer_fee_paise') this.transferFeePaise = 0, @JsonKey(name: 'tds_percent_label') this.tdsPercentLabel = '0.1%', @JsonKey(name: 'tds_threshold_paise') this.tdsThresholdPaise = 0, @JsonKey(name: 'tds_free_remaining_paise') this.tdsFreeRemainingPaise = 0, @JsonKey(name: 'financial_year') this.financialYear = '', @JsonKey(name: 'withdrawn_this_year_paise') this.withdrawnThisYearPaise = 0, @JsonKey(name: 'tds_withheld_this_year_paise') this.tdsWithheldThisYearPaise = 0, @JsonKey(name: 'minimum_withdrawal_paise') this.minimumWithdrawalPaise = 0});
+  factory _WithdrawalTerms.fromJson(Map<String, dynamic> json) => _$WithdrawalTermsFromJson(json);
+
+@override@JsonKey(name: 'commission_percent') final  int commissionPercent;
+@override@JsonKey(name: 'gift_commission_percent') final  int giftCommissionPercent;
+@override@JsonKey(name: 'transfer_fee_paise') final  int transferFeePaise;
+@override@JsonKey(name: 'tds_percent_label') final  String tdsPercentLabel;
+@override@JsonKey(name: 'tds_threshold_paise') final  int tdsThresholdPaise;
+@override@JsonKey(name: 'tds_free_remaining_paise') final  int tdsFreeRemainingPaise;
+@override@JsonKey(name: 'financial_year') final  String financialYear;
+@override@JsonKey(name: 'withdrawn_this_year_paise') final  int withdrawnThisYearPaise;
+@override@JsonKey(name: 'tds_withheld_this_year_paise') final  int tdsWithheldThisYearPaise;
+@override@JsonKey(name: 'minimum_withdrawal_paise') final  int minimumWithdrawalPaise;
+
+/// Create a copy of WithdrawalTerms
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WithdrawalTermsCopyWith<_WithdrawalTerms> get copyWith => __$WithdrawalTermsCopyWithImpl<_WithdrawalTerms>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$WithdrawalTermsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.giftCommissionPercent, giftCommissionPercent) || other.giftCommissionPercent == giftCommissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,commissionPercent,giftCommissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
+
+@override
+String toString() {
+  return 'WithdrawalTerms(commissionPercent: $commissionPercent, giftCommissionPercent: $giftCommissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WithdrawalTermsCopyWith<$Res> implements $WithdrawalTermsCopyWith<$Res> {
+  factory _$WithdrawalTermsCopyWith(_WithdrawalTerms value, $Res Function(_WithdrawalTerms) _then) = __$WithdrawalTermsCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'gift_commission_percent') int giftCommissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
+});
+
+
+
+
+}
+/// @nodoc
+class __$WithdrawalTermsCopyWithImpl<$Res>
+    implements _$WithdrawalTermsCopyWith<$Res> {
+  __$WithdrawalTermsCopyWithImpl(this._self, this._then);
+
+  final _WithdrawalTerms _self;
+  final $Res Function(_WithdrawalTerms) _then;
+
+/// Create a copy of WithdrawalTerms
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? commissionPercent = null,Object? giftCommissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
+  return _then(_WithdrawalTerms(
+commissionPercent: null == commissionPercent ? _self.commissionPercent : commissionPercent // ignore: cast_nullable_to_non_nullable
+as int,giftCommissionPercent: null == giftCommissionPercent ? _self.giftCommissionPercent : giftCommissionPercent // ignore: cast_nullable_to_non_nullable
+as int,transferFeePaise: null == transferFeePaise ? _self.transferFeePaise : transferFeePaise // ignore: cast_nullable_to_non_nullable
+as int,tdsPercentLabel: null == tdsPercentLabel ? _self.tdsPercentLabel : tdsPercentLabel // ignore: cast_nullable_to_non_nullable
+as String,tdsThresholdPaise: null == tdsThresholdPaise ? _self.tdsThresholdPaise : tdsThresholdPaise // ignore: cast_nullable_to_non_nullable
+as int,tdsFreeRemainingPaise: null == tdsFreeRemainingPaise ? _self.tdsFreeRemainingPaise : tdsFreeRemainingPaise // ignore: cast_nullable_to_non_nullable
+as int,financialYear: null == financialYear ? _self.financialYear : financialYear // ignore: cast_nullable_to_non_nullable
+as String,withdrawnThisYearPaise: null == withdrawnThisYearPaise ? _self.withdrawnThisYearPaise : withdrawnThisYearPaise // ignore: cast_nullable_to_non_nullable
+as int,tdsWithheldThisYearPaise: null == tdsWithheldThisYearPaise ? _self.tdsWithheldThisYearPaise : tdsWithheldThisYearPaise // ignore: cast_nullable_to_non_nullable
+as int,minimumWithdrawalPaise: null == minimumWithdrawalPaise ? _self.minimumWithdrawalPaise : minimumWithdrawalPaise // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$HostEarningsStatement {
 
-@JsonKey(name: 'period_start') DateTime? get periodStart;@JsonKey(name: 'period_last_day') DateTime? get periodLastDay;@JsonKey(name: 'opening_balance_paise') int get openingBalancePaise;@JsonKey(name: 'earned_paise') int get earnedPaise;@JsonKey(name: 'earned_from_calls_paise') int get earnedFromCallsPaise;@JsonKey(name: 'earned_from_gifts_paise') int get earnedFromGiftsPaise;@JsonKey(name: 'withdrawn_paise') int get withdrawnPaise;@JsonKey(name: 'returned_paise') int get returnedPaise;@JsonKey(name: 'adjusted_paise') int get adjustedPaise;@JsonKey(name: 'closing_balance_paise') int get closingBalancePaise;@JsonKey(name: 'balance_paise') int get balancePaise;@JsonKey(name: 'available_now_paise') int get availableNowPaise;@JsonKey(name: 'waiting_for_review_paise') int get waitingForReviewPaise;@JsonKey(name: 'hold_hours') int get holdHours;
+@JsonKey(name: 'withdrawal_terms') WithdrawalTerms? get withdrawalTerms;@JsonKey(name: 'period_start') DateTime? get periodStart;@JsonKey(name: 'period_last_day') DateTime? get periodLastDay;@JsonKey(name: 'opening_balance_paise') int get openingBalancePaise;@JsonKey(name: 'earned_paise') int get earnedPaise;@JsonKey(name: 'earned_from_calls_paise') int get earnedFromCallsPaise;@JsonKey(name: 'earned_from_gifts_paise') int get earnedFromGiftsPaise;@JsonKey(name: 'withdrawn_paise') int get withdrawnPaise;@JsonKey(name: 'returned_paise') int get returnedPaise;@JsonKey(name: 'adjusted_paise') int get adjustedPaise;@JsonKey(name: 'closing_balance_paise') int get closingBalancePaise;@JsonKey(name: 'balance_paise') int get balancePaise;@JsonKey(name: 'available_now_paise') int get availableNowPaise;@JsonKey(name: 'waiting_for_review_paise') int get waitingForReviewPaise;@JsonKey(name: 'hold_hours') int get holdHours;
 /// Create a copy of HostEarningsStatement
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +312,16 @@ $HostEarningsStatementCopyWith<HostEarningsStatement> get copyWith => _$HostEarn
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostEarningsStatement&&(identical(other.periodStart, periodStart) || other.periodStart == periodStart)&&(identical(other.periodLastDay, periodLastDay) || other.periodLastDay == periodLastDay)&&(identical(other.openingBalancePaise, openingBalancePaise) || other.openingBalancePaise == openingBalancePaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.earnedFromCallsPaise, earnedFromCallsPaise) || other.earnedFromCallsPaise == earnedFromCallsPaise)&&(identical(other.earnedFromGiftsPaise, earnedFromGiftsPaise) || other.earnedFromGiftsPaise == earnedFromGiftsPaise)&&(identical(other.withdrawnPaise, withdrawnPaise) || other.withdrawnPaise == withdrawnPaise)&&(identical(other.returnedPaise, returnedPaise) || other.returnedPaise == returnedPaise)&&(identical(other.adjustedPaise, adjustedPaise) || other.adjustedPaise == adjustedPaise)&&(identical(other.closingBalancePaise, closingBalancePaise) || other.closingBalancePaise == closingBalancePaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.availableNowPaise, availableNowPaise) || other.availableNowPaise == availableNowPaise)&&(identical(other.waitingForReviewPaise, waitingForReviewPaise) || other.waitingForReviewPaise == waitingForReviewPaise)&&(identical(other.holdHours, holdHours) || other.holdHours == holdHours));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostEarningsStatement&&(identical(other.withdrawalTerms, withdrawalTerms) || other.withdrawalTerms == withdrawalTerms)&&(identical(other.periodStart, periodStart) || other.periodStart == periodStart)&&(identical(other.periodLastDay, periodLastDay) || other.periodLastDay == periodLastDay)&&(identical(other.openingBalancePaise, openingBalancePaise) || other.openingBalancePaise == openingBalancePaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.earnedFromCallsPaise, earnedFromCallsPaise) || other.earnedFromCallsPaise == earnedFromCallsPaise)&&(identical(other.earnedFromGiftsPaise, earnedFromGiftsPaise) || other.earnedFromGiftsPaise == earnedFromGiftsPaise)&&(identical(other.withdrawnPaise, withdrawnPaise) || other.withdrawnPaise == withdrawnPaise)&&(identical(other.returnedPaise, returnedPaise) || other.returnedPaise == returnedPaise)&&(identical(other.adjustedPaise, adjustedPaise) || other.adjustedPaise == adjustedPaise)&&(identical(other.closingBalancePaise, closingBalancePaise) || other.closingBalancePaise == closingBalancePaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.availableNowPaise, availableNowPaise) || other.availableNowPaise == availableNowPaise)&&(identical(other.waitingForReviewPaise, waitingForReviewPaise) || other.waitingForReviewPaise == waitingForReviewPaise)&&(identical(other.holdHours, holdHours) || other.holdHours == holdHours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,periodStart,periodLastDay,openingBalancePaise,earnedPaise,earnedFromCallsPaise,earnedFromGiftsPaise,withdrawnPaise,returnedPaise,adjustedPaise,closingBalancePaise,balancePaise,availableNowPaise,waitingForReviewPaise,holdHours);
+int get hashCode => Object.hash(runtimeType,withdrawalTerms,periodStart,periodLastDay,openingBalancePaise,earnedPaise,earnedFromCallsPaise,earnedFromGiftsPaise,withdrawnPaise,returnedPaise,adjustedPaise,closingBalancePaise,balancePaise,availableNowPaise,waitingForReviewPaise,holdHours);
 
 @override
 String toString() {
-  return 'HostEarningsStatement(periodStart: $periodStart, periodLastDay: $periodLastDay, openingBalancePaise: $openingBalancePaise, earnedPaise: $earnedPaise, earnedFromCallsPaise: $earnedFromCallsPaise, earnedFromGiftsPaise: $earnedFromGiftsPaise, withdrawnPaise: $withdrawnPaise, returnedPaise: $returnedPaise, adjustedPaise: $adjustedPaise, closingBalancePaise: $closingBalancePaise, balancePaise: $balancePaise, availableNowPaise: $availableNowPaise, waitingForReviewPaise: $waitingForReviewPaise, holdHours: $holdHours)';
+  return 'HostEarningsStatement(withdrawalTerms: $withdrawalTerms, periodStart: $periodStart, periodLastDay: $periodLastDay, openingBalancePaise: $openingBalancePaise, earnedPaise: $earnedPaise, earnedFromCallsPaise: $earnedFromCallsPaise, earnedFromGiftsPaise: $earnedFromGiftsPaise, withdrawnPaise: $withdrawnPaise, returnedPaise: $returnedPaise, adjustedPaise: $adjustedPaise, closingBalancePaise: $closingBalancePaise, balancePaise: $balancePaise, availableNowPaise: $availableNowPaise, waitingForReviewPaise: $waitingForReviewPaise, holdHours: $holdHours)';
 }
 
 
@@ -48,11 +332,11 @@ abstract mixin class $HostEarningsStatementCopyWith<$Res>  {
   factory $HostEarningsStatementCopyWith(HostEarningsStatement value, $Res Function(HostEarningsStatement) _then) = _$HostEarningsStatementCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'period_start') DateTime? periodStart,@JsonKey(name: 'period_last_day') DateTime? periodLastDay,@JsonKey(name: 'opening_balance_paise') int openingBalancePaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'earned_from_calls_paise') int earnedFromCallsPaise,@JsonKey(name: 'earned_from_gifts_paise') int earnedFromGiftsPaise,@JsonKey(name: 'withdrawn_paise') int withdrawnPaise,@JsonKey(name: 'returned_paise') int returnedPaise,@JsonKey(name: 'adjusted_paise') int adjustedPaise,@JsonKey(name: 'closing_balance_paise') int closingBalancePaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'available_now_paise') int availableNowPaise,@JsonKey(name: 'waiting_for_review_paise') int waitingForReviewPaise,@JsonKey(name: 'hold_hours') int holdHours
+@JsonKey(name: 'withdrawal_terms') WithdrawalTerms? withdrawalTerms,@JsonKey(name: 'period_start') DateTime? periodStart,@JsonKey(name: 'period_last_day') DateTime? periodLastDay,@JsonKey(name: 'opening_balance_paise') int openingBalancePaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'earned_from_calls_paise') int earnedFromCallsPaise,@JsonKey(name: 'earned_from_gifts_paise') int earnedFromGiftsPaise,@JsonKey(name: 'withdrawn_paise') int withdrawnPaise,@JsonKey(name: 'returned_paise') int returnedPaise,@JsonKey(name: 'adjusted_paise') int adjustedPaise,@JsonKey(name: 'closing_balance_paise') int closingBalancePaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'available_now_paise') int availableNowPaise,@JsonKey(name: 'waiting_for_review_paise') int waitingForReviewPaise,@JsonKey(name: 'hold_hours') int holdHours
 });
 
 
-
+$WithdrawalTermsCopyWith<$Res>? get withdrawalTerms;
 
 }
 /// @nodoc
@@ -65,9 +349,10 @@ class _$HostEarningsStatementCopyWithImpl<$Res>
 
 /// Create a copy of HostEarningsStatement
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? periodStart = freezed,Object? periodLastDay = freezed,Object? openingBalancePaise = null,Object? earnedPaise = null,Object? earnedFromCallsPaise = null,Object? earnedFromGiftsPaise = null,Object? withdrawnPaise = null,Object? returnedPaise = null,Object? adjustedPaise = null,Object? closingBalancePaise = null,Object? balancePaise = null,Object? availableNowPaise = null,Object? waitingForReviewPaise = null,Object? holdHours = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? withdrawalTerms = freezed,Object? periodStart = freezed,Object? periodLastDay = freezed,Object? openingBalancePaise = null,Object? earnedPaise = null,Object? earnedFromCallsPaise = null,Object? earnedFromGiftsPaise = null,Object? withdrawnPaise = null,Object? returnedPaise = null,Object? adjustedPaise = null,Object? closingBalancePaise = null,Object? balancePaise = null,Object? availableNowPaise = null,Object? waitingForReviewPaise = null,Object? holdHours = null,}) {
   return _then(_self.copyWith(
-periodStart: freezed == periodStart ? _self.periodStart : periodStart // ignore: cast_nullable_to_non_nullable
+withdrawalTerms: freezed == withdrawalTerms ? _self.withdrawalTerms : withdrawalTerms // ignore: cast_nullable_to_non_nullable
+as WithdrawalTerms?,periodStart: freezed == periodStart ? _self.periodStart : periodStart // ignore: cast_nullable_to_non_nullable
 as DateTime?,periodLastDay: freezed == periodLastDay ? _self.periodLastDay : periodLastDay // ignore: cast_nullable_to_non_nullable
 as DateTime?,openingBalancePaise: null == openingBalancePaise ? _self.openingBalancePaise : openingBalancePaise // ignore: cast_nullable_to_non_nullable
 as int,earnedPaise: null == earnedPaise ? _self.earnedPaise : earnedPaise // ignore: cast_nullable_to_non_nullable
@@ -84,7 +369,19 @@ as int,holdHours: null == holdHours ? _self.holdHours : holdHours // ignore: cas
 as int,
   ));
 }
+/// Create a copy of HostEarningsStatement
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WithdrawalTermsCopyWith<$Res>? get withdrawalTerms {
+    if (_self.withdrawalTerms == null) {
+    return null;
+  }
 
+  return $WithdrawalTermsCopyWith<$Res>(_self.withdrawalTerms!, (value) {
+    return _then(_self.copyWith(withdrawalTerms: value));
+  });
+}
 }
 
 
@@ -163,10 +460,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'withdrawal_terms')  WithdrawalTerms? withdrawalTerms, @JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HostEarningsStatement() when $default != null:
-return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);case _:
+return $default(_that.withdrawalTerms,_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);case _:
   return orElse();
 
 }
@@ -184,10 +481,10 @@ return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'withdrawal_terms')  WithdrawalTerms? withdrawalTerms, @JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)  $default,) {final _that = this;
 switch (_that) {
 case _HostEarningsStatement():
-return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);}
+return $default(_that.withdrawalTerms,_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -201,10 +498,10 @@ return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'withdrawal_terms')  WithdrawalTerms? withdrawalTerms, @JsonKey(name: 'period_start')  DateTime? periodStart, @JsonKey(name: 'period_last_day')  DateTime? periodLastDay, @JsonKey(name: 'opening_balance_paise')  int openingBalancePaise, @JsonKey(name: 'earned_paise')  int earnedPaise, @JsonKey(name: 'earned_from_calls_paise')  int earnedFromCallsPaise, @JsonKey(name: 'earned_from_gifts_paise')  int earnedFromGiftsPaise, @JsonKey(name: 'withdrawn_paise')  int withdrawnPaise, @JsonKey(name: 'returned_paise')  int returnedPaise, @JsonKey(name: 'adjusted_paise')  int adjustedPaise, @JsonKey(name: 'closing_balance_paise')  int closingBalancePaise, @JsonKey(name: 'balance_paise')  int balancePaise, @JsonKey(name: 'available_now_paise')  int availableNowPaise, @JsonKey(name: 'waiting_for_review_paise')  int waitingForReviewPaise, @JsonKey(name: 'hold_hours')  int holdHours)?  $default,) {final _that = this;
 switch (_that) {
 case _HostEarningsStatement() when $default != null:
-return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);case _:
+return $default(_that.withdrawalTerms,_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,_that.earnedPaise,_that.earnedFromCallsPaise,_that.earnedFromGiftsPaise,_that.withdrawnPaise,_that.returnedPaise,_that.adjustedPaise,_that.closingBalancePaise,_that.balancePaise,_that.availableNowPaise,_that.waitingForReviewPaise,_that.holdHours);case _:
   return null;
 
 }
@@ -216,9 +513,10 @@ return $default(_that.periodStart,_that.periodLastDay,_that.openingBalancePaise,
 @JsonSerializable()
 
 class _HostEarningsStatement implements HostEarningsStatement {
-  const _HostEarningsStatement({@JsonKey(name: 'period_start') this.periodStart, @JsonKey(name: 'period_last_day') this.periodLastDay, @JsonKey(name: 'opening_balance_paise') this.openingBalancePaise = 0, @JsonKey(name: 'earned_paise') this.earnedPaise = 0, @JsonKey(name: 'earned_from_calls_paise') this.earnedFromCallsPaise = 0, @JsonKey(name: 'earned_from_gifts_paise') this.earnedFromGiftsPaise = 0, @JsonKey(name: 'withdrawn_paise') this.withdrawnPaise = 0, @JsonKey(name: 'returned_paise') this.returnedPaise = 0, @JsonKey(name: 'adjusted_paise') this.adjustedPaise = 0, @JsonKey(name: 'closing_balance_paise') this.closingBalancePaise = 0, @JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'available_now_paise') this.availableNowPaise = 0, @JsonKey(name: 'waiting_for_review_paise') this.waitingForReviewPaise = 0, @JsonKey(name: 'hold_hours') this.holdHours = 24});
+  const _HostEarningsStatement({@JsonKey(name: 'withdrawal_terms') this.withdrawalTerms, @JsonKey(name: 'period_start') this.periodStart, @JsonKey(name: 'period_last_day') this.periodLastDay, @JsonKey(name: 'opening_balance_paise') this.openingBalancePaise = 0, @JsonKey(name: 'earned_paise') this.earnedPaise = 0, @JsonKey(name: 'earned_from_calls_paise') this.earnedFromCallsPaise = 0, @JsonKey(name: 'earned_from_gifts_paise') this.earnedFromGiftsPaise = 0, @JsonKey(name: 'withdrawn_paise') this.withdrawnPaise = 0, @JsonKey(name: 'returned_paise') this.returnedPaise = 0, @JsonKey(name: 'adjusted_paise') this.adjustedPaise = 0, @JsonKey(name: 'closing_balance_paise') this.closingBalancePaise = 0, @JsonKey(name: 'balance_paise') this.balancePaise = 0, @JsonKey(name: 'available_now_paise') this.availableNowPaise = 0, @JsonKey(name: 'waiting_for_review_paise') this.waitingForReviewPaise = 0, @JsonKey(name: 'hold_hours') this.holdHours = 24});
   factory _HostEarningsStatement.fromJson(Map<String, dynamic> json) => _$HostEarningsStatementFromJson(json);
 
+@override@JsonKey(name: 'withdrawal_terms') final  WithdrawalTerms? withdrawalTerms;
 @override@JsonKey(name: 'period_start') final  DateTime? periodStart;
 @override@JsonKey(name: 'period_last_day') final  DateTime? periodLastDay;
 @override@JsonKey(name: 'opening_balance_paise') final  int openingBalancePaise;
@@ -247,16 +545,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostEarningsStatement&&(identical(other.periodStart, periodStart) || other.periodStart == periodStart)&&(identical(other.periodLastDay, periodLastDay) || other.periodLastDay == periodLastDay)&&(identical(other.openingBalancePaise, openingBalancePaise) || other.openingBalancePaise == openingBalancePaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.earnedFromCallsPaise, earnedFromCallsPaise) || other.earnedFromCallsPaise == earnedFromCallsPaise)&&(identical(other.earnedFromGiftsPaise, earnedFromGiftsPaise) || other.earnedFromGiftsPaise == earnedFromGiftsPaise)&&(identical(other.withdrawnPaise, withdrawnPaise) || other.withdrawnPaise == withdrawnPaise)&&(identical(other.returnedPaise, returnedPaise) || other.returnedPaise == returnedPaise)&&(identical(other.adjustedPaise, adjustedPaise) || other.adjustedPaise == adjustedPaise)&&(identical(other.closingBalancePaise, closingBalancePaise) || other.closingBalancePaise == closingBalancePaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.availableNowPaise, availableNowPaise) || other.availableNowPaise == availableNowPaise)&&(identical(other.waitingForReviewPaise, waitingForReviewPaise) || other.waitingForReviewPaise == waitingForReviewPaise)&&(identical(other.holdHours, holdHours) || other.holdHours == holdHours));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostEarningsStatement&&(identical(other.withdrawalTerms, withdrawalTerms) || other.withdrawalTerms == withdrawalTerms)&&(identical(other.periodStart, periodStart) || other.periodStart == periodStart)&&(identical(other.periodLastDay, periodLastDay) || other.periodLastDay == periodLastDay)&&(identical(other.openingBalancePaise, openingBalancePaise) || other.openingBalancePaise == openingBalancePaise)&&(identical(other.earnedPaise, earnedPaise) || other.earnedPaise == earnedPaise)&&(identical(other.earnedFromCallsPaise, earnedFromCallsPaise) || other.earnedFromCallsPaise == earnedFromCallsPaise)&&(identical(other.earnedFromGiftsPaise, earnedFromGiftsPaise) || other.earnedFromGiftsPaise == earnedFromGiftsPaise)&&(identical(other.withdrawnPaise, withdrawnPaise) || other.withdrawnPaise == withdrawnPaise)&&(identical(other.returnedPaise, returnedPaise) || other.returnedPaise == returnedPaise)&&(identical(other.adjustedPaise, adjustedPaise) || other.adjustedPaise == adjustedPaise)&&(identical(other.closingBalancePaise, closingBalancePaise) || other.closingBalancePaise == closingBalancePaise)&&(identical(other.balancePaise, balancePaise) || other.balancePaise == balancePaise)&&(identical(other.availableNowPaise, availableNowPaise) || other.availableNowPaise == availableNowPaise)&&(identical(other.waitingForReviewPaise, waitingForReviewPaise) || other.waitingForReviewPaise == waitingForReviewPaise)&&(identical(other.holdHours, holdHours) || other.holdHours == holdHours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,periodStart,periodLastDay,openingBalancePaise,earnedPaise,earnedFromCallsPaise,earnedFromGiftsPaise,withdrawnPaise,returnedPaise,adjustedPaise,closingBalancePaise,balancePaise,availableNowPaise,waitingForReviewPaise,holdHours);
+int get hashCode => Object.hash(runtimeType,withdrawalTerms,periodStart,periodLastDay,openingBalancePaise,earnedPaise,earnedFromCallsPaise,earnedFromGiftsPaise,withdrawnPaise,returnedPaise,adjustedPaise,closingBalancePaise,balancePaise,availableNowPaise,waitingForReviewPaise,holdHours);
 
 @override
 String toString() {
-  return 'HostEarningsStatement(periodStart: $periodStart, periodLastDay: $periodLastDay, openingBalancePaise: $openingBalancePaise, earnedPaise: $earnedPaise, earnedFromCallsPaise: $earnedFromCallsPaise, earnedFromGiftsPaise: $earnedFromGiftsPaise, withdrawnPaise: $withdrawnPaise, returnedPaise: $returnedPaise, adjustedPaise: $adjustedPaise, closingBalancePaise: $closingBalancePaise, balancePaise: $balancePaise, availableNowPaise: $availableNowPaise, waitingForReviewPaise: $waitingForReviewPaise, holdHours: $holdHours)';
+  return 'HostEarningsStatement(withdrawalTerms: $withdrawalTerms, periodStart: $periodStart, periodLastDay: $periodLastDay, openingBalancePaise: $openingBalancePaise, earnedPaise: $earnedPaise, earnedFromCallsPaise: $earnedFromCallsPaise, earnedFromGiftsPaise: $earnedFromGiftsPaise, withdrawnPaise: $withdrawnPaise, returnedPaise: $returnedPaise, adjustedPaise: $adjustedPaise, closingBalancePaise: $closingBalancePaise, balancePaise: $balancePaise, availableNowPaise: $availableNowPaise, waitingForReviewPaise: $waitingForReviewPaise, holdHours: $holdHours)';
 }
 
 
@@ -267,11 +565,11 @@ abstract mixin class _$HostEarningsStatementCopyWith<$Res> implements $HostEarni
   factory _$HostEarningsStatementCopyWith(_HostEarningsStatement value, $Res Function(_HostEarningsStatement) _then) = __$HostEarningsStatementCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'period_start') DateTime? periodStart,@JsonKey(name: 'period_last_day') DateTime? periodLastDay,@JsonKey(name: 'opening_balance_paise') int openingBalancePaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'earned_from_calls_paise') int earnedFromCallsPaise,@JsonKey(name: 'earned_from_gifts_paise') int earnedFromGiftsPaise,@JsonKey(name: 'withdrawn_paise') int withdrawnPaise,@JsonKey(name: 'returned_paise') int returnedPaise,@JsonKey(name: 'adjusted_paise') int adjustedPaise,@JsonKey(name: 'closing_balance_paise') int closingBalancePaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'available_now_paise') int availableNowPaise,@JsonKey(name: 'waiting_for_review_paise') int waitingForReviewPaise,@JsonKey(name: 'hold_hours') int holdHours
+@JsonKey(name: 'withdrawal_terms') WithdrawalTerms? withdrawalTerms,@JsonKey(name: 'period_start') DateTime? periodStart,@JsonKey(name: 'period_last_day') DateTime? periodLastDay,@JsonKey(name: 'opening_balance_paise') int openingBalancePaise,@JsonKey(name: 'earned_paise') int earnedPaise,@JsonKey(name: 'earned_from_calls_paise') int earnedFromCallsPaise,@JsonKey(name: 'earned_from_gifts_paise') int earnedFromGiftsPaise,@JsonKey(name: 'withdrawn_paise') int withdrawnPaise,@JsonKey(name: 'returned_paise') int returnedPaise,@JsonKey(name: 'adjusted_paise') int adjustedPaise,@JsonKey(name: 'closing_balance_paise') int closingBalancePaise,@JsonKey(name: 'balance_paise') int balancePaise,@JsonKey(name: 'available_now_paise') int availableNowPaise,@JsonKey(name: 'waiting_for_review_paise') int waitingForReviewPaise,@JsonKey(name: 'hold_hours') int holdHours
 });
 
 
-
+@override $WithdrawalTermsCopyWith<$Res>? get withdrawalTerms;
 
 }
 /// @nodoc
@@ -284,9 +582,10 @@ class __$HostEarningsStatementCopyWithImpl<$Res>
 
 /// Create a copy of HostEarningsStatement
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? periodStart = freezed,Object? periodLastDay = freezed,Object? openingBalancePaise = null,Object? earnedPaise = null,Object? earnedFromCallsPaise = null,Object? earnedFromGiftsPaise = null,Object? withdrawnPaise = null,Object? returnedPaise = null,Object? adjustedPaise = null,Object? closingBalancePaise = null,Object? balancePaise = null,Object? availableNowPaise = null,Object? waitingForReviewPaise = null,Object? holdHours = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? withdrawalTerms = freezed,Object? periodStart = freezed,Object? periodLastDay = freezed,Object? openingBalancePaise = null,Object? earnedPaise = null,Object? earnedFromCallsPaise = null,Object? earnedFromGiftsPaise = null,Object? withdrawnPaise = null,Object? returnedPaise = null,Object? adjustedPaise = null,Object? closingBalancePaise = null,Object? balancePaise = null,Object? availableNowPaise = null,Object? waitingForReviewPaise = null,Object? holdHours = null,}) {
   return _then(_HostEarningsStatement(
-periodStart: freezed == periodStart ? _self.periodStart : periodStart // ignore: cast_nullable_to_non_nullable
+withdrawalTerms: freezed == withdrawalTerms ? _self.withdrawalTerms : withdrawalTerms // ignore: cast_nullable_to_non_nullable
+as WithdrawalTerms?,periodStart: freezed == periodStart ? _self.periodStart : periodStart // ignore: cast_nullable_to_non_nullable
 as DateTime?,periodLastDay: freezed == periodLastDay ? _self.periodLastDay : periodLastDay // ignore: cast_nullable_to_non_nullable
 as DateTime?,openingBalancePaise: null == openingBalancePaise ? _self.openingBalancePaise : openingBalancePaise // ignore: cast_nullable_to_non_nullable
 as int,earnedPaise: null == earnedPaise ? _self.earnedPaise : earnedPaise // ignore: cast_nullable_to_non_nullable
@@ -304,7 +603,19 @@ as int,
   ));
 }
 
+/// Create a copy of HostEarningsStatement
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WithdrawalTermsCopyWith<$Res>? get withdrawalTerms {
+    if (_self.withdrawalTerms == null) {
+    return null;
+  }
 
+  return $WithdrawalTermsCopyWith<$Res>(_self.withdrawalTerms!, (value) {
+    return _then(_self.copyWith(withdrawalTerms: value));
+  });
+}
 }
 
 
