@@ -43,8 +43,8 @@ sealed class OneToOneCallHostFilters with _$OneToOneCallHostFilters {
     String? state,
     @Default(<String>[]) List<String> languages,
     HostCallModeFilter? callMode,
-    int? minPricePaise,
-    int? maxPricePaise,
+    int? minPriceCredits,
+    int? maxPriceCredits,
     HostAvailabilityFilter? availability,
     bool? isPremium,
   }) = _OneToOneCallHostFilters;
@@ -59,8 +59,8 @@ sealed class OneToOneCallHostFilters with _$OneToOneCallHostFilters {
       state == null &&
       languages.isEmpty &&
       callMode == null &&
-      minPricePaise == null &&
-      maxPricePaise == null &&
+      minPriceCredits == null &&
+      maxPriceCredits == null &&
       availability == null &&
       isPremium == null;
 
@@ -75,7 +75,7 @@ sealed class OneToOneCallHostFilters with _$OneToOneCallHostFilters {
         languages.isEmpty ? null : languages,
         callMode,
         // A price window is one decision to the user even when both ends are set.
-        (minPricePaise == null && maxPricePaise == null) ? null : 'price',
+        (minPriceCredits == null && maxPriceCredits == null) ? null : 'price',
         availability,
         isPremium,
       ].where((value) => value != null).length;
@@ -89,8 +89,8 @@ sealed class OneToOneCallHostFilters with _$OneToOneCallHostFilters {
     if (state != null) 'state': state,
     if (languages.isNotEmpty) 'languages': languages.join(','),
     if (callMode != null) 'call_mode': callMode!.wireValue,
-    if (minPricePaise != null) 'min_price_paise': minPricePaise,
-    if (maxPricePaise != null) 'max_price_paise': maxPricePaise,
+    if (minPriceCredits != null) 'min_price_credits': minPriceCredits,
+    if (maxPriceCredits != null) 'max_price_credits': maxPriceCredits,
     if (availability != null) 'availability': availability!.wireValue,
     if (isPremium != null) 'is_premium': isPremium,
   };
