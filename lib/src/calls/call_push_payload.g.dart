@@ -43,6 +43,22 @@ _CallPushPayload _$CallPushPayloadFromJson(
       json['video_price_per_minute_paise'] == null
           ? 0
           : intFromCallWire(json['video_price_per_minute_paise']),
+  pricePerMinuteCredits:
+      json['price_per_minute_credits'] == null
+          ? 0
+          : intFromCallWire(json['price_per_minute_credits']),
+  audioPricePerMinuteCredits:
+      json['audio_price_per_minute_credits'] == null
+          ? 0
+          : intFromCallWire(json['audio_price_per_minute_credits']),
+  videoPricePerMinuteCredits:
+      json['video_price_per_minute_credits'] == null
+          ? 0
+          : intFromCallWire(json['video_price_per_minute_credits']),
+  earnRatePaise:
+      json['earn_rate_paise'] == null
+          ? 0
+          : intFromCallWire(json['earn_rate_paise']),
   canSwitchMode:
       json['can_switch_mode'] == null
           ? false
@@ -71,6 +87,10 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'price_per_minute_paise': instance.pricePerMinutePaise,
       'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
       'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
+      'price_per_minute_credits': instance.pricePerMinuteCredits,
+      'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
+      'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
+      'earn_rate_paise': instance.earnRatePaise,
       'can_switch_mode': instance.canSwitchMode,
       'video_needs_consent': instance.videoNeedsConsent,
       'reason': instance.reason,

@@ -92,6 +92,24 @@ sealed class CallPushPayload with _$CallPushPayload {
     @Default(0)
     int videoPricePerMinutePaise,
 
+    /// The same prices in CREDITS — what the PAYER reads. The host reads her
+    /// [earnRatePaise] instead; a screen picks by comparing [payerUid] to
+    /// the signed-in account.
+    @JsonKey(name: 'price_per_minute_credits', fromJson: intFromCallWire)
+    @Default(0)
+    int pricePerMinuteCredits,
+    @JsonKey(name: 'audio_price_per_minute_credits', fromJson: intFromCallWire)
+    @Default(0)
+    int audioPricePerMinuteCredits,
+    @JsonKey(name: 'video_price_per_minute_credits', fromJson: intFromCallWire)
+    @Default(0)
+    int videoPricePerMinuteCredits,
+
+    /// What the EARNER makes per minute at the mode the call is in.
+    @JsonKey(name: 'earn_rate_paise', fromJson: intFromCallWire)
+    @Default(0)
+    int earnRatePaise,
+
     /// Whether this call may change mode at all, and whether turning video on
     /// still needs the host's answer. Both decide which buttons a call screen
     /// draws, so they ride the ring push too.
