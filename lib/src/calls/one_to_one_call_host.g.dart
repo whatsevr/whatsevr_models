@@ -18,12 +18,12 @@ _OneToOneCallHost _$OneToOneCallHostFromJson(Map<String, dynamic> json) =>
       gender: json['gender'] as String?,
       callMode: json['call_mode'] as String? ?? 'audio_video',
       ratePaise: (json['rate_paise'] as num?)?.toInt() ?? 0,
-      pricePerMinutePaise:
-          (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
-      audioPricePerMinutePaise:
-          (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
-      videoPricePerMinutePaise:
-          (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      pricePerMinuteCredits:
+          (json['price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      audioPricePerMinuteCredits:
+          (json['audio_price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      videoPricePerMinuteCredits:
+          (json['video_price_per_minute_credits'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
       isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
       isLegallyVerified: json['is_legally_verified'] as bool? ?? false,
@@ -51,9 +51,9 @@ Map<String, dynamic> _$OneToOneCallHostToJson(_OneToOneCallHost instance) =>
       'gender': instance.gender,
       'call_mode': instance.callMode,
       'rate_paise': instance.ratePaise,
-      'price_per_minute_paise': instance.pricePerMinutePaise,
-      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
-      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
+      'price_per_minute_credits': instance.pricePerMinuteCredits,
+      'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
+      'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
       'status': instance.status,
       'is_premium_profile': instance.isPremiumProfile,
       'is_legally_verified': instance.isLegallyVerified,

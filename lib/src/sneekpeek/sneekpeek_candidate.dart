@@ -136,18 +136,19 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
     /// `audio_video` or `audio_only`.
     @JsonKey(name: 'call_mode') @Default('audio_video') String callMode,
 
-    /// What the caller pays per minute, already adjusted for the call mode.
-    @JsonKey(name: 'price_per_minute_paise')
+    /// What the caller pays per minute, in CREDITS, already adjusted for the
+    /// call mode.
+    @JsonKey(name: 'price_per_minute_credits')
     @Default(0)
-    int pricePerMinutePaise,
+    int pricePerMinuteCredits,
 
     /// Both modes' prices, for a host who takes either — the caller picks.
-    @JsonKey(name: 'audio_price_per_minute_paise')
+    @JsonKey(name: 'audio_price_per_minute_credits')
     @Default(0)
-    int audioPricePerMinutePaise,
-    @JsonKey(name: 'video_price_per_minute_paise')
+    int audioPricePerMinuteCredits,
+    @JsonKey(name: 'video_price_per_minute_credits')
     @Default(0)
-    int videoPricePerMinutePaise,
+    int videoPricePerMinuteCredits,
 
     /// `available`, `busy` or `offline`.
     @Default('offline') String status,
@@ -176,17 +177,17 @@ sealed class CandidateHostInfo with _$CandidateHostInfo {
   /// What calling her costs either way — what the picker is built from.
   CallModeQuote get callModeQuote => CallModeQuote(
     callMode: callMode,
-    audioPricePerMinutePaise: audioPricePerMinutePaise,
-    videoPricePerMinutePaise: videoPricePerMinutePaise,
+    audioPricePerMinuteCredits: audioPricePerMinuteCredits,
+    videoPricePerMinuteCredits: videoPricePerMinuteCredits,
   );
 
   /// The lowest price a caller can actually pay her. A both-modes host has two
   /// and voice is half, so a CTA that leads with the video one hides the cheap
   /// way in — and quotes a rise to somebody who just paid the voice rate.
-  int get cheapestPricePerMinutePaise =>
-      audioPricePerMinutePaise < videoPricePerMinutePaise
-          ? audioPricePerMinutePaise
-          : videoPricePerMinutePaise;
+  int get cheapestPricePerMinuteCredits =>
+      audioPricePerMinuteCredits < videoPricePerMinuteCredits
+          ? audioPricePerMinuteCredits
+          : videoPricePerMinuteCredits;
 
   int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);
 

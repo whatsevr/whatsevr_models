@@ -39,20 +39,20 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// What the host earns per minute. Never shown to a caller.
     @JsonKey(name: 'rate_paise') @Default(0) int ratePaise,
 
-    /// What the caller pays per minute — rate grossed up for commission. This
-    /// is the only price a caller should ever see.
-    @JsonKey(name: 'price_per_minute_paise')
+    /// What the caller pays per minute, in CREDITS. This is the only price a
+    /// caller should ever see.
+    @JsonKey(name: 'price_per_minute_credits')
     @Default(0)
-    int pricePerMinutePaise,
+    int pricePerMinuteCredits,
 
     /// Both modes' prices, for a host who takes either. Voice is half — that
     /// is the whole reason the caller is asked to choose.
-    @JsonKey(name: 'audio_price_per_minute_paise')
+    @JsonKey(name: 'audio_price_per_minute_credits')
     @Default(0)
-    int audioPricePerMinutePaise,
-    @JsonKey(name: 'video_price_per_minute_paise')
+    int audioPricePerMinuteCredits,
+    @JsonKey(name: 'video_price_per_minute_credits')
     @Default(0)
-    int videoPricePerMinutePaise,
+    int videoPricePerMinuteCredits,
     @Default('offline') String status,
 
     /// The paid Premium Profile badge, shown beside the name on the card.
@@ -143,8 +143,8 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
   /// What calling her costs either way — what the picker is built from.
   CallModeQuote get callModeQuote => CallModeQuote(
     callMode: callMode,
-    audioPricePerMinutePaise: audioPricePerMinutePaise,
-    videoPricePerMinutePaise: videoPricePerMinutePaise,
+    audioPricePerMinuteCredits: audioPricePerMinuteCredits,
+    videoPricePerMinuteCredits: videoPricePerMinuteCredits,
   );
 
   int priceForMode(CallMode mode) => callModeQuote.priceForMode(mode);

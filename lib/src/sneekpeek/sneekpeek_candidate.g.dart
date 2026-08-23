@@ -85,12 +85,12 @@ _CandidateHostInfo _$CandidateHostInfoFromJson(Map<String, dynamic> json) =>
     _CandidateHostInfo(
       isHost: json['is_host'] as bool? ?? false,
       callMode: json['call_mode'] as String? ?? 'audio_video',
-      pricePerMinutePaise:
-          (json['price_per_minute_paise'] as num?)?.toInt() ?? 0,
-      audioPricePerMinutePaise:
-          (json['audio_price_per_minute_paise'] as num?)?.toInt() ?? 0,
-      videoPricePerMinutePaise:
-          (json['video_price_per_minute_paise'] as num?)?.toInt() ?? 0,
+      pricePerMinuteCredits:
+          (json['price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      audioPricePerMinuteCredits:
+          (json['audio_price_per_minute_credits'] as num?)?.toInt() ?? 0,
+      videoPricePerMinuteCredits:
+          (json['video_price_per_minute_credits'] as num?)?.toInt() ?? 0,
       status: json['status'] as String? ?? 'offline',
       answerRatePercent: (json['answer_rate_percent'] as num?)?.toInt(),
       answeredCallCount: (json['answered_call_count'] as num?)?.toInt() ?? 0,
@@ -101,9 +101,9 @@ Map<String, dynamic> _$CandidateHostInfoToJson(_CandidateHostInfo instance) =>
     <String, dynamic>{
       'is_host': instance.isHost,
       'call_mode': instance.callMode,
-      'price_per_minute_paise': instance.pricePerMinutePaise,
-      'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
-      'video_price_per_minute_paise': instance.videoPricePerMinutePaise,
+      'price_per_minute_credits': instance.pricePerMinuteCredits,
+      'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
+      'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
       'status': instance.status,
       'answer_rate_percent': instance.answerRatePercent,
       'answered_call_count': instance.answeredCallCount,

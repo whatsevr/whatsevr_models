@@ -42,14 +42,16 @@ enum CallMode {
 class CallModeQuote {
   const CallModeQuote({
     required this.callMode,
-    required this.audioPricePerMinutePaise,
-    required this.videoPricePerMinutePaise,
+    required this.audioPricePerMinuteCredits,
+    required this.videoPricePerMinuteCredits,
   });
 
   /// `audio_video`, `audio_only` or `video_only`, as the host set it.
   final String callMode;
-  final int audioPricePerMinutePaise;
-  final int videoPricePerMinutePaise;
+
+  /// What the CALLER pays, in credits (1 credit = 10 paise, server-pegged).
+  final int audioPricePerMinuteCredits;
+  final int videoPricePerMinuteCredits;
 
   /// She answers either way, so the caller picks — and pays accordingly.
   bool get supportsBothModes => callMode == 'audio_video';
@@ -60,5 +62,5 @@ class CallModeQuote {
       callMode == 'audio_only' ? CallMode.audio : CallMode.video;
 
   int priceForMode(CallMode mode) =>
-      mode.isAudio ? audioPricePerMinutePaise : videoPricePerMinutePaise;
+      mode.isAudio ? audioPricePerMinuteCredits : videoPricePerMinuteCredits;
 }
