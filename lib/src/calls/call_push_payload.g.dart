@@ -59,6 +59,7 @@ _CallPushPayload _$CallPushPayloadFromJson(
       json['earn_rate_paise'] == null
           ? 0
           : intFromCallWire(json['earn_rate_paise']),
+  priceLabel: json['price_label'] as String? ?? '',
   canSwitchMode:
       json['can_switch_mode'] == null
           ? false
@@ -91,6 +92,7 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
       'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
       'earn_rate_paise': instance.earnRatePaise,
+      'price_label': instance.priceLabel,
       'can_switch_mode': instance.canSwitchMode,
       'video_needs_consent': instance.videoNeedsConsent,
       'reason': instance.reason,

@@ -110,6 +110,13 @@ sealed class CallPushPayload with _$CallPushPayload {
     @Default(0)
     int earnRatePaise,
 
+    /// The one line the OS call screen shows under the caller's name,
+    /// already in THIS recipient's unit ("10 credits a minute" for a payer,
+    /// "You earn ₹1.00 a minute" for a host, "Free"). Server-written, because
+    /// a locked phone renders the push with nobody awake to work out which
+    /// side of the call it is on.
+    @JsonKey(name: 'price_label') @Default('') String priceLabel,
+
     /// Whether this call may change mode at all, and whether turning video on
     /// still needs the host's answer. Both decide which buttons a call screen
     /// draws, so they ride the ring push too.
