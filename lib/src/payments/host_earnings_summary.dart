@@ -8,10 +8,8 @@ part 'host_earnings_summary.g.dart';
 @freezed
 sealed class WithdrawalTerms with _$WithdrawalTerms {
   const factory WithdrawalTerms({
+    /// One rate on everything she withdraws, gifts included.
     @JsonKey(name: 'commission_percent') @Default(20) int commissionPercent,
-    @JsonKey(name: 'gift_commission_percent')
-    @Default(45)
-    int giftCommissionPercent,
     @JsonKey(name: 'transfer_fee_paise') @Default(0) int transferFeePaise,
     @JsonKey(name: 'tds_percent_label') @Default('0.1%') String tdsPercentLabel,
     @JsonKey(name: 'tds_threshold_paise') @Default(0) int tdsThresholdPaise,

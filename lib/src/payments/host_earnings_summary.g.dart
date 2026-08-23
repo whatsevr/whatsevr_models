@@ -9,8 +9,6 @@ part of 'host_earnings_summary.dart';
 _WithdrawalTerms _$WithdrawalTermsFromJson(Map<String, dynamic> json) =>
     _WithdrawalTerms(
       commissionPercent: (json['commission_percent'] as num?)?.toInt() ?? 20,
-      giftCommissionPercent:
-          (json['gift_commission_percent'] as num?)?.toInt() ?? 45,
       transferFeePaise: (json['transfer_fee_paise'] as num?)?.toInt() ?? 0,
       tdsPercentLabel: json['tds_percent_label'] as String? ?? '0.1%',
       tdsThresholdPaise: (json['tds_threshold_paise'] as num?)?.toInt() ?? 0,
@@ -28,7 +26,6 @@ _WithdrawalTerms _$WithdrawalTermsFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$WithdrawalTermsToJson(_WithdrawalTerms instance) =>
     <String, dynamic>{
       'commission_percent': instance.commissionPercent,
-      'gift_commission_percent': instance.giftCommissionPercent,
       'transfer_fee_paise': instance.transferFeePaise,
       'tds_percent_label': instance.tdsPercentLabel,
       'tds_threshold_paise': instance.tdsThresholdPaise,

@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$WithdrawalTerms {
 
-@JsonKey(name: 'commission_percent') int get commissionPercent;@JsonKey(name: 'gift_commission_percent') int get giftCommissionPercent;@JsonKey(name: 'transfer_fee_paise') int get transferFeePaise;@JsonKey(name: 'tds_percent_label') String get tdsPercentLabel;@JsonKey(name: 'tds_threshold_paise') int get tdsThresholdPaise;@JsonKey(name: 'tds_free_remaining_paise') int get tdsFreeRemainingPaise;@JsonKey(name: 'financial_year') String get financialYear;@JsonKey(name: 'withdrawn_this_year_paise') int get withdrawnThisYearPaise;@JsonKey(name: 'tds_withheld_this_year_paise') int get tdsWithheldThisYearPaise;@JsonKey(name: 'minimum_withdrawal_paise') int get minimumWithdrawalPaise;
+/// One rate on everything she withdraws, gifts included.
+@JsonKey(name: 'commission_percent') int get commissionPercent;@JsonKey(name: 'transfer_fee_paise') int get transferFeePaise;@JsonKey(name: 'tds_percent_label') String get tdsPercentLabel;@JsonKey(name: 'tds_threshold_paise') int get tdsThresholdPaise;@JsonKey(name: 'tds_free_remaining_paise') int get tdsFreeRemainingPaise;@JsonKey(name: 'financial_year') String get financialYear;@JsonKey(name: 'withdrawn_this_year_paise') int get withdrawnThisYearPaise;@JsonKey(name: 'tds_withheld_this_year_paise') int get tdsWithheldThisYearPaise;@JsonKey(name: 'minimum_withdrawal_paise') int get minimumWithdrawalPaise;
 /// Create a copy of WithdrawalTerms
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $WithdrawalTermsCopyWith<WithdrawalTerms> get copyWith => _$WithdrawalTermsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.giftCommissionPercent, giftCommissionPercent) || other.giftCommissionPercent == giftCommissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,commissionPercent,giftCommissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
+int get hashCode => Object.hash(runtimeType,commissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
 
 @override
 String toString() {
-  return 'WithdrawalTerms(commissionPercent: $commissionPercent, giftCommissionPercent: $giftCommissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
+  return 'WithdrawalTerms(commissionPercent: $commissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $WithdrawalTermsCopyWith<$Res>  {
   factory $WithdrawalTermsCopyWith(WithdrawalTerms value, $Res Function(WithdrawalTerms) _then) = _$WithdrawalTermsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'gift_commission_percent') int giftCommissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
+@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
 });
 
 
@@ -65,10 +66,9 @@ class _$WithdrawalTermsCopyWithImpl<$Res>
 
 /// Create a copy of WithdrawalTerms
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? commissionPercent = null,Object? giftCommissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? commissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
   return _then(_self.copyWith(
 commissionPercent: null == commissionPercent ? _self.commissionPercent : commissionPercent // ignore: cast_nullable_to_non_nullable
-as int,giftCommissionPercent: null == giftCommissionPercent ? _self.giftCommissionPercent : giftCommissionPercent // ignore: cast_nullable_to_non_nullable
 as int,transferFeePaise: null == transferFeePaise ? _self.transferFeePaise : transferFeePaise // ignore: cast_nullable_to_non_nullable
 as int,tdsPercentLabel: null == tdsPercentLabel ? _self.tdsPercentLabel : tdsPercentLabel // ignore: cast_nullable_to_non_nullable
 as String,tdsThresholdPaise: null == tdsThresholdPaise ? _self.tdsThresholdPaise : tdsThresholdPaise // ignore: cast_nullable_to_non_nullable
@@ -159,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _WithdrawalTerms() when $default != null:
-return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
+return $default(_that.commissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
   return orElse();
 
 }
@@ -180,10 +180,10 @@ return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transf
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)  $default,) {final _that = this;
 switch (_that) {
 case _WithdrawalTerms():
-return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);}
+return $default(_that.commissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -197,10 +197,10 @@ return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transf
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'gift_commission_percent')  int giftCommissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'commission_percent')  int commissionPercent, @JsonKey(name: 'transfer_fee_paise')  int transferFeePaise, @JsonKey(name: 'tds_percent_label')  String tdsPercentLabel, @JsonKey(name: 'tds_threshold_paise')  int tdsThresholdPaise, @JsonKey(name: 'tds_free_remaining_paise')  int tdsFreeRemainingPaise, @JsonKey(name: 'financial_year')  String financialYear, @JsonKey(name: 'withdrawn_this_year_paise')  int withdrawnThisYearPaise, @JsonKey(name: 'tds_withheld_this_year_paise')  int tdsWithheldThisYearPaise, @JsonKey(name: 'minimum_withdrawal_paise')  int minimumWithdrawalPaise)?  $default,) {final _that = this;
 switch (_that) {
 case _WithdrawalTerms() when $default != null:
-return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
+return $default(_that.commissionPercent,_that.transferFeePaise,_that.tdsPercentLabel,_that.tdsThresholdPaise,_that.tdsFreeRemainingPaise,_that.financialYear,_that.withdrawnThisYearPaise,_that.tdsWithheldThisYearPaise,_that.minimumWithdrawalPaise);case _:
   return null;
 
 }
@@ -212,11 +212,11 @@ return $default(_that.commissionPercent,_that.giftCommissionPercent,_that.transf
 @JsonSerializable()
 
 class _WithdrawalTerms implements WithdrawalTerms {
-  const _WithdrawalTerms({@JsonKey(name: 'commission_percent') this.commissionPercent = 20, @JsonKey(name: 'gift_commission_percent') this.giftCommissionPercent = 45, @JsonKey(name: 'transfer_fee_paise') this.transferFeePaise = 0, @JsonKey(name: 'tds_percent_label') this.tdsPercentLabel = '0.1%', @JsonKey(name: 'tds_threshold_paise') this.tdsThresholdPaise = 0, @JsonKey(name: 'tds_free_remaining_paise') this.tdsFreeRemainingPaise = 0, @JsonKey(name: 'financial_year') this.financialYear = '', @JsonKey(name: 'withdrawn_this_year_paise') this.withdrawnThisYearPaise = 0, @JsonKey(name: 'tds_withheld_this_year_paise') this.tdsWithheldThisYearPaise = 0, @JsonKey(name: 'minimum_withdrawal_paise') this.minimumWithdrawalPaise = 0});
+  const _WithdrawalTerms({@JsonKey(name: 'commission_percent') this.commissionPercent = 20, @JsonKey(name: 'transfer_fee_paise') this.transferFeePaise = 0, @JsonKey(name: 'tds_percent_label') this.tdsPercentLabel = '0.1%', @JsonKey(name: 'tds_threshold_paise') this.tdsThresholdPaise = 0, @JsonKey(name: 'tds_free_remaining_paise') this.tdsFreeRemainingPaise = 0, @JsonKey(name: 'financial_year') this.financialYear = '', @JsonKey(name: 'withdrawn_this_year_paise') this.withdrawnThisYearPaise = 0, @JsonKey(name: 'tds_withheld_this_year_paise') this.tdsWithheldThisYearPaise = 0, @JsonKey(name: 'minimum_withdrawal_paise') this.minimumWithdrawalPaise = 0});
   factory _WithdrawalTerms.fromJson(Map<String, dynamic> json) => _$WithdrawalTermsFromJson(json);
 
+/// One rate on everything she withdraws, gifts included.
 @override@JsonKey(name: 'commission_percent') final  int commissionPercent;
-@override@JsonKey(name: 'gift_commission_percent') final  int giftCommissionPercent;
 @override@JsonKey(name: 'transfer_fee_paise') final  int transferFeePaise;
 @override@JsonKey(name: 'tds_percent_label') final  String tdsPercentLabel;
 @override@JsonKey(name: 'tds_threshold_paise') final  int tdsThresholdPaise;
@@ -239,16 +239,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.giftCommissionPercent, giftCommissionPercent) || other.giftCommissionPercent == giftCommissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WithdrawalTerms&&(identical(other.commissionPercent, commissionPercent) || other.commissionPercent == commissionPercent)&&(identical(other.transferFeePaise, transferFeePaise) || other.transferFeePaise == transferFeePaise)&&(identical(other.tdsPercentLabel, tdsPercentLabel) || other.tdsPercentLabel == tdsPercentLabel)&&(identical(other.tdsThresholdPaise, tdsThresholdPaise) || other.tdsThresholdPaise == tdsThresholdPaise)&&(identical(other.tdsFreeRemainingPaise, tdsFreeRemainingPaise) || other.tdsFreeRemainingPaise == tdsFreeRemainingPaise)&&(identical(other.financialYear, financialYear) || other.financialYear == financialYear)&&(identical(other.withdrawnThisYearPaise, withdrawnThisYearPaise) || other.withdrawnThisYearPaise == withdrawnThisYearPaise)&&(identical(other.tdsWithheldThisYearPaise, tdsWithheldThisYearPaise) || other.tdsWithheldThisYearPaise == tdsWithheldThisYearPaise)&&(identical(other.minimumWithdrawalPaise, minimumWithdrawalPaise) || other.minimumWithdrawalPaise == minimumWithdrawalPaise));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,commissionPercent,giftCommissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
+int get hashCode => Object.hash(runtimeType,commissionPercent,transferFeePaise,tdsPercentLabel,tdsThresholdPaise,tdsFreeRemainingPaise,financialYear,withdrawnThisYearPaise,tdsWithheldThisYearPaise,minimumWithdrawalPaise);
 
 @override
 String toString() {
-  return 'WithdrawalTerms(commissionPercent: $commissionPercent, giftCommissionPercent: $giftCommissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
+  return 'WithdrawalTerms(commissionPercent: $commissionPercent, transferFeePaise: $transferFeePaise, tdsPercentLabel: $tdsPercentLabel, tdsThresholdPaise: $tdsThresholdPaise, tdsFreeRemainingPaise: $tdsFreeRemainingPaise, financialYear: $financialYear, withdrawnThisYearPaise: $withdrawnThisYearPaise, tdsWithheldThisYearPaise: $tdsWithheldThisYearPaise, minimumWithdrawalPaise: $minimumWithdrawalPaise)';
 }
 
 
@@ -259,7 +259,7 @@ abstract mixin class _$WithdrawalTermsCopyWith<$Res> implements $WithdrawalTerms
   factory _$WithdrawalTermsCopyWith(_WithdrawalTerms value, $Res Function(_WithdrawalTerms) _then) = __$WithdrawalTermsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'gift_commission_percent') int giftCommissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
+@JsonKey(name: 'commission_percent') int commissionPercent,@JsonKey(name: 'transfer_fee_paise') int transferFeePaise,@JsonKey(name: 'tds_percent_label') String tdsPercentLabel,@JsonKey(name: 'tds_threshold_paise') int tdsThresholdPaise,@JsonKey(name: 'tds_free_remaining_paise') int tdsFreeRemainingPaise,@JsonKey(name: 'financial_year') String financialYear,@JsonKey(name: 'withdrawn_this_year_paise') int withdrawnThisYearPaise,@JsonKey(name: 'tds_withheld_this_year_paise') int tdsWithheldThisYearPaise,@JsonKey(name: 'minimum_withdrawal_paise') int minimumWithdrawalPaise
 });
 
 
@@ -276,10 +276,9 @@ class __$WithdrawalTermsCopyWithImpl<$Res>
 
 /// Create a copy of WithdrawalTerms
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? commissionPercent = null,Object? giftCommissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? commissionPercent = null,Object? transferFeePaise = null,Object? tdsPercentLabel = null,Object? tdsThresholdPaise = null,Object? tdsFreeRemainingPaise = null,Object? financialYear = null,Object? withdrawnThisYearPaise = null,Object? tdsWithheldThisYearPaise = null,Object? minimumWithdrawalPaise = null,}) {
   return _then(_WithdrawalTerms(
 commissionPercent: null == commissionPercent ? _self.commissionPercent : commissionPercent // ignore: cast_nullable_to_non_nullable
-as int,giftCommissionPercent: null == giftCommissionPercent ? _self.giftCommissionPercent : giftCommissionPercent // ignore: cast_nullable_to_non_nullable
 as int,transferFeePaise: null == transferFeePaise ? _self.transferFeePaise : transferFeePaise // ignore: cast_nullable_to_non_nullable
 as int,tdsPercentLabel: null == tdsPercentLabel ? _self.tdsPercentLabel : tdsPercentLabel // ignore: cast_nullable_to_non_nullable
 as String,tdsThresholdPaise: null == tdsThresholdPaise ? _self.tdsThresholdPaise : tdsThresholdPaise // ignore: cast_nullable_to_non_nullable
