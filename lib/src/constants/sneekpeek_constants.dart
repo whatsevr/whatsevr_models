@@ -1,3 +1,4 @@
+// dart format off
 /// Mirrors of the server's SneekPeek profile pick-lists and field caps.
 ///
 /// GENERATED — do not hand-edit. Source of truth is
@@ -84,17 +85,11 @@ class SneekpeekRelationshipStatus {
 /// answer, and the server stores it as NULL.
 const List<SneekpeekRelationshipStatus> kSneekpeekRelationshipStatuses =
     <SneekpeekRelationshipStatus>[
-      SneekpeekRelationshipStatus(value: 'single', label: 'Single'),
-      SneekpeekRelationshipStatus(
-        value: 'in_relationship',
-        label: 'In a relationship',
-      ),
-      SneekpeekRelationshipStatus(value: 'married', label: 'Married'),
-      SneekpeekRelationshipStatus(
-        value: 'complicated',
-        label: 'It\'s complicated',
-      ),
-    ];
+  SneekpeekRelationshipStatus(value: 'single', label: 'Single'),
+  SneekpeekRelationshipStatus(value: 'in_relationship', label: 'In a relationship'),
+  SneekpeekRelationshipStatus(value: 'married', label: 'Married'),
+  SneekpeekRelationshipStatus(value: 'complicated', label: 'It\'s complicated'),
+];
 
 class SneekpeekCountry {
   const SneekpeekCountry({required this.code, required this.name});
