@@ -141,7 +141,6 @@ sealed class OfferCreator with _$OfferCreator {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _OfferCreator;
 
   factory OfferCreator.fromJson(Map<String, dynamic> json) =>

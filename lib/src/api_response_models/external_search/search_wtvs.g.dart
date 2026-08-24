@@ -143,7 +143,6 @@ _WtvCreator _$WtvCreatorFromJson(Map<String, dynamic> json) => _WtvCreator(
   portfolioTitle: json['portfolio_title'] as String?,
   profilePicture: json['profile_picture'] as String?,
   totalFollowers: (json['total_followers'] as num?)?.toInt(),
-  isLegallyVerified: json['is_legally_verified'] as bool?,
 );
 
 Map<String, dynamic> _$WtvCreatorToJson(_WtvCreator instance) =>
@@ -155,5 +154,4 @@ Map<String, dynamic> _$WtvCreatorToJson(_WtvCreator instance) =>
       'portfolio_title': instance.portfolioTitle,
       'profile_picture': instance.profilePicture,
       'total_followers': instance.totalFollowers,
-      'is_legally_verified': instance.isLegallyVerified,
     };

@@ -123,7 +123,6 @@ sealed class WtvCreator with _$WtvCreator {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _WtvCreator;
 
   factory WtvCreator.fromJson(Map<String, dynamic> json) =>

@@ -79,7 +79,6 @@ _ExternalSearchUser _$ExternalSearchUserFromJson(
           ? null
           : DateTime.parse(json['updated_at'] as String),
   isPrivate: json['is_private'] as bool?,
-  isLegallyVerified: json['is_legally_verified'] as bool?,
   externalSearchIndexedAt:
       json['external_search_indexed_at'] == null
           ? null
@@ -141,7 +140,6 @@ Map<String, dynamic> _$ExternalSearchUserToJson(_ExternalSearchUser instance) =>
       'public_mobile_number': instance.publicMobileNumber,
       'updated_at': instance.updatedAt?.toIso8601String(),
       'is_private': instance.isPrivate,
-      'is_legally_verified': instance.isLegallyVerified,
       'external_search_indexed_at':
           instance.externalSearchIndexedAt?.toIso8601String(),
       'educations': instance.educations,

@@ -97,7 +97,6 @@ sealed class PdfCreator with _$PdfCreator {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _PdfCreator;
 
   factory PdfCreator.fromJson(Map<String, dynamic> json) =>

@@ -86,7 +86,6 @@ sealed class ExternalSearchUser with _$ExternalSearchUser {
 
     @JsonKey(name: 'is_private') bool? isPrivate,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
 
     @JsonKey(name: 'external_search_indexed_at')
     DateTime? externalSearchIndexedAt,

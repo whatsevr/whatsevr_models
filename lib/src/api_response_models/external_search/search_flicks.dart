@@ -125,7 +125,6 @@ sealed class FlickCreator with _$FlickCreator {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _FlickCreator;
 
   factory FlickCreator.fromJson(Map<String, dynamic> json) =>

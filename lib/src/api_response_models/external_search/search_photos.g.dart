@@ -155,7 +155,6 @@ _PhotoCreator _$PhotoCreatorFromJson(Map<String, dynamic> json) =>
       portfolioTitle: json['portfolio_title'] as String?,
       profilePicture: json['profile_picture'] as String?,
       totalFollowers: (json['total_followers'] as num?)?.toInt(),
-      isLegallyVerified: json['is_legally_verified'] as bool?,
     );
 
 Map<String, dynamic> _$PhotoCreatorToJson(_PhotoCreator instance) =>
@@ -167,5 +166,4 @@ Map<String, dynamic> _$PhotoCreatorToJson(_PhotoCreator instance) =>
       'portfolio_title': instance.portfolioTitle,
       'profile_picture': instance.profilePicture,
       'total_followers': instance.totalFollowers,
-      'is_legally_verified': instance.isLegallyVerified,
     };

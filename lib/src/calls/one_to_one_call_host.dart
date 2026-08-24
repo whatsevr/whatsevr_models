@@ -55,14 +55,9 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     int videoPricePerMinuteCredits,
     @Default('offline') String status,
 
-    /// The paid Premium Profile badge, shown beside the name on the card.
+    /// The blue tick, shown beside the name on the card. Paid, not earned —
+    /// the only mark this product sells.
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
-
-    /// The identity tick, beside the name. Distinct from the paid Premium
-    /// badge: this one says the person is who they claim to be.
-    @JsonKey(name: 'is_legally_verified')
-    @Default(false)
-    bool isLegallyVerified,
 
     /// What the host says she offers, in her words — the card's hero line and
     /// the text intent search matches against.

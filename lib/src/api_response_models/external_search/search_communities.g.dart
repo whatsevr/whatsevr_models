@@ -124,7 +124,6 @@ _Admin _$AdminFromJson(Map<String, dynamic> json) => _Admin(
   portfolioTitle: json['portfolio_title'] as String?,
   profilePicture: json['profile_picture'] as String?,
   totalFollowers: (json['total_followers'] as num?)?.toInt(),
-  isLegallyVerified: json['is_legally_verified'] as bool?,
 );
 
 Map<String, dynamic> _$AdminToJson(_Admin instance) => <String, dynamic>{
@@ -135,7 +134,6 @@ Map<String, dynamic> _$AdminToJson(_Admin instance) => <String, dynamic>{
   'portfolio_title': instance.portfolioTitle,
   'profile_picture': instance.profilePicture,
   'total_followers': instance.totalFollowers,
-  'is_legally_verified': instance.isLegallyVerified,
 };
 
 _CommunitiesPagination _$CommunitiesPaginationFromJson(

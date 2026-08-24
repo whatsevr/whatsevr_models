@@ -90,7 +90,6 @@ sealed class Admin with _$Admin {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _Admin;
 
   factory Admin.fromJson(Map<String, dynamic> json) => _$AdminFromJson(json);

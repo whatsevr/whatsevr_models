@@ -129,7 +129,6 @@ sealed class PhotoCreator with _$PhotoCreator {
 
     @JsonKey(name: 'total_followers') int? totalFollowers,
 
-    @JsonKey(name: 'is_legally_verified') bool? isLegallyVerified,
   }) = _PhotoCreator;
 
   factory PhotoCreator.fromJson(Map<String, dynamic> json) =>
