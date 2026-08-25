@@ -50,6 +50,19 @@ sealed class HostLevelStatus with _$HostLevelStatus {
     @Default('')
     String holdingRemainingSentence,
 
+    /// The two qualifying bars, as the server currently has them, and the
+    /// sentence that states them — copy never hardcodes a number the owner
+    /// can tune.
+    @JsonKey(name: 'qualifying_call_minimum_minutes')
+    @Default(3)
+    int qualifyingCallMinimumMinutes,
+    @JsonKey(name: 'qualifying_payer_minimum_spend_paise')
+    @Default(5000)
+    int qualifyingPayerMinimumSpendPaise,
+    @JsonKey(name: 'qualifying_rule_sentence')
+    @Default('')
+    String qualifyingRuleSentence,
+
     /// She missed her level's bars last month; missing them again drops her
     /// one level at month close.
     @JsonKey(name: 'grace_active') @Default(false) bool graceActive,
