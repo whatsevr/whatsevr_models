@@ -44,6 +44,7 @@ _WalletStatus _$WalletStatusFromJson(
   canAffordSpin: json['can_afford_spin'] as bool? ?? false,
   hostEligibility: json['host_eligibility'] as String? ?? 'not_host',
   canApplyToBeHost: json['can_apply_to_be_host'] as bool? ?? false,
+  balanceMinutesSentence: json['balance_minutes_sentence'] as String? ?? '',
 );
 
 Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
@@ -62,6 +63,7 @@ Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
       'can_afford_spin': instance.canAffordSpin,
       'host_eligibility': instance.hostEligibility,
       'can_apply_to_be_host': instance.canApplyToBeHost,
+      'balance_minutes_sentence': instance.balanceMinutesSentence,
     };
 
 _PerkGrant _$PerkGrantFromJson(Map<String, dynamic> json) => _PerkGrant(

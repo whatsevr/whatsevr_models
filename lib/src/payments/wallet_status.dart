@@ -82,6 +82,15 @@ sealed class WalletStatus with _$WalletStatus {
     @JsonKey(name: 'can_apply_to_be_host')
     @Default(false)
     bool canApplyToBeHost,
+
+    /// Ready-to-render sentence for the balance's minutes, e.g. "About 64 min
+    /// at the ₹1/min starting rate — hosts at higher levels cost more." The
+    /// server owns the wording because host rates run ₹1→₹15/min by level, so
+    /// no single client-side rate can describe what a balance actually buys.
+    /// Empty string when the balance is 0.
+    @JsonKey(name: 'balance_minutes_sentence')
+    @Default('')
+    String balanceMinutesSentence,
   }) = _WalletStatus;
 
   const WalletStatus._();
