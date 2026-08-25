@@ -59,6 +59,12 @@ sealed class OneToOneCallHost with _$OneToOneCallHost {
     /// the only mark this product sells.
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
 
+    /// Her level on the pricing ladder, 1..7, and its name. Earned, not paid,
+    /// and what explains a higher price. A badge only: the grid's order is
+    /// the server's and does not read it.
+    @JsonKey(name: 'host_level') @Default(1) int hostLevel,
+    @JsonKey(name: 'host_level_name') @Default('New Host') String hostLevelName,
+
     /// What the host says she offers, in her words — the card's hero line and
     /// the text intent search matches against.
     String? headline,

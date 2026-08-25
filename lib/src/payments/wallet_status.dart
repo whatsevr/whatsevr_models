@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'host_level_status.dart';
+
 part 'wallet_status.freezed.dart';
 part 'wallet_status.g.dart';
 
@@ -45,6 +47,10 @@ sealed class WalletStatus with _$WalletStatus {
     Map<String, int> perkCostsCredits,
     @Default(WalletEarnings()) WalletEarnings earnings,
     @JsonKey(name: 'one_to_one_call_rate') OneToOneCallRate? oneToOneCallRate,
+
+    /// Her level, price and this month's progress toward the next level. Null
+    /// for anyone who is not a host candidate — a spender has no ladder.
+    @JsonKey(name: 'host_level') HostLevelStatus? hostLevel,
     @JsonKey(name: 'is_premium_profile') @Default(false) bool isPremiumProfile,
 
     /// The list price of a spin — what the consent screen quotes to everyone.
@@ -158,11 +164,11 @@ sealed class WalletEarnings with _$WalletEarnings {
       applicationStatus == HostApplicationStatus.pending;
 }
 
-/// The host's own rate, plus the bounds the web rate editor enforces.
+/// The host's terms: her level's price, and how she takes calls.
 ///
-/// `callRatePaise` is what the host earns per minute; `pricePerMinutePaise` is
-/// what the spender pays (rate grossed up for the 30% commission). Show the
-/// spender price on any Connect CTA — never the host rate.
+/// `callRatePaise` is what the host earns per minute — set by her level
+/// (`hostLevel`), never typed; `pricePerMinutePaise` is what the spender
+/// pays. Show the spender price on any Connect CTA — never the host rate.
 @freezed
 sealed class OneToOneCallRate with _$OneToOneCallRate {
   const factory OneToOneCallRate({
@@ -174,22 +180,10 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     /// Her standing answer to a mid-call video request. Her own client reads
     /// it to decide whether to prompt her or answer for her.
     @JsonKey(name: 'auto_accept_video') @Default(false) bool autoAcceptVideo,
-    @JsonKey(name: 'rate_min_paise') @Default(0) int rateMinPaise,
 
-    /// Capped to an intro ceiling for the first 30 days after registration,
-    /// which is why this is read from the server rather than a constant.
-    @JsonKey(name: 'rate_max_paise') @Default(0) int rateMaxPaise,
-
-    /// Whether [rateMaxPaise] is the intro ceiling right now, so the editor
-    /// can say why the top of her range is what it is instead of leaving her
-    /// to guess.
-    @JsonKey(name: 'intro_window_active')
-    @Default(false)
-    bool introWindowActive,
-
-    /// When the intro ceiling lifts. Null whenever [introWindowActive] is
-    /// false — there is nothing counting down to show.
-    @JsonKey(name: 'intro_window_ends_at') DateTime? introWindowEndsAt,
+    /// The level the rate belongs to, and its name — what explains the price.
+    @JsonKey(name: 'host_level') @Default(1) int hostLevel,
+    @JsonKey(name: 'host_level_name') @Default('New Host') String hostLevelName,
     @JsonKey(name: 'price_per_minute_paise')
     @Default(0)
     int pricePerMinutePaise,
@@ -205,16 +199,6 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
     @Default(0)
     int audioPricePerMinuteCredits,
     @JsonKey(name: 'audio_rate_paise') @Default(0) int audioRatePaise,
-
-    /// Every legal rate step between [rateMinPaise] and [rateMaxPaise],
-    /// priced both ways by the server
-    /// (`payments/call_billing_service.py:rate_quote_table`). The rate
-    /// editor's slider indexes this instead of re-deriving the commission
-    /// gross-up (`price_for_rate`) or the audio-is-half-rate rule
-    /// (`effective_rate`) for a value she has not saved yet.
-    @JsonKey(name: 'rate_quote_table')
-    @Default(<RateQuote>[])
-    List<RateQuote> rateQuoteTable,
   }) = _OneToOneCallRate;
 
   const OneToOneCallRate._();
@@ -227,43 +211,5 @@ sealed class OneToOneCallRate with _$OneToOneCallRate {
 
   /// Only a both-modes host has anything to auto-accept.
   bool get canAutoAcceptVideo => callMode == 'audio_video';
-
-  /// The table row for the rate closest to [candidateRatePaise] — the honest
-  /// quote for a slider position she has not saved yet, without spelling the
-  /// pricing formula client-side. Null only when the server sent no table.
-  RateQuote? quoteNear(int candidateRatePaise) {
-    if (rateQuoteTable.isEmpty) return null;
-    return rateQuoteTable.reduce(
-      (closest, row) =>
-          (row.callRatePaise - candidateRatePaise).abs() <
-                  (closest.callRatePaise - candidateRatePaise).abs()
-              ? row
-              : closest,
-    );
-  }
 }
 
-/// One row of the server-precomputed rate quote table: what a host earns and
-/// what a caller pays, on video and on audio, for one legal rate step.
-@freezed
-sealed class RateQuote with _$RateQuote {
-  const factory RateQuote({
-    @JsonKey(name: 'call_rate_paise') @Default(0) int callRatePaise,
-    @JsonKey(name: 'audio_rate_paise') @Default(0) int audioRatePaise,
-    @JsonKey(name: 'video_price_per_minute_paise')
-    @Default(0)
-    int videoPricePerMinutePaise,
-    @JsonKey(name: 'audio_price_per_minute_paise')
-    @Default(0)
-    int audioPricePerMinutePaise,
-    @JsonKey(name: 'video_price_per_minute_credits')
-    @Default(0)
-    int videoPricePerMinuteCredits,
-    @JsonKey(name: 'audio_price_per_minute_credits')
-    @Default(0)
-    int audioPricePerMinuteCredits,
-  }) = _RateQuote;
-
-  factory RateQuote.fromJson(Map<String, dynamic> json) =>
-      _$RateQuoteFromJson(json);
-}

@@ -41,6 +41,7 @@ export 'src/db_models/work_experience.dart';
 export 'src/constants/sneekpeek_constants.dart';
 export 'src/constants/call_vocabulary.dart';
 export 'src/constants/call_constants.dart';
+export 'src/payments/host_level_status.dart';
 export 'src/payments/wallet_status.dart';
 export 'src/payments/payment_portal_link.dart';
 export 'src/payments/wallet_ledger_entry.dart';
