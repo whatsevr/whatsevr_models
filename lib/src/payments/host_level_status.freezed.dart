@@ -15,15 +15,20 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HostLevelStatus {
 
- int get level;@JsonKey(name: 'level_name') String get levelName;/// What she earns per video minute at this level, in paise.
+ int get level;@JsonKey(name: 'level_name') String get levelName;/// The badge art for the level she holds — an absolute, public URL the
+/// server chooses. The app never ships its own copy of these pictures and
+/// never builds the URL itself: new art is a backend edit, not a release.
+@JsonKey(name: 'badge_url') String get badgeUrl;/// What she earns per video minute at this level, in paise.
 @JsonKey(name: 'price_paise') int get pricePaise;@JsonKey(name: 'audio_price_paise') int get audioPricePaise;@JsonKey(name: 'price_per_minute_credits') int get pricePerMinuteCredits;@JsonKey(name: 'is_top_level') bool get isTopLevel;/// The calendar month (IST) the progress below is for, as "August 2026".
 @JsonKey(name: 'month_label') String get monthLabel;/// The exact instant the next recalculation runs — midnight on the first
 /// of next month, in the ladder's zone.
-@JsonKey(name: 'next_recalculation_at') DateTime? get nextRecalculationAt;@JsonKey(name: 'next_level') int? get nextLevel;@JsonKey(name: 'next_level_name') String? get nextLevelName;@JsonKey(name: 'next_price_paise') int? get nextPricePaise;/// Toward the NEXT level, closest-to-done first, met bars last. Empty at
+@JsonKey(name: 'next_recalculation_at') DateTime? get nextRecalculationAt;@JsonKey(name: 'next_level') int? get nextLevel;@JsonKey(name: 'next_level_name') String? get nextLevelName;@JsonKey(name: 'next_price_paise') int? get nextPricePaise;@JsonKey(name: 'next_badge_url') String? get nextBadgeUrl;/// Toward the NEXT level, closest-to-done first, met bars last. Empty at
 /// the top of the ladder.
  List<HostLevelBar> get bars;/// "380 more paid minutes and 17 more regular callers to go". Empty when
 /// every bar is met or there is no next level.
-@JsonKey(name: 'remaining_sentence') String get remainingSentence;/// Whether this month's work already keeps the level she holds.
+@JsonKey(name: 'remaining_sentence') String get remainingSentence;/// "2 of 3 done" — counted by the server so the two clients cannot
+/// disagree, and never rounded up to flatter the screen.
+@JsonKey(name: 'bars_met_count') int get barsMetCount;@JsonKey(name: 'bars_total_count') int get barsTotalCount;/// Whether this month's work already keeps the level she holds.
 @JsonKey(name: 'holding_bars_met') bool get holdingBarsMet;@JsonKey(name: 'holding_remaining_sentence') String get holdingRemainingSentence;/// The two qualifying bars, as the server currently has them, and the
 /// sentence that states them — copy never hardcodes a number the owner
 /// can tune.
@@ -31,7 +36,9 @@ mixin _$HostLevelStatus {
 /// one level at month close.
 @JsonKey(name: 'grace_active') bool get graceActive;@JsonKey(name: 'grace_month_label') String? get graceMonthLabel;/// The newest promotion / warning / demotion she has not dismissed yet.
 /// Shown once, then acknowledged through `host-level/acknowledge`.
-@JsonKey(name: 'unacknowledged_event') HostLevelEvent? get unacknowledgedEvent;
+@JsonKey(name: 'unacknowledged_event') HostLevelEvent? get unacknowledgedEvent;/// Every rung, in order, each already told where it stands relative to
+/// her. The showcase draws this list and decides nothing.
+ List<HostLevelRung> get ladder;
 /// Create a copy of HostLevelStatus
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -44,16 +51,16 @@ $HostLevelStatusCopyWith<HostLevelStatus> get copyWith => _$HostLevelStatusCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostLevelStatus&&(identical(other.level, level) || other.level == level)&&(identical(other.levelName, levelName) || other.levelName == levelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.audioPricePaise, audioPricePaise) || other.audioPricePaise == audioPricePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.isTopLevel, isTopLevel) || other.isTopLevel == isTopLevel)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel)&&(identical(other.nextRecalculationAt, nextRecalculationAt) || other.nextRecalculationAt == nextRecalculationAt)&&(identical(other.nextLevel, nextLevel) || other.nextLevel == nextLevel)&&(identical(other.nextLevelName, nextLevelName) || other.nextLevelName == nextLevelName)&&(identical(other.nextPricePaise, nextPricePaise) || other.nextPricePaise == nextPricePaise)&&const DeepCollectionEquality().equals(other.bars, bars)&&(identical(other.remainingSentence, remainingSentence) || other.remainingSentence == remainingSentence)&&(identical(other.holdingBarsMet, holdingBarsMet) || other.holdingBarsMet == holdingBarsMet)&&(identical(other.holdingRemainingSentence, holdingRemainingSentence) || other.holdingRemainingSentence == holdingRemainingSentence)&&(identical(other.qualifyingCallMinimumMinutes, qualifyingCallMinimumMinutes) || other.qualifyingCallMinimumMinutes == qualifyingCallMinimumMinutes)&&(identical(other.qualifyingPayerMinimumSpendPaise, qualifyingPayerMinimumSpendPaise) || other.qualifyingPayerMinimumSpendPaise == qualifyingPayerMinimumSpendPaise)&&(identical(other.qualifyingRuleSentence, qualifyingRuleSentence) || other.qualifyingRuleSentence == qualifyingRuleSentence)&&(identical(other.graceActive, graceActive) || other.graceActive == graceActive)&&(identical(other.graceMonthLabel, graceMonthLabel) || other.graceMonthLabel == graceMonthLabel)&&(identical(other.unacknowledgedEvent, unacknowledgedEvent) || other.unacknowledgedEvent == unacknowledgedEvent));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostLevelStatus&&(identical(other.level, level) || other.level == level)&&(identical(other.levelName, levelName) || other.levelName == levelName)&&(identical(other.badgeUrl, badgeUrl) || other.badgeUrl == badgeUrl)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.audioPricePaise, audioPricePaise) || other.audioPricePaise == audioPricePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.isTopLevel, isTopLevel) || other.isTopLevel == isTopLevel)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel)&&(identical(other.nextRecalculationAt, nextRecalculationAt) || other.nextRecalculationAt == nextRecalculationAt)&&(identical(other.nextLevel, nextLevel) || other.nextLevel == nextLevel)&&(identical(other.nextLevelName, nextLevelName) || other.nextLevelName == nextLevelName)&&(identical(other.nextPricePaise, nextPricePaise) || other.nextPricePaise == nextPricePaise)&&(identical(other.nextBadgeUrl, nextBadgeUrl) || other.nextBadgeUrl == nextBadgeUrl)&&const DeepCollectionEquality().equals(other.bars, bars)&&(identical(other.remainingSentence, remainingSentence) || other.remainingSentence == remainingSentence)&&(identical(other.barsMetCount, barsMetCount) || other.barsMetCount == barsMetCount)&&(identical(other.barsTotalCount, barsTotalCount) || other.barsTotalCount == barsTotalCount)&&(identical(other.holdingBarsMet, holdingBarsMet) || other.holdingBarsMet == holdingBarsMet)&&(identical(other.holdingRemainingSentence, holdingRemainingSentence) || other.holdingRemainingSentence == holdingRemainingSentence)&&(identical(other.qualifyingCallMinimumMinutes, qualifyingCallMinimumMinutes) || other.qualifyingCallMinimumMinutes == qualifyingCallMinimumMinutes)&&(identical(other.qualifyingPayerMinimumSpendPaise, qualifyingPayerMinimumSpendPaise) || other.qualifyingPayerMinimumSpendPaise == qualifyingPayerMinimumSpendPaise)&&(identical(other.qualifyingRuleSentence, qualifyingRuleSentence) || other.qualifyingRuleSentence == qualifyingRuleSentence)&&(identical(other.graceActive, graceActive) || other.graceActive == graceActive)&&(identical(other.graceMonthLabel, graceMonthLabel) || other.graceMonthLabel == graceMonthLabel)&&(identical(other.unacknowledgedEvent, unacknowledgedEvent) || other.unacknowledgedEvent == unacknowledgedEvent)&&const DeepCollectionEquality().equals(other.ladder, ladder));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,level,levelName,pricePaise,audioPricePaise,pricePerMinuteCredits,isTopLevel,monthLabel,nextRecalculationAt,nextLevel,nextLevelName,nextPricePaise,const DeepCollectionEquality().hash(bars),remainingSentence,holdingBarsMet,holdingRemainingSentence,qualifyingCallMinimumMinutes,qualifyingPayerMinimumSpendPaise,qualifyingRuleSentence,graceActive,graceMonthLabel,unacknowledgedEvent]);
+int get hashCode => Object.hashAll([runtimeType,level,levelName,badgeUrl,pricePaise,audioPricePaise,pricePerMinuteCredits,isTopLevel,monthLabel,nextRecalculationAt,nextLevel,nextLevelName,nextPricePaise,nextBadgeUrl,const DeepCollectionEquality().hash(bars),remainingSentence,barsMetCount,barsTotalCount,holdingBarsMet,holdingRemainingSentence,qualifyingCallMinimumMinutes,qualifyingPayerMinimumSpendPaise,qualifyingRuleSentence,graceActive,graceMonthLabel,unacknowledgedEvent,const DeepCollectionEquality().hash(ladder)]);
 
 @override
 String toString() {
-  return 'HostLevelStatus(level: $level, levelName: $levelName, pricePaise: $pricePaise, audioPricePaise: $audioPricePaise, pricePerMinuteCredits: $pricePerMinuteCredits, isTopLevel: $isTopLevel, monthLabel: $monthLabel, nextRecalculationAt: $nextRecalculationAt, nextLevel: $nextLevel, nextLevelName: $nextLevelName, nextPricePaise: $nextPricePaise, bars: $bars, remainingSentence: $remainingSentence, holdingBarsMet: $holdingBarsMet, holdingRemainingSentence: $holdingRemainingSentence, qualifyingCallMinimumMinutes: $qualifyingCallMinimumMinutes, qualifyingPayerMinimumSpendPaise: $qualifyingPayerMinimumSpendPaise, qualifyingRuleSentence: $qualifyingRuleSentence, graceActive: $graceActive, graceMonthLabel: $graceMonthLabel, unacknowledgedEvent: $unacknowledgedEvent)';
+  return 'HostLevelStatus(level: $level, levelName: $levelName, badgeUrl: $badgeUrl, pricePaise: $pricePaise, audioPricePaise: $audioPricePaise, pricePerMinuteCredits: $pricePerMinuteCredits, isTopLevel: $isTopLevel, monthLabel: $monthLabel, nextRecalculationAt: $nextRecalculationAt, nextLevel: $nextLevel, nextLevelName: $nextLevelName, nextPricePaise: $nextPricePaise, nextBadgeUrl: $nextBadgeUrl, bars: $bars, remainingSentence: $remainingSentence, barsMetCount: $barsMetCount, barsTotalCount: $barsTotalCount, holdingBarsMet: $holdingBarsMet, holdingRemainingSentence: $holdingRemainingSentence, qualifyingCallMinimumMinutes: $qualifyingCallMinimumMinutes, qualifyingPayerMinimumSpendPaise: $qualifyingPayerMinimumSpendPaise, qualifyingRuleSentence: $qualifyingRuleSentence, graceActive: $graceActive, graceMonthLabel: $graceMonthLabel, unacknowledgedEvent: $unacknowledgedEvent, ladder: $ladder)';
 }
 
 
@@ -64,7 +71,7 @@ abstract mixin class $HostLevelStatusCopyWith<$Res>  {
   factory $HostLevelStatusCopyWith(HostLevelStatus value, $Res Function(HostLevelStatus) _then) = _$HostLevelStatusCopyWithImpl;
 @useResult
 $Res call({
- int level,@JsonKey(name: 'level_name') String levelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'audio_price_paise') int audioPricePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'is_top_level') bool isTopLevel,@JsonKey(name: 'month_label') String monthLabel,@JsonKey(name: 'next_recalculation_at') DateTime? nextRecalculationAt,@JsonKey(name: 'next_level') int? nextLevel,@JsonKey(name: 'next_level_name') String? nextLevelName,@JsonKey(name: 'next_price_paise') int? nextPricePaise, List<HostLevelBar> bars,@JsonKey(name: 'remaining_sentence') String remainingSentence,@JsonKey(name: 'holding_bars_met') bool holdingBarsMet,@JsonKey(name: 'holding_remaining_sentence') String holdingRemainingSentence,@JsonKey(name: 'qualifying_call_minimum_minutes') int qualifyingCallMinimumMinutes,@JsonKey(name: 'qualifying_payer_minimum_spend_paise') int qualifyingPayerMinimumSpendPaise,@JsonKey(name: 'qualifying_rule_sentence') String qualifyingRuleSentence,@JsonKey(name: 'grace_active') bool graceActive,@JsonKey(name: 'grace_month_label') String? graceMonthLabel,@JsonKey(name: 'unacknowledged_event') HostLevelEvent? unacknowledgedEvent
+ int level,@JsonKey(name: 'level_name') String levelName,@JsonKey(name: 'badge_url') String badgeUrl,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'audio_price_paise') int audioPricePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'is_top_level') bool isTopLevel,@JsonKey(name: 'month_label') String monthLabel,@JsonKey(name: 'next_recalculation_at') DateTime? nextRecalculationAt,@JsonKey(name: 'next_level') int? nextLevel,@JsonKey(name: 'next_level_name') String? nextLevelName,@JsonKey(name: 'next_price_paise') int? nextPricePaise,@JsonKey(name: 'next_badge_url') String? nextBadgeUrl, List<HostLevelBar> bars,@JsonKey(name: 'remaining_sentence') String remainingSentence,@JsonKey(name: 'bars_met_count') int barsMetCount,@JsonKey(name: 'bars_total_count') int barsTotalCount,@JsonKey(name: 'holding_bars_met') bool holdingBarsMet,@JsonKey(name: 'holding_remaining_sentence') String holdingRemainingSentence,@JsonKey(name: 'qualifying_call_minimum_minutes') int qualifyingCallMinimumMinutes,@JsonKey(name: 'qualifying_payer_minimum_spend_paise') int qualifyingPayerMinimumSpendPaise,@JsonKey(name: 'qualifying_rule_sentence') String qualifyingRuleSentence,@JsonKey(name: 'grace_active') bool graceActive,@JsonKey(name: 'grace_month_label') String? graceMonthLabel,@JsonKey(name: 'unacknowledged_event') HostLevelEvent? unacknowledgedEvent, List<HostLevelRung> ladder
 });
 
 
@@ -81,10 +88,11 @@ class _$HostLevelStatusCopyWithImpl<$Res>
 
 /// Create a copy of HostLevelStatus
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? level = null,Object? levelName = null,Object? pricePaise = null,Object? audioPricePaise = null,Object? pricePerMinuteCredits = null,Object? isTopLevel = null,Object? monthLabel = null,Object? nextRecalculationAt = freezed,Object? nextLevel = freezed,Object? nextLevelName = freezed,Object? nextPricePaise = freezed,Object? bars = null,Object? remainingSentence = null,Object? holdingBarsMet = null,Object? holdingRemainingSentence = null,Object? qualifyingCallMinimumMinutes = null,Object? qualifyingPayerMinimumSpendPaise = null,Object? qualifyingRuleSentence = null,Object? graceActive = null,Object? graceMonthLabel = freezed,Object? unacknowledgedEvent = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? level = null,Object? levelName = null,Object? badgeUrl = null,Object? pricePaise = null,Object? audioPricePaise = null,Object? pricePerMinuteCredits = null,Object? isTopLevel = null,Object? monthLabel = null,Object? nextRecalculationAt = freezed,Object? nextLevel = freezed,Object? nextLevelName = freezed,Object? nextPricePaise = freezed,Object? nextBadgeUrl = freezed,Object? bars = null,Object? remainingSentence = null,Object? barsMetCount = null,Object? barsTotalCount = null,Object? holdingBarsMet = null,Object? holdingRemainingSentence = null,Object? qualifyingCallMinimumMinutes = null,Object? qualifyingPayerMinimumSpendPaise = null,Object? qualifyingRuleSentence = null,Object? graceActive = null,Object? graceMonthLabel = freezed,Object? unacknowledgedEvent = freezed,Object? ladder = null,}) {
   return _then(_self.copyWith(
 level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
 as int,levelName: null == levelName ? _self.levelName : levelName // ignore: cast_nullable_to_non_nullable
+as String,badgeUrl: null == badgeUrl ? _self.badgeUrl : badgeUrl // ignore: cast_nullable_to_non_nullable
 as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePaise: null == audioPricePaise ? _self.audioPricePaise : audioPricePaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinuteCredits: null == pricePerMinuteCredits ? _self.pricePerMinuteCredits : pricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
@@ -94,9 +102,12 @@ as String,nextRecalculationAt: freezed == nextRecalculationAt ? _self.nextRecalc
 as DateTime?,nextLevel: freezed == nextLevel ? _self.nextLevel : nextLevel // ignore: cast_nullable_to_non_nullable
 as int?,nextLevelName: freezed == nextLevelName ? _self.nextLevelName : nextLevelName // ignore: cast_nullable_to_non_nullable
 as String?,nextPricePaise: freezed == nextPricePaise ? _self.nextPricePaise : nextPricePaise // ignore: cast_nullable_to_non_nullable
-as int?,bars: null == bars ? _self.bars : bars // ignore: cast_nullable_to_non_nullable
+as int?,nextBadgeUrl: freezed == nextBadgeUrl ? _self.nextBadgeUrl : nextBadgeUrl // ignore: cast_nullable_to_non_nullable
+as String?,bars: null == bars ? _self.bars : bars // ignore: cast_nullable_to_non_nullable
 as List<HostLevelBar>,remainingSentence: null == remainingSentence ? _self.remainingSentence : remainingSentence // ignore: cast_nullable_to_non_nullable
-as String,holdingBarsMet: null == holdingBarsMet ? _self.holdingBarsMet : holdingBarsMet // ignore: cast_nullable_to_non_nullable
+as String,barsMetCount: null == barsMetCount ? _self.barsMetCount : barsMetCount // ignore: cast_nullable_to_non_nullable
+as int,barsTotalCount: null == barsTotalCount ? _self.barsTotalCount : barsTotalCount // ignore: cast_nullable_to_non_nullable
+as int,holdingBarsMet: null == holdingBarsMet ? _self.holdingBarsMet : holdingBarsMet // ignore: cast_nullable_to_non_nullable
 as bool,holdingRemainingSentence: null == holdingRemainingSentence ? _self.holdingRemainingSentence : holdingRemainingSentence // ignore: cast_nullable_to_non_nullable
 as String,qualifyingCallMinimumMinutes: null == qualifyingCallMinimumMinutes ? _self.qualifyingCallMinimumMinutes : qualifyingCallMinimumMinutes // ignore: cast_nullable_to_non_nullable
 as int,qualifyingPayerMinimumSpendPaise: null == qualifyingPayerMinimumSpendPaise ? _self.qualifyingPayerMinimumSpendPaise : qualifyingPayerMinimumSpendPaise // ignore: cast_nullable_to_non_nullable
@@ -104,7 +115,8 @@ as int,qualifyingRuleSentence: null == qualifyingRuleSentence ? _self.qualifying
 as String,graceActive: null == graceActive ? _self.graceActive : graceActive // ignore: cast_nullable_to_non_nullable
 as bool,graceMonthLabel: freezed == graceMonthLabel ? _self.graceMonthLabel : graceMonthLabel // ignore: cast_nullable_to_non_nullable
 as String?,unacknowledgedEvent: freezed == unacknowledgedEvent ? _self.unacknowledgedEvent : unacknowledgedEvent // ignore: cast_nullable_to_non_nullable
-as HostLevelEvent?,
+as HostLevelEvent?,ladder: null == ladder ? _self.ladder : ladder // ignore: cast_nullable_to_non_nullable
+as List<HostLevelRung>,
   ));
 }
 /// Create a copy of HostLevelStatus
@@ -198,10 +210,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'badge_url')  String badgeUrl, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise, @JsonKey(name: 'next_badge_url')  String? nextBadgeUrl,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'bars_met_count')  int barsMetCount, @JsonKey(name: 'bars_total_count')  int barsTotalCount, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent,  List<HostLevelRung> ladder)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HostLevelStatus() when $default != null:
-return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.bars,_that.remainingSentence,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent);case _:
+return $default(_that.level,_that.levelName,_that.badgeUrl,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.nextBadgeUrl,_that.bars,_that.remainingSentence,_that.barsMetCount,_that.barsTotalCount,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent,_that.ladder);case _:
   return orElse();
 
 }
@@ -219,10 +231,10 @@ return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePai
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'badge_url')  String badgeUrl, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise, @JsonKey(name: 'next_badge_url')  String? nextBadgeUrl,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'bars_met_count')  int barsMetCount, @JsonKey(name: 'bars_total_count')  int barsTotalCount, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent,  List<HostLevelRung> ladder)  $default,) {final _that = this;
 switch (_that) {
 case _HostLevelStatus():
-return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.bars,_that.remainingSentence,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent);}
+return $default(_that.level,_that.levelName,_that.badgeUrl,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.nextBadgeUrl,_that.bars,_that.remainingSentence,_that.barsMetCount,_that.barsTotalCount,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent,_that.ladder);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -236,10 +248,10 @@ return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePai
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int level, @JsonKey(name: 'level_name')  String levelName, @JsonKey(name: 'badge_url')  String badgeUrl, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'audio_price_paise')  int audioPricePaise, @JsonKey(name: 'price_per_minute_credits')  int pricePerMinuteCredits, @JsonKey(name: 'is_top_level')  bool isTopLevel, @JsonKey(name: 'month_label')  String monthLabel, @JsonKey(name: 'next_recalculation_at')  DateTime? nextRecalculationAt, @JsonKey(name: 'next_level')  int? nextLevel, @JsonKey(name: 'next_level_name')  String? nextLevelName, @JsonKey(name: 'next_price_paise')  int? nextPricePaise, @JsonKey(name: 'next_badge_url')  String? nextBadgeUrl,  List<HostLevelBar> bars, @JsonKey(name: 'remaining_sentence')  String remainingSentence, @JsonKey(name: 'bars_met_count')  int barsMetCount, @JsonKey(name: 'bars_total_count')  int barsTotalCount, @JsonKey(name: 'holding_bars_met')  bool holdingBarsMet, @JsonKey(name: 'holding_remaining_sentence')  String holdingRemainingSentence, @JsonKey(name: 'qualifying_call_minimum_minutes')  int qualifyingCallMinimumMinutes, @JsonKey(name: 'qualifying_payer_minimum_spend_paise')  int qualifyingPayerMinimumSpendPaise, @JsonKey(name: 'qualifying_rule_sentence')  String qualifyingRuleSentence, @JsonKey(name: 'grace_active')  bool graceActive, @JsonKey(name: 'grace_month_label')  String? graceMonthLabel, @JsonKey(name: 'unacknowledged_event')  HostLevelEvent? unacknowledgedEvent,  List<HostLevelRung> ladder)?  $default,) {final _that = this;
 switch (_that) {
 case _HostLevelStatus() when $default != null:
-return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.bars,_that.remainingSentence,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent);case _:
+return $default(_that.level,_that.levelName,_that.badgeUrl,_that.pricePaise,_that.audioPricePaise,_that.pricePerMinuteCredits,_that.isTopLevel,_that.monthLabel,_that.nextRecalculationAt,_that.nextLevel,_that.nextLevelName,_that.nextPricePaise,_that.nextBadgeUrl,_that.bars,_that.remainingSentence,_that.barsMetCount,_that.barsTotalCount,_that.holdingBarsMet,_that.holdingRemainingSentence,_that.qualifyingCallMinimumMinutes,_that.qualifyingPayerMinimumSpendPaise,_that.qualifyingRuleSentence,_that.graceActive,_that.graceMonthLabel,_that.unacknowledgedEvent,_that.ladder);case _:
   return null;
 
 }
@@ -251,11 +263,15 @@ return $default(_that.level,_that.levelName,_that.pricePaise,_that.audioPricePai
 @JsonSerializable()
 
 class _HostLevelStatus extends HostLevelStatus {
-  const _HostLevelStatus({this.level = 1, @JsonKey(name: 'level_name') this.levelName = 'New Host', @JsonKey(name: 'price_paise') this.pricePaise = 0, @JsonKey(name: 'audio_price_paise') this.audioPricePaise = 0, @JsonKey(name: 'price_per_minute_credits') this.pricePerMinuteCredits = 0, @JsonKey(name: 'is_top_level') this.isTopLevel = false, @JsonKey(name: 'month_label') this.monthLabel = '', @JsonKey(name: 'next_recalculation_at') this.nextRecalculationAt, @JsonKey(name: 'next_level') this.nextLevel, @JsonKey(name: 'next_level_name') this.nextLevelName, @JsonKey(name: 'next_price_paise') this.nextPricePaise, final  List<HostLevelBar> bars = const <HostLevelBar>[], @JsonKey(name: 'remaining_sentence') this.remainingSentence = '', @JsonKey(name: 'holding_bars_met') this.holdingBarsMet = true, @JsonKey(name: 'holding_remaining_sentence') this.holdingRemainingSentence = '', @JsonKey(name: 'qualifying_call_minimum_minutes') this.qualifyingCallMinimumMinutes = 3, @JsonKey(name: 'qualifying_payer_minimum_spend_paise') this.qualifyingPayerMinimumSpendPaise = 5000, @JsonKey(name: 'qualifying_rule_sentence') this.qualifyingRuleSentence = '', @JsonKey(name: 'grace_active') this.graceActive = false, @JsonKey(name: 'grace_month_label') this.graceMonthLabel, @JsonKey(name: 'unacknowledged_event') this.unacknowledgedEvent}): _bars = bars,super._();
+  const _HostLevelStatus({this.level = 1, @JsonKey(name: 'level_name') this.levelName = 'New Host', @JsonKey(name: 'badge_url') this.badgeUrl = '', @JsonKey(name: 'price_paise') this.pricePaise = 0, @JsonKey(name: 'audio_price_paise') this.audioPricePaise = 0, @JsonKey(name: 'price_per_minute_credits') this.pricePerMinuteCredits = 0, @JsonKey(name: 'is_top_level') this.isTopLevel = false, @JsonKey(name: 'month_label') this.monthLabel = '', @JsonKey(name: 'next_recalculation_at') this.nextRecalculationAt, @JsonKey(name: 'next_level') this.nextLevel, @JsonKey(name: 'next_level_name') this.nextLevelName, @JsonKey(name: 'next_price_paise') this.nextPricePaise, @JsonKey(name: 'next_badge_url') this.nextBadgeUrl, final  List<HostLevelBar> bars = const <HostLevelBar>[], @JsonKey(name: 'remaining_sentence') this.remainingSentence = '', @JsonKey(name: 'bars_met_count') this.barsMetCount = 0, @JsonKey(name: 'bars_total_count') this.barsTotalCount = 0, @JsonKey(name: 'holding_bars_met') this.holdingBarsMet = true, @JsonKey(name: 'holding_remaining_sentence') this.holdingRemainingSentence = '', @JsonKey(name: 'qualifying_call_minimum_minutes') this.qualifyingCallMinimumMinutes = 3, @JsonKey(name: 'qualifying_payer_minimum_spend_paise') this.qualifyingPayerMinimumSpendPaise = 5000, @JsonKey(name: 'qualifying_rule_sentence') this.qualifyingRuleSentence = '', @JsonKey(name: 'grace_active') this.graceActive = false, @JsonKey(name: 'grace_month_label') this.graceMonthLabel, @JsonKey(name: 'unacknowledged_event') this.unacknowledgedEvent, final  List<HostLevelRung> ladder = const <HostLevelRung>[]}): _bars = bars,_ladder = ladder,super._();
   factory _HostLevelStatus.fromJson(Map<String, dynamic> json) => _$HostLevelStatusFromJson(json);
 
 @override@JsonKey() final  int level;
 @override@JsonKey(name: 'level_name') final  String levelName;
+/// The badge art for the level she holds — an absolute, public URL the
+/// server chooses. The app never ships its own copy of these pictures and
+/// never builds the URL itself: new art is a backend edit, not a release.
+@override@JsonKey(name: 'badge_url') final  String badgeUrl;
 /// What she earns per video minute at this level, in paise.
 @override@JsonKey(name: 'price_paise') final  int pricePaise;
 @override@JsonKey(name: 'audio_price_paise') final  int audioPricePaise;
@@ -269,6 +285,7 @@ class _HostLevelStatus extends HostLevelStatus {
 @override@JsonKey(name: 'next_level') final  int? nextLevel;
 @override@JsonKey(name: 'next_level_name') final  String? nextLevelName;
 @override@JsonKey(name: 'next_price_paise') final  int? nextPricePaise;
+@override@JsonKey(name: 'next_badge_url') final  String? nextBadgeUrl;
 /// Toward the NEXT level, closest-to-done first, met bars last. Empty at
 /// the top of the ladder.
  final  List<HostLevelBar> _bars;
@@ -283,6 +300,10 @@ class _HostLevelStatus extends HostLevelStatus {
 /// "380 more paid minutes and 17 more regular callers to go". Empty when
 /// every bar is met or there is no next level.
 @override@JsonKey(name: 'remaining_sentence') final  String remainingSentence;
+/// "2 of 3 done" — counted by the server so the two clients cannot
+/// disagree, and never rounded up to flatter the screen.
+@override@JsonKey(name: 'bars_met_count') final  int barsMetCount;
+@override@JsonKey(name: 'bars_total_count') final  int barsTotalCount;
 /// Whether this month's work already keeps the level she holds.
 @override@JsonKey(name: 'holding_bars_met') final  bool holdingBarsMet;
 @override@JsonKey(name: 'holding_remaining_sentence') final  String holdingRemainingSentence;
@@ -299,6 +320,17 @@ class _HostLevelStatus extends HostLevelStatus {
 /// The newest promotion / warning / demotion she has not dismissed yet.
 /// Shown once, then acknowledged through `host-level/acknowledge`.
 @override@JsonKey(name: 'unacknowledged_event') final  HostLevelEvent? unacknowledgedEvent;
+/// Every rung, in order, each already told where it stands relative to
+/// her. The showcase draws this list and decides nothing.
+ final  List<HostLevelRung> _ladder;
+/// Every rung, in order, each already told where it stands relative to
+/// her. The showcase draws this list and decides nothing.
+@override@JsonKey() List<HostLevelRung> get ladder {
+  if (_ladder is EqualUnmodifiableListView) return _ladder;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_ladder);
+}
+
 
 /// Create a copy of HostLevelStatus
 /// with the given fields replaced by the non-null parameter values.
@@ -313,16 +345,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostLevelStatus&&(identical(other.level, level) || other.level == level)&&(identical(other.levelName, levelName) || other.levelName == levelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.audioPricePaise, audioPricePaise) || other.audioPricePaise == audioPricePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.isTopLevel, isTopLevel) || other.isTopLevel == isTopLevel)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel)&&(identical(other.nextRecalculationAt, nextRecalculationAt) || other.nextRecalculationAt == nextRecalculationAt)&&(identical(other.nextLevel, nextLevel) || other.nextLevel == nextLevel)&&(identical(other.nextLevelName, nextLevelName) || other.nextLevelName == nextLevelName)&&(identical(other.nextPricePaise, nextPricePaise) || other.nextPricePaise == nextPricePaise)&&const DeepCollectionEquality().equals(other._bars, _bars)&&(identical(other.remainingSentence, remainingSentence) || other.remainingSentence == remainingSentence)&&(identical(other.holdingBarsMet, holdingBarsMet) || other.holdingBarsMet == holdingBarsMet)&&(identical(other.holdingRemainingSentence, holdingRemainingSentence) || other.holdingRemainingSentence == holdingRemainingSentence)&&(identical(other.qualifyingCallMinimumMinutes, qualifyingCallMinimumMinutes) || other.qualifyingCallMinimumMinutes == qualifyingCallMinimumMinutes)&&(identical(other.qualifyingPayerMinimumSpendPaise, qualifyingPayerMinimumSpendPaise) || other.qualifyingPayerMinimumSpendPaise == qualifyingPayerMinimumSpendPaise)&&(identical(other.qualifyingRuleSentence, qualifyingRuleSentence) || other.qualifyingRuleSentence == qualifyingRuleSentence)&&(identical(other.graceActive, graceActive) || other.graceActive == graceActive)&&(identical(other.graceMonthLabel, graceMonthLabel) || other.graceMonthLabel == graceMonthLabel)&&(identical(other.unacknowledgedEvent, unacknowledgedEvent) || other.unacknowledgedEvent == unacknowledgedEvent));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostLevelStatus&&(identical(other.level, level) || other.level == level)&&(identical(other.levelName, levelName) || other.levelName == levelName)&&(identical(other.badgeUrl, badgeUrl) || other.badgeUrl == badgeUrl)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.audioPricePaise, audioPricePaise) || other.audioPricePaise == audioPricePaise)&&(identical(other.pricePerMinuteCredits, pricePerMinuteCredits) || other.pricePerMinuteCredits == pricePerMinuteCredits)&&(identical(other.isTopLevel, isTopLevel) || other.isTopLevel == isTopLevel)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel)&&(identical(other.nextRecalculationAt, nextRecalculationAt) || other.nextRecalculationAt == nextRecalculationAt)&&(identical(other.nextLevel, nextLevel) || other.nextLevel == nextLevel)&&(identical(other.nextLevelName, nextLevelName) || other.nextLevelName == nextLevelName)&&(identical(other.nextPricePaise, nextPricePaise) || other.nextPricePaise == nextPricePaise)&&(identical(other.nextBadgeUrl, nextBadgeUrl) || other.nextBadgeUrl == nextBadgeUrl)&&const DeepCollectionEquality().equals(other._bars, _bars)&&(identical(other.remainingSentence, remainingSentence) || other.remainingSentence == remainingSentence)&&(identical(other.barsMetCount, barsMetCount) || other.barsMetCount == barsMetCount)&&(identical(other.barsTotalCount, barsTotalCount) || other.barsTotalCount == barsTotalCount)&&(identical(other.holdingBarsMet, holdingBarsMet) || other.holdingBarsMet == holdingBarsMet)&&(identical(other.holdingRemainingSentence, holdingRemainingSentence) || other.holdingRemainingSentence == holdingRemainingSentence)&&(identical(other.qualifyingCallMinimumMinutes, qualifyingCallMinimumMinutes) || other.qualifyingCallMinimumMinutes == qualifyingCallMinimumMinutes)&&(identical(other.qualifyingPayerMinimumSpendPaise, qualifyingPayerMinimumSpendPaise) || other.qualifyingPayerMinimumSpendPaise == qualifyingPayerMinimumSpendPaise)&&(identical(other.qualifyingRuleSentence, qualifyingRuleSentence) || other.qualifyingRuleSentence == qualifyingRuleSentence)&&(identical(other.graceActive, graceActive) || other.graceActive == graceActive)&&(identical(other.graceMonthLabel, graceMonthLabel) || other.graceMonthLabel == graceMonthLabel)&&(identical(other.unacknowledgedEvent, unacknowledgedEvent) || other.unacknowledgedEvent == unacknowledgedEvent)&&const DeepCollectionEquality().equals(other._ladder, _ladder));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,level,levelName,pricePaise,audioPricePaise,pricePerMinuteCredits,isTopLevel,monthLabel,nextRecalculationAt,nextLevel,nextLevelName,nextPricePaise,const DeepCollectionEquality().hash(_bars),remainingSentence,holdingBarsMet,holdingRemainingSentence,qualifyingCallMinimumMinutes,qualifyingPayerMinimumSpendPaise,qualifyingRuleSentence,graceActive,graceMonthLabel,unacknowledgedEvent]);
+int get hashCode => Object.hashAll([runtimeType,level,levelName,badgeUrl,pricePaise,audioPricePaise,pricePerMinuteCredits,isTopLevel,monthLabel,nextRecalculationAt,nextLevel,nextLevelName,nextPricePaise,nextBadgeUrl,const DeepCollectionEquality().hash(_bars),remainingSentence,barsMetCount,barsTotalCount,holdingBarsMet,holdingRemainingSentence,qualifyingCallMinimumMinutes,qualifyingPayerMinimumSpendPaise,qualifyingRuleSentence,graceActive,graceMonthLabel,unacknowledgedEvent,const DeepCollectionEquality().hash(_ladder)]);
 
 @override
 String toString() {
-  return 'HostLevelStatus(level: $level, levelName: $levelName, pricePaise: $pricePaise, audioPricePaise: $audioPricePaise, pricePerMinuteCredits: $pricePerMinuteCredits, isTopLevel: $isTopLevel, monthLabel: $monthLabel, nextRecalculationAt: $nextRecalculationAt, nextLevel: $nextLevel, nextLevelName: $nextLevelName, nextPricePaise: $nextPricePaise, bars: $bars, remainingSentence: $remainingSentence, holdingBarsMet: $holdingBarsMet, holdingRemainingSentence: $holdingRemainingSentence, qualifyingCallMinimumMinutes: $qualifyingCallMinimumMinutes, qualifyingPayerMinimumSpendPaise: $qualifyingPayerMinimumSpendPaise, qualifyingRuleSentence: $qualifyingRuleSentence, graceActive: $graceActive, graceMonthLabel: $graceMonthLabel, unacknowledgedEvent: $unacknowledgedEvent)';
+  return 'HostLevelStatus(level: $level, levelName: $levelName, badgeUrl: $badgeUrl, pricePaise: $pricePaise, audioPricePaise: $audioPricePaise, pricePerMinuteCredits: $pricePerMinuteCredits, isTopLevel: $isTopLevel, monthLabel: $monthLabel, nextRecalculationAt: $nextRecalculationAt, nextLevel: $nextLevel, nextLevelName: $nextLevelName, nextPricePaise: $nextPricePaise, nextBadgeUrl: $nextBadgeUrl, bars: $bars, remainingSentence: $remainingSentence, barsMetCount: $barsMetCount, barsTotalCount: $barsTotalCount, holdingBarsMet: $holdingBarsMet, holdingRemainingSentence: $holdingRemainingSentence, qualifyingCallMinimumMinutes: $qualifyingCallMinimumMinutes, qualifyingPayerMinimumSpendPaise: $qualifyingPayerMinimumSpendPaise, qualifyingRuleSentence: $qualifyingRuleSentence, graceActive: $graceActive, graceMonthLabel: $graceMonthLabel, unacknowledgedEvent: $unacknowledgedEvent, ladder: $ladder)';
 }
 
 
@@ -333,7 +365,7 @@ abstract mixin class _$HostLevelStatusCopyWith<$Res> implements $HostLevelStatus
   factory _$HostLevelStatusCopyWith(_HostLevelStatus value, $Res Function(_HostLevelStatus) _then) = __$HostLevelStatusCopyWithImpl;
 @override @useResult
 $Res call({
- int level,@JsonKey(name: 'level_name') String levelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'audio_price_paise') int audioPricePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'is_top_level') bool isTopLevel,@JsonKey(name: 'month_label') String monthLabel,@JsonKey(name: 'next_recalculation_at') DateTime? nextRecalculationAt,@JsonKey(name: 'next_level') int? nextLevel,@JsonKey(name: 'next_level_name') String? nextLevelName,@JsonKey(name: 'next_price_paise') int? nextPricePaise, List<HostLevelBar> bars,@JsonKey(name: 'remaining_sentence') String remainingSentence,@JsonKey(name: 'holding_bars_met') bool holdingBarsMet,@JsonKey(name: 'holding_remaining_sentence') String holdingRemainingSentence,@JsonKey(name: 'qualifying_call_minimum_minutes') int qualifyingCallMinimumMinutes,@JsonKey(name: 'qualifying_payer_minimum_spend_paise') int qualifyingPayerMinimumSpendPaise,@JsonKey(name: 'qualifying_rule_sentence') String qualifyingRuleSentence,@JsonKey(name: 'grace_active') bool graceActive,@JsonKey(name: 'grace_month_label') String? graceMonthLabel,@JsonKey(name: 'unacknowledged_event') HostLevelEvent? unacknowledgedEvent
+ int level,@JsonKey(name: 'level_name') String levelName,@JsonKey(name: 'badge_url') String badgeUrl,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'audio_price_paise') int audioPricePaise,@JsonKey(name: 'price_per_minute_credits') int pricePerMinuteCredits,@JsonKey(name: 'is_top_level') bool isTopLevel,@JsonKey(name: 'month_label') String monthLabel,@JsonKey(name: 'next_recalculation_at') DateTime? nextRecalculationAt,@JsonKey(name: 'next_level') int? nextLevel,@JsonKey(name: 'next_level_name') String? nextLevelName,@JsonKey(name: 'next_price_paise') int? nextPricePaise,@JsonKey(name: 'next_badge_url') String? nextBadgeUrl, List<HostLevelBar> bars,@JsonKey(name: 'remaining_sentence') String remainingSentence,@JsonKey(name: 'bars_met_count') int barsMetCount,@JsonKey(name: 'bars_total_count') int barsTotalCount,@JsonKey(name: 'holding_bars_met') bool holdingBarsMet,@JsonKey(name: 'holding_remaining_sentence') String holdingRemainingSentence,@JsonKey(name: 'qualifying_call_minimum_minutes') int qualifyingCallMinimumMinutes,@JsonKey(name: 'qualifying_payer_minimum_spend_paise') int qualifyingPayerMinimumSpendPaise,@JsonKey(name: 'qualifying_rule_sentence') String qualifyingRuleSentence,@JsonKey(name: 'grace_active') bool graceActive,@JsonKey(name: 'grace_month_label') String? graceMonthLabel,@JsonKey(name: 'unacknowledged_event') HostLevelEvent? unacknowledgedEvent, List<HostLevelRung> ladder
 });
 
 
@@ -350,10 +382,11 @@ class __$HostLevelStatusCopyWithImpl<$Res>
 
 /// Create a copy of HostLevelStatus
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? level = null,Object? levelName = null,Object? pricePaise = null,Object? audioPricePaise = null,Object? pricePerMinuteCredits = null,Object? isTopLevel = null,Object? monthLabel = null,Object? nextRecalculationAt = freezed,Object? nextLevel = freezed,Object? nextLevelName = freezed,Object? nextPricePaise = freezed,Object? bars = null,Object? remainingSentence = null,Object? holdingBarsMet = null,Object? holdingRemainingSentence = null,Object? qualifyingCallMinimumMinutes = null,Object? qualifyingPayerMinimumSpendPaise = null,Object? qualifyingRuleSentence = null,Object? graceActive = null,Object? graceMonthLabel = freezed,Object? unacknowledgedEvent = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? level = null,Object? levelName = null,Object? badgeUrl = null,Object? pricePaise = null,Object? audioPricePaise = null,Object? pricePerMinuteCredits = null,Object? isTopLevel = null,Object? monthLabel = null,Object? nextRecalculationAt = freezed,Object? nextLevel = freezed,Object? nextLevelName = freezed,Object? nextPricePaise = freezed,Object? nextBadgeUrl = freezed,Object? bars = null,Object? remainingSentence = null,Object? barsMetCount = null,Object? barsTotalCount = null,Object? holdingBarsMet = null,Object? holdingRemainingSentence = null,Object? qualifyingCallMinimumMinutes = null,Object? qualifyingPayerMinimumSpendPaise = null,Object? qualifyingRuleSentence = null,Object? graceActive = null,Object? graceMonthLabel = freezed,Object? unacknowledgedEvent = freezed,Object? ladder = null,}) {
   return _then(_HostLevelStatus(
 level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
 as int,levelName: null == levelName ? _self.levelName : levelName // ignore: cast_nullable_to_non_nullable
+as String,badgeUrl: null == badgeUrl ? _self.badgeUrl : badgeUrl // ignore: cast_nullable_to_non_nullable
 as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
 as int,audioPricePaise: null == audioPricePaise ? _self.audioPricePaise : audioPricePaise // ignore: cast_nullable_to_non_nullable
 as int,pricePerMinuteCredits: null == pricePerMinuteCredits ? _self.pricePerMinuteCredits : pricePerMinuteCredits // ignore: cast_nullable_to_non_nullable
@@ -363,9 +396,12 @@ as String,nextRecalculationAt: freezed == nextRecalculationAt ? _self.nextRecalc
 as DateTime?,nextLevel: freezed == nextLevel ? _self.nextLevel : nextLevel // ignore: cast_nullable_to_non_nullable
 as int?,nextLevelName: freezed == nextLevelName ? _self.nextLevelName : nextLevelName // ignore: cast_nullable_to_non_nullable
 as String?,nextPricePaise: freezed == nextPricePaise ? _self.nextPricePaise : nextPricePaise // ignore: cast_nullable_to_non_nullable
-as int?,bars: null == bars ? _self._bars : bars // ignore: cast_nullable_to_non_nullable
+as int?,nextBadgeUrl: freezed == nextBadgeUrl ? _self.nextBadgeUrl : nextBadgeUrl // ignore: cast_nullable_to_non_nullable
+as String?,bars: null == bars ? _self._bars : bars // ignore: cast_nullable_to_non_nullable
 as List<HostLevelBar>,remainingSentence: null == remainingSentence ? _self.remainingSentence : remainingSentence // ignore: cast_nullable_to_non_nullable
-as String,holdingBarsMet: null == holdingBarsMet ? _self.holdingBarsMet : holdingBarsMet // ignore: cast_nullable_to_non_nullable
+as String,barsMetCount: null == barsMetCount ? _self.barsMetCount : barsMetCount // ignore: cast_nullable_to_non_nullable
+as int,barsTotalCount: null == barsTotalCount ? _self.barsTotalCount : barsTotalCount // ignore: cast_nullable_to_non_nullable
+as int,holdingBarsMet: null == holdingBarsMet ? _self.holdingBarsMet : holdingBarsMet // ignore: cast_nullable_to_non_nullable
 as bool,holdingRemainingSentence: null == holdingRemainingSentence ? _self.holdingRemainingSentence : holdingRemainingSentence // ignore: cast_nullable_to_non_nullable
 as String,qualifyingCallMinimumMinutes: null == qualifyingCallMinimumMinutes ? _self.qualifyingCallMinimumMinutes : qualifyingCallMinimumMinutes // ignore: cast_nullable_to_non_nullable
 as int,qualifyingPayerMinimumSpendPaise: null == qualifyingPayerMinimumSpendPaise ? _self.qualifyingPayerMinimumSpendPaise : qualifyingPayerMinimumSpendPaise // ignore: cast_nullable_to_non_nullable
@@ -373,7 +409,8 @@ as int,qualifyingRuleSentence: null == qualifyingRuleSentence ? _self.qualifying
 as String,graceActive: null == graceActive ? _self.graceActive : graceActive // ignore: cast_nullable_to_non_nullable
 as bool,graceMonthLabel: freezed == graceMonthLabel ? _self.graceMonthLabel : graceMonthLabel // ignore: cast_nullable_to_non_nullable
 as String?,unacknowledgedEvent: freezed == unacknowledgedEvent ? _self.unacknowledgedEvent : unacknowledgedEvent // ignore: cast_nullable_to_non_nullable
-as HostLevelEvent?,
+as HostLevelEvent?,ladder: null == ladder ? _self._ladder : ladder // ignore: cast_nullable_to_non_nullable
+as List<HostLevelRung>,
   ));
 }
 
@@ -675,11 +712,280 @@ as double,
 
 
 /// @nodoc
+mixin _$HostLevelRung {
+
+ int get level; String get name;@JsonKey(name: 'price_paise') int get pricePaise;@JsonKey(name: 'badge_url') String get badgeUrl; String get state;
+/// Create a copy of HostLevelRung
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HostLevelRungCopyWith<HostLevelRung> get copyWith => _$HostLevelRungCopyWithImpl<HostLevelRung>(this as HostLevelRung, _$identity);
+
+  /// Serializes this HostLevelRung to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostLevelRung&&(identical(other.level, level) || other.level == level)&&(identical(other.name, name) || other.name == name)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.badgeUrl, badgeUrl) || other.badgeUrl == badgeUrl)&&(identical(other.state, state) || other.state == state));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,level,name,pricePaise,badgeUrl,state);
+
+@override
+String toString() {
+  return 'HostLevelRung(level: $level, name: $name, pricePaise: $pricePaise, badgeUrl: $badgeUrl, state: $state)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $HostLevelRungCopyWith<$Res>  {
+  factory $HostLevelRungCopyWith(HostLevelRung value, $Res Function(HostLevelRung) _then) = _$HostLevelRungCopyWithImpl;
+@useResult
+$Res call({
+ int level, String name,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'badge_url') String badgeUrl, String state
+});
+
+
+
+
+}
+/// @nodoc
+class _$HostLevelRungCopyWithImpl<$Res>
+    implements $HostLevelRungCopyWith<$Res> {
+  _$HostLevelRungCopyWithImpl(this._self, this._then);
+
+  final HostLevelRung _self;
+  final $Res Function(HostLevelRung) _then;
+
+/// Create a copy of HostLevelRung
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? level = null,Object? name = null,Object? pricePaise = null,Object? badgeUrl = null,Object? state = null,}) {
+  return _then(_self.copyWith(
+level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
+as int,badgeUrl: null == badgeUrl ? _self.badgeUrl : badgeUrl // ignore: cast_nullable_to_non_nullable
+as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [HostLevelRung].
+extension HostLevelRungPatterns on HostLevelRung {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _HostLevelRung value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _HostLevelRung() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _HostLevelRung value)  $default,){
+final _that = this;
+switch (_that) {
+case _HostLevelRung():
+return $default(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _HostLevelRung value)?  $default,){
+final _that = this;
+switch (_that) {
+case _HostLevelRung() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int level,  String name, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'badge_url')  String badgeUrl,  String state)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _HostLevelRung() when $default != null:
+return $default(_that.level,_that.name,_that.pricePaise,_that.badgeUrl,_that.state);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int level,  String name, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'badge_url')  String badgeUrl,  String state)  $default,) {final _that = this;
+switch (_that) {
+case _HostLevelRung():
+return $default(_that.level,_that.name,_that.pricePaise,_that.badgeUrl,_that.state);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int level,  String name, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'badge_url')  String badgeUrl,  String state)?  $default,) {final _that = this;
+switch (_that) {
+case _HostLevelRung() when $default != null:
+return $default(_that.level,_that.name,_that.pricePaise,_that.badgeUrl,_that.state);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _HostLevelRung extends HostLevelRung {
+  const _HostLevelRung({this.level = 1, this.name = '', @JsonKey(name: 'price_paise') this.pricePaise = 0, @JsonKey(name: 'badge_url') this.badgeUrl = '', this.state = 'locked'}): super._();
+  factory _HostLevelRung.fromJson(Map<String, dynamic> json) => _$HostLevelRungFromJson(json);
+
+@override@JsonKey() final  int level;
+@override@JsonKey() final  String name;
+@override@JsonKey(name: 'price_paise') final  int pricePaise;
+@override@JsonKey(name: 'badge_url') final  String badgeUrl;
+@override@JsonKey() final  String state;
+
+/// Create a copy of HostLevelRung
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$HostLevelRungCopyWith<_HostLevelRung> get copyWith => __$HostLevelRungCopyWithImpl<_HostLevelRung>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$HostLevelRungToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostLevelRung&&(identical(other.level, level) || other.level == level)&&(identical(other.name, name) || other.name == name)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.badgeUrl, badgeUrl) || other.badgeUrl == badgeUrl)&&(identical(other.state, state) || other.state == state));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,level,name,pricePaise,badgeUrl,state);
+
+@override
+String toString() {
+  return 'HostLevelRung(level: $level, name: $name, pricePaise: $pricePaise, badgeUrl: $badgeUrl, state: $state)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$HostLevelRungCopyWith<$Res> implements $HostLevelRungCopyWith<$Res> {
+  factory _$HostLevelRungCopyWith(_HostLevelRung value, $Res Function(_HostLevelRung) _then) = __$HostLevelRungCopyWithImpl;
+@override @useResult
+$Res call({
+ int level, String name,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'badge_url') String badgeUrl, String state
+});
+
+
+
+
+}
+/// @nodoc
+class __$HostLevelRungCopyWithImpl<$Res>
+    implements _$HostLevelRungCopyWith<$Res> {
+  __$HostLevelRungCopyWithImpl(this._self, this._then);
+
+  final _HostLevelRung _self;
+  final $Res Function(_HostLevelRung) _then;
+
+/// Create a copy of HostLevelRung
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? level = null,Object? name = null,Object? pricePaise = null,Object? badgeUrl = null,Object? state = null,}) {
+  return _then(_HostLevelRung(
+level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
+as int,badgeUrl: null == badgeUrl ? _self.badgeUrl : badgeUrl // ignore: cast_nullable_to_non_nullable
+as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$HostLevelEvent {
 
  String get uid;/// `promoted`, `demotion_warning` or `demoted`.
 @JsonKey(name: 'event_type') String get eventType;@JsonKey(name: 'from_level') int get fromLevel;@JsonKey(name: 'from_level_name') String get fromLevelName;@JsonKey(name: 'to_level') int get toLevel;@JsonKey(name: 'to_level_name') String get toLevelName;/// The price of [toLevel], in paise.
-@JsonKey(name: 'price_paise') int get pricePaise;@JsonKey(name: 'month_label') String? get monthLabel;
+@JsonKey(name: 'price_paise') int get pricePaise;@JsonKey(name: 'to_badge_url') String get toBadgeUrl;@JsonKey(name: 'month_label') String? get monthLabel;
 /// Create a copy of HostLevelEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -692,16 +998,16 @@ $HostLevelEventCopyWith<HostLevelEvent> get copyWith => _$HostLevelEventCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostLevelEvent&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.fromLevel, fromLevel) || other.fromLevel == fromLevel)&&(identical(other.fromLevelName, fromLevelName) || other.fromLevelName == fromLevelName)&&(identical(other.toLevel, toLevel) || other.toLevel == toLevel)&&(identical(other.toLevelName, toLevelName) || other.toLevelName == toLevelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostLevelEvent&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.fromLevel, fromLevel) || other.fromLevel == fromLevel)&&(identical(other.fromLevelName, fromLevelName) || other.fromLevelName == fromLevelName)&&(identical(other.toLevel, toLevel) || other.toLevel == toLevel)&&(identical(other.toLevelName, toLevelName) || other.toLevelName == toLevelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.toBadgeUrl, toBadgeUrl) || other.toBadgeUrl == toBadgeUrl)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,eventType,fromLevel,fromLevelName,toLevel,toLevelName,pricePaise,monthLabel);
+int get hashCode => Object.hash(runtimeType,uid,eventType,fromLevel,fromLevelName,toLevel,toLevelName,pricePaise,toBadgeUrl,monthLabel);
 
 @override
 String toString() {
-  return 'HostLevelEvent(uid: $uid, eventType: $eventType, fromLevel: $fromLevel, fromLevelName: $fromLevelName, toLevel: $toLevel, toLevelName: $toLevelName, pricePaise: $pricePaise, monthLabel: $monthLabel)';
+  return 'HostLevelEvent(uid: $uid, eventType: $eventType, fromLevel: $fromLevel, fromLevelName: $fromLevelName, toLevel: $toLevel, toLevelName: $toLevelName, pricePaise: $pricePaise, toBadgeUrl: $toBadgeUrl, monthLabel: $monthLabel)';
 }
 
 
@@ -712,7 +1018,7 @@ abstract mixin class $HostLevelEventCopyWith<$Res>  {
   factory $HostLevelEventCopyWith(HostLevelEvent value, $Res Function(HostLevelEvent) _then) = _$HostLevelEventCopyWithImpl;
 @useResult
 $Res call({
- String uid,@JsonKey(name: 'event_type') String eventType,@JsonKey(name: 'from_level') int fromLevel,@JsonKey(name: 'from_level_name') String fromLevelName,@JsonKey(name: 'to_level') int toLevel,@JsonKey(name: 'to_level_name') String toLevelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'month_label') String? monthLabel
+ String uid,@JsonKey(name: 'event_type') String eventType,@JsonKey(name: 'from_level') int fromLevel,@JsonKey(name: 'from_level_name') String fromLevelName,@JsonKey(name: 'to_level') int toLevel,@JsonKey(name: 'to_level_name') String toLevelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'to_badge_url') String toBadgeUrl,@JsonKey(name: 'month_label') String? monthLabel
 });
 
 
@@ -729,7 +1035,7 @@ class _$HostLevelEventCopyWithImpl<$Res>
 
 /// Create a copy of HostLevelEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? eventType = null,Object? fromLevel = null,Object? fromLevelName = null,Object? toLevel = null,Object? toLevelName = null,Object? pricePaise = null,Object? monthLabel = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? eventType = null,Object? fromLevel = null,Object? fromLevelName = null,Object? toLevel = null,Object? toLevelName = null,Object? pricePaise = null,Object? toBadgeUrl = null,Object? monthLabel = freezed,}) {
   return _then(_self.copyWith(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,eventType: null == eventType ? _self.eventType : eventType // ignore: cast_nullable_to_non_nullable
@@ -738,7 +1044,8 @@ as int,fromLevelName: null == fromLevelName ? _self.fromLevelName : fromLevelNam
 as String,toLevel: null == toLevel ? _self.toLevel : toLevel // ignore: cast_nullable_to_non_nullable
 as int,toLevelName: null == toLevelName ? _self.toLevelName : toLevelName // ignore: cast_nullable_to_non_nullable
 as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
-as int,monthLabel: freezed == monthLabel ? _self.monthLabel : monthLabel // ignore: cast_nullable_to_non_nullable
+as int,toBadgeUrl: null == toBadgeUrl ? _self.toBadgeUrl : toBadgeUrl // ignore: cast_nullable_to_non_nullable
+as String,monthLabel: freezed == monthLabel ? _self.monthLabel : monthLabel // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -821,10 +1128,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'month_label')  String? monthLabel)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'to_badge_url')  String toBadgeUrl, @JsonKey(name: 'month_label')  String? monthLabel)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HostLevelEvent() when $default != null:
-return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.monthLabel);case _:
+return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.toBadgeUrl,_that.monthLabel);case _:
   return orElse();
 
 }
@@ -842,10 +1149,10 @@ return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'month_label')  String? monthLabel)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'to_badge_url')  String toBadgeUrl, @JsonKey(name: 'month_label')  String? monthLabel)  $default,) {final _that = this;
 switch (_that) {
 case _HostLevelEvent():
-return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.monthLabel);}
+return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.toBadgeUrl,_that.monthLabel);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -859,10 +1166,10 @@ return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'month_label')  String? monthLabel)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uid, @JsonKey(name: 'event_type')  String eventType, @JsonKey(name: 'from_level')  int fromLevel, @JsonKey(name: 'from_level_name')  String fromLevelName, @JsonKey(name: 'to_level')  int toLevel, @JsonKey(name: 'to_level_name')  String toLevelName, @JsonKey(name: 'price_paise')  int pricePaise, @JsonKey(name: 'to_badge_url')  String toBadgeUrl, @JsonKey(name: 'month_label')  String? monthLabel)?  $default,) {final _that = this;
 switch (_that) {
 case _HostLevelEvent() when $default != null:
-return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.monthLabel);case _:
+return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_that.toLevel,_that.toLevelName,_that.pricePaise,_that.toBadgeUrl,_that.monthLabel);case _:
   return null;
 
 }
@@ -874,7 +1181,7 @@ return $default(_that.uid,_that.eventType,_that.fromLevel,_that.fromLevelName,_t
 @JsonSerializable()
 
 class _HostLevelEvent extends HostLevelEvent {
-  const _HostLevelEvent({this.uid = '', @JsonKey(name: 'event_type') this.eventType = '', @JsonKey(name: 'from_level') this.fromLevel = 1, @JsonKey(name: 'from_level_name') this.fromLevelName = '', @JsonKey(name: 'to_level') this.toLevel = 1, @JsonKey(name: 'to_level_name') this.toLevelName = '', @JsonKey(name: 'price_paise') this.pricePaise = 0, @JsonKey(name: 'month_label') this.monthLabel}): super._();
+  const _HostLevelEvent({this.uid = '', @JsonKey(name: 'event_type') this.eventType = '', @JsonKey(name: 'from_level') this.fromLevel = 1, @JsonKey(name: 'from_level_name') this.fromLevelName = '', @JsonKey(name: 'to_level') this.toLevel = 1, @JsonKey(name: 'to_level_name') this.toLevelName = '', @JsonKey(name: 'price_paise') this.pricePaise = 0, @JsonKey(name: 'to_badge_url') this.toBadgeUrl = '', @JsonKey(name: 'month_label') this.monthLabel}): super._();
   factory _HostLevelEvent.fromJson(Map<String, dynamic> json) => _$HostLevelEventFromJson(json);
 
 @override@JsonKey() final  String uid;
@@ -886,6 +1193,7 @@ class _HostLevelEvent extends HostLevelEvent {
 @override@JsonKey(name: 'to_level_name') final  String toLevelName;
 /// The price of [toLevel], in paise.
 @override@JsonKey(name: 'price_paise') final  int pricePaise;
+@override@JsonKey(name: 'to_badge_url') final  String toBadgeUrl;
 @override@JsonKey(name: 'month_label') final  String? monthLabel;
 
 /// Create a copy of HostLevelEvent
@@ -901,16 +1209,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostLevelEvent&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.fromLevel, fromLevel) || other.fromLevel == fromLevel)&&(identical(other.fromLevelName, fromLevelName) || other.fromLevelName == fromLevelName)&&(identical(other.toLevel, toLevel) || other.toLevel == toLevel)&&(identical(other.toLevelName, toLevelName) || other.toLevelName == toLevelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostLevelEvent&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.fromLevel, fromLevel) || other.fromLevel == fromLevel)&&(identical(other.fromLevelName, fromLevelName) || other.fromLevelName == fromLevelName)&&(identical(other.toLevel, toLevel) || other.toLevel == toLevel)&&(identical(other.toLevelName, toLevelName) || other.toLevelName == toLevelName)&&(identical(other.pricePaise, pricePaise) || other.pricePaise == pricePaise)&&(identical(other.toBadgeUrl, toBadgeUrl) || other.toBadgeUrl == toBadgeUrl)&&(identical(other.monthLabel, monthLabel) || other.monthLabel == monthLabel));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,eventType,fromLevel,fromLevelName,toLevel,toLevelName,pricePaise,monthLabel);
+int get hashCode => Object.hash(runtimeType,uid,eventType,fromLevel,fromLevelName,toLevel,toLevelName,pricePaise,toBadgeUrl,monthLabel);
 
 @override
 String toString() {
-  return 'HostLevelEvent(uid: $uid, eventType: $eventType, fromLevel: $fromLevel, fromLevelName: $fromLevelName, toLevel: $toLevel, toLevelName: $toLevelName, pricePaise: $pricePaise, monthLabel: $monthLabel)';
+  return 'HostLevelEvent(uid: $uid, eventType: $eventType, fromLevel: $fromLevel, fromLevelName: $fromLevelName, toLevel: $toLevel, toLevelName: $toLevelName, pricePaise: $pricePaise, toBadgeUrl: $toBadgeUrl, monthLabel: $monthLabel)';
 }
 
 
@@ -921,7 +1229,7 @@ abstract mixin class _$HostLevelEventCopyWith<$Res> implements $HostLevelEventCo
   factory _$HostLevelEventCopyWith(_HostLevelEvent value, $Res Function(_HostLevelEvent) _then) = __$HostLevelEventCopyWithImpl;
 @override @useResult
 $Res call({
- String uid,@JsonKey(name: 'event_type') String eventType,@JsonKey(name: 'from_level') int fromLevel,@JsonKey(name: 'from_level_name') String fromLevelName,@JsonKey(name: 'to_level') int toLevel,@JsonKey(name: 'to_level_name') String toLevelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'month_label') String? monthLabel
+ String uid,@JsonKey(name: 'event_type') String eventType,@JsonKey(name: 'from_level') int fromLevel,@JsonKey(name: 'from_level_name') String fromLevelName,@JsonKey(name: 'to_level') int toLevel,@JsonKey(name: 'to_level_name') String toLevelName,@JsonKey(name: 'price_paise') int pricePaise,@JsonKey(name: 'to_badge_url') String toBadgeUrl,@JsonKey(name: 'month_label') String? monthLabel
 });
 
 
@@ -938,7 +1246,7 @@ class __$HostLevelEventCopyWithImpl<$Res>
 
 /// Create a copy of HostLevelEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? eventType = null,Object? fromLevel = null,Object? fromLevelName = null,Object? toLevel = null,Object? toLevelName = null,Object? pricePaise = null,Object? monthLabel = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? eventType = null,Object? fromLevel = null,Object? fromLevelName = null,Object? toLevel = null,Object? toLevelName = null,Object? pricePaise = null,Object? toBadgeUrl = null,Object? monthLabel = freezed,}) {
   return _then(_HostLevelEvent(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,eventType: null == eventType ? _self.eventType : eventType // ignore: cast_nullable_to_non_nullable
@@ -947,7 +1255,8 @@ as int,fromLevelName: null == fromLevelName ? _self.fromLevelName : fromLevelNam
 as String,toLevel: null == toLevel ? _self.toLevel : toLevel // ignore: cast_nullable_to_non_nullable
 as int,toLevelName: null == toLevelName ? _self.toLevelName : toLevelName // ignore: cast_nullable_to_non_nullable
 as String,pricePaise: null == pricePaise ? _self.pricePaise : pricePaise // ignore: cast_nullable_to_non_nullable
-as int,monthLabel: freezed == monthLabel ? _self.monthLabel : monthLabel // ignore: cast_nullable_to_non_nullable
+as int,toBadgeUrl: null == toBadgeUrl ? _self.toBadgeUrl : toBadgeUrl // ignore: cast_nullable_to_non_nullable
+as String,monthLabel: freezed == monthLabel ? _self.monthLabel : monthLabel // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

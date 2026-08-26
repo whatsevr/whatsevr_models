@@ -18,6 +18,11 @@ sealed class HostLevelStatus with _$HostLevelStatus {
     @Default(1) int level,
     @JsonKey(name: 'level_name') @Default('New Host') String levelName,
 
+    /// The badge art for the level she holds — an absolute, public URL the
+    /// server chooses. The app never ships its own copy of these pictures and
+    /// never builds the URL itself: new art is a backend edit, not a release.
+    @JsonKey(name: 'badge_url') @Default('') String badgeUrl,
+
     /// What she earns per video minute at this level, in paise.
     @JsonKey(name: 'price_paise') @Default(0) int pricePaise,
     @JsonKey(name: 'audio_price_paise') @Default(0) int audioPricePaise,
@@ -35,6 +40,7 @@ sealed class HostLevelStatus with _$HostLevelStatus {
     @JsonKey(name: 'next_level') int? nextLevel,
     @JsonKey(name: 'next_level_name') String? nextLevelName,
     @JsonKey(name: 'next_price_paise') int? nextPricePaise,
+    @JsonKey(name: 'next_badge_url') String? nextBadgeUrl,
 
     /// Toward the NEXT level, closest-to-done first, met bars last. Empty at
     /// the top of the ladder.
@@ -43,6 +49,11 @@ sealed class HostLevelStatus with _$HostLevelStatus {
     /// "380 more paid minutes and 17 more regular callers to go". Empty when
     /// every bar is met or there is no next level.
     @JsonKey(name: 'remaining_sentence') @Default('') String remainingSentence,
+
+    /// "2 of 3 done" — counted by the server so the two clients cannot
+    /// disagree, and never rounded up to flatter the screen.
+    @JsonKey(name: 'bars_met_count') @Default(0) int barsMetCount,
+    @JsonKey(name: 'bars_total_count') @Default(0) int barsTotalCount,
 
     /// Whether this month's work already keeps the level she holds.
     @JsonKey(name: 'holding_bars_met') @Default(true) bool holdingBarsMet,
@@ -71,6 +82,10 @@ sealed class HostLevelStatus with _$HostLevelStatus {
     /// The newest promotion / warning / demotion she has not dismissed yet.
     /// Shown once, then acknowledged through `host-level/acknowledge`.
     @JsonKey(name: 'unacknowledged_event') HostLevelEvent? unacknowledgedEvent,
+
+    /// Every rung, in order, each already told where it stands relative to
+    /// her. The showcase draws this list and decides nothing.
+    @Default(<HostLevelRung>[]) List<HostLevelRung> ladder,
   }) = _HostLevelStatus;
 
   const HostLevelStatus._();
@@ -101,6 +116,33 @@ sealed class HostLevelBar with _$HostLevelBar {
       _$HostLevelBarFromJson(json);
 }
 
+/// One rung of the ladder as the showcase draws it.
+///
+/// [state] is the server's word for where this rung stands relative to the
+/// host — `passed`, `current`, `next` or `locked` — and it is deliberately not
+/// derived here. Two clients doing that arithmetic is two chances to disagree
+/// about the same screen.
+@freezed
+sealed class HostLevelRung with _$HostLevelRung {
+  const factory HostLevelRung({
+    @Default(1) int level,
+    @Default('') String name,
+    @JsonKey(name: 'price_paise') @Default(0) int pricePaise,
+    @JsonKey(name: 'badge_url') @Default('') String badgeUrl,
+    @Default('locked') String state,
+  }) = _HostLevelRung;
+
+  const HostLevelRung._();
+
+  factory HostLevelRung.fromJson(Map<String, dynamic> json) =>
+      _$HostLevelRungFromJson(json);
+
+  bool get isCurrent => state == 'current';
+  bool get isNext => state == 'next';
+  bool get isPassed => state == 'passed';
+  bool get isLocked => state == 'locked';
+}
+
 /// A level movement she is shown once.
 @freezed
 sealed class HostLevelEvent with _$HostLevelEvent {
@@ -116,6 +158,7 @@ sealed class HostLevelEvent with _$HostLevelEvent {
 
     /// The price of [toLevel], in paise.
     @JsonKey(name: 'price_paise') @Default(0) int pricePaise,
+    @JsonKey(name: 'to_badge_url') @Default('') String toBadgeUrl,
     @JsonKey(name: 'month_label') String? monthLabel,
   }) = _HostLevelEvent;
 

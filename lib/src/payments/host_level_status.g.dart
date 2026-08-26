@@ -11,6 +11,7 @@ _HostLevelStatus _$HostLevelStatusFromJson(
 ) => _HostLevelStatus(
   level: (json['level'] as num?)?.toInt() ?? 1,
   levelName: json['level_name'] as String? ?? 'New Host',
+  badgeUrl: json['badge_url'] as String? ?? '',
   pricePaise: (json['price_paise'] as num?)?.toInt() ?? 0,
   audioPricePaise: (json['audio_price_paise'] as num?)?.toInt() ?? 0,
   pricePerMinuteCredits:
@@ -24,12 +25,15 @@ _HostLevelStatus _$HostLevelStatusFromJson(
   nextLevel: (json['next_level'] as num?)?.toInt(),
   nextLevelName: json['next_level_name'] as String?,
   nextPricePaise: (json['next_price_paise'] as num?)?.toInt(),
+  nextBadgeUrl: json['next_badge_url'] as String?,
   bars:
       (json['bars'] as List<dynamic>?)
           ?.map((e) => HostLevelBar.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const <HostLevelBar>[],
   remainingSentence: json['remaining_sentence'] as String? ?? '',
+  barsMetCount: (json['bars_met_count'] as num?)?.toInt() ?? 0,
+  barsTotalCount: (json['bars_total_count'] as num?)?.toInt() ?? 0,
   holdingBarsMet: json['holding_bars_met'] as bool? ?? true,
   holdingRemainingSentence: json['holding_remaining_sentence'] as String? ?? '',
   qualifyingCallMinimumMinutes:
@@ -45,12 +49,18 @@ _HostLevelStatus _$HostLevelStatusFromJson(
           : HostLevelEvent.fromJson(
             json['unacknowledged_event'] as Map<String, dynamic>,
           ),
+  ladder:
+      (json['ladder'] as List<dynamic>?)
+          ?.map((e) => HostLevelRung.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const <HostLevelRung>[],
 );
 
 Map<String, dynamic> _$HostLevelStatusToJson(_HostLevelStatus instance) =>
     <String, dynamic>{
       'level': instance.level,
       'level_name': instance.levelName,
+      'badge_url': instance.badgeUrl,
       'price_paise': instance.pricePaise,
       'audio_price_paise': instance.audioPricePaise,
       'price_per_minute_credits': instance.pricePerMinuteCredits,
@@ -60,8 +70,11 @@ Map<String, dynamic> _$HostLevelStatusToJson(_HostLevelStatus instance) =>
       'next_level': instance.nextLevel,
       'next_level_name': instance.nextLevelName,
       'next_price_paise': instance.nextPricePaise,
+      'next_badge_url': instance.nextBadgeUrl,
       'bars': instance.bars,
       'remaining_sentence': instance.remainingSentence,
+      'bars_met_count': instance.barsMetCount,
+      'bars_total_count': instance.barsTotalCount,
       'holding_bars_met': instance.holdingBarsMet,
       'holding_remaining_sentence': instance.holdingRemainingSentence,
       'qualifying_call_minimum_minutes': instance.qualifyingCallMinimumMinutes,
@@ -71,6 +84,7 @@ Map<String, dynamic> _$HostLevelStatusToJson(_HostLevelStatus instance) =>
       'grace_active': instance.graceActive,
       'grace_month_label': instance.graceMonthLabel,
       'unacknowledged_event': instance.unacknowledgedEvent,
+      'ladder': instance.ladder,
     };
 
 _HostLevelBar _$HostLevelBarFromJson(Map<String, dynamic> json) =>
@@ -95,6 +109,24 @@ Map<String, dynamic> _$HostLevelBarToJson(_HostLevelBar instance) =>
       'fraction': instance.fraction,
     };
 
+_HostLevelRung _$HostLevelRungFromJson(Map<String, dynamic> json) =>
+    _HostLevelRung(
+      level: (json['level'] as num?)?.toInt() ?? 1,
+      name: json['name'] as String? ?? '',
+      pricePaise: (json['price_paise'] as num?)?.toInt() ?? 0,
+      badgeUrl: json['badge_url'] as String? ?? '',
+      state: json['state'] as String? ?? 'locked',
+    );
+
+Map<String, dynamic> _$HostLevelRungToJson(_HostLevelRung instance) =>
+    <String, dynamic>{
+      'level': instance.level,
+      'name': instance.name,
+      'price_paise': instance.pricePaise,
+      'badge_url': instance.badgeUrl,
+      'state': instance.state,
+    };
+
 _HostLevelEvent _$HostLevelEventFromJson(Map<String, dynamic> json) =>
     _HostLevelEvent(
       uid: json['uid'] as String? ?? '',
@@ -104,6 +136,7 @@ _HostLevelEvent _$HostLevelEventFromJson(Map<String, dynamic> json) =>
       toLevel: (json['to_level'] as num?)?.toInt() ?? 1,
       toLevelName: json['to_level_name'] as String? ?? '',
       pricePaise: (json['price_paise'] as num?)?.toInt() ?? 0,
+      toBadgeUrl: json['to_badge_url'] as String? ?? '',
       monthLabel: json['month_label'] as String?,
     );
 
@@ -116,5 +149,6 @@ Map<String, dynamic> _$HostLevelEventToJson(_HostLevelEvent instance) =>
       'to_level': instance.toLevel,
       'to_level_name': instance.toLevelName,
       'price_paise': instance.pricePaise,
+      'to_badge_url': instance.toBadgeUrl,
       'month_label': instance.monthLabel,
     };
