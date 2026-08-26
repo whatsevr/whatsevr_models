@@ -63,6 +63,20 @@ sealed class WalletStatus with _$WalletStatus {
     int yourSpinCostCredits,
     @JsonKey(name: 'next_spin_is_free') @Default(false) bool nextSpinIsFree,
 
+    /// Whether the spin fee never applies to this account at all — the
+    /// verified-host exemption.
+    ///
+    /// Deliberately NOT derivable from the two fields above, and this is the
+    /// whole reason it exists. A host holding her welcome spins reads as both
+    /// "free this time" and "never charged"; the app used to infer the
+    /// exemption from `nextSpinIsFree && freeSpins == 0` and so told her she
+    /// had three free spins to spend, when what she has is an exemption that
+    /// never runs out.
+    ///
+    /// Defaults false, so a build talking to a server that predates the field
+    /// falls back to quoting a price rather than promising a free spin.
+    @JsonKey(name: 'spin_fee_exempt') @Default(false) bool spinFeeExempt,
+
     /// The server's own affordability answer. Defaults false so a build
     /// talking to a server that predates the field shows the top-up path
     /// rather than sending a spin the API would refuse.
