@@ -6,15 +6,15 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/get_content_reactions_response.dart';
-import 'package:whatsevr_models/src/model/get_user_reacted_items_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/record_reaction_body.dart';
-import 'package:whatsevr_models/src/model/record_reaction_response.dart';
-import 'package:whatsevr_models/src/model/remove_reaction_body.dart';
+import 'package:whatsevr_api/src/model/get_content_reactions_response.dart';
+import 'package:whatsevr_api/src/model/get_user_reacted_items_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/record_reaction_body.dart';
+import 'package:whatsevr_api/src/model/record_reaction_response.dart';
+import 'package:whatsevr_api/src/model/remove_reaction_body.dart';
 
 class ReactionsApi {
   final Dio _dio;

@@ -6,13 +6,13 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/call_gift_summary_response.dart';
-import 'package:whatsevr_models/src/model/gift_catalog_response.dart';
-import 'package:whatsevr_models/src/model/send_gift_body.dart';
-import 'package:whatsevr_models/src/model/send_gift_response.dart';
+import 'package:whatsevr_api/src/model/call_gift_summary_response.dart';
+import 'package:whatsevr_api/src/model/gift_catalog_response.dart';
+import 'package:whatsevr_api/src/model/send_gift_body.dart';
+import 'package:whatsevr_api/src/model/send_gift_response.dart';
 
 class GiftsApi {
   final Dio _dio;

@@ -6,7 +6,7 @@ Shared Dart package, the wire contract of `whatsevr_app`. Two halves:
 
 - **Generated** — `lib/src/api/` (one class per server tag, e.g. `UsersApi`),
   `lib/src/model/` (one class per schema), `lib/src/auth/`, `lib/src/api.dart`,
-  `lib/src/deserialize.dart`, `lib/whatsevr_models.dart` (the export file).
+  `lib/src/deserialize.dart`, `lib/whatsevr_api.dart` (the export file).
   Produced by `openapi-generator` (`dart-dio`, `json_serializable`) from
   `../whatsevr_django_server/docs/api/openapi.json`. **Never edit these by
   hand** — change the server schema, regenerate the spec there
@@ -19,8 +19,8 @@ Shared Dart package, the wire contract of `whatsevr_app`. Two halves:
 
 ## Project rules
 
-- Import the generated client as `package:whatsevr_models/whatsevr_models.dart`
-  and the hand-written half as `package:whatsevr_models/lib.dart`.
+- Import the generated client as `package:whatsevr_api/whatsevr_api.dart`
+  and the hand-written half as `package:whatsevr_api/lib.dart`.
 - Generated models are plain classes: `==`/`hashCode` by value, `copyWith`
   (`copy_with_extension`), `fromJson`/`toJson`. Method names on the api
   classes are the server's operation ids in camelCase (`usersGetUserDetails`).

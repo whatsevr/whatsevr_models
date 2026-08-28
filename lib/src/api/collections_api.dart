@@ -6,19 +6,19 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/add_items_to_collection_body.dart';
-import 'package:whatsevr_models/src/model/add_items_to_collection_response.dart';
-import 'package:whatsevr_models/src/model/create_collection_folder_body.dart';
-import 'package:whatsevr_models/src/model/create_collection_folder_response.dart';
-import 'package:whatsevr_models/src/model/delete_collections_body.dart';
-import 'package:whatsevr_models/src/model/get_collection_folders_response.dart';
-import 'package:whatsevr_models/src/model/get_collection_items_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/move_collection_items_body.dart';
-import 'package:whatsevr_models/src/model/move_collection_items_response.dart';
+import 'package:whatsevr_api/src/model/add_items_to_collection_body.dart';
+import 'package:whatsevr_api/src/model/add_items_to_collection_response.dart';
+import 'package:whatsevr_api/src/model/create_collection_folder_body.dart';
+import 'package:whatsevr_api/src/model/create_collection_folder_response.dart';
+import 'package:whatsevr_api/src/model/delete_collections_body.dart';
+import 'package:whatsevr_api/src/model/get_collection_folders_response.dart';
+import 'package:whatsevr_api/src/model/get_collection_items_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/move_collection_items_body.dart';
+import 'package:whatsevr_api/src/model/move_collection_items_response.dart';
 
 class CollectionsApi {
   final Dio _dio;

@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/daily_summary_previews.dart';
-import 'package:whatsevr_models/src/model/economy_stats.dart';
-import 'package:whatsevr_models/src/model/live_kit_webhook_status_schema.dart';
-import 'package:whatsevr_models/src/model/redis_stats.dart';
-import 'package:whatsevr_models/src/model/today_stats.dart';
+import 'package:whatsevr_api/src/model/live_kit_webhook_status_schema.dart';
+import 'package:whatsevr_api/src/model/daily_summary_previews.dart';
+import 'package:whatsevr_api/src/model/today_stats.dart';
+import 'package:whatsevr_api/src/model/redis_stats.dart';
+import 'package:whatsevr_api/src/model/economy_stats.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

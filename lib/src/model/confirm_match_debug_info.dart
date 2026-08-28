@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/confirm_result_debug.dart';
+import 'package:whatsevr_api/src/model/confirm_result_debug.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

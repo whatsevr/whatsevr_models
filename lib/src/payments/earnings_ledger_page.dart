@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:whatsevr_models/src/payments/earnings_ledger_entry.dart';
+import 'package:whatsevr_api/src/payments/earnings_ledger_entry.dart';
 
 part 'earnings_ledger_page.freezed.dart';
 part 'earnings_ledger_page.g.dart';

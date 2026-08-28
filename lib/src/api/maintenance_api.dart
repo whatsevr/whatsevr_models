@@ -6,10 +6,10 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/run_sweeps_response.dart';
+import 'package:whatsevr_api/src/model/run_sweeps_response.dart';
 
 class MaintenanceApi {
   final Dio _dio;

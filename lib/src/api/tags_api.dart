@@ -6,10 +6,10 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/tagged_content_response.dart';
+import 'package:whatsevr_api/src/model/tagged_content_response.dart';
 
 class TagsApi {
   final Dio _dio;

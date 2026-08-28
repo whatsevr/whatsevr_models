@@ -6,16 +6,16 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/change_community_username_body.dart';
-import 'package:whatsevr_models/src/model/change_community_username_response.dart';
-import 'package:whatsevr_models/src/model/change_user_username_body.dart';
-import 'package:whatsevr_models/src/model/change_user_username_response.dart';
-import 'package:whatsevr_models/src/model/login_sessions_response.dart';
-import 'package:whatsevr_models/src/model/remove_sessions_body.dart';
-import 'package:whatsevr_models/src/model/remove_sessions_response.dart';
+import 'package:whatsevr_api/src/model/change_community_username_body.dart';
+import 'package:whatsevr_api/src/model/change_community_username_response.dart';
+import 'package:whatsevr_api/src/model/change_user_username_body.dart';
+import 'package:whatsevr_api/src/model/change_user_username_response.dart';
+import 'package:whatsevr_api/src/model/login_sessions_response.dart';
+import 'package:whatsevr_api/src/model/remove_sessions_body.dart';
+import 'package:whatsevr_api/src/model/remove_sessions_response.dart';
 
 class SecurityApi {
   final Dio _dio;

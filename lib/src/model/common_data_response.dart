@@ -3,13 +3,13 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/education_degree_row.dart';
-import 'package:whatsevr_models/src/model/professional_status_row.dart';
-import 'package:whatsevr_models/src/model/gender_row.dart';
-import 'package:whatsevr_models/src/model/interest_row.dart';
-import 'package:whatsevr_models/src/model/professional_title_row.dart';
-import 'package:whatsevr_models/src/model/cta_action_row.dart';
-import 'package:whatsevr_models/src/model/working_mode_row.dart';
+import 'package:whatsevr_api/src/model/working_mode_row.dart';
+import 'package:whatsevr_api/src/model/gender_row.dart';
+import 'package:whatsevr_api/src/model/education_degree_row.dart';
+import 'package:whatsevr_api/src/model/interest_row.dart';
+import 'package:whatsevr_api/src/model/cta_action_row.dart';
+import 'package:whatsevr_api/src/model/professional_title_row.dart';
+import 'package:whatsevr_api/src/model/professional_status_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

@@ -6,21 +6,21 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/flick_feed_response.dart';
-import 'package:whatsevr_models/src/model/get_flicks_response.dart';
-import 'package:whatsevr_models/src/model/get_memories_response.dart';
-import 'package:whatsevr_models/src/model/get_mix_community_content_response.dart';
-import 'package:whatsevr_models/src/model/get_mix_content_response.dart';
-import 'package:whatsevr_models/src/model/get_offers_response.dart';
-import 'package:whatsevr_models/src/model/get_photos_response.dart';
-import 'package:whatsevr_models/src/model/get_videos_response.dart';
-import 'package:whatsevr_models/src/model/memories_feed_response.dart';
-import 'package:whatsevr_models/src/model/offer_feed_response.dart';
-import 'package:whatsevr_models/src/model/photo_feed_response.dart';
-import 'package:whatsevr_models/src/model/video_feed_response.dart';
+import 'package:whatsevr_api/src/model/flick_feed_response.dart';
+import 'package:whatsevr_api/src/model/get_flicks_response.dart';
+import 'package:whatsevr_api/src/model/get_memories_response.dart';
+import 'package:whatsevr_api/src/model/get_mix_community_content_response.dart';
+import 'package:whatsevr_api/src/model/get_mix_content_response.dart';
+import 'package:whatsevr_api/src/model/get_offers_response.dart';
+import 'package:whatsevr_api/src/model/get_photos_response.dart';
+import 'package:whatsevr_api/src/model/get_videos_response.dart';
+import 'package:whatsevr_api/src/model/memories_feed_response.dart';
+import 'package:whatsevr_api/src/model/offer_feed_response.dart';
+import 'package:whatsevr_api/src/model/photo_feed_response.dart';
+import 'package:whatsevr_api/src/model/video_feed_response.dart';
 
 class RecommendationsApi {
   final Dio _dio;

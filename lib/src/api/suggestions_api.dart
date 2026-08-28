@@ -6,11 +6,11 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/community_suggestions_response.dart';
-import 'package:whatsevr_models/src/model/user_suggestions_response.dart';
+import 'package:whatsevr_api/src/model/community_suggestions_response.dart';
+import 'package:whatsevr_api/src/model/user_suggestions_response.dart';
 
 class SuggestionsApi {
   final Dio _dio;

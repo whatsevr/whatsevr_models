@@ -6,19 +6,19 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/accept_call_response.dart';
-import 'package:whatsevr_models/src/model/call_history_response.dart';
-import 'package:whatsevr_models/src/model/call_outcome_response.dart';
-import 'package:whatsevr_models/src/model/call_room_body.dart';
-import 'package:whatsevr_models/src/model/call_segment_summary_response.dart';
-import 'package:whatsevr_models/src/model/initiate_call_body.dart';
-import 'package:whatsevr_models/src/model/initiate_call_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/set_call_mode_body.dart';
-import 'package:whatsevr_models/src/model/set_call_mode_response.dart';
+import 'package:whatsevr_api/src/model/accept_call_response.dart';
+import 'package:whatsevr_api/src/model/call_history_response.dart';
+import 'package:whatsevr_api/src/model/call_outcome_response.dart';
+import 'package:whatsevr_api/src/model/call_room_body.dart';
+import 'package:whatsevr_api/src/model/call_segment_summary_response.dart';
+import 'package:whatsevr_api/src/model/initiate_call_body.dart';
+import 'package:whatsevr_api/src/model/initiate_call_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/set_call_mode_body.dart';
+import 'package:whatsevr_api/src/model/set_call_mode_response.dart';
 
 class CallsApi {
   final Dio _dio;

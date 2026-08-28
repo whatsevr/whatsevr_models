@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:whatsevr_models/lib.dart';
+import 'package:whatsevr_api/lib.dart';
 
 void main() {
   group('EarningsLedgerEntry', () {

@@ -6,25 +6,25 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/deactivate_account_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/multiple_user_details_response.dart';
-import 'package:whatsevr_models/src/model/onboarding_state_response.dart';
-import 'package:whatsevr_models/src/model/portfolio_toggle_response.dart';
-import 'package:whatsevr_models/src/model/update_cover_media_body.dart';
-import 'package:whatsevr_models/src/model/update_educations_body.dart';
-import 'package:whatsevr_models/src/model/update_profile_picture_body.dart';
-import 'package:whatsevr_models/src/model/update_services_body.dart';
-import 'package:whatsevr_models/src/model/update_user_info_body.dart';
-import 'package:whatsevr_models/src/model/update_user_portfolio_body.dart';
-import 'package:whatsevr_models/src/model/update_user_portfolio_info_body.dart';
-import 'package:whatsevr_models/src/model/update_work_experiences_body.dart';
-import 'package:whatsevr_models/src/model/user_details_response.dart';
-import 'package:whatsevr_models/src/model/user_profile_details_response.dart';
-import 'package:whatsevr_models/src/model/user_supportive_data_response.dart';
+import 'package:whatsevr_api/src/model/deactivate_account_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/multiple_user_details_response.dart';
+import 'package:whatsevr_api/src/model/onboarding_state_response.dart';
+import 'package:whatsevr_api/src/model/portfolio_toggle_response.dart';
+import 'package:whatsevr_api/src/model/update_cover_media_body.dart';
+import 'package:whatsevr_api/src/model/update_educations_body.dart';
+import 'package:whatsevr_api/src/model/update_profile_picture_body.dart';
+import 'package:whatsevr_api/src/model/update_services_body.dart';
+import 'package:whatsevr_api/src/model/update_user_info_body.dart';
+import 'package:whatsevr_api/src/model/update_user_portfolio_body.dart';
+import 'package:whatsevr_api/src/model/update_user_portfolio_info_body.dart';
+import 'package:whatsevr_api/src/model/update_work_experiences_body.dart';
+import 'package:whatsevr_api/src/model/user_details_response.dart';
+import 'package:whatsevr_api/src/model/user_profile_details_response.dart';
+import 'package:whatsevr_api/src/model/user_supportive_data_response.dart';
 
 class UsersApi {
   final Dio _dio;

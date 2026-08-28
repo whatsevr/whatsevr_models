@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/cover_media_row.dart';
-import 'package:whatsevr_models/src/model/service_row.dart';
-import 'package:whatsevr_models/src/model/community_with_admin_row.dart';
+import 'package:whatsevr_api/src/model/service_row.dart';
+import 'package:whatsevr_api/src/model/community_with_admin_row.dart';
+import 'package:whatsevr_api/src/model/cover_media_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

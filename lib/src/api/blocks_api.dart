@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/block_user_body.dart';
-import 'package:whatsevr_models/src/model/block_user_response.dart';
-import 'package:whatsevr_models/src/model/get_blocked_users_response.dart';
+import 'package:whatsevr_api/src/model/block_user_body.dart';
+import 'package:whatsevr_api/src/model/block_user_response.dart';
+import 'package:whatsevr_api/src/model/get_blocked_users_response.dart';
 
 class BlocksApi {
   final Dio _dio;

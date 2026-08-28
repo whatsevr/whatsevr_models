@@ -6,10 +6,10 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/daily_summary_response.dart';
+import 'package:whatsevr_api/src/model/daily_summary_response.dart';
 
 class MarketingApi {
   final Dio _dio;

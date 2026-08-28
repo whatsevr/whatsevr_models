@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/call_history_debug_filters.dart';
+import 'package:whatsevr_api/src/model/call_history_debug_filters.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

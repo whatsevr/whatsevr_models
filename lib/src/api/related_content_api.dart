@@ -6,19 +6,19 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/add_content_items_body.dart';
-import 'package:whatsevr_models/src/model/add_content_items_response.dart';
-import 'package:whatsevr_models/src/model/create_related_content_body.dart';
-import 'package:whatsevr_models/src/model/create_related_content_response.dart';
-import 'package:whatsevr_models/src/model/delete_related_content_body.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/related_content_details_response.dart';
-import 'package:whatsevr_models/src/model/related_content_list_response.dart';
-import 'package:whatsevr_models/src/model/remove_content_items_body.dart';
-import 'package:whatsevr_models/src/model/remove_content_items_response.dart';
+import 'package:whatsevr_api/src/model/add_content_items_body.dart';
+import 'package:whatsevr_api/src/model/add_content_items_response.dart';
+import 'package:whatsevr_api/src/model/create_related_content_body.dart';
+import 'package:whatsevr_api/src/model/create_related_content_response.dart';
+import 'package:whatsevr_api/src/model/delete_related_content_body.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/related_content_details_response.dart';
+import 'package:whatsevr_api/src/model/related_content_list_response.dart';
+import 'package:whatsevr_api/src/model/remove_content_items_body.dart';
+import 'package:whatsevr_api/src/model/remove_content_items_response.dart';
 
 class RelatedContentApi {
   final Dio _dio;

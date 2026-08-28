@@ -3,14 +3,14 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/user_preview.dart';
-import 'package:whatsevr_models/src/model/titled_preview.dart';
-import 'package:whatsevr_models/src/model/comment_preview.dart';
-import 'package:whatsevr_models/src/model/reaction_preview.dart';
-import 'package:whatsevr_models/src/model/memory_preview.dart';
-import 'package:whatsevr_models/src/model/community_preview.dart';
-import 'package:whatsevr_models/src/model/call_preview.dart';
-import 'package:whatsevr_models/src/model/report_preview.dart';
+import 'package:whatsevr_api/src/model/report_preview.dart';
+import 'package:whatsevr_api/src/model/memory_preview.dart';
+import 'package:whatsevr_api/src/model/titled_preview.dart';
+import 'package:whatsevr_api/src/model/reaction_preview.dart';
+import 'package:whatsevr_api/src/model/user_preview.dart';
+import 'package:whatsevr_api/src/model/community_preview.dart';
+import 'package:whatsevr_api/src/model/call_preview.dart';
+import 'package:whatsevr_api/src/model/comment_preview.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

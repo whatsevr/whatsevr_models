@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/alerts_history_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/store_fcm_token_body.dart';
+import 'package:whatsevr_api/src/model/alerts_history_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/store_fcm_token_body.dart';
 
 class AlertsApi {
   final Dio _dio;

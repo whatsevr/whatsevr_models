@@ -6,11 +6,11 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/countries_response.dart';
-import 'package:whatsevr_models/src/model/subdivisions_response.dart';
+import 'package:whatsevr_api/src/model/countries_response.dart';
+import 'package:whatsevr_api/src/model/subdivisions_response.dart';
 
 class GeoApi {
   final Dio _dio;

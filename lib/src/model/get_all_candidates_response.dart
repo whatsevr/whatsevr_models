@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/get_all_candidates_debug_info.dart';
-import 'package:whatsevr_models/src/model/candidate_list_row.dart';
+import 'package:whatsevr_api/src/model/get_all_candidates_debug_info.dart';
+import 'package:whatsevr_api/src/model/candidate_list_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

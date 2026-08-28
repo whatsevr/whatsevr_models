@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/users_row.dart';
-import 'package:whatsevr_models/src/model/private_recommendation_memory_row.dart';
+import 'package:whatsevr_api/src/model/users_row.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_memory_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

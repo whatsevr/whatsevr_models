@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:whatsevr_models/src/db_models/chat_message.dart';
+import 'package:whatsevr_api/src/db_models/chat_message.dart';
 import '../../db_models/user.dart';
 
 part 'get_chat_messages.freezed.dart';

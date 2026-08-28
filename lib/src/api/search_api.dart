@@ -6,19 +6,19 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/communities_search_response.dart';
-import 'package:whatsevr_models/src/model/flicks_search_response.dart';
-import 'package:whatsevr_models/src/model/memories_search_response.dart';
-import 'package:whatsevr_models/src/model/offers_response.dart';
-import 'package:whatsevr_models/src/model/pdfs_search_response.dart';
-import 'package:whatsevr_models/src/model/photos_search_response.dart';
-import 'package:whatsevr_models/src/model/portfolios_response.dart';
-import 'package:whatsevr_models/src/model/users_and_communities_response.dart';
-import 'package:whatsevr_models/src/model/users_search_response.dart';
-import 'package:whatsevr_models/src/model/wtvs_search_response.dart';
+import 'package:whatsevr_api/src/model/communities_search_response.dart';
+import 'package:whatsevr_api/src/model/flicks_search_response.dart';
+import 'package:whatsevr_api/src/model/memories_search_response.dart';
+import 'package:whatsevr_api/src/model/offers_response.dart';
+import 'package:whatsevr_api/src/model/pdfs_search_response.dart';
+import 'package:whatsevr_api/src/model/photos_search_response.dart';
+import 'package:whatsevr_api/src/model/portfolios_response.dart';
+import 'package:whatsevr_api/src/model/users_and_communities_response.dart';
+import 'package:whatsevr_api/src/model/users_search_response.dart';
+import 'package:whatsevr_api/src/model/wtvs_search_response.dart';
 
 class SearchApi {
   final Dio _dio;

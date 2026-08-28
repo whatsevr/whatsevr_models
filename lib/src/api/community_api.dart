@@ -6,30 +6,30 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/active_members_response.dart';
-import 'package:whatsevr_models/src/model/community_details_response.dart';
-import 'package:whatsevr_models/src/model/community_profile_data_response.dart';
-import 'package:whatsevr_models/src/model/cover_media_update_response.dart';
-import 'package:whatsevr_models/src/model/create_community_body.dart';
-import 'package:whatsevr_models/src/model/create_community_response.dart';
-import 'package:whatsevr_models/src/model/join_community_body.dart';
-import 'package:whatsevr_models/src/model/join_community_response.dart';
-import 'package:whatsevr_models/src/model/leave_community_body.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/pending_members_response.dart';
-import 'package:whatsevr_models/src/model/remove_member_body.dart';
-import 'package:whatsevr_models/src/model/restricted_members_response.dart';
-import 'package:whatsevr_models/src/model/top_communities_response.dart';
-import 'package:whatsevr_models/src/model/update_community_cover_media_body.dart';
-import 'package:whatsevr_models/src/model/update_community_info_body.dart';
-import 'package:whatsevr_models/src/model/update_community_profile_picture_body.dart';
-import 'package:whatsevr_models/src/model/update_community_services_body.dart';
-import 'package:whatsevr_models/src/model/update_member_status_body.dart';
-import 'package:whatsevr_models/src/model/update_member_status_response.dart';
-import 'package:whatsevr_models/src/model/user_communities_response.dart';
+import 'package:whatsevr_api/src/model/active_members_response.dart';
+import 'package:whatsevr_api/src/model/community_details_response.dart';
+import 'package:whatsevr_api/src/model/community_profile_data_response.dart';
+import 'package:whatsevr_api/src/model/cover_media_update_response.dart';
+import 'package:whatsevr_api/src/model/create_community_body.dart';
+import 'package:whatsevr_api/src/model/create_community_response.dart';
+import 'package:whatsevr_api/src/model/join_community_body.dart';
+import 'package:whatsevr_api/src/model/join_community_response.dart';
+import 'package:whatsevr_api/src/model/leave_community_body.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/pending_members_response.dart';
+import 'package:whatsevr_api/src/model/remove_member_body.dart';
+import 'package:whatsevr_api/src/model/restricted_members_response.dart';
+import 'package:whatsevr_api/src/model/top_communities_response.dart';
+import 'package:whatsevr_api/src/model/update_community_cover_media_body.dart';
+import 'package:whatsevr_api/src/model/update_community_info_body.dart';
+import 'package:whatsevr_api/src/model/update_community_profile_picture_body.dart';
+import 'package:whatsevr_api/src/model/update_community_services_body.dart';
+import 'package:whatsevr_api/src/model/update_member_status_body.dart';
+import 'package:whatsevr_api/src/model/update_member_status_response.dart';
+import 'package:whatsevr_api/src/model/user_communities_response.dart';
 
 class CommunityApi {
   final Dio _dio;

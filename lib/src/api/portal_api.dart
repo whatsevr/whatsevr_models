@@ -6,11 +6,11 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/portal_link_body.dart';
-import 'package:whatsevr_models/src/model/portal_link_response.dart';
+import 'package:whatsevr_api/src/model/portal_link_body.dart';
+import 'package:whatsevr_api/src/model/portal_link_response.dart';
 
 class PortalApi {
   final Dio _dio;

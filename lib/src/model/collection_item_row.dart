@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/pdf_row.dart';
-import 'package:whatsevr_models/src/model/flick_row.dart';
-import 'package:whatsevr_models/src/model/offer_row.dart';
-import 'package:whatsevr_models/src/model/wtv_row.dart';
-import 'package:whatsevr_models/src/model/photo_row.dart';
+import 'package:whatsevr_api/src/model/offer_row.dart';
+import 'package:whatsevr_api/src/model/flick_row.dart';
+import 'package:whatsevr_api/src/model/wtv_row.dart';
+import 'package:whatsevr_api/src/model/pdf_row.dart';
+import 'package:whatsevr_api/src/model/photo_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

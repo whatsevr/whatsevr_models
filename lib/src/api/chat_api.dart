@@ -6,22 +6,22 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/community_chats_response.dart';
-import 'package:whatsevr_models/src/model/edit_message_body.dart';
-import 'package:whatsevr_models/src/model/edit_message_response.dart';
-import 'package:whatsevr_models/src/model/ensure_persona_body.dart';
-import 'package:whatsevr_models/src/model/ensure_persona_response.dart';
-import 'package:whatsevr_models/src/model/get_chat_messages_response.dart';
-import 'package:whatsevr_models/src/model/message_action_body.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/message_uid_response.dart';
-import 'package:whatsevr_models/src/model/private_chats_response.dart';
-import 'package:whatsevr_models/src/model/send_message_body.dart';
-import 'package:whatsevr_models/src/model/start_chat_body.dart';
-import 'package:whatsevr_models/src/model/start_chat_response.dart';
+import 'package:whatsevr_api/src/model/community_chats_response.dart';
+import 'package:whatsevr_api/src/model/edit_message_body.dart';
+import 'package:whatsevr_api/src/model/edit_message_response.dart';
+import 'package:whatsevr_api/src/model/ensure_persona_body.dart';
+import 'package:whatsevr_api/src/model/ensure_persona_response.dart';
+import 'package:whatsevr_api/src/model/get_chat_messages_response.dart';
+import 'package:whatsevr_api/src/model/message_action_body.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/message_uid_response.dart';
+import 'package:whatsevr_api/src/model/private_chats_response.dart';
+import 'package:whatsevr_api/src/model/send_message_body.dart';
+import 'package:whatsevr_api/src/model/start_chat_body.dart';
+import 'package:whatsevr_api/src/model/start_chat_response.dart';
 
 class ChatApi {
   final Dio _dio;

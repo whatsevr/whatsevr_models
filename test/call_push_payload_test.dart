@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:whatsevr_models/lib.dart';
+import 'package:whatsevr_api/lib.dart';
 
 /// The Android push transport flattens every value with Python's `str()`, so a
 /// billed video call arrives as the strings `"True"` / `"500"`. Getting this

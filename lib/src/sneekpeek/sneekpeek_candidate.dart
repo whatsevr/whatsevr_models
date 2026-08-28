@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:whatsevr_models/src/calls/call_mode.dart';
-import 'package:whatsevr_models/src/calls/one_to_one_call_host.dart';
+import 'package:whatsevr_api/src/calls/call_mode.dart';
+import 'package:whatsevr_api/src/calls/one_to_one_call_host.dart';
 
 part 'sneekpeek_candidate.freezed.dart';
 part 'sneekpeek_candidate.g.dart';

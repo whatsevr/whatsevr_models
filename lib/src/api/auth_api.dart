@@ -6,22 +6,22 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/livekit_token_body.dart';
-import 'package:whatsevr_models/src/model/livekit_token_response.dart';
-import 'package:whatsevr_models/src/model/login_body.dart';
-import 'package:whatsevr_models/src/model/login_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/password_login_body.dart';
-import 'package:whatsevr_models/src/model/password_reset_complete_body.dart';
-import 'package:whatsevr_models/src/model/password_reset_start_body.dart';
-import 'package:whatsevr_models/src/model/password_reset_start_response.dart';
-import 'package:whatsevr_models/src/model/sanity_check_response.dart';
-import 'package:whatsevr_models/src/model/set_password_body.dart';
-import 'package:whatsevr_models/src/model/set_password_response.dart';
-import 'package:whatsevr_models/src/model/supabase_token_response.dart';
+import 'package:whatsevr_api/src/model/livekit_token_body.dart';
+import 'package:whatsevr_api/src/model/livekit_token_response.dart';
+import 'package:whatsevr_api/src/model/login_body.dart';
+import 'package:whatsevr_api/src/model/login_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/password_login_body.dart';
+import 'package:whatsevr_api/src/model/password_reset_complete_body.dart';
+import 'package:whatsevr_api/src/model/password_reset_start_body.dart';
+import 'package:whatsevr_api/src/model/password_reset_start_response.dart';
+import 'package:whatsevr_api/src/model/sanity_check_response.dart';
+import 'package:whatsevr_api/src/model/set_password_body.dart';
+import 'package:whatsevr_api/src/model/set_password_response.dart';
+import 'package:whatsevr_api/src/model/supabase_token_response.dart';
 
 class AuthApi {
   final Dio _dio;

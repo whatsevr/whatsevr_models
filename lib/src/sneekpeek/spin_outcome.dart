@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:whatsevr_models/src/constants/call_vocabulary.dart';
+import 'package:whatsevr_api/src/constants/call_vocabulary.dart';
 
 part 'spin_outcome.freezed.dart';
 part 'spin_outcome.g.dart';

@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/get_user_activities_response.dart';
-import 'package:whatsevr_models/src/model/track_activities_body.dart';
-import 'package:whatsevr_models/src/model/track_activities_response.dart';
+import 'package:whatsevr_api/src/model/get_user_activities_response.dart';
+import 'package:whatsevr_api/src/model/track_activities_body.dart';
+import 'package:whatsevr_api/src/model/track_activities_response.dart';
 
 class ActivityApi {
   final Dio _dio;

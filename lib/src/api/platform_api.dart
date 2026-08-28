@@ -6,15 +6,15 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/common_data_response.dart';
-import 'package:whatsevr_models/src/model/external_smtp_email_body.dart';
-import 'package:whatsevr_models/src/model/external_smtp_email_response.dart';
-import 'package:whatsevr_models/src/model/feature_request_body.dart';
-import 'package:whatsevr_models/src/model/feature_request_response.dart';
-import 'package:whatsevr_models/src/model/profile_avatars_response.dart';
+import 'package:whatsevr_api/src/model/common_data_response.dart';
+import 'package:whatsevr_api/src/model/external_smtp_email_body.dart';
+import 'package:whatsevr_api/src/model/external_smtp_email_response.dart';
+import 'package:whatsevr_api/src/model/feature_request_body.dart';
+import 'package:whatsevr_api/src/model/feature_request_response.dart';
+import 'package:whatsevr_api/src/model/profile_avatars_response.dart';
 
 class PlatformApi {
   final Dio _dio;

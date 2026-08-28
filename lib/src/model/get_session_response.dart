@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/get_session_debug_info.dart';
-import 'package:whatsevr_models/src/model/public_candidate_with_media.dart';
-import 'package:whatsevr_models/src/model/host_info.dart';
-import 'package:whatsevr_models/src/model/candidate_row.dart';
+import 'package:whatsevr_api/src/model/candidate_row.dart';
+import 'package:whatsevr_api/src/model/get_session_debug_info.dart';
+import 'package:whatsevr_api/src/model/host_info.dart';
+import 'package:whatsevr_api/src/model/public_candidate_with_media.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

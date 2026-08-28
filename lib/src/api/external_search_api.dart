@@ -6,23 +6,23 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/community_search_response.dart';
-import 'package:whatsevr_models/src/model/flick_search_response.dart';
-import 'package:whatsevr_models/src/model/host_search_response.dart';
-import 'package:whatsevr_models/src/model/indices_response.dart';
-import 'package:whatsevr_models/src/model/offer_search_response.dart';
-import 'package:whatsevr_models/src/model/pdf_search_response.dart';
-import 'package:whatsevr_models/src/model/photo_search_response.dart';
-import 'package:whatsevr_models/src/model/rebuild_index_body.dart';
-import 'package:whatsevr_models/src/model/rebuild_initiated_response.dart';
-import 'package:whatsevr_models/src/model/sync_all_initiated_response.dart';
-import 'package:whatsevr_models/src/model/sync_body.dart';
-import 'package:whatsevr_models/src/model/sync_response.dart';
-import 'package:whatsevr_models/src/model/user_search_response.dart';
-import 'package:whatsevr_models/src/model/wtv_search_response.dart';
+import 'package:whatsevr_api/src/model/community_search_response.dart';
+import 'package:whatsevr_api/src/model/flick_search_response.dart';
+import 'package:whatsevr_api/src/model/host_search_response.dart';
+import 'package:whatsevr_api/src/model/indices_response.dart';
+import 'package:whatsevr_api/src/model/offer_search_response.dart';
+import 'package:whatsevr_api/src/model/pdf_search_response.dart';
+import 'package:whatsevr_api/src/model/photo_search_response.dart';
+import 'package:whatsevr_api/src/model/rebuild_index_body.dart';
+import 'package:whatsevr_api/src/model/rebuild_initiated_response.dart';
+import 'package:whatsevr_api/src/model/sync_all_initiated_response.dart';
+import 'package:whatsevr_api/src/model/sync_body.dart';
+import 'package:whatsevr_api/src/model/sync_response.dart';
+import 'package:whatsevr_api/src/model/user_search_response.dart';
+import 'package:whatsevr_api/src/model/wtv_search_response.dart';
 
 class ExternalSearchApi {
   final Dio _dio;

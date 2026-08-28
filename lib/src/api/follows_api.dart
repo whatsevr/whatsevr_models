@@ -6,17 +6,17 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/follow_body.dart';
-import 'package:whatsevr_models/src/model/follow_user_response.dart';
-import 'package:whatsevr_models/src/model/followers_list_response.dart';
-import 'package:whatsevr_models/src/model/following_list_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
-import 'package:whatsevr_models/src/model/mutual_connections_response.dart';
-import 'package:whatsevr_models/src/model/mutual_following_response.dart';
-import 'package:whatsevr_models/src/model/remove_follower_body.dart';
+import 'package:whatsevr_api/src/model/follow_body.dart';
+import 'package:whatsevr_api/src/model/follow_user_response.dart';
+import 'package:whatsevr_api/src/model/followers_list_response.dart';
+import 'package:whatsevr_api/src/model/following_list_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/mutual_connections_response.dart';
+import 'package:whatsevr_api/src/model/mutual_following_response.dart';
+import 'package:whatsevr_api/src/model/remove_follower_body.dart';
 
 class FollowsApi {
   final Dio _dio;

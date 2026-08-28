@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:whatsevr_models/src/calls/call_mode.dart';
+import 'package:whatsevr_api/src/calls/call_mode.dart';
 
 part 'earnings_ledger_entry.freezed.dart';
 part 'earnings_ledger_entry.g.dart';

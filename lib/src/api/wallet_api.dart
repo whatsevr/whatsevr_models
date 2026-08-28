@@ -6,23 +6,23 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/acknowledge_host_level_event_body.dart';
-import 'package:whatsevr_models/src/model/acknowledge_host_level_event_response.dart';
-import 'package:whatsevr_models/src/model/buy_perk_body.dart';
-import 'package:whatsevr_models/src/model/buy_perk_response.dart';
-import 'package:whatsevr_models/src/model/earnings_ledger_response.dart';
-import 'package:whatsevr_models/src/model/earnings_summary_response.dart';
-import 'package:whatsevr_models/src/model/host_level_status.dart';
-import 'package:whatsevr_models/src/model/set_call_mode_body.dart';
-import 'package:whatsevr_models/src/model/set_call_mode_response.dart';
-import 'package:whatsevr_models/src/model/toggle_perk_body.dart';
-import 'package:whatsevr_models/src/model/toggle_perk_response.dart';
-import 'package:whatsevr_models/src/model/update_perk_config_response.dart';
-import 'package:whatsevr_models/src/model/wallet_ledger_response.dart';
-import 'package:whatsevr_models/src/model/wallet_status_response.dart';
+import 'package:whatsevr_api/src/model/acknowledge_host_level_event_body.dart';
+import 'package:whatsevr_api/src/model/acknowledge_host_level_event_response.dart';
+import 'package:whatsevr_api/src/model/buy_perk_body.dart';
+import 'package:whatsevr_api/src/model/buy_perk_response.dart';
+import 'package:whatsevr_api/src/model/earnings_ledger_response.dart';
+import 'package:whatsevr_api/src/model/earnings_summary_response.dart';
+import 'package:whatsevr_api/src/model/host_level_status.dart';
+import 'package:whatsevr_api/src/model/set_call_mode_body.dart';
+import 'package:whatsevr_api/src/model/set_call_mode_response.dart';
+import 'package:whatsevr_api/src/model/toggle_perk_body.dart';
+import 'package:whatsevr_api/src/model/toggle_perk_response.dart';
+import 'package:whatsevr_api/src/model/update_perk_config_response.dart';
+import 'package:whatsevr_api/src/model/wallet_ledger_response.dart';
+import 'package:whatsevr_api/src/model/wallet_status_response.dart';
 
 class WalletApi {
   final Dio _dio;

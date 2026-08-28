@@ -13,3 +13,5 @@ analyzer:
     unnecessary_brace_in_string_interps: ignore
     constant_identifier_names: ignore
     camel_case_types: ignore
+  exclude:
+    - build/**

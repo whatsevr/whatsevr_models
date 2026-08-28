@@ -6,11 +6,11 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/share_content_body.dart';
-import 'package:whatsevr_models/src/model/share_content_response.dart';
+import 'package:whatsevr_api/src/model/share_content_body.dart';
+import 'package:whatsevr_api/src/model/share_content_response.dart';
 
 class ShareApi {
   final Dio _dio;

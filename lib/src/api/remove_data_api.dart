@@ -6,27 +6,27 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/delete_comment_replies_body.dart';
-import 'package:whatsevr_models/src/model/delete_comment_replies_response.dart';
-import 'package:whatsevr_models/src/model/delete_comments_body.dart';
-import 'package:whatsevr_models/src/model/delete_comments_response.dart';
-import 'package:whatsevr_models/src/model/delete_community_body.dart';
-import 'package:whatsevr_models/src/model/delete_flicks_body.dart';
-import 'package:whatsevr_models/src/model/delete_flicks_response.dart';
-import 'package:whatsevr_models/src/model/delete_memories_body.dart';
-import 'package:whatsevr_models/src/model/delete_memories_response.dart';
-import 'package:whatsevr_models/src/model/delete_offers_body.dart';
-import 'package:whatsevr_models/src/model/delete_offers_response.dart';
-import 'package:whatsevr_models/src/model/delete_pdfs_body.dart';
-import 'package:whatsevr_models/src/model/delete_pdfs_response.dart';
-import 'package:whatsevr_models/src/model/delete_photos_body.dart';
-import 'package:whatsevr_models/src/model/delete_photos_response.dart';
-import 'package:whatsevr_models/src/model/delete_wtvs_body.dart';
-import 'package:whatsevr_models/src/model/delete_wtvs_response.dart';
-import 'package:whatsevr_models/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/delete_comment_replies_body.dart';
+import 'package:whatsevr_api/src/model/delete_comment_replies_response.dart';
+import 'package:whatsevr_api/src/model/delete_comments_body.dart';
+import 'package:whatsevr_api/src/model/delete_comments_response.dart';
+import 'package:whatsevr_api/src/model/delete_community_body.dart';
+import 'package:whatsevr_api/src/model/delete_flicks_body.dart';
+import 'package:whatsevr_api/src/model/delete_flicks_response.dart';
+import 'package:whatsevr_api/src/model/delete_memories_body.dart';
+import 'package:whatsevr_api/src/model/delete_memories_response.dart';
+import 'package:whatsevr_api/src/model/delete_offers_body.dart';
+import 'package:whatsevr_api/src/model/delete_offers_response.dart';
+import 'package:whatsevr_api/src/model/delete_pdfs_body.dart';
+import 'package:whatsevr_api/src/model/delete_pdfs_response.dart';
+import 'package:whatsevr_api/src/model/delete_photos_body.dart';
+import 'package:whatsevr_api/src/model/delete_photos_response.dart';
+import 'package:whatsevr_api/src/model/delete_wtvs_body.dart';
+import 'package:whatsevr_api/src/model/delete_wtvs_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
 
 class RemoveDataApi {
   final Dio _dio;

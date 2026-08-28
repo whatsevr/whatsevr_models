@@ -555,4 +555,4 @@ lib/src/model/wtv_row.dart
 lib/src/model/wtv_search_response.dart
 lib/src/model/wtv_with_creator_row.dart
 lib/src/model/wtvs_search_response.dart
-lib/whatsevr_models.dart
+lib/whatsevr_api.dart

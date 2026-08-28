@@ -6,10 +6,10 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/message_response.dart';
+import 'package:whatsevr_api/src/model/message_response.dart';
 
 class WebhooksApi {
   final Dio _dio;

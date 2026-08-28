@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/add_comment_or_reply_body.dart';
-import 'package:whatsevr_models/src/model/comment_or_reply_posted_response.dart';
-import 'package:whatsevr_models/src/model/get_comments_response.dart';
+import 'package:whatsevr_api/src/model/add_comment_or_reply_body.dart';
+import 'package:whatsevr_api/src/model/comment_or_reply_posted_response.dart';
+import 'package:whatsevr_api/src/model/get_comments_response.dart';
 
 class CommentsApi {
   final Dio _dio;

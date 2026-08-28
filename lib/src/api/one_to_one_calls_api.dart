@@ -6,26 +6,26 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/connect_request_body.dart';
-import 'package:whatsevr_models/src/model/connect_result.dart';
-import 'package:whatsevr_models/src/model/connect_status_response.dart';
-import 'package:whatsevr_models/src/model/end_live_response.dart';
-import 'package:whatsevr_models/src/model/go_live_response.dart';
-import 'package:whatsevr_models/src/model/heartbeat_response.dart';
-import 'package:whatsevr_models/src/model/host_earnings_highlights_response.dart';
-import 'package:whatsevr_models/src/model/host_home_signals_response.dart';
-import 'package:whatsevr_models/src/model/host_list_response.dart';
-import 'package:whatsevr_models/src/model/host_peer_highlights_response.dart';
-import 'package:whatsevr_models/src/model/one_to_one_call_respond_body.dart';
-import 'package:whatsevr_models/src/model/poke_audience_response.dart';
-import 'package:whatsevr_models/src/model/poke_body.dart';
-import 'package:whatsevr_models/src/model/quick_match_body.dart';
-import 'package:whatsevr_models/src/model/respond_response.dart';
-import 'package:whatsevr_models/src/model/send_poke_response.dart';
-import 'package:whatsevr_models/src/model/session_summary_response.dart';
+import 'package:whatsevr_api/src/model/connect_request_body.dart';
+import 'package:whatsevr_api/src/model/connect_result.dart';
+import 'package:whatsevr_api/src/model/connect_status_response.dart';
+import 'package:whatsevr_api/src/model/end_live_response.dart';
+import 'package:whatsevr_api/src/model/go_live_response.dart';
+import 'package:whatsevr_api/src/model/heartbeat_response.dart';
+import 'package:whatsevr_api/src/model/host_earnings_highlights_response.dart';
+import 'package:whatsevr_api/src/model/host_home_signals_response.dart';
+import 'package:whatsevr_api/src/model/host_list_response.dart';
+import 'package:whatsevr_api/src/model/host_peer_highlights_response.dart';
+import 'package:whatsevr_api/src/model/one_to_one_call_respond_body.dart';
+import 'package:whatsevr_api/src/model/poke_audience_response.dart';
+import 'package:whatsevr_api/src/model/poke_body.dart';
+import 'package:whatsevr_api/src/model/quick_match_body.dart';
+import 'package:whatsevr_api/src/model/respond_response.dart';
+import 'package:whatsevr_api/src/model/send_poke_response.dart';
+import 'package:whatsevr_api/src/model/session_summary_response.dart';
 
 class OneToOneCallsApi {
   final Dio _dio;

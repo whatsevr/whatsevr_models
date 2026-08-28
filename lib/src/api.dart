@@ -3,51 +3,51 @@
 //
 
 import 'package:dio/dio.dart';
-import 'package:whatsevr_models/src/auth/api_key_auth.dart';
-import 'package:whatsevr_models/src/auth/basic_auth.dart';
-import 'package:whatsevr_models/src/auth/bearer_auth.dart';
-import 'package:whatsevr_models/src/auth/oauth.dart';
-import 'package:whatsevr_models/src/api/activity_api.dart';
-import 'package:whatsevr_models/src/api/alerts_api.dart';
-import 'package:whatsevr_models/src/api/auth_api.dart';
-import 'package:whatsevr_models/src/api/blocks_api.dart';
-import 'package:whatsevr_models/src/api/bot_api.dart';
-import 'package:whatsevr_models/src/api/calls_api.dart';
-import 'package:whatsevr_models/src/api/chat_api.dart';
-import 'package:whatsevr_models/src/api/collections_api.dart';
-import 'package:whatsevr_models/src/api/comments_api.dart';
-import 'package:whatsevr_models/src/api/community_api.dart';
-import 'package:whatsevr_models/src/api/events_api.dart';
-import 'package:whatsevr_models/src/api/external_search_api.dart';
-import 'package:whatsevr_models/src/api/follows_api.dart';
-import 'package:whatsevr_models/src/api/geo_api.dart';
-import 'package:whatsevr_models/src/api/gifts_api.dart';
-import 'package:whatsevr_models/src/api/maintenance_api.dart';
-import 'package:whatsevr_models/src/api/marketing_api.dart';
-import 'package:whatsevr_models/src/api/one_to_one_calls_api.dart';
-import 'package:whatsevr_models/src/api/platform_api.dart';
-import 'package:whatsevr_models/src/api/portal_api.dart';
-import 'package:whatsevr_models/src/api/posts_api.dart';
-import 'package:whatsevr_models/src/api/reactions_api.dart';
-import 'package:whatsevr_models/src/api/recommendations_api.dart';
-import 'package:whatsevr_models/src/api/related_content_api.dart';
-import 'package:whatsevr_models/src/api/remove_data_api.dart';
-import 'package:whatsevr_models/src/api/reports_api.dart';
-import 'package:whatsevr_models/src/api/search_api.dart';
-import 'package:whatsevr_models/src/api/security_api.dart';
-import 'package:whatsevr_models/src/api/share_api.dart';
-import 'package:whatsevr_models/src/api/sneek_peek_api.dart';
-import 'package:whatsevr_models/src/api/suggestions_api.dart';
-import 'package:whatsevr_models/src/api/tags_api.dart';
-import 'package:whatsevr_models/src/api/users_api.dart';
-import 'package:whatsevr_models/src/api/wallet_api.dart';
-import 'package:whatsevr_models/src/api/webhooks_api.dart';
+import 'package:whatsevr_api/src/auth/api_key_auth.dart';
+import 'package:whatsevr_api/src/auth/basic_auth.dart';
+import 'package:whatsevr_api/src/auth/bearer_auth.dart';
+import 'package:whatsevr_api/src/auth/oauth.dart';
+import 'package:whatsevr_api/src/api/activity_api.dart';
+import 'package:whatsevr_api/src/api/alerts_api.dart';
+import 'package:whatsevr_api/src/api/auth_api.dart';
+import 'package:whatsevr_api/src/api/blocks_api.dart';
+import 'package:whatsevr_api/src/api/bot_api.dart';
+import 'package:whatsevr_api/src/api/calls_api.dart';
+import 'package:whatsevr_api/src/api/chat_api.dart';
+import 'package:whatsevr_api/src/api/collections_api.dart';
+import 'package:whatsevr_api/src/api/comments_api.dart';
+import 'package:whatsevr_api/src/api/community_api.dart';
+import 'package:whatsevr_api/src/api/events_api.dart';
+import 'package:whatsevr_api/src/api/external_search_api.dart';
+import 'package:whatsevr_api/src/api/follows_api.dart';
+import 'package:whatsevr_api/src/api/geo_api.dart';
+import 'package:whatsevr_api/src/api/gifts_api.dart';
+import 'package:whatsevr_api/src/api/maintenance_api.dart';
+import 'package:whatsevr_api/src/api/marketing_api.dart';
+import 'package:whatsevr_api/src/api/one_to_one_calls_api.dart';
+import 'package:whatsevr_api/src/api/platform_api.dart';
+import 'package:whatsevr_api/src/api/portal_api.dart';
+import 'package:whatsevr_api/src/api/posts_api.dart';
+import 'package:whatsevr_api/src/api/reactions_api.dart';
+import 'package:whatsevr_api/src/api/recommendations_api.dart';
+import 'package:whatsevr_api/src/api/related_content_api.dart';
+import 'package:whatsevr_api/src/api/remove_data_api.dart';
+import 'package:whatsevr_api/src/api/reports_api.dart';
+import 'package:whatsevr_api/src/api/search_api.dart';
+import 'package:whatsevr_api/src/api/security_api.dart';
+import 'package:whatsevr_api/src/api/share_api.dart';
+import 'package:whatsevr_api/src/api/sneek_peek_api.dart';
+import 'package:whatsevr_api/src/api/suggestions_api.dart';
+import 'package:whatsevr_api/src/api/tags_api.dart';
+import 'package:whatsevr_api/src/api/users_api.dart';
+import 'package:whatsevr_api/src/api/wallet_api.dart';
+import 'package:whatsevr_api/src/api/webhooks_api.dart';
 
-class WhatsevrModels {
+class WhatsevrApi {
   static const String basePath = r'http://localhost';
 
   final Dio dio;
-  WhatsevrModels({
+  WhatsevrApi({
     Dio? dio,
     String? basePathOverride,
     List<Interceptor>? interceptors,

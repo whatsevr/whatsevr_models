@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/owned_perk_status.dart';
-import 'package:whatsevr_models/src/model/wallet_earnings_summary.dart';
-import 'package:whatsevr_models/src/model/host_level_status.dart';
-import 'package:whatsevr_models/src/model/one_to_one_call_rate_info.dart';
+import 'package:whatsevr_api/src/model/wallet_earnings_summary.dart';
+import 'package:whatsevr_api/src/model/host_level_status.dart';
+import 'package:whatsevr_api/src/model/owned_perk_status.dart';
+import 'package:whatsevr_api/src/model/one_to_one_call_rate_info.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

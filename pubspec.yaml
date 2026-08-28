@@ -1,4 +1,4 @@
-name: whatsevr_models
+name: whatsevr_api
 description: "Whatsevr wire contract: the API client generated from the server's OpenAPI document, plus the hand-written models the API does not describe."
 version: 0.0.1
 homepage: https://whatsevr.com

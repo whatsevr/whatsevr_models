@@ -6,29 +6,29 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:whatsevr_models/src/deserialize.dart';
+import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:whatsevr_models/src/model/add_candidate_media_body.dart';
-import 'package:whatsevr_models/src/model/add_candidate_media_response.dart';
-import 'package:whatsevr_models/src/model/add_candidate_profile_body.dart';
-import 'package:whatsevr_models/src/model/add_candidate_profile_response.dart';
-import 'package:whatsevr_models/src/model/candidate_uid_body.dart';
-import 'package:whatsevr_models/src/model/confirm_match_body.dart';
-import 'package:whatsevr_models/src/model/confirm_match_response.dart';
-import 'package:whatsevr_models/src/model/delete_candidate_media_body.dart';
-import 'package:whatsevr_models/src/model/end_video_chat_body.dart';
-import 'package:whatsevr_models/src/model/end_video_chat_response.dart';
-import 'package:whatsevr_models/src/model/get_all_candidates_response.dart';
-import 'package:whatsevr_models/src/model/get_candidate_details_response.dart';
-import 'package:whatsevr_models/src/model/get_session_response.dart';
-import 'package:whatsevr_models/src/model/join_queue_response.dart';
-import 'package:whatsevr_models/src/model/leave_queue_response.dart';
-import 'package:whatsevr_models/src/model/media_gallery_response.dart';
-import 'package:whatsevr_models/src/model/queue_status_response.dart';
-import 'package:whatsevr_models/src/model/recently_here_response.dart';
-import 'package:whatsevr_models/src/model/reorder_candidate_media_body.dart';
-import 'package:whatsevr_models/src/model/spin_outcome_response.dart';
+import 'package:whatsevr_api/src/model/add_candidate_media_body.dart';
+import 'package:whatsevr_api/src/model/add_candidate_media_response.dart';
+import 'package:whatsevr_api/src/model/add_candidate_profile_body.dart';
+import 'package:whatsevr_api/src/model/add_candidate_profile_response.dart';
+import 'package:whatsevr_api/src/model/candidate_uid_body.dart';
+import 'package:whatsevr_api/src/model/confirm_match_body.dart';
+import 'package:whatsevr_api/src/model/confirm_match_response.dart';
+import 'package:whatsevr_api/src/model/delete_candidate_media_body.dart';
+import 'package:whatsevr_api/src/model/end_video_chat_body.dart';
+import 'package:whatsevr_api/src/model/end_video_chat_response.dart';
+import 'package:whatsevr_api/src/model/get_all_candidates_response.dart';
+import 'package:whatsevr_api/src/model/get_candidate_details_response.dart';
+import 'package:whatsevr_api/src/model/get_session_response.dart';
+import 'package:whatsevr_api/src/model/join_queue_response.dart';
+import 'package:whatsevr_api/src/model/leave_queue_response.dart';
+import 'package:whatsevr_api/src/model/media_gallery_response.dart';
+import 'package:whatsevr_api/src/model/queue_status_response.dart';
+import 'package:whatsevr_api/src/model/recently_here_response.dart';
+import 'package:whatsevr_api/src/model/reorder_candidate_media_body.dart';
+import 'package:whatsevr_api/src/model/spin_outcome_response.dart';
 
 class SneekPeekApi {
   final Dio _dio;

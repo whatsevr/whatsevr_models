@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/reply_chat_message_row.dart';
-import 'package:whatsevr_models/src/model/public_user.dart';
+import 'package:whatsevr_api/src/model/public_user.dart';
+import 'package:whatsevr_api/src/model/reply_chat_message_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

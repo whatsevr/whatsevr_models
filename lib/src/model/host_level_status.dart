@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_models/src/model/host_level_event.dart';
-import 'package:whatsevr_models/src/model/host_level_progress.dart';
-import 'package:whatsevr_models/src/model/host_level_bar.dart';
-import 'package:whatsevr_models/src/model/host_level_ladder_rung.dart';
+import 'package:whatsevr_api/src/model/host_level_ladder_rung.dart';
+import 'package:whatsevr_api/src/model/host_level_progress.dart';
+import 'package:whatsevr_api/src/model/host_level_event.dart';
+import 'package:whatsevr_api/src/model/host_level_bar.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

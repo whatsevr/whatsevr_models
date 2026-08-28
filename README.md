@@ -1,4 +1,4 @@
-# whatsevr_models
+# whatsevr_api
 
 Shared Dart package: the request/response models, DTOs and enums the Flutter
 app exchanges with the Django backend. Pure data — no networking, no Flutter,
