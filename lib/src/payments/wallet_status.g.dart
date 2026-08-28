@@ -21,22 +21,17 @@ _WalletStatus _$WalletStatusFromJson(
         (k, e) => MapEntry(k, (e as num).toInt()),
       ) ??
       const <String, int>{},
-  earnings:
-      json['earnings'] == null
-          ? const WalletEarnings()
-          : WalletEarnings.fromJson(json['earnings'] as Map<String, dynamic>),
-  oneToOneCallRate:
-      json['one_to_one_call_rate'] == null
-          ? null
-          : OneToOneCallRate.fromJson(
-            json['one_to_one_call_rate'] as Map<String, dynamic>,
-          ),
-  hostLevel:
-      json['host_level'] == null
-          ? null
-          : HostLevelStatus.fromJson(
-            json['host_level'] as Map<String, dynamic>,
-          ),
+  earnings: json['earnings'] == null
+      ? const WalletEarnings()
+      : WalletEarnings.fromJson(json['earnings'] as Map<String, dynamic>),
+  oneToOneCallRate: json['one_to_one_call_rate'] == null
+      ? null
+      : OneToOneCallRate.fromJson(
+          json['one_to_one_call_rate'] as Map<String, dynamic>,
+        ),
+  hostLevel: json['host_level'] == null
+      ? null
+      : HostLevelStatus.fromJson(json['host_level'] as Map<String, dynamic>),
   isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
   spinFeeCredits: (json['spin_fee_credits'] as num?)?.toInt() ?? 0,
   yourSpinCostCredits: (json['your_spin_cost_credits'] as num?)?.toInt() ?? 0,
@@ -70,10 +65,9 @@ Map<String, dynamic> _$WalletStatusToJson(_WalletStatus instance) =>
 
 _PerkGrant _$PerkGrantFromJson(Map<String, dynamic> json) => _PerkGrant(
   config: json['config'] as Map<String, dynamic>? ?? const <String, dynamic>{},
-  expiresAt:
-      json['expires_at'] == null
-          ? null
-          : DateTime.parse(json['expires_at'] as String),
+  expiresAt: json['expires_at'] == null
+      ? null
+      : DateTime.parse(json['expires_at'] as String),
   isEnabled: json['is_enabled'] as bool? ?? true,
 );
 

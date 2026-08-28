@@ -1,0 +1,13 @@
+# Files the generator would write that this package owns by hand.
+# Everything else under lib/src/api, lib/src/model, lib/src/auth,
+# lib/src/api.dart, lib/src/deserialize.dart and lib/whatsevr_api.dart is
+# generated — see tool/generate_api.sh.
+pubspec.yaml
+pubspec.lock
+README.md
+analysis_options.yaml
+build.yaml
+.gitignore
+.travis.yml
+test/**
+doc/**

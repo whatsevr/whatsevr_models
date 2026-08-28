@@ -7,25 +7,23 @@ part of 'memory.dart';
 // **************************************************************************
 
 _BaseMemory _$BaseMemoryFromJson(Map<String, dynamic> json) => _BaseMemory(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   uid: json['uid'] as String?,
   caption: json['caption'] as String?,
-  hashtags:
-      (json['hashtags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  taggedUserUids:
-      (json['tagged_user_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  hashtags: (json['hashtags'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  taggedUserUids: (json['tagged_user_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   isArchived: json['is_archived'] as bool?,
   isActive: json['is_active'] as bool?,
   postCreatorType: json['post_creator_type'] as String?,
-  expiresAt:
-      json['expires_at'] == null
-          ? null
-          : DateTime.parse(json['expires_at'] as String),
+  expiresAt: json['expires_at'] == null
+      ? null
+      : DateTime.parse(json['expires_at'] as String),
   userUid: json['user_uid'] as String?,
   imageUrl: json['image_url'] as String?,
   videoUrl: json['video_url'] as String?,
@@ -37,10 +35,9 @@ _BaseMemory _$BaseMemoryFromJson(Map<String, dynamic> json) => _BaseMemory(
   internalAiDescription: json['internal_ai_description'] as String?,
   addressLatLongWkb: json['address_lat_long_wkb'] as String?,
   creatorLatLongWkb: json['creator_lat_long_wkb'] as String?,
-  taggedCommunityUids:
-      (json['tagged_community_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  taggedCommunityUids: (json['tagged_community_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   totalShares: (json['total_shares'] as num?)?.toInt(),
   cumulativeScore: (json['cumulative_score'] as num?)?.toDouble(),
   ctaAction: json['cta_action'] as String?,
@@ -50,10 +47,9 @@ _BaseMemory _$BaseMemoryFromJson(Map<String, dynamic> json) => _BaseMemory(
   videoDurationMs: (json['video_duration_ms'] as num?)?.toInt(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
 );
 
 Map<String, dynamic> _$BaseMemoryToJson(_BaseMemory instance) =>

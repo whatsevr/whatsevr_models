@@ -9,10 +9,9 @@ part of 'platform_alert.dart';
 _BasePlatformAlert _$BasePlatformAlertFromJson(Map<String, dynamic> json) =>
     _BasePlatformAlert(
       uid: json['uid'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       recipientUserUid: json['recipient_user_uid'] as String?,
       title: json['title'] as String?,
       description: json['description'] as String?,

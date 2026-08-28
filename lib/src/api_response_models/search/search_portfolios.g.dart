@@ -12,10 +12,9 @@ _SearchPortfoliosResponse _$SearchPortfoliosResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  users:
-      (json['users'] as List<dynamic>?)
-          ?.map((e) => PortfolioUser.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  users: (json['users'] as List<dynamic>?)
+      ?.map((e) => PortfolioUser.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$SearchPortfoliosResponseToJson(
@@ -27,72 +26,63 @@ Map<String, dynamic> _$SearchPortfoliosResponseToJson(
   'users': instance.users,
 };
 
-_PortfolioUser _$PortfolioUserFromJson(
-  Map<String, dynamic> json,
-) => _PortfolioUser(
-  registeredAt:
-      json['registered_at'] == null
+_PortfolioUser _$PortfolioUserFromJson(Map<String, dynamic> json) =>
+    _PortfolioUser(
+      registeredAt: json['registered_at'] == null
           ? null
           : DateTime.parse(json['registered_at'] as String),
-  uid: json['uid'] as String?,
-  username: json['username'] as String?,
-  mobileNumber: json['mobile_number'] as String?,
-  emailId: json['email_id'] as String?,
-  name: json['name'] as String?,
-  bio: json['bio'] as String?,
-  address: json['address'] as String?,
-  dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
-  profilePicture: json['profile_picture'] as String?,
-  isPortfolio: json['is_portfolio'] as bool?,
-  portfolioStatus: json['portfolio_status'] as String?,
-  portfolioDescription: json['portfolio_description'] as String?,
-  isBanned: json['is_banned'] as bool?,
-  isSpam: json['is_spam'] as bool?,
-  isDeactivated: json['is_deactivated'] as bool?,
-  portfolioToggledAt:
-      json['portfolio_toggled_at'] == null
+      uid: json['uid'] as String?,
+      username: json['username'] as String?,
+      mobileNumber: json['mobile_number'] as String?,
+      emailId: json['email_id'] as String?,
+      name: json['name'] as String?,
+      bio: json['bio'] as String?,
+      address: json['address'] as String?,
+      dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
+      profilePicture: json['profile_picture'] as String?,
+      isPortfolio: json['is_portfolio'] as bool?,
+      portfolioStatus: json['portfolio_status'] as String?,
+      portfolioDescription: json['portfolio_description'] as String?,
+      isBanned: json['is_banned'] as bool?,
+      isSpam: json['is_spam'] as bool?,
+      isDeactivated: json['is_deactivated'] as bool?,
+      portfolioToggledAt: json['portfolio_toggled_at'] == null
           ? null
           : DateTime.parse(json['portfolio_toggled_at'] as String),
-  portfolioTitle: json['portfolio_title'] as String?,
-  totalFollowers: (json['total_followers'] as num?)?.toInt(),
-  totalFollowings: (json['total_followings'] as num?)?.toInt(),
-  totalReactions: (json['total_reactions'] as num?)?.toInt(),
-  gender: json['gender'] as String?,
-  lastActiveAt:
-      json['last_active_at'] == null
+      portfolioTitle: json['portfolio_title'] as String?,
+      totalFollowers: (json['total_followers'] as num?)?.toInt(),
+      totalFollowings: (json['total_followings'] as num?)?.toInt(),
+      totalReactions: (json['total_reactions'] as num?)?.toInt(),
+      gender: json['gender'] as String?,
+      lastActiveAt: json['last_active_at'] == null
           ? null
           : DateTime.parse(json['last_active_at'] as String),
-  userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
-  totalConnections: (json['total_connections'] as num?)?.toInt(),
-  publicEmailId: json['public_email_id'] as String?,
-  seoDataWeighted: json['seo_data_weighted'] as String?,
-  authProviderId: json['auth_provider_id'] as String?,
-  authProvider: json['auth_provider'] as String?,
-  publicMobileNumber: json['public_mobile_number'] as String?,
-  updatedAt:
-      json['updated_at'] == null
+      userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
+      totalConnections: (json['total_connections'] as num?)?.toInt(),
+      publicEmailId: json['public_email_id'] as String?,
+      seoDataWeighted: json['seo_data_weighted'] as String?,
+      authProviderId: json['auth_provider_id'] as String?,
+      authProvider: json['auth_provider'] as String?,
+      publicMobileNumber: json['public_mobile_number'] as String?,
+      updatedAt: json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String),
-  isPrivate: json['is_private'] as bool?,
-  coverMedia:
-      (json['cover_media'] as List<dynamic>?)
+      isPrivate: json['is_private'] as bool?,
+      coverMedia: (json['cover_media'] as List<dynamic>?)
           ?.map((e) => PortfolioCoverMedia.fromJson(e as Map<String, dynamic>))
           .toList(),
-  services:
-      (json['services'] as List<dynamic>?)
+      services: (json['services'] as List<dynamic>?)
           ?.map((e) => PortfolioService.fromJson(e as Map<String, dynamic>))
           .toList(),
-  educations:
-      (json['educations'] as List<dynamic>?)
+      educations: (json['educations'] as List<dynamic>?)
           ?.map((e) => PortfolioEducation.fromJson(e as Map<String, dynamic>))
           .toList(),
-  workExperiences:
-      (json['work_experiences'] as List<dynamic>?)
+      workExperiences: (json['work_experiences'] as List<dynamic>?)
           ?.map(
             (e) => PortfolioWorkExperience.fromJson(e as Map<String, dynamic>),
           )
           .toList(),
-);
+    );
 
 Map<String, dynamic> _$PortfolioUserToJson(_PortfolioUser instance) =>
     <String, dynamic>{
@@ -136,20 +126,18 @@ Map<String, dynamic> _$PortfolioUserToJson(_PortfolioUser instance) =>
 
 _PortfolioCoverMedia _$PortfolioCoverMediaFromJson(Map<String, dynamic> json) =>
     _PortfolioCoverMedia(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       imageUrl: json['image_url'] as String?,
       isVideo: json['is_video'] as bool?,
       userUid: json['user_uid'] as String?,
       videoUrl: json['video_url'] as String?,
       communityUid: json['community_uid'] as String?,
       ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       uid: json['uid'] as String?,
     );
 
@@ -169,19 +157,17 @@ Map<String, dynamic> _$PortfolioCoverMediaToJson(
 
 _PortfolioService _$PortfolioServiceFromJson(Map<String, dynamic> json) =>
     _PortfolioService(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       title: json['title'] as String?,
       userUid: json['user_uid'] as String?,
       description: json['description'] as String?,
       communityUid: json['community_uid'] as String?,
       ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       uid: json['uid'] as String?,
     );
 
@@ -199,27 +185,23 @@ Map<String, dynamic> _$PortfolioServiceToJson(_PortfolioService instance) =>
 
 _PortfolioEducation _$PortfolioEducationFromJson(Map<String, dynamic> json) =>
     _PortfolioEducation(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       userUid: json['user_uid'] as String?,
       title: json['title'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
+      startDate: json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+      endDate: json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
       type: json['type'] as String?,
       institute: json['institute'] as String?,
       isOngoingEducation: json['is_ongoing_education'] as bool?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       uid: json['uid'] as String?,
     );
 
@@ -240,27 +222,23 @@ Map<String, dynamic> _$PortfolioEducationToJson(_PortfolioEducation instance) =>
 _PortfolioWorkExperience _$PortfolioWorkExperienceFromJson(
   Map<String, dynamic> json,
 ) => _PortfolioWorkExperience(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   designation: json['designation'] as String?,
-  startDate:
-      json['start_date'] == null
-          ? null
-          : DateTime.parse(json['start_date'] as String),
-  endDate:
-      json['end_date'] == null
-          ? null
-          : DateTime.parse(json['end_date'] as String),
+  startDate: json['start_date'] == null
+      ? null
+      : DateTime.parse(json['start_date'] as String),
+  endDate: json['end_date'] == null
+      ? null
+      : DateTime.parse(json['end_date'] as String),
   userUid: json['user_uid'] as String?,
   workingMode: json['working_mode'] as String?,
   isCurrentlyWorking: json['is_currently_working'] as bool?,
   companyName: json['company_name'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   uid: json['uid'] as String?,
 );
 

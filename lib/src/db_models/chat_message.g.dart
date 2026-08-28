@@ -11,10 +11,9 @@ _BaseChatMessage _$BaseChatMessageFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String?,
       senderUid: json['sender_uid'] as String?,
       message: json['message'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       isPinned: json['is_pinned'] as bool?,
       communityUid: json['community_uid'] as String?,
       privateChatUid: json['private_chat_uid'] as String?,
@@ -23,10 +22,9 @@ _BaseChatMessage _$BaseChatMessageFromJson(Map<String, dynamic> json) =>
       isDeleted: json['is_deleted'] as bool?,
       isSystemMessage: json['is_system_message'] as bool?,
       ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       relatedContent: json['related_content'] as List<dynamic>?,
     );
 

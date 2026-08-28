@@ -7,10 +7,9 @@ part of 'user.dart';
 // **************************************************************************
 
 _BaseUser _$BaseUserFromJson(Map<String, dynamic> json) => _BaseUser(
-  registeredAt:
-      json['registered_at'] == null
-          ? null
-          : DateTime.parse(json['registered_at'] as String),
+  registeredAt: json['registered_at'] == null
+      ? null
+      : DateTime.parse(json['registered_at'] as String),
   uid: json['uid'] as String?,
   username: json['username'] as String?,
   mobileNumber: json['mobile_number'] as String?,
@@ -26,19 +25,17 @@ _BaseUser _$BaseUserFromJson(Map<String, dynamic> json) => _BaseUser(
   isBanned: json['is_banned'] as bool?,
   isSpam: json['is_spam'] as bool?,
   isDeactivated: json['is_deactivated'] as bool?,
-  portfolioToggledAt:
-      json['portfolio_toggled_at'] == null
-          ? null
-          : DateTime.parse(json['portfolio_toggled_at'] as String),
+  portfolioToggledAt: json['portfolio_toggled_at'] == null
+      ? null
+      : DateTime.parse(json['portfolio_toggled_at'] as String),
   portfolioTitle: json['portfolio_title'] as String?,
   totalFollowers: (json['total_followers'] as num?)?.toInt(),
   totalFollowings: (json['total_followings'] as num?)?.toInt(),
   totalReactions: (json['total_reactions'] as num?)?.toInt(),
   gender: json['gender'] as String?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
+  lastActiveAt: json['last_active_at'] == null
+      ? null
+      : DateTime.parse(json['last_active_at'] as String),
   userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
   totalConnections: (json['total_connections'] as num?)?.toInt(),
   publicEmailId: json['public_email_id'] as String?,
@@ -46,10 +43,9 @@ _BaseUser _$BaseUserFromJson(Map<String, dynamic> json) => _BaseUser(
   authProviderId: json['auth_provider_id'] as String?,
   authProvider: json['auth_provider'] as String?,
   publicMobileNumber: json['public_mobile_number'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   isPremiumProfile: json['is_premium_profile'] as bool?,
 );
 

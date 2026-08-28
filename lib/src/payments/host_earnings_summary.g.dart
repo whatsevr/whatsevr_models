@@ -39,20 +39,17 @@ Map<String, dynamic> _$WithdrawalTermsToJson(_WithdrawalTerms instance) =>
 _HostEarningsStatement _$HostEarningsStatementFromJson(
   Map<String, dynamic> json,
 ) => _HostEarningsStatement(
-  withdrawalTerms:
-      json['withdrawal_terms'] == null
-          ? null
-          : WithdrawalTerms.fromJson(
-            json['withdrawal_terms'] as Map<String, dynamic>,
-          ),
-  periodStart:
-      json['period_start'] == null
-          ? null
-          : DateTime.parse(json['period_start'] as String),
-  periodLastDay:
-      json['period_last_day'] == null
-          ? null
-          : DateTime.parse(json['period_last_day'] as String),
+  withdrawalTerms: json['withdrawal_terms'] == null
+      ? null
+      : WithdrawalTerms.fromJson(
+          json['withdrawal_terms'] as Map<String, dynamic>,
+        ),
+  periodStart: json['period_start'] == null
+      ? null
+      : DateTime.parse(json['period_start'] as String),
+  periodLastDay: json['period_last_day'] == null
+      ? null
+      : DateTime.parse(json['period_last_day'] as String),
   openingBalancePaise: (json['opening_balance_paise'] as num?)?.toInt() ?? 0,
   earnedPaise: (json['earned_paise'] as num?)?.toInt() ?? 0,
   earnedFromCallsPaise: (json['earned_from_calls_paise'] as num?)?.toInt() ?? 0,
@@ -95,12 +92,11 @@ _HostEarningsSummary _$HostEarningsSummaryFromJson(Map<String, dynamic> json) =>
       balancePaise: (json['balance_paise'] as num?)?.toInt() ?? 0,
       lifetimePaise: (json['lifetime_paise'] as num?)?.toInt() ?? 0,
       giftEarningsPaise: (json['gift_earnings_paise'] as num?)?.toInt() ?? 0,
-      statement:
-          json['statement'] == null
-              ? null
-              : HostEarningsStatement.fromJson(
-                json['statement'] as Map<String, dynamic>,
-              ),
+      statement: json['statement'] == null
+          ? null
+          : HostEarningsStatement.fromJson(
+              json['statement'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$HostEarningsSummaryToJson(

@@ -9,20 +9,18 @@ part of 'cover_media.dart';
 _BaseCoverMedia _$BaseCoverMediaFromJson(Map<String, dynamic> json) =>
     _BaseCoverMedia(
       id: (json['id'] as num?)?.toInt(),
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       imageUrl: json['image_url'] as String?,
       isVideo: json['is_video'] as bool?,
       userUid: json['user_uid'] as String?,
       videoUrl: json['video_url'] as String?,
       communityUid: json['community_uid'] as String?,
       ownerType: json['owner_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$BaseCoverMediaToJson(_BaseCoverMedia instance) =>

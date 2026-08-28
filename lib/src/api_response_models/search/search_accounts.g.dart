@@ -12,10 +12,9 @@ _SearchAccountsResponse _$SearchAccountsResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  users:
-      (json['users'] as List<dynamic>?)
-          ?.map((e) => SearchedUser.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  users: (json['users'] as List<dynamic>?)
+      ?.map((e) => SearchedUser.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$SearchAccountsResponseToJson(
@@ -29,10 +28,9 @@ Map<String, dynamic> _$SearchAccountsResponseToJson(
 
 _SearchedUser _$SearchedUserFromJson(Map<String, dynamic> json) =>
     _SearchedUser(
-      registeredAt:
-          json['registered_at'] == null
-              ? null
-              : DateTime.parse(json['registered_at'] as String),
+      registeredAt: json['registered_at'] == null
+          ? null
+          : DateTime.parse(json['registered_at'] as String),
       uid: json['uid'] as String?,
       username: json['username'] as String?,
       mobileNumber: json['mobile_number'] as String?,
@@ -48,19 +46,17 @@ _SearchedUser _$SearchedUserFromJson(Map<String, dynamic> json) =>
       isBanned: json['is_banned'] as bool?,
       isSpam: json['is_spam'] as bool?,
       isDeactivated: json['is_deactivated'] as bool?,
-      portfolioToggledAt:
-          json['portfolio_toggled_at'] == null
-              ? null
-              : DateTime.parse(json['portfolio_toggled_at'] as String),
+      portfolioToggledAt: json['portfolio_toggled_at'] == null
+          ? null
+          : DateTime.parse(json['portfolio_toggled_at'] as String),
       portfolioTitle: json['portfolio_title'] as String?,
       totalFollowers: (json['total_followers'] as num?)?.toInt(),
       totalFollowings: (json['total_followings'] as num?)?.toInt(),
       totalReactions: (json['total_reactions'] as num?)?.toInt(),
       gender: json['gender'] as String?,
-      lastActiveAt:
-          json['last_active_at'] == null
-              ? null
-              : DateTime.parse(json['last_active_at'] as String),
+      lastActiveAt: json['last_active_at'] == null
+          ? null
+          : DateTime.parse(json['last_active_at'] as String),
       userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
       totalConnections: (json['total_connections'] as num?)?.toInt(),
       publicEmailId: json['public_email_id'] as String?,
@@ -68,21 +64,16 @@ _SearchedUser _$SearchedUserFromJson(Map<String, dynamic> json) =>
       authProviderId: json['auth_provider_id'] as String?,
       authProvider: json['auth_provider'] as String?,
       publicMobileNumber: json['public_mobile_number'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       isPrivate: json['is_private'] as bool?,
-      educations:
-          (json['educations'] as List<dynamic>?)
-              ?.map((e) => UserEducation.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      workExperiences:
-          (json['work_experiences'] as List<dynamic>?)
-              ?.map(
-                (e) => UserWorkExperience.fromJson(e as Map<String, dynamic>),
-              )
-              .toList(),
+      educations: (json['educations'] as List<dynamic>?)
+          ?.map((e) => UserEducation.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workExperiences: (json['work_experiences'] as List<dynamic>?)
+          ?.map((e) => UserWorkExperience.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$SearchedUserToJson(_SearchedUser instance) =>
@@ -125,27 +116,23 @@ Map<String, dynamic> _$SearchedUserToJson(_SearchedUser instance) =>
 
 _UserEducation _$UserEducationFromJson(Map<String, dynamic> json) =>
     _UserEducation(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       userUid: json['user_uid'] as String?,
       title: json['title'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
+      startDate: json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+      endDate: json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
       type: json['type'] as String?,
       institute: json['institute'] as String?,
       isOngoingEducation: json['is_ongoing_education'] as bool?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       uid: json['uid'] as String?,
     );
 
@@ -165,27 +152,23 @@ Map<String, dynamic> _$UserEducationToJson(_UserEducation instance) =>
 
 _UserWorkExperience _$UserWorkExperienceFromJson(Map<String, dynamic> json) =>
     _UserWorkExperience(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       designation: json['designation'] as String?,
-      startDate:
-          json['start_date'] == null
-              ? null
-              : DateTime.parse(json['start_date'] as String),
-      endDate:
-          json['end_date'] == null
-              ? null
-              : DateTime.parse(json['end_date'] as String),
+      startDate: json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
+      endDate: json['end_date'] == null
+          ? null
+          : DateTime.parse(json['end_date'] as String),
       userUid: json['user_uid'] as String?,
       workingMode: json['working_mode'] as String?,
       isCurrentlyWorking: json['is_currently_working'] as bool?,
       companyName: json['company_name'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       uid: json['uid'] as String?,
     );
 

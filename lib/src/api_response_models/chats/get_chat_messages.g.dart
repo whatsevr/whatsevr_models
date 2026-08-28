@@ -12,10 +12,9 @@ _GetChatMessagesResponse _$GetChatMessagesResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  messages:
-      (json['messages'] as List<dynamic>?)
-          ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  messages: (json['messages'] as List<dynamic>?)
+      ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$GetChatMessagesResponseToJson(
@@ -31,10 +30,9 @@ _Message _$MessageFromJson(Map<String, dynamic> json) => _Message(
   uid: json['uid'] as String?,
   senderUid: json['sender_uid'] as String?,
   message: json['message'] as String?,
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   isPinned: json['is_pinned'] as bool?,
   communityUid: json['community_uid'] as String?,
   privateChatUid: json['private_chat_uid'] as String?,
@@ -43,18 +41,15 @@ _Message _$MessageFromJson(Map<String, dynamic> json) => _Message(
   isDeleted: json['is_deleted'] as bool?,
   isSystemMessage: json['is_system_message'] as bool?,
   ownerType: json['owner_type'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
-  relatedContent:
-      (json['related_content'] as List<dynamic>?)
-          ?.map((e) => RelatedContent.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  sender:
-      json['sender'] == null
-          ? null
-          : Sender.fromJson(json['sender'] as Map<String, dynamic>),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
+  relatedContent: (json['related_content'] as List<dynamic>?)
+      ?.map((e) => RelatedContent.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  sender: json['sender'] == null
+      ? null
+      : Sender.fromJson(json['sender'] as Map<String, dynamic>),
   replyToChatMessage: json['reply_to_chat_message'] as List<dynamic>?,
 );
 
@@ -106,22 +101,19 @@ _Sender _$SenderFromJson(Map<String, dynamic> json) => _Sender(
   emailId: json['email_id'] as String?,
   username: json['username'] as String?,
   isBanned: json['is_banned'] as bool?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   isPortfolio: json['is_portfolio'] as bool?,
   authProvider: json['auth_provider'] as String?,
   mobileNumber: json['mobile_number'] as String?,
-  registeredAt:
-      json['registered_at'] == null
-          ? null
-          : DateTime.parse(json['registered_at'] as String),
+  registeredAt: json['registered_at'] == null
+      ? null
+      : DateTime.parse(json['registered_at'] as String),
   isDeactivated: json['is_deactivated'] as bool?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
+  lastActiveAt: json['last_active_at'] == null
+      ? null
+      : DateTime.parse(json['last_active_at'] as String),
   portfolioTitle: json['portfolio_title'] as String?,
   profilePicture: json['profile_picture'] as String?,
   publicEmailId: json['public_email_id'] as String?,
@@ -132,10 +124,9 @@ _Sender _$SenderFromJson(Map<String, dynamic> json) => _Sender(
   totalFollowings: (json['total_followings'] as num?)?.toInt(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   totalConnections: (json['total_connections'] as num?)?.toInt(),
-  portfolioToggledAt:
-      json['portfolio_toggled_at'] == null
-          ? null
-          : DateTime.parse(json['portfolio_toggled_at'] as String),
+  portfolioToggledAt: json['portfolio_toggled_at'] == null
+      ? null
+      : DateTime.parse(json['portfolio_toggled_at'] as String),
   publicMobileNumber: json['public_mobile_number'] as String?,
   portfolioDescription: json['portfolio_description'] as String?,
   userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,

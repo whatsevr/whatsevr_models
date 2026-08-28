@@ -11,14 +11,12 @@ _ExternalSearchWtvsResult _$ExternalSearchWtvsResultFromJson(
 ) => _ExternalSearchWtvsResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
-  results:
-      (json['results'] as List<dynamic>?)
-          ?.map((e) => SearchedWtv.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  pagination:
-      json['pagination'] == null
-          ? null
-          : WtvsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
+  results: (json['results'] as List<dynamic>?)
+      ?.map((e) => SearchedWtv.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  pagination: json['pagination'] == null
+      ? null
+      : WtvsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ExternalSearchWtvsResultToJson(
@@ -31,26 +29,24 @@ Map<String, dynamic> _$ExternalSearchWtvsResultToJson(
 };
 
 _SearchedWtv _$SearchedWtvFromJson(Map<String, dynamic> json) => _SearchedWtv(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   uid: json['uid'] as String?,
   title: json['title'] as String?,
   description: json['description'] as String?,
-  hashtags:
-      (json['hashtags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  taggedUserUids:
-      (json['tagged_user_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  hashtags: (json['hashtags'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  taggedUserUids: (json['tagged_user_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   isArchived: json['is_archived'] as bool?,
   isActive: json['is_active'] as bool?,
   postCreatorType: json['post_creator_type'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   userUid: json['user_uid'] as String?,
   thumbnail: json['thumbnail'] as String?,
   videoUrl: json['video_url'] as String?,
@@ -61,23 +57,20 @@ _SearchedWtv _$SearchedWtvFromJson(Map<String, dynamic> json) => _SearchedWtv(
   internalAiDescription: json['internal_ai_description'] as String?,
   addressLatLongWkb: json['address_lat_long_wkb'] as String?,
   creatorLatLongWkb: json['creator_lat_long_wkb'] as String?,
-  taggedCommunityUids:
-      (json['tagged_community_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  taggedCommunityUids: (json['tagged_community_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   totalShares: (json['total_shares'] as num?)?.toInt(),
   cumulativeScore: (json['cumulative_score'] as num?)?.toInt(),
   videoDurationInSec: (json['video_duration_in_sec'] as num?)?.toInt(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  externalSearchIndexedAt:
-      json['external_search_indexed_at'] == null
-          ? null
-          : DateTime.parse(json['external_search_indexed_at'] as String),
-  creator:
-      json['creator'] == null
-          ? null
-          : WtvCreator.fromJson(json['creator'] as Map<String, dynamic>),
+  externalSearchIndexedAt: json['external_search_indexed_at'] == null
+      ? null
+      : DateTime.parse(json['external_search_indexed_at'] as String),
+  creator: json['creator'] == null
+      ? null
+      : WtvCreator.fromJson(json['creator'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SearchedWtvToJson(_SearchedWtv instance) =>
@@ -108,8 +101,8 @@ Map<String, dynamic> _$SearchedWtvToJson(_SearchedWtv instance) =>
       'video_duration_in_sec': instance.videoDurationInSec,
       'seo_data_weighted': instance.seoDataWeighted,
       'community_uid': instance.communityUid,
-      'external_search_indexed_at':
-          instance.externalSearchIndexedAt?.toIso8601String(),
+      'external_search_indexed_at': instance.externalSearchIndexedAt
+          ?.toIso8601String(),
       'creator': instance.creator,
     };
 

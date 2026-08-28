@@ -11,14 +11,12 @@ _ExternalSearchPdfsResult _$ExternalSearchPdfsResultFromJson(
 ) => _ExternalSearchPdfsResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
-  results:
-      (json['results'] as List<dynamic>?)
-          ?.map((e) => SearchedPdf.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  pagination:
-      json['pagination'] == null
-          ? null
-          : PdfsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
+  results: (json['results'] as List<dynamic>?)
+      ?.map((e) => SearchedPdf.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  pagination: json['pagination'] == null
+      ? null
+      : PdfsPagination.fromJson(json['pagination'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ExternalSearchPdfsResultToJson(
@@ -31,10 +29,9 @@ Map<String, dynamic> _$ExternalSearchPdfsResultToJson(
 };
 
 _SearchedPdf _$SearchedPdfFromJson(Map<String, dynamic> json) => _SearchedPdf(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   fileUrl: json['file_url'] as String?,
   userUid: json['user_uid'] as String?,
   title: json['title'] as String?,
@@ -45,19 +42,16 @@ _SearchedPdf _$SearchedPdfFromJson(Map<String, dynamic> json) => _SearchedPdf(
   uid: json['uid'] as String?,
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   totalImpressions: (json['total_impressions'] as num?)?.toInt(),
-  externalSearchIndexedAt:
-      json['external_search_indexed_at'] == null
-          ? null
-          : DateTime.parse(json['external_search_indexed_at'] as String),
-  creator:
-      json['creator'] == null
-          ? null
-          : PdfCreator.fromJson(json['creator'] as Map<String, dynamic>),
+  externalSearchIndexedAt: json['external_search_indexed_at'] == null
+      ? null
+      : DateTime.parse(json['external_search_indexed_at'] as String),
+  creator: json['creator'] == null
+      ? null
+      : PdfCreator.fromJson(json['creator'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SearchedPdfToJson(_SearchedPdf instance) =>
@@ -75,8 +69,8 @@ Map<String, dynamic> _$SearchedPdfToJson(_SearchedPdf instance) =>
       'community_uid': instance.communityUid,
       'updated_at': instance.updatedAt?.toIso8601String(),
       'total_impressions': instance.totalImpressions,
-      'external_search_indexed_at':
-          instance.externalSearchIndexedAt?.toIso8601String(),
+      'external_search_indexed_at': instance.externalSearchIndexedAt
+          ?.toIso8601String(),
       'creator': instance.creator,
     };
 

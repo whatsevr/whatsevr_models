@@ -12,10 +12,9 @@ _GetUserSuggestionResponse _$GetUserSuggestionResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  result:
-      (json['result'] as List<dynamic>?)
-          ?.map((e) => SuggestionUser.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  result: (json['result'] as List<dynamic>?)
+      ?.map((e) => SuggestionUser.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$GetUserSuggestionResponseToJson(

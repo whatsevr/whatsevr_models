@@ -12,12 +12,9 @@ _GetCommunityMembersResponse _$GetCommunityMembersResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  result:
-      json['result'] == null
-          ? null
-          : CommunityMembersResult.fromJson(
-            json['result'] as Map<String, dynamic>,
-          ),
+  result: json['result'] == null
+      ? null
+      : CommunityMembersResult.fromJson(json['result'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$GetCommunityMembersResponseToJson(
@@ -32,18 +29,15 @@ Map<String, dynamic> _$GetCommunityMembersResponseToJson(
 _CommunityMembersResult _$CommunityMembersResultFromJson(
   Map<String, dynamic> json,
 ) => _CommunityMembersResult(
-  owner:
-      json['owner'] == null
-          ? null
-          : User.fromJson(json['owner'] as Map<String, dynamic>),
-  memberRoles:
-      (json['member_roles'] as List<dynamic>?)
-          ?.map((e) => CommunityMember.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  members:
-      (json['members'] as List<dynamic>?)
-          ?.map((e) => CommunityMember.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  owner: json['owner'] == null
+      ? null
+      : User.fromJson(json['owner'] as Map<String, dynamic>),
+  memberRoles: (json['member_roles'] as List<dynamic>?)
+      ?.map((e) => CommunityMember.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  members: (json['members'] as List<dynamic>?)
+      ?.map((e) => CommunityMember.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$CommunityMembersResultToJson(
@@ -55,10 +49,9 @@ Map<String, dynamic> _$CommunityMembersResultToJson(
 };
 
 _User _$UserFromJson(Map<String, dynamic> json) => _User(
-  registeredAt:
-      json['registered_at'] == null
-          ? null
-          : DateTime.parse(json['registered_at'] as String),
+  registeredAt: json['registered_at'] == null
+      ? null
+      : DateTime.parse(json['registered_at'] as String),
   uid: json['uid'] as String?,
   username: json['username'] as String?,
   mobileNumber: json['mobile_number'] as String?,
@@ -74,19 +67,17 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   isBanned: json['is_banned'] as bool?,
   isSpam: json['is_spam'] as bool?,
   isDeactivated: json['is_deactivated'] as bool?,
-  portfolioToggledAt:
-      json['portfolio_toggled_at'] == null
-          ? null
-          : DateTime.parse(json['portfolio_toggled_at'] as String),
+  portfolioToggledAt: json['portfolio_toggled_at'] == null
+      ? null
+      : DateTime.parse(json['portfolio_toggled_at'] as String),
   portfolioTitle: json['portfolio_title'] as String?,
   totalFollowers: (json['total_followers'] as num?)?.toInt(),
   totalFollowings: (json['total_followings'] as num?)?.toInt(),
   totalReactions: (json['total_reactions'] as num?)?.toInt(),
   gender: json['gender'] as String?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
+  lastActiveAt: json['last_active_at'] == null
+      ? null
+      : DateTime.parse(json['last_active_at'] as String),
   userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,
   totalConnections: (json['total_connections'] as num?)?.toInt(),
   publicEmailId: json['public_email_id'] as String?,
@@ -94,10 +85,9 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   authProviderId: json['auth_provider_id'] as String?,
   authProvider: json['auth_provider'] as String?,
   publicMobileNumber: json['public_mobile_number'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
 );
 
 Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
@@ -138,32 +128,27 @@ _CommunityMember _$CommunityMemberFromJson(Map<String, dynamic> json) =>
     _CommunityMember(
       communityUid: json['community_uid'] as String?,
       userUid: json['user_uid'] as String?,
-      joinedAt:
-          json['joined_at'] == null
-              ? null
-              : DateTime.parse(json['joined_at'] as String),
+      joinedAt: json['joined_at'] == null
+          ? null
+          : DateTime.parse(json['joined_at'] as String),
       role: json['role'] as String?,
       status: json['status'] as String?,
       approved: json['approved'] as bool?,
-      lastActiveAt:
-          json['last_active_at'] == null
-              ? null
-              : DateTime.parse(json['last_active_at'] as String),
-      mutedUntil:
-          json['muted_until'] == null
-              ? null
-              : DateTime.parse(json['muted_until'] as String),
+      lastActiveAt: json['last_active_at'] == null
+          ? null
+          : DateTime.parse(json['last_active_at'] as String),
+      mutedUntil: json['muted_until'] == null
+          ? null
+          : DateTime.parse(json['muted_until'] as String),
       joinRequestMessage: json['join_request_message'] as String?,
       notes: json['notes'] as String?,
       uid: json['uid'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
-      user:
-          json['user'] == null
-              ? null
-              : User.fromJson(json['user'] as Map<String, dynamic>),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CommunityMemberToJson(_CommunityMember instance) =>

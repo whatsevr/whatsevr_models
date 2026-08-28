@@ -10,18 +10,15 @@ _UserCommunitiesResponse _$UserCommunitiesResponseFromJson(
   Map<String, dynamic> json,
 ) => _UserCommunitiesResponse(
   message: json['message'] as String?,
-  userCommunities:
-      (json['user_communities'] as List<dynamic>?)
-          ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  joinedCommunities:
-      (json['joined_communities'] as List<dynamic>?)
-          ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  joinPendingCommunities:
-      (json['join_pending_communities'] as List<dynamic>?)
-          ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  userCommunities: (json['user_communities'] as List<dynamic>?)
+      ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  joinedCommunities: (json['joined_communities'] as List<dynamic>?)
+      ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  joinPendingCommunities: (json['join_pending_communities'] as List<dynamic>?)
+      ?.map((e) => Community.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$UserCommunitiesResponseToJson(
@@ -34,10 +31,9 @@ Map<String, dynamic> _$UserCommunitiesResponseToJson(
 };
 
 _Community _$CommunityFromJson(Map<String, dynamic> json) => _Community(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   adminUserUid: json['admin_user_uid'] as String?,
   status: json['status'] as String?,
   bio: json['bio'] as String?,
@@ -51,19 +47,16 @@ _Community _$CommunityFromJson(Map<String, dynamic> json) => _Community(
   isPrivate: json['is_private'] as bool?,
   seoDataWeighted: json['seo_data_weighted'] as String?,
   plainLastMessage: json['plain_last_message'] as String?,
-  lastMessageAt:
-      json['last_message_at'] == null
-          ? null
-          : DateTime.parse(json['last_message_at'] as String),
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  lastMessageAt: json['last_message_at'] == null
+      ? null
+      : DateTime.parse(json['last_message_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   isBroadcasting: json['is_broadcasting'] as bool?,
-  admin:
-      json['admin'] == null
-          ? null
-          : CommunityAdmin.fromJson(json['admin'] as Map<String, dynamic>),
+  admin: json['admin'] == null
+      ? null
+      : CommunityAdmin.fromJson(json['admin'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$CommunityToJson(_Community instance) =>
@@ -100,22 +93,19 @@ _CommunityAdmin _$CommunityAdminFromJson(Map<String, dynamic> json) =>
       emailId: json['email_id'] as String?,
       username: json['username'] as String?,
       isBanned: json['is_banned'] as bool?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       isPortfolio: json['is_portfolio'] as bool?,
       authProvider: json['auth_provider'] as String?,
       mobileNumber: json['mobile_number'] as String?,
-      registeredAt:
-          json['registered_at'] == null
-              ? null
-              : DateTime.parse(json['registered_at'] as String),
+      registeredAt: json['registered_at'] == null
+          ? null
+          : DateTime.parse(json['registered_at'] as String),
       isDeactivated: json['is_deactivated'] as bool?,
-      lastActiveAt:
-          json['last_active_at'] == null
-              ? null
-              : DateTime.parse(json['last_active_at'] as String),
+      lastActiveAt: json['last_active_at'] == null
+          ? null
+          : DateTime.parse(json['last_active_at'] as String),
       portfolioTitle: json['portfolio_title'] as String?,
       profilePicture: json['profile_picture'] as String?,
       publicEmailId: json['public_email_id'] as String?,
@@ -126,10 +116,9 @@ _CommunityAdmin _$CommunityAdminFromJson(Map<String, dynamic> json) =>
       totalFollowings: (json['total_followings'] as num?)?.toInt(),
       seoDataWeighted: json['seo_data_weighted'] as String?,
       totalConnections: (json['total_connections'] as num?)?.toInt(),
-      portfolioToggledAt:
-          json['portfolio_toggled_at'] == null
-              ? null
-              : DateTime.parse(json['portfolio_toggled_at'] as String),
+      portfolioToggledAt: json['portfolio_toggled_at'] == null
+          ? null
+          : DateTime.parse(json['portfolio_toggled_at'] as String),
       publicMobileNumber: json['public_mobile_number'] as String?,
       portfolioDescription: json['portfolio_description'] as String?,
       userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,

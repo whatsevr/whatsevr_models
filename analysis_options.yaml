@@ -3,3 +3,13 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   errors:
     invalid_annotation_target: ignore
+    # Style rules the generated client (lib/src/api, lib/src/model) does not
+    # follow. Ignored package-wide rather than excluding those directories, so
+    # `dart analyze` still type-checks the generated code.
+    no_leading_underscores_for_local_identifiers: ignore
+    use_null_aware_elements: ignore
+    unnecessary_cast: ignore
+    unnecessary_this: ignore
+    unnecessary_brace_in_string_interps: ignore
+    constant_identifier_names: ignore
+    camel_case_types: ignore

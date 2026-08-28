@@ -7,10 +7,9 @@ part of 'comment.dart';
 // **************************************************************************
 
 _BaseComment _$BaseCommentFromJson(Map<String, dynamic> json) => _BaseComment(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   commentText: json['comment_text'] as String?,
   userUid: json['user_uid'] as String?,
   wtvUid: json['wtv_uid'] as String?,
@@ -22,10 +21,9 @@ _BaseComment _$BaseCommentFromJson(Map<String, dynamic> json) => _BaseComment(
   uid: json['uid'] as String?,
   imageUrl: json['image_url'] as String?,
   contentType: json['content_type'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   contentOwnerUserUid: json['content_owner_user_uid'] as String?,
 );
 

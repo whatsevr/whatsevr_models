@@ -10,10 +10,9 @@ _GetUserAlertsResponse _$GetUserAlertsResponseFromJson(
   Map<String, dynamic> json,
 ) => _GetUserAlertsResponse(
   message: json['message'] as String?,
-  userAlerts:
-      (json['user_alerts'] as List<dynamic>?)
-          ?.map((e) => UserAlert.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  userAlerts: (json['user_alerts'] as List<dynamic>?)
+      ?.map((e) => UserAlert.fromJson(e as Map<String, dynamic>))
+      .toList(),
   page: (json['page'] as num?)?.toInt(),
   pageSize: (json['page_size'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
@@ -31,23 +30,20 @@ Map<String, dynamic> _$GetUserAlertsResponseToJson(
 
 _UserAlert _$UserAlertFromJson(Map<String, dynamic> json) => _UserAlert(
   uid: json['uid'] as String?,
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   recipientUserUid: json['recipient_user_uid'] as String?,
   title: json['title'] as String?,
   description: json['description'] as String?,
   actorUserUid: json['actor_user_uid'] as String?,
   alertType: json['alert_type'] as String?,
-  content:
-      (json['content'] as List<dynamic>?)
-          ?.map((e) => AlertContent.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  actorUser:
-      json['actor_user'] == null
-          ? null
-          : ActorUser.fromJson(json['actor_user'] as Map<String, dynamic>),
+  content: (json['content'] as List<dynamic>?)
+      ?.map((e) => AlertContent.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  actorUser: json['actor_user'] == null
+      ? null
+      : ActorUser.fromJson(json['actor_user'] as Map<String, dynamic>),
   target: json['target'] as Map<String, dynamic>?,
 );
 
@@ -90,23 +86,20 @@ _ActorUser _$ActorUserFromJson(Map<String, dynamic> json) => _ActorUser(
   emailId: json['email_id'] as String?,
   username: json['username'] as String?,
   isBanned: json['is_banned'] as bool?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   totalLikes: (json['total_likes'] as num?)?.toInt(),
   isPortfolio: json['is_portfolio'] as bool?,
   authProvider: json['auth_provider'] as String?,
   mobileNumber: json['mobile_number'] as String?,
-  registeredAt:
-      json['registered_at'] == null
-          ? null
-          : DateTime.parse(json['registered_at'] as String),
+  registeredAt: json['registered_at'] == null
+      ? null
+      : DateTime.parse(json['registered_at'] as String),
   isDeactivated: json['is_deactivated'] as bool?,
-  lastActiveAt:
-      json['last_active_at'] == null
-          ? null
-          : DateTime.parse(json['last_active_at'] as String),
+  lastActiveAt: json['last_active_at'] == null
+      ? null
+      : DateTime.parse(json['last_active_at'] as String),
   portfolioTitle: json['portfolio_title'] as String?,
   profilePicture: json['profile_picture'] as String?,
   publicEmailId: json['public_email_id'] as String?,
@@ -117,10 +110,9 @@ _ActorUser _$ActorUserFromJson(Map<String, dynamic> json) => _ActorUser(
   totalPostLikes: (json['total_post_likes'] as num?)?.toInt(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   totalConnections: (json['total_connections'] as num?)?.toInt(),
-  portfolioToggledAt:
-      json['portfolio_toggled_at'] == null
-          ? null
-          : DateTime.parse(json['portfolio_toggled_at'] as String),
+  portfolioToggledAt: json['portfolio_toggled_at'] == null
+      ? null
+      : DateTime.parse(json['portfolio_toggled_at'] as String),
   publicMobileNumber: json['public_mobile_number'] as String?,
   portfolioDescription: json['portfolio_description'] as String?,
   userLastLatLongWkb: json['user_last_lat_long_wkb'] as String?,

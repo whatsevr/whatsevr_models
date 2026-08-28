@@ -16,10 +16,9 @@ _BaseTrackedActivity _$BaseTrackedActivityFromJson(Map<String, dynamic> json) =>
       offerUid: json['offer_uid'] as String?,
       memoryUid: json['memory_uid'] as String?,
       pdfUid: json['pdf_uid'] as String?,
-      activityAt:
-          json['activity_at'] == null
-              ? null
-              : DateTime.parse(json['activity_at'] as String),
+      activityAt: json['activity_at'] == null
+          ? null
+          : DateTime.parse(json['activity_at'] as String),
       deviceOs: json['device_os'] as String?,
       deviceModel: json['device_model'] as String?,
       geoLocation: json['geo_location'] as String?,

@@ -11,10 +11,9 @@ _CallAcceptResult _$CallAcceptResultFromJson(Map<String, dynamic> json) =>
       room: json['room'] as String? ?? '',
       token: json['token'] as String? ?? '',
       serverUrl: json['server_url'] as String? ?? '',
-      expiresAt:
-          json['expires_at'] == null
-              ? null
-              : DateTime.parse(json['expires_at'] as String),
+      expiresAt: json['expires_at'] == null
+          ? null
+          : DateTime.parse(json['expires_at'] as String),
       isBilled: json['is_billed'] as bool? ?? false,
       payerUid: json['payer_uid'] as String?,
       ratePaise: (json['rate_paise'] as num?)?.toInt() ?? 0,

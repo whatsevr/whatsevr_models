@@ -10,8 +10,9 @@ _GetProfileAvatarsResponse _$GetProfileAvatarsResponseFromJson(
   Map<String, dynamic> json,
 ) => _GetProfileAvatarsResponse(
   message: json['message'] as String?,
-  avatars:
-      (json['avatars'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  avatars: (json['avatars'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   avatarSets: (json['avatar_sets'] as Map<String, dynamic>?)?.map(
     (k, e) =>
         MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),

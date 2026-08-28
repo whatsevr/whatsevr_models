@@ -12,10 +12,9 @@ _SearchCommunitiesResponse _$SearchCommunitiesResponseFromJson(
   message: json['message'] as String?,
   page: (json['page'] as num?)?.toInt(),
   lastPage: json['last_page'] as bool?,
-  communities:
-      (json['communities'] as List<dynamic>?)
-          ?.map((e) => SearchedCommunity.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  communities: (json['communities'] as List<dynamic>?)
+      ?.map((e) => SearchedCommunity.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$SearchCommunitiesResponseToJson(
@@ -29,10 +28,9 @@ Map<String, dynamic> _$SearchCommunitiesResponseToJson(
 
 _SearchedCommunity _$SearchedCommunityFromJson(Map<String, dynamic> json) =>
     _SearchedCommunity(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       adminUserUid: json['admin_user_uid'] as String?,
       status: json['status'] as String?,
       bio: json['bio'] as String?,
@@ -46,29 +44,24 @@ _SearchedCommunity _$SearchedCommunityFromJson(Map<String, dynamic> json) =>
       isPrivate: json['is_private'] as bool?,
       seoDataWeighted: json['seo_data_weighted'],
       plainLastMessage: json['plain_last_message'] as String?,
-      lastMessageAt:
-          json['last_message_at'] == null
-              ? null
-              : DateTime.parse(json['last_message_at'] as String),
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      lastMessageAt: json['last_message_at'] == null
+          ? null
+          : DateTime.parse(json['last_message_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       isBroadcasting: json['is_broadcasting'] as bool?,
-      admin:
-          json['admin'] == null
-              ? null
-              : SearchedCommunityAdmin.fromJson(
-                json['admin'] as Map<String, dynamic>,
-              ),
-      coverMedia:
-          (json['cover_media'] as List<dynamic>?)
-              ?.map((e) => CoverMedia.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      services:
-          (json['services'] as List<dynamic>?)
-              ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      admin: json['admin'] == null
+          ? null
+          : SearchedCommunityAdmin.fromJson(
+              json['admin'] as Map<String, dynamic>,
+            ),
+      coverMedia: (json['cover_media'] as List<dynamic>?)
+          ?.map((e) => CoverMedia.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      services: (json['services'] as List<dynamic>?)
+          ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$SearchedCommunityToJson(_SearchedCommunity instance) =>
@@ -114,20 +107,18 @@ Map<String, dynamic> _$CommunityAdminToJson(_CommunityAdmin instance) =>
     };
 
 _CoverMedia _$CoverMediaFromJson(Map<String, dynamic> json) => _CoverMedia(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   imageUrl: json['image_url'] as String?,
   isVideo: json['is_video'] as bool?,
   userUid: json['user_uid'] as String?,
   videoUrl: json['video_url'] as String?,
   communityUid: json['community_uid'] as String?,
   ownerType: json['owner_type'],
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   uid: json['uid'] as String?,
 );
 
@@ -145,19 +136,17 @@ Map<String, dynamic> _$CoverMediaToJson(_CoverMedia instance) =>
     };
 
 _Service _$ServiceFromJson(Map<String, dynamic> json) => _Service(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   title: json['title'] as String?,
   userUid: json['user_uid'] as String?,
   description: json['description'] as String?,
   communityUid: json['community_uid'] as String?,
   ownerType: json['owner_type'],
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   uid: json['uid'] as String?,
 );
 

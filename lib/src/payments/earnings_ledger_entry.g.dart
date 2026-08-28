@@ -9,10 +9,9 @@ part of 'earnings_ledger_entry.dart';
 _EarningsLedgerEntry _$EarningsLedgerEntryFromJson(Map<String, dynamic> json) =>
     _EarningsLedgerEntry(
       uid: json['uid'] as String? ?? '',
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       reason:
           $enumDecodeNullable(
             _$EarningsLedgerReasonEnumMap,

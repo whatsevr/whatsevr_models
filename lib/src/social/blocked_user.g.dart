@@ -11,10 +11,9 @@ _BlockedUser _$BlockedUserFromJson(Map<String, dynamic> json) => _BlockedUser(
   name: json['name'] as String? ?? '',
   username: json['username'] as String? ?? '',
   profilePicture: json['profile_picture'] as String?,
-  blockedAt:
-      json['blocked_at'] == null
-          ? null
-          : DateTime.parse(json['blocked_at'] as String),
+  blockedAt: json['blocked_at'] == null
+      ? null
+      : DateTime.parse(json['blocked_at'] as String),
 );
 
 Map<String, dynamic> _$BlockedUserToJson(_BlockedUser instance) =>

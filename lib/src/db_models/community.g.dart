@@ -8,10 +8,9 @@ part of 'community.dart';
 
 _BaseCommunity _$BaseCommunityFromJson(Map<String, dynamic> json) =>
     _BaseCommunity(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       adminUserUid: json['admin_user_uid'] as String?,
       status: json['status'] as String?,
       bio: json['bio'] as String?,
@@ -25,14 +24,12 @@ _BaseCommunity _$BaseCommunityFromJson(Map<String, dynamic> json) =>
       isPrivate: json['is_private'] as bool?,
       seoDataWeighted: json['seo_data_weighted'] as String?,
       plainLastMessage: json['plain_last_message'] as String?,
-      lastMessageAt:
-          json['last_message_at'] == null
-              ? null
-              : DateTime.parse(json['last_message_at'] as String),
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      lastMessageAt: json['last_message_at'] == null
+          ? null
+          : DateTime.parse(json['last_message_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$BaseCommunityToJson(_BaseCommunity instance) =>

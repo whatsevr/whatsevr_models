@@ -11,10 +11,9 @@ _LiveKitTokenGrant _$LiveKitTokenGrantFromJson(Map<String, dynamic> json) =>
       room: json['room'] as String? ?? '',
       token: json['token'] as String? ?? '',
       serverUrl: json['server_url'] as String? ?? '',
-      expiresAt:
-          json['expires_at'] == null
-              ? null
-              : DateTime.parse(json['expires_at'] as String),
+      expiresAt: json['expires_at'] == null
+          ? null
+          : DateTime.parse(json['expires_at'] as String),
       userUid: json['user_uid'] as String?,
     );
 

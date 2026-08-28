@@ -1,0 +1,49 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+// ignore_for_file: unused_element
+import 'package:whatsevr_models/src/model/memory_media_meta.dart';
+import 'package:whatsevr_models/src/model/sanity_post_data.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'memory_sanity_body.g.dart';
+
+@CopyWith()
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class MemorySanityBody {
+  /// Returns a new [MemorySanityBody] instance.
+  MemorySanityBody({required this.mediaMetaData, required this.postData});
+
+  @JsonKey(name: r'media_meta_data', required: true, includeIfNull: false)
+  final MemoryMediaMeta mediaMetaData;
+
+  @JsonKey(name: r'post_data', required: true, includeIfNull: false)
+  final SanityPostData postData;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MemorySanityBody &&
+          other.mediaMetaData == mediaMetaData &&
+          other.postData == postData;
+
+  @override
+  int get hashCode => mediaMetaData.hashCode + postData.hashCode;
+
+  factory MemorySanityBody.fromJson(Map<String, dynamic> json) =>
+      _$MemorySanityBodyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MemorySanityBodyToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
+}

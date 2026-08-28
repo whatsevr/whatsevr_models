@@ -35,10 +35,9 @@ _CallOutcome _$CallOutcomeFromJson(Map<String, dynamic> json) => _CallOutcome(
   earnedPaise: (json['earned_paise'] as num?)?.toInt() ?? 0,
   mode: json['mode'] as String? ?? 'video',
   settled: json['settled'] as bool? ?? false,
-  gifts:
-      json['gifts'] == null
-          ? const CallOutcomeGifts()
-          : CallOutcomeGifts.fromJson(json['gifts'] as Map<String, dynamic>),
+  gifts: json['gifts'] == null
+      ? const CallOutcomeGifts()
+      : CallOutcomeGifts.fromJson(json['gifts'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$CallOutcomeToJson(_CallOutcome instance) =>

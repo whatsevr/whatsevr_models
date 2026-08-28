@@ -7,19 +7,18 @@ part of 'offer.dart';
 // **************************************************************************
 
 _BaseOffer _$BaseOfferFromJson(Map<String, dynamic> json) => _BaseOffer(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   uid: json['uid'] as String?,
   title: json['title'] as String?,
   description: json['description'] as String?,
-  hashtags:
-      (json['hashtags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  taggedUserUids:
-      (json['tagged_user_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  hashtags: (json['hashtags'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  taggedUserUids: (json['tagged_user_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   isDeleted: json['is_deleted'] as bool?,
   isArchived: json['is_archived'] as bool?,
   isActive: json['is_active'] as bool?,
@@ -30,10 +29,9 @@ _BaseOffer _$BaseOfferFromJson(Map<String, dynamic> json) => _BaseOffer(
   totalComments: (json['total_comments'] as num?)?.toInt(),
   internalAiDescription: json['internal_ai_description'] as String?,
   creatorLatLongWkb: json['creator_lat_long_wkb'] as String?,
-  taggedCommunityUids:
-      (json['tagged_community_uids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  taggedCommunityUids: (json['tagged_community_uids'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   totalShares: (json['total_shares'] as num?)?.toInt(),
   cumulativeScore: (json['cumulative_score'] as num?)?.toDouble(),
   ctaAction: json['cta_action'] as String?,
@@ -41,16 +39,14 @@ _BaseOffer _$BaseOfferFromJson(Map<String, dynamic> json) => _BaseOffer(
   filesData: json['files_data'] as Map<String, dynamic>?,
   status: json['status'] as String?,
   targetGender: json['target_gender'] as String?,
-  targetAreas:
-      (json['target_areas'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  targetAreas: (json['target_areas'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   richDescription: json['rich_description'] as Map<String, dynamic>?,
 );
 

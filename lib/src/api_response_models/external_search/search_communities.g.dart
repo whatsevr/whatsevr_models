@@ -11,19 +11,16 @@ _ExternalSearchCommunitiesResult _$ExternalSearchCommunitiesResultFromJson(
 ) => _ExternalSearchCommunitiesResult(
   success: json['success'] as bool?,
   message: json['message'] as String?,
-  results:
-      (json['results'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                ExternalSearchedCommunity.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
-  pagination:
-      json['pagination'] == null
-          ? null
-          : CommunitiesPagination.fromJson(
-            json['pagination'] as Map<String, dynamic>,
-          ),
+  results: (json['results'] as List<dynamic>?)
+      ?.map(
+        (e) => ExternalSearchedCommunity.fromJson(e as Map<String, dynamic>),
+      )
+      .toList(),
+  pagination: json['pagination'] == null
+      ? null
+      : CommunitiesPagination.fromJson(
+          json['pagination'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$ExternalSearchCommunitiesResultToJson(
@@ -38,10 +35,9 @@ Map<String, dynamic> _$ExternalSearchCommunitiesResultToJson(
 _ExternalSearchedCommunity _$ExternalSearchedCommunityFromJson(
   Map<String, dynamic> json,
 ) => _ExternalSearchedCommunity(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   adminUserUid: json['admin_user_uid'] as String?,
   status: json['status'] as String?,
   bio: json['bio'] as String?,
@@ -55,37 +51,28 @@ _ExternalSearchedCommunity _$ExternalSearchedCommunityFromJson(
   isPrivate: json['is_private'] as bool?,
   seoDataWeighted: json['seo_data_weighted'] as String?,
   plainLastMessage: json['plain_last_message'] as String?,
-  lastMessageAt:
-      json['last_message_at'] == null
-          ? null
-          : DateTime.parse(json['last_message_at'] as String),
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  lastMessageAt: json['last_message_at'] == null
+      ? null
+      : DateTime.parse(json['last_message_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   isBroadcasting: json['is_broadcasting'] as bool?,
   isArchived: json['is_archived'] as bool?,
-  externalSearchIndexedAt:
-      json['external_search_indexed_at'] == null
-          ? null
-          : DateTime.parse(json['external_search_indexed_at'] as String),
-  admin:
-      json['admin'] == null
-          ? null
-          : Admin.fromJson(json['admin'] as Map<String, dynamic>),
-  coverMedia:
-      (json['cover_media'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                SearchedCommunityCoverMedia.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
-  services:
-      (json['services'] as List<dynamic>?)
-          ?.map(
-            (e) => SearchedCommunityService.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
+  externalSearchIndexedAt: json['external_search_indexed_at'] == null
+      ? null
+      : DateTime.parse(json['external_search_indexed_at'] as String),
+  admin: json['admin'] == null
+      ? null
+      : Admin.fromJson(json['admin'] as Map<String, dynamic>),
+  coverMedia: (json['cover_media'] as List<dynamic>?)
+      ?.map(
+        (e) => SearchedCommunityCoverMedia.fromJson(e as Map<String, dynamic>),
+      )
+      .toList(),
+  services: (json['services'] as List<dynamic>?)
+      ?.map((e) => SearchedCommunityService.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$ExternalSearchedCommunityToJson(
@@ -109,8 +96,8 @@ Map<String, dynamic> _$ExternalSearchedCommunityToJson(
   'updated_at': instance.updatedAt?.toIso8601String(),
   'is_broadcasting': instance.isBroadcasting,
   'is_archived': instance.isArchived,
-  'external_search_indexed_at':
-      instance.externalSearchIndexedAt?.toIso8601String(),
+  'external_search_indexed_at': instance.externalSearchIndexedAt
+      ?.toIso8601String(),
   'admin': instance.admin,
   'cover_media': instance.coverMedia,
   'services': instance.services,
@@ -163,20 +150,18 @@ Map<String, dynamic> _$CommunitiesPaginationToJson(
 _SearchedCommunityCoverMedia _$SearchedCommunityCoverMediaFromJson(
   Map<String, dynamic> json,
 ) => _SearchedCommunityCoverMedia(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   imageUrl: json['image_url'] as String?,
   isVideo: json['is_video'] as bool?,
   userUid: json['user_uid'] as String?,
   videoUrl: json['video_url'] as String?,
   communityUid: json['community_uid'] as String?,
   ownerType: json['owner_type'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   uid: json['uid'] as String?,
 );
 
@@ -197,19 +182,17 @@ Map<String, dynamic> _$SearchedCommunityCoverMediaToJson(
 _SearchedCommunityService _$SearchedCommunityServiceFromJson(
   Map<String, dynamic> json,
 ) => _SearchedCommunityService(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   title: json['title'] as String?,
   userUid: json['user_uid'] as String?,
   description: json['description'] as String?,
   communityUid: json['community_uid'] as String?,
   ownerType: json['owner_type'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   uid: json['uid'] as String?,
 );
 

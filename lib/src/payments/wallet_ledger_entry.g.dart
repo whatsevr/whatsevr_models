@@ -9,10 +9,9 @@ part of 'wallet_ledger_entry.dart';
 _WalletLedgerEntry _$WalletLedgerEntryFromJson(Map<String, dynamic> json) =>
     _WalletLedgerEntry(
       uid: json['uid'] as String? ?? '',
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       reason: json['reason'] as String? ?? '',
       reasonLabel: json['reason_label'] as String? ?? '',
       deltaCredits: (json['delta_credits'] as num?)?.toInt() ?? 0,

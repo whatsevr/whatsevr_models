@@ -7,10 +7,9 @@ part of 'pdf.dart';
 // **************************************************************************
 
 _BasePdf _$BasePdfFromJson(Map<String, dynamic> json) => _BasePdf(
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
   fileUrl: json['file_url'] as String?,
   userUid: json['user_uid'] as String?,
   title: json['title'] as String?,
@@ -21,10 +20,9 @@ _BasePdf _$BasePdfFromJson(Map<String, dynamic> json) => _BasePdf(
   uid: json['uid'] as String?,
   seoDataWeighted: json['seo_data_weighted'] as String?,
   communityUid: json['community_uid'] as String?,
-  updatedAt:
-      json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+  updatedAt: json['updated_at'] == null
+      ? null
+      : DateTime.parse(json['updated_at'] as String),
   totalImpressions: (json['total_impressions'] as num?)?.toInt(),
 );
 

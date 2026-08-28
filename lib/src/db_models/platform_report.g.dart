@@ -19,23 +19,20 @@ _BasePlatformReport _$BasePlatformReportFromJson(Map<String, dynamic> json) =>
       reviewerNotes: json['reviewer_notes'] as String?,
       escalationLevel: json['escalation_level'] as String?,
       actionTaken: json['action_taken'] as String?,
-      actionTimestamp:
-          json['action_timestamp'] == null
-              ? null
-              : DateTime.parse(json['action_timestamp'] as String),
+      actionTimestamp: json['action_timestamp'] == null
+          ? null
+          : DateTime.parse(json['action_timestamp'] as String),
       actionNotes: json['action_notes'] as String?,
       parentReportUid: json['parent_report_uid'] as String?,
       isArchived: json['is_archived'] as bool?,
       reporterUserUid: json['reporter_user_uid'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       evidenceMetadata: json['evidence_metadata'] as Map<String, dynamic>?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$BasePlatformReportToJson(_BasePlatformReport instance) =>

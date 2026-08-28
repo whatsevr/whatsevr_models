@@ -8,10 +8,9 @@ part of 'content_reaction.dart';
 
 _BaseContentReaction _$BaseContentReactionFromJson(Map<String, dynamic> json) =>
     _BaseContentReaction(
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       userUid: json['user_uid'] as String?,
       wtvUid: json['wtv_uid'] as String?,
       flickUid: json['flick_uid'] as String?,
@@ -22,10 +21,9 @@ _BaseContentReaction _$BaseContentReactionFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String?,
       reactionType: json['reaction_type'] as String?,
       contentType: json['content_type'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       contentOwnerUserUid: json['content_owner_user_uid'] as String?,
     );
 

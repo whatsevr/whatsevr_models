@@ -18,10 +18,9 @@ _HostLevelStatus _$HostLevelStatusFromJson(
       (json['price_per_minute_credits'] as num?)?.toInt() ?? 0,
   isTopLevel: json['is_top_level'] as bool? ?? false,
   monthLabel: json['month_label'] as String? ?? '',
-  nextRecalculationAt:
-      json['next_recalculation_at'] == null
-          ? null
-          : DateTime.parse(json['next_recalculation_at'] as String),
+  nextRecalculationAt: json['next_recalculation_at'] == null
+      ? null
+      : DateTime.parse(json['next_recalculation_at'] as String),
   nextLevel: (json['next_level'] as num?)?.toInt(),
   nextLevelName: json['next_level_name'] as String?,
   nextPricePaise: (json['next_price_paise'] as num?)?.toInt(),
@@ -43,12 +42,11 @@ _HostLevelStatus _$HostLevelStatusFromJson(
   qualifyingRuleSentence: json['qualifying_rule_sentence'] as String? ?? '',
   graceActive: json['grace_active'] as bool? ?? false,
   graceMonthLabel: json['grace_month_label'] as String?,
-  unacknowledgedEvent:
-      json['unacknowledged_event'] == null
-          ? null
-          : HostLevelEvent.fromJson(
-            json['unacknowledged_event'] as Map<String, dynamic>,
-          ),
+  unacknowledgedEvent: json['unacknowledged_event'] == null
+      ? null
+      : HostLevelEvent.fromJson(
+          json['unacknowledged_event'] as Map<String, dynamic>,
+        ),
   ladder:
       (json['ladder'] as List<dynamic>?)
           ?.map((e) => HostLevelRung.fromJson(e as Map<String, dynamic>))

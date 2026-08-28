@@ -11,23 +11,20 @@ _BasePrivateChat _$BasePrivateChatFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String?,
       user1Uid: json['user1_uid'] as String?,
       user2Uid: json['user2_uid'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
-      lastMessageAt:
-          json['last_message_at'] == null
-              ? null
-              : DateTime.parse(json['last_message_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      lastMessageAt: json['last_message_at'] == null
+          ? null
+          : DateTime.parse(json['last_message_at'] as String),
       user1IsMuted: json['user1_is_muted'] as bool?,
       user2IsMuted: json['user2_is_muted'] as bool?,
       user1IsBlocked: json['user1_is_blocked'] as bool?,
       user2IsBlocked: json['user2_is_blocked'] as bool?,
       plainLastMessage: json['plain_last_message'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$BasePrivateChatToJson(_BasePrivateChat instance) =>

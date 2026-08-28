@@ -38,16 +38,12 @@ _SneekpeekCandidate _$SneekpeekCandidateFromJson(
   longitude: (json['longitude'] as num?)?.toDouble(),
   isInQueue: json['is_in_queue'] as bool? ?? false,
   currentChatSessionUid: json['current_chat_session_uid'] as String?,
-  createdAt:
-      json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
-  hostInfo:
-      json['host_info'] == null
-          ? null
-          : CandidateHostInfo.fromJson(
-            json['host_info'] as Map<String, dynamic>,
-          ),
+  createdAt: json['created_at'] == null
+      ? null
+      : DateTime.parse(json['created_at'] as String),
+  hostInfo: json['host_info'] == null
+      ? null
+      : CandidateHostInfo.fromJson(json['host_info'] as Map<String, dynamic>),
   isIdentityLocked: json['is_identity_locked'] as bool? ?? false,
   isPremiumProfile: json['is_premium_profile'] as bool? ?? false,
 );

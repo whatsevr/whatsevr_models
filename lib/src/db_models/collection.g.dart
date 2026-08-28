@@ -9,10 +9,9 @@ part of 'collection.dart';
 _BaseCollection _$BaseCollectionFromJson(Map<String, dynamic> json) =>
     _BaseCollection(
       uid: json['uid'] as String?,
-      createdAt:
-          json['created_at'] == null
-              ? null
-              : DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
       title: json['title'] as String?,
       description: json['description'] as String?,
       isFolder: json['is_folder'] as bool?,
@@ -26,10 +25,9 @@ _BaseCollection _$BaseCollectionFromJson(Map<String, dynamic> json) =>
       offerUid: json['offer_uid'] as String?,
       flickUid: json['flick_uid'] as String?,
       pdfUid: json['pdf_uid'] as String?,
-      updatedAt:
-          json['updated_at'] == null
-              ? null
-              : DateTime.parse(json['updated_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$BaseCollectionToJson(_BaseCollection instance) =>
