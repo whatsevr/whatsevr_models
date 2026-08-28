@@ -264,6 +264,7 @@ import 'package:whatsevr_api/src/model/livekit_token_response.dart';
 import 'package:whatsevr_api/src/model/login_body.dart';
 import 'package:whatsevr_api/src/model/login_response.dart';
 import 'package:whatsevr_api/src/model/login_sessions_response.dart';
+import 'package:whatsevr_api/src/model/maintenance_status_response.dart';
 import 'package:whatsevr_api/src/model/media_gallery_response.dart';
 import 'package:whatsevr_api/src/model/media_item.dart';
 import 'package:whatsevr_api/src/model/memories_feed_response.dart';
@@ -1337,6 +1338,9 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'LoginSessionsResponse':
       return LoginSessionsResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'MaintenanceStatusResponse':
+      return MaintenanceStatusResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'MediaGalleryResponse':
       return MediaGalleryResponse.fromJson(value as Map<String, dynamic>)

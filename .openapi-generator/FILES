@@ -306,6 +306,7 @@ lib/src/model/livekit_token_response.dart
 lib/src/model/login_body.dart
 lib/src/model/login_response.dart
 lib/src/model/login_sessions_response.dart
+lib/src/model/maintenance_status_response.dart
 lib/src/model/media_gallery_response.dart
 lib/src/model/media_item.dart
 lib/src/model/memories_feed_response.dart

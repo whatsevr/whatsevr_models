@@ -31,97 +31,6 @@ class UsersApi {
 
   const UsersApi(this._dio);
 
-  /// Look up several users at once
-  /// Other people&#39;s users, in bulk — so an allowlisted shape, not the row.  This served full rows (mobile_number, email_id, dob, address, user_last_lat_long_wkb) for an arbitrary uid list, and the &#x60;-limited-details&#x60; route was on group_a: the static bearer is hardcoded in the app binary, so unzipping an APK was enough to bulk-dump the user table. The route said \&quot;limited\&quot; and the handler never was.
-  ///
-  /// Parameters:
-  /// * [userUids]
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [MultipleUserDetailsResponse] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<MultipleUserDetailsResponse>>
-  accountsViewsUsersGetMultipleUserLimitedDetails({
-    required String userUids,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/api/v1/multiple-user-limited-details';
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{...?headers},
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'WebSessionCookieAuth',
-            'keyName': 'whatsevr_web',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'AppSessionAuth',
-            'keyName': 'x-session-token',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _queryParameters = <String, dynamic>{r'user_uids': userUids};
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      queryParameters: _queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    MultipleUserDetailsResponse? _responseData;
-
-    try {
-      final rawData = _response.data;
-      _responseData = rawData == null
-          ? null
-          : deserialize<
-              MultipleUserDetailsResponse,
-              MultipleUserDetailsResponse
-            >(rawData, 'MultipleUserDetailsResponse', growable: true);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    return Response<MultipleUserDetailsResponse>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
-
   /// Deactivate your account
   /// Empty body.  A soft delete: the row survives, login answers 206 &#39;Account is deactivated&#39; (accounts/views_auth.py), and coming back is a support conversation rather than a self-serve flow — so there is no reactivation endpoint to pair with this one.  Deliberately NOT routed through update_user_info: that endpoint takes the target uid from the body and does not check it against the session, so reaching deactivation through it would make one user able to deactivate another. The actor here is always the session.
   ///
@@ -232,6 +141,97 @@ class UsersApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/api/v1/multiple-user-details';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{...?headers},
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'WebSessionCookieAuth',
+            'keyName': 'whatsevr_web',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AppSessionAuth',
+            'keyName': 'x-session-token',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _queryParameters = <String, dynamic>{r'user_uids': userUids};
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    MultipleUserDetailsResponse? _responseData;
+
+    try {
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<
+              MultipleUserDetailsResponse,
+              MultipleUserDetailsResponse
+            >(rawData, 'MultipleUserDetailsResponse', growable: true);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<MultipleUserDetailsResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Look up several users at once
+  /// Other people&#39;s users, in bulk — so an allowlisted shape, not the row.  This served full rows (mobile_number, email_id, dob, address, user_last_lat_long_wkb) for an arbitrary uid list, and the &#x60;-limited-details&#x60; route was on group_a: the static bearer is hardcoded in the app binary, so unzipping an APK was enough to bulk-dump the user table. The route said \&quot;limited\&quot; and the handler never was.
+  ///
+  /// Parameters:
+  /// * [userUids]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [MultipleUserDetailsResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<MultipleUserDetailsResponse>>
+  usersGetMultipleUserLimitedDetails({
+    required String userUids,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/api/v1/multiple-user-limited-details';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{...?headers},

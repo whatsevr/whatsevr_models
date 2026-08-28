@@ -310,6 +310,7 @@ export 'package:whatsevr_api/src/model/livekit_token_response.dart';
 export 'package:whatsevr_api/src/model/login_body.dart';
 export 'package:whatsevr_api/src/model/login_response.dart';
 export 'package:whatsevr_api/src/model/login_sessions_response.dart';
+export 'package:whatsevr_api/src/model/maintenance_status_response.dart';
 export 'package:whatsevr_api/src/model/media_gallery_response.dart';
 export 'package:whatsevr_api/src/model/media_item.dart';
 export 'package:whatsevr_api/src/model/memories_feed_response.dart';
