@@ -1,79 +1,79 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_mix_content_response.dart';
+part of 'posts_mix_content_response.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$GetMixContentResponseCWProxy {
-  GetMixContentResponse contentCounts(MixContentCounts contentCounts);
+abstract class _$PostsMixContentResponseCWProxy {
+  PostsMixContentResponse contentCounts(PostsMixContentCounts contentCounts);
 
-  GetMixContentResponse lastPage(bool lastPage);
+  PostsMixContentResponse lastPage(bool lastPage);
 
-  GetMixContentResponse message(String message);
+  PostsMixContentResponse message(String message);
 
-  GetMixContentResponse mixContent(List<MixContentItem> mixContent);
+  PostsMixContentResponse mixContent(List<PostsMixContentItem> mixContent);
 
-  GetMixContentResponse page(int page);
+  PostsMixContentResponse page(int page);
 
-  GetMixContentResponse totalItems(int totalItems);
+  PostsMixContentResponse totalItems(int totalItems);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetMixContentResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsMixContentResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetMixContentResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsMixContentResponse(...).copyWith(id: 12, name: "My name")
   /// ```
-  GetMixContentResponse call({
-    MixContentCounts contentCounts,
+  PostsMixContentResponse call({
+    PostsMixContentCounts contentCounts,
     bool lastPage,
     String message,
-    List<MixContentItem> mixContent,
+    List<PostsMixContentItem> mixContent,
     int page,
     int totalItems,
   });
 }
 
 /// Callable proxy for `copyWith` functionality.
-/// Use as `instanceOfGetMixContentResponse.copyWith(...)` or call `instanceOfGetMixContentResponse.copyWith.fieldName(value)` for a single field.
-class _$GetMixContentResponseCWProxyImpl
-    implements _$GetMixContentResponseCWProxy {
-  const _$GetMixContentResponseCWProxyImpl(this._value);
+/// Use as `instanceOfPostsMixContentResponse.copyWith(...)` or call `instanceOfPostsMixContentResponse.copyWith.fieldName(value)` for a single field.
+class _$PostsMixContentResponseCWProxyImpl
+    implements _$PostsMixContentResponseCWProxy {
+  const _$PostsMixContentResponseCWProxyImpl(this._value);
 
-  final GetMixContentResponse _value;
+  final PostsMixContentResponse _value;
 
   @override
-  GetMixContentResponse contentCounts(MixContentCounts contentCounts) =>
+  PostsMixContentResponse contentCounts(PostsMixContentCounts contentCounts) =>
       call(contentCounts: contentCounts);
 
   @override
-  GetMixContentResponse lastPage(bool lastPage) => call(lastPage: lastPage);
+  PostsMixContentResponse lastPage(bool lastPage) => call(lastPage: lastPage);
 
   @override
-  GetMixContentResponse message(String message) => call(message: message);
+  PostsMixContentResponse message(String message) => call(message: message);
 
   @override
-  GetMixContentResponse mixContent(List<MixContentItem> mixContent) =>
+  PostsMixContentResponse mixContent(List<PostsMixContentItem> mixContent) =>
       call(mixContent: mixContent);
 
   @override
-  GetMixContentResponse page(int page) => call(page: page);
+  PostsMixContentResponse page(int page) => call(page: page);
 
   @override
-  GetMixContentResponse totalItems(int totalItems) =>
+  PostsMixContentResponse totalItems(int totalItems) =>
       call(totalItems: totalItems);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetMixContentResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsMixContentResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetMixContentResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsMixContentResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   @override
-  GetMixContentResponse call({
+  PostsMixContentResponse call({
     Object? contentCounts = const $CopyWithPlaceholder(),
     Object? lastPage = const $CopyWithPlaceholder(),
     Object? message = const $CopyWithPlaceholder(),
@@ -81,12 +81,12 @@ class _$GetMixContentResponseCWProxyImpl
     Object? page = const $CopyWithPlaceholder(),
     Object? totalItems = const $CopyWithPlaceholder(),
   }) {
-    return GetMixContentResponse(
+    return PostsMixContentResponse(
       contentCounts:
           contentCounts == const $CopyWithPlaceholder() || contentCounts == null
           ? _value.contentCounts
           // ignore: cast_nullable_to_non_nullable
-          : contentCounts as MixContentCounts,
+          : contentCounts as PostsMixContentCounts,
       lastPage: lastPage == const $CopyWithPlaceholder() || lastPage == null
           ? _value.lastPage
           // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ class _$GetMixContentResponseCWProxyImpl
           mixContent == const $CopyWithPlaceholder() || mixContent == null
           ? _value.mixContent
           // ignore: cast_nullable_to_non_nullable
-          : mixContent as List<MixContentItem>,
+          : mixContent as List<PostsMixContentItem>,
       page: page == const $CopyWithPlaceholder() || page == null
           ? _value.page
           // ignore: cast_nullable_to_non_nullable
@@ -113,22 +113,22 @@ class _$GetMixContentResponseCWProxyImpl
   }
 }
 
-extension $GetMixContentResponseCopyWith on GetMixContentResponse {
+extension $PostsMixContentResponseCopyWith on PostsMixContentResponse {
   /// Returns a callable class used to build a new instance with modified fields.
-  /// Example: `instanceOfGetMixContentResponse.copyWith(...)` or `instanceOfGetMixContentResponse.copyWith.fieldName(...)`.
+  /// Example: `instanceOfPostsMixContentResponse.copyWith(...)` or `instanceOfPostsMixContentResponse.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$GetMixContentResponseCWProxy get copyWith =>
-      _$GetMixContentResponseCWProxyImpl(this);
+  _$PostsMixContentResponseCWProxy get copyWith =>
+      _$PostsMixContentResponseCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetMixContentResponse _$GetMixContentResponseFromJson(
+PostsMixContentResponse _$PostsMixContentResponseFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate(
-  'GetMixContentResponse',
+  'PostsMixContentResponse',
   json,
   ($checkedConvert) {
     $checkKeys(
@@ -142,17 +142,17 @@ GetMixContentResponse _$GetMixContentResponseFromJson(
         'total_items',
       ],
     );
-    final val = GetMixContentResponse(
+    final val = PostsMixContentResponse(
       contentCounts: $checkedConvert(
         'contentCounts',
-        (v) => MixContentCounts.fromJson(v as Map<String, dynamic>),
+        (v) => PostsMixContentCounts.fromJson(v as Map<String, dynamic>),
       ),
       lastPage: $checkedConvert('last_page', (v) => v as bool),
       message: $checkedConvert('message', (v) => v as String),
       mixContent: $checkedConvert(
         'mix_content',
         (v) => (v as List<dynamic>)
-            .map((e) => MixContentItem.fromJson(e as Map<String, dynamic>))
+            .map((e) => PostsMixContentItem.fromJson(e as Map<String, dynamic>))
             .toList(),
       ),
       page: $checkedConvert('page', (v) => (v as num).toInt()),
@@ -167,8 +167,8 @@ GetMixContentResponse _$GetMixContentResponseFromJson(
   },
 );
 
-Map<String, dynamic> _$GetMixContentResponseToJson(
-  GetMixContentResponse instance,
+Map<String, dynamic> _$PostsMixContentResponseToJson(
+  PostsMixContentResponse instance,
 ) => <String, dynamic>{
   'contentCounts': instance.contentCounts.toJson(),
   'last_page': instance.lastPage,

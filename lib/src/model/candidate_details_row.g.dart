@@ -17,7 +17,7 @@ abstract class _$CandidateDetailsRowCWProxy {
 
   CandidateDetailsRow createdAt(DateTime? createdAt);
 
-  CandidateDetailsRow cumulativeScore(String? cumulativeScore);
+  CandidateDetailsRow cumulativeScore(num? cumulativeScore);
 
   CandidateDetailsRow currentChatSessionUid(String? currentChatSessionUid);
 
@@ -90,7 +90,7 @@ abstract class _$CandidateDetailsRowCWProxy {
     String? city,
     String? country,
     DateTime? createdAt,
-    String? cumulativeScore,
+    num? cumulativeScore,
     String? currentChatSessionUid,
     String? currentSessionUid,
     String? description,
@@ -146,7 +146,7 @@ class _$CandidateDetailsRowCWProxyImpl implements _$CandidateDetailsRowCWProxy {
       call(createdAt: createdAt);
 
   @override
-  CandidateDetailsRow cumulativeScore(String? cumulativeScore) =>
+  CandidateDetailsRow cumulativeScore(num? cumulativeScore) =>
       call(cumulativeScore: cumulativeScore);
 
   @override
@@ -319,7 +319,7 @@ class _$CandidateDetailsRowCWProxyImpl implements _$CandidateDetailsRowCWProxy {
       cumulativeScore: cumulativeScore == const $CopyWithPlaceholder()
           ? _value.cumulativeScore
           // ignore: cast_nullable_to_non_nullable
-          : cumulativeScore as String?,
+          : cumulativeScore as num?,
       currentChatSessionUid:
           currentChatSessionUid == const $CopyWithPlaceholder()
           ? _value.currentChatSessionUid
@@ -482,7 +482,7 @@ CandidateDetailsRow _$CandidateDetailsRowFromJson(
         'created_at',
         (v) => v == null ? null : DateTime.parse(v as String),
       ),
-      cumulativeScore: $checkedConvert('cumulative_score', (v) => v as String?),
+      cumulativeScore: $checkedConvert('cumulative_score', (v) => v as num?),
       currentChatSessionUid: $checkedConvert(
         'current_chat_session_uid',
         (v) => v as String?,

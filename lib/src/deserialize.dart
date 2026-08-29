@@ -177,6 +177,7 @@ import 'package:whatsevr_api/src/model/external_search_flick_row.dart';
 import 'package:whatsevr_api/src/model/external_search_offer_row.dart';
 import 'package:whatsevr_api/src/model/external_search_pdf_row.dart';
 import 'package:whatsevr_api/src/model/external_search_photo_row.dart';
+import 'package:whatsevr_api/src/model/external_search_query.dart';
 import 'package:whatsevr_api/src/model/external_search_wtv_row.dart';
 import 'package:whatsevr_api/src/model/external_smtp_email_body.dart';
 import 'package:whatsevr_api/src/model/external_smtp_email_response.dart';
@@ -210,13 +211,8 @@ import 'package:whatsevr_api/src/model/get_collection_folders_response.dart';
 import 'package:whatsevr_api/src/model/get_collection_items_response.dart';
 import 'package:whatsevr_api/src/model/get_comments_response.dart';
 import 'package:whatsevr_api/src/model/get_content_reactions_response.dart';
-import 'package:whatsevr_api/src/model/get_flicks_response.dart';
-import 'package:whatsevr_api/src/model/get_memories_response.dart';
 import 'package:whatsevr_api/src/model/get_mix_community_content_response.dart';
-import 'package:whatsevr_api/src/model/get_mix_content_response.dart';
-import 'package:whatsevr_api/src/model/get_offers_response.dart';
 import 'package:whatsevr_api/src/model/get_pdfs_response.dart';
-import 'package:whatsevr_api/src/model/get_photos_response.dart';
 import 'package:whatsevr_api/src/model/get_session_debug_info.dart';
 import 'package:whatsevr_api/src/model/get_session_response.dart';
 import 'package:whatsevr_api/src/model/get_user_activities_response.dart';
@@ -270,7 +266,6 @@ import 'package:whatsevr_api/src/model/media_gallery_response.dart';
 import 'package:whatsevr_api/src/model/media_item.dart';
 import 'package:whatsevr_api/src/model/memories_feed_response.dart';
 import 'package:whatsevr_api/src/model/memories_search_response.dart';
-import 'package:whatsevr_api/src/model/memory_group.dart';
 import 'package:whatsevr_api/src/model/memory_media_meta.dart';
 import 'package:whatsevr_api/src/model/memory_preview.dart';
 import 'package:whatsevr_api/src/model/memory_row.dart';
@@ -279,9 +274,6 @@ import 'package:whatsevr_api/src/model/memory_with_creator_row.dart';
 import 'package:whatsevr_api/src/model/message_action_body.dart';
 import 'package:whatsevr_api/src/model/message_response.dart';
 import 'package:whatsevr_api/src/model/message_uid_response.dart';
-import 'package:whatsevr_api/src/model/mix_content_counts.dart';
-import 'package:whatsevr_api/src/model/mix_content_item.dart';
-import 'package:whatsevr_api/src/model/mix_content_query.dart';
 import 'package:whatsevr_api/src/model/move_collection_items_body.dart';
 import 'package:whatsevr_api/src/model/move_collection_items_response.dart';
 import 'package:whatsevr_api/src/model/multiple_user_details_query.dart';
@@ -345,29 +337,51 @@ import 'package:whatsevr_api/src/model/portfolios_response.dart';
 import 'package:whatsevr_api/src/model/post_details_comment_row.dart';
 import 'package:whatsevr_api/src/model/post_file_entry.dart';
 import 'package:whatsevr_api/src/model/posts_flick_row.dart';
+import 'package:whatsevr_api/src/model/posts_flicks_response.dart';
 import 'package:whatsevr_api/src/model/posts_list_query.dart';
+import 'package:whatsevr_api/src/model/posts_memories_response.dart';
 import 'package:whatsevr_api/src/model/posts_memory_row.dart';
+import 'package:whatsevr_api/src/model/posts_mix_content_counts.dart';
+import 'package:whatsevr_api/src/model/posts_mix_content_item.dart';
+import 'package:whatsevr_api/src/model/posts_mix_content_query.dart';
+import 'package:whatsevr_api/src/model/posts_mix_content_response.dart';
 import 'package:whatsevr_api/src/model/posts_mix_content_row.dart';
 import 'package:whatsevr_api/src/model/posts_offer_row.dart';
+import 'package:whatsevr_api/src/model/posts_offers_response.dart';
 import 'package:whatsevr_api/src/model/posts_pdf_row.dart';
 import 'package:whatsevr_api/src/model/posts_photo_row.dart';
+import 'package:whatsevr_api/src/model/posts_photos_response.dart';
 import 'package:whatsevr_api/src/model/posts_wtv_row.dart';
 import 'package:whatsevr_api/src/model/private_chat_row.dart';
 import 'package:whatsevr_api/src/model/private_chats_query.dart';
 import 'package:whatsevr_api/src/model/private_chats_response.dart';
 import 'package:whatsevr_api/src/model/private_feed_query.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_flick_row.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_flicks_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_memories_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_memory_group.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_memory_row.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_mix_content_counts.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_mix_content_item.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_mix_content_query.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_mix_content_response.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_mix_content_row.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_offer_row.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_offers_response.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_photo_row.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_photos_response.dart';
 import 'package:whatsevr_api/src/model/private_recommendation_wtv_row.dart';
 import 'package:whatsevr_api/src/model/professional_status_row.dart';
 import 'package:whatsevr_api/src/model/professional_title_row.dart';
 import 'package:whatsevr_api/src/model/profile_avatars_response.dart';
 import 'package:whatsevr_api/src/model/public_candidate_with_media.dart';
 import 'package:whatsevr_api/src/model/public_recommendations_flick_row.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_memory_group.dart';
 import 'package:whatsevr_api/src/model/public_recommendations_memory_row.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_mix_content_counts.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_mix_content_item.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_mix_content_query.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_mix_content_response.dart';
 import 'package:whatsevr_api/src/model/public_recommendations_mix_content_row.dart';
 import 'package:whatsevr_api/src/model/public_recommendations_offer_row.dart';
 import 'package:whatsevr_api/src/model/public_recommendations_photo_row.dart';
@@ -1088,6 +1102,9 @@ ReturnType deserialize<ReturnType, BaseType>(
     case 'ExternalSearchPhotoRow':
       return ExternalSearchPhotoRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
+    case 'ExternalSearchQuery':
+      return ExternalSearchQuery.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'ExternalSearchWtvRow':
       return ExternalSearchWtvRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
@@ -1184,28 +1201,13 @@ ReturnType deserialize<ReturnType, BaseType>(
     case 'GetContentReactionsResponse':
       return GetContentReactionsResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
-    case 'GetFlicksResponse':
-      return GetFlicksResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'GetMemoriesResponse':
-      return GetMemoriesResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
     case 'GetMixCommunityContentResponse':
       return GetMixCommunityContentResponse.fromJson(
             value as Map<String, dynamic>,
           )
           as ReturnType;
-    case 'GetMixContentResponse':
-      return GetMixContentResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'GetOffersResponse':
-      return GetOffersResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
     case 'GetPdfsResponse':
       return GetPdfsResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'GetPhotosResponse':
-      return GetPhotosResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'GetSessionDebugInfo':
       return GetSessionDebugInfo.fromJson(value as Map<String, dynamic>)
@@ -1360,8 +1362,6 @@ ReturnType deserialize<ReturnType, BaseType>(
     case 'MemoriesSearchResponse':
       return MemoriesSearchResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
-    case 'MemoryGroup':
-      return MemoryGroup.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'MemoryMediaMeta':
       return MemoryMediaMeta.fromJson(value as Map<String, dynamic>)
           as ReturnType;
@@ -1384,15 +1384,6 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'MessageUidResponse':
       return MessageUidResponse.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'MixContentCounts':
-      return MixContentCounts.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'MixContentItem':
-      return MixContentItem.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
-    case 'MixContentQuery':
-      return MixContentQuery.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'MoveCollectionItemsBody':
       return MoveCollectionItemsBody.fromJson(value as Map<String, dynamic>)
@@ -1575,11 +1566,29 @@ ReturnType deserialize<ReturnType, BaseType>(
     case 'PostsFlickRow':
       return PostsFlickRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
+    case 'PostsFlicksResponse':
+      return PostsFlicksResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'PostsListQuery':
       return PostsListQuery.fromJson(value as Map<String, dynamic>)
           as ReturnType;
+    case 'PostsMemoriesResponse':
+      return PostsMemoriesResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'PostsMemoryRow':
       return PostsMemoryRow.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PostsMixContentCounts':
+      return PostsMixContentCounts.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PostsMixContentItem':
+      return PostsMixContentItem.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PostsMixContentQuery':
+      return PostsMixContentQuery.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PostsMixContentResponse':
+      return PostsMixContentResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'PostsMixContentRow':
       return PostsMixContentRow.fromJson(value as Map<String, dynamic>)
@@ -1587,10 +1596,16 @@ ReturnType deserialize<ReturnType, BaseType>(
     case 'PostsOfferRow':
       return PostsOfferRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
+    case 'PostsOffersResponse':
+      return PostsOffersResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'PostsPdfRow':
       return PostsPdfRow.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'PostsPhotoRow':
       return PostsPhotoRow.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PostsPhotosResponse':
+      return PostsPhotosResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'PostsWtvRow':
       return PostsWtvRow.fromJson(value as Map<String, dynamic>) as ReturnType;
@@ -1611,8 +1626,43 @@ ReturnType deserialize<ReturnType, BaseType>(
             value as Map<String, dynamic>,
           )
           as ReturnType;
+    case 'PrivateRecommendationFlicksResponse':
+      return PrivateRecommendationFlicksResponse.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMemoriesResponse':
+      return PrivateRecommendationMemoriesResponse.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMemoryGroup':
+      return PrivateRecommendationMemoryGroup.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
     case 'PrivateRecommendationMemoryRow':
       return PrivateRecommendationMemoryRow.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMixContentCounts':
+      return PrivateRecommendationMixContentCounts.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMixContentItem':
+      return PrivateRecommendationMixContentItem.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMixContentQuery':
+      return PrivateRecommendationMixContentQuery.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationMixContentResponse':
+      return PrivateRecommendationMixContentResponse.fromJson(
             value as Map<String, dynamic>,
           )
           as ReturnType;
@@ -1626,8 +1676,18 @@ ReturnType deserialize<ReturnType, BaseType>(
             value as Map<String, dynamic>,
           )
           as ReturnType;
+    case 'PrivateRecommendationOffersResponse':
+      return PrivateRecommendationOffersResponse.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
     case 'PrivateRecommendationPhotoRow':
       return PrivateRecommendationPhotoRow.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PrivateRecommendationPhotosResponse':
+      return PrivateRecommendationPhotosResponse.fromJson(
             value as Map<String, dynamic>,
           )
           as ReturnType;
@@ -1651,8 +1711,33 @@ ReturnType deserialize<ReturnType, BaseType>(
             value as Map<String, dynamic>,
           )
           as ReturnType;
+    case 'PublicRecommendationsMemoryGroup':
+      return PublicRecommendationsMemoryGroup.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
     case 'PublicRecommendationsMemoryRow':
       return PublicRecommendationsMemoryRow.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PublicRecommendationsMixContentCounts':
+      return PublicRecommendationsMixContentCounts.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PublicRecommendationsMixContentItem':
+      return PublicRecommendationsMixContentItem.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PublicRecommendationsMixContentQuery':
+      return PublicRecommendationsMixContentQuery.fromJson(
+            value as Map<String, dynamic>,
+          )
+          as ReturnType;
+    case 'PublicRecommendationsMixContentResponse':
+      return PublicRecommendationsMixContentResponse.fromJson(
             value as Map<String, dynamic>,
           )
           as ReturnType;

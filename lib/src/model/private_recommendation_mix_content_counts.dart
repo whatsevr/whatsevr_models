@@ -6,7 +6,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'mix_content_counts.g.dart';
+part 'private_recommendation_mix_content_counts.g.dart';
 
 @CopyWith()
 @JsonSerializable(
@@ -15,9 +15,9 @@ part 'mix_content_counts.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class MixContentCounts {
-  /// Returns a new [MixContentCounts] instance.
-  MixContentCounts({
+class PrivateRecommendationMixContentCounts {
+  /// Returns a new [PrivateRecommendationMixContentCounts] instance.
+  PrivateRecommendationMixContentCounts({
     required this.flicks,
 
     required this.offers,
@@ -42,7 +42,7 @@ class MixContentCounts {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MixContentCounts &&
+      other is PrivateRecommendationMixContentCounts &&
           other.flicks == flicks &&
           other.offers == offers &&
           other.photos == photos &&
@@ -52,10 +52,12 @@ class MixContentCounts {
   int get hashCode =>
       flicks.hashCode + offers.hashCode + photos.hashCode + wtvs.hashCode;
 
-  factory MixContentCounts.fromJson(Map<String, dynamic> json) =>
-      _$MixContentCountsFromJson(json);
+  factory PrivateRecommendationMixContentCounts.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PrivateRecommendationMixContentCountsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MixContentCountsToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$PrivateRecommendationMixContentCountsToJson(this);
 
   @override
   String toString() {

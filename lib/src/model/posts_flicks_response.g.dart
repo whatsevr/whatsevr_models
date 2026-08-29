@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_flicks_response.dart';
+part of 'posts_flicks_response.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$GetFlicksResponseCWProxy {
-  GetFlicksResponse flicks(List<PostsFlickRow> flicks);
+abstract class _$PostsFlicksResponseCWProxy {
+  PostsFlicksResponse flicks(List<PostsFlickRow> flicks);
 
-  GetFlicksResponse lastPage(bool lastPage);
+  PostsFlicksResponse lastPage(bool lastPage);
 
-  GetFlicksResponse message(String message);
+  PostsFlicksResponse message(String message);
 
-  GetFlicksResponse page(int page);
+  PostsFlicksResponse page(int page);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetFlicksResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsFlicksResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetFlicksResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsFlicksResponse(...).copyWith(id: 12, name: "My name")
   /// ```
-  GetFlicksResponse call({
+  PostsFlicksResponse call({
     List<PostsFlickRow> flicks,
     bool lastPage,
     String message,
@@ -31,39 +31,40 @@ abstract class _$GetFlicksResponseCWProxy {
 }
 
 /// Callable proxy for `copyWith` functionality.
-/// Use as `instanceOfGetFlicksResponse.copyWith(...)` or call `instanceOfGetFlicksResponse.copyWith.fieldName(value)` for a single field.
-class _$GetFlicksResponseCWProxyImpl implements _$GetFlicksResponseCWProxy {
-  const _$GetFlicksResponseCWProxyImpl(this._value);
+/// Use as `instanceOfPostsFlicksResponse.copyWith(...)` or call `instanceOfPostsFlicksResponse.copyWith.fieldName(value)` for a single field.
+class _$PostsFlicksResponseCWProxyImpl implements _$PostsFlicksResponseCWProxy {
+  const _$PostsFlicksResponseCWProxyImpl(this._value);
 
-  final GetFlicksResponse _value;
-
-  @override
-  GetFlicksResponse flicks(List<PostsFlickRow> flicks) => call(flicks: flicks);
+  final PostsFlicksResponse _value;
 
   @override
-  GetFlicksResponse lastPage(bool lastPage) => call(lastPage: lastPage);
+  PostsFlicksResponse flicks(List<PostsFlickRow> flicks) =>
+      call(flicks: flicks);
 
   @override
-  GetFlicksResponse message(String message) => call(message: message);
+  PostsFlicksResponse lastPage(bool lastPage) => call(lastPage: lastPage);
 
   @override
-  GetFlicksResponse page(int page) => call(page: page);
+  PostsFlicksResponse message(String message) => call(message: message);
+
+  @override
+  PostsFlicksResponse page(int page) => call(page: page);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetFlicksResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsFlicksResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetFlicksResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsFlicksResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   @override
-  GetFlicksResponse call({
+  PostsFlicksResponse call({
     Object? flicks = const $CopyWithPlaceholder(),
     Object? lastPage = const $CopyWithPlaceholder(),
     Object? message = const $CopyWithPlaceholder(),
     Object? page = const $CopyWithPlaceholder(),
   }) {
-    return GetFlicksResponse(
+    return PostsFlicksResponse(
       flicks: flicks == const $CopyWithPlaceholder() || flicks == null
           ? _value.flicks
           // ignore: cast_nullable_to_non_nullable
@@ -84,25 +85,25 @@ class _$GetFlicksResponseCWProxyImpl implements _$GetFlicksResponseCWProxy {
   }
 }
 
-extension $GetFlicksResponseCopyWith on GetFlicksResponse {
+extension $PostsFlicksResponseCopyWith on PostsFlicksResponse {
   /// Returns a callable class used to build a new instance with modified fields.
-  /// Example: `instanceOfGetFlicksResponse.copyWith(...)` or `instanceOfGetFlicksResponse.copyWith.fieldName(...)`.
+  /// Example: `instanceOfPostsFlicksResponse.copyWith(...)` or `instanceOfPostsFlicksResponse.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$GetFlicksResponseCWProxy get copyWith =>
-      _$GetFlicksResponseCWProxyImpl(this);
+  _$PostsFlicksResponseCWProxy get copyWith =>
+      _$PostsFlicksResponseCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetFlicksResponse _$GetFlicksResponseFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('GetFlicksResponse', json, ($checkedConvert) {
+PostsFlicksResponse _$PostsFlicksResponseFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('PostsFlicksResponse', json, ($checkedConvert) {
       $checkKeys(
         json,
         requiredKeys: const ['flicks', 'last_page', 'message', 'page'],
       );
-      final val = GetFlicksResponse(
+      final val = PostsFlicksResponse(
         flicks: $checkedConvert(
           'flicks',
           (v) => (v as List<dynamic>)
@@ -116,10 +117,11 @@ GetFlicksResponse _$GetFlicksResponseFromJson(Map<String, dynamic> json) =>
       return val;
     }, fieldKeyMap: const {'lastPage': 'last_page'});
 
-Map<String, dynamic> _$GetFlicksResponseToJson(GetFlicksResponse instance) =>
-    <String, dynamic>{
-      'flicks': instance.flicks.map((e) => e.toJson()).toList(),
-      'last_page': instance.lastPage,
-      'message': instance.message,
-      'page': instance.page,
-    };
+Map<String, dynamic> _$PostsFlicksResponseToJson(
+  PostsFlicksResponse instance,
+) => <String, dynamic>{
+  'flicks': instance.flicks.map((e) => e.toJson()).toList(),
+  'last_page': instance.lastPage,
+  'message': instance.message,
+  'page': instance.page,
+};

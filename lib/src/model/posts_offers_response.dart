@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_api/src/model/posts_photo_row.dart';
+import 'package:whatsevr_api/src/model/posts_offer_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'get_photos_response.g.dart';
+part 'posts_offers_response.g.dart';
 
 @CopyWith()
 @JsonSerializable(
@@ -16,16 +16,16 @@ part 'get_photos_response.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class GetPhotosResponse {
-  /// Returns a new [GetPhotosResponse] instance.
-  GetPhotosResponse({
+class PostsOffersResponse {
+  /// Returns a new [PostsOffersResponse] instance.
+  PostsOffersResponse({
     required this.lastPage,
 
     required this.message,
 
-    required this.page,
+    required this.offerPosts,
 
-    required this.photos,
+    required this.page,
   });
 
   @JsonKey(name: r'last_page', required: true, includeIfNull: false)
@@ -34,29 +34,32 @@ class GetPhotosResponse {
   @JsonKey(name: r'message', required: true, includeIfNull: false)
   final String message;
 
+  @JsonKey(name: r'offer_posts', required: true, includeIfNull: false)
+  final List<PostsOfferRow> offerPosts;
+
   @JsonKey(name: r'page', required: true, includeIfNull: false)
   final int page;
-
-  @JsonKey(name: r'photos', required: true, includeIfNull: false)
-  final List<PostsPhotoRow> photos;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GetPhotosResponse &&
+      other is PostsOffersResponse &&
           other.lastPage == lastPage &&
           other.message == message &&
-          other.page == page &&
-          other.photos == photos;
+          other.offerPosts == offerPosts &&
+          other.page == page;
 
   @override
   int get hashCode =>
-      lastPage.hashCode + message.hashCode + page.hashCode + photos.hashCode;
+      lastPage.hashCode +
+      message.hashCode +
+      offerPosts.hashCode +
+      page.hashCode;
 
-  factory GetPhotosResponse.fromJson(Map<String, dynamic> json) =>
-      _$GetPhotosResponseFromJson(json);
+  factory PostsOffersResponse.fromJson(Map<String, dynamic> json) =>
+      _$PostsOffersResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GetPhotosResponseToJson(this);
+  Map<String, dynamic> toJson() => _$PostsOffersResponseToJson(this);
 
   @override
   String toString() {

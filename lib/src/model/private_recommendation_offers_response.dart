@@ -3,12 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:whatsevr_api/src/model/public_recommendations_memory_group.dart';
-import 'package:whatsevr_api/src/model/debug_info_uids.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_offer_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'memories_feed_response.g.dart';
+part 'private_recommendation_offers_response.g.dart';
 
 @CopyWith()
 @JsonSerializable(
@@ -17,22 +16,17 @@ part 'memories_feed_response.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class MemoriesFeedResponse {
-  /// Returns a new [MemoriesFeedResponse] instance.
-  MemoriesFeedResponse({
-    this.debugInfo,
-
+class PrivateRecommendationOffersResponse {
+  /// Returns a new [PrivateRecommendationOffersResponse] instance.
+  PrivateRecommendationOffersResponse({
     required this.lastPage,
 
     required this.message,
 
     required this.page,
 
-    required this.recommendedMemories,
+    required this.recommendedOffers,
   });
-
-  @JsonKey(name: r'debug_info', required: false, includeIfNull: false)
-  final DebugInfoUids? debugInfo;
 
   @JsonKey(name: r'last_page', required: true, includeIfNull: false)
   final bool lastPage;
@@ -43,31 +37,31 @@ class MemoriesFeedResponse {
   @JsonKey(name: r'page', required: true, includeIfNull: false)
   final int page;
 
-  @JsonKey(name: r'recommended_memories', required: true, includeIfNull: false)
-  final List<PublicRecommendationsMemoryGroup> recommendedMemories;
+  @JsonKey(name: r'recommended_offers', required: true, includeIfNull: false)
+  final List<PrivateRecommendationOfferRow> recommendedOffers;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MemoriesFeedResponse &&
-          other.debugInfo == debugInfo &&
+      other is PrivateRecommendationOffersResponse &&
           other.lastPage == lastPage &&
           other.message == message &&
           other.page == page &&
-          other.recommendedMemories == recommendedMemories;
+          other.recommendedOffers == recommendedOffers;
 
   @override
   int get hashCode =>
-      (debugInfo == null ? 0 : debugInfo.hashCode) +
       lastPage.hashCode +
       message.hashCode +
       page.hashCode +
-      recommendedMemories.hashCode;
+      recommendedOffers.hashCode;
 
-  factory MemoriesFeedResponse.fromJson(Map<String, dynamic> json) =>
-      _$MemoriesFeedResponseFromJson(json);
+  factory PrivateRecommendationOffersResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PrivateRecommendationOffersResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MemoriesFeedResponseToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$PrivateRecommendationOffersResponseToJson(this);
 
   @override
   String toString() {

@@ -10,16 +10,17 @@ import 'package:whatsevr_api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:whatsevr_api/src/model/flick_feed_response.dart';
-import 'package:whatsevr_api/src/model/get_flicks_response.dart';
-import 'package:whatsevr_api/src/model/get_memories_response.dart';
 import 'package:whatsevr_api/src/model/get_mix_community_content_response.dart';
-import 'package:whatsevr_api/src/model/get_mix_content_response.dart';
-import 'package:whatsevr_api/src/model/get_offers_response.dart';
-import 'package:whatsevr_api/src/model/get_photos_response.dart';
 import 'package:whatsevr_api/src/model/get_videos_response.dart';
 import 'package:whatsevr_api/src/model/memories_feed_response.dart';
 import 'package:whatsevr_api/src/model/offer_feed_response.dart';
 import 'package:whatsevr_api/src/model/photo_feed_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_flicks_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_memories_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_mix_content_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_offers_response.dart';
+import 'package:whatsevr_api/src/model/private_recommendation_photos_response.dart';
+import 'package:whatsevr_api/src/model/public_recommendations_mix_content_response.dart';
 import 'package:whatsevr_api/src/model/video_feed_response.dart';
 
 class RecommendationsApi {
@@ -41,9 +42,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetFlicksResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PrivateRecommendationFlicksResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetFlicksResponse>> privateRecommendationFlicks({
+  Future<Response<PrivateRecommendationFlicksResponse>>
+  privateRecommendationFlicks({
     String? userUid,
     int? page = 1,
     int? pageSize = 20,
@@ -93,17 +95,16 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetFlicksResponse? _responseData;
+    PrivateRecommendationFlicksResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetFlicksResponse, GetFlicksResponse>(
-              rawData,
-              'GetFlicksResponse',
-              growable: true,
-            );
+          : deserialize<
+              PrivateRecommendationFlicksResponse,
+              PrivateRecommendationFlicksResponse
+            >(rawData, 'PrivateRecommendationFlicksResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -114,7 +115,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetFlicksResponse>(
+    return Response<PrivateRecommendationFlicksResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -239,9 +240,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetMixContentResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PrivateRecommendationMixContentResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetMixContentResponse>> privateRecommendationGetMixContent({
+  Future<Response<PrivateRecommendationMixContentResponse>>
+  privateRecommendationGetMixContent({
     String? userUid,
     int? page = 1,
     int? pageSize = 20,
@@ -291,15 +293,18 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetMixContentResponse? _responseData;
+    PrivateRecommendationMixContentResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetMixContentResponse, GetMixContentResponse>(
+          : deserialize<
+              PrivateRecommendationMixContentResponse,
+              PrivateRecommendationMixContentResponse
+            >(
               rawData,
-              'GetMixContentResponse',
+              'PrivateRecommendationMixContentResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -312,7 +317,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetMixContentResponse>(
+    return Response<PrivateRecommendationMixContentResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -338,9 +343,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetMemoriesResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PrivateRecommendationMemoriesResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetMemoriesResponse>> privateRecommendationMemories({
+  Future<Response<PrivateRecommendationMemoriesResponse>>
+  privateRecommendationMemories({
     String? userUid,
     int? page = 1,
     int? pageSize = 20,
@@ -390,17 +396,16 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetMemoriesResponse? _responseData;
+    PrivateRecommendationMemoriesResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetMemoriesResponse, GetMemoriesResponse>(
-              rawData,
-              'GetMemoriesResponse',
-              growable: true,
-            );
+          : deserialize<
+              PrivateRecommendationMemoriesResponse,
+              PrivateRecommendationMemoriesResponse
+            >(rawData, 'PrivateRecommendationMemoriesResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -411,7 +416,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetMemoriesResponse>(
+    return Response<PrivateRecommendationMemoriesResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -437,9 +442,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetOffersResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PrivateRecommendationOffersResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetOffersResponse>> privateRecommendationOffers({
+  Future<Response<PrivateRecommendationOffersResponse>>
+  privateRecommendationOffers({
     String? userUid,
     int? page = 1,
     int? pageSize = 20,
@@ -489,17 +495,16 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetOffersResponse? _responseData;
+    PrivateRecommendationOffersResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetOffersResponse, GetOffersResponse>(
-              rawData,
-              'GetOffersResponse',
-              growable: true,
-            );
+          : deserialize<
+              PrivateRecommendationOffersResponse,
+              PrivateRecommendationOffersResponse
+            >(rawData, 'PrivateRecommendationOffersResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -510,7 +515,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetOffersResponse>(
+    return Response<PrivateRecommendationOffersResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -536,9 +541,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetPhotosResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PrivateRecommendationPhotosResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetPhotosResponse>> privateRecommendationPhotoPosts({
+  Future<Response<PrivateRecommendationPhotosResponse>>
+  privateRecommendationPhotoPosts({
     String? userUid,
     int? page = 1,
     int? pageSize = 20,
@@ -588,17 +594,16 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetPhotosResponse? _responseData;
+    PrivateRecommendationPhotosResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetPhotosResponse, GetPhotosResponse>(
-              rawData,
-              'GetPhotosResponse',
-              growable: true,
-            );
+          : deserialize<
+              PrivateRecommendationPhotosResponse,
+              PrivateRecommendationPhotosResponse
+            >(rawData, 'PrivateRecommendationPhotosResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -609,7 +614,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetPhotosResponse>(
+    return Response<PrivateRecommendationPhotosResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -829,9 +834,10 @@ class RecommendationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetMixContentResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PublicRecommendationsMixContentResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetMixContentResponse>> publicRecommendationsGetMixContent({
+  Future<Response<PublicRecommendationsMixContentResponse>>
+  publicRecommendationsGetMixContent({
     int? page = 1,
     int? pageSize = 20,
     CancelToken? cancelToken,
@@ -879,15 +885,18 @@ class RecommendationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetMixContentResponse? _responseData;
+    PublicRecommendationsMixContentResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetMixContentResponse, GetMixContentResponse>(
+          : deserialize<
+              PublicRecommendationsMixContentResponse,
+              PublicRecommendationsMixContentResponse
+            >(
               rawData,
-              'GetMixContentResponse',
+              'PublicRecommendationsMixContentResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -900,7 +909,7 @@ class RecommendationsApi {
       );
     }
 
-    return Response<GetMixContentResponse>(
+    return Response<PublicRecommendationsMixContentResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

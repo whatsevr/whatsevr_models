@@ -7,7 +7,7 @@ import 'package:whatsevr_api/src/model/posts_mix_content_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'mix_content_item.g.dart';
+part 'posts_mix_content_item.g.dart';
 
 @CopyWith()
 @JsonSerializable(
@@ -16,9 +16,9 @@ part 'mix_content_item.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class MixContentItem {
-  /// Returns a new [MixContentItem] instance.
-  MixContentItem({required this.content, required this.type});
+class PostsMixContentItem {
+  /// Returns a new [PostsMixContentItem] instance.
+  PostsMixContentItem({required this.content, required this.type});
 
   @JsonKey(name: r'content', required: true, includeIfNull: false)
   final PostsMixContentRow content;
@@ -29,15 +29,17 @@ class MixContentItem {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MixContentItem && other.content == content && other.type == type;
+      other is PostsMixContentItem &&
+          other.content == content &&
+          other.type == type;
 
   @override
   int get hashCode => content.hashCode + type.hashCode;
 
-  factory MixContentItem.fromJson(Map<String, dynamic> json) =>
-      _$MixContentItemFromJson(json);
+  factory PostsMixContentItem.fromJson(Map<String, dynamic> json) =>
+      _$PostsMixContentItemFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MixContentItemToJson(this);
+  Map<String, dynamic> toJson() => _$PostsMixContentItemToJson(this);
 
   @override
   String toString() {

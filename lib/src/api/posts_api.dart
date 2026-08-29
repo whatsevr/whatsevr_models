@@ -21,12 +21,7 @@ import 'package:whatsevr_api/src/model/create_video_body.dart';
 import 'package:whatsevr_api/src/model/create_video_response.dart';
 import 'package:whatsevr_api/src/model/flick_details_response.dart';
 import 'package:whatsevr_api/src/model/flick_sanity_body.dart';
-import 'package:whatsevr_api/src/model/get_flicks_response.dart';
-import 'package:whatsevr_api/src/model/get_memories_response.dart';
-import 'package:whatsevr_api/src/model/get_mix_content_response.dart';
-import 'package:whatsevr_api/src/model/get_offers_response.dart';
 import 'package:whatsevr_api/src/model/get_pdfs_response.dart';
-import 'package:whatsevr_api/src/model/get_photos_response.dart';
 import 'package:whatsevr_api/src/model/get_video_posts_response.dart';
 import 'package:whatsevr_api/src/model/memory_sanity_body.dart';
 import 'package:whatsevr_api/src/model/message_response.dart';
@@ -34,6 +29,11 @@ import 'package:whatsevr_api/src/model/offer_details_response.dart';
 import 'package:whatsevr_api/src/model/offer_sanity_body.dart';
 import 'package:whatsevr_api/src/model/photo_details_response.dart';
 import 'package:whatsevr_api/src/model/photo_sanity_body.dart';
+import 'package:whatsevr_api/src/model/posts_flicks_response.dart';
+import 'package:whatsevr_api/src/model/posts_memories_response.dart';
+import 'package:whatsevr_api/src/model/posts_mix_content_response.dart';
+import 'package:whatsevr_api/src/model/posts_offers_response.dart';
+import 'package:whatsevr_api/src/model/posts_photos_response.dart';
 import 'package:whatsevr_api/src/model/upload_pdf_body.dart';
 import 'package:whatsevr_api/src/model/video_sanity_body.dart';
 import 'package:whatsevr_api/src/model/wtv_details_response.dart';
@@ -937,9 +937,9 @@ class PostsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetFlicksResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostsFlicksResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetFlicksResponse>> postsGetFlicks({
+  Future<Response<PostsFlicksResponse>> postsGetFlicks({
     String? userUid,
     String? communityUid,
     int? page = 1,
@@ -991,15 +991,15 @@ class PostsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetFlicksResponse? _responseData;
+    PostsFlicksResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetFlicksResponse, GetFlicksResponse>(
+          : deserialize<PostsFlicksResponse, PostsFlicksResponse>(
               rawData,
-              'GetFlicksResponse',
+              'PostsFlicksResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -1012,7 +1012,7 @@ class PostsApi {
       );
     }
 
-    return Response<GetFlicksResponse>(
+    return Response<PostsFlicksResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1039,9 +1039,9 @@ class PostsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetMemoriesResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostsMemoriesResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetMemoriesResponse>> postsGetMemories({
+  Future<Response<PostsMemoriesResponse>> postsGetMemories({
     String? userUid,
     String? communityUid,
     int? page = 1,
@@ -1093,15 +1093,15 @@ class PostsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetMemoriesResponse? _responseData;
+    PostsMemoriesResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetMemoriesResponse, GetMemoriesResponse>(
+          : deserialize<PostsMemoriesResponse, PostsMemoriesResponse>(
               rawData,
-              'GetMemoriesResponse',
+              'PostsMemoriesResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -1114,7 +1114,7 @@ class PostsApi {
       );
     }
 
-    return Response<GetMemoriesResponse>(
+    return Response<PostsMemoriesResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1141,9 +1141,9 @@ class PostsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetMixContentResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostsMixContentResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetMixContentResponse>> postsGetMixContent({
+  Future<Response<PostsMixContentResponse>> postsGetMixContent({
     String? userUid,
     String? communityUid,
     int? page = 1,
@@ -1195,15 +1195,15 @@ class PostsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetMixContentResponse? _responseData;
+    PostsMixContentResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetMixContentResponse, GetMixContentResponse>(
+          : deserialize<PostsMixContentResponse, PostsMixContentResponse>(
               rawData,
-              'GetMixContentResponse',
+              'PostsMixContentResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -1216,7 +1216,7 @@ class PostsApi {
       );
     }
 
-    return Response<GetMixContentResponse>(
+    return Response<PostsMixContentResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1243,9 +1243,9 @@ class PostsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetOffersResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostsOffersResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetOffersResponse>> postsGetOffers({
+  Future<Response<PostsOffersResponse>> postsGetOffers({
     String? userUid,
     String? communityUid,
     int? page = 1,
@@ -1297,15 +1297,15 @@ class PostsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetOffersResponse? _responseData;
+    PostsOffersResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetOffersResponse, GetOffersResponse>(
+          : deserialize<PostsOffersResponse, PostsOffersResponse>(
               rawData,
-              'GetOffersResponse',
+              'PostsOffersResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -1318,7 +1318,7 @@ class PostsApi {
       );
     }
 
-    return Response<GetOffersResponse>(
+    return Response<PostsOffersResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1447,9 +1447,9 @@ class PostsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetPhotosResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostsPhotosResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetPhotosResponse>> postsGetPhotoPosts({
+  Future<Response<PostsPhotosResponse>> postsGetPhotoPosts({
     String? userUid,
     String? communityUid,
     int? page = 1,
@@ -1501,15 +1501,15 @@ class PostsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetPhotosResponse? _responseData;
+    PostsPhotosResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<GetPhotosResponse, GetPhotosResponse>(
+          : deserialize<PostsPhotosResponse, PostsPhotosResponse>(
               rawData,
-              'GetPhotosResponse',
+              'PostsPhotosResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -1522,7 +1522,7 @@ class PostsApi {
       );
     }
 
-    return Response<GetPhotosResponse>(
+    return Response<PostsPhotosResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

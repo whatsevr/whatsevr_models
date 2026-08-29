@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_photos_response.dart';
+part of 'posts_photos_response.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$GetPhotosResponseCWProxy {
-  GetPhotosResponse lastPage(bool lastPage);
+abstract class _$PostsPhotosResponseCWProxy {
+  PostsPhotosResponse lastPage(bool lastPage);
 
-  GetPhotosResponse message(String message);
+  PostsPhotosResponse message(String message);
 
-  GetPhotosResponse page(int page);
+  PostsPhotosResponse page(int page);
 
-  GetPhotosResponse photos(List<PostsPhotoRow> photos);
+  PostsPhotosResponse photos(List<PostsPhotoRow> photos);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetPhotosResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsPhotosResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetPhotosResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsPhotosResponse(...).copyWith(id: 12, name: "My name")
   /// ```
-  GetPhotosResponse call({
+  PostsPhotosResponse call({
     bool lastPage,
     String message,
     int page,
@@ -31,39 +31,40 @@ abstract class _$GetPhotosResponseCWProxy {
 }
 
 /// Callable proxy for `copyWith` functionality.
-/// Use as `instanceOfGetPhotosResponse.copyWith(...)` or call `instanceOfGetPhotosResponse.copyWith.fieldName(value)` for a single field.
-class _$GetPhotosResponseCWProxyImpl implements _$GetPhotosResponseCWProxy {
-  const _$GetPhotosResponseCWProxyImpl(this._value);
+/// Use as `instanceOfPostsPhotosResponse.copyWith(...)` or call `instanceOfPostsPhotosResponse.copyWith.fieldName(value)` for a single field.
+class _$PostsPhotosResponseCWProxyImpl implements _$PostsPhotosResponseCWProxy {
+  const _$PostsPhotosResponseCWProxyImpl(this._value);
 
-  final GetPhotosResponse _value;
-
-  @override
-  GetPhotosResponse lastPage(bool lastPage) => call(lastPage: lastPage);
+  final PostsPhotosResponse _value;
 
   @override
-  GetPhotosResponse message(String message) => call(message: message);
+  PostsPhotosResponse lastPage(bool lastPage) => call(lastPage: lastPage);
 
   @override
-  GetPhotosResponse page(int page) => call(page: page);
+  PostsPhotosResponse message(String message) => call(message: message);
 
   @override
-  GetPhotosResponse photos(List<PostsPhotoRow> photos) => call(photos: photos);
+  PostsPhotosResponse page(int page) => call(page: page);
+
+  @override
+  PostsPhotosResponse photos(List<PostsPhotoRow> photos) =>
+      call(photos: photos);
 
   /// Creates a new instance with the provided field values.
-  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetPhotosResponse(...).copyWith.fieldName(value)`.
+  /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PostsPhotosResponse(...).copyWith.fieldName(value)`.
   ///
   /// Example:
   /// ```dart
-  /// GetPhotosResponse(...).copyWith(id: 12, name: "My name")
+  /// PostsPhotosResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   @override
-  GetPhotosResponse call({
+  PostsPhotosResponse call({
     Object? lastPage = const $CopyWithPlaceholder(),
     Object? message = const $CopyWithPlaceholder(),
     Object? page = const $CopyWithPlaceholder(),
     Object? photos = const $CopyWithPlaceholder(),
   }) {
-    return GetPhotosResponse(
+    return PostsPhotosResponse(
       lastPage: lastPage == const $CopyWithPlaceholder() || lastPage == null
           ? _value.lastPage
           // ignore: cast_nullable_to_non_nullable
@@ -84,25 +85,25 @@ class _$GetPhotosResponseCWProxyImpl implements _$GetPhotosResponseCWProxy {
   }
 }
 
-extension $GetPhotosResponseCopyWith on GetPhotosResponse {
+extension $PostsPhotosResponseCopyWith on PostsPhotosResponse {
   /// Returns a callable class used to build a new instance with modified fields.
-  /// Example: `instanceOfGetPhotosResponse.copyWith(...)` or `instanceOfGetPhotosResponse.copyWith.fieldName(...)`.
+  /// Example: `instanceOfPostsPhotosResponse.copyWith(...)` or `instanceOfPostsPhotosResponse.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$GetPhotosResponseCWProxy get copyWith =>
-      _$GetPhotosResponseCWProxyImpl(this);
+  _$PostsPhotosResponseCWProxy get copyWith =>
+      _$PostsPhotosResponseCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetPhotosResponse _$GetPhotosResponseFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('GetPhotosResponse', json, ($checkedConvert) {
+PostsPhotosResponse _$PostsPhotosResponseFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('PostsPhotosResponse', json, ($checkedConvert) {
       $checkKeys(
         json,
         requiredKeys: const ['last_page', 'message', 'page', 'photos'],
       );
-      final val = GetPhotosResponse(
+      final val = PostsPhotosResponse(
         lastPage: $checkedConvert('last_page', (v) => v as bool),
         message: $checkedConvert('message', (v) => v as String),
         page: $checkedConvert('page', (v) => (v as num).toInt()),
@@ -116,10 +117,11 @@ GetPhotosResponse _$GetPhotosResponseFromJson(Map<String, dynamic> json) =>
       return val;
     }, fieldKeyMap: const {'lastPage': 'last_page'});
 
-Map<String, dynamic> _$GetPhotosResponseToJson(GetPhotosResponse instance) =>
-    <String, dynamic>{
-      'last_page': instance.lastPage,
-      'message': instance.message,
-      'page': instance.page,
-      'photos': instance.photos.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$PostsPhotosResponseToJson(
+  PostsPhotosResponse instance,
+) => <String, dynamic>{
+  'last_page': instance.lastPage,
+  'message': instance.message,
+  'page': instance.page,
+  'photos': instance.photos.map((e) => e.toJson()).toList(),
+};

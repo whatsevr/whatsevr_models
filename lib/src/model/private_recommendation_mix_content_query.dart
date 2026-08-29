@@ -6,7 +6,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'mix_content_query.g.dart';
+part 'private_recommendation_mix_content_query.g.dart';
 
 @CopyWith()
 @JsonSerializable(
@@ -15,20 +15,15 @@ part 'mix_content_query.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class MixContentQuery {
-  /// Returns a new [MixContentQuery] instance.
-  MixContentQuery({
-    this.communityUid,
-
+class PrivateRecommendationMixContentQuery {
+  /// Returns a new [PrivateRecommendationMixContentQuery] instance.
+  PrivateRecommendationMixContentQuery({
     this.page = 1,
 
     this.pageSize = 20,
 
     this.userUid,
   });
-
-  @JsonKey(name: r'community_uid', required: false, includeIfNull: false)
-  final String? communityUid;
 
   @JsonKey(
     defaultValue: 1,
@@ -52,23 +47,23 @@ class MixContentQuery {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MixContentQuery &&
-          other.communityUid == communityUid &&
+      other is PrivateRecommendationMixContentQuery &&
           other.page == page &&
           other.pageSize == pageSize &&
           other.userUid == userUid;
 
   @override
   int get hashCode =>
-      (communityUid == null ? 0 : communityUid.hashCode) +
       page.hashCode +
       pageSize.hashCode +
       (userUid == null ? 0 : userUid.hashCode);
 
-  factory MixContentQuery.fromJson(Map<String, dynamic> json) =>
-      _$MixContentQueryFromJson(json);
+  factory PrivateRecommendationMixContentQuery.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PrivateRecommendationMixContentQueryFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MixContentQueryToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$PrivateRecommendationMixContentQueryToJson(this);
 
   @override
   String toString() {

@@ -16,7 +16,7 @@ abstract class _$MemoriesFeedResponseCWProxy {
   MemoriesFeedResponse page(int page);
 
   MemoriesFeedResponse recommendedMemories(
-    List<MemoryGroup> recommendedMemories,
+    List<PublicRecommendationsMemoryGroup> recommendedMemories,
   );
 
   /// Creates a new instance with the provided field values.
@@ -31,7 +31,7 @@ abstract class _$MemoriesFeedResponseCWProxy {
     bool lastPage,
     String message,
     int page,
-    List<MemoryGroup> recommendedMemories,
+    List<PublicRecommendationsMemoryGroup> recommendedMemories,
   });
 }
 
@@ -58,7 +58,7 @@ class _$MemoriesFeedResponseCWProxyImpl
 
   @override
   MemoriesFeedResponse recommendedMemories(
-    List<MemoryGroup> recommendedMemories,
+    List<PublicRecommendationsMemoryGroup> recommendedMemories,
   ) => call(recommendedMemories: recommendedMemories);
 
   /// Creates a new instance with the provided field values.
@@ -98,7 +98,7 @@ class _$MemoriesFeedResponseCWProxyImpl
               recommendedMemories == null
           ? _value.recommendedMemories
           // ignore: cast_nullable_to_non_nullable
-          : recommendedMemories as List<MemoryGroup>,
+          : recommendedMemories as List<PublicRecommendationsMemoryGroup>,
     );
   }
 }
@@ -143,7 +143,11 @@ MemoriesFeedResponse _$MemoriesFeedResponseFromJson(
       recommendedMemories: $checkedConvert(
         'recommended_memories',
         (v) => (v as List<dynamic>)
-            .map((e) => MemoryGroup.fromJson(e as Map<String, dynamic>))
+            .map(
+              (e) => PublicRecommendationsMemoryGroup.fromJson(
+                e as Map<String, dynamic>,
+              ),
+            )
             .toList(),
       ),
     );

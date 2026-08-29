@@ -105,7 +105,7 @@ class CandidateDetailsRow {
   final DateTime? createdAt;
 
   @JsonKey(name: r'cumulative_score', required: false, includeIfNull: false)
-  final String? cumulativeScore;
+  final num? cumulativeScore;
 
   @JsonKey(
     name: r'current_chat_session_uid',
