@@ -12,7 +12,7 @@ abstract class _$RemoveContentItemsResponseCWProxy {
   RemoveContentItemsResponse removedItemsCount(int removedItemsCount);
 
   RemoveContentItemsResponse updatedContent(
-    List<Map<String, Object>> updatedContent,
+    List<RelatedContentItemRow> updatedContent,
   );
 
   /// Creates a new instance with the provided field values.
@@ -25,7 +25,7 @@ abstract class _$RemoveContentItemsResponseCWProxy {
   RemoveContentItemsResponse call({
     String message,
     int removedItemsCount,
-    List<Map<String, Object>> updatedContent,
+    List<RelatedContentItemRow> updatedContent,
   });
 }
 
@@ -46,7 +46,7 @@ class _$RemoveContentItemsResponseCWProxyImpl
 
   @override
   RemoveContentItemsResponse updatedContent(
-    List<Map<String, Object>> updatedContent,
+    List<RelatedContentItemRow> updatedContent,
   ) => call(updatedContent: updatedContent);
 
   /// Creates a new instance with the provided field values.
@@ -78,7 +78,7 @@ class _$RemoveContentItemsResponseCWProxyImpl
               updatedContent == null
           ? _value.updatedContent
           // ignore: cast_nullable_to_non_nullable
-          : updatedContent as List<Map<String, Object>>,
+          : updatedContent as List<RelatedContentItemRow>,
     );
   }
 }
@@ -115,9 +115,7 @@ RemoveContentItemsResponse _$RemoveContentItemsResponseFromJson(
         'updated_content',
         (v) => (v as List<dynamic>)
             .map(
-              (e) => (e as Map<String, dynamic>).map(
-                (k, e) => MapEntry(k, e as Object),
-              ),
+              (e) => RelatedContentItemRow.fromJson(e as Map<String, dynamic>),
             )
             .toList(),
       ),
@@ -135,5 +133,5 @@ Map<String, dynamic> _$RemoveContentItemsResponseToJson(
 ) => <String, dynamic>{
   'message': instance.message,
   'removed_items_count': instance.removedItemsCount,
-  'updated_content': instance.updatedContent,
+  'updated_content': instance.updatedContent.map((e) => e.toJson()).toList(),
 };
