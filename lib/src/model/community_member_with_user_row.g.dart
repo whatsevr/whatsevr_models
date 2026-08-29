@@ -21,7 +21,7 @@ abstract class _$CommunityMemberWithUserRowCWProxy {
 
   CommunityMemberWithUserRow status(String status);
 
-  CommunityMemberWithUserRow uid(String? uid);
+  CommunityMemberWithUserRow uid(String uid);
 
   CommunityMemberWithUserRow updatedAt(DateTime? updatedAt);
 
@@ -44,7 +44,7 @@ abstract class _$CommunityMemberWithUserRowCWProxy {
     String? notes,
     String role,
     String status,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     UsersRow? user,
     String userUid,
@@ -85,7 +85,7 @@ class _$CommunityMemberWithUserRowCWProxyImpl
   CommunityMemberWithUserRow status(String status) => call(status: status);
 
   @override
-  CommunityMemberWithUserRow uid(String? uid) => call(uid: uid);
+  CommunityMemberWithUserRow uid(String uid) => call(uid: uid);
 
   @override
   CommunityMemberWithUserRow updatedAt(DateTime? updatedAt) =>
@@ -148,10 +148,10 @@ class _$CommunityMemberWithUserRowCWProxyImpl
           ? _value.status
           // ignore: cast_nullable_to_non_nullable
           : status as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -193,6 +193,7 @@ CommunityMemberWithUserRow _$CommunityMemberWithUserRowFromJson(
         'joined_at',
         'role',
         'status',
+        'uid',
         'user_uid',
       ],
     );
@@ -213,7 +214,7 @@ CommunityMemberWithUserRow _$CommunityMemberWithUserRowFromJson(
       notes: $checkedConvert('notes', (v) => v as String?),
       role: $checkedConvert('role', (v) => v as String),
       status: $checkedConvert('status', (v) => v as String),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -246,7 +247,7 @@ Map<String, dynamic> _$CommunityMemberWithUserRowToJson(
   'notes': ?instance.notes,
   'role': instance.role,
   'status': instance.status,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user': ?instance.user?.toJson(),
   'user_uid': instance.userUid,

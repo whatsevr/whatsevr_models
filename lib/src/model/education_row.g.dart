@@ -21,7 +21,7 @@ abstract class _$EducationRowCWProxy {
 
   EducationRow type(String type);
 
-  EducationRow uid(String? uid);
+  EducationRow uid(String uid);
 
   EducationRow updatedAt(DateTime? updatedAt);
 
@@ -42,7 +42,7 @@ abstract class _$EducationRowCWProxy {
     DateTime? startDate,
     String title,
     String type,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -78,7 +78,7 @@ class _$EducationRowCWProxyImpl implements _$EducationRowCWProxy {
   EducationRow type(String type) => call(type: type);
 
   @override
-  EducationRow uid(String? uid) => call(uid: uid);
+  EducationRow uid(String uid) => call(uid: uid);
 
   @override
   EducationRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -135,10 +135,10 @@ class _$EducationRowCWProxyImpl implements _$EducationRowCWProxy {
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,13 @@ EducationRow _$EducationRowFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         $checkKeys(
           json,
-          requiredKeys: const ['created_at', 'title', 'type', 'user_uid'],
+          requiredKeys: const [
+            'created_at',
+            'title',
+            'type',
+            'uid',
+            'user_uid',
+          ],
         );
         final val = EducationRow(
           createdAt: $checkedConvert(
@@ -191,7 +197,7 @@ EducationRow _$EducationRowFromJson(Map<String, dynamic> json) =>
           ),
           title: $checkedConvert('title', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -219,7 +225,7 @@ Map<String, dynamic> _$EducationRowToJson(EducationRow instance) =>
       'start_date': ?instance.startDate?.toIso8601String(),
       'title': instance.title,
       'type': instance.type,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
     };

@@ -43,7 +43,7 @@ abstract class _$ChatMessageWithRepliesRowCWProxy {
 
   ChatMessageWithRepliesRow senderUid(String senderUid);
 
-  ChatMessageWithRepliesRow uid(String? uid);
+  ChatMessageWithRepliesRow uid(String uid);
 
   ChatMessageWithRepliesRow updatedAt(DateTime updatedAt);
 
@@ -72,7 +72,7 @@ abstract class _$ChatMessageWithRepliesRowCWProxy {
     String? replyToMessageUid,
     PublicUser? sender,
     String senderUid,
-    String? uid,
+    String uid,
     DateTime updatedAt,
   });
 }
@@ -152,7 +152,7 @@ class _$ChatMessageWithRepliesRowCWProxyImpl
       call(senderUid: senderUid);
 
   @override
-  ChatMessageWithRepliesRow uid(String? uid) => call(uid: uid);
+  ChatMessageWithRepliesRow uid(String uid) => call(uid: uid);
 
   @override
   ChatMessageWithRepliesRow updatedAt(DateTime updatedAt) =>
@@ -260,10 +260,10 @@ class _$ChatMessageWithRepliesRowCWProxyImpl
           ? _value.senderUid
           // ignore: cast_nullable_to_non_nullable
           : senderUid as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -300,6 +300,7 @@ ChatMessageWithRepliesRow _$ChatMessageWithRepliesRowFromJson(
         'owner_type',
         'reply_to_chat_message',
         'sender_uid',
+        'uid',
         'updated_at',
       ],
     );
@@ -345,7 +346,7 @@ ChatMessageWithRepliesRow _$ChatMessageWithRepliesRowFromJson(
             v == null ? null : PublicUser.fromJson(v as Map<String, dynamic>),
       ),
       senderUid: $checkedConvert('sender_uid', (v) => v as String),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => DateTime.parse(v as String),
@@ -395,6 +396,6 @@ Map<String, dynamic> _$ChatMessageWithRepliesRowToJson(
   'reply_to_message_uid': ?instance.replyToMessageUid,
   'sender': ?instance.sender?.toJson(),
   'sender_uid': instance.senderUid,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': instance.updatedAt.toIso8601String(),
 };

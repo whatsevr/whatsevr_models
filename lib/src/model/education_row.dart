@@ -32,7 +32,7 @@ class EducationRow {
 
     required this.type,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -60,8 +60,8 @@ class EducationRow {
   @JsonKey(name: r'type', required: true, includeIfNull: false)
   final String type;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -93,7 +93,7 @@ class EducationRow {
       (startDate == null ? 0 : startDate.hashCode) +
       title.hashCode +
       type.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode;
 

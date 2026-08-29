@@ -39,7 +39,7 @@ abstract class _$CommunityRowCWProxy {
 
   CommunityRow totalMembers(int totalMembers);
 
-  CommunityRow uid(String? uid);
+  CommunityRow uid(String uid);
 
   CommunityRow updatedAt(DateTime updatedAt);
 
@@ -69,7 +69,7 @@ abstract class _$CommunityRowCWProxy {
     String status,
     String title,
     int totalMembers,
-    String? uid,
+    String uid,
     DateTime updatedAt,
     String username,
   });
@@ -140,7 +140,7 @@ class _$CommunityRowCWProxyImpl implements _$CommunityRowCWProxy {
       call(totalMembers: totalMembers);
 
   @override
-  CommunityRow uid(String? uid) => call(uid: uid);
+  CommunityRow uid(String uid) => call(uid: uid);
 
   @override
   CommunityRow updatedAt(DateTime updatedAt) => call(updatedAt: updatedAt);
@@ -250,10 +250,10 @@ class _$CommunityRowCWProxyImpl implements _$CommunityRowCWProxy {
           ? _value.totalMembers
           // ignore: cast_nullable_to_non_nullable
           : totalMembers as int,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -295,6 +295,7 @@ CommunityRow _$CommunityRowFromJson(
         'status',
         'title',
         'total_members',
+        'uid',
         'updated_at',
         'username',
       ],
@@ -331,7 +332,7 @@ CommunityRow _$CommunityRowFromJson(
       status: $checkedConvert('status', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
       totalMembers: $checkedConvert('total_members', (v) => (v as num).toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => DateTime.parse(v as String),
@@ -375,7 +376,7 @@ Map<String, dynamic> _$CommunityRowToJson(CommunityRow instance) =>
       'status': instance.status,
       'title': instance.title,
       'total_members': instance.totalMembers,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': instance.updatedAt.toIso8601String(),
       'username': instance.username,
     };

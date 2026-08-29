@@ -75,7 +75,7 @@ abstract class _$CandidateDetailsRowCWProxy {
 
   CandidateDetailsRow totalComments(int? totalComments);
 
-  CandidateDetailsRow uid(String? uid);
+  CandidateDetailsRow uid(String uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `CandidateDetailsRow(...).copyWith.fieldName(value)`.
@@ -118,7 +118,7 @@ abstract class _$CandidateDetailsRowCWProxy {
     String? relationshipStatus,
     String? state,
     int? totalComments,
-    String? uid,
+    String uid,
   });
 }
 
@@ -249,7 +249,7 @@ class _$CandidateDetailsRowCWProxyImpl implements _$CandidateDetailsRowCWProxy {
       call(totalComments: totalComments);
 
   @override
-  CandidateDetailsRow uid(String? uid) => call(uid: uid);
+  CandidateDetailsRow uid(String uid) => call(uid: uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `CandidateDetailsRow(...).copyWith.fieldName(value)`.
@@ -436,10 +436,10 @@ class _$CandidateDetailsRowCWProxyImpl implements _$CandidateDetailsRowCWProxy {
           ? _value.totalComments
           // ignore: cast_nullable_to_non_nullable
           : totalComments as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
     );
   }
 }
@@ -470,6 +470,7 @@ CandidateDetailsRow _$CandidateDetailsRowFromJson(
         'is_premium_profile',
         'media',
         'name',
+        'uid',
       ],
     );
     final val = CandidateDetailsRow(
@@ -559,7 +560,7 @@ CandidateDetailsRow _$CandidateDetailsRowFromJson(
         'total_comments',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
     );
     return val;
   },
@@ -622,5 +623,5 @@ Map<String, dynamic> _$CandidateDetailsRowToJson(
   'relationship_status': ?instance.relationshipStatus,
   'state': ?instance.state,
   'total_comments': ?instance.totalComments,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
 };

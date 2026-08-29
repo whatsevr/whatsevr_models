@@ -89,7 +89,7 @@ abstract class _$PortfolioUserRowCWProxy {
 
   PortfolioUserRow totalReactions(int? totalReactions);
 
-  PortfolioUserRow uid(String? uid);
+  PortfolioUserRow uid(String uid);
 
   PortfolioUserRow updatedAt(DateTime? updatedAt);
 
@@ -148,7 +148,7 @@ abstract class _$PortfolioUserRowCWProxy {
     int? totalFollowers,
     int totalFollowings,
     int? totalReactions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String? userLastLatLongWkb,
     String username,
@@ -319,7 +319,7 @@ class _$PortfolioUserRowCWProxyImpl implements _$PortfolioUserRowCWProxy {
       call(totalReactions: totalReactions);
 
   @override
-  PortfolioUserRow uid(String? uid) => call(uid: uid);
+  PortfolioUserRow uid(String uid) => call(uid: uid);
 
   @override
   PortfolioUserRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -566,10 +566,10 @@ class _$PortfolioUserRowCWProxyImpl implements _$PortfolioUserRowCWProxy {
           ? _value.totalReactions
           // ignore: cast_nullable_to_non_nullable
           : totalReactions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -621,6 +621,7 @@ PortfolioUserRow _$PortfolioUserRowFromJson(
         'registered_at',
         'services',
         'total_followings',
+        'uid',
         'username',
         'work_experiences',
       ],
@@ -736,7 +737,7 @@ PortfolioUserRow _$PortfolioUserRowFromJson(
         'total_reactions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -841,7 +842,7 @@ Map<String, dynamic> _$PortfolioUserRowToJson(
   'total_followers': ?instance.totalFollowers,
   'total_followings': instance.totalFollowings,
   'total_reactions': ?instance.totalReactions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_last_lat_long_wkb': ?instance.userLastLatLongWkb,
   'username': instance.username,

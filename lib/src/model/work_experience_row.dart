@@ -30,7 +30,7 @@ class WorkExperienceRow {
 
     this.startDate,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -57,8 +57,8 @@ class WorkExperienceRow {
   @JsonKey(name: r'start_date', required: false, includeIfNull: false)
   final DateTime? startDate;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -92,7 +92,7 @@ class WorkExperienceRow {
       (endDate == null ? 0 : endDate.hashCode) +
       (isCurrentlyWorking == null ? 0 : isCurrentlyWorking.hashCode) +
       (startDate == null ? 0 : startDate.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode +
       (workingMode == null ? 0 : workingMode.hashCode);

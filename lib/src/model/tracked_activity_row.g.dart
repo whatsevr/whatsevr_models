@@ -55,7 +55,7 @@ abstract class _$TrackedActivityRowCWProxy {
 
   TrackedActivityRow photoUid(String? photoUid);
 
-  TrackedActivityRow uid(String? uid);
+  TrackedActivityRow uid(String uid);
 
   TrackedActivityRow updatedAt(DateTime? updatedAt);
 
@@ -97,7 +97,7 @@ abstract class _$TrackedActivityRowCWProxy {
     String? pdfUid,
     PhotoRow? photo,
     String? photoUid,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String? userUid,
     WtvRow? wtv,
@@ -195,7 +195,7 @@ class _$TrackedActivityRowCWProxyImpl implements _$TrackedActivityRowCWProxy {
   TrackedActivityRow photoUid(String? photoUid) => call(photoUid: photoUid);
 
   @override
-  TrackedActivityRow uid(String? uid) => call(uid: uid);
+  TrackedActivityRow uid(String uid) => call(uid: uid);
 
   @override
   TrackedActivityRow updatedAt(DateTime? updatedAt) =>
@@ -346,10 +346,10 @@ class _$TrackedActivityRowCWProxyImpl implements _$TrackedActivityRowCWProxy {
           ? _value.photoUid
           // ignore: cast_nullable_to_non_nullable
           : photoUid as String?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -388,6 +388,7 @@ TrackedActivityRow _$TrackedActivityRowFromJson(
   'TrackedActivityRow',
   json,
   ($checkedConvert) {
+    $checkKeys(json, requiredKeys: const ['uid']);
     final val = TrackedActivityRow(
       activityAt: $checkedConvert(
         'activity_at',
@@ -443,7 +444,7 @@ TrackedActivityRow _$TrackedActivityRowFromJson(
         (v) => v == null ? null : PhotoRow.fromJson(v as Map<String, dynamic>),
       ),
       photoUid: $checkedConvert('photo_uid', (v) => v as String?),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -507,7 +508,7 @@ Map<String, dynamic> _$TrackedActivityRowToJson(TrackedActivityRow instance) =>
       'pdf_uid': ?instance.pdfUid,
       'photo': ?instance.photo?.toJson(),
       'photo_uid': ?instance.photoUid,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': ?instance.userUid,
       'wtv': ?instance.wtv?.toJson(),

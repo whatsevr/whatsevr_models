@@ -43,7 +43,7 @@ abstract class _$CommunityWithAdminRowCWProxy {
 
   CommunityWithAdminRow totalMembers(int totalMembers);
 
-  CommunityWithAdminRow uid(String? uid);
+  CommunityWithAdminRow uid(String uid);
 
   CommunityWithAdminRow updatedAt(DateTime updatedAt);
 
@@ -74,7 +74,7 @@ abstract class _$CommunityWithAdminRowCWProxy {
     String status,
     String title,
     int totalMembers,
-    String? uid,
+    String uid,
     DateTime updatedAt,
     String username,
   });
@@ -152,7 +152,7 @@ class _$CommunityWithAdminRowCWProxyImpl
       call(totalMembers: totalMembers);
 
   @override
-  CommunityWithAdminRow uid(String? uid) => call(uid: uid);
+  CommunityWithAdminRow uid(String uid) => call(uid: uid);
 
   @override
   CommunityWithAdminRow updatedAt(DateTime updatedAt) =>
@@ -268,10 +268,10 @@ class _$CommunityWithAdminRowCWProxyImpl
           ? _value.totalMembers
           // ignore: cast_nullable_to_non_nullable
           : totalMembers as int,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -314,6 +314,7 @@ CommunityWithAdminRow _$CommunityWithAdminRowFromJson(
         'status',
         'title',
         'total_members',
+        'uid',
         'updated_at',
         'username',
       ],
@@ -354,7 +355,7 @@ CommunityWithAdminRow _$CommunityWithAdminRowFromJson(
       status: $checkedConvert('status', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
       totalMembers: $checkedConvert('total_members', (v) => (v as num).toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => DateTime.parse(v as String),
@@ -400,7 +401,7 @@ Map<String, dynamic> _$CommunityWithAdminRowToJson(
   'status': instance.status,
   'title': instance.title,
   'total_members': instance.totalMembers,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': instance.updatedAt.toIso8601String(),
   'username': instance.username,
 };

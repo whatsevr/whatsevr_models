@@ -47,7 +47,7 @@ abstract class _$ExternalSearchCommunityRowCWProxy {
 
   ExternalSearchCommunityRow totalMembers(int totalMembers);
 
-  ExternalSearchCommunityRow uid(String? uid);
+  ExternalSearchCommunityRow uid(String uid);
 
   ExternalSearchCommunityRow updatedAt(DateTime updatedAt);
 
@@ -80,7 +80,7 @@ abstract class _$ExternalSearchCommunityRowCWProxy {
     String status,
     String title,
     int totalMembers,
-    String? uid,
+    String uid,
     DateTime updatedAt,
     String username,
   });
@@ -168,7 +168,7 @@ class _$ExternalSearchCommunityRowCWProxyImpl
       call(totalMembers: totalMembers);
 
   @override
-  ExternalSearchCommunityRow uid(String? uid) => call(uid: uid);
+  ExternalSearchCommunityRow uid(String uid) => call(uid: uid);
 
   @override
   ExternalSearchCommunityRow updatedAt(DateTime updatedAt) =>
@@ -296,10 +296,10 @@ class _$ExternalSearchCommunityRowCWProxyImpl
           ? _value.totalMembers
           // ignore: cast_nullable_to_non_nullable
           : totalMembers as int,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -344,6 +344,7 @@ ExternalSearchCommunityRow _$ExternalSearchCommunityRowFromJson(
         'status',
         'title',
         'total_members',
+        'uid',
         'updated_at',
         'username',
       ],
@@ -397,7 +398,7 @@ ExternalSearchCommunityRow _$ExternalSearchCommunityRowFromJson(
       status: $checkedConvert('status', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
       totalMembers: $checkedConvert('total_members', (v) => (v as num).toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => DateTime.parse(v as String),
@@ -446,7 +447,7 @@ Map<String, dynamic> _$ExternalSearchCommunityRowToJson(
   'status': instance.status,
   'title': instance.title,
   'total_members': instance.totalMembers,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': instance.updatedAt.toIso8601String(),
   'username': instance.username,
 };

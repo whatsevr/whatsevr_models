@@ -33,7 +33,7 @@ abstract class _$ExternalSearchPdfRowCWProxy {
 
   ExternalSearchPdfRow totalImpressions(int? totalImpressions);
 
-  ExternalSearchPdfRow uid(String? uid);
+  ExternalSearchPdfRow uid(String uid);
 
   ExternalSearchPdfRow updatedAt(DateTime? updatedAt);
 
@@ -59,7 +59,7 @@ abstract class _$ExternalSearchPdfRowCWProxy {
     String thumbnailUrl,
     String title,
     int? totalImpressions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -120,7 +120,7 @@ class _$ExternalSearchPdfRowCWProxyImpl
       call(totalImpressions: totalImpressions);
 
   @override
-  ExternalSearchPdfRow uid(String? uid) => call(uid: uid);
+  ExternalSearchPdfRow uid(String uid) => call(uid: uid);
 
   @override
   ExternalSearchPdfRow updatedAt(DateTime? updatedAt) =>
@@ -207,10 +207,10 @@ class _$ExternalSearchPdfRowCWProxyImpl
           ? _value.totalImpressions
           // ignore: cast_nullable_to_non_nullable
           : totalImpressions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -249,6 +249,7 @@ ExternalSearchPdfRow _$ExternalSearchPdfRowFromJson(
         'post_creator_type',
         'thumbnail_url',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -284,7 +285,7 @@ ExternalSearchPdfRow _$ExternalSearchPdfRowFromJson(
         'total_impressions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -324,7 +325,7 @@ Map<String, dynamic> _$ExternalSearchPdfRowToJson(
   'thumbnail_url': instance.thumbnailUrl,
   'title': instance.title,
   'total_impressions': ?instance.totalImpressions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

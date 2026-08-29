@@ -40,7 +40,7 @@ class CommentRow {
 
     this.sneekpeekCandidateUid,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -90,8 +90,8 @@ class CommentRow {
   )
   final String? sneekpeekCandidateUid;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -135,7 +135,7 @@ class CommentRow {
       (pdfUid == null ? 0 : pdfUid.hashCode) +
       (photoUid == null ? 0 : photoUid.hashCode) +
       (sneekpeekCandidateUid == null ? 0 : sneekpeekCandidateUid.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode +
       (wtvUid == null ? 0 : wtvUid.hashCode);

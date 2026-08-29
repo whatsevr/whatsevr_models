@@ -65,7 +65,7 @@ abstract class _$OwnCandidateRowCWProxy {
 
   OwnCandidateRow totalComments(int? totalComments);
 
-  OwnCandidateRow uid(String? uid);
+  OwnCandidateRow uid(String uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `OwnCandidateRow(...).copyWith.fieldName(value)`.
@@ -104,7 +104,7 @@ abstract class _$OwnCandidateRowCWProxy {
     String? relationshipStatus,
     String? state,
     int? totalComments,
-    String? uid,
+    String uid,
   });
 }
 
@@ -218,7 +218,7 @@ class _$OwnCandidateRowCWProxyImpl implements _$OwnCandidateRowCWProxy {
       call(totalComments: totalComments);
 
   @override
-  OwnCandidateRow uid(String? uid) => call(uid: uid);
+  OwnCandidateRow uid(String uid) => call(uid: uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `OwnCandidateRow(...).copyWith.fieldName(value)`.
@@ -386,10 +386,10 @@ class _$OwnCandidateRowCWProxyImpl implements _$OwnCandidateRowCWProxy {
           ? _value.totalComments
           // ignore: cast_nullable_to_non_nullable
           : totalComments as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
     );
   }
 }
@@ -420,6 +420,7 @@ OwnCandidateRow _$OwnCandidateRowFromJson(
         'media',
         'media_items',
         'name',
+        'uid',
       ],
     );
     final val = OwnCandidateRow(
@@ -493,7 +494,7 @@ OwnCandidateRow _$OwnCandidateRowFromJson(
         'total_comments',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
     );
     return val;
   },
@@ -548,5 +549,5 @@ Map<String, dynamic> _$OwnCandidateRowToJson(
   'relationship_status': ?instance.relationshipStatus,
   'state': ?instance.state,
   'total_comments': ?instance.totalComments,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
 };

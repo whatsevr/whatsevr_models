@@ -74,7 +74,7 @@ class TrackedActivityRow {
 
     this.photoUid,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -157,8 +157,8 @@ class TrackedActivityRow {
   @JsonKey(name: r'photo_uid', required: false, includeIfNull: false)
   final String? photoUid;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -232,7 +232,7 @@ class TrackedActivityRow {
       (pdfUid == null ? 0 : pdfUid.hashCode) +
       (photo == null ? 0 : photo.hashCode) +
       (photoUid == null ? 0 : photoUid.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (userUid == null ? 0 : userUid.hashCode) +
       (wtv == null ? 0 : wtv.hashCode) +

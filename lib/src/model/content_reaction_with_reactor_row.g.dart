@@ -27,7 +27,7 @@ abstract class _$ContentReactionWithReactorRowCWProxy {
 
   ContentReactionWithReactorRow reactor(UsersRow? reactor);
 
-  ContentReactionWithReactorRow uid(String? uid);
+  ContentReactionWithReactorRow uid(String uid);
 
   ContentReactionWithReactorRow updatedAt(DateTime? updatedAt);
 
@@ -53,7 +53,7 @@ abstract class _$ContentReactionWithReactorRowCWProxy {
     String? photoUid,
     String reactionType,
     UsersRow? reactor,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     String? wtvUid,
@@ -109,7 +109,7 @@ class _$ContentReactionWithReactorRowCWProxyImpl
       call(reactor: reactor);
 
   @override
-  ContentReactionWithReactorRow uid(String? uid) => call(uid: uid);
+  ContentReactionWithReactorRow uid(String uid) => call(uid: uid);
 
   @override
   ContentReactionWithReactorRow updatedAt(DateTime? updatedAt) =>
@@ -190,10 +190,10 @@ class _$ContentReactionWithReactorRowCWProxyImpl
           ? _value.reactor
           // ignore: cast_nullable_to_non_nullable
           : reactor as UsersRow?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -235,6 +235,7 @@ ContentReactionWithReactorRow _$ContentReactionWithReactorRowFromJson(
         'content_owner_user_uid',
         'created_at',
         'reaction_type',
+        'uid',
         'user_uid',
       ],
     );
@@ -258,7 +259,7 @@ ContentReactionWithReactorRow _$ContentReactionWithReactorRowFromJson(
         'reactor',
         (v) => v == null ? null : UsersRow.fromJson(v as Map<String, dynamic>),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -297,7 +298,7 @@ Map<String, dynamic> _$ContentReactionWithReactorRowToJson(
   'photo_uid': ?instance.photoUid,
   'reaction_type': instance.reactionType,
   'reactor': ?instance.reactor?.toJson(),
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
   'wtv_uid': ?instance.wtvUid,

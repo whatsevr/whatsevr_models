@@ -63,7 +63,7 @@ abstract class _$PostsMemoryRowCWProxy {
 
   PostsMemoryRow totalViews(int? totalViews);
 
-  PostsMemoryRow uid(String? uid);
+  PostsMemoryRow uid(String uid);
 
   PostsMemoryRow updatedAt(DateTime? updatedAt);
 
@@ -109,7 +109,7 @@ abstract class _$PostsMemoryRowCWProxy {
     int? totalReactions,
     int? totalShares,
     int? totalViews,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     int? videoDurationMs,
@@ -223,7 +223,7 @@ class _$PostsMemoryRowCWProxyImpl implements _$PostsMemoryRowCWProxy {
   PostsMemoryRow totalViews(int? totalViews) => call(totalViews: totalViews);
 
   @override
-  PostsMemoryRow uid(String? uid) => call(uid: uid);
+  PostsMemoryRow uid(String uid) => call(uid: uid);
 
   @override
   PostsMemoryRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -397,10 +397,10 @@ class _$PostsMemoryRowCWProxyImpl implements _$PostsMemoryRowCWProxy {
           ? _value.totalViews
           // ignore: cast_nullable_to_non_nullable
           : totalViews as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -440,7 +440,12 @@ PostsMemoryRow _$PostsMemoryRowFromJson(
   ($checkedConvert) {
     $checkKeys(
       json,
-      requiredKeys: const ['created_at', 'post_creator_type', 'user_uid'],
+      requiredKeys: const [
+        'created_at',
+        'post_creator_type',
+        'uid',
+        'user_uid',
+      ],
     );
     final val = PostsMemoryRow(
       addressLatLongWkb: $checkedConvert(
@@ -511,7 +516,7 @@ PostsMemoryRow _$PostsMemoryRowFromJson(
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
       totalViews: $checkedConvert('total_views', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -586,7 +591,7 @@ Map<String, dynamic> _$PostsMemoryRowToJson(PostsMemoryRow instance) =>
       'total_reactions': ?instance.totalReactions,
       'total_shares': ?instance.totalShares,
       'total_views': ?instance.totalViews,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'video_duration_ms': ?instance.videoDurationMs,

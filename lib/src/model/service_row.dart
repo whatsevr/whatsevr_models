@@ -28,7 +28,7 @@ class ServiceRow {
 
     required this.title,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -50,8 +50,8 @@ class ServiceRow {
   @JsonKey(name: r'title', required: true, includeIfNull: false)
   final String title;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -79,7 +79,7 @@ class ServiceRow {
       description.hashCode +
       ownerType.hashCode +
       title.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode;
 

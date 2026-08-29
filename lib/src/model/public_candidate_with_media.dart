@@ -68,7 +68,7 @@ class PublicCandidateWithMedia {
 
     this.totalComments,
 
-    this.uid,
+    required this.uid,
   });
 
   @JsonKey(name: r'age', required: false, includeIfNull: false)
@@ -158,8 +158,8 @@ class PublicCandidateWithMedia {
   @JsonKey(name: r'total_comments', required: false, includeIfNull: false)
   final int? totalComments;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @override
   bool operator ==(Object other) =>
@@ -219,7 +219,7 @@ class PublicCandidateWithMedia {
       (relationshipStatus == null ? 0 : relationshipStatus.hashCode) +
       (state == null ? 0 : state.hashCode) +
       (totalComments == null ? 0 : totalComments.hashCode) +
-      (uid == null ? 0 : uid.hashCode);
+      uid.hashCode;
 
   factory PublicCandidateWithMedia.fromJson(Map<String, dynamic> json) =>
       _$PublicCandidateWithMediaFromJson(json);

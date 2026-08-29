@@ -83,7 +83,7 @@ abstract class _$UsersRowCWProxy {
 
   UsersRow totalReactions(int? totalReactions);
 
-  UsersRow uid(String? uid);
+  UsersRow uid(String uid);
 
   UsersRow updatedAt(DateTime? updatedAt);
 
@@ -137,7 +137,7 @@ abstract class _$UsersRowCWProxy {
     int? totalFollowers,
     int totalFollowings,
     int? totalReactions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String? userLastLatLongWkb,
     String username,
@@ -293,7 +293,7 @@ class _$UsersRowCWProxyImpl implements _$UsersRowCWProxy {
       call(totalReactions: totalReactions);
 
   @override
-  UsersRow uid(String? uid) => call(uid: uid);
+  UsersRow uid(String uid) => call(uid: uid);
 
   @override
   UsersRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -518,10 +518,10 @@ class _$UsersRowCWProxyImpl implements _$UsersRowCWProxy {
           ? _value.totalReactions
           // ignore: cast_nullable_to_non_nullable
           : totalReactions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -562,6 +562,7 @@ UsersRow _$UsersRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'name',
         'registered_at',
         'total_followings',
+        'uid',
         'username',
       ],
     );
@@ -658,7 +659,7 @@ UsersRow _$UsersRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'total_reactions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -750,7 +751,7 @@ Map<String, dynamic> _$UsersRowToJson(UsersRow instance) => <String, dynamic>{
   'total_followers': ?instance.totalFollowers,
   'total_followings': instance.totalFollowings,
   'total_reactions': ?instance.totalReactions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_last_lat_long_wkb': ?instance.userLastLatLongWkb,
   'username': instance.username,

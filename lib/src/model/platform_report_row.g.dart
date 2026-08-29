@@ -41,7 +41,7 @@ abstract class _$PlatformReportRowCWProxy {
 
   PlatformReportRow targetMetaData(Object targetMetaData);
 
-  PlatformReportRow uid(String? uid);
+  PlatformReportRow uid(String uid);
 
   PlatformReportRow updatedAt(DateTime? updatedAt);
 
@@ -70,7 +70,7 @@ abstract class _$PlatformReportRowCWProxy {
     String? severityLevel,
     String status,
     Object targetMetaData,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
   });
 }
@@ -149,7 +149,7 @@ class _$PlatformReportRowCWProxyImpl implements _$PlatformReportRowCWProxy {
       call(targetMetaData: targetMetaData);
 
   @override
-  PlatformReportRow uid(String? uid) => call(uid: uid);
+  PlatformReportRow uid(String uid) => call(uid: uid);
 
   @override
   PlatformReportRow updatedAt(DateTime? updatedAt) =>
@@ -259,10 +259,10 @@ class _$PlatformReportRowCWProxyImpl implements _$PlatformReportRowCWProxy {
           ? _value.targetMetaData
           // ignore: cast_nullable_to_non_nullable
           : targetMetaData as Object,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -296,6 +296,7 @@ PlatformReportRow _$PlatformReportRowFromJson(
         'reporter_user_uid',
         'status',
         'target_meta_data',
+        'uid',
       ],
     );
     final val = PlatformReportRow(
@@ -331,7 +332,7 @@ PlatformReportRow _$PlatformReportRowFromJson(
       severityLevel: $checkedConvert('severity_level', (v) => v as String?),
       status: $checkedConvert('status', (v) => v as String),
       targetMetaData: $checkedConvert('target_meta_data', (v) => v as Object),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -378,6 +379,6 @@ Map<String, dynamic> _$PlatformReportRowToJson(PlatformReportRow instance) =>
       'severity_level': ?instance.severityLevel,
       'status': instance.status,
       'target_meta_data': instance.targetMetaData,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
     };

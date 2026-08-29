@@ -57,7 +57,7 @@ abstract class _$PostsFlickRowCWProxy {
 
   PostsFlickRow totalViews(int? totalViews);
 
-  PostsFlickRow uid(String? uid);
+  PostsFlickRow uid(String uid);
 
   PostsFlickRow updatedAt(DateTime? updatedAt);
 
@@ -100,7 +100,7 @@ abstract class _$PostsFlickRowCWProxy {
     int? totalReactions,
     int? totalShares,
     int? totalViews,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     int? videoDurationInSec,
@@ -207,7 +207,7 @@ class _$PostsFlickRowCWProxyImpl implements _$PostsFlickRowCWProxy {
   PostsFlickRow totalViews(int? totalViews) => call(totalViews: totalViews);
 
   @override
-  PostsFlickRow uid(String? uid) => call(uid: uid);
+  PostsFlickRow uid(String uid) => call(uid: uid);
 
   @override
   PostsFlickRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -369,10 +369,10 @@ class _$PostsFlickRowCWProxyImpl implements _$PostsFlickRowCWProxy {
           ? _value.totalViews
           // ignore: cast_nullable_to_non_nullable
           : totalViews as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -417,6 +417,7 @@ PostsFlickRow _$PostsFlickRowFromJson(
         'optimized_files',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
         'video_url',
       ],
@@ -490,7 +491,7 @@ PostsFlickRow _$PostsFlickRowFromJson(
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
       totalViews: $checkedConvert('total_views', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -558,7 +559,7 @@ Map<String, dynamic> _$PostsFlickRowToJson(PostsFlickRow instance) =>
       'total_reactions': ?instance.totalReactions,
       'total_shares': ?instance.totalShares,
       'total_views': ?instance.totalViews,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'video_duration_in_sec': ?instance.videoDurationInSec,

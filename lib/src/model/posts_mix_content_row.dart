@@ -91,7 +91,7 @@ class PostsMixContentRow {
 
     this.totalViews,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -221,8 +221,8 @@ class PostsMixContentRow {
   @JsonKey(name: r'total_views', required: false, includeIfNull: false)
   final int? totalViews;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -326,7 +326,7 @@ class PostsMixContentRow {
       (totalReactions == null ? 0 : totalReactions.hashCode) +
       (totalShares == null ? 0 : totalShares.hashCode) +
       (totalViews == null ? 0 : totalViews.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (user == null ? 0 : user.hashCode) +
       userUid.hashCode +

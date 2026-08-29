@@ -33,7 +33,7 @@ abstract class _$PostsPdfRowCWProxy {
 
   PostsPdfRow totalImpressions(int? totalImpressions);
 
-  PostsPdfRow uid(String? uid);
+  PostsPdfRow uid(String uid);
 
   PostsPdfRow updatedAt(DateTime? updatedAt);
 
@@ -60,7 +60,7 @@ abstract class _$PostsPdfRowCWProxy {
     String thumbnailUrl,
     String title,
     int? totalImpressions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -121,7 +121,7 @@ class _$PostsPdfRowCWProxyImpl implements _$PostsPdfRowCWProxy {
       call(totalImpressions: totalImpressions);
 
   @override
-  PostsPdfRow uid(String? uid) => call(uid: uid);
+  PostsPdfRow uid(String uid) => call(uid: uid);
 
   @override
   PostsPdfRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -212,10 +212,10 @@ class _$PostsPdfRowCWProxyImpl implements _$PostsPdfRowCWProxy {
           ? _value.totalImpressions
           // ignore: cast_nullable_to_non_nullable
           : totalImpressions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -251,6 +251,7 @@ PostsPdfRow _$PostsPdfRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'post_creator_type',
         'thumbnail_url',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -290,7 +291,7 @@ PostsPdfRow _$PostsPdfRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'total_impressions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -330,7 +331,7 @@ Map<String, dynamic> _$PostsPdfRowToJson(PostsPdfRow instance) =>
       'thumbnail_url': instance.thumbnailUrl,
       'title': instance.title,
       'total_impressions': ?instance.totalImpressions,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
     };

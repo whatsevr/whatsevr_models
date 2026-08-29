@@ -53,7 +53,7 @@ abstract class _$PhotoWithCreatorRowCWProxy {
 
   PhotoWithCreatorRow totalShares(int? totalShares);
 
-  PhotoWithCreatorRow uid(String? uid);
+  PhotoWithCreatorRow uid(String uid);
 
   PhotoWithCreatorRow updatedAt(DateTime? updatedAt);
 
@@ -89,7 +89,7 @@ abstract class _$PhotoWithCreatorRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -189,7 +189,7 @@ class _$PhotoWithCreatorRowCWProxyImpl implements _$PhotoWithCreatorRowCWProxy {
       call(totalShares: totalShares);
 
   @override
-  PhotoWithCreatorRow uid(String? uid) => call(uid: uid);
+  PhotoWithCreatorRow uid(String uid) => call(uid: uid);
 
   @override
   PhotoWithCreatorRow updatedAt(DateTime? updatedAt) =>
@@ -326,10 +326,10 @@ class _$PhotoWithCreatorRowCWProxyImpl implements _$PhotoWithCreatorRowCWProxy {
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -366,6 +366,7 @@ PhotoWithCreatorRow _$PhotoWithCreatorRowFromJson(
         'created_at',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -436,7 +437,7 @@ PhotoWithCreatorRow _$PhotoWithCreatorRowFromJson(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -494,7 +495,7 @@ Map<String, dynamic> _$PhotoWithCreatorRowToJson(
   'total_impressions': ?instance.totalImpressions,
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

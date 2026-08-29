@@ -49,7 +49,7 @@ abstract class _$PhotoRowCWProxy {
 
   PhotoRow totalShares(int? totalShares);
 
-  PhotoRow uid(String? uid);
+  PhotoRow uid(String uid);
 
   PhotoRow updatedAt(DateTime? updatedAt);
 
@@ -84,7 +84,7 @@ abstract class _$PhotoRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -175,7 +175,7 @@ class _$PhotoRowCWProxyImpl implements _$PhotoRowCWProxy {
   PhotoRow totalShares(int? totalShares) => call(totalShares: totalShares);
 
   @override
-  PhotoRow uid(String? uid) => call(uid: uid);
+  PhotoRow uid(String uid) => call(uid: uid);
 
   @override
   PhotoRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -306,10 +306,10 @@ class _$PhotoRowCWProxyImpl implements _$PhotoRowCWProxy {
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -343,6 +343,7 @@ PhotoRow _$PhotoRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'created_at',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -409,7 +410,7 @@ PhotoRow _$PhotoRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -464,7 +465,7 @@ Map<String, dynamic> _$PhotoRowToJson(PhotoRow instance) => <String, dynamic>{
   'total_impressions': ?instance.totalImpressions,
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

@@ -29,7 +29,7 @@ abstract class _$PdfRowCWProxy {
 
   PdfRow totalImpressions(int? totalImpressions);
 
-  PdfRow uid(String? uid);
+  PdfRow uid(String uid);
 
   PdfRow updatedAt(DateTime? updatedAt);
 
@@ -54,7 +54,7 @@ abstract class _$PdfRowCWProxy {
     String thumbnailUrl,
     String title,
     int? totalImpressions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -106,7 +106,7 @@ class _$PdfRowCWProxyImpl implements _$PdfRowCWProxy {
       call(totalImpressions: totalImpressions);
 
   @override
-  PdfRow uid(String? uid) => call(uid: uid);
+  PdfRow uid(String uid) => call(uid: uid);
 
   @override
   PdfRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -187,10 +187,10 @@ class _$PdfRowCWProxyImpl implements _$PdfRowCWProxy {
           ? _value.totalImpressions
           // ignore: cast_nullable_to_non_nullable
           : totalImpressions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -226,6 +226,7 @@ PdfRow _$PdfRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'post_creator_type',
         'thumbnail_url',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -256,7 +257,7 @@ PdfRow _$PdfRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'total_impressions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -293,7 +294,7 @@ Map<String, dynamic> _$PdfRowToJson(PdfRow instance) => <String, dynamic>{
   'thumbnail_url': instance.thumbnailUrl,
   'title': instance.title,
   'total_impressions': ?instance.totalImpressions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

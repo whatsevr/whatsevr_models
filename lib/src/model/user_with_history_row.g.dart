@@ -85,7 +85,7 @@ abstract class _$UserWithHistoryRowCWProxy {
 
   UserWithHistoryRow totalReactions(int? totalReactions);
 
-  UserWithHistoryRow uid(String? uid);
+  UserWithHistoryRow uid(String uid);
 
   UserWithHistoryRow updatedAt(DateTime? updatedAt);
 
@@ -142,7 +142,7 @@ abstract class _$UserWithHistoryRowCWProxy {
     int? totalFollowers,
     int totalFollowings,
     int? totalReactions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String? userLastLatLongWkb,
     String username,
@@ -306,7 +306,7 @@ class _$UserWithHistoryRowCWProxyImpl implements _$UserWithHistoryRowCWProxy {
       call(totalReactions: totalReactions);
 
   @override
-  UserWithHistoryRow uid(String? uid) => call(uid: uid);
+  UserWithHistoryRow uid(String uid) => call(uid: uid);
 
   @override
   UserWithHistoryRow updatedAt(DateTime? updatedAt) =>
@@ -543,10 +543,10 @@ class _$UserWithHistoryRowCWProxyImpl implements _$UserWithHistoryRowCWProxy {
           ? _value.totalReactions
           // ignore: cast_nullable_to_non_nullable
           : totalReactions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -597,6 +597,7 @@ UserWithHistoryRow _$UserWithHistoryRowFromJson(
         'name',
         'registered_at',
         'total_followings',
+        'uid',
         'username',
         'work_experiences',
       ],
@@ -700,7 +701,7 @@ UserWithHistoryRow _$UserWithHistoryRowFromJson(
         'total_reactions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -802,7 +803,7 @@ Map<String, dynamic> _$UserWithHistoryRowToJson(
   'total_followers': ?instance.totalFollowers,
   'total_followings': instance.totalFollowings,
   'total_reactions': ?instance.totalReactions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_last_lat_long_wkb': ?instance.userLastLatLongWkb,
   'username': instance.username,

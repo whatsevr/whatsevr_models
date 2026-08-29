@@ -61,7 +61,7 @@ abstract class _$OfferRowCWProxy {
 
   OfferRow totalShares(int? totalShares);
 
-  OfferRow uid(String? uid);
+  OfferRow uid(String uid);
 
   OfferRow updatedAt(DateTime? updatedAt);
 
@@ -102,7 +102,7 @@ abstract class _$OfferRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -214,7 +214,7 @@ class _$OfferRowCWProxyImpl implements _$OfferRowCWProxy {
   OfferRow totalShares(int? totalShares) => call(totalShares: totalShares);
 
   @override
-  OfferRow uid(String? uid) => call(uid: uid);
+  OfferRow uid(String uid) => call(uid: uid);
 
   @override
   OfferRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -376,10 +376,10 @@ class _$OfferRowCWProxyImpl implements _$OfferRowCWProxy {
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -414,6 +414,7 @@ OfferRow _$OfferRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'description',
         'post_creator_type',
         'status',
+        'uid',
         'user_uid',
       ],
     );
@@ -491,7 +492,7 @@ OfferRow _$OfferRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -558,7 +559,7 @@ Map<String, dynamic> _$OfferRowToJson(OfferRow instance) => <String, dynamic>{
   'total_impressions': ?instance.totalImpressions,
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

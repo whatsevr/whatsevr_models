@@ -35,7 +35,7 @@ abstract class _$CollectionFolderRowCWProxy {
 
   CollectionFolderRow title(String title);
 
-  CollectionFolderRow uid(String? uid);
+  CollectionFolderRow uid(String uid);
 
   CollectionFolderRow updatedAt(DateTime updatedAt);
 
@@ -63,7 +63,7 @@ abstract class _$CollectionFolderRowCWProxy {
     String? pdfUid,
     String? photoUid,
     String title,
-    String? uid,
+    String uid,
     DateTime updatedAt,
     String? wtvUid,
   });
@@ -125,7 +125,7 @@ class _$CollectionFolderRowCWProxyImpl implements _$CollectionFolderRowCWProxy {
   CollectionFolderRow title(String title) => call(title: title);
 
   @override
-  CollectionFolderRow uid(String? uid) => call(uid: uid);
+  CollectionFolderRow uid(String uid) => call(uid: uid);
 
   @override
   CollectionFolderRow updatedAt(DateTime updatedAt) =>
@@ -219,10 +219,10 @@ class _$CollectionFolderRowCWProxyImpl implements _$CollectionFolderRowCWProxy {
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
           : title as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -261,6 +261,7 @@ CollectionFolderRow _$CollectionFolderRowFromJson(Map<String, dynamic> json) =>
             'item_count',
             'owner_type',
             'title',
+            'uid',
             'updated_at',
           ],
         );
@@ -285,7 +286,7 @@ CollectionFolderRow _$CollectionFolderRowFromJson(Map<String, dynamic> json) =>
           pdfUid: $checkedConvert('pdf_uid', (v) => v as String?),
           photoUid: $checkedConvert('photo_uid', (v) => v as String?),
           title: $checkedConvert('title', (v) => v as String),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => DateTime.parse(v as String),
@@ -329,7 +330,7 @@ Map<String, dynamic> _$CollectionFolderRowToJson(
   'pdf_uid': ?instance.pdfUid,
   'photo_uid': ?instance.photoUid,
   'title': instance.title,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': instance.updatedAt.toIso8601String(),
   'wtv_uid': ?instance.wtvUid,
 };

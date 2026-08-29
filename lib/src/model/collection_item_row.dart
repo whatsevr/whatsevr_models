@@ -57,7 +57,7 @@ class CollectionItemRow {
 
     required this.title,
 
-    this.uid,
+    required this.uid,
 
     required this.updatedAt,
 
@@ -121,8 +121,8 @@ class CollectionItemRow {
   @JsonKey(name: r'title', required: true, includeIfNull: false)
   final String title;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: true, includeIfNull: false)
   final DateTime updatedAt;
@@ -178,7 +178,7 @@ class CollectionItemRow {
       (photoUid == null ? 0 : photoUid.hashCode) +
       (photos == null ? 0 : photos.hashCode) +
       title.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       updatedAt.hashCode +
       (wtvUid == null ? 0 : wtvUid.hashCode) +
       (wtvs == null ? 0 : wtvs.hashCode);

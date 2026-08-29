@@ -31,7 +31,7 @@ abstract class _$PdfWithOwnerRowCWProxy {
 
   PdfWithOwnerRow totalImpressions(int? totalImpressions);
 
-  PdfWithOwnerRow uid(String? uid);
+  PdfWithOwnerRow uid(String uid);
 
   PdfWithOwnerRow updatedAt(DateTime? updatedAt);
 
@@ -57,7 +57,7 @@ abstract class _$PdfWithOwnerRowCWProxy {
     String thumbnailUrl,
     String title,
     int? totalImpressions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -115,7 +115,7 @@ class _$PdfWithOwnerRowCWProxyImpl implements _$PdfWithOwnerRowCWProxy {
       call(totalImpressions: totalImpressions);
 
   @override
-  PdfWithOwnerRow uid(String? uid) => call(uid: uid);
+  PdfWithOwnerRow uid(String uid) => call(uid: uid);
 
   @override
   PdfWithOwnerRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -201,10 +201,10 @@ class _$PdfWithOwnerRowCWProxyImpl implements _$PdfWithOwnerRowCWProxy {
           ? _value.totalImpressions
           // ignore: cast_nullable_to_non_nullable
           : totalImpressions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -241,6 +241,7 @@ PdfWithOwnerRow _$PdfWithOwnerRowFromJson(Map<String, dynamic> json) =>
             'post_creator_type',
             'thumbnail_url',
             'title',
+            'uid',
             'user_uid',
           ],
         );
@@ -279,7 +280,7 @@ PdfWithOwnerRow _$PdfWithOwnerRowFromJson(Map<String, dynamic> json) =>
             'total_impressions',
             (v) => (v as num?)?.toInt(),
           ),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -318,7 +319,7 @@ Map<String, dynamic> _$PdfWithOwnerRowToJson(PdfWithOwnerRow instance) =>
       'thumbnail_url': instance.thumbnailUrl,
       'title': instance.title,
       'total_impressions': ?instance.totalImpressions,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
     };

@@ -71,7 +71,7 @@ abstract class _$PrivateRecommendationOfferRowCWProxy {
 
   PrivateRecommendationOfferRow totalShares(int? totalShares);
 
-  PrivateRecommendationOfferRow uid(String? uid);
+  PrivateRecommendationOfferRow uid(String uid);
 
   PrivateRecommendationOfferRow updatedAt(DateTime? updatedAt);
 
@@ -115,7 +115,7 @@ abstract class _$PrivateRecommendationOfferRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     UsersRow? user,
     String userUid,
@@ -245,7 +245,7 @@ class _$PrivateRecommendationOfferRowCWProxyImpl
       call(totalShares: totalShares);
 
   @override
-  PrivateRecommendationOfferRow uid(String? uid) => call(uid: uid);
+  PrivateRecommendationOfferRow uid(String uid) => call(uid: uid);
 
   @override
   PrivateRecommendationOfferRow updatedAt(DateTime? updatedAt) =>
@@ -418,10 +418,10 @@ class _$PrivateRecommendationOfferRowCWProxyImpl
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -464,6 +464,7 @@ PrivateRecommendationOfferRow _$PrivateRecommendationOfferRowFromJson(
         'description',
         'post_creator_type',
         'status',
+        'uid',
         'user_uid',
       ],
     );
@@ -546,7 +547,7 @@ PrivateRecommendationOfferRow _$PrivateRecommendationOfferRowFromJson(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -620,7 +621,7 @@ Map<String, dynamic> _$PrivateRecommendationOfferRowToJson(
   'total_impressions': ?instance.totalImpressions,
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user': ?instance.user?.toJson(),
   'user_uid': instance.userUid,

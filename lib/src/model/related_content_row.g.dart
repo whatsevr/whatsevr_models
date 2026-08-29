@@ -17,7 +17,7 @@ abstract class _$RelatedContentRowCWProxy {
 
   RelatedContentRow ownerType(String ownerType);
 
-  RelatedContentRow uid(String? uid);
+  RelatedContentRow uid(String uid);
 
   RelatedContentRow updatedAt(DateTime? updatedAt);
 
@@ -34,7 +34,7 @@ abstract class _$RelatedContentRowCWProxy {
     Object? content,
     DateTime createdAt,
     String ownerType,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
   });
 }
@@ -64,7 +64,7 @@ class _$RelatedContentRowCWProxyImpl implements _$RelatedContentRowCWProxy {
   RelatedContentRow ownerType(String ownerType) => call(ownerType: ownerType);
 
   @override
-  RelatedContentRow uid(String? uid) => call(uid: uid);
+  RelatedContentRow uid(String uid) => call(uid: uid);
 
   @override
   RelatedContentRow updatedAt(DateTime? updatedAt) =>
@@ -109,10 +109,10 @@ class _$RelatedContentRowCWProxyImpl implements _$RelatedContentRowCWProxy {
           ? _value.ownerType
           // ignore: cast_nullable_to_non_nullable
           : ownerType as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,12 @@ RelatedContentRow _$RelatedContentRowFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         $checkKeys(
           json,
-          requiredKeys: const ['author_user_uid', 'created_at', 'owner_type'],
+          requiredKeys: const [
+            'author_user_uid',
+            'created_at',
+            'owner_type',
+            'uid',
+          ],
         );
         final val = RelatedContentRow(
           authorUserUid: $checkedConvert('author_user_uid', (v) => v as String),
@@ -151,7 +156,7 @@ RelatedContentRow _$RelatedContentRowFromJson(Map<String, dynamic> json) =>
             (v) => DateTime.parse(v as String),
           ),
           ownerType: $checkedConvert('owner_type', (v) => v as String),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -175,6 +180,6 @@ Map<String, dynamic> _$RelatedContentRowToJson(RelatedContentRow instance) =>
       'content': ?instance.content,
       'created_at': instance.createdAt.toIso8601String(),
       'owner_type': instance.ownerType,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
     };

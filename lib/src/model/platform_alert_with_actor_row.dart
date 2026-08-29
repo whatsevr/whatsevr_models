@@ -37,7 +37,7 @@ class PlatformAlertWithActorRow {
 
     this.title,
 
-    this.uid,
+    required this.uid,
   });
 
   @JsonKey(name: r'actor_user', required: false, includeIfNull: false)
@@ -67,8 +67,8 @@ class PlatformAlertWithActorRow {
   @JsonKey(name: r'title', required: false, includeIfNull: false)
   final String? title;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @override
   bool operator ==(Object other) =>
@@ -96,7 +96,7 @@ class PlatformAlertWithActorRow {
       (recipientUserUid == null ? 0 : recipientUserUid.hashCode) +
       (target == null ? 0 : target.hashCode) +
       (title == null ? 0 : title.hashCode) +
-      (uid == null ? 0 : uid.hashCode);
+      uid.hashCode;
 
   factory PlatformAlertWithActorRow.fromJson(Map<String, dynamic> json) =>
       _$PlatformAlertWithActorRowFromJson(json);

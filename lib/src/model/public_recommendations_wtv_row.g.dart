@@ -55,7 +55,7 @@ abstract class _$PublicRecommendationsWtvRowCWProxy {
 
   PublicRecommendationsWtvRow totalViews(int? totalViews);
 
-  PublicRecommendationsWtvRow uid(String? uid);
+  PublicRecommendationsWtvRow uid(String uid);
 
   PublicRecommendationsWtvRow updatedAt(DateTime? updatedAt);
 
@@ -96,7 +96,7 @@ abstract class _$PublicRecommendationsWtvRowCWProxy {
     int? totalReactions,
     int? totalShares,
     int? totalViews,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     UsersRow? user,
     String userUid,
@@ -200,7 +200,7 @@ class _$PublicRecommendationsWtvRowCWProxyImpl
       call(totalViews: totalViews);
 
   @override
-  PublicRecommendationsWtvRow uid(String? uid) => call(uid: uid);
+  PublicRecommendationsWtvRow uid(String uid) => call(uid: uid);
 
   @override
   PublicRecommendationsWtvRow updatedAt(DateTime? updatedAt) =>
@@ -346,10 +346,10 @@ class _$PublicRecommendationsWtvRowCWProxyImpl
           ? _value.totalViews
           // ignore: cast_nullable_to_non_nullable
           : totalViews as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -398,6 +398,7 @@ PublicRecommendationsWtvRow _$PublicRecommendationsWtvRowFromJson(
         'created_at',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
         'video_url',
       ],
@@ -457,7 +458,7 @@ PublicRecommendationsWtvRow _$PublicRecommendationsWtvRowFromJson(
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
       totalViews: $checkedConvert('total_views', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -524,7 +525,7 @@ Map<String, dynamic> _$PublicRecommendationsWtvRowToJson(
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
   'total_views': ?instance.totalViews,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user': ?instance.user?.toJson(),
   'user_uid': instance.userUid,

@@ -29,7 +29,7 @@ abstract class _$UserReactedItemRowCWProxy {
 
   UserReactedItemRow reactor(UsersRow? reactor);
 
-  UserReactedItemRow uid(String? uid);
+  UserReactedItemRow uid(String uid);
 
   UserReactedItemRow updatedAt(DateTime? updatedAt);
 
@@ -56,7 +56,7 @@ abstract class _$UserReactedItemRowCWProxy {
     String? photoUid,
     String reactionType,
     UsersRow? reactor,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     String? wtvUid,
@@ -109,7 +109,7 @@ class _$UserReactedItemRowCWProxyImpl implements _$UserReactedItemRowCWProxy {
   UserReactedItemRow reactor(UsersRow? reactor) => call(reactor: reactor);
 
   @override
-  UserReactedItemRow uid(String? uid) => call(uid: uid);
+  UserReactedItemRow uid(String uid) => call(uid: uid);
 
   @override
   UserReactedItemRow updatedAt(DateTime? updatedAt) =>
@@ -194,10 +194,10 @@ class _$UserReactedItemRowCWProxyImpl implements _$UserReactedItemRowCWProxy {
           ? _value.reactor
           // ignore: cast_nullable_to_non_nullable
           : reactor as UsersRow?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -237,6 +237,7 @@ UserReactedItemRow _$UserReactedItemRowFromJson(Map<String, dynamic> json) =>
             'content_owner_user_uid',
             'created_at',
             'reaction_type',
+            'uid',
             'user_uid',
           ],
         );
@@ -266,7 +267,7 @@ UserReactedItemRow _$UserReactedItemRowFromJson(Map<String, dynamic> json) =>
             (v) =>
                 v == null ? null : UsersRow.fromJson(v as Map<String, dynamic>),
           ),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -306,7 +307,7 @@ Map<String, dynamic> _$UserReactedItemRowToJson(UserReactedItemRow instance) =>
       'photo_uid': ?instance.photoUid,
       'reaction_type': instance.reactionType,
       'reactor': ?instance.reactor?.toJson(),
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'wtv_uid': ?instance.wtvUid,

@@ -57,7 +57,7 @@ abstract class _$ExternalSearchFlickRowCWProxy {
 
   ExternalSearchFlickRow totalViews(int? totalViews);
 
-  ExternalSearchFlickRow uid(String? uid);
+  ExternalSearchFlickRow uid(String uid);
 
   ExternalSearchFlickRow updatedAt(DateTime? updatedAt);
 
@@ -99,7 +99,7 @@ abstract class _$ExternalSearchFlickRowCWProxy {
     int? totalReactions,
     int? totalShares,
     int? totalViews,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     int? videoDurationInSec,
@@ -212,7 +212,7 @@ class _$ExternalSearchFlickRowCWProxyImpl
       call(totalViews: totalViews);
 
   @override
-  ExternalSearchFlickRow uid(String? uid) => call(uid: uid);
+  ExternalSearchFlickRow uid(String uid) => call(uid: uid);
 
   @override
   ExternalSearchFlickRow updatedAt(DateTime? updatedAt) =>
@@ -370,10 +370,10 @@ class _$ExternalSearchFlickRowCWProxyImpl
           ? _value.totalViews
           // ignore: cast_nullable_to_non_nullable
           : totalViews as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -419,6 +419,7 @@ ExternalSearchFlickRow _$ExternalSearchFlickRowFromJson(
         'optimized_files',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
         'video_url',
       ],
@@ -488,7 +489,7 @@ ExternalSearchFlickRow _$ExternalSearchFlickRowFromJson(
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
       totalViews: $checkedConvert('total_views', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -556,7 +557,7 @@ Map<String, dynamic> _$ExternalSearchFlickRowToJson(
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
   'total_views': ?instance.totalViews,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
   'video_duration_in_sec': ?instance.videoDurationInSec,

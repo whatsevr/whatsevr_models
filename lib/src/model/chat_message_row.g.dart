@@ -37,7 +37,7 @@ abstract class _$ChatMessageRowCWProxy {
 
   ChatMessageRow senderUid(String senderUid);
 
-  ChatMessageRow uid(String? uid);
+  ChatMessageRow uid(String uid);
 
   ChatMessageRow updatedAt(DateTime updatedAt);
 
@@ -64,7 +64,7 @@ abstract class _$ChatMessageRowCWProxy {
     Object? relatedContent,
     String? replyToMessageUid,
     String senderUid,
-    String? uid,
+    String uid,
     DateTime updatedAt,
   });
 }
@@ -129,7 +129,7 @@ class _$ChatMessageRowCWProxyImpl implements _$ChatMessageRowCWProxy {
   ChatMessageRow senderUid(String senderUid) => call(senderUid: senderUid);
 
   @override
-  ChatMessageRow uid(String? uid) => call(uid: uid);
+  ChatMessageRow uid(String uid) => call(uid: uid);
 
   @override
   ChatMessageRow updatedAt(DateTime updatedAt) => call(updatedAt: updatedAt);
@@ -224,10 +224,10 @@ class _$ChatMessageRowCWProxyImpl implements _$ChatMessageRowCWProxy {
           ? _value.senderUid
           // ignore: cast_nullable_to_non_nullable
           : senderUid as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder() || updatedAt == null
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -262,6 +262,7 @@ ChatMessageRow _$ChatMessageRowFromJson(
         'is_system_message',
         'owner_type',
         'sender_uid',
+        'uid',
         'updated_at',
       ],
     );
@@ -296,7 +297,7 @@ ChatMessageRow _$ChatMessageRowFromJson(
         (v) => v as String?,
       ),
       senderUid: $checkedConvert('sender_uid', (v) => v as String),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => DateTime.parse(v as String),
@@ -340,6 +341,6 @@ Map<String, dynamic> _$ChatMessageRowToJson(ChatMessageRow instance) =>
       'related_content': ?instance.relatedContent,
       'reply_to_message_uid': ?instance.replyToMessageUid,
       'sender_uid': instance.senderUid,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': instance.updatedAt.toIso8601String(),
     };

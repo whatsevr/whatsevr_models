@@ -17,7 +17,7 @@ abstract class _$CommentReplyWithAuthorRowCWProxy {
 
   CommentReplyWithAuthorRow replyText(String replyText);
 
-  CommentReplyWithAuthorRow uid(String? uid);
+  CommentReplyWithAuthorRow uid(String uid);
 
   CommentReplyWithAuthorRow updatedAt(DateTime? updatedAt);
 
@@ -36,7 +36,7 @@ abstract class _$CommentReplyWithAuthorRowCWProxy {
     String contentOwnerUserUid,
     DateTime createdAt,
     String replyText,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -70,7 +70,7 @@ class _$CommentReplyWithAuthorRowCWProxyImpl
       call(replyText: replyText);
 
   @override
-  CommentReplyWithAuthorRow uid(String? uid) => call(uid: uid);
+  CommentReplyWithAuthorRow uid(String uid) => call(uid: uid);
 
   @override
   CommentReplyWithAuthorRow updatedAt(DateTime? updatedAt) =>
@@ -121,10 +121,10 @@ class _$CommentReplyWithAuthorRowCWProxyImpl
           ? _value.replyText
           // ignore: cast_nullable_to_non_nullable
           : replyText as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -162,6 +162,7 @@ CommentReplyWithAuthorRow _$CommentReplyWithAuthorRowFromJson(
         'content_owner_user_uid',
         'created_at',
         'reply_text',
+        'uid',
         'user_uid',
       ],
     );
@@ -181,7 +182,7 @@ CommentReplyWithAuthorRow _$CommentReplyWithAuthorRowFromJson(
         (v) => DateTime.parse(v as String),
       ),
       replyText: $checkedConvert('reply_text', (v) => v as String),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -208,7 +209,7 @@ Map<String, dynamic> _$CommentReplyWithAuthorRowToJson(
   'content_owner_user_uid': instance.contentOwnerUserUid,
   'created_at': instance.createdAt.toIso8601String(),
   'reply_text': instance.replyText,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_uid': instance.userUid,
 };

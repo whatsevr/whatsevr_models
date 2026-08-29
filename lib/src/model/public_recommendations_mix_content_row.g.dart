@@ -89,7 +89,7 @@ abstract class _$PublicRecommendationsMixContentRowCWProxy {
 
   PublicRecommendationsMixContentRow totalViews(int? totalViews);
 
-  PublicRecommendationsMixContentRow uid(String? uid);
+  PublicRecommendationsMixContentRow uid(String uid);
 
   PublicRecommendationsMixContentRow updatedAt(DateTime? updatedAt);
 
@@ -144,7 +144,7 @@ abstract class _$PublicRecommendationsMixContentRowCWProxy {
     int? totalReactions,
     int? totalShares,
     int? totalViews,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     UsersRow? user,
     String userUid,
@@ -302,7 +302,7 @@ class _$PublicRecommendationsMixContentRowCWProxyImpl
       call(totalViews: totalViews);
 
   @override
-  PublicRecommendationsMixContentRow uid(String? uid) => call(uid: uid);
+  PublicRecommendationsMixContentRow uid(String uid) => call(uid: uid);
 
   @override
   PublicRecommendationsMixContentRow updatedAt(DateTime? updatedAt) =>
@@ -510,10 +510,10 @@ class _$PublicRecommendationsMixContentRowCWProxyImpl
           ? _value.totalViews
           // ignore: cast_nullable_to_non_nullable
           : totalViews as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -559,7 +559,12 @@ PublicRecommendationsMixContentRow _$PublicRecommendationsMixContentRowFromJson(
   ($checkedConvert) {
     $checkKeys(
       json,
-      requiredKeys: const ['created_at', 'post_creator_type', 'user_uid'],
+      requiredKeys: const [
+        'created_at',
+        'post_creator_type',
+        'uid',
+        'user_uid',
+      ],
     );
     final val = PublicRecommendationsMixContentRow(
       addressLatLongWkb: $checkedConvert(
@@ -647,7 +652,7 @@ PublicRecommendationsMixContentRow _$PublicRecommendationsMixContentRowFromJson(
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
       totalViews: $checkedConvert('total_views', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -737,7 +742,7 @@ Map<String, dynamic> _$PublicRecommendationsMixContentRowToJson(
   'total_reactions': ?instance.totalReactions,
   'total_shares': ?instance.totalShares,
   'total_views': ?instance.totalViews,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user': ?instance.user?.toJson(),
   'user_uid': instance.userUid,

@@ -53,7 +53,7 @@ abstract class _$PostsPhotoRowCWProxy {
 
   PostsPhotoRow totalShares(int? totalShares);
 
-  PostsPhotoRow uid(String? uid);
+  PostsPhotoRow uid(String uid);
 
   PostsPhotoRow updatedAt(DateTime? updatedAt);
 
@@ -90,7 +90,7 @@ abstract class _$PostsPhotoRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -189,7 +189,7 @@ class _$PostsPhotoRowCWProxyImpl implements _$PostsPhotoRowCWProxy {
   PostsPhotoRow totalShares(int? totalShares) => call(totalShares: totalShares);
 
   @override
-  PostsPhotoRow uid(String? uid) => call(uid: uid);
+  PostsPhotoRow uid(String uid) => call(uid: uid);
 
   @override
   PostsPhotoRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -330,10 +330,10 @@ class _$PostsPhotoRowCWProxyImpl implements _$PostsPhotoRowCWProxy {
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -369,6 +369,7 @@ PostsPhotoRow _$PostsPhotoRowFromJson(
         'created_at',
         'post_creator_type',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -444,7 +445,7 @@ PostsPhotoRow _$PostsPhotoRowFromJson(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -502,7 +503,7 @@ Map<String, dynamic> _$PostsPhotoRowToJson(PostsPhotoRow instance) =>
       'total_impressions': ?instance.totalImpressions,
       'total_reactions': ?instance.totalReactions,
       'total_shares': ?instance.totalShares,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
     };

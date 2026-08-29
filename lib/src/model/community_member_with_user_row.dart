@@ -33,7 +33,7 @@ class CommunityMemberWithUserRow {
 
     required this.status,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -63,8 +63,8 @@ class CommunityMemberWithUserRow {
   @JsonKey(name: r'status', required: true, includeIfNull: false)
   final String status;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -100,7 +100,7 @@ class CommunityMemberWithUserRow {
       (notes == null ? 0 : notes.hashCode) +
       role.hashCode +
       status.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (user == null ? 0 : user.hashCode) +
       userUid.hashCode;

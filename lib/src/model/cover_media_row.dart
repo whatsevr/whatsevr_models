@@ -28,7 +28,7 @@ class CoverMediaRow {
 
     required this.ownerType,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -52,8 +52,8 @@ class CoverMediaRow {
   @JsonKey(name: r'owner_type', required: true, includeIfNull: false)
   final String ownerType;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -85,7 +85,7 @@ class CoverMediaRow {
       imageUrl.hashCode +
       isVideo.hashCode +
       ownerType.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode +
       (videoUrl == null ? 0 : videoUrl.hashCode);

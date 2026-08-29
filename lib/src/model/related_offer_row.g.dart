@@ -63,7 +63,7 @@ abstract class _$RelatedOfferRowCWProxy {
 
   RelatedOfferRow totalShares(int? totalShares);
 
-  RelatedOfferRow uid(String? uid);
+  RelatedOfferRow uid(String uid);
 
   RelatedOfferRow updatedAt(DateTime? updatedAt);
 
@@ -107,7 +107,7 @@ abstract class _$RelatedOfferRowCWProxy {
     int? totalImpressions,
     int? totalReactions,
     int? totalShares,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     UsersRow? user,
     String userUid,
@@ -225,7 +225,7 @@ class _$RelatedOfferRowCWProxyImpl implements _$RelatedOfferRowCWProxy {
       call(totalShares: totalShares);
 
   @override
-  RelatedOfferRow uid(String? uid) => call(uid: uid);
+  RelatedOfferRow uid(String uid) => call(uid: uid);
 
   @override
   RelatedOfferRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -396,10 +396,10 @@ class _$RelatedOfferRowCWProxyImpl implements _$RelatedOfferRowCWProxy {
           ? _value.totalShares
           // ignore: cast_nullable_to_non_nullable
           : totalShares as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -440,6 +440,7 @@ RelatedOfferRow _$RelatedOfferRowFromJson(
         'description',
         'post_creator_type',
         'status',
+        'uid',
         'user_uid',
       ],
     );
@@ -521,7 +522,7 @@ RelatedOfferRow _$RelatedOfferRowFromJson(
         (v) => (v as num?)?.toInt(),
       ),
       totalShares: $checkedConvert('total_shares', (v) => (v as num?)?.toInt()),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -594,7 +595,7 @@ Map<String, dynamic> _$RelatedOfferRowToJson(RelatedOfferRow instance) =>
       'total_impressions': ?instance.totalImpressions,
       'total_reactions': ?instance.totalReactions,
       'total_shares': ?instance.totalShares,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user': ?instance.user?.toJson(),
       'user_uid': instance.userUid,

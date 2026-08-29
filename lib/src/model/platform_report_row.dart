@@ -52,7 +52,7 @@ class PlatformReportRow {
 
     required this.targetMetaData,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
   });
@@ -112,8 +112,8 @@ class PlatformReportRow {
   @JsonKey(name: r'target_meta_data', required: true, includeIfNull: false)
   final Object targetMetaData;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -161,7 +161,7 @@ class PlatformReportRow {
       (severityLevel == null ? 0 : severityLevel.hashCode) +
       status.hashCode +
       targetMetaData.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
   factory PlatformReportRow.fromJson(Map<String, dynamic> json) =>

@@ -17,7 +17,7 @@ abstract class _$ServiceRowCWProxy {
 
   ServiceRow title(String title);
 
-  ServiceRow uid(String? uid);
+  ServiceRow uid(String uid);
 
   ServiceRow updatedAt(DateTime? updatedAt);
 
@@ -36,7 +36,7 @@ abstract class _$ServiceRowCWProxy {
     String description,
     String ownerType,
     String title,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
   });
@@ -66,7 +66,7 @@ class _$ServiceRowCWProxyImpl implements _$ServiceRowCWProxy {
   ServiceRow title(String title) => call(title: title);
 
   @override
-  ServiceRow uid(String? uid) => call(uid: uid);
+  ServiceRow uid(String uid) => call(uid: uid);
 
   @override
   ServiceRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -114,10 +114,10 @@ class _$ServiceRowCWProxyImpl implements _$ServiceRowCWProxy {
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
           : title as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -152,6 +152,7 @@ ServiceRow _$ServiceRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'description',
         'owner_type',
         'title',
+        'uid',
         'user_uid',
       ],
     );
@@ -164,7 +165,7 @@ ServiceRow _$ServiceRowFromJson(Map<String, dynamic> json) => $checkedCreate(
       description: $checkedConvert('description', (v) => v as String),
       ownerType: $checkedConvert('owner_type', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -189,7 +190,7 @@ Map<String, dynamic> _$ServiceRowToJson(ServiceRow instance) =>
       'description': instance.description,
       'owner_type': instance.ownerType,
       'title': instance.title,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
     };

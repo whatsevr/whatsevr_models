@@ -91,7 +91,7 @@ abstract class _$UserSearchResultRowCWProxy {
 
   UserSearchResultRow totalReactions(int? totalReactions);
 
-  UserSearchResultRow uid(String? uid);
+  UserSearchResultRow uid(String uid);
 
   UserSearchResultRow updatedAt(DateTime? updatedAt);
 
@@ -150,7 +150,7 @@ abstract class _$UserSearchResultRowCWProxy {
     int? totalFollowers,
     int totalFollowings,
     int? totalReactions,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String? userLastLatLongWkb,
     String username,
@@ -322,7 +322,7 @@ class _$UserSearchResultRowCWProxyImpl implements _$UserSearchResultRowCWProxy {
       call(totalReactions: totalReactions);
 
   @override
-  UserSearchResultRow uid(String? uid) => call(uid: uid);
+  UserSearchResultRow uid(String uid) => call(uid: uid);
 
   @override
   UserSearchResultRow updatedAt(DateTime? updatedAt) =>
@@ -570,10 +570,10 @@ class _$UserSearchResultRowCWProxyImpl implements _$UserSearchResultRowCWProxy {
           ? _value.totalReactions
           // ignore: cast_nullable_to_non_nullable
           : totalReactions as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -624,6 +624,7 @@ UserSearchResultRow _$UserSearchResultRowFromJson(
         'name',
         'registered_at',
         'total_followings',
+        'uid',
         'username',
         'work_experiences',
       ],
@@ -739,7 +740,7 @@ UserSearchResultRow _$UserSearchResultRowFromJson(
         'total_reactions',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -844,7 +845,7 @@ Map<String, dynamic> _$UserSearchResultRowToJson(
   'total_followers': ?instance.totalFollowers,
   'total_followings': instance.totalFollowings,
   'total_reactions': ?instance.totalReactions,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
   'updated_at': ?instance.updatedAt?.toIso8601String(),
   'user_last_lat_long_wkb': ?instance.userLastLatLongWkb,
   'username': instance.username,

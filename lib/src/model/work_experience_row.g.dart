@@ -19,7 +19,7 @@ abstract class _$WorkExperienceRowCWProxy {
 
   WorkExperienceRow startDate(DateTime? startDate);
 
-  WorkExperienceRow uid(String? uid);
+  WorkExperienceRow uid(String uid);
 
   WorkExperienceRow updatedAt(DateTime? updatedAt);
 
@@ -41,7 +41,7 @@ abstract class _$WorkExperienceRowCWProxy {
     DateTime? endDate,
     bool? isCurrentlyWorking,
     DateTime? startDate,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     String? workingMode,
@@ -78,7 +78,7 @@ class _$WorkExperienceRowCWProxyImpl implements _$WorkExperienceRowCWProxy {
       call(startDate: startDate);
 
   @override
-  WorkExperienceRow uid(String? uid) => call(uid: uid);
+  WorkExperienceRow uid(String uid) => call(uid: uid);
 
   @override
   WorkExperienceRow updatedAt(DateTime? updatedAt) =>
@@ -137,10 +137,10 @@ class _$WorkExperienceRowCWProxyImpl implements _$WorkExperienceRowCWProxy {
           ? _value.startDate
           // ignore: cast_nullable_to_non_nullable
           : startDate as DateTime?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -176,7 +176,7 @@ WorkExperienceRow _$WorkExperienceRowFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         $checkKeys(
           json,
-          requiredKeys: const ['created_at', 'designation', 'user_uid'],
+          requiredKeys: const ['created_at', 'designation', 'uid', 'user_uid'],
         );
         final val = WorkExperienceRow(
           companyName: $checkedConvert('company_name', (v) => v as String?),
@@ -197,7 +197,7 @@ WorkExperienceRow _$WorkExperienceRowFromJson(Map<String, dynamic> json) =>
             'start_date',
             (v) => v == null ? null : DateTime.parse(v as String),
           ),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -227,7 +227,7 @@ Map<String, dynamic> _$WorkExperienceRowToJson(WorkExperienceRow instance) =>
       'end_date': ?instance.endDate?.toIso8601String(),
       'is_currently_working': ?instance.isCurrentlyWorking,
       'start_date': ?instance.startDate?.toIso8601String(),
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'working_mode': ?instance.workingMode,

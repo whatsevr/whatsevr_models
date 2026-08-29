@@ -26,7 +26,7 @@ class CommentReplyRow {
 
     required this.replyText,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -49,8 +49,8 @@ class CommentReplyRow {
   @JsonKey(name: r'reply_text', required: true, includeIfNull: false)
   final String replyText;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -76,7 +76,7 @@ class CommentReplyRow {
       contentOwnerUserUid.hashCode +
       createdAt.hashCode +
       replyText.hashCode +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode;
 

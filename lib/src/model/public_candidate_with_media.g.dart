@@ -59,7 +59,7 @@ abstract class _$PublicCandidateWithMediaCWProxy {
 
   PublicCandidateWithMedia totalComments(int? totalComments);
 
-  PublicCandidateWithMedia uid(String? uid);
+  PublicCandidateWithMedia uid(String uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PublicCandidateWithMedia(...).copyWith.fieldName(value)`.
@@ -94,7 +94,7 @@ abstract class _$PublicCandidateWithMediaCWProxy {
     String? relationshipStatus,
     String? state,
     int? totalComments,
-    String? uid,
+    String uid,
   });
 }
 
@@ -201,7 +201,7 @@ class _$PublicCandidateWithMediaCWProxyImpl
       call(totalComments: totalComments);
 
   @override
-  PublicCandidateWithMedia uid(String? uid) => call(uid: uid);
+  PublicCandidateWithMedia uid(String uid) => call(uid: uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PublicCandidateWithMedia(...).copyWith.fieldName(value)`.
@@ -348,10 +348,10 @@ class _$PublicCandidateWithMediaCWProxyImpl
           ? _value.totalComments
           // ignore: cast_nullable_to_non_nullable
           : totalComments as int?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
     );
   }
 }
@@ -382,6 +382,7 @@ PublicCandidateWithMedia _$PublicCandidateWithMediaFromJson(
         'is_premium_profile',
         'media',
         'name',
+        'uid',
       ],
     );
     final val = PublicCandidateWithMedia(
@@ -443,7 +444,7 @@ PublicCandidateWithMedia _$PublicCandidateWithMediaFromJson(
         'total_comments',
         (v) => (v as num?)?.toInt(),
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
     );
     return val;
   },
@@ -493,5 +494,5 @@ Map<String, dynamic> _$PublicCandidateWithMediaToJson(
   'relationship_status': ?instance.relationshipStatus,
   'state': ?instance.state,
   'total_comments': ?instance.totalComments,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
 };

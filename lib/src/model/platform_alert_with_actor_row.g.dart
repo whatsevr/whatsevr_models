@@ -25,7 +25,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
 
   PlatformAlertWithActorRow title(String? title);
 
-  PlatformAlertWithActorRow uid(String? uid);
+  PlatformAlertWithActorRow uid(String uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PlatformAlertWithActorRow(...).copyWith.fieldName(value)`.
@@ -44,7 +44,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
     String? recipientUserUid,
     Map<String, Object>? target,
     String? title,
-    String? uid,
+    String uid,
   });
 }
 
@@ -92,7 +92,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
   PlatformAlertWithActorRow title(String? title) => call(title: title);
 
   @override
-  PlatformAlertWithActorRow uid(String? uid) => call(uid: uid);
+  PlatformAlertWithActorRow uid(String uid) => call(uid: uid);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `PlatformAlertWithActorRow(...).copyWith.fieldName(value)`.
@@ -151,10 +151,10 @@ class _$PlatformAlertWithActorRowCWProxyImpl
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
           : title as String?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
     );
   }
 }
@@ -177,7 +177,7 @@ PlatformAlertWithActorRow _$PlatformAlertWithActorRowFromJson(
   'PlatformAlertWithActorRow',
   json,
   ($checkedConvert) {
-    $checkKeys(json, requiredKeys: const ['created_at']);
+    $checkKeys(json, requiredKeys: const ['created_at', 'uid']);
     final val = PlatformAlertWithActorRow(
       actorUser: $checkedConvert(
         'actor_user',
@@ -207,7 +207,7 @@ PlatformAlertWithActorRow _$PlatformAlertWithActorRowFromJson(
         ),
       ),
       title: $checkedConvert('title', (v) => v as String?),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
     );
     return val;
   },
@@ -232,5 +232,5 @@ Map<String, dynamic> _$PlatformAlertWithActorRowToJson(
   'recipient_user_uid': ?instance.recipientUserUid,
   'target': ?instance.target,
   'title': ?instance.title,
-  'uid': ?instance.uid,
+  'uid': instance.uid,
 };

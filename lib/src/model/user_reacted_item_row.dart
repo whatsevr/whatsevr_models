@@ -41,7 +41,7 @@ class UserReactedItemRow {
 
     this.reactor,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -87,8 +87,8 @@ class UserReactedItemRow {
   @JsonKey(name: r'reactor', required: false, includeIfNull: false)
   final UsersRow? reactor;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -132,7 +132,7 @@ class UserReactedItemRow {
       (photoUid == null ? 0 : photoUid.hashCode) +
       reactionType.hashCode +
       (reactor == null ? 0 : reactor.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode +
       (wtvUid == null ? 0 : wtvUid.hashCode);

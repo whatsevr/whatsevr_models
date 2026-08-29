@@ -85,7 +85,7 @@ class TaggedContentRow {
 
     this.totalViews,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -207,8 +207,8 @@ class TaggedContentRow {
   @JsonKey(name: r'total_views', required: false, includeIfNull: false)
   final int? totalViews;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -304,7 +304,7 @@ class TaggedContentRow {
       (totalReactions == null ? 0 : totalReactions.hashCode) +
       (totalShares == null ? 0 : totalShares.hashCode) +
       (totalViews == null ? 0 : totalViews.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       userUid.hashCode +
       (videoDurationInSec == null ? 0 : videoDurationInSec.hashCode) +

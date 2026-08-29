@@ -94,7 +94,7 @@ class UsersRow {
 
     this.totalReactions,
 
-    this.uid,
+    required this.uid,
 
     this.updatedAt,
 
@@ -235,8 +235,8 @@ class UsersRow {
   @JsonKey(name: r'total_reactions', required: false, includeIfNull: false)
   final int? totalReactions;
 
-  @JsonKey(name: r'uid', required: false, includeIfNull: false)
-  final String? uid;
+  @JsonKey(name: r'uid', required: true, includeIfNull: false)
+  final String uid;
 
   @JsonKey(name: r'updated_at', required: false, includeIfNull: false)
   final DateTime? updatedAt;
@@ -338,7 +338,7 @@ class UsersRow {
       (totalFollowers == null ? 0 : totalFollowers.hashCode) +
       totalFollowings.hashCode +
       (totalReactions == null ? 0 : totalReactions.hashCode) +
-      (uid == null ? 0 : uid.hashCode) +
+      uid.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (userLastLatLongWkb == null ? 0 : userLastLatLongWkb.hashCode) +
       username.hashCode;

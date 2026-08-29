@@ -29,7 +29,7 @@ abstract class _$CommentRowCWProxy {
 
   CommentRow sneekpeekCandidateUid(String? sneekpeekCandidateUid);
 
-  CommentRow uid(String? uid);
+  CommentRow uid(String uid);
 
   CommentRow updatedAt(DateTime? updatedAt);
 
@@ -56,7 +56,7 @@ abstract class _$CommentRowCWProxy {
     String? pdfUid,
     String? photoUid,
     String? sneekpeekCandidateUid,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     String? wtvUid,
@@ -106,7 +106,7 @@ class _$CommentRowCWProxyImpl implements _$CommentRowCWProxy {
       call(sneekpeekCandidateUid: sneekpeekCandidateUid);
 
   @override
-  CommentRow uid(String? uid) => call(uid: uid);
+  CommentRow uid(String uid) => call(uid: uid);
 
   @override
   CommentRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -191,10 +191,10 @@ class _$CommentRowCWProxyImpl implements _$CommentRowCWProxy {
           ? _value.sneekpeekCandidateUid
           // ignore: cast_nullable_to_non_nullable
           : sneekpeekCandidateUid as String?,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -232,6 +232,7 @@ CommentRow _$CommentRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'comment_text',
         'content_owner_user_uid',
         'created_at',
+        'uid',
         'user_uid',
       ],
     );
@@ -256,7 +257,7 @@ CommentRow _$CommentRowFromJson(Map<String, dynamic> json) => $checkedCreate(
         'sneekpeek_candidate_uid',
         (v) => v as String?,
       ),
-      uid: $checkedConvert('uid', (v) => v as String?),
+      uid: $checkedConvert('uid', (v) => v as String),
       updatedAt: $checkedConvert(
         'updated_at',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -297,7 +298,7 @@ Map<String, dynamic> _$CommentRowToJson(CommentRow instance) =>
       'pdf_uid': ?instance.pdfUid,
       'photo_uid': ?instance.photoUid,
       'sneekpeek_candidate_uid': ?instance.sneekpeekCandidateUid,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'wtv_uid': ?instance.wtvUid,

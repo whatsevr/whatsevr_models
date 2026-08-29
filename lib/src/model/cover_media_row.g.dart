@@ -17,7 +17,7 @@ abstract class _$CoverMediaRowCWProxy {
 
   CoverMediaRow ownerType(String ownerType);
 
-  CoverMediaRow uid(String? uid);
+  CoverMediaRow uid(String uid);
 
   CoverMediaRow updatedAt(DateTime? updatedAt);
 
@@ -38,7 +38,7 @@ abstract class _$CoverMediaRowCWProxy {
     String imageUrl,
     bool isVideo,
     String ownerType,
-    String? uid,
+    String uid,
     DateTime? updatedAt,
     String userUid,
     String? videoUrl,
@@ -69,7 +69,7 @@ class _$CoverMediaRowCWProxyImpl implements _$CoverMediaRowCWProxy {
   CoverMediaRow ownerType(String ownerType) => call(ownerType: ownerType);
 
   @override
-  CoverMediaRow uid(String? uid) => call(uid: uid);
+  CoverMediaRow uid(String uid) => call(uid: uid);
 
   @override
   CoverMediaRow updatedAt(DateTime? updatedAt) => call(updatedAt: updatedAt);
@@ -120,10 +120,10 @@ class _$CoverMediaRowCWProxyImpl implements _$CoverMediaRowCWProxy {
           ? _value.ownerType
           // ignore: cast_nullable_to_non_nullable
           : ownerType as String,
-      uid: uid == const $CopyWithPlaceholder()
+      uid: uid == const $CopyWithPlaceholder() || uid == null
           ? _value.uid
           // ignore: cast_nullable_to_non_nullable
-          : uid as String?,
+          : uid as String,
       updatedAt: updatedAt == const $CopyWithPlaceholder()
           ? _value.updatedAt
           // ignore: cast_nullable_to_non_nullable
@@ -163,6 +163,7 @@ CoverMediaRow _$CoverMediaRowFromJson(Map<String, dynamic> json) =>
             'image_url',
             'is_video',
             'owner_type',
+            'uid',
             'user_uid',
           ],
         );
@@ -175,7 +176,7 @@ CoverMediaRow _$CoverMediaRowFromJson(Map<String, dynamic> json) =>
           imageUrl: $checkedConvert('image_url', (v) => v as String),
           isVideo: $checkedConvert('is_video', (v) => v as bool),
           ownerType: $checkedConvert('owner_type', (v) => v as String),
-          uid: $checkedConvert('uid', (v) => v as String?),
+          uid: $checkedConvert('uid', (v) => v as String),
           updatedAt: $checkedConvert(
             'updated_at',
             (v) => v == null ? null : DateTime.parse(v as String),
@@ -204,7 +205,7 @@ Map<String, dynamic> _$CoverMediaRowToJson(CoverMediaRow instance) =>
       'image_url': instance.imageUrl,
       'is_video': instance.isVideo,
       'owner_type': instance.ownerType,
-      'uid': ?instance.uid,
+      'uid': instance.uid,
       'updated_at': ?instance.updatedAt?.toIso8601String(),
       'user_uid': instance.userUid,
       'video_url': ?instance.videoUrl,
