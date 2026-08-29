@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:whatsevr_api/src/model/tag_info.dart';
+import 'package:whatsevr_api/src/model/tagged_content_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -21,7 +22,7 @@ class TaggedContentEntry {
   TaggedContentEntry({this.content, this.contentType, required this.tagInfo});
 
   @JsonKey(name: r'content', required: false, includeIfNull: false)
-  final Map<String, Object>? content;
+  final TaggedContentRow? content;
 
   @JsonKey(name: r'content_type', required: false, includeIfNull: false)
   final String? contentType;

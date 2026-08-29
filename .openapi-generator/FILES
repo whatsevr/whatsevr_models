@@ -490,6 +490,7 @@ lib/src/model/sync_response.dart
 lib/src/model/tag_info.dart
 lib/src/model/tagged_content_entry.dart
 lib/src/model/tagged_content_response.dart
+lib/src/model/tagged_content_row.dart
 lib/src/model/titled_preview.dart
 lib/src/model/today_stats.dart
 lib/src/model/toggle_perk_body.dart

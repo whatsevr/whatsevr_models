@@ -7,7 +7,7 @@ part of 'tagged_content_entry.dart';
 // **************************************************************************
 
 abstract class _$TaggedContentEntryCWProxy {
-  TaggedContentEntry content(Map<String, Object>? content);
+  TaggedContentEntry content(TaggedContentRow? content);
 
   TaggedContentEntry contentType(String? contentType);
 
@@ -21,7 +21,7 @@ abstract class _$TaggedContentEntryCWProxy {
   /// TaggedContentEntry(...).copyWith(id: 12, name: "My name")
   /// ```
   TaggedContentEntry call({
-    Map<String, Object>? content,
+    TaggedContentRow? content,
     String? contentType,
     TagInfo tagInfo,
   });
@@ -35,7 +35,7 @@ class _$TaggedContentEntryCWProxyImpl implements _$TaggedContentEntryCWProxy {
   final TaggedContentEntry _value;
 
   @override
-  TaggedContentEntry content(Map<String, Object>? content) =>
+  TaggedContentEntry content(TaggedContentRow? content) =>
       call(content: content);
 
   @override
@@ -62,7 +62,7 @@ class _$TaggedContentEntryCWProxyImpl implements _$TaggedContentEntryCWProxy {
       content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
-          : content as Map<String, Object>?,
+          : content as TaggedContentRow?,
       contentType: contentType == const $CopyWithPlaceholder()
           ? _value.contentType
           // ignore: cast_nullable_to_non_nullable
@@ -87,28 +87,33 @@ extension $TaggedContentEntryCopyWith on TaggedContentEntry {
 // JsonSerializableGenerator
 // **************************************************************************
 
-TaggedContentEntry _$TaggedContentEntryFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('TaggedContentEntry', json, ($checkedConvert) {
-  $checkKeys(json, requiredKeys: const ['tag_info']);
-  final val = TaggedContentEntry(
-    content: $checkedConvert(
-      'content',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    contentType: $checkedConvert('content_type', (v) => v as String?),
-    tagInfo: $checkedConvert(
-      'tag_info',
-      (v) => TagInfo.fromJson(v as Map<String, dynamic>),
-    ),
-  );
-  return val;
-}, fieldKeyMap: const {'contentType': 'content_type', 'tagInfo': 'tag_info'});
+TaggedContentEntry _$TaggedContentEntryFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'TaggedContentEntry',
+      json,
+      ($checkedConvert) {
+        $checkKeys(json, requiredKeys: const ['tag_info']);
+        final val = TaggedContentEntry(
+          content: $checkedConvert(
+            'content',
+            (v) => v == null
+                ? null
+                : TaggedContentRow.fromJson(v as Map<String, dynamic>),
+          ),
+          contentType: $checkedConvert('content_type', (v) => v as String?),
+          tagInfo: $checkedConvert(
+            'tag_info',
+            (v) => TagInfo.fromJson(v as Map<String, dynamic>),
+          ),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'contentType': 'content_type', 'tagInfo': 'tag_info'},
+    );
 
 Map<String, dynamic> _$TaggedContentEntryToJson(TaggedContentEntry instance) =>
     <String, dynamic>{
-      'content': ?instance.content,
+      'content': ?instance.content?.toJson(),
       'content_type': ?instance.contentType,
       'tag_info': instance.tagInfo.toJson(),
     };

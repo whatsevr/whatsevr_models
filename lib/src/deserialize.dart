@@ -448,6 +448,7 @@ import 'package:whatsevr_api/src/model/sync_response.dart';
 import 'package:whatsevr_api/src/model/tag_info.dart';
 import 'package:whatsevr_api/src/model/tagged_content_entry.dart';
 import 'package:whatsevr_api/src/model/tagged_content_response.dart';
+import 'package:whatsevr_api/src/model/tagged_content_row.dart';
 import 'package:whatsevr_api/src/model/titled_preview.dart';
 import 'package:whatsevr_api/src/model/today_stats.dart';
 import 'package:whatsevr_api/src/model/toggle_perk_body.dart';
@@ -1885,6 +1886,9 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'TaggedContentResponse':
       return TaggedContentResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'TaggedContentRow':
+      return TaggedContentRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'TitledPreview':
       return TitledPreview.fromJson(value as Map<String, dynamic>)

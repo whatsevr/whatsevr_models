@@ -494,6 +494,7 @@ export 'package:whatsevr_api/src/model/sync_response.dart';
 export 'package:whatsevr_api/src/model/tag_info.dart';
 export 'package:whatsevr_api/src/model/tagged_content_entry.dart';
 export 'package:whatsevr_api/src/model/tagged_content_response.dart';
+export 'package:whatsevr_api/src/model/tagged_content_row.dart';
 export 'package:whatsevr_api/src/model/titled_preview.dart';
 export 'package:whatsevr_api/src/model/today_stats.dart';
 export 'package:whatsevr_api/src/model/toggle_perk_body.dart';
