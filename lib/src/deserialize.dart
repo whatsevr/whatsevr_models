@@ -390,6 +390,7 @@ import 'package:whatsevr_api/src/model/redis_instance_stats.dart';
 import 'package:whatsevr_api/src/model/redis_stats.dart';
 import 'package:whatsevr_api/src/model/related_content_details_query.dart';
 import 'package:whatsevr_api/src/model/related_content_details_response.dart';
+import 'package:whatsevr_api/src/model/related_content_item_row.dart';
 import 'package:whatsevr_api/src/model/related_content_list_query.dart';
 import 'package:whatsevr_api/src/model/related_content_list_response.dart';
 import 'package:whatsevr_api/src/model/related_content_row.dart';
@@ -1725,6 +1726,9 @@ ReturnType deserialize<ReturnType, BaseType>(
       return RelatedContentDetailsResponse.fromJson(
             value as Map<String, dynamic>,
           )
+          as ReturnType;
+    case 'RelatedContentItemRow':
+      return RelatedContentItemRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'RelatedContentListQuery':
       return RelatedContentListQuery.fromJson(value as Map<String, dynamic>)

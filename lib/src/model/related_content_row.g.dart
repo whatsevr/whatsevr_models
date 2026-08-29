@@ -11,7 +11,7 @@ abstract class _$RelatedContentRowCWProxy {
 
   RelatedContentRow communityUid(String? communityUid);
 
-  RelatedContentRow content(Object? content);
+  RelatedContentRow content(List<RelatedContentItemRow>? content);
 
   RelatedContentRow createdAt(DateTime createdAt);
 
@@ -31,7 +31,7 @@ abstract class _$RelatedContentRowCWProxy {
   RelatedContentRow call({
     String authorUserUid,
     String? communityUid,
-    Object? content,
+    List<RelatedContentItemRow>? content,
     DateTime createdAt,
     String ownerType,
     String uid,
@@ -55,7 +55,8 @@ class _$RelatedContentRowCWProxyImpl implements _$RelatedContentRowCWProxy {
       call(communityUid: communityUid);
 
   @override
-  RelatedContentRow content(Object? content) => call(content: content);
+  RelatedContentRow content(List<RelatedContentItemRow>? content) =>
+      call(content: content);
 
   @override
   RelatedContentRow createdAt(DateTime createdAt) => call(createdAt: createdAt);
@@ -100,7 +101,7 @@ class _$RelatedContentRowCWProxyImpl implements _$RelatedContentRowCWProxy {
       content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
-          : content as Object?,
+          : content as List<RelatedContentItemRow>?,
       createdAt: createdAt == const $CopyWithPlaceholder() || createdAt == null
           ? _value.createdAt
           // ignore: cast_nullable_to_non_nullable
@@ -150,7 +151,15 @@ RelatedContentRow _$RelatedContentRowFromJson(Map<String, dynamic> json) =>
         final val = RelatedContentRow(
           authorUserUid: $checkedConvert('author_user_uid', (v) => v as String),
           communityUid: $checkedConvert('community_uid', (v) => v as String?),
-          content: $checkedConvert('content', (v) => v),
+          content: $checkedConvert(
+            'content',
+            (v) => (v as List<dynamic>?)
+                ?.map(
+                  (e) =>
+                      RelatedContentItemRow.fromJson(e as Map<String, dynamic>),
+                )
+                .toList(),
+          ),
           createdAt: $checkedConvert(
             'created_at',
             (v) => DateTime.parse(v as String),
@@ -177,7 +186,7 @@ Map<String, dynamic> _$RelatedContentRowToJson(RelatedContentRow instance) =>
     <String, dynamic>{
       'author_user_uid': instance.authorUserUid,
       'community_uid': ?instance.communityUid,
-      'content': ?instance.content,
+      'content': ?instance.content?.map((e) => e.toJson()).toList(),
       'created_at': instance.createdAt.toIso8601String(),
       'owner_type': instance.ownerType,
       'uid': instance.uid,

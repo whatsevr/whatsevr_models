@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/related_content_item_row.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -40,7 +41,7 @@ class RelatedContentRow {
   final String? communityUid;
 
   @JsonKey(name: r'content', required: false, includeIfNull: false)
-  final Object? content;
+  final List<RelatedContentItemRow>? content;
 
   @JsonKey(name: r'created_at', required: true, includeIfNull: false)
   final DateTime createdAt;

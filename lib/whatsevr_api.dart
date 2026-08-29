@@ -436,6 +436,7 @@ export 'package:whatsevr_api/src/model/redis_instance_stats.dart';
 export 'package:whatsevr_api/src/model/redis_stats.dart';
 export 'package:whatsevr_api/src/model/related_content_details_query.dart';
 export 'package:whatsevr_api/src/model/related_content_details_response.dart';
+export 'package:whatsevr_api/src/model/related_content_item_row.dart';
 export 'package:whatsevr_api/src/model/related_content_list_query.dart';
 export 'package:whatsevr_api/src/model/related_content_list_response.dart';
 export 'package:whatsevr_api/src/model/related_content_row.dart';

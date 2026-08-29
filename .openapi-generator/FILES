@@ -432,6 +432,7 @@ lib/src/model/redis_instance_stats.dart
 lib/src/model/redis_stats.dart
 lib/src/model/related_content_details_query.dart
 lib/src/model/related_content_details_response.dart
+lib/src/model/related_content_item_row.dart
 lib/src/model/related_content_list_query.dart
 lib/src/model/related_content_list_response.dart
 lib/src/model/related_content_row.dart
