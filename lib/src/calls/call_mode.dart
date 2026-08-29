@@ -33,34 +33,3 @@ enum CallMode {
     CallMode.video => 'Video',
   };
 }
-
-/// What calling someone costs, per mode, and whether they leave the choice open.
-///
-/// The host grid and the candidate profile are separate payloads carrying the
-/// same three numbers, and the picker must not decide differently depending on
-/// which screen opened it — so both hand over this instead of their own fields.
-class CallModeQuote {
-  const CallModeQuote({
-    required this.callMode,
-    required this.audioPricePerMinuteCredits,
-    required this.videoPricePerMinuteCredits,
-  });
-
-  /// `audio_video`, `audio_only` or `video_only`, as the host set it.
-  final String callMode;
-
-  /// What the CALLER pays, in credits (1 credit = 10 paise, server-pegged).
-  final int audioPricePerMinuteCredits;
-  final int videoPricePerMinuteCredits;
-
-  /// She answers either way, so the caller picks — and pays accordingly.
-  bool get supportsBothModes => callMode == 'audio_video';
-
-  /// The mode when there is nothing to pick. Both single-mode values fix the
-  /// call for its whole life; the server refuses to move it afterwards.
-  CallMode get onlyMode =>
-      callMode == 'audio_only' ? CallMode.audio : CallMode.video;
-
-  int priceForMode(CallMode mode) =>
-      mode.isAudio ? audioPricePerMinuteCredits : videoPricePerMinuteCredits;
-}

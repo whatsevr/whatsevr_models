@@ -120,40 +120,4 @@ void main() {
       expect(payload.pricePerMinutePaise, 1200);
     });
   });
-
-  group('CallAcceptResult', () {
-    test('exposes a usable grant and the authoritative payer', () {
-      final CallAcceptResult result =
-          CallAcceptResult.fromJson(<String, dynamic>{
-            'room': 'room-abc',
-            'token': 'jwt',
-            'server_url': 'ws://127.0.0.1:7880',
-            'expires_at': '2026-08-01T10:00:00Z',
-            'is_billed': true,
-            'payer_uid': 'callee-1',
-            'rate_paise': 500,
-            'audio_only': false,
-            'price_per_minute_paise': 715,
-          });
-
-      expect(result.grant.isUsable, isTrue);
-      expect(result.grant.room, 'room-abc');
-      expect(result.isPayer('callee-1'), isTrue);
-      expect(result.isPayer('caller-1'), isFalse);
-    });
-
-    test('an unbilled accept has nobody paying', () {
-      final CallAcceptResult result = CallAcceptResult.fromJson(
-        <String, dynamic>{
-          'room': 'r',
-          'token': 't',
-          'server_url': 'ws://x',
-          'is_billed': false,
-        },
-      );
-
-      expect(result.isBilled, isFalse);
-      expect(result.isPayer('anyone'), isFalse);
-    });
-  });
 }

@@ -12,6 +12,28 @@ cd "$(dirname "$0")/.."
 
 spec="${1:-../whatsevr_django_server/docs/api/openapi.json}"
 
+# openapi-generator is a Java program, and a Homebrew JDK is not on the default
+# PATH on macOS: /usr/bin/java is a stub that exists but refuses to run, so a
+# `command -v java` test passes and the generator then dies with "Unable to
+# locate a Java Runtime" on a machine that already has three. Probe by RUNNING
+# java, and fall back to the JDKs that are actually installed.
+if ! java -version >/dev/null 2>&1; then
+  for candidate in \
+    /opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home \
+    /usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home \
+    "/Applications/Android Studio.app/Contents/jbr/Contents/Home"; do
+    if [ -x "$candidate/bin/java" ]; then
+      export JAVA_HOME="$candidate"
+      export PATH="$JAVA_HOME/bin:$PATH"
+      break
+    fi
+  done
+fi
+if ! java -version >/dev/null 2>&1; then
+  echo "generate_api.sh: no Java runtime found. Install one with: brew install openjdk" >&2
+  exit 1
+fi
+
 # The generator never deletes: a schema renamed on the server would leave its
 # old Dart file behind, still compiling and still importable.
 rm -rf lib/src/api lib/src/model lib/src/auth lib/src/api.dart \
