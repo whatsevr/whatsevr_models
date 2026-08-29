@@ -26,7 +26,7 @@ class UpdateCommunityInfoBody {
   });
 
   @JsonKey(name: r'community_info', required: true, includeIfNull: false)
-  final Map<String, Object> communityInfo;
+  final Map<String, Object?> communityInfo;
 
   @JsonKey(name: r'community_uid', required: true, includeIfNull: false)
   final String communityUid;

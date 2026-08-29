@@ -7,7 +7,7 @@ part of 'owned_perk_status.dart';
 // **************************************************************************
 
 abstract class _$OwnedPerkStatusCWProxy {
-  OwnedPerkStatus config(Map<String, Object>? config);
+  OwnedPerkStatus config(Map<String, Object?>? config);
 
   OwnedPerkStatus expiresAt(DateTime expiresAt);
 
@@ -21,7 +21,7 @@ abstract class _$OwnedPerkStatusCWProxy {
   /// OwnedPerkStatus(...).copyWith(id: 12, name: "My name")
   /// ```
   OwnedPerkStatus call({
-    Map<String, Object>? config,
+    Map<String, Object?>? config,
     DateTime expiresAt,
     bool isEnabled,
   });
@@ -35,7 +35,7 @@ class _$OwnedPerkStatusCWProxyImpl implements _$OwnedPerkStatusCWProxy {
   final OwnedPerkStatus _value;
 
   @override
-  OwnedPerkStatus config(Map<String, Object>? config) => call(config: config);
+  OwnedPerkStatus config(Map<String, Object?>? config) => call(config: config);
 
   @override
   OwnedPerkStatus expiresAt(DateTime expiresAt) => call(expiresAt: expiresAt);
@@ -60,7 +60,7 @@ class _$OwnedPerkStatusCWProxyImpl implements _$OwnedPerkStatusCWProxy {
       config: config == const $CopyWithPlaceholder()
           ? _value.config
           // ignore: cast_nullable_to_non_nullable
-          : config as Map<String, Object>?,
+          : config as Map<String, Object?>?,
       expiresAt: expiresAt == const $CopyWithPlaceholder() || expiresAt == null
           ? _value.expiresAt
           // ignore: cast_nullable_to_non_nullable
@@ -84,24 +84,24 @@ extension $OwnedPerkStatusCopyWith on OwnedPerkStatus {
 // JsonSerializableGenerator
 // **************************************************************************
 
-OwnedPerkStatus _$OwnedPerkStatusFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('OwnedPerkStatus', json, ($checkedConvert) {
-  $checkKeys(json, requiredKeys: const ['expires_at', 'is_enabled']);
-  final val = OwnedPerkStatus(
-    config: $checkedConvert(
-      'config',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    expiresAt: $checkedConvert(
-      'expires_at',
-      (v) => DateTime.parse(v as String),
-    ),
-    isEnabled: $checkedConvert('is_enabled', (v) => v as bool),
-  );
-  return val;
-}, fieldKeyMap: const {'expiresAt': 'expires_at', 'isEnabled': 'is_enabled'});
+OwnedPerkStatus _$OwnedPerkStatusFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'OwnedPerkStatus',
+      json,
+      ($checkedConvert) {
+        $checkKeys(json, requiredKeys: const ['expires_at', 'is_enabled']);
+        final val = OwnedPerkStatus(
+          config: $checkedConvert('config', (v) => v as Map<String, dynamic>?),
+          expiresAt: $checkedConvert(
+            'expires_at',
+            (v) => DateTime.parse(v as String),
+          ),
+          isEnabled: $checkedConvert('is_enabled', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'expiresAt': 'expires_at', 'isEnabled': 'is_enabled'},
+    );
 
 Map<String, dynamic> _$OwnedPerkStatusToJson(OwnedPerkStatus instance) =>
     <String, dynamic>{

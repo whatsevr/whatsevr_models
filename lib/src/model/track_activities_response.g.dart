@@ -12,7 +12,7 @@ abstract class _$TrackActivitiesResponseCWProxy {
   TrackActivitiesResponse error(String? error);
 
   TrackActivitiesResponse failedActivities(
-    List<Map<String, Object>> failedActivities,
+    List<Map<String, Object?>> failedActivities,
   );
 
   TrackActivitiesResponse message(String message);
@@ -29,7 +29,7 @@ abstract class _$TrackActivitiesResponseCWProxy {
   TrackActivitiesResponse call({
     int count,
     String? error,
-    List<Map<String, Object>> failedActivities,
+    List<Map<String, Object?>> failedActivities,
     String message,
     List<String> trackedActivityUids,
   });
@@ -51,7 +51,7 @@ class _$TrackActivitiesResponseCWProxyImpl
 
   @override
   TrackActivitiesResponse failedActivities(
-    List<Map<String, Object>> failedActivities,
+    List<Map<String, Object?>> failedActivities,
   ) => call(failedActivities: failedActivities);
 
   @override
@@ -91,7 +91,7 @@ class _$TrackActivitiesResponseCWProxyImpl
               failedActivities == null
           ? _value.failedActivities
           // ignore: cast_nullable_to_non_nullable
-          : failedActivities as List<Map<String, Object>>,
+          : failedActivities as List<Map<String, Object?>>,
       message: message == const $CopyWithPlaceholder() || message == null
           ? _value.message
           // ignore: cast_nullable_to_non_nullable
@@ -138,13 +138,8 @@ TrackActivitiesResponse _$TrackActivitiesResponseFromJson(
       error: $checkedConvert('error', (v) => v as String?),
       failedActivities: $checkedConvert(
         'failed_activities',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => (e as Map<String, dynamic>).map(
-                (k, e) => MapEntry(k, e as Object),
-              ),
-            )
-            .toList(),
+        (v) =>
+            (v as List<dynamic>).map((e) => e as Map<String, dynamic>).toList(),
       ),
       message: $checkedConvert('message', (v) => v as String),
       trackedActivityUids: $checkedConvert(

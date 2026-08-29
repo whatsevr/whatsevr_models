@@ -69,7 +69,7 @@ class HostLevelEvent {
   final int pricePerMinuteCredits;
 
   @JsonKey(name: r'progress_snapshot', required: true, includeIfNull: false)
-  final Map<String, Object> progressSnapshot;
+  final Map<String, Object?> progressSnapshot;
 
   @JsonKey(name: r'to_badge_url', required: true, includeIfNull: true)
   final String? toBadgeUrl;

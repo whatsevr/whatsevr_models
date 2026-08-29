@@ -40,7 +40,7 @@ class HostSearchResponse {
   });
 
   @JsonKey(name: r'algolia_data', required: false, includeIfNull: false)
-  final Map<String, Object>? algoliaData;
+  final Map<String, Object?>? algoliaData;
 
   @JsonKey(name: r'error', required: false, includeIfNull: false)
   final HostSearchErrorPayload? error;

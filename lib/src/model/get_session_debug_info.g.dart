@@ -7,7 +7,7 @@ part of 'get_session_debug_info.dart';
 // **************************************************************************
 
 abstract class _$GetSessionDebugInfoCWProxy {
-  GetSessionDebugInfo redisSessionData(Map<String, Object> redisSessionData);
+  GetSessionDebugInfo redisSessionData(Map<String, Object?> redisSessionData);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `GetSessionDebugInfo(...).copyWith.fieldName(value)`.
@@ -16,7 +16,7 @@ abstract class _$GetSessionDebugInfoCWProxy {
   /// ```dart
   /// GetSessionDebugInfo(...).copyWith(id: 12, name: "My name")
   /// ```
-  GetSessionDebugInfo call({Map<String, Object> redisSessionData});
+  GetSessionDebugInfo call({Map<String, Object?> redisSessionData});
 }
 
 /// Callable proxy for `copyWith` functionality.
@@ -27,7 +27,7 @@ class _$GetSessionDebugInfoCWProxyImpl implements _$GetSessionDebugInfoCWProxy {
   final GetSessionDebugInfo _value;
 
   @override
-  GetSessionDebugInfo redisSessionData(Map<String, Object> redisSessionData) =>
+  GetSessionDebugInfo redisSessionData(Map<String, Object?> redisSessionData) =>
       call(redisSessionData: redisSessionData);
 
   /// Creates a new instance with the provided field values.
@@ -47,7 +47,7 @@ class _$GetSessionDebugInfoCWProxyImpl implements _$GetSessionDebugInfoCWProxy {
               redisSessionData == null
           ? _value.redisSessionData
           // ignore: cast_nullable_to_non_nullable
-          : redisSessionData as Map<String, Object>,
+          : redisSessionData as Map<String, Object?>,
     );
   }
 }
@@ -70,9 +70,7 @@ GetSessionDebugInfo _$GetSessionDebugInfoFromJson(Map<String, dynamic> json) =>
       final val = GetSessionDebugInfo(
         redisSessionData: $checkedConvert(
           'redis_session_data',
-          (v) => (v as Map<String, dynamic>).map(
-            (k, e) => MapEntry(k, e as Object),
-          ),
+          (v) => v as Map<String, dynamic>,
         ),
       );
       return val;

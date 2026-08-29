@@ -39,7 +39,7 @@ abstract class _$RelatedOfferRowCWProxy {
 
   RelatedOfferRow postCreatorType(String postCreatorType);
 
-  RelatedOfferRow richDescription(Map<String, Object>? richDescription);
+  RelatedOfferRow richDescription(Map<String, Object?>? richDescription);
 
   RelatedOfferRow seoDataWeighted(String? seoDataWeighted);
 
@@ -95,7 +95,7 @@ abstract class _$RelatedOfferRowCWProxy {
     bool? isArchived,
     bool? isDeleted,
     String postCreatorType,
-    Map<String, Object>? richDescription,
+    Map<String, Object?>? richDescription,
     String? seoDataWeighted,
     String status,
     List<String>? taggedCommunityUids,
@@ -179,7 +179,7 @@ class _$RelatedOfferRowCWProxyImpl implements _$RelatedOfferRowCWProxy {
       call(postCreatorType: postCreatorType);
 
   @override
-  RelatedOfferRow richDescription(Map<String, Object>? richDescription) =>
+  RelatedOfferRow richDescription(Map<String, Object?>? richDescription) =>
       call(richDescription: richDescription);
 
   @override
@@ -351,7 +351,7 @@ class _$RelatedOfferRowCWProxyImpl implements _$RelatedOfferRowCWProxy {
       richDescription: richDescription == const $CopyWithPlaceholder()
           ? _value.richDescription
           // ignore: cast_nullable_to_non_nullable
-          : richDescription as Map<String, Object>?,
+          : richDescription as Map<String, Object?>?,
       seoDataWeighted: seoDataWeighted == const $CopyWithPlaceholder()
           ? _value.seoDataWeighted
           // ignore: cast_nullable_to_non_nullable
@@ -486,9 +486,7 @@ RelatedOfferRow _$RelatedOfferRowFromJson(
       postCreatorType: $checkedConvert('post_creator_type', (v) => v as String),
       richDescription: $checkedConvert(
         'rich_description',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       seoDataWeighted: $checkedConvert(
         'seo_data_weighted',

@@ -44,7 +44,7 @@ class ReportItem {
   final String? reporterComment;
 
   @JsonKey(name: r'reporter_meta_data', required: false, includeIfNull: false)
-  final Map<String, Object>? reporterMetaData;
+  final Map<String, Object?>? reporterMetaData;
 
   @JsonKey(name: r'reporter_user_uid', required: false, includeIfNull: false)
   final String? reporterUserUid;
@@ -53,7 +53,7 @@ class ReportItem {
   final String? severityLevel;
 
   @JsonKey(name: r'target_meta_data', required: true, includeIfNull: false)
-  final Map<String, Object> targetMetaData;
+  final Map<String, Object?> targetMetaData;
 
   @override
   bool operator ==(Object other) =>

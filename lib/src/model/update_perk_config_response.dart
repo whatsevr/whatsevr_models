@@ -30,7 +30,7 @@ class UpdatePerkConfigResponse {
   });
 
   @JsonKey(name: r'config', required: true, includeIfNull: false)
-  final Map<String, Object> config;
+  final Map<String, Object?> config;
 
   @JsonKey(name: r'expires_at', required: true, includeIfNull: false)
   final DateTime expiresAt;

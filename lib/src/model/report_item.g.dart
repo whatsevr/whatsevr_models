@@ -13,13 +13,13 @@ abstract class _$ReportItemCWProxy {
 
   ReportItem reporterComment(String? reporterComment);
 
-  ReportItem reporterMetaData(Map<String, Object>? reporterMetaData);
+  ReportItem reporterMetaData(Map<String, Object?>? reporterMetaData);
 
   ReportItem reporterUserUid(String? reporterUserUid);
 
   ReportItem severityLevel(String? severityLevel);
 
-  ReportItem targetMetaData(Map<String, Object> targetMetaData);
+  ReportItem targetMetaData(Map<String, Object?> targetMetaData);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `ReportItem(...).copyWith.fieldName(value)`.
@@ -32,10 +32,10 @@ abstract class _$ReportItemCWProxy {
     String? category,
     List<EvidenceItem>? evidenceMetadata,
     String? reporterComment,
-    Map<String, Object>? reporterMetaData,
+    Map<String, Object?>? reporterMetaData,
     String? reporterUserUid,
     String? severityLevel,
-    Map<String, Object> targetMetaData,
+    Map<String, Object?> targetMetaData,
   });
 }
 
@@ -58,7 +58,7 @@ class _$ReportItemCWProxyImpl implements _$ReportItemCWProxy {
       call(reporterComment: reporterComment);
 
   @override
-  ReportItem reporterMetaData(Map<String, Object>? reporterMetaData) =>
+  ReportItem reporterMetaData(Map<String, Object?>? reporterMetaData) =>
       call(reporterMetaData: reporterMetaData);
 
   @override
@@ -70,7 +70,7 @@ class _$ReportItemCWProxyImpl implements _$ReportItemCWProxy {
       call(severityLevel: severityLevel);
 
   @override
-  ReportItem targetMetaData(Map<String, Object> targetMetaData) =>
+  ReportItem targetMetaData(Map<String, Object?> targetMetaData) =>
       call(targetMetaData: targetMetaData);
 
   /// Creates a new instance with the provided field values.
@@ -106,7 +106,7 @@ class _$ReportItemCWProxyImpl implements _$ReportItemCWProxy {
       reporterMetaData: reporterMetaData == const $CopyWithPlaceholder()
           ? _value.reporterMetaData
           // ignore: cast_nullable_to_non_nullable
-          : reporterMetaData as Map<String, Object>?,
+          : reporterMetaData as Map<String, Object?>?,
       reporterUserUid: reporterUserUid == const $CopyWithPlaceholder()
           ? _value.reporterUserUid
           // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ class _$ReportItemCWProxyImpl implements _$ReportItemCWProxy {
               targetMetaData == null
           ? _value.targetMetaData
           // ignore: cast_nullable_to_non_nullable
-          : targetMetaData as Map<String, Object>,
+          : targetMetaData as Map<String, Object?>,
     );
   }
 }
@@ -152,9 +152,7 @@ ReportItem _$ReportItemFromJson(Map<String, dynamic> json) => $checkedCreate(
       reporterComment: $checkedConvert('reporter_comment', (v) => v as String?),
       reporterMetaData: $checkedConvert(
         'reporter_meta_data',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       reporterUserUid: $checkedConvert(
         'reporter_user_uid',
@@ -163,8 +161,7 @@ ReportItem _$ReportItemFromJson(Map<String, dynamic> json) => $checkedCreate(
       severityLevel: $checkedConvert('severity_level', (v) => v as String?),
       targetMetaData: $checkedConvert(
         'target_meta_data',
-        (v) =>
-            (v as Map<String, dynamic>).map((k, e) => MapEntry(k, e as Object)),
+        (v) => v as Map<String, dynamic>,
       ),
     );
     return val;

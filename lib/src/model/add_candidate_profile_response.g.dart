@@ -9,7 +9,7 @@ part of 'add_candidate_profile_response.dart';
 abstract class _$AddCandidateProfileResponseCWProxy {
   AddCandidateProfileResponse candidate(OwnCandidateRow? candidate);
 
-  AddCandidateProfileResponse debugInfo(Map<String, Object>? debugInfo);
+  AddCandidateProfileResponse debugInfo(Map<String, Object?>? debugInfo);
 
   AddCandidateProfileResponse message(String message);
 
@@ -24,7 +24,7 @@ abstract class _$AddCandidateProfileResponseCWProxy {
   /// ```
   AddCandidateProfileResponse call({
     OwnCandidateRow? candidate,
-    Map<String, Object>? debugInfo,
+    Map<String, Object?>? debugInfo,
     String message,
     String onboardingState,
   });
@@ -43,7 +43,7 @@ class _$AddCandidateProfileResponseCWProxyImpl
       call(candidate: candidate);
 
   @override
-  AddCandidateProfileResponse debugInfo(Map<String, Object>? debugInfo) =>
+  AddCandidateProfileResponse debugInfo(Map<String, Object?>? debugInfo) =>
       call(debugInfo: debugInfo);
 
   @override
@@ -75,7 +75,7 @@ class _$AddCandidateProfileResponseCWProxyImpl
       debugInfo: debugInfo == const $CopyWithPlaceholder()
           ? _value.debugInfo
           // ignore: cast_nullable_to_non_nullable
-          : debugInfo as Map<String, Object>?,
+          : debugInfo as Map<String, Object?>?,
       message: message == const $CopyWithPlaceholder() || message == null
           ? _value.message
           // ignore: cast_nullable_to_non_nullable
@@ -118,9 +118,7 @@ AddCandidateProfileResponse _$AddCandidateProfileResponseFromJson(
       ),
       debugInfo: $checkedConvert(
         'debug_info',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       message: $checkedConvert('message', (v) => v as String),
       onboardingState: $checkedConvert('onboarding_state', (v) => v as String),

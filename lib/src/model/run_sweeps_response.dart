@@ -20,7 +20,7 @@ class RunSweepsResponse {
   RunSweepsResponse({required this.changed, required this.message});
 
   @JsonKey(name: r'changed', required: true, includeIfNull: false)
-  final Map<String, Object> changed;
+  final Map<String, Object?> changed;
 
   @JsonKey(name: r'message', required: true, includeIfNull: false)
   final String message;

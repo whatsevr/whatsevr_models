@@ -26,7 +26,7 @@ class OwnedPerkStatus {
   });
 
   @JsonKey(name: r'config', required: false, includeIfNull: false)
-  final Map<String, Object>? config;
+  final Map<String, Object?>? config;
 
   @JsonKey(name: r'expires_at', required: true, includeIfNull: false)
   final DateTime expiresAt;

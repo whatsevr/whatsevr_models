@@ -7,7 +7,7 @@ part of 'update_community_info_body.dart';
 // **************************************************************************
 
 abstract class _$UpdateCommunityInfoBodyCWProxy {
-  UpdateCommunityInfoBody communityInfo(Map<String, Object> communityInfo);
+  UpdateCommunityInfoBody communityInfo(Map<String, Object?> communityInfo);
 
   UpdateCommunityInfoBody communityUid(String communityUid);
 
@@ -21,7 +21,7 @@ abstract class _$UpdateCommunityInfoBodyCWProxy {
   /// UpdateCommunityInfoBody(...).copyWith(id: 12, name: "My name")
   /// ```
   UpdateCommunityInfoBody call({
-    Map<String, Object> communityInfo,
+    Map<String, Object?> communityInfo,
     String communityUid,
     String userUid,
   });
@@ -36,7 +36,7 @@ class _$UpdateCommunityInfoBodyCWProxyImpl
   final UpdateCommunityInfoBody _value;
 
   @override
-  UpdateCommunityInfoBody communityInfo(Map<String, Object> communityInfo) =>
+  UpdateCommunityInfoBody communityInfo(Map<String, Object?> communityInfo) =>
       call(communityInfo: communityInfo);
 
   @override
@@ -64,7 +64,7 @@ class _$UpdateCommunityInfoBodyCWProxyImpl
           communityInfo == const $CopyWithPlaceholder() || communityInfo == null
           ? _value.communityInfo
           // ignore: cast_nullable_to_non_nullable
-          : communityInfo as Map<String, Object>,
+          : communityInfo as Map<String, Object?>,
       communityUid:
           communityUid == const $CopyWithPlaceholder() || communityUid == null
           ? _value.communityUid
@@ -103,8 +103,7 @@ UpdateCommunityInfoBody _$UpdateCommunityInfoBodyFromJson(
     final val = UpdateCommunityInfoBody(
       communityInfo: $checkedConvert(
         'community_info',
-        (v) =>
-            (v as Map<String, dynamic>).map((k, e) => MapEntry(k, e as Object)),
+        (v) => v as Map<String, dynamic>,
       ),
       communityUid: $checkedConvert('community_uid', (v) => v as String),
       userUid: $checkedConvert('user_uid', (v) => v as String),

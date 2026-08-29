@@ -7,7 +7,7 @@ part of 'host_search_response.dart';
 // **************************************************************************
 
 abstract class _$HostSearchResponseCWProxy {
-  HostSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  HostSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   HostSearchResponse error(HostSearchErrorPayload? error);
 
@@ -31,7 +31,7 @@ abstract class _$HostSearchResponseCWProxy {
   /// HostSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   HostSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     HostSearchErrorPayload? error,
     List<HostCard> hosts,
     String message,
@@ -50,7 +50,7 @@ class _$HostSearchResponseCWProxyImpl implements _$HostSearchResponseCWProxy {
   final HostSearchResponse _value;
 
   @override
-  HostSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  HostSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -97,7 +97,7 @@ class _$HostSearchResponseCWProxyImpl implements _$HostSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -143,46 +143,45 @@ extension $HostSearchResponseCopyWith on HostSearchResponse {
 // JsonSerializableGenerator
 // **************************************************************************
 
-HostSearchResponse _$HostSearchResponseFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('HostSearchResponse', json, ($checkedConvert) {
-  $checkKeys(
-    json,
-    requiredKeys: const ['hosts', 'message', 'pagination', 'success'],
-  );
-  final val = HostSearchResponse(
-    algoliaData: $checkedConvert(
-      'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    error: $checkedConvert(
-      'error',
-      (v) => v == null
-          ? null
-          : HostSearchErrorPayload.fromJson(v as Map<String, dynamic>),
-    ),
-    hosts: $checkedConvert(
-      'hosts',
-      (v) => (v as List<dynamic>)
-          .map((e) => HostCard.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    ),
-    message: $checkedConvert('message', (v) => v as String),
-    meta: $checkedConvert(
-      'meta',
-      (v) =>
-          v == null ? null : HostSearchMeta.fromJson(v as Map<String, dynamic>),
-    ),
-    pagination: $checkedConvert(
-      'pagination',
-      (v) => HostSearchPagination.fromJson(v as Map<String, dynamic>),
-    ),
-    success: $checkedConvert('success', (v) => v as bool),
-    total: $checkedConvert('total', (v) => (v as num?)?.toInt() ?? 0),
-  );
-  return val;
-}, fieldKeyMap: const {'algoliaData': 'algolia_data'});
+HostSearchResponse _$HostSearchResponseFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('HostSearchResponse', json, ($checkedConvert) {
+      $checkKeys(
+        json,
+        requiredKeys: const ['hosts', 'message', 'pagination', 'success'],
+      );
+      final val = HostSearchResponse(
+        algoliaData: $checkedConvert(
+          'algolia_data',
+          (v) => v as Map<String, dynamic>?,
+        ),
+        error: $checkedConvert(
+          'error',
+          (v) => v == null
+              ? null
+              : HostSearchErrorPayload.fromJson(v as Map<String, dynamic>),
+        ),
+        hosts: $checkedConvert(
+          'hosts',
+          (v) => (v as List<dynamic>)
+              .map((e) => HostCard.fromJson(e as Map<String, dynamic>))
+              .toList(),
+        ),
+        message: $checkedConvert('message', (v) => v as String),
+        meta: $checkedConvert(
+          'meta',
+          (v) => v == null
+              ? null
+              : HostSearchMeta.fromJson(v as Map<String, dynamic>),
+        ),
+        pagination: $checkedConvert(
+          'pagination',
+          (v) => HostSearchPagination.fromJson(v as Map<String, dynamic>),
+        ),
+        success: $checkedConvert('success', (v) => v as bool),
+        total: $checkedConvert('total', (v) => (v as num?)?.toInt() ?? 0),
+      );
+      return val;
+    }, fieldKeyMap: const {'algoliaData': 'algolia_data'});
 
 Map<String, dynamic> _$HostSearchResponseToJson(HostSearchResponse instance) =>
     <String, dynamic>{

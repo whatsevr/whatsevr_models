@@ -9,7 +9,7 @@ part of 'sync_response.dart';
 abstract class _$SyncResponseCWProxy {
   SyncResponse batchSize(int? batchSize);
 
-  SyncResponse details(Map<String, Object> details);
+  SyncResponse details(Map<String, Object?> details);
 
   SyncResponse errors(List<String>? errors);
 
@@ -28,7 +28,7 @@ abstract class _$SyncResponseCWProxy {
   /// ```
   SyncResponse call({
     int? batchSize,
-    Map<String, Object> details,
+    Map<String, Object?> details,
     List<String>? errors,
     Map<String, bool>? filtersApplied,
     String message,
@@ -47,7 +47,7 @@ class _$SyncResponseCWProxyImpl implements _$SyncResponseCWProxy {
   SyncResponse batchSize(int? batchSize) => call(batchSize: batchSize);
 
   @override
-  SyncResponse details(Map<String, Object> details) => call(details: details);
+  SyncResponse details(Map<String, Object?> details) => call(details: details);
 
   @override
   SyncResponse errors(List<String>? errors) => call(errors: errors);
@@ -86,7 +86,7 @@ class _$SyncResponseCWProxyImpl implements _$SyncResponseCWProxy {
       details: details == const $CopyWithPlaceholder() || details == null
           ? _value.details
           // ignore: cast_nullable_to_non_nullable
-          : details as Map<String, Object>,
+          : details as Map<String, Object?>,
       errors: errors == const $CopyWithPlaceholder()
           ? _value.errors
           // ignore: cast_nullable_to_non_nullable
@@ -131,11 +131,7 @@ SyncResponse _$SyncResponseFromJson(
     );
     final val = SyncResponse(
       batchSize: $checkedConvert('batch_size', (v) => (v as num?)?.toInt()),
-      details: $checkedConvert(
-        'details',
-        (v) =>
-            (v as Map<String, dynamic>).map((k, e) => MapEntry(k, e as Object)),
-      ),
+      details: $checkedConvert('details', (v) => v as Map<String, dynamic>),
       errors: $checkedConvert(
         'errors',
         (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),

@@ -9,7 +9,7 @@ part of 'external_smtp_email_response.dart';
 abstract class _$ExternalSmtpEmailResponseCWProxy {
   ExternalSmtpEmailResponse message(String message);
 
-  ExternalSmtpEmailResponse resendResponse(Map<String, Object> resendResponse);
+  ExternalSmtpEmailResponse resendResponse(Map<String, Object?> resendResponse);
 
   ExternalSmtpEmailResponse success(bool success);
 
@@ -22,7 +22,7 @@ abstract class _$ExternalSmtpEmailResponseCWProxy {
   /// ```
   ExternalSmtpEmailResponse call({
     String message,
-    Map<String, Object> resendResponse,
+    Map<String, Object?> resendResponse,
     bool success,
   });
 }
@@ -40,7 +40,7 @@ class _$ExternalSmtpEmailResponseCWProxyImpl
 
   @override
   ExternalSmtpEmailResponse resendResponse(
-    Map<String, Object> resendResponse,
+    Map<String, Object?> resendResponse,
   ) => call(resendResponse: resendResponse);
 
   @override
@@ -69,7 +69,7 @@ class _$ExternalSmtpEmailResponseCWProxyImpl
               resendResponse == null
           ? _value.resendResponse
           // ignore: cast_nullable_to_non_nullable
-          : resendResponse as Map<String, Object>,
+          : resendResponse as Map<String, Object?>,
       success: success == const $CopyWithPlaceholder() || success == null
           ? _value.success
           // ignore: cast_nullable_to_non_nullable
@@ -101,8 +101,7 @@ ExternalSmtpEmailResponse _$ExternalSmtpEmailResponseFromJson(
     message: $checkedConvert('message', (v) => v as String),
     resendResponse: $checkedConvert(
       'resend_response',
-      (v) =>
-          (v as Map<String, dynamic>).map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>,
     ),
     success: $checkedConvert('success', (v) => v as bool),
   );

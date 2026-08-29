@@ -7,7 +7,7 @@ part of 'flick_search_response.dart';
 // **************************************************************************
 
 abstract class _$FlickSearchResponseCWProxy {
-  FlickSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  FlickSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   FlickSearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$FlickSearchResponseCWProxy {
 
   FlickSearchResponse meta(SearchMeta? meta);
 
-  FlickSearchResponse pagination(Map<String, Object>? pagination);
+  FlickSearchResponse pagination(Map<String, Object?>? pagination);
 
   FlickSearchResponse results(List<ExternalSearchFlickRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$FlickSearchResponseCWProxy {
   /// FlickSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   FlickSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<ExternalSearchFlickRow> results,
     bool success,
     List<String> uids,
@@ -50,7 +50,7 @@ class _$FlickSearchResponseCWProxyImpl implements _$FlickSearchResponseCWProxy {
   final FlickSearchResponse _value;
 
   @override
-  FlickSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  FlickSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -63,7 +63,7 @@ class _$FlickSearchResponseCWProxyImpl implements _$FlickSearchResponseCWProxy {
   FlickSearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  FlickSearchResponse pagination(Map<String, Object>? pagination) =>
+  FlickSearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -98,7 +98,7 @@ class _$FlickSearchResponseCWProxyImpl implements _$FlickSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$FlickSearchResponseCWProxyImpl implements _$FlickSearchResponseCWProxy {
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -143,50 +143,50 @@ extension $FlickSearchResponseCopyWith on FlickSearchResponse {
 // JsonSerializableGenerator
 // **************************************************************************
 
-FlickSearchResponse _$FlickSearchResponseFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('FlickSearchResponse', json, ($checkedConvert) {
-  $checkKeys(
-    json,
-    requiredKeys: const ['message', 'results', 'success', 'uids'],
-  );
-  final val = FlickSearchResponse(
-    algoliaData: $checkedConvert(
-      'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    error: $checkedConvert(
-      'error',
-      (v) =>
-          v == null ? null : SearchFailure.fromJson(v as Map<String, dynamic>),
-    ),
-    message: $checkedConvert('message', (v) => v as String),
-    meta: $checkedConvert(
-      'meta',
-      (v) => v == null ? null : SearchMeta.fromJson(v as Map<String, dynamic>),
-    ),
-    pagination: $checkedConvert(
-      'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    results: $checkedConvert(
-      'results',
-      (v) => (v as List<dynamic>)
-          .map(
-            (e) => ExternalSearchFlickRow.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
-    ),
-    success: $checkedConvert('success', (v) => v as bool),
-    uids: $checkedConvert(
-      'uids',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
-  );
-  return val;
-}, fieldKeyMap: const {'algoliaData': 'algolia_data'});
+FlickSearchResponse _$FlickSearchResponseFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('FlickSearchResponse', json, ($checkedConvert) {
+      $checkKeys(
+        json,
+        requiredKeys: const ['message', 'results', 'success', 'uids'],
+      );
+      final val = FlickSearchResponse(
+        algoliaData: $checkedConvert(
+          'algolia_data',
+          (v) => v as Map<String, dynamic>?,
+        ),
+        error: $checkedConvert(
+          'error',
+          (v) => v == null
+              ? null
+              : SearchFailure.fromJson(v as Map<String, dynamic>),
+        ),
+        message: $checkedConvert('message', (v) => v as String),
+        meta: $checkedConvert(
+          'meta',
+          (v) =>
+              v == null ? null : SearchMeta.fromJson(v as Map<String, dynamic>),
+        ),
+        pagination: $checkedConvert(
+          'pagination',
+          (v) => v as Map<String, dynamic>?,
+        ),
+        results: $checkedConvert(
+          'results',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) =>
+                    ExternalSearchFlickRow.fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
+        success: $checkedConvert('success', (v) => v as bool),
+        uids: $checkedConvert(
+          'uids',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+      );
+      return val;
+    }, fieldKeyMap: const {'algoliaData': 'algolia_data'});
 
 Map<String, dynamic> _$FlickSearchResponseToJson(
   FlickSearchResponse instance,

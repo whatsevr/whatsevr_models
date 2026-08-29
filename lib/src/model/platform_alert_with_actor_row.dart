@@ -50,7 +50,7 @@ class PlatformAlertWithActorRow {
   final String? alertType;
 
   @JsonKey(name: r'content', required: false, includeIfNull: false)
-  final Map<String, Object>? content;
+  final Map<String, Object?>? content;
 
   @JsonKey(name: r'created_at', required: true, includeIfNull: false)
   final DateTime createdAt;
@@ -62,7 +62,7 @@ class PlatformAlertWithActorRow {
   final String? recipientUserUid;
 
   @JsonKey(name: r'target', required: false, includeIfNull: false)
-  final Map<String, Object>? target;
+  final Map<String, Object?>? target;
 
   @JsonKey(name: r'title', required: false, includeIfNull: false)
   final String? title;

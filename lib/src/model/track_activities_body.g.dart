@@ -7,7 +7,7 @@ part of 'track_activities_body.dart';
 // **************************************************************************
 
 abstract class _$TrackActivitiesBodyCWProxy {
-  TrackActivitiesBody activities(List<Map<String, Object>> activities);
+  TrackActivitiesBody activities(List<Map<String, Object?>> activities);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `TrackActivitiesBody(...).copyWith.fieldName(value)`.
@@ -16,7 +16,7 @@ abstract class _$TrackActivitiesBodyCWProxy {
   /// ```dart
   /// TrackActivitiesBody(...).copyWith(id: 12, name: "My name")
   /// ```
-  TrackActivitiesBody call({List<Map<String, Object>> activities});
+  TrackActivitiesBody call({List<Map<String, Object?>> activities});
 }
 
 /// Callable proxy for `copyWith` functionality.
@@ -27,7 +27,7 @@ class _$TrackActivitiesBodyCWProxyImpl implements _$TrackActivitiesBodyCWProxy {
   final TrackActivitiesBody _value;
 
   @override
-  TrackActivitiesBody activities(List<Map<String, Object>> activities) =>
+  TrackActivitiesBody activities(List<Map<String, Object?>> activities) =>
       call(activities: activities);
 
   /// Creates a new instance with the provided field values.
@@ -46,7 +46,7 @@ class _$TrackActivitiesBodyCWProxyImpl implements _$TrackActivitiesBodyCWProxy {
           activities == const $CopyWithPlaceholder() || activities == null
           ? _value.activities
           // ignore: cast_nullable_to_non_nullable
-          : activities as List<Map<String, Object>>,
+          : activities as List<Map<String, Object?>>,
     );
   }
 }
@@ -70,11 +70,7 @@ TrackActivitiesBody _$TrackActivitiesBodyFromJson(Map<String, dynamic> json) =>
         activities: $checkedConvert(
           'activities',
           (v) => (v as List<dynamic>)
-              .map(
-                (e) => (e as Map<String, dynamic>).map(
-                  (k, e) => MapEntry(k, e as Object),
-                ),
-              )
+              .map((e) => e as Map<String, dynamic>)
               .toList(),
         ),
       );

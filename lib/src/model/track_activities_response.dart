@@ -36,7 +36,7 @@ class TrackActivitiesResponse {
   final String? error;
 
   @JsonKey(name: r'failed_activities', required: true, includeIfNull: false)
-  final List<Map<String, Object>> failedActivities;
+  final List<Map<String, Object?>> failedActivities;
 
   @JsonKey(name: r'message', required: true, includeIfNull: false)
   final String message;

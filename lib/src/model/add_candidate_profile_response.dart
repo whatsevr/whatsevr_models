@@ -32,7 +32,7 @@ class AddCandidateProfileResponse {
   final OwnCandidateRow? candidate;
 
   @JsonKey(name: r'debug_info', required: false, includeIfNull: false)
-  final Map<String, Object>? debugInfo;
+  final Map<String, Object?>? debugInfo;
 
   @JsonKey(name: r'message', required: true, includeIfNull: false)
   final String message;

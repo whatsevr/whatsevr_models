@@ -7,7 +7,7 @@ part of 'run_sweeps_response.dart';
 // **************************************************************************
 
 abstract class _$RunSweepsResponseCWProxy {
-  RunSweepsResponse changed(Map<String, Object> changed);
+  RunSweepsResponse changed(Map<String, Object?> changed);
 
   RunSweepsResponse message(String message);
 
@@ -18,7 +18,7 @@ abstract class _$RunSweepsResponseCWProxy {
   /// ```dart
   /// RunSweepsResponse(...).copyWith(id: 12, name: "My name")
   /// ```
-  RunSweepsResponse call({Map<String, Object> changed, String message});
+  RunSweepsResponse call({Map<String, Object?> changed, String message});
 }
 
 /// Callable proxy for `copyWith` functionality.
@@ -29,7 +29,7 @@ class _$RunSweepsResponseCWProxyImpl implements _$RunSweepsResponseCWProxy {
   final RunSweepsResponse _value;
 
   @override
-  RunSweepsResponse changed(Map<String, Object> changed) =>
+  RunSweepsResponse changed(Map<String, Object?> changed) =>
       call(changed: changed);
 
   @override
@@ -51,7 +51,7 @@ class _$RunSweepsResponseCWProxyImpl implements _$RunSweepsResponseCWProxy {
       changed: changed == const $CopyWithPlaceholder() || changed == null
           ? _value.changed
           // ignore: cast_nullable_to_non_nullable
-          : changed as Map<String, Object>,
+          : changed as Map<String, Object?>,
       message: message == const $CopyWithPlaceholder() || message == null
           ? _value.message
           // ignore: cast_nullable_to_non_nullable
@@ -76,12 +76,7 @@ RunSweepsResponse _$RunSweepsResponseFromJson(Map<String, dynamic> json) =>
     $checkedCreate('RunSweepsResponse', json, ($checkedConvert) {
       $checkKeys(json, requiredKeys: const ['changed', 'message']);
       final val = RunSweepsResponse(
-        changed: $checkedConvert(
-          'changed',
-          (v) => (v as Map<String, dynamic>).map(
-            (k, e) => MapEntry(k, e as Object),
-          ),
-        ),
+        changed: $checkedConvert('changed', (v) => v as Map<String, dynamic>),
         message: $checkedConvert('message', (v) => v as String),
       );
       return val;

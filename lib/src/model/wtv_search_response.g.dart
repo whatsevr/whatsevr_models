@@ -7,7 +7,7 @@ part of 'wtv_search_response.dart';
 // **************************************************************************
 
 abstract class _$WtvSearchResponseCWProxy {
-  WtvSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  WtvSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   WtvSearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$WtvSearchResponseCWProxy {
 
   WtvSearchResponse meta(SearchMeta? meta);
 
-  WtvSearchResponse pagination(Map<String, Object>? pagination);
+  WtvSearchResponse pagination(Map<String, Object?>? pagination);
 
   WtvSearchResponse results(List<ExternalSearchWtvRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$WtvSearchResponseCWProxy {
   /// WtvSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   WtvSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<ExternalSearchWtvRow> results,
     bool success,
     List<String> uids,
@@ -50,7 +50,7 @@ class _$WtvSearchResponseCWProxyImpl implements _$WtvSearchResponseCWProxy {
   final WtvSearchResponse _value;
 
   @override
-  WtvSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  WtvSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -63,7 +63,7 @@ class _$WtvSearchResponseCWProxyImpl implements _$WtvSearchResponseCWProxy {
   WtvSearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  WtvSearchResponse pagination(Map<String, Object>? pagination) =>
+  WtvSearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -98,7 +98,7 @@ class _$WtvSearchResponseCWProxyImpl implements _$WtvSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$WtvSearchResponseCWProxyImpl implements _$WtvSearchResponseCWProxy {
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -153,8 +153,7 @@ WtvSearchResponse _$WtvSearchResponseFromJson(
   final val = WtvSearchResponse(
     algoliaData: $checkedConvert(
       'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     error: $checkedConvert(
       'error',
@@ -168,8 +167,7 @@ WtvSearchResponse _$WtvSearchResponseFromJson(
     ),
     pagination: $checkedConvert(
       'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     results: $checkedConvert(
       'results',

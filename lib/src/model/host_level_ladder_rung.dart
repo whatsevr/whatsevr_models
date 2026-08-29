@@ -61,7 +61,7 @@ class HostLevelLadderRung {
   final String state;
 
   @JsonKey(name: r'thresholds', required: true, includeIfNull: false)
-  final Map<String, Object> thresholds;
+  final Map<String, Object?> thresholds;
 
   @override
   bool operator ==(Object other) =>

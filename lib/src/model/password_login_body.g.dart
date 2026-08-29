@@ -7,7 +7,7 @@ part of 'password_login_body.dart';
 // **************************************************************************
 
 abstract class _$PasswordLoginBodyCWProxy {
-  PasswordLoginBody deviceData(Map<String, Object>? deviceData);
+  PasswordLoginBody deviceData(Map<String, Object?>? deviceData);
 
   PasswordLoginBody email(String email);
 
@@ -23,7 +23,7 @@ abstract class _$PasswordLoginBodyCWProxy {
   /// PasswordLoginBody(...).copyWith(id: 12, name: "My name")
   /// ```
   PasswordLoginBody call({
-    Map<String, Object>? deviceData,
+    Map<String, Object?>? deviceData,
     String email,
     String? fcmToken,
     String password,
@@ -38,7 +38,7 @@ class _$PasswordLoginBodyCWProxyImpl implements _$PasswordLoginBodyCWProxy {
   final PasswordLoginBody _value;
 
   @override
-  PasswordLoginBody deviceData(Map<String, Object>? deviceData) =>
+  PasswordLoginBody deviceData(Map<String, Object?>? deviceData) =>
       call(deviceData: deviceData);
 
   @override
@@ -68,7 +68,7 @@ class _$PasswordLoginBodyCWProxyImpl implements _$PasswordLoginBodyCWProxy {
       deviceData: deviceData == const $CopyWithPlaceholder()
           ? _value.deviceData
           // ignore: cast_nullable_to_non_nullable
-          : deviceData as Map<String, Object>?,
+          : deviceData as Map<String, Object?>?,
       email: email == const $CopyWithPlaceholder() || email == null
           ? _value.email
           // ignore: cast_nullable_to_non_nullable
@@ -97,22 +97,25 @@ extension $PasswordLoginBodyCopyWith on PasswordLoginBody {
 // JsonSerializableGenerator
 // **************************************************************************
 
-PasswordLoginBody _$PasswordLoginBodyFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('PasswordLoginBody', json, ($checkedConvert) {
-  $checkKeys(json, requiredKeys: const ['email', 'password']);
-  final val = PasswordLoginBody(
-    deviceData: $checkedConvert(
-      'device_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    email: $checkedConvert('email', (v) => v as String),
-    fcmToken: $checkedConvert('fcm_token', (v) => v as String?),
-    password: $checkedConvert('password', (v) => v as String),
-  );
-  return val;
-}, fieldKeyMap: const {'deviceData': 'device_data', 'fcmToken': 'fcm_token'});
+PasswordLoginBody _$PasswordLoginBodyFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'PasswordLoginBody',
+      json,
+      ($checkedConvert) {
+        $checkKeys(json, requiredKeys: const ['email', 'password']);
+        final val = PasswordLoginBody(
+          deviceData: $checkedConvert(
+            'device_data',
+            (v) => v as Map<String, dynamic>?,
+          ),
+          email: $checkedConvert('email', (v) => v as String),
+          fcmToken: $checkedConvert('fcm_token', (v) => v as String?),
+          password: $checkedConvert('password', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'deviceData': 'device_data', 'fcmToken': 'fcm_token'},
+    );
 
 Map<String, dynamic> _$PasswordLoginBodyToJson(PasswordLoginBody instance) =>
     <String, dynamic>{

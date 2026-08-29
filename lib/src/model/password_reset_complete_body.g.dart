@@ -7,7 +7,7 @@ part of 'password_reset_complete_body.dart';
 // **************************************************************************
 
 abstract class _$PasswordResetCompleteBodyCWProxy {
-  PasswordResetCompleteBody deviceData(Map<String, Object>? deviceData);
+  PasswordResetCompleteBody deviceData(Map<String, Object?>? deviceData);
 
   PasswordResetCompleteBody fcmToken(String? fcmToken);
 
@@ -23,7 +23,7 @@ abstract class _$PasswordResetCompleteBodyCWProxy {
   /// PasswordResetCompleteBody(...).copyWith(id: 12, name: "My name")
   /// ```
   PasswordResetCompleteBody call({
-    Map<String, Object>? deviceData,
+    Map<String, Object?>? deviceData,
     String? fcmToken,
     String newPassword,
     String resetToken,
@@ -39,7 +39,7 @@ class _$PasswordResetCompleteBodyCWProxyImpl
   final PasswordResetCompleteBody _value;
 
   @override
-  PasswordResetCompleteBody deviceData(Map<String, Object>? deviceData) =>
+  PasswordResetCompleteBody deviceData(Map<String, Object?>? deviceData) =>
       call(deviceData: deviceData);
 
   @override
@@ -72,7 +72,7 @@ class _$PasswordResetCompleteBodyCWProxyImpl
       deviceData: deviceData == const $CopyWithPlaceholder()
           ? _value.deviceData
           // ignore: cast_nullable_to_non_nullable
-          : deviceData as Map<String, Object>?,
+          : deviceData as Map<String, Object?>?,
       fcmToken: fcmToken == const $CopyWithPlaceholder()
           ? _value.fcmToken
           // ignore: cast_nullable_to_non_nullable
@@ -113,9 +113,7 @@ PasswordResetCompleteBody _$PasswordResetCompleteBodyFromJson(
     final val = PasswordResetCompleteBody(
       deviceData: $checkedConvert(
         'device_data',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       fcmToken: $checkedConvert('fcm_token', (v) => v as String?),
       newPassword: $checkedConvert('new_password', (v) => v as String),

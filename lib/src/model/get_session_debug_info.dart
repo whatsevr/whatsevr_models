@@ -20,7 +20,7 @@ class GetSessionDebugInfo {
   GetSessionDebugInfo({required this.redisSessionData});
 
   @JsonKey(name: r'redis_session_data', required: true, includeIfNull: false)
-  final Map<String, Object> redisSessionData;
+  final Map<String, Object?> redisSessionData;
 
   @override
   bool operator ==(Object other) =>

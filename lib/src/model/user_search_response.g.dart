@@ -7,7 +7,7 @@ part of 'user_search_response.dart';
 // **************************************************************************
 
 abstract class _$UserSearchResponseCWProxy {
-  UserSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  UserSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   UserSearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$UserSearchResponseCWProxy {
 
   UserSearchResponse meta(SearchMeta? meta);
 
-  UserSearchResponse pagination(Map<String, Object>? pagination);
+  UserSearchResponse pagination(Map<String, Object?>? pagination);
 
   UserSearchResponse results(List<UserSearchResultRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$UserSearchResponseCWProxy {
   /// UserSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   UserSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<UserSearchResultRow> results,
     bool success,
     List<String> uids,
@@ -50,7 +50,7 @@ class _$UserSearchResponseCWProxyImpl implements _$UserSearchResponseCWProxy {
   final UserSearchResponse _value;
 
   @override
-  UserSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  UserSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -63,7 +63,7 @@ class _$UserSearchResponseCWProxyImpl implements _$UserSearchResponseCWProxy {
   UserSearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  UserSearchResponse pagination(Map<String, Object>? pagination) =>
+  UserSearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -98,7 +98,7 @@ class _$UserSearchResponseCWProxyImpl implements _$UserSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$UserSearchResponseCWProxyImpl implements _$UserSearchResponseCWProxy {
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -153,8 +153,7 @@ UserSearchResponse _$UserSearchResponseFromJson(
   final val = UserSearchResponse(
     algoliaData: $checkedConvert(
       'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     error: $checkedConvert(
       'error',
@@ -168,8 +167,7 @@ UserSearchResponse _$UserSearchResponseFromJson(
     ),
     pagination: $checkedConvert(
       'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     results: $checkedConvert(
       'results',

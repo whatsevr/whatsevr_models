@@ -23,7 +23,7 @@ abstract class _$CreateOfferBodyCWProxy {
 
   CreateOfferBody postCreatorType(String postCreatorType);
 
-  CreateOfferBody richDescription(Map<String, Object>? richDescription);
+  CreateOfferBody richDescription(Map<String, Object?>? richDescription);
 
   CreateOfferBody status(String status);
 
@@ -55,7 +55,7 @@ abstract class _$CreateOfferBodyCWProxy {
     List<PostFileEntry>? filesData,
     List<String>? hashtags,
     String postCreatorType,
-    Map<String, Object>? richDescription,
+    Map<String, Object?>? richDescription,
     String status,
     List<String>? taggedCommunityUids,
     List<String>? taggedUserUids,
@@ -104,7 +104,7 @@ class _$CreateOfferBodyCWProxyImpl implements _$CreateOfferBodyCWProxy {
       call(postCreatorType: postCreatorType);
 
   @override
-  CreateOfferBody richDescription(Map<String, Object>? richDescription) =>
+  CreateOfferBody richDescription(Map<String, Object?>? richDescription) =>
       call(richDescription: richDescription);
 
   @override
@@ -196,7 +196,7 @@ class _$CreateOfferBodyCWProxyImpl implements _$CreateOfferBodyCWProxy {
       richDescription: richDescription == const $CopyWithPlaceholder()
           ? _value.richDescription
           // ignore: cast_nullable_to_non_nullable
-          : richDescription as Map<String, Object>?,
+          : richDescription as Map<String, Object?>?,
       status: status == const $CopyWithPlaceholder() || status == null
           ? _value.status
           // ignore: cast_nullable_to_non_nullable
@@ -272,9 +272,7 @@ CreateOfferBody _$CreateOfferBodyFromJson(
       postCreatorType: $checkedConvert('post_creator_type', (v) => v as String),
       richDescription: $checkedConvert(
         'rich_description',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       status: $checkedConvert('status', (v) => v as String),
       taggedCommunityUids: $checkedConvert(

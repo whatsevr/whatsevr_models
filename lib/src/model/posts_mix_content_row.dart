@@ -176,7 +176,7 @@ class PostsMixContentRow {
   final String? relatedContentUid;
 
   @JsonKey(name: r'rich_description', required: false, includeIfNull: false)
-  final Map<String, Object>? richDescription;
+  final Map<String, Object?>? richDescription;
 
   @JsonKey(name: r'seo_data_weighted', required: false, includeIfNull: false)
   final String? seoDataWeighted;

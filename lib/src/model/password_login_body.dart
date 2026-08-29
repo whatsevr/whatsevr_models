@@ -28,7 +28,7 @@ class PasswordLoginBody {
   });
 
   @JsonKey(name: r'device_data', required: false, includeIfNull: false)
-  final Map<String, Object>? deviceData;
+  final Map<String, Object?>? deviceData;
 
   @JsonKey(name: r'email', required: true, includeIfNull: false)
   final String email;

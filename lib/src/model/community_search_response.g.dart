@@ -7,7 +7,7 @@ part of 'community_search_response.dart';
 // **************************************************************************
 
 abstract class _$CommunitySearchResponseCWProxy {
-  CommunitySearchResponse algoliaData(Map<String, Object>? algoliaData);
+  CommunitySearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   CommunitySearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$CommunitySearchResponseCWProxy {
 
   CommunitySearchResponse meta(SearchMeta? meta);
 
-  CommunitySearchResponse pagination(Map<String, Object>? pagination);
+  CommunitySearchResponse pagination(Map<String, Object?>? pagination);
 
   CommunitySearchResponse results(List<ExternalSearchCommunityRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$CommunitySearchResponseCWProxy {
   /// CommunitySearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   CommunitySearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<ExternalSearchCommunityRow> results,
     bool success,
     List<String> uids,
@@ -51,7 +51,7 @@ class _$CommunitySearchResponseCWProxyImpl
   final CommunitySearchResponse _value;
 
   @override
-  CommunitySearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  CommunitySearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -64,7 +64,7 @@ class _$CommunitySearchResponseCWProxyImpl
   CommunitySearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  CommunitySearchResponse pagination(Map<String, Object>? pagination) =>
+  CommunitySearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -99,7 +99,7 @@ class _$CommunitySearchResponseCWProxyImpl
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ class _$CommunitySearchResponseCWProxyImpl
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -154,8 +154,7 @@ CommunitySearchResponse _$CommunitySearchResponseFromJson(
   final val = CommunitySearchResponse(
     algoliaData: $checkedConvert(
       'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     error: $checkedConvert(
       'error',
@@ -169,8 +168,7 @@ CommunitySearchResponse _$CommunitySearchResponseFromJson(
     ),
     pagination: $checkedConvert(
       'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     results: $checkedConvert(
       'results',

@@ -7,7 +7,7 @@ part of 'photo_search_response.dart';
 // **************************************************************************
 
 abstract class _$PhotoSearchResponseCWProxy {
-  PhotoSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  PhotoSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   PhotoSearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$PhotoSearchResponseCWProxy {
 
   PhotoSearchResponse meta(SearchMeta? meta);
 
-  PhotoSearchResponse pagination(Map<String, Object>? pagination);
+  PhotoSearchResponse pagination(Map<String, Object?>? pagination);
 
   PhotoSearchResponse results(List<ExternalSearchPhotoRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$PhotoSearchResponseCWProxy {
   /// PhotoSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   PhotoSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<ExternalSearchPhotoRow> results,
     bool success,
     List<String> uids,
@@ -50,7 +50,7 @@ class _$PhotoSearchResponseCWProxyImpl implements _$PhotoSearchResponseCWProxy {
   final PhotoSearchResponse _value;
 
   @override
-  PhotoSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  PhotoSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -63,7 +63,7 @@ class _$PhotoSearchResponseCWProxyImpl implements _$PhotoSearchResponseCWProxy {
   PhotoSearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  PhotoSearchResponse pagination(Map<String, Object>? pagination) =>
+  PhotoSearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -98,7 +98,7 @@ class _$PhotoSearchResponseCWProxyImpl implements _$PhotoSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$PhotoSearchResponseCWProxyImpl implements _$PhotoSearchResponseCWProxy {
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -143,50 +143,50 @@ extension $PhotoSearchResponseCopyWith on PhotoSearchResponse {
 // JsonSerializableGenerator
 // **************************************************************************
 
-PhotoSearchResponse _$PhotoSearchResponseFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('PhotoSearchResponse', json, ($checkedConvert) {
-  $checkKeys(
-    json,
-    requiredKeys: const ['message', 'results', 'success', 'uids'],
-  );
-  final val = PhotoSearchResponse(
-    algoliaData: $checkedConvert(
-      'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    error: $checkedConvert(
-      'error',
-      (v) =>
-          v == null ? null : SearchFailure.fromJson(v as Map<String, dynamic>),
-    ),
-    message: $checkedConvert('message', (v) => v as String),
-    meta: $checkedConvert(
-      'meta',
-      (v) => v == null ? null : SearchMeta.fromJson(v as Map<String, dynamic>),
-    ),
-    pagination: $checkedConvert(
-      'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
-    ),
-    results: $checkedConvert(
-      'results',
-      (v) => (v as List<dynamic>)
-          .map(
-            (e) => ExternalSearchPhotoRow.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
-    ),
-    success: $checkedConvert('success', (v) => v as bool),
-    uids: $checkedConvert(
-      'uids',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
-  );
-  return val;
-}, fieldKeyMap: const {'algoliaData': 'algolia_data'});
+PhotoSearchResponse _$PhotoSearchResponseFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('PhotoSearchResponse', json, ($checkedConvert) {
+      $checkKeys(
+        json,
+        requiredKeys: const ['message', 'results', 'success', 'uids'],
+      );
+      final val = PhotoSearchResponse(
+        algoliaData: $checkedConvert(
+          'algolia_data',
+          (v) => v as Map<String, dynamic>?,
+        ),
+        error: $checkedConvert(
+          'error',
+          (v) => v == null
+              ? null
+              : SearchFailure.fromJson(v as Map<String, dynamic>),
+        ),
+        message: $checkedConvert('message', (v) => v as String),
+        meta: $checkedConvert(
+          'meta',
+          (v) =>
+              v == null ? null : SearchMeta.fromJson(v as Map<String, dynamic>),
+        ),
+        pagination: $checkedConvert(
+          'pagination',
+          (v) => v as Map<String, dynamic>?,
+        ),
+        results: $checkedConvert(
+          'results',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) =>
+                    ExternalSearchPhotoRow.fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
+        success: $checkedConvert('success', (v) => v as bool),
+        uids: $checkedConvert(
+          'uids',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+      );
+      return val;
+    }, fieldKeyMap: const {'algoliaData': 'algolia_data'});
 
 Map<String, dynamic> _$PhotoSearchResponseToJson(
   PhotoSearchResponse instance,

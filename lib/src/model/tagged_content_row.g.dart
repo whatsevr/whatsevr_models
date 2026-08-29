@@ -45,7 +45,7 @@ abstract class _$TaggedContentRowCWProxy {
 
   TaggedContentRow relatedContentUid(String? relatedContentUid);
 
-  TaggedContentRow richDescription(Map<String, Object>? richDescription);
+  TaggedContentRow richDescription(Map<String, Object?>? richDescription);
 
   TaggedContentRow seoDataWeighted(String? seoDataWeighted);
 
@@ -110,7 +110,7 @@ abstract class _$TaggedContentRowCWProxy {
     Object? optimizedFiles,
     String postCreatorType,
     String? relatedContentUid,
-    Map<String, Object>? richDescription,
+    Map<String, Object?>? richDescription,
     String? seoDataWeighted,
     String? status,
     List<String>? taggedCommunityUids,
@@ -209,7 +209,7 @@ class _$TaggedContentRowCWProxyImpl implements _$TaggedContentRowCWProxy {
       call(relatedContentUid: relatedContentUid);
 
   @override
-  TaggedContentRow richDescription(Map<String, Object>? richDescription) =>
+  TaggedContentRow richDescription(Map<String, Object?>? richDescription) =>
       call(richDescription: richDescription);
 
   @override
@@ -408,7 +408,7 @@ class _$TaggedContentRowCWProxyImpl implements _$TaggedContentRowCWProxy {
       richDescription: richDescription == const $CopyWithPlaceholder()
           ? _value.richDescription
           // ignore: cast_nullable_to_non_nullable
-          : richDescription as Map<String, Object>?,
+          : richDescription as Map<String, Object?>?,
       seoDataWeighted: seoDataWeighted == const $CopyWithPlaceholder()
           ? _value.seoDataWeighted
           // ignore: cast_nullable_to_non_nullable
@@ -559,9 +559,7 @@ TaggedContentRow _$TaggedContentRowFromJson(
       ),
       richDescription: $checkedConvert(
         'rich_description',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       seoDataWeighted: $checkedConvert(
         'seo_data_weighted',

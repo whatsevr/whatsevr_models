@@ -39,7 +39,7 @@ class PdfSearchResponse {
   });
 
   @JsonKey(name: r'algolia_data', required: false, includeIfNull: false)
-  final Map<String, Object>? algoliaData;
+  final Map<String, Object?>? algoliaData;
 
   @JsonKey(name: r'error', required: false, includeIfNull: false)
   final SearchFailure? error;
@@ -51,7 +51,7 @@ class PdfSearchResponse {
   final SearchMeta? meta;
 
   @JsonKey(name: r'pagination', required: false, includeIfNull: false)
-  final Map<String, Object>? pagination;
+  final Map<String, Object?>? pagination;
 
   @JsonKey(name: r'results', required: true, includeIfNull: false)
   final List<ExternalSearchPdfRow> results;

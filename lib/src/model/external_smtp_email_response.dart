@@ -29,7 +29,7 @@ class ExternalSmtpEmailResponse {
   final String message;
 
   @JsonKey(name: r'resend_response', required: true, includeIfNull: false)
-  final Map<String, Object> resendResponse;
+  final Map<String, Object?> resendResponse;
 
   @JsonKey(name: r'success', required: true, includeIfNull: false)
   final bool success;

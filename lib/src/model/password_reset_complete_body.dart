@@ -28,7 +28,7 @@ class PasswordResetCompleteBody {
   });
 
   @JsonKey(name: r'device_data', required: false, includeIfNull: false)
-  final Map<String, Object>? deviceData;
+  final Map<String, Object?>? deviceData;
 
   @JsonKey(name: r'fcm_token', required: false, includeIfNull: false)
   final String? fcmToken;

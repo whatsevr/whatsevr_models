@@ -7,7 +7,7 @@ part of 'login_body.dart';
 // **************************************************************************
 
 abstract class _$LoginBodyCWProxy {
-  LoginBody deviceData(Map<String, Object>? deviceData);
+  LoginBody deviceData(Map<String, Object?>? deviceData);
 
   LoginBody fcmToken(String? fcmToken);
 
@@ -21,7 +21,7 @@ abstract class _$LoginBodyCWProxy {
   /// LoginBody(...).copyWith(id: 12, name: "My name")
   /// ```
   LoginBody call({
-    Map<String, Object>? deviceData,
+    Map<String, Object?>? deviceData,
     String? fcmToken,
     String otplessToken,
   });
@@ -35,7 +35,7 @@ class _$LoginBodyCWProxyImpl implements _$LoginBodyCWProxy {
   final LoginBody _value;
 
   @override
-  LoginBody deviceData(Map<String, Object>? deviceData) =>
+  LoginBody deviceData(Map<String, Object?>? deviceData) =>
       call(deviceData: deviceData);
 
   @override
@@ -62,7 +62,7 @@ class _$LoginBodyCWProxyImpl implements _$LoginBodyCWProxy {
       deviceData: deviceData == const $CopyWithPlaceholder()
           ? _value.deviceData
           // ignore: cast_nullable_to_non_nullable
-          : deviceData as Map<String, Object>?,
+          : deviceData as Map<String, Object?>?,
       fcmToken: fcmToken == const $CopyWithPlaceholder()
           ? _value.fcmToken
           // ignore: cast_nullable_to_non_nullable
@@ -95,9 +95,7 @@ LoginBody _$LoginBodyFromJson(Map<String, dynamic> json) => $checkedCreate(
     final val = LoginBody(
       deviceData: $checkedConvert(
         'device_data',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       fcmToken: $checkedConvert('fcm_token', (v) => v as String?),
       otplessToken: $checkedConvert('otpless_token', (v) => v as String),

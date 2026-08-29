@@ -21,7 +21,7 @@ abstract class _$HostLevelLadderRungCWProxy {
 
   HostLevelLadderRung state(String state);
 
-  HostLevelLadderRung thresholds(Map<String, Object> thresholds);
+  HostLevelLadderRung thresholds(Map<String, Object?> thresholds);
 
   /// Creates a new instance with the provided field values.
   /// Passing `null` to a nullable field nullifies it, while `null` for a non-nullable field is ignored. To update a single field use `HostLevelLadderRung(...).copyWith.fieldName(value)`.
@@ -38,7 +38,7 @@ abstract class _$HostLevelLadderRungCWProxy {
     int pricePaise,
     int pricePerMinuteCredits,
     String state,
-    Map<String, Object> thresholds,
+    Map<String, Object?> thresholds,
   });
 }
 
@@ -73,7 +73,7 @@ class _$HostLevelLadderRungCWProxyImpl implements _$HostLevelLadderRungCWProxy {
   HostLevelLadderRung state(String state) => call(state: state);
 
   @override
-  HostLevelLadderRung thresholds(Map<String, Object> thresholds) =>
+  HostLevelLadderRung thresholds(Map<String, Object?> thresholds) =>
       call(thresholds: thresholds);
 
   /// Creates a new instance with the provided field values.
@@ -130,7 +130,7 @@ class _$HostLevelLadderRungCWProxyImpl implements _$HostLevelLadderRungCWProxy {
           thresholds == const $CopyWithPlaceholder() || thresholds == null
           ? _value.thresholds
           // ignore: cast_nullable_to_non_nullable
-          : thresholds as Map<String, Object>,
+          : thresholds as Map<String, Object?>,
     );
   }
 }
@@ -178,9 +178,7 @@ HostLevelLadderRung _$HostLevelLadderRungFromJson(Map<String, dynamic> json) =>
           state: $checkedConvert('state', (v) => v as String),
           thresholds: $checkedConvert(
             'thresholds',
-            (v) => (v as Map<String, dynamic>).map(
-              (k, e) => MapEntry(k, e as Object),
-            ),
+            (v) => v as Map<String, dynamic>,
           ),
         );
         return val;

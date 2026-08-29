@@ -21,7 +21,7 @@ abstract class _$HostLevelEventCWProxy {
 
   HostLevelEvent pricePerMinuteCredits(int pricePerMinuteCredits);
 
-  HostLevelEvent progressSnapshot(Map<String, Object> progressSnapshot);
+  HostLevelEvent progressSnapshot(Map<String, Object?> progressSnapshot);
 
   HostLevelEvent toBadgeUrl(String? toBadgeUrl);
 
@@ -46,7 +46,7 @@ abstract class _$HostLevelEventCWProxy {
     String? monthLabel,
     int pricePaise,
     int pricePerMinuteCredits,
-    Map<String, Object> progressSnapshot,
+    Map<String, Object?> progressSnapshot,
     String? toBadgeUrl,
     int toLevel,
     String toLevelName,
@@ -85,7 +85,7 @@ class _$HostLevelEventCWProxyImpl implements _$HostLevelEventCWProxy {
       call(pricePerMinuteCredits: pricePerMinuteCredits);
 
   @override
-  HostLevelEvent progressSnapshot(Map<String, Object> progressSnapshot) =>
+  HostLevelEvent progressSnapshot(Map<String, Object?> progressSnapshot) =>
       call(progressSnapshot: progressSnapshot);
 
   @override
@@ -161,7 +161,7 @@ class _$HostLevelEventCWProxyImpl implements _$HostLevelEventCWProxy {
               progressSnapshot == null
           ? _value.progressSnapshot
           // ignore: cast_nullable_to_non_nullable
-          : progressSnapshot as Map<String, Object>,
+          : progressSnapshot as Map<String, Object?>,
       toBadgeUrl: toBadgeUrl == const $CopyWithPlaceholder()
           ? _value.toBadgeUrl
           // ignore: cast_nullable_to_non_nullable
@@ -232,9 +232,7 @@ HostLevelEvent _$HostLevelEventFromJson(Map<String, dynamic> json) =>
           ),
           progressSnapshot: $checkedConvert(
             'progress_snapshot',
-            (v) => (v as Map<String, dynamic>).map(
-              (k, e) => MapEntry(k, e as Object),
-            ),
+            (v) => v as Map<String, dynamic>,
           ),
           toBadgeUrl: $checkedConvert('to_badge_url', (v) => v as String?),
           toLevel: $checkedConvert('to_level', (v) => (v as num).toInt()),

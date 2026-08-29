@@ -13,7 +13,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
 
   PlatformAlertWithActorRow alertType(String? alertType);
 
-  PlatformAlertWithActorRow content(Map<String, Object>? content);
+  PlatformAlertWithActorRow content(Map<String, Object?>? content);
 
   PlatformAlertWithActorRow createdAt(DateTime createdAt);
 
@@ -21,7 +21,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
 
   PlatformAlertWithActorRow recipientUserUid(String? recipientUserUid);
 
-  PlatformAlertWithActorRow target(Map<String, Object>? target);
+  PlatformAlertWithActorRow target(Map<String, Object?>? target);
 
   PlatformAlertWithActorRow title(String? title);
 
@@ -38,11 +38,11 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
     UsersRow? actorUser,
     String? actorUserUid,
     String? alertType,
-    Map<String, Object>? content,
+    Map<String, Object?>? content,
     DateTime createdAt,
     String? description,
     String? recipientUserUid,
-    Map<String, Object>? target,
+    Map<String, Object?>? target,
     String? title,
     String uid,
   });
@@ -69,7 +69,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       call(alertType: alertType);
 
   @override
-  PlatformAlertWithActorRow content(Map<String, Object>? content) =>
+  PlatformAlertWithActorRow content(Map<String, Object?>? content) =>
       call(content: content);
 
   @override
@@ -85,7 +85,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       call(recipientUserUid: recipientUserUid);
 
   @override
-  PlatformAlertWithActorRow target(Map<String, Object>? target) =>
+  PlatformAlertWithActorRow target(Map<String, Object?>? target) =>
       call(target: target);
 
   @override
@@ -130,7 +130,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
-          : content as Map<String, Object>?,
+          : content as Map<String, Object?>?,
       createdAt: createdAt == const $CopyWithPlaceholder() || createdAt == null
           ? _value.createdAt
           // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       target: target == const $CopyWithPlaceholder()
           ? _value.target
           // ignore: cast_nullable_to_non_nullable
-          : target as Map<String, Object>?,
+          : target as Map<String, Object?>?,
       title: title == const $CopyWithPlaceholder()
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
@@ -185,12 +185,7 @@ PlatformAlertWithActorRow _$PlatformAlertWithActorRowFromJson(
       ),
       actorUserUid: $checkedConvert('actor_user_uid', (v) => v as String?),
       alertType: $checkedConvert('alert_type', (v) => v as String?),
-      content: $checkedConvert(
-        'content',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
-      ),
+      content: $checkedConvert('content', (v) => v as Map<String, dynamic>?),
       createdAt: $checkedConvert(
         'created_at',
         (v) => DateTime.parse(v as String),
@@ -200,12 +195,7 @@ PlatformAlertWithActorRow _$PlatformAlertWithActorRowFromJson(
         'recipient_user_uid',
         (v) => v as String?,
       ),
-      target: $checkedConvert(
-        'target',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
-      ),
+      target: $checkedConvert('target', (v) => v as Map<String, dynamic>?),
       title: $checkedConvert('title', (v) => v as String?),
       uid: $checkedConvert('uid', (v) => v as String),
     );

@@ -35,7 +35,7 @@ class SyncResponse {
   final int? batchSize;
 
   @JsonKey(name: r'details', required: true, includeIfNull: false)
-  final Map<String, Object> details;
+  final Map<String, Object?> details;
 
   @JsonKey(name: r'errors', required: false, includeIfNull: false)
   final List<String>? errors;

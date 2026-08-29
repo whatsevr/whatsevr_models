@@ -49,7 +49,7 @@ abstract class _$PostsMixContentRowCWProxy {
 
   PostsMixContentRow relatedContentUid(String? relatedContentUid);
 
-  PostsMixContentRow richDescription(Map<String, Object>? richDescription);
+  PostsMixContentRow richDescription(Map<String, Object?>? richDescription);
 
   PostsMixContentRow seoDataWeighted(String? seoDataWeighted);
 
@@ -118,7 +118,7 @@ abstract class _$PostsMixContentRowCWProxy {
     Object? optimizedFiles,
     String postCreatorType,
     String? relatedContentUid,
-    Map<String, Object>? richDescription,
+    Map<String, Object?>? richDescription,
     String? seoDataWeighted,
     String? status,
     List<String>? taggedCommunityUids,
@@ -229,7 +229,7 @@ class _$PostsMixContentRowCWProxyImpl implements _$PostsMixContentRowCWProxy {
       call(relatedContentUid: relatedContentUid);
 
   @override
-  PostsMixContentRow richDescription(Map<String, Object>? richDescription) =>
+  PostsMixContentRow richDescription(Map<String, Object?>? richDescription) =>
       call(richDescription: richDescription);
 
   @override
@@ -444,7 +444,7 @@ class _$PostsMixContentRowCWProxyImpl implements _$PostsMixContentRowCWProxy {
       richDescription: richDescription == const $CopyWithPlaceholder()
           ? _value.richDescription
           // ignore: cast_nullable_to_non_nullable
-          : richDescription as Map<String, Object>?,
+          : richDescription as Map<String, Object?>?,
       seoDataWeighted: seoDataWeighted == const $CopyWithPlaceholder()
           ? _value.seoDataWeighted
           // ignore: cast_nullable_to_non_nullable
@@ -609,9 +609,7 @@ PostsMixContentRow _$PostsMixContentRowFromJson(
       ),
       richDescription: $checkedConvert(
         'rich_description',
-        (v) => (v as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as Object),
-        ),
+        (v) => v as Map<String, dynamic>?,
       ),
       seoDataWeighted: $checkedConvert(
         'seo_data_weighted',

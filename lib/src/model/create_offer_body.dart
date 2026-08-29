@@ -77,7 +77,7 @@ class CreateOfferBody {
   final String postCreatorType;
 
   @JsonKey(name: r'rich_description', required: false, includeIfNull: false)
-  final Map<String, Object>? richDescription;
+  final Map<String, Object?>? richDescription;
 
   @JsonKey(name: r'status', required: true, includeIfNull: false)
   final String status;

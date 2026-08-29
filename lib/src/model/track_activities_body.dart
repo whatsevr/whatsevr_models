@@ -20,7 +20,7 @@ class TrackActivitiesBody {
   TrackActivitiesBody({required this.activities});
 
   @JsonKey(name: r'activities', required: true, includeIfNull: false)
-  final List<Map<String, Object>> activities;
+  final List<Map<String, Object?>> activities;
 
   @override
   bool operator ==(Object other) =>

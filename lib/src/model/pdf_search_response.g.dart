@@ -7,7 +7,7 @@ part of 'pdf_search_response.dart';
 // **************************************************************************
 
 abstract class _$PdfSearchResponseCWProxy {
-  PdfSearchResponse algoliaData(Map<String, Object>? algoliaData);
+  PdfSearchResponse algoliaData(Map<String, Object?>? algoliaData);
 
   PdfSearchResponse error(SearchFailure? error);
 
@@ -15,7 +15,7 @@ abstract class _$PdfSearchResponseCWProxy {
 
   PdfSearchResponse meta(SearchMeta? meta);
 
-  PdfSearchResponse pagination(Map<String, Object>? pagination);
+  PdfSearchResponse pagination(Map<String, Object?>? pagination);
 
   PdfSearchResponse results(List<ExternalSearchPdfRow> results);
 
@@ -31,11 +31,11 @@ abstract class _$PdfSearchResponseCWProxy {
   /// PdfSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   PdfSearchResponse call({
-    Map<String, Object>? algoliaData,
+    Map<String, Object?>? algoliaData,
     SearchFailure? error,
     String message,
     SearchMeta? meta,
-    Map<String, Object>? pagination,
+    Map<String, Object?>? pagination,
     List<ExternalSearchPdfRow> results,
     bool success,
     List<String> uids,
@@ -50,7 +50,7 @@ class _$PdfSearchResponseCWProxyImpl implements _$PdfSearchResponseCWProxy {
   final PdfSearchResponse _value;
 
   @override
-  PdfSearchResponse algoliaData(Map<String, Object>? algoliaData) =>
+  PdfSearchResponse algoliaData(Map<String, Object?>? algoliaData) =>
       call(algoliaData: algoliaData);
 
   @override
@@ -63,7 +63,7 @@ class _$PdfSearchResponseCWProxyImpl implements _$PdfSearchResponseCWProxy {
   PdfSearchResponse meta(SearchMeta? meta) => call(meta: meta);
 
   @override
-  PdfSearchResponse pagination(Map<String, Object>? pagination) =>
+  PdfSearchResponse pagination(Map<String, Object?>? pagination) =>
       call(pagination: pagination);
 
   @override
@@ -98,7 +98,7 @@ class _$PdfSearchResponseCWProxyImpl implements _$PdfSearchResponseCWProxy {
       algoliaData: algoliaData == const $CopyWithPlaceholder()
           ? _value.algoliaData
           // ignore: cast_nullable_to_non_nullable
-          : algoliaData as Map<String, Object>?,
+          : algoliaData as Map<String, Object?>?,
       error: error == const $CopyWithPlaceholder()
           ? _value.error
           // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$PdfSearchResponseCWProxyImpl implements _$PdfSearchResponseCWProxy {
       pagination: pagination == const $CopyWithPlaceholder()
           ? _value.pagination
           // ignore: cast_nullable_to_non_nullable
-          : pagination as Map<String, Object>?,
+          : pagination as Map<String, Object?>?,
       results: results == const $CopyWithPlaceholder() || results == null
           ? _value.results
           // ignore: cast_nullable_to_non_nullable
@@ -153,8 +153,7 @@ PdfSearchResponse _$PdfSearchResponseFromJson(
   final val = PdfSearchResponse(
     algoliaData: $checkedConvert(
       'algolia_data',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     error: $checkedConvert(
       'error',
@@ -168,8 +167,7 @@ PdfSearchResponse _$PdfSearchResponseFromJson(
     ),
     pagination: $checkedConvert(
       'pagination',
-      (v) =>
-          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as Object)),
+      (v) => v as Map<String, dynamic>?,
     ),
     results: $checkedConvert(
       'results',

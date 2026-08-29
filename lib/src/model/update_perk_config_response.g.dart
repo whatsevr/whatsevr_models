@@ -7,7 +7,7 @@ part of 'update_perk_config_response.dart';
 // **************************************************************************
 
 abstract class _$UpdatePerkConfigResponseCWProxy {
-  UpdatePerkConfigResponse config(Map<String, Object> config);
+  UpdatePerkConfigResponse config(Map<String, Object?> config);
 
   UpdatePerkConfigResponse expiresAt(DateTime expiresAt);
 
@@ -25,7 +25,7 @@ abstract class _$UpdatePerkConfigResponseCWProxy {
   /// UpdatePerkConfigResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   UpdatePerkConfigResponse call({
-    Map<String, Object> config,
+    Map<String, Object?> config,
     DateTime expiresAt,
     bool isEnabled,
     String message,
@@ -42,7 +42,7 @@ class _$UpdatePerkConfigResponseCWProxyImpl
   final UpdatePerkConfigResponse _value;
 
   @override
-  UpdatePerkConfigResponse config(Map<String, Object> config) =>
+  UpdatePerkConfigResponse config(Map<String, Object?> config) =>
       call(config: config);
 
   @override
@@ -79,7 +79,7 @@ class _$UpdatePerkConfigResponseCWProxyImpl
       config: config == const $CopyWithPlaceholder() || config == null
           ? _value.config
           // ignore: cast_nullable_to_non_nullable
-          : config as Map<String, Object>,
+          : config as Map<String, Object?>,
       expiresAt: expiresAt == const $CopyWithPlaceholder() || expiresAt == null
           ? _value.expiresAt
           // ignore: cast_nullable_to_non_nullable
@@ -129,11 +129,7 @@ UpdatePerkConfigResponse _$UpdatePerkConfigResponseFromJson(
       ],
     );
     final val = UpdatePerkConfigResponse(
-      config: $checkedConvert(
-        'config',
-        (v) =>
-            (v as Map<String, dynamic>).map((k, e) => MapEntry(k, e as Object)),
-      ),
+      config: $checkedConvert('config', (v) => v as Map<String, dynamic>),
       expiresAt: $checkedConvert(
         'expires_at',
         (v) => DateTime.parse(v as String),
