@@ -367,6 +367,7 @@ export 'package:whatsevr_api/src/model/photo_sanity_body.dart';
 export 'package:whatsevr_api/src/model/photo_search_response.dart';
 export 'package:whatsevr_api/src/model/photo_with_creator_row.dart';
 export 'package:whatsevr_api/src/model/photos_search_response.dart';
+export 'package:whatsevr_api/src/model/platform_alert_content_item.dart';
 export 'package:whatsevr_api/src/model/platform_alert_with_actor_row.dart';
 export 'package:whatsevr_api/src/model/platform_report_row.dart';
 export 'package:whatsevr_api/src/model/poke_audience_pagination.dart';

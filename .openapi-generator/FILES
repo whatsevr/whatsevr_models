@@ -363,6 +363,7 @@ lib/src/model/photo_sanity_body.dart
 lib/src/model/photo_search_response.dart
 lib/src/model/photo_with_creator_row.dart
 lib/src/model/photos_search_response.dart
+lib/src/model/platform_alert_content_item.dart
 lib/src/model/platform_alert_with_actor_row.dart
 lib/src/model/platform_report_row.dart
 lib/src/model/poke_audience_pagination.dart

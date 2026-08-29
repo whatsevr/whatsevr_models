@@ -13,7 +13,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
 
   PlatformAlertWithActorRow alertType(String? alertType);
 
-  PlatformAlertWithActorRow content(Map<String, Object?>? content);
+  PlatformAlertWithActorRow content(List<PlatformAlertContentItem>? content);
 
   PlatformAlertWithActorRow createdAt(DateTime createdAt);
 
@@ -38,7 +38,7 @@ abstract class _$PlatformAlertWithActorRowCWProxy {
     UsersRow? actorUser,
     String? actorUserUid,
     String? alertType,
-    Map<String, Object?>? content,
+    List<PlatformAlertContentItem>? content,
     DateTime createdAt,
     String? description,
     String? recipientUserUid,
@@ -69,7 +69,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       call(alertType: alertType);
 
   @override
-  PlatformAlertWithActorRow content(Map<String, Object?>? content) =>
+  PlatformAlertWithActorRow content(List<PlatformAlertContentItem>? content) =>
       call(content: content);
 
   @override
@@ -130,7 +130,7 @@ class _$PlatformAlertWithActorRowCWProxyImpl
       content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
-          : content as Map<String, Object?>?,
+          : content as List<PlatformAlertContentItem>?,
       createdAt: createdAt == const $CopyWithPlaceholder() || createdAt == null
           ? _value.createdAt
           // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,15 @@ PlatformAlertWithActorRow _$PlatformAlertWithActorRowFromJson(
       ),
       actorUserUid: $checkedConvert('actor_user_uid', (v) => v as String?),
       alertType: $checkedConvert('alert_type', (v) => v as String?),
-      content: $checkedConvert('content', (v) => v as Map<String, dynamic>?),
+      content: $checkedConvert(
+        'content',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) =>
+                  PlatformAlertContentItem.fromJson(e as Map<String, dynamic>),
+            )
+            .toList(),
+      ),
       createdAt: $checkedConvert(
         'created_at',
         (v) => DateTime.parse(v as String),
@@ -216,7 +224,7 @@ Map<String, dynamic> _$PlatformAlertWithActorRowToJson(
   'actor_user': ?instance.actorUser?.toJson(),
   'actor_user_uid': ?instance.actorUserUid,
   'alert_type': ?instance.alertType,
-  'content': ?instance.content,
+  'content': ?instance.content?.map((e) => e.toJson()).toList(),
   'created_at': instance.createdAt.toIso8601String(),
   'description': ?instance.description,
   'recipient_user_uid': ?instance.recipientUserUid,

@@ -321,6 +321,7 @@ import 'package:whatsevr_api/src/model/photo_sanity_body.dart';
 import 'package:whatsevr_api/src/model/photo_search_response.dart';
 import 'package:whatsevr_api/src/model/photo_with_creator_row.dart';
 import 'package:whatsevr_api/src/model/photos_search_response.dart';
+import 'package:whatsevr_api/src/model/platform_alert_content_item.dart';
 import 'package:whatsevr_api/src/model/platform_alert_with_actor_row.dart';
 import 'package:whatsevr_api/src/model/platform_report_row.dart';
 import 'package:whatsevr_api/src/model/poke_audience_pagination.dart';
@@ -1519,6 +1520,9 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'PhotosSearchResponse':
       return PhotosSearchResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'PlatformAlertContentItem':
+      return PlatformAlertContentItem.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'PlatformAlertWithActorRow':
       return PlatformAlertWithActorRow.fromJson(value as Map<String, dynamic>)
