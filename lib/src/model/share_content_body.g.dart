@@ -17,7 +17,7 @@ abstract class _$ShareContentBodyCWProxy {
 
   ShareContentBody sharedAt(DateTime sharedAt);
 
-  ShareContentBody sharedContents(List<Map<String, Object>> sharedContents);
+  ShareContentBody sharedContents(List<SharedContentInput> sharedContents);
 
   ShareContentBody tightLogicCheck(bool? tightLogicCheck);
 
@@ -34,7 +34,7 @@ abstract class _$ShareContentBodyCWProxy {
     List<String>? receiverUserUids,
     String senderUid,
     DateTime sharedAt,
-    List<Map<String, Object>> sharedContents,
+    List<SharedContentInput> sharedContents,
     bool? tightLogicCheck,
   });
 }
@@ -64,7 +64,7 @@ class _$ShareContentBodyCWProxyImpl implements _$ShareContentBodyCWProxy {
   ShareContentBody sharedAt(DateTime sharedAt) => call(sharedAt: sharedAt);
 
   @override
-  ShareContentBody sharedContents(List<Map<String, Object>> sharedContents) =>
+  ShareContentBody sharedContents(List<SharedContentInput> sharedContents) =>
       call(sharedContents: sharedContents);
 
   @override
@@ -115,7 +115,7 @@ class _$ShareContentBodyCWProxyImpl implements _$ShareContentBodyCWProxy {
               sharedContents == null
           ? _value.sharedContents
           // ignore: cast_nullable_to_non_nullable
-          : sharedContents as List<Map<String, Object>>,
+          : sharedContents as List<SharedContentInput>,
       tightLogicCheck: tightLogicCheck == const $CopyWithPlaceholder()
           ? _value.tightLogicCheck
           // ignore: cast_nullable_to_non_nullable
@@ -163,9 +163,7 @@ ShareContentBody _$ShareContentBodyFromJson(Map<String, dynamic> json) =>
             'shared_contents',
             (v) => (v as List<dynamic>)
                 .map(
-                  (e) => (e as Map<String, dynamic>).map(
-                    (k, e) => MapEntry(k, e as Object),
-                  ),
+                  (e) => SharedContentInput.fromJson(e as Map<String, dynamic>),
                 )
                 .toList(),
           ),
@@ -186,13 +184,14 @@ ShareContentBody _$ShareContentBodyFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$ShareContentBodyToJson(ShareContentBody instance) =>
-    <String, dynamic>{
-      'message': ?instance.message,
-      'receiver_community_uids': ?instance.receiverCommunityUids,
-      'receiver_user_uids': ?instance.receiverUserUids,
-      'sender_uid': instance.senderUid,
-      'shared_at': instance.sharedAt.toIso8601String(),
-      'shared_contents': instance.sharedContents,
-      'tight_logic_check': ?instance.tightLogicCheck,
-    };
+Map<String, dynamic> _$ShareContentBodyToJson(
+  ShareContentBody instance,
+) => <String, dynamic>{
+  'message': ?instance.message,
+  'receiver_community_uids': ?instance.receiverCommunityUids,
+  'receiver_user_uids': ?instance.receiverUserUids,
+  'sender_uid': instance.senderUid,
+  'shared_at': instance.sharedAt.toIso8601String(),
+  'shared_contents': instance.sharedContents.map((e) => e.toJson()).toList(),
+  'tight_logic_check': ?instance.tightLogicCheck,
+};

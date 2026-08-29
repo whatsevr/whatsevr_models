@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/shared_content_input.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -53,7 +54,7 @@ class ShareContentBody {
   final DateTime sharedAt;
 
   @JsonKey(name: r'shared_contents', required: true, includeIfNull: false)
-  final List<Map<String, Object>> sharedContents;
+  final List<SharedContentInput> sharedContents;
 
   @JsonKey(
     defaultValue: false,

@@ -98,6 +98,7 @@ lib/src/model/chat_message_with_replies_row.dart
 lib/src/model/chat_messages_query.dart
 lib/src/model/chat_side_user.dart
 lib/src/model/collection_folder_row.dart
+lib/src/model/collection_item_input.dart
 lib/src/model/collection_item_row.dart
 lib/src/model/collection_items_query.dart
 lib/src/model/comment_or_reply_posted_response.dart
@@ -475,6 +476,7 @@ lib/src/model/set_password_body.dart
 lib/src/model/set_password_response.dart
 lib/src/model/share_content_body.dart
 lib/src/model/share_content_response.dart
+lib/src/model/shared_content_input.dart
 lib/src/model/spin_outcome_query.dart
 lib/src/model/spin_outcome_response.dart
 lib/src/model/start_chat_body.dart

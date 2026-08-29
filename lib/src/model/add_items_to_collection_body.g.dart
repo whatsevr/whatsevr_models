@@ -10,7 +10,7 @@ abstract class _$AddItemsToCollectionBodyCWProxy {
   AddItemsToCollectionBody authorUserUid(String? authorUserUid);
 
   AddItemsToCollectionBody collectionItems(
-    List<Map<String, Object>> collectionItems,
+    List<CollectionItemInput> collectionItems,
   );
 
   AddItemsToCollectionBody communityUid(String? communityUid);
@@ -28,7 +28,7 @@ abstract class _$AddItemsToCollectionBodyCWProxy {
   /// ```
   AddItemsToCollectionBody call({
     String? authorUserUid,
-    List<Map<String, Object>> collectionItems,
+    List<CollectionItemInput> collectionItems,
     String? communityUid,
     String ownerType,
     String parentCollectionUid,
@@ -49,7 +49,7 @@ class _$AddItemsToCollectionBodyCWProxyImpl
 
   @override
   AddItemsToCollectionBody collectionItems(
-    List<Map<String, Object>> collectionItems,
+    List<CollectionItemInput> collectionItems,
   ) => call(collectionItems: collectionItems);
 
   @override
@@ -89,7 +89,7 @@ class _$AddItemsToCollectionBodyCWProxyImpl
               collectionItems == null
           ? _value.collectionItems
           // ignore: cast_nullable_to_non_nullable
-          : collectionItems as List<Map<String, Object>>,
+          : collectionItems as List<CollectionItemInput>,
       communityUid: communityUid == const $CopyWithPlaceholder()
           ? _value.communityUid
           // ignore: cast_nullable_to_non_nullable
@@ -139,11 +139,7 @@ AddItemsToCollectionBody _$AddItemsToCollectionBodyFromJson(
       collectionItems: $checkedConvert(
         'collection_items',
         (v) => (v as List<dynamic>)
-            .map(
-              (e) => (e as Map<String, dynamic>).map(
-                (k, e) => MapEntry(k, e as Object),
-              ),
-            )
+            .map((e) => CollectionItemInput.fromJson(e as Map<String, dynamic>))
             .toList(),
       ),
       communityUid: $checkedConvert('community_uid', (v) => v as String?),
@@ -168,7 +164,7 @@ Map<String, dynamic> _$AddItemsToCollectionBodyToJson(
   AddItemsToCollectionBody instance,
 ) => <String, dynamic>{
   'author_user_uid': ?instance.authorUserUid,
-  'collection_items': instance.collectionItems,
+  'collection_items': instance.collectionItems.map((e) => e.toJson()).toList(),
   'community_uid': ?instance.communityUid,
   'owner_type': instance.ownerType,
   'parent_collection_uid': instance.parentCollectionUid,

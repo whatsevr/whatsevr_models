@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/collection_item_input.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -33,7 +34,7 @@ class AddItemsToCollectionBody {
   final String? authorUserUid;
 
   @JsonKey(name: r'collection_items', required: true, includeIfNull: false)
-  final List<Map<String, Object>> collectionItems;
+  final List<CollectionItemInput> collectionItems;
 
   @JsonKey(name: r'community_uid', required: false, includeIfNull: false)
   final String? communityUid;

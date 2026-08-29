@@ -56,6 +56,7 @@ import 'package:whatsevr_api/src/model/chat_message_with_replies_row.dart';
 import 'package:whatsevr_api/src/model/chat_messages_query.dart';
 import 'package:whatsevr_api/src/model/chat_side_user.dart';
 import 'package:whatsevr_api/src/model/collection_folder_row.dart';
+import 'package:whatsevr_api/src/model/collection_item_input.dart';
 import 'package:whatsevr_api/src/model/collection_item_row.dart';
 import 'package:whatsevr_api/src/model/collection_items_query.dart';
 import 'package:whatsevr_api/src/model/comment_or_reply_posted_response.dart';
@@ -433,6 +434,7 @@ import 'package:whatsevr_api/src/model/set_password_body.dart';
 import 'package:whatsevr_api/src/model/set_password_response.dart';
 import 'package:whatsevr_api/src/model/share_content_body.dart';
 import 'package:whatsevr_api/src/model/share_content_response.dart';
+import 'package:whatsevr_api/src/model/shared_content_input.dart';
 import 'package:whatsevr_api/src/model/spin_outcome_query.dart';
 import 'package:whatsevr_api/src/model/spin_outcome_response.dart';
 import 'package:whatsevr_api/src/model/start_chat_body.dart';
@@ -713,6 +715,9 @@ ReturnType deserialize<ReturnType, BaseType>(
       return ChatSideUser.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'CollectionFolderRow':
       return CollectionFolderRow.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CollectionItemInput':
+      return CollectionItemInput.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'CollectionItemRow':
       return CollectionItemRow.fromJson(value as Map<String, dynamic>)
@@ -1844,6 +1849,9 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'ShareContentResponse':
       return ShareContentResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'SharedContentInput':
+      return SharedContentInput.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'SpinOutcomeQuery':
       return SpinOutcomeQuery.fromJson(value as Map<String, dynamic>)
