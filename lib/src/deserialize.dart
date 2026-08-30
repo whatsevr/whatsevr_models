@@ -85,6 +85,7 @@ import 'package:whatsevr_api/src/model/community_preview.dart';
 import 'package:whatsevr_api/src/model/community_profile_data_response.dart';
 import 'package:whatsevr_api/src/model/community_row.dart';
 import 'package:whatsevr_api/src/model/community_search_response.dart';
+import 'package:whatsevr_api/src/model/community_search_result_row.dart';
 import 'package:whatsevr_api/src/model/community_service_item.dart';
 import 'package:whatsevr_api/src/model/community_suggestion_row.dart';
 import 'package:whatsevr_api/src/model/community_suggestions_query.dart';
@@ -466,6 +467,8 @@ import 'package:whatsevr_api/src/model/subdivisions_query.dart';
 import 'package:whatsevr_api/src/model/subdivisions_response.dart';
 import 'package:whatsevr_api/src/model/submit_call_feedback_body.dart';
 import 'package:whatsevr_api/src/model/supabase_token_response.dart';
+import 'package:whatsevr_api/src/model/switch_live_call_mode_body.dart';
+import 'package:whatsevr_api/src/model/switch_live_call_mode_response.dart';
 import 'package:whatsevr_api/src/model/sync_all_initiated_response.dart';
 import 'package:whatsevr_api/src/model/sync_body.dart';
 import 'package:whatsevr_api/src/model/sync_failure_response.dart';
@@ -829,6 +832,9 @@ ReturnType deserialize<ReturnType, BaseType>(
       return CommunityRow.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'CommunitySearchResponse':
       return CommunitySearchResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CommunitySearchResultRow':
+      return CommunitySearchResultRow.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'CommunityServiceItem':
       return CommunityServiceItem.fromJson(value as Map<String, dynamic>)
@@ -1999,6 +2005,12 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'SupabaseTokenResponse':
       return SupabaseTokenResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'SwitchLiveCallModeBody':
+      return SwitchLiveCallModeBody.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'SwitchLiveCallModeResponse':
+      return SwitchLiveCallModeResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'SyncAllInitiatedResponse':
       return SyncAllInitiatedResponse.fromJson(value as Map<String, dynamic>)

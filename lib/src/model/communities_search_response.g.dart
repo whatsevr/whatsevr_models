@@ -8,7 +8,7 @@ part of 'communities_search_response.dart';
 
 abstract class _$CommunitiesSearchResponseCWProxy {
   CommunitiesSearchResponse communities(
-    List<CommunityWithAdminRow> communities,
+    List<CommunitySearchResultRow> communities,
   );
 
   CommunitiesSearchResponse lastPage(bool lastPage);
@@ -25,7 +25,7 @@ abstract class _$CommunitiesSearchResponseCWProxy {
   /// CommunitiesSearchResponse(...).copyWith(id: 12, name: "My name")
   /// ```
   CommunitiesSearchResponse call({
-    List<CommunityWithAdminRow> communities,
+    List<CommunitySearchResultRow> communities,
     bool lastPage,
     String message,
     int page,
@@ -42,7 +42,7 @@ class _$CommunitiesSearchResponseCWProxyImpl
 
   @override
   CommunitiesSearchResponse communities(
-    List<CommunityWithAdminRow> communities,
+    List<CommunitySearchResultRow> communities,
   ) => call(communities: communities);
 
   @override
@@ -73,7 +73,7 @@ class _$CommunitiesSearchResponseCWProxyImpl
           communities == const $CopyWithPlaceholder() || communities == null
           ? _value.communities
           // ignore: cast_nullable_to_non_nullable
-          : communities as List<CommunityWithAdminRow>,
+          : communities as List<CommunitySearchResultRow>,
       lastPage: lastPage == const $CopyWithPlaceholder() || lastPage == null
           ? _value.lastPage
           // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,9 @@ CommunitiesSearchResponse _$CommunitiesSearchResponseFromJson(
     communities: $checkedConvert(
       'communities',
       (v) => (v as List<dynamic>)
-          .map((e) => CommunityWithAdminRow.fromJson(e as Map<String, dynamic>))
+          .map(
+            (e) => CommunitySearchResultRow.fromJson(e as Map<String, dynamic>),
+          )
           .toList(),
     ),
     lastPage: $checkedConvert('last_page', (v) => v as bool),

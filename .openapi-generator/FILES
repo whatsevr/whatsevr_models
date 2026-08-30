@@ -128,6 +128,7 @@ lib/src/model/community_preview.dart
 lib/src/model/community_profile_data_response.dart
 lib/src/model/community_row.dart
 lib/src/model/community_search_response.dart
+lib/src/model/community_search_result_row.dart
 lib/src/model/community_service_item.dart
 lib/src/model/community_suggestion_row.dart
 lib/src/model/community_suggestions_query.dart
@@ -509,6 +510,8 @@ lib/src/model/subdivisions_query.dart
 lib/src/model/subdivisions_response.dart
 lib/src/model/submit_call_feedback_body.dart
 lib/src/model/supabase_token_response.dart
+lib/src/model/switch_live_call_mode_body.dart
+lib/src/model/switch_live_call_mode_response.dart
 lib/src/model/sync_all_initiated_response.dart
 lib/src/model/sync_body.dart
 lib/src/model/sync_failure_response.dart

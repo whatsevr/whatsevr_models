@@ -17,8 +17,8 @@ import 'package:whatsevr_api/src/model/call_segment_summary_response.dart';
 import 'package:whatsevr_api/src/model/initiate_call_body.dart';
 import 'package:whatsevr_api/src/model/initiate_call_response.dart';
 import 'package:whatsevr_api/src/model/message_response.dart';
-import 'package:whatsevr_api/src/model/set_call_mode_body.dart';
-import 'package:whatsevr_api/src/model/set_call_mode_response.dart';
+import 'package:whatsevr_api/src/model/switch_live_call_mode_body.dart';
+import 'package:whatsevr_api/src/model/switch_live_call_mode_response.dart';
 
 class CallsApi {
   final Dio _dio;
@@ -831,7 +831,7 @@ class CallsApi {
   /// The authoritative billing stamp for a mid-session audio&lt;-&gt;video switch — minutes from this instant price at the new mode (social/call_modes.py holds the rules and the timeline).  The peer handshake happens first over the data channel (docs/call-data-protocol.md): &#39;mode.request&#39; / &#39;mode.accept&#39; for a move up to video, nothing at all for a move down to audio, which needs no one&#39;s permission. This endpoint is what money believes.
   ///
   /// Parameters:
-  /// * [setCallModeBody]
+  /// * [switchLiveCallModeBody]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -839,10 +839,10 @@ class CallsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [SetCallModeResponse] as data
+  /// Returns a [Future] containing a [Response] with a [SwitchLiveCallModeResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SetCallModeResponse>> callsSetCallMode({
-    required SetCallModeBody setCallModeBody,
+  Future<Response<SwitchLiveCallModeResponse>> callsSetCallMode({
+    required SwitchLiveCallModeBody switchLiveCallModeBody,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -878,7 +878,7 @@ class CallsApi {
     dynamic _bodyData;
 
     try {
-      _bodyData = jsonEncode(setCallModeBody);
+      _bodyData = jsonEncode(switchLiveCallModeBody);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _options.compose(_dio.options, _path),
@@ -897,15 +897,15 @@ class CallsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SetCallModeResponse? _responseData;
+    SwitchLiveCallModeResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<SetCallModeResponse, SetCallModeResponse>(
+          : deserialize<SwitchLiveCallModeResponse, SwitchLiveCallModeResponse>(
               rawData,
-              'SetCallModeResponse',
+              'SwitchLiveCallModeResponse',
               growable: true,
             );
     } catch (error, stackTrace) {
@@ -918,7 +918,7 @@ class CallsApi {
       );
     }
 
-    return Response<SetCallModeResponse>(
+    return Response<SwitchLiveCallModeResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
