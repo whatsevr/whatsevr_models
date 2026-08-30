@@ -523,6 +523,8 @@ lib/src/model/toggle_perk_body.dart
 lib/src/model/toggle_perk_response.dart
 lib/src/model/top_communities_query.dart
 lib/src/model/top_communities_response.dart
+lib/src/model/topup_plan.dart
+lib/src/model/topup_plans_response.dart
 lib/src/model/track_activities_body.dart
 lib/src/model/track_activities_response.dart
 lib/src/model/tracked_activity_row.dart

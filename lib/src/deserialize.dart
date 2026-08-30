@@ -480,6 +480,8 @@ import 'package:whatsevr_api/src/model/toggle_perk_body.dart';
 import 'package:whatsevr_api/src/model/toggle_perk_response.dart';
 import 'package:whatsevr_api/src/model/top_communities_query.dart';
 import 'package:whatsevr_api/src/model/top_communities_response.dart';
+import 'package:whatsevr_api/src/model/topup_plan.dart';
+import 'package:whatsevr_api/src/model/topup_plans_response.dart';
 import 'package:whatsevr_api/src/model/track_activities_body.dart';
 import 'package:whatsevr_api/src/model/track_activities_response.dart';
 import 'package:whatsevr_api/src/model/tracked_activity_row.dart';
@@ -2035,6 +2037,11 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'TopCommunitiesResponse':
       return TopCommunitiesResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'TopupPlan':
+      return TopupPlan.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'TopupPlansResponse':
+      return TopupPlansResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'TrackActivitiesBody':
       return TrackActivitiesBody.fromJson(value as Map<String, dynamic>)

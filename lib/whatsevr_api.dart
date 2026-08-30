@@ -527,6 +527,8 @@ export 'package:whatsevr_api/src/model/toggle_perk_body.dart';
 export 'package:whatsevr_api/src/model/toggle_perk_response.dart';
 export 'package:whatsevr_api/src/model/top_communities_query.dart';
 export 'package:whatsevr_api/src/model/top_communities_response.dart';
+export 'package:whatsevr_api/src/model/topup_plan.dart';
+export 'package:whatsevr_api/src/model/topup_plans_response.dart';
 export 'package:whatsevr_api/src/model/track_activities_body.dart';
 export 'package:whatsevr_api/src/model/track_activities_response.dart';
 export 'package:whatsevr_api/src/model/tracked_activity_row.dart';

@@ -20,6 +20,7 @@ import 'package:whatsevr_api/src/model/set_call_mode_body.dart';
 import 'package:whatsevr_api/src/model/set_call_mode_response.dart';
 import 'package:whatsevr_api/src/model/toggle_perk_body.dart';
 import 'package:whatsevr_api/src/model/toggle_perk_response.dart';
+import 'package:whatsevr_api/src/model/topup_plans_response.dart';
 import 'package:whatsevr_api/src/model/update_perk_config_response.dart';
 import 'package:whatsevr_api/src/model/wallet_ledger_response.dart';
 import 'package:whatsevr_api/src/model/wallet_status_response.dart';
@@ -492,6 +493,92 @@ class WalletApi {
     }
 
     return Response<HostLevelStatus>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// List the credit packs to show on the wallet screen
+  /// Read-only pack catalog for the app&#39;s wallet screen.  The same builder both money web surfaces render from, so the phone can never show a pack the web has retired or a price the web has changed. The trial card is listed only while THIS account may still buy it — the app shows what it is handed and asks no questions about eligibility.
+  ///
+  /// Parameters:
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [TopupPlansResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TopupPlansResponse>> apiGetTopupPlans({
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/api/v1/payments/topup-plans';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{...?headers},
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'WebSessionCookieAuth',
+            'keyName': 'whatsevr_web',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AppSessionAuth',
+            'keyName': 'x-session-token',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    TopupPlansResponse? _responseData;
+
+    try {
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<TopupPlansResponse, TopupPlansResponse>(
+              rawData,
+              'TopupPlansResponse',
+              growable: true,
+            );
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<TopupPlansResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
