@@ -33,6 +33,8 @@ abstract class _$CallHistoryRowCWProxy {
 
   CallHistoryRow endedAt(DateTime? endedAt);
 
+  CallHistoryRow feedback(CallFeedbackState feedback);
+
   CallHistoryRow payerUid(String? payerUid);
 
   CallHistoryRow peerName(String? peerName);
@@ -80,6 +82,7 @@ abstract class _$CallHistoryRowCWProxy {
     int? earnedPaise,
     String? earnerUid,
     DateTime? endedAt,
+    CallFeedbackState feedback,
     String? payerUid,
     String? peerName,
     String? peerProfilePic,
@@ -148,6 +151,10 @@ class _$CallHistoryRowCWProxyImpl implements _$CallHistoryRowCWProxy {
   CallHistoryRow endedAt(DateTime? endedAt) => call(endedAt: endedAt);
 
   @override
+  CallHistoryRow feedback(CallFeedbackState feedback) =>
+      call(feedback: feedback);
+
+  @override
   CallHistoryRow payerUid(String? payerUid) => call(payerUid: payerUid);
 
   @override
@@ -213,6 +220,7 @@ class _$CallHistoryRowCWProxyImpl implements _$CallHistoryRowCWProxy {
     Object? earnedPaise = const $CopyWithPlaceholder(),
     Object? earnerUid = const $CopyWithPlaceholder(),
     Object? endedAt = const $CopyWithPlaceholder(),
+    Object? feedback = const $CopyWithPlaceholder(),
     Object? payerUid = const $CopyWithPlaceholder(),
     Object? peerName = const $CopyWithPlaceholder(),
     Object? peerProfilePic = const $CopyWithPlaceholder(),
@@ -282,6 +290,10 @@ class _$CallHistoryRowCWProxyImpl implements _$CallHistoryRowCWProxy {
           ? _value.endedAt
           // ignore: cast_nullable_to_non_nullable
           : endedAt as DateTime?,
+      feedback: feedback == const $CopyWithPlaceholder() || feedback == null
+          ? _value.feedback
+          // ignore: cast_nullable_to_non_nullable
+          : feedback as CallFeedbackState,
       payerUid: payerUid == const $CopyWithPlaceholder()
           ? _value.payerUid
           // ignore: cast_nullable_to_non_nullable
@@ -364,6 +376,7 @@ CallHistoryRow _$CallHistoryRowFromJson(
         'call_type',
         'created_at',
         'direction',
+        'feedback',
         'status',
         'status_label',
         'status_tone',
@@ -395,6 +408,10 @@ CallHistoryRow _$CallHistoryRowFromJson(
       endedAt: $checkedConvert(
         'ended_at',
         (v) => v == null ? null : DateTime.parse(v as String),
+      ),
+      feedback: $checkedConvert(
+        'feedback',
+        (v) => CallFeedbackState.fromJson(v as Map<String, dynamic>),
       ),
       payerUid: $checkedConvert('payer_uid', (v) => v as String?),
       peerName: $checkedConvert('peer_name', (v) => v as String?),
@@ -460,6 +477,7 @@ Map<String, dynamic> _$CallHistoryRowToJson(CallHistoryRow instance) =>
       'earned_paise': ?instance.earnedPaise,
       'earner_uid': ?instance.earnerUid,
       'ended_at': ?instance.endedAt?.toIso8601String(),
+      'feedback': instance.feedback.toJson(),
       'payer_uid': ?instance.payerUid,
       'peer_name': ?instance.peerName,
       'peer_profile_pic': ?instance.peerProfilePic,

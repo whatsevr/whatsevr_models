@@ -13,6 +13,8 @@ abstract class _$CallOutcomeResponseCWProxy {
 
   CallOutcomeResponse endReason(String? endReason);
 
+  CallOutcomeResponse feedback(CallFeedbackState feedback);
+
   CallOutcomeResponse gifts(CallOutcomeGifts gifts);
 
   CallOutcomeResponse isBilled(bool isBilled);
@@ -44,6 +46,7 @@ abstract class _$CallOutcomeResponseCWProxy {
     int billedSeconds,
     int earnedPaise,
     String? endReason,
+    CallFeedbackState feedback,
     CallOutcomeGifts gifts,
     bool isBilled,
     String mode,
@@ -75,6 +78,10 @@ class _$CallOutcomeResponseCWProxyImpl implements _$CallOutcomeResponseCWProxy {
   @override
   CallOutcomeResponse endReason(String? endReason) =>
       call(endReason: endReason);
+
+  @override
+  CallOutcomeResponse feedback(CallFeedbackState feedback) =>
+      call(feedback: feedback);
 
   @override
   CallOutcomeResponse gifts(CallOutcomeGifts gifts) => call(gifts: gifts);
@@ -121,6 +128,7 @@ class _$CallOutcomeResponseCWProxyImpl implements _$CallOutcomeResponseCWProxy {
     Object? billedSeconds = const $CopyWithPlaceholder(),
     Object? earnedPaise = const $CopyWithPlaceholder(),
     Object? endReason = const $CopyWithPlaceholder(),
+    Object? feedback = const $CopyWithPlaceholder(),
     Object? gifts = const $CopyWithPlaceholder(),
     Object? isBilled = const $CopyWithPlaceholder(),
     Object? mode = const $CopyWithPlaceholder(),
@@ -147,6 +155,10 @@ class _$CallOutcomeResponseCWProxyImpl implements _$CallOutcomeResponseCWProxy {
           ? _value.endReason
           // ignore: cast_nullable_to_non_nullable
           : endReason as String?,
+      feedback: feedback == const $CopyWithPlaceholder() || feedback == null
+          ? _value.feedback
+          // ignore: cast_nullable_to_non_nullable
+          : feedback as CallFeedbackState,
       gifts: gifts == const $CopyWithPlaceholder() || gifts == null
           ? _value.gifts
           // ignore: cast_nullable_to_non_nullable
@@ -216,6 +228,7 @@ CallOutcomeResponse _$CallOutcomeResponseFromJson(
       requiredKeys: const [
         'billed_seconds',
         'earned_paise',
+        'feedback',
         'gifts',
         'is_billed',
         'mode',
@@ -234,6 +247,10 @@ CallOutcomeResponse _$CallOutcomeResponseFromJson(
       ),
       earnedPaise: $checkedConvert('earned_paise', (v) => (v as num).toInt()),
       endReason: $checkedConvert('end_reason', (v) => v as String?),
+      feedback: $checkedConvert(
+        'feedback',
+        (v) => CallFeedbackState.fromJson(v as Map<String, dynamic>),
+      ),
       gifts: $checkedConvert(
         'gifts',
         (v) => CallOutcomeGifts.fromJson(v as Map<String, dynamic>),
@@ -270,6 +287,7 @@ Map<String, dynamic> _$CallOutcomeResponseToJson(
   'billed_seconds': instance.billedSeconds,
   'earned_paise': instance.earnedPaise,
   'end_reason': ?instance.endReason,
+  'feedback': instance.feedback.toJson(),
   'gifts': instance.gifts.toJson(),
   'is_billed': instance.isBilled,
   'mode': instance.mode,

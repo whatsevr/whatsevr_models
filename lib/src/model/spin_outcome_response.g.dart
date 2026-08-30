@@ -9,6 +9,8 @@ part of 'spin_outcome_response.dart';
 abstract class _$SpinOutcomeResponseCWProxy {
   SpinOutcomeResponse endReason(String? endReason);
 
+  SpinOutcomeResponse feedback(CallFeedbackState? feedback);
+
   SpinOutcomeResponse peerCandidateUid(String? peerCandidateUid);
 
   SpinOutcomeResponse retryAfterMs(int? retryAfterMs);
@@ -28,6 +30,7 @@ abstract class _$SpinOutcomeResponseCWProxy {
   /// ```
   SpinOutcomeResponse call({
     String? endReason,
+    CallFeedbackState? feedback,
     String? peerCandidateUid,
     int? retryAfterMs,
     int seconds,
@@ -46,6 +49,10 @@ class _$SpinOutcomeResponseCWProxyImpl implements _$SpinOutcomeResponseCWProxy {
   @override
   SpinOutcomeResponse endReason(String? endReason) =>
       call(endReason: endReason);
+
+  @override
+  SpinOutcomeResponse feedback(CallFeedbackState? feedback) =>
+      call(feedback: feedback);
 
   @override
   SpinOutcomeResponse peerCandidateUid(String? peerCandidateUid) =>
@@ -75,6 +82,7 @@ class _$SpinOutcomeResponseCWProxyImpl implements _$SpinOutcomeResponseCWProxy {
   @override
   SpinOutcomeResponse call({
     Object? endReason = const $CopyWithPlaceholder(),
+    Object? feedback = const $CopyWithPlaceholder(),
     Object? peerCandidateUid = const $CopyWithPlaceholder(),
     Object? retryAfterMs = const $CopyWithPlaceholder(),
     Object? seconds = const $CopyWithPlaceholder(),
@@ -86,6 +94,10 @@ class _$SpinOutcomeResponseCWProxyImpl implements _$SpinOutcomeResponseCWProxy {
           ? _value.endReason
           // ignore: cast_nullable_to_non_nullable
           : endReason as String?,
+      feedback: feedback == const $CopyWithPlaceholder()
+          ? _value.feedback
+          // ignore: cast_nullable_to_non_nullable
+          : feedback as CallFeedbackState?,
       peerCandidateUid: peerCandidateUid == const $CopyWithPlaceholder()
           ? _value.peerCandidateUid
           // ignore: cast_nullable_to_non_nullable
@@ -134,6 +146,12 @@ SpinOutcomeResponse _$SpinOutcomeResponseFromJson(Map<String, dynamic> json) =>
         );
         final val = SpinOutcomeResponse(
           endReason: $checkedConvert('end_reason', (v) => v as String?),
+          feedback: $checkedConvert(
+            'feedback',
+            (v) => v == null
+                ? null
+                : CallFeedbackState.fromJson(v as Map<String, dynamic>),
+          ),
           peerCandidateUid: $checkedConvert(
             'peer_candidate_uid',
             (v) => v as String?,
@@ -160,6 +178,7 @@ Map<String, dynamic> _$SpinOutcomeResponseToJson(
   SpinOutcomeResponse instance,
 ) => <String, dynamic>{
   'end_reason': ?instance.endReason,
+  'feedback': ?instance.feedback?.toJson(),
   'peer_candidate_uid': ?instance.peerCandidateUid,
   'retry_after_ms': ?instance.retryAfterMs,
   'seconds': instance.seconds,

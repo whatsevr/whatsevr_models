@@ -26,6 +26,12 @@ import 'package:whatsevr_api/src/model/bot_action_result.dart';
 import 'package:whatsevr_api/src/model/bot_run_response.dart';
 import 'package:whatsevr_api/src/model/buy_perk_body.dart';
 import 'package:whatsevr_api/src/model/buy_perk_response.dart';
+import 'package:whatsevr_api/src/model/call_feedback_catalog_response.dart';
+import 'package:whatsevr_api/src/model/call_feedback_reason.dart';
+import 'package:whatsevr_api/src/model/call_feedback_reason_count.dart';
+import 'package:whatsevr_api/src/model/call_feedback_state.dart';
+import 'package:whatsevr_api/src/model/call_feedback_summary.dart';
+import 'package:whatsevr_api/src/model/call_feedback_vote.dart';
 import 'package:whatsevr_api/src/model/call_gift_summary_query.dart';
 import 'package:whatsevr_api/src/model/call_gift_summary_response.dart';
 import 'package:whatsevr_api/src/model/call_history_debug_filters.dart';
@@ -458,6 +464,7 @@ import 'package:whatsevr_api/src/model/start_chat_response.dart';
 import 'package:whatsevr_api/src/model/store_fcm_token_body.dart';
 import 'package:whatsevr_api/src/model/subdivisions_query.dart';
 import 'package:whatsevr_api/src/model/subdivisions_response.dart';
+import 'package:whatsevr_api/src/model/submit_call_feedback_body.dart';
 import 'package:whatsevr_api/src/model/supabase_token_response.dart';
 import 'package:whatsevr_api/src/model/sync_all_initiated_response.dart';
 import 'package:whatsevr_api/src/model/sync_body.dart';
@@ -643,6 +650,24 @@ ReturnType deserialize<ReturnType, BaseType>(
       return BuyPerkBody.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'BuyPerkResponse':
       return BuyPerkResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackCatalogResponse':
+      return CallFeedbackCatalogResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackReason':
+      return CallFeedbackReason.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackReasonCount':
+      return CallFeedbackReasonCount.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackState':
+      return CallFeedbackState.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackSummary':
+      return CallFeedbackSummary.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'CallFeedbackVote':
+      return CallFeedbackVote.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'CallGiftSummaryQuery':
       return CallGiftSummaryQuery.fromJson(value as Map<String, dynamic>)
@@ -1966,6 +1991,9 @@ ReturnType deserialize<ReturnType, BaseType>(
           as ReturnType;
     case 'SubdivisionsResponse':
       return SubdivisionsResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'SubmitCallFeedbackBody':
+      return SubmitCallFeedbackBody.fromJson(value as Map<String, dynamic>)
           as ReturnType;
     case 'SupabaseTokenResponse':
       return SupabaseTokenResponse.fromJson(value as Map<String, dynamic>)

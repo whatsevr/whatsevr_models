@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/call_feedback_state.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -20,6 +21,8 @@ class SpinOutcomeResponse {
   SpinOutcomeResponse({
     this.endReason,
 
+    this.feedback,
+
     this.peerCandidateUid,
 
     this.retryAfterMs,
@@ -33,6 +36,9 @@ class SpinOutcomeResponse {
 
   @JsonKey(name: r'end_reason', required: false, includeIfNull: false)
   final String? endReason;
+
+  @JsonKey(name: r'feedback', required: false, includeIfNull: false)
+  final CallFeedbackState? feedback;
 
   @JsonKey(name: r'peer_candidate_uid', required: false, includeIfNull: false)
   final String? peerCandidateUid;
@@ -54,6 +60,7 @@ class SpinOutcomeResponse {
       identical(this, other) ||
       other is SpinOutcomeResponse &&
           other.endReason == endReason &&
+          other.feedback == feedback &&
           other.peerCandidateUid == peerCandidateUid &&
           other.retryAfterMs == retryAfterMs &&
           other.seconds == seconds &&
@@ -63,6 +70,7 @@ class SpinOutcomeResponse {
   @override
   int get hashCode =>
       (endReason == null ? 0 : endReason.hashCode) +
+      (feedback == null ? 0 : feedback.hashCode) +
       (peerCandidateUid == null ? 0 : peerCandidateUid.hashCode) +
       (retryAfterMs == null ? 0 : retryAfterMs.hashCode) +
       seconds.hashCode +

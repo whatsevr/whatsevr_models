@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/call_feedback_summary.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -25,6 +26,8 @@ class HostInfo {
     required this.audioPricePerMinuteCredits,
 
     required this.audioPricePerMinutePaise,
+
+    this.callFeedbackSummary,
 
     this.callMode,
 
@@ -70,6 +73,13 @@ class HostInfo {
     includeIfNull: false,
   )
   final int audioPricePerMinutePaise;
+
+  @JsonKey(
+    name: r'call_feedback_summary',
+    required: false,
+    includeIfNull: false,
+  )
+  final CallFeedbackSummary? callFeedbackSummary;
 
   @JsonKey(name: r'call_mode', required: false, includeIfNull: false)
   final String? callMode;
@@ -139,6 +149,7 @@ class HostInfo {
           other.answeredCallCount == answeredCallCount &&
           other.audioPricePerMinuteCredits == audioPricePerMinuteCredits &&
           other.audioPricePerMinutePaise == audioPricePerMinutePaise &&
+          other.callFeedbackSummary == callFeedbackSummary &&
           other.callMode == callMode &&
           other.cheapestPricePerMinuteCredits ==
               cheapestPricePerMinuteCredits &&
@@ -159,6 +170,7 @@ class HostInfo {
       answeredCallCount.hashCode +
       audioPricePerMinuteCredits.hashCode +
       audioPricePerMinutePaise.hashCode +
+      (callFeedbackSummary == null ? 0 : callFeedbackSummary.hashCode) +
       (callMode == null ? 0 : callMode.hashCode) +
       cheapestPricePerMinuteCredits.hashCode +
       cheapestPricePerMinutePaise.hashCode +

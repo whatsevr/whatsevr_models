@@ -15,6 +15,8 @@ abstract class _$HostInfoCWProxy {
 
   HostInfo audioPricePerMinutePaise(int audioPricePerMinutePaise);
 
+  HostInfo callFeedbackSummary(CallFeedbackSummary? callFeedbackSummary);
+
   HostInfo callMode(String? callMode);
 
   HostInfo cheapestPricePerMinuteCredits(int cheapestPricePerMinuteCredits);
@@ -51,6 +53,7 @@ abstract class _$HostInfoCWProxy {
     int answeredCallCount,
     int audioPricePerMinuteCredits,
     int audioPricePerMinutePaise,
+    CallFeedbackSummary? callFeedbackSummary,
     String? callMode,
     int cheapestPricePerMinuteCredits,
     int cheapestPricePerMinutePaise,
@@ -88,6 +91,10 @@ class _$HostInfoCWProxyImpl implements _$HostInfoCWProxy {
   @override
   HostInfo audioPricePerMinutePaise(int audioPricePerMinutePaise) =>
       call(audioPricePerMinutePaise: audioPricePerMinutePaise);
+
+  @override
+  HostInfo callFeedbackSummary(CallFeedbackSummary? callFeedbackSummary) =>
+      call(callFeedbackSummary: callFeedbackSummary);
 
   @override
   HostInfo callMode(String? callMode) => call(callMode: callMode);
@@ -145,6 +152,7 @@ class _$HostInfoCWProxyImpl implements _$HostInfoCWProxy {
     Object? answeredCallCount = const $CopyWithPlaceholder(),
     Object? audioPricePerMinuteCredits = const $CopyWithPlaceholder(),
     Object? audioPricePerMinutePaise = const $CopyWithPlaceholder(),
+    Object? callFeedbackSummary = const $CopyWithPlaceholder(),
     Object? callMode = const $CopyWithPlaceholder(),
     Object? cheapestPricePerMinuteCredits = const $CopyWithPlaceholder(),
     Object? cheapestPricePerMinutePaise = const $CopyWithPlaceholder(),
@@ -181,6 +189,10 @@ class _$HostInfoCWProxyImpl implements _$HostInfoCWProxy {
           ? _value.audioPricePerMinutePaise
           // ignore: cast_nullable_to_non_nullable
           : audioPricePerMinutePaise as int,
+      callFeedbackSummary: callFeedbackSummary == const $CopyWithPlaceholder()
+          ? _value.callFeedbackSummary
+          // ignore: cast_nullable_to_non_nullable
+          : callFeedbackSummary as CallFeedbackSummary?,
       callMode: callMode == const $CopyWithPlaceholder()
           ? _value.callMode
           // ignore: cast_nullable_to_non_nullable
@@ -297,6 +309,12 @@ HostInfo _$HostInfoFromJson(Map<String, dynamic> json) => $checkedCreate(
         'audio_price_per_minute_paise',
         (v) => (v as num).toInt(),
       ),
+      callFeedbackSummary: $checkedConvert(
+        'call_feedback_summary',
+        (v) => v == null
+            ? null
+            : CallFeedbackSummary.fromJson(v as Map<String, dynamic>),
+      ),
       callMode: $checkedConvert('call_mode', (v) => v as String?),
       cheapestPricePerMinuteCredits: $checkedConvert(
         'cheapest_price_per_minute_credits',
@@ -335,6 +353,7 @@ HostInfo _$HostInfoFromJson(Map<String, dynamic> json) => $checkedCreate(
     'answeredCallCount': 'answered_call_count',
     'audioPricePerMinuteCredits': 'audio_price_per_minute_credits',
     'audioPricePerMinutePaise': 'audio_price_per_minute_paise',
+    'callFeedbackSummary': 'call_feedback_summary',
     'callMode': 'call_mode',
     'cheapestPricePerMinuteCredits': 'cheapest_price_per_minute_credits',
     'cheapestPricePerMinutePaise': 'cheapest_price_per_minute_paise',
@@ -354,6 +373,7 @@ Map<String, dynamic> _$HostInfoToJson(HostInfo instance) => <String, dynamic>{
   'answered_call_count': instance.answeredCallCount,
   'audio_price_per_minute_credits': instance.audioPricePerMinuteCredits,
   'audio_price_per_minute_paise': instance.audioPricePerMinutePaise,
+  'call_feedback_summary': ?instance.callFeedbackSummary?.toJson(),
   'call_mode': ?instance.callMode,
   'cheapest_price_per_minute_credits': instance.cheapestPricePerMinuteCredits,
   'cheapest_price_per_minute_paise': instance.cheapestPricePerMinutePaise,

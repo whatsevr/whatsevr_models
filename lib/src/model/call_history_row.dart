@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:whatsevr_api/src/model/call_feedback_state.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -43,6 +44,8 @@ class CallHistoryRow {
     this.earnerUid,
 
     this.endedAt,
+
+    required this.feedback,
 
     this.payerUid,
 
@@ -110,6 +113,9 @@ class CallHistoryRow {
   @JsonKey(name: r'ended_at', required: false, includeIfNull: false)
   final DateTime? endedAt;
 
+  @JsonKey(name: r'feedback', required: true, includeIfNull: false)
+  final CallFeedbackState feedback;
+
   @JsonKey(name: r'payer_uid', required: false, includeIfNull: false)
   final String? payerUid;
 
@@ -166,6 +172,7 @@ class CallHistoryRow {
           other.earnedPaise == earnedPaise &&
           other.earnerUid == earnerUid &&
           other.endedAt == endedAt &&
+          other.feedback == feedback &&
           other.payerUid == payerUid &&
           other.peerName == peerName &&
           other.peerProfilePic == peerProfilePic &&
@@ -195,6 +202,7 @@ class CallHistoryRow {
       (earnedPaise == null ? 0 : earnedPaise.hashCode) +
       (earnerUid == null ? 0 : earnerUid.hashCode) +
       (endedAt == null ? 0 : endedAt.hashCode) +
+      feedback.hashCode +
       (payerUid == null ? 0 : payerUid.hashCode) +
       (peerName == null ? 0 : peerName.hashCode) +
       (peerProfilePic == null ? 0 : peerProfilePic.hashCode) +

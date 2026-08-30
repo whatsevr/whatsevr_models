@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:whatsevr_api/src/model/call_outcome_gifts.dart';
+import 'package:whatsevr_api/src/model/call_feedback_state.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -24,6 +25,8 @@ class CallOutcomeResponse {
     required this.earnedPaise,
 
     this.endReason,
+
+    required this.feedback,
 
     required this.gifts,
 
@@ -54,6 +57,9 @@ class CallOutcomeResponse {
 
   @JsonKey(name: r'end_reason', required: false, includeIfNull: false)
   final String? endReason;
+
+  @JsonKey(name: r'feedback', required: true, includeIfNull: false)
+  final CallFeedbackState feedback;
 
   @JsonKey(name: r'gifts', required: true, includeIfNull: false)
   final CallOutcomeGifts gifts;
@@ -92,6 +98,7 @@ class CallOutcomeResponse {
           other.billedSeconds == billedSeconds &&
           other.earnedPaise == earnedPaise &&
           other.endReason == endReason &&
+          other.feedback == feedback &&
           other.gifts == gifts &&
           other.isBilled == isBilled &&
           other.mode == mode &&
@@ -108,6 +115,7 @@ class CallOutcomeResponse {
       billedSeconds.hashCode +
       earnedPaise.hashCode +
       (endReason == null ? 0 : endReason.hashCode) +
+      feedback.hashCode +
       gifts.hashCode +
       isBilled.hashCode +
       mode.hashCode +

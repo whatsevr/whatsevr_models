@@ -4,6 +4,7 @@ lib/src/api/alerts_api.dart
 lib/src/api/auth_api.dart
 lib/src/api/blocks_api.dart
 lib/src/api/bot_api.dart
+lib/src/api/call_feedback_api.dart
 lib/src/api/calls_api.dart
 lib/src/api/chat_api.dart
 lib/src/api/collections_api.dart
@@ -68,6 +69,12 @@ lib/src/model/bot_action_result.dart
 lib/src/model/bot_run_response.dart
 lib/src/model/buy_perk_body.dart
 lib/src/model/buy_perk_response.dart
+lib/src/model/call_feedback_catalog_response.dart
+lib/src/model/call_feedback_reason.dart
+lib/src/model/call_feedback_reason_count.dart
+lib/src/model/call_feedback_state.dart
+lib/src/model/call_feedback_summary.dart
+lib/src/model/call_feedback_vote.dart
 lib/src/model/call_gift_summary_query.dart
 lib/src/model/call_gift_summary_response.dart
 lib/src/model/call_history_debug_filters.dart
@@ -500,6 +507,7 @@ lib/src/model/start_chat_response.dart
 lib/src/model/store_fcm_token_body.dart
 lib/src/model/subdivisions_query.dart
 lib/src/model/subdivisions_response.dart
+lib/src/model/submit_call_feedback_body.dart
 lib/src/model/supabase_token_response.dart
 lib/src/model/sync_all_initiated_response.dart
 lib/src/model/sync_body.dart
