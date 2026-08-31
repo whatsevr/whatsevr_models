@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'ring_deadline.dart' as deadline;
+
 part 'call_push_payload.freezed.dart';
 part 'call_push_payload.g.dart';
 
@@ -73,6 +75,23 @@ sealed class CallPushPayload with _$CallPushPayload {
     @JsonKey(name: 'ring_window_seconds', fromJson: intFromCallWire)
     @Default(0)
     int ringWindowSeconds,
+
+    /// The exact instant this ring stops being answerable, as the SERVER
+    /// sees it. Absolute, so the countdown does not depend on the device
+    /// having noticed the push promptly: a payload that sat in a queue, or
+    /// arrived on a phone that was asleep, still expires when the server's
+    /// own missed-call job fires.
+    ///
+    /// Null when an older server did not send it; [ringSecondsLeft] then
+    /// falls back to [ringWindowSeconds].
+    @JsonKey(name: 'ring_expires_at', fromJson: dateTimeFromCallWire)
+    DateTime? ringExpiresAt,
+
+    /// The server's clock at the moment it wrote this payload, so a device
+    /// whose own clock is wrong can correct for the offset instead of
+    /// expiring the ring early or late. See [ringSecondsLeft].
+    @JsonKey(name: 'server_time', fromJson: dateTimeFromCallWire)
+    DateTime? serverTime,
     @JsonKey(name: 'rate_paise', fromJson: intFromCallWire)
     @Default(0)
     int ratePaise,
@@ -117,6 +136,12 @@ sealed class CallPushPayload with _$CallPushPayload {
     /// side of the call it is on.
     @JsonKey(name: 'price_label') @Default('') String priceLabel,
 
+    /// The smaller second line under [priceLabel] while the phone is still
+    /// ringing — when the charging or the earning actually begins. Empty on a
+    /// free call, where there is nothing to say and nothing should be drawn.
+    /// Server-written for the same reason [priceLabel] is.
+    @JsonKey(name: 'price_footnote') @Default('') String priceFootnote,
+
     /// Whether this call may change mode at all, and whether turning video on
     /// still needs the host's answer. Both decide which buttons a call screen
     /// draws, so they ride the ring push too.
@@ -158,6 +183,22 @@ sealed class CallPushPayload with _$CallPushPayload {
   /// A ring is only actionable if we know which room to join.
   bool get isActionableRing => isRing && room.isNotEmpty;
 
+  /// How many seconds of this ring are left.
+  ///
+  /// [receivedAt] is the device's own clock at the moment the payload
+  /// arrived; passing it lets the offset between the two clocks be cancelled
+  /// out. It is deliberately not persisted — after the app is killed and
+  /// restarted the stamp is gone, and the absolute [ringExpiresAt] alone is
+  /// the right answer.
+  int ringSecondsLeft({DateTime? receivedAt, DateTime? now}) =>
+      deadline.ringSecondsLeft(
+        expiresAt: ringExpiresAt,
+        serverTime: serverTime,
+        receivedAt: receivedAt,
+        now: now,
+        fallbackSeconds: ringWindowSeconds,
+      );
+
   /// Who pays is decided by the backend, never by who dialled: a verified host
   /// ringing a spender bills the person being called.
   bool isPayer(String? selfUid) =>
@@ -184,4 +225,15 @@ int intFromCallWire(Object? value) => switch (value) {
   final num number => number.toInt(),
   final String text => int.tryParse(text.trim()) ?? 0,
   _ => 0,
+};
+
+/// Reads a timestamp that may have been stringified by the push transport.
+///
+/// FCM data messages carry only strings, so this is normally an ISO 8601
+/// instant; CallKit's `extra` map can hand back a real `DateTime`. An
+/// unparseable value reads as absent rather than as an expired ring.
+DateTime? dateTimeFromCallWire(Object? value) => switch (value) {
+  final DateTime moment => moment,
+  final String text => DateTime.tryParse(text.trim()),
+  _ => null,
 };

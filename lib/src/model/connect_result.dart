@@ -24,6 +24,12 @@ class ConnectResult {
 
     this.audioPricePerMinutePaise,
 
+    this.calleeAvatar,
+
+    this.calleeIsPremiumProfile,
+
+    this.calleeName,
+
     this.calleeUid,
 
     required this.canSwitchMode,
@@ -40,6 +46,10 @@ class ConnectResult {
 
     this.payerUid,
 
+    this.priceFootnote,
+
+    this.priceLabel,
+
     this.pricePerMinuteCredits,
 
     this.pricePerMinutePaise,
@@ -48,9 +58,13 @@ class ConnectResult {
 
     this.requestUid,
 
+    this.ringExpiresAt,
+
     this.ringWindowSeconds,
 
     this.room,
+
+    this.serverTime,
 
     this.serverUrl,
 
@@ -82,6 +96,19 @@ class ConnectResult {
   )
   final int? audioPricePerMinutePaise;
 
+  @JsonKey(name: r'callee_avatar', required: false, includeIfNull: false)
+  final String? calleeAvatar;
+
+  @JsonKey(
+    name: r'callee_is_premium_profile',
+    required: false,
+    includeIfNull: false,
+  )
+  final bool? calleeIsPremiumProfile;
+
+  @JsonKey(name: r'callee_name', required: false, includeIfNull: false)
+  final String? calleeName;
+
   @JsonKey(name: r'callee_uid', required: false, includeIfNull: false)
   final String? calleeUid;
 
@@ -106,6 +133,12 @@ class ConnectResult {
   @JsonKey(name: r'payer_uid', required: false, includeIfNull: false)
   final String? payerUid;
 
+  @JsonKey(name: r'price_footnote', required: false, includeIfNull: false)
+  final String? priceFootnote;
+
+  @JsonKey(name: r'price_label', required: false, includeIfNull: false)
+  final String? priceLabel;
+
   @JsonKey(
     name: r'price_per_minute_credits',
     required: false,
@@ -126,11 +159,17 @@ class ConnectResult {
   @JsonKey(name: r'request_uid', required: false, includeIfNull: false)
   final String? requestUid;
 
+  @JsonKey(name: r'ring_expires_at', required: false, includeIfNull: false)
+  final DateTime? ringExpiresAt;
+
   @JsonKey(name: r'ring_window_seconds', required: false, includeIfNull: false)
   final int? ringWindowSeconds;
 
   @JsonKey(name: r'room', required: false, includeIfNull: false)
   final String? room;
+
+  @JsonKey(name: r'server_time', required: false, includeIfNull: false)
+  final DateTime? serverTime;
 
   @JsonKey(name: r'server_url', required: false, includeIfNull: false)
   final String? serverUrl;
@@ -165,6 +204,9 @@ class ConnectResult {
           other.audioOnly == audioOnly &&
           other.audioPricePerMinuteCredits == audioPricePerMinuteCredits &&
           other.audioPricePerMinutePaise == audioPricePerMinutePaise &&
+          other.calleeAvatar == calleeAvatar &&
+          other.calleeIsPremiumProfile == calleeIsPremiumProfile &&
+          other.calleeName == calleeName &&
           other.calleeUid == calleeUid &&
           other.canSwitchMode == canSwitchMode &&
           other.earnRatePaise == earnRatePaise &&
@@ -173,12 +215,16 @@ class ConnectResult {
           other.isVideo == isVideo &&
           other.mode == mode &&
           other.payerUid == payerUid &&
+          other.priceFootnote == priceFootnote &&
+          other.priceLabel == priceLabel &&
           other.pricePerMinuteCredits == pricePerMinuteCredits &&
           other.pricePerMinutePaise == pricePerMinutePaise &&
           other.ratePaise == ratePaise &&
           other.requestUid == requestUid &&
+          other.ringExpiresAt == ringExpiresAt &&
           other.ringWindowSeconds == ringWindowSeconds &&
           other.room == room &&
+          other.serverTime == serverTime &&
           other.serverUrl == serverUrl &&
           other.token == token &&
           other.transport == transport &&
@@ -195,6 +241,9 @@ class ConnectResult {
       (audioPricePerMinutePaise == null
           ? 0
           : audioPricePerMinutePaise.hashCode) +
+      (calleeAvatar == null ? 0 : calleeAvatar.hashCode) +
+      (calleeIsPremiumProfile == null ? 0 : calleeIsPremiumProfile.hashCode) +
+      (calleeName == null ? 0 : calleeName.hashCode) +
       (calleeUid == null ? 0 : calleeUid.hashCode) +
       canSwitchMode.hashCode +
       (earnRatePaise == null ? 0 : earnRatePaise.hashCode) +
@@ -203,12 +252,16 @@ class ConnectResult {
       (isVideo == null ? 0 : isVideo.hashCode) +
       (mode == null ? 0 : mode.hashCode) +
       (payerUid == null ? 0 : payerUid.hashCode) +
+      (priceFootnote == null ? 0 : priceFootnote.hashCode) +
+      (priceLabel == null ? 0 : priceLabel.hashCode) +
       (pricePerMinuteCredits == null ? 0 : pricePerMinuteCredits.hashCode) +
       (pricePerMinutePaise == null ? 0 : pricePerMinutePaise.hashCode) +
       (ratePaise == null ? 0 : ratePaise.hashCode) +
       (requestUid == null ? 0 : requestUid.hashCode) +
+      (ringExpiresAt == null ? 0 : ringExpiresAt.hashCode) +
       (ringWindowSeconds == null ? 0 : ringWindowSeconds.hashCode) +
       (room == null ? 0 : room.hashCode) +
+      (serverTime == null ? 0 : serverTime.hashCode) +
       (serverUrl == null ? 0 : serverUrl.hashCode) +
       (token == null ? 0 : token.hashCode) +
       transport.hashCode +

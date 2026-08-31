@@ -24,6 +24,12 @@ class InitiateCallResponse {
 
     this.audioPricePerMinutePaise,
 
+    required this.calleeAvatar,
+
+    required this.calleeIsPremiumProfile,
+
+    required this.calleeName,
+
     required this.calleeUid,
 
     required this.canSwitchMode,
@@ -40,13 +46,23 @@ class InitiateCallResponse {
 
     this.payerUid,
 
+    this.priceFootnote,
+
+    required this.priceLabel,
+
     this.pricePerMinuteCredits,
 
     this.pricePerMinutePaise,
 
     this.ratePaise,
 
+    required this.ringExpiresAt,
+
+    required this.ringWindowSeconds,
+
     required this.room,
+
+    required this.serverTime,
 
     required this.serverUrl,
 
@@ -76,6 +92,19 @@ class InitiateCallResponse {
   )
   final int? audioPricePerMinutePaise;
 
+  @JsonKey(name: r'callee_avatar', required: true, includeIfNull: false)
+  final String calleeAvatar;
+
+  @JsonKey(
+    name: r'callee_is_premium_profile',
+    required: true,
+    includeIfNull: false,
+  )
+  final bool calleeIsPremiumProfile;
+
+  @JsonKey(name: r'callee_name', required: true, includeIfNull: false)
+  final String calleeName;
+
   @JsonKey(name: r'callee_uid', required: true, includeIfNull: false)
   final String calleeUid;
 
@@ -100,6 +129,12 @@ class InitiateCallResponse {
   @JsonKey(name: r'payer_uid', required: false, includeIfNull: false)
   final String? payerUid;
 
+  @JsonKey(name: r'price_footnote', required: false, includeIfNull: false)
+  final String? priceFootnote;
+
+  @JsonKey(name: r'price_label', required: true, includeIfNull: false)
+  final String priceLabel;
+
   @JsonKey(
     name: r'price_per_minute_credits',
     required: false,
@@ -117,8 +152,17 @@ class InitiateCallResponse {
   @JsonKey(name: r'rate_paise', required: false, includeIfNull: false)
   final int? ratePaise;
 
+  @JsonKey(name: r'ring_expires_at', required: true, includeIfNull: false)
+  final DateTime ringExpiresAt;
+
+  @JsonKey(name: r'ring_window_seconds', required: true, includeIfNull: false)
+  final int ringWindowSeconds;
+
   @JsonKey(name: r'room', required: true, includeIfNull: false)
   final String room;
+
+  @JsonKey(name: r'server_time', required: true, includeIfNull: false)
+  final DateTime serverTime;
 
   @JsonKey(name: r'server_url', required: true, includeIfNull: false)
   final String serverUrl;
@@ -150,6 +194,9 @@ class InitiateCallResponse {
           other.audioOnly == audioOnly &&
           other.audioPricePerMinuteCredits == audioPricePerMinuteCredits &&
           other.audioPricePerMinutePaise == audioPricePerMinutePaise &&
+          other.calleeAvatar == calleeAvatar &&
+          other.calleeIsPremiumProfile == calleeIsPremiumProfile &&
+          other.calleeName == calleeName &&
           other.calleeUid == calleeUid &&
           other.canSwitchMode == canSwitchMode &&
           other.earnRatePaise == earnRatePaise &&
@@ -158,10 +205,15 @@ class InitiateCallResponse {
           other.isVideo == isVideo &&
           other.mode == mode &&
           other.payerUid == payerUid &&
+          other.priceFootnote == priceFootnote &&
+          other.priceLabel == priceLabel &&
           other.pricePerMinuteCredits == pricePerMinuteCredits &&
           other.pricePerMinutePaise == pricePerMinutePaise &&
           other.ratePaise == ratePaise &&
+          other.ringExpiresAt == ringExpiresAt &&
+          other.ringWindowSeconds == ringWindowSeconds &&
           other.room == room &&
+          other.serverTime == serverTime &&
           other.serverUrl == serverUrl &&
           other.token == token &&
           other.videoNeedsConsent == videoNeedsConsent &&
@@ -177,6 +229,9 @@ class InitiateCallResponse {
       (audioPricePerMinutePaise == null
           ? 0
           : audioPricePerMinutePaise.hashCode) +
+      calleeAvatar.hashCode +
+      calleeIsPremiumProfile.hashCode +
+      calleeName.hashCode +
       calleeUid.hashCode +
       canSwitchMode.hashCode +
       (earnRatePaise == null ? 0 : earnRatePaise.hashCode) +
@@ -185,10 +240,15 @@ class InitiateCallResponse {
       isVideo.hashCode +
       (mode == null ? 0 : mode.hashCode) +
       (payerUid == null ? 0 : payerUid.hashCode) +
+      (priceFootnote == null ? 0 : priceFootnote.hashCode) +
+      priceLabel.hashCode +
       (pricePerMinuteCredits == null ? 0 : pricePerMinuteCredits.hashCode) +
       (pricePerMinutePaise == null ? 0 : pricePerMinutePaise.hashCode) +
       (ratePaise == null ? 0 : ratePaise.hashCode) +
+      ringExpiresAt.hashCode +
+      ringWindowSeconds.hashCode +
       room.hashCode +
+      serverTime.hashCode +
       serverUrl.hashCode +
       token.hashCode +
       videoNeedsConsent.hashCode +

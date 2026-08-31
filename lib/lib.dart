@@ -13,4 +13,5 @@ export 'src/constants/call_constants.dart';
 export 'src/calls/call_mode.dart';
 export 'src/calls/call_data_message.dart';
 export 'src/calls/call_push_payload.dart';
+export 'src/calls/ring_deadline.dart';
 export 'src/calls/shared_profile_kind.dart';

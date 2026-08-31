@@ -26,6 +26,8 @@ _CallPushPayload _$CallPushPayloadFromJson(Map<String, dynamic> json) =>
       ringWindowSeconds: json['ring_window_seconds'] == null
           ? 0
           : intFromCallWire(json['ring_window_seconds']),
+      ringExpiresAt: dateTimeFromCallWire(json['ring_expires_at']),
+      serverTime: dateTimeFromCallWire(json['server_time']),
       ratePaise: json['rate_paise'] == null
           ? 0
           : intFromCallWire(json['rate_paise']),
@@ -54,6 +56,7 @@ _CallPushPayload _$CallPushPayloadFromJson(Map<String, dynamic> json) =>
           ? 0
           : intFromCallWire(json['earn_rate_paise']),
       priceLabel: json['price_label'] as String? ?? '',
+      priceFootnote: json['price_footnote'] as String? ?? '',
       canSwitchMode: json['can_switch_mode'] == null
           ? false
           : boolFromCallWire(json['can_switch_mode']),
@@ -75,6 +78,8 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'is_billed': instance.isBilled,
       'payer_uid': instance.payerUid,
       'ring_window_seconds': instance.ringWindowSeconds,
+      'ring_expires_at': instance.ringExpiresAt?.toIso8601String(),
+      'server_time': instance.serverTime?.toIso8601String(),
       'rate_paise': instance.ratePaise,
       'audio_only': instance.audioOnly,
       'price_per_minute_paise': instance.pricePerMinutePaise,
@@ -85,6 +90,7 @@ Map<String, dynamic> _$CallPushPayloadToJson(_CallPushPayload instance) =>
       'video_price_per_minute_credits': instance.videoPricePerMinuteCredits,
       'earn_rate_paise': instance.earnRatePaise,
       'price_label': instance.priceLabel,
+      'price_footnote': instance.priceFootnote,
       'can_switch_mode': instance.canSwitchMode,
       'video_needs_consent': instance.videoNeedsConsent,
       'reason': instance.reason,
