@@ -22,6 +22,8 @@ class RespondResponse {
 
     this.earnRatePaise,
 
+    this.guestAvatar,
+
     this.guestName,
 
     this.isBilled,
@@ -48,6 +50,9 @@ class RespondResponse {
 
   @JsonKey(name: r'earn_rate_paise', required: false, includeIfNull: false)
   final int? earnRatePaise;
+
+  @JsonKey(name: r'guest_avatar', required: false, includeIfNull: false)
+  final String? guestAvatar;
 
   @JsonKey(name: r'guest_name', required: false, includeIfNull: false)
   final String? guestName;
@@ -97,6 +102,7 @@ class RespondResponse {
       other is RespondResponse &&
           other.callState == callState &&
           other.earnRatePaise == earnRatePaise &&
+          other.guestAvatar == guestAvatar &&
           other.guestName == guestName &&
           other.isBilled == isBilled &&
           other.joinTimeoutSeconds == joinTimeoutSeconds &&
@@ -112,6 +118,7 @@ class RespondResponse {
   int get hashCode =>
       (callState == null ? 0 : callState.hashCode) +
       (earnRatePaise == null ? 0 : earnRatePaise.hashCode) +
+      (guestAvatar == null ? 0 : guestAvatar.hashCode) +
       (guestName == null ? 0 : guestName.hashCode) +
       (isBilled == null ? 0 : isBilled.hashCode) +
       (joinTimeoutSeconds == null ? 0 : joinTimeoutSeconds.hashCode) +

@@ -9,6 +9,8 @@ part of 'segment_payload.dart';
 abstract class _$SegmentPayloadCWProxy {
   SegmentPayload earnRatePaise(int earnRatePaise);
 
+  SegmentPayload guestAvatar(String? guestAvatar);
+
   SegmentPayload guestName(String guestName);
 
   SegmentPayload guestUid(String guestUid);
@@ -32,6 +34,7 @@ abstract class _$SegmentPayloadCWProxy {
   /// ```
   SegmentPayload call({
     int earnRatePaise,
+    String? guestAvatar,
     String guestName,
     String guestUid,
     bool isBilled,
@@ -52,6 +55,10 @@ class _$SegmentPayloadCWProxyImpl implements _$SegmentPayloadCWProxy {
   @override
   SegmentPayload earnRatePaise(int earnRatePaise) =>
       call(earnRatePaise: earnRatePaise);
+
+  @override
+  SegmentPayload guestAvatar(String? guestAvatar) =>
+      call(guestAvatar: guestAvatar);
 
   @override
   SegmentPayload guestName(String guestName) => call(guestName: guestName);
@@ -86,6 +93,7 @@ class _$SegmentPayloadCWProxyImpl implements _$SegmentPayloadCWProxy {
   @override
   SegmentPayload call({
     Object? earnRatePaise = const $CopyWithPlaceholder(),
+    Object? guestAvatar = const $CopyWithPlaceholder(),
     Object? guestName = const $CopyWithPlaceholder(),
     Object? guestUid = const $CopyWithPlaceholder(),
     Object? isBilled = const $CopyWithPlaceholder(),
@@ -100,6 +108,10 @@ class _$SegmentPayloadCWProxyImpl implements _$SegmentPayloadCWProxy {
           ? _value.earnRatePaise
           // ignore: cast_nullable_to_non_nullable
           : earnRatePaise as int,
+      guestAvatar: guestAvatar == const $CopyWithPlaceholder()
+          ? _value.guestAvatar
+          // ignore: cast_nullable_to_non_nullable
+          : guestAvatar as String?,
       guestName: guestName == const $CopyWithPlaceholder() || guestName == null
           ? _value.guestName
           // ignore: cast_nullable_to_non_nullable
@@ -143,57 +155,58 @@ extension $SegmentPayloadCopyWith on SegmentPayload {
 // JsonSerializableGenerator
 // **************************************************************************
 
-SegmentPayload _$SegmentPayloadFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'SegmentPayload',
+SegmentPayload _$SegmentPayloadFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate(
+  'SegmentPayload',
+  json,
+  ($checkedConvert) {
+    $checkKeys(
       json,
-      ($checkedConvert) {
-        $checkKeys(
-          json,
-          requiredKeys: const [
-            'earn_rate_paise',
-            'guest_name',
-            'guest_uid',
-            'is_billed',
-            'is_video',
-            'segment',
-          ],
-        );
-        final val = SegmentPayload(
-          earnRatePaise: $checkedConvert(
-            'earn_rate_paise',
-            (v) => (v as num).toInt(),
-          ),
-          guestName: $checkedConvert('guest_name', (v) => v as String),
-          guestUid: $checkedConvert('guest_uid', (v) => v as String),
-          isBilled: $checkedConvert('is_billed', (v) => v as bool),
-          isVideo: $checkedConvert('is_video', (v) => v as bool),
-          joinTimeoutSeconds: $checkedConvert(
-            'join_timeout_seconds',
-            (v) => (v as num?)?.toInt(),
-          ),
-          secondsLeft: $checkedConvert(
-            'seconds_left',
-            (v) => (v as num?)?.toInt(),
-          ),
-          segment: $checkedConvert('segment', (v) => v as String),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'earnRatePaise': 'earn_rate_paise',
-        'guestName': 'guest_name',
-        'guestUid': 'guest_uid',
-        'isBilled': 'is_billed',
-        'isVideo': 'is_video',
-        'joinTimeoutSeconds': 'join_timeout_seconds',
-        'secondsLeft': 'seconds_left',
-      },
+      requiredKeys: const [
+        'earn_rate_paise',
+        'guest_name',
+        'guest_uid',
+        'is_billed',
+        'is_video',
+        'segment',
+      ],
     );
+    final val = SegmentPayload(
+      earnRatePaise: $checkedConvert(
+        'earn_rate_paise',
+        (v) => (v as num).toInt(),
+      ),
+      guestAvatar: $checkedConvert('guest_avatar', (v) => v as String? ?? ''),
+      guestName: $checkedConvert('guest_name', (v) => v as String),
+      guestUid: $checkedConvert('guest_uid', (v) => v as String),
+      isBilled: $checkedConvert('is_billed', (v) => v as bool),
+      isVideo: $checkedConvert('is_video', (v) => v as bool),
+      joinTimeoutSeconds: $checkedConvert(
+        'join_timeout_seconds',
+        (v) => (v as num?)?.toInt(),
+      ),
+      secondsLeft: $checkedConvert('seconds_left', (v) => (v as num?)?.toInt()),
+      segment: $checkedConvert('segment', (v) => v as String),
+    );
+    return val;
+  },
+  fieldKeyMap: const {
+    'earnRatePaise': 'earn_rate_paise',
+    'guestAvatar': 'guest_avatar',
+    'guestName': 'guest_name',
+    'guestUid': 'guest_uid',
+    'isBilled': 'is_billed',
+    'isVideo': 'is_video',
+    'joinTimeoutSeconds': 'join_timeout_seconds',
+    'secondsLeft': 'seconds_left',
+  },
+);
 
 Map<String, dynamic> _$SegmentPayloadToJson(SegmentPayload instance) =>
     <String, dynamic>{
       'earn_rate_paise': instance.earnRatePaise,
+      'guest_avatar': ?instance.guestAvatar,
       'guest_name': instance.guestName,
       'guest_uid': instance.guestUid,
       'is_billed': instance.isBilled,

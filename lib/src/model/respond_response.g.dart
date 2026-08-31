@@ -11,6 +11,8 @@ abstract class _$RespondResponseCWProxy {
 
   RespondResponse earnRatePaise(int? earnRatePaise);
 
+  RespondResponse guestAvatar(String? guestAvatar);
+
   RespondResponse guestName(String? guestName);
 
   RespondResponse isBilled(bool? isBilled);
@@ -41,6 +43,7 @@ abstract class _$RespondResponseCWProxy {
   RespondResponse call({
     String? callState,
     int? earnRatePaise,
+    String? guestAvatar,
     String? guestName,
     bool? isBilled,
     int? joinTimeoutSeconds,
@@ -67,6 +70,10 @@ class _$RespondResponseCWProxyImpl implements _$RespondResponseCWProxy {
   @override
   RespondResponse earnRatePaise(int? earnRatePaise) =>
       call(earnRatePaise: earnRatePaise);
+
+  @override
+  RespondResponse guestAvatar(String? guestAvatar) =>
+      call(guestAvatar: guestAvatar);
 
   @override
   RespondResponse guestName(String? guestName) => call(guestName: guestName);
@@ -113,6 +120,7 @@ class _$RespondResponseCWProxyImpl implements _$RespondResponseCWProxy {
   RespondResponse call({
     Object? callState = const $CopyWithPlaceholder(),
     Object? earnRatePaise = const $CopyWithPlaceholder(),
+    Object? guestAvatar = const $CopyWithPlaceholder(),
     Object? guestName = const $CopyWithPlaceholder(),
     Object? isBilled = const $CopyWithPlaceholder(),
     Object? joinTimeoutSeconds = const $CopyWithPlaceholder(),
@@ -133,6 +141,10 @@ class _$RespondResponseCWProxyImpl implements _$RespondResponseCWProxy {
           ? _value.earnRatePaise
           // ignore: cast_nullable_to_non_nullable
           : earnRatePaise as int?,
+      guestAvatar: guestAvatar == const $CopyWithPlaceholder()
+          ? _value.guestAvatar
+          // ignore: cast_nullable_to_non_nullable
+          : guestAvatar as String?,
       guestName: guestName == const $CopyWithPlaceholder()
           ? _value.guestName
           // ignore: cast_nullable_to_non_nullable
@@ -202,6 +214,7 @@ RespondResponse _$RespondResponseFromJson(Map<String, dynamic> json) =>
             'earn_rate_paise',
             (v) => (v as num?)?.toInt(),
           ),
+          guestAvatar: $checkedConvert('guest_avatar', (v) => v as String?),
           guestName: $checkedConvert('guest_name', (v) => v as String?),
           isBilled: $checkedConvert('is_billed', (v) => v as bool?),
           joinTimeoutSeconds: $checkedConvert(
@@ -230,6 +243,7 @@ RespondResponse _$RespondResponseFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {
         'callState': 'call_state',
         'earnRatePaise': 'earn_rate_paise',
+        'guestAvatar': 'guest_avatar',
         'guestName': 'guest_name',
         'isBilled': 'is_billed',
         'joinTimeoutSeconds': 'join_timeout_seconds',
@@ -244,6 +258,7 @@ Map<String, dynamic> _$RespondResponseToJson(RespondResponse instance) =>
     <String, dynamic>{
       'call_state': ?instance.callState,
       'earn_rate_paise': ?instance.earnRatePaise,
+      'guest_avatar': ?instance.guestAvatar,
       'guest_name': ?instance.guestName,
       'is_billed': ?instance.isBilled,
       'join_timeout_seconds': ?instance.joinTimeoutSeconds,

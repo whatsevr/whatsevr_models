@@ -20,6 +20,8 @@ class SegmentPayload {
   SegmentPayload({
     required this.earnRatePaise,
 
+    this.guestAvatar = '',
+
     required this.guestName,
 
     required this.guestUid,
@@ -37,6 +39,14 @@ class SegmentPayload {
 
   @JsonKey(name: r'earn_rate_paise', required: true, includeIfNull: false)
   final int earnRatePaise;
+
+  @JsonKey(
+    defaultValue: '',
+    name: r'guest_avatar',
+    required: false,
+    includeIfNull: false,
+  )
+  final String? guestAvatar;
 
   @JsonKey(name: r'guest_name', required: true, includeIfNull: false)
   final String guestName;
@@ -64,6 +74,7 @@ class SegmentPayload {
       identical(this, other) ||
       other is SegmentPayload &&
           other.earnRatePaise == earnRatePaise &&
+          other.guestAvatar == guestAvatar &&
           other.guestName == guestName &&
           other.guestUid == guestUid &&
           other.isBilled == isBilled &&
@@ -75,6 +86,7 @@ class SegmentPayload {
   @override
   int get hashCode =>
       earnRatePaise.hashCode +
+      guestAvatar.hashCode +
       guestName.hashCode +
       guestUid.hashCode +
       isBilled.hashCode +
